@@ -1,6 +1,12 @@
 <template>
   <v-app :data-theme="options.theme">
     <router-view />
+
+    <footer class="py-6">
+      <a href="https://github.com/dvilla8/ig-planner" target="_blank">
+        <v-icon class="mt-n1 mr-1">mdi-github</v-icon> IG Planner
+      </a>
+    </footer>
   </v-app>
 </template>
 
@@ -25,6 +31,21 @@
 
       .instagram__header {
         border-bottom: 1px solid #282828;
+      }
+
+      .instagram__tabs__tab--active {
+        color: #bbbbbb;
+        box-shadow: 0 -1px 0 0 #4c4c4c;
+      }
+    }
+
+    footer {
+      font-size: 13px;
+      color: #8e8e8e;
+
+      a {
+        color: #333;
+        text-decoration: none;
       }
     }
   }

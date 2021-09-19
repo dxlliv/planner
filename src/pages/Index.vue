@@ -7,9 +7,7 @@
       >
         <router-link :to="{ name: 'profile', params: { url: profile.url } }">
           <v-avatar :size="120">
-            <v-img
-                :src="profile.avatar"
-            />
+            <v-img :src="profile.avatar" />
           </v-avatar>
 
           <h3 class="mt-4" v-text="profile.username" />
@@ -20,35 +18,34 @@
 
     <v-divider class="mt-15 mb-5" />
 
-    <footer class="text-center" v-if="!documentation">
-      <v-btn
-          class="bg-grey-lighten-4 text-grey-darken-2 text-black ml-4"
-          @click="documentation = !documentation"
-      >Documentation</v-btn>
-      <v-btn
-          class="bg-grey-lighten-4 text-grey-darken-2 ml-4"
-          href="https://github.com/dvilla8/instagram-planner"
-          target="_blank"
-      >GitHub</v-btn>
-    </footer>
+    <div class="intro text-center mt-8">
+      <h4>Plan your Instagram grid like a pro</h4>
+      <p class="mt-2">
+        With Instagram Planner you can preview what your profile grid will look like.<br/>
+        This is an open-source, if you like it please support with a
+        <a href="https://paypal.me/dxlliv" target="_blank">PayPal donation</a>.
+      </p>
+    </div>
 
-    <Documentation v-if="documentation" />
   </v-container>
 </template>
 
 <script setup>
-import {ref} from 'vue'
-import Documentation from '~/components/Documentation.vue'
 import {getProfiles} from "~/api/profiles";
 
 const profiles = getProfiles()
-const documentation = ref(false)
 </script>
 
 <style scoped lang="scss">
 a {
   text-decoration: none;
   color: inherit;
+}
+
+div.intro {
+  a {
+    color: #6a7079;
+  }
 }
 
 footer {
