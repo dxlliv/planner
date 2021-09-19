@@ -46,15 +46,15 @@ You can find profiles configuration in `config/profiles.json`.
 ### Set up a new profile
 
 Define in the profiles configuration a new profile `id` (it can be your username) and copy the profile object structure.
-Then create a folder in `config/profiles` with the id `id` of the profile you added.
+Then create a folder in `public/profiles` with the id `id` of the profile you added.
 
 An avatar should be placed as `avatar.jpg` in your profile folder.  
-Create also a folder called `media` and put some images in.
+Create also a folder called `media` in `public/profiles/{id}/`.
 
-### Add some new media
+### Add some media
 
 Instagram Planner supports all kind of media: images, videos, albums and reels.  
-Just add your files in the media profiles folder in `config/profiles/{id}/media/`.
+Just add your files in the media profiles folder in `public/profiles/{id}/media/`.
 
 ## Keyboard shortcuts
 

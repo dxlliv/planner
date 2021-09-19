@@ -97,12 +97,12 @@ export async function loadProfile(id: string) {
 
 function getProfileAvatar(id: string, profile: any) {
     if (!profile?.details?.username?.avatar) {
-        return `../config/profiles/${id}/avatar.jpg`
+        return `/profiles/${id}/avatar.jpg`
     } else {
-        return `../config/profiles/${id}/${profile.details.avatar}`
+        return `/profiles/${id}/${profile.details.avatar}`
     }
 }
 
 function getMediaPath(id: string, filename: string) {
-    return `../config/profiles/${id}/media/${filename}`
+    return `/profiles/${id}/media/${filename}`
 }
