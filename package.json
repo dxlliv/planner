@@ -18,6 +18,7 @@
     "vuetify": "3.0.0-alpha.10"
   },
   "devDependencies": {
+    "@mdi/font": "^5.9.55",
     "@vitejs/plugin-vue": "^1.6.0",
     "@vue/compiler-sfc": "^3.0.5",
     "sass": "^1.38.2",
