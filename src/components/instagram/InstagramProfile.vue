@@ -1,15 +1,21 @@
 <template>
-  <div class="instagram">
+  <div class="instagram" v-if="profile?.details">
     <v-container>
 
       <InstagramProfileHeader
-          v-if="profile?.details"
           :profile="profile.details"
+      />
+
+      <InstagramProfileTab
+        @select="(value) => tab = value"
+        :posts="profile?.details.stats.posts"
+        :active="tab"
       />
 
       <InstagramProfileMedia
           v-if="profile?.media"
           :media="profile.media"
+          :mode="tab"
       />
 
     </v-container>
@@ -17,14 +23,17 @@
 </template>
 
 <script setup lang="ts">
-import {PropType} from "vue";
+import {PropType, ref} from "vue";
 import {IProfile} from "~/../types";
 import InstagramProfileHeader from "~/components/instagram/InstagramProfileHeader.vue"
+import InstagramProfileTab from "~/components/instagram/InstagramProfileTab.vue";
 import InstagramProfileMedia from "~/components/instagram/InstagramProfileMedia.vue";
 
 defineProps({
   profile: Object as PropType<IProfile>
 })
+
+const tab = ref('posts')
 </script>
 
 <style scoped lang="scss">

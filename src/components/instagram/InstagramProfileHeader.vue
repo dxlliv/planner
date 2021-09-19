@@ -1,5 +1,5 @@
 <template>
-  <div class="instagram__header pb-14 mb-5">
+  <div class="instagram__header pb-10 mb-5">
     <v-row>
       <v-col cols="4" class="instagram__header__avatar text-center">
         <v-avatar :size="150">
@@ -15,7 +15,7 @@
 
         <ul class="instagram__header__stats mb-5">
           <li>
-            <b v-text="profile.stats.posts" /> posts
+            <b v-text="profile.stats.posts.total" /> posts
           </li>
           <li>
             <b v-text="profile.stats.followers" /> followers

@@ -1,19 +1,19 @@
 <template>
   <div
-      class="instagram__media__video"
+      class="instagram__media__reel"
   >
     <video
-        ref="video"
+        ref="reel"
         :src="media.path"
     />
     <input
         ref="slider"
         type="range"
-        class="instagram__media__video-slider"
+        class="instagram__media__reel-slider"
         v-model="media.cover"
         @change="updateMediaCover"
     />
-    <div class="instagram__media__video-slider__value">
+    <div class="instagram__media__reel-slider__value">
       {{media.cover / 10}}
     </div>
   </div>
@@ -26,19 +26,19 @@ const props = defineProps({
   media: Object
 })
 
-const video = ref(null)
+const reel = ref(null)
 const slider = ref(null)
 
 onMounted(() => {
-  video.value.addEventListener('loadedmetadata', function() {
+  reel.value.addEventListener('loadedmetadata', function() {
     props.media.cover = props.media.cover * 10
-    video.value.currentTime = props.media.cover / 10
-    slider.value.max = video.value.duration * 10
+    reel.value.currentTime = props.media.cover / 10
+    slider.value.max = reel.value.duration * 10
   }, false)
 })
 
 function updateMediaCover() {
-  video.value.currentTime = props.media.cover / 10
+  reel.value.currentTime = props.media.cover / 10
 }
 </script>
 
@@ -49,7 +49,7 @@ function updateMediaCover() {
   padding-top: 20px;
   user-select: none;
 
-  &__video {
+  &__reel {
     position: relative;
 
     video {
@@ -82,7 +82,7 @@ function updateMediaCover() {
     }
 
     &:hover {
-      .instagram__media__video-slider {
+      .instagram__media__reel-slider {
         opacity: 1;
 
         &__value {
