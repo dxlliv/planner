@@ -7,12 +7,12 @@ export function router(app: App) {
         routes: [
             {
                 name: 'index',
-                path: '/',
+                path: '/ig-planner/',
                 component: () => import('../pages/Index.vue')
             },
             {
                 name: 'profile',
-                path: '/:url',
+                path: '/ig-planner/:url',
                 component: () => import('../pages/Profile.vue')
             }
         ]
