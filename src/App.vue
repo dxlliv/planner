@@ -6,6 +6,12 @@
       <a href="https://github.com/dvilla8/ig-planner" target="_blank">
         <v-icon class="mt-n1 mr-1">mdi-github</v-icon> IG Planner
       </a>
+
+      &middot;
+
+      <a href="https://dvilla8.github.io/ig-planner/docs" target="_blank">
+        Docs
+      </a>
     </footer>
   </v-app>
 </template>
