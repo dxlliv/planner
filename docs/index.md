@@ -28,7 +28,7 @@ Clone the repository and enter the directory:
 git clone https://github.com/dvilla8/ig-planner.git && cd ig-planner
 ```
 
-Install dependencies and run this project with `yarn` or `npm`:
+Install dependencies and run the project with `yarn` or `npm`:
 
 ```bash
 npm install && npm run dev
