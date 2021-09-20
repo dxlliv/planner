@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/ig-planner/docs/',
     title: 'Instagram Planner',
     description: 'Plan your Instagram grid like a pro',
 
