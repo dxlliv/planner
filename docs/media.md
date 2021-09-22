@@ -1,6 +1,6 @@
 # Supported Media
 
-Instagram Planner supports all kind of media: images, videos, albums and reels.  
+Instagram Planner supports different media types: images, videos, albums and reels.  
 Check these examples and add your media in the `config/profiles/{id}/media/` folder.
 
 ## Images

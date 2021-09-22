@@ -7,7 +7,8 @@ https://dvilla8.github.io/ig-planner/docs
 
 ## Getting started
 
-Clone the repository and enter the directory:
+Be sure you have Node.js and NPM installed.  
+Clone the repository and move to the project directory:
 ```bash
 git clone https://github.com/dvilla8/ig-planner.git && cd ig-planner
 ```

@@ -2,7 +2,8 @@
 
 ## Installation
 
-Clone the repository and enter the directory:
+Be sure you have Node.js and NPM installed.  
+Clone the repository and move to the project directory:
 
 ```bash
 git clone https://github.com/dvilla8/ig-planner.git && cd ig-planner
@@ -46,14 +47,14 @@ You can find profiles configuration in `config/profiles.json`.
 ### Set up a new profile
 
 Define in the profiles configuration a new profile `id` (it can be your username) and use the object structure above.
-Then create a folder in `public/profiles` with the id `id` of the profile you added.
+Then create a folder in `public/profiles` with the `id` of the profile you added.
 
 Create also a folder called `media` in `public/profiles/{id}/`.  
 An avatar should be placed as `avatar.jpg` in your profile folder.
 
 ### Add some media
 
-IG Planner supports all kind of Instagram media: images, videos, albums and reels.  
+IG Planner supports different [media types](media): images, videos, albums and reels.  
 Just add your files in the media profiles folder in `public/profiles/{id}/media/`.
 
 ## Keyboard shortcuts
