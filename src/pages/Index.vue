@@ -21,9 +21,13 @@
     <div class="intro text-center mt-8">
       <h4>Plan your Instagram grid like a pro</h4>
       <p class="mt-2">
-        With Instagram Planner you can preview what your profile grid will look like.<br/>
-        This is an open-source, if you like it please support with a
-        <a href="https://paypal.me/dxlliv" target="_blank">PayPal donation</a>.
+        With <i>Instagram Planner</i> you can preview what your profile grid will look like.<br/>
+        It's a web app made with Vue.js and is meant to be used in development mode.
+      </p>
+      <p class="mt-2">
+        You just need Node.js and a code editor to make changes to a simple <i>.json</i> file.<br />
+        <a href="https://dvilla8.github.io/ig-planner/docs" target="_blank">Read the docs</a>! If you like this open-source project, feel free to
+        <a href="https://paypal.me/dxlliv" target="_blank">make a donation</a>.
       </p>
     </div>
 
