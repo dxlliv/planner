@@ -3,7 +3,7 @@ import profiles from `~/../config/profiles.json`
 export function getProfiles() {
     return Object.keys(profiles).map(id => {
         return {
-            username: profiles[id]?.details?.username ? profiles[id].details.username : id,
+            username: profiles[id]?.details.username ? profiles[id].details.username : id,
             url: id,
             avatar: getProfileAvatar(id, profiles[id])
         }
@@ -96,7 +96,7 @@ export async function loadProfile(id: string) {
 }
 
 function getProfileAvatar(id: string, profile: any) {
-    if (!profile?.details?.username?.avatar) {
+    if (!profile.details.avatar) {
         return `profiles/${id}/avatar.jpg`
     } else {
         return `profiles/${id}/${profile.details.avatar}`
