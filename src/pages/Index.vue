@@ -22,7 +22,7 @@
       <h4>Plan your Instagram grid like a pro</h4>
       <p class="mt-2">
         With <i>Instagram Planner</i> you can preview what your profile grid will look like.<br/>
-        It's a web app made with Vue.js and is meant to be used in development mode.
+        It's a web app made with Vue.js and is meant to be used in <i>development mode</i>.
       </p>
       <p class="mt-2">
         You just need Node.js and a code editor to make changes to a simple <i>.json</i> file.<br />

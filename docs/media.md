@@ -1,7 +1,7 @@
 # Supported Media
 
 Instagram Planner supports different media types: images, videos, albums and reels.  
-Check these examples and add your media in the `config/profiles/{id}/media/` folder.
+Add your files in the `config/profiles/{id}/media/` folder and define all the media.
 
 ## Images
 
@@ -14,8 +14,8 @@ Check these examples and add your media in the `config/profiles/{id}/media/` fol
         "type": "image",
         "name": "4.jpg"
       },
-      
-      // short import
+
+      // other imports
       "3.jpg",
       "2.jpg",
       "1.jpg"
@@ -37,7 +37,7 @@ Check these examples and add your media in the `config/profiles/{id}/media/` fol
         "cover": 0
       },
 
-      // short import
+      // other imports
       "3.jpg",
       "2.jpg",
       "1.jpg"
@@ -75,11 +75,11 @@ Check these examples and add your media in the `config/profiles/{id}/media/` fol
       // reel import
       {
         "type": "reel",
-        "name": "3-reel.mp4",
+        "name": "4-reel.mp4",
         "cover": 0
       },
 
-      // short import
+      // other imports
       "3.jpg",
       "2.jpg",
       "1.jpg"

@@ -20,7 +20,7 @@ yarn install && yarn dev
 
 ## Configuration
 
-You can find profiles configuration in `config/profiles.json`.
+You can find the profiles configuration in `config/profiles.json`.
 
 ```json
 {
@@ -47,7 +47,7 @@ You can find profiles configuration in `config/profiles.json`.
 ### Set up a new profile
 
 Define in the profiles configuration a new profile `id` (it can be your username) and use the object structure above.
-Then create a folder in `public/profiles` with the `id` of the profile you added.
+Then create a folder in `public/profiles/` with the `id` of the profile you added.
 
 Create also a folder called `media` in `public/profiles/{id}/`.  
 An avatar should be placed as `avatar.jpg` in your profile folder.
@@ -55,7 +55,9 @@ An avatar should be placed as `avatar.jpg` in your profile folder.
 ### Add some media
 
 IG Planner supports different [media types](media): images, videos, albums and reels.  
-Just add your files in the media profiles folder in `public/profiles/{id}/media/`.
+
+Just add your files in the media profiles folder in `public/profiles/{id}/media/`,  
+then define all your media in the profiles configuration like the example above.
 
 ## Keyboard shortcuts
 
