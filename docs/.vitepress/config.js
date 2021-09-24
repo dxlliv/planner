@@ -4,8 +4,8 @@ module.exports = {
     description: 'Plan your Instagram grid like a pro',
 
     themeConfig: {
-        repo: 'dvilla8/ig-planner',
-        docsRepo: 'dvilla8/ig-planner',
+        repo: 'dxlliv/ig-planner',
+        docsRepo: 'dxlliv/ig-planner',
         docsDir: 'docs',
         docsBranch: 'master',
         editLinks: true,

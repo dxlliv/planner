@@ -26,7 +26,7 @@
       </p>
       <p class="mt-2">
         You just need Node.js and a code editor to make changes to a simple <i>.json</i> file.<br />
-        <a href="https://dvilla8.github.io/ig-planner/docs" target="_blank">Read the docs</a>! If you like this open-source project, feel free to
+        <a href="https://dxlliv.github.io/ig-planner/docs" target="_blank">Read the docs</a>. If you like this open-source project, feel free to
         <a href="https://paypal.me/dxlliv" target="_blank">make a donation</a>.
       </p>
     </div>

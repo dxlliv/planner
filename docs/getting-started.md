@@ -6,7 +6,7 @@ Be sure you have Node.js and NPM installed.
 Clone the repository and move to the project directory:
 
 ```bash
-git clone https://github.com/dvilla8/ig-planner.git && cd ig-planner
+git clone https://github.com/dxlliv/ig-planner.git && cd ig-planner
 ```
 
 Install dependencies and run the project with `yarn` or `npm`:
