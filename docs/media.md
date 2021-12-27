@@ -15,8 +15,10 @@ Add your files in the `config/profiles/{id}/media/` folder and define all the me
         "name": "4.jpg"
       },
 
-      // other imports
+      // short image import
       "3.jpg",
+      
+      // other imports
       "2.jpg",
       "1.jpg"
     ]
@@ -56,11 +58,16 @@ Add your files in the `config/profiles/{id}/media/` folder and define all the me
       {
         "type": "album",
         "list": [
-          "3.jpg",
-          "2.jpg",
-          "1.jpg"
+          "4.jpg",
+          "4x1.jpg",
+          "4x2.jpg"
         ]
-      }
+      },
+
+      // other imports
+      "3.jpg",
+      "2.jpg",
+      "1.jpg"
     ]
   }
 }

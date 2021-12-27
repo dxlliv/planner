@@ -37,7 +37,8 @@
         <a
             v-if="profile.website"
             class="instagram__header__website"
-            v-text="profile.website"
+            :href="profile.website" target="_blank"
+            v-text="profile.website.replace('http://', '').replace('https://', '')"
         />
       </v-col>
     </v-row>
@@ -45,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import {computed, PropType} from "vue";
+import {PropType} from "vue";
 import {IProfile} from "~/../types";
 
 const props = defineProps({
@@ -104,10 +105,15 @@ const props = defineProps({
   }
 
   &__website {
+    display: block;
     font-weight: bold;
     font-size: 16px;
     line-height: 24px;
+    text-decoration: none;
     word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: #00376b;
   }
 }

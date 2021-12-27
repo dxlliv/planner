@@ -12,7 +12,7 @@ module.exports = {
 
         sidebar: {
             '/': [
-                { text: 'Home', link: '/' },
+                { text: 'Quick Start', link: '/' },
                 { text: 'Getting Started', link: '/getting-started' },
                 { text: 'Supported Media', link: '/media' },
             ],

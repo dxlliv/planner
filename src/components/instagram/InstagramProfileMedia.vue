@@ -25,7 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import {computed, onMounted, PropType} from "vue";
 import InstagramProfileMediaImage from "./media/InstagramProfileMediaImage.vue";
 import InstagramProfileMediaVideo from "./media/InstagramProfileMediaVideo.vue";
 import InstagramProfileMediaAlbum from "./media/InstagramProfileMediaAlbum.vue";

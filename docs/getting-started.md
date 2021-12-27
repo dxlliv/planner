@@ -30,6 +30,7 @@ You can find the profiles configuration in `config/profiles.json`.
       "username": "dxlliv",
       "description": "Developer of things",
       "avatar": "avatar.jpg",
+      "website": "",
       "stats": {
         "followers": 50,
         "following": 50
