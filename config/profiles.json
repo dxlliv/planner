@@ -12,6 +12,16 @@
       }
     },
     "media": [
+      {
+        "type": "album",
+        "list": [
+          "6.jpg",
+          "6x1.jpg",
+          "6x2.jpg"
+        ]
+      },
+      "5.jpg",
+      "4.jpg",
       "3.jpg",
       "2.jpg",
       "1.jpg"
