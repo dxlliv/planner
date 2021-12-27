@@ -1,13 +1,14 @@
 {
   "dxlliv": {
     "details":  {
-      "name": "",
+      "name": "Diego Villa",
       "username": "dxlliv",
-      "description": "Developer of things.\nStill a noob fpv freestyler",
+      "description": "Developer of things\n\n",
       "avatar": "avatar.jpg",
+      "website": "https://ipfs.io/ipfs/QmUmPxWip2LCoNuz8QPSDvahwn66XNG6RwFbyQ7c2fRqgx",
       "stats": {
-        "followers": 50,
-        "following": 50
+        "followers": 100,
+        "following": 100
       }
     },
     "media": [
