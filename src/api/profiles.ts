@@ -1,6 +1,9 @@
-import profiles from `~/../config/profiles.json`
+import profilesDefault from `~/config/profiles.json`
+import profilesLocal from `~/../config/profiles.json`
 
 export function getProfiles() {
+    let profiles = Object.keys(profilesLocal).length > 0 ? profilesLocal : profilesDefault
+
     return Object.keys(profiles).map(id => {
         return {
             username: profiles[id]?.details.username ? profiles[id].details.username : id,
@@ -11,6 +14,8 @@ export function getProfiles() {
 }
 
 export async function loadProfile(id: string) {
+    let profiles = Object.keys(profilesLocal).length > 0 ? profilesLocal : profilesDefault
+
     if (Object.prototype.hasOwnProperty.call(profiles, id)) {
         const profile = profiles[id]
 
