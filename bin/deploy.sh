@@ -7,4 +7,6 @@ yarn docs:build
 mv docs/.vitepress/dist/ dist/docs
 
 # commit, then deploy on GitHub Pages
-# git subtree push --prefix dist origin gh-pages
+git add .
+git commit -m "Update dist folder"
+git subtree push --prefix dist origin gh-pages
