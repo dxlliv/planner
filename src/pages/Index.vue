@@ -16,18 +16,13 @@
       </v-col>
     </v-row>
 
-    <v-divider class="mt-15 mb-5" />
+    <v-divider class="mt-15 mb-10" />
 
-    <div class="intro text-center mt-8">
-      <h4>Plan your Instagram grid like a pro</h4>
+    <div class="intro text-center">
+      <h2>Plan your Instagram grid like a pro</h2>
       <p class="mt-2">
-        With <i>Instagram Planner</i> you can preview what your profile grid will look like.<br/>
-        It's a web app made with Vue.js, and is meant to be used in <i>development mode</i>.
-      </p>
-      <p class="mt-2">
-        You just need Node.js and a code editor to make changes to a simple <i>.json</i> file.<br />
-        <a href="https://dxlliv.github.io/ig-planner/docs" target="_blank">Read the docs</a>! If you like this open-source project, feel free to
-        <a href="https://paypal.me/dxlliv" target="_blank">make a donation</a>.
+        <a href="https://github.com/dxlliv/ig-planner">dxlliv/ig-planner</a> let you preview what your profile grid will look like.<br/>
+        Clone the repository and build your definitive Instagram profile.
       </p>
     </div>
 
