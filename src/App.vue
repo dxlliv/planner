@@ -16,6 +16,28 @@
   </v-app>
 </template>
 
+<script setup lang="ts">
+import {onMounted, reactive, provide} from "vue";
+
+const options = reactive({
+  rulers: false,
+  theme: 'light'
+})
+
+provide('options', options)
+
+onMounted(() => {
+  window.addEventListener('keydown', e => {
+    if (String.fromCharCode(e.keyCode) === 'R') {
+      options.rulers = !options.rulers
+    }
+    if (String.fromCharCode(e.keyCode) === 'D') {
+      options.theme = options.theme === 'dark' ? 'light' : 'dark'
+    }
+  })
+})
+</script>
+
 <style lang="scss">
 #app {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -57,25 +79,3 @@
   }
 }
 </style>
-
-<script setup>
-import {onMounted, reactive, provide} from "vue";
-
-const options = reactive({
-  rulers: false,
-  theme: 'light'
-})
-
-provide('options', options)
-
-onMounted(() => {
-  window.addEventListener('keydown', e => {
-    if (String.fromCharCode(e.keyCode) === 'R') {
-      options.rulers = !options.rulers
-    }
-    if (String.fromCharCode(e.keyCode) === 'D') {
-      options.theme = options.theme === 'dark' ? 'light' : 'dark'
-    }
-  })
-})
-</script>
