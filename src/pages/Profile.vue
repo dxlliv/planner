@@ -1,6 +1,6 @@
 <template>
-  <InstagramProfile
-      :profile="profile.value"
+  <InstagramProfilePage
+      :profile="profile"
   />
 
   <template v-if="options.rulers">
@@ -10,22 +10,19 @@
 </template>
 
 <script setup lang="ts">
-import InstagramProfile from '~/components/instagram/InstagramProfile.vue'
+import InstagramProfilePage from '~/components/Profile/ProfilePage/ProfilePage.vue'
 import PageRuler from "../components/ruler/PageRuler.vue";
 
 const route = useRoute()
 const router = useRouter()
 
-const profile = reactive({})
+const profileStore = useProfileStore()
+
+const profile = computed(() => profileStore.profile)
 const options = inject('options')
 
 onBeforeMount(async () => {
-  const username = router.currentRoute.value.params.url
-
-  await loadProfile(username)
-    .then(data => {
-      profile.value = data
-    })
+  await profileStore.loadProfile(route.params.username)
     .catch(e => {
       router.push({ name: 'index', hash: '#404' })
     })

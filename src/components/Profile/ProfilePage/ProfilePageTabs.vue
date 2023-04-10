@@ -1,9 +1,9 @@
 <template>
-  <div class="instagram__tabs">
+  <div class="instagram-profile__tabs">
     <template v-for="(tab, i) of tabs">
       <div
-          v-if="props.posts[tab.name] > 0"
-          :class="['instagram__tabs__tab', {'instagram__tabs__tab--active': props.active === tab.name}]"
+          v-if="profile.stats[tab.name] > 0"
+          :class="['instagram-profile__tabs__tab', {'instagram-profile__tabs__tab--active': active === tab.name}]"
           @click="emit('select', tab.name)"
       >
         <v-icon size="15">{{tab.icon}}</v-icon> {{tab.label}}
@@ -13,18 +13,17 @@
 </template>
 
 <script setup lang="ts">
-import {defineProps} from "vue";
-
 const emit = defineEmits(['select'])
-const props = defineProps({
-  posts: Object,
+
+defineProps({
+  profile: Object as () => IProfile,
   active: String
 })
 
 const tabs = [
   {
-    name: 'posts',
-    label: 'Post',
+    name: 'media',
+    label: 'Posts',
     icon: 'mdi-grid'
   },
   {
@@ -36,7 +35,7 @@ const tabs = [
 </script>
 
 <style scoped lang="scss">
-.instagram__tabs {
+.instagram-profile__tabs {
   display: block;
   margin-top: -20px;
   padding: 0;

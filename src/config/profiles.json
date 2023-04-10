@@ -1,15 +1,12 @@
 {
   "dxlliv": {
-    "details":  {
-      "name": "Diego Villa",
+    "fields":  {
       "username": "dxlliv",
-      "description": "Developer of Things\n(no im just a css coder)\n\n",
+      "biography": "Developer of Things\n\n",
       "avatar": "avatar.jpg",
       "website": "https://dxlliv.dev",
-      "stats": {
-        "followers": 100,
-        "following": 100
-      }
+      "followers_count": 0,
+      "follows_count": 0
     },
     "media": [
       {
@@ -25,6 +22,8 @@
       "3.jpg",
       "2.jpg",
       "1.jpg"
-    ]
+    ],
+    "stories": [],
+    "highlights": []
   }
 }

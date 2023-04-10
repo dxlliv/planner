@@ -1,4 +1,3 @@
-import {App} from "vue";
 import { createRouter, createWebHistory } from 'vue-router'
 
 export default {
@@ -13,7 +12,7 @@ export default {
                 },
                 {
                     name: 'profile',
-                    path: '/ig-planner/:url',
+                    path: '/ig-planner/:username',
                     component: () => import('../pages/Profile.vue')
                 }
             ]

@@ -5,20 +5,13 @@
           v-for="(profile, p) of profiles"
           class="text-center"
       >
-        <router-link :to="{ name: 'profile', params: { url: profile.url } }">
-          <v-avatar :size="120">
-            <v-img :src="profile.avatar" />
-          </v-avatar>
-
-          <h3 class="mt-4" v-text="profile.username" />
-        </router-link>
-        <a class="text-blue-grey-lighten-4" :href="`https://instagram.com/${profile.username}`" target="_blank">🡥</a>
+        <InstagramProfile :profile="profile" />
       </v-col>
     </v-row>
 
     <v-divider class="mt-15 mb-10" />
 
-    <div class="intro text-center">
+    <div class="ig-planner__intro text-center">
       <h2>Plan your Instagram grid like a pro</h2>
       <p class="mt-2">
         <a href="https://github.com/dxlliv/ig-planner">dxlliv/ig-planner</a> let you preview what your profile grid will look like.<br/>
@@ -29,21 +22,18 @@
   </v-container>
 </template>
 
-<script setup>
-import {getProfiles} from "~/api/profiles";
+<script setup lang="ts">
+import InstagramProfile from "../components/Profile/Profile.vue";
 
-const profiles = getProfiles()
+const profiles = computed(() => Object.values(useConfigStore().profiles))
 </script>
 
 <style scoped lang="scss">
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-div.intro {
+.ig-planner__intro {
   a {
-    color: #6a7079;
+    color: inherit;
+    opacity: 0.65;
+    text-decoration: none;
   }
 }
 

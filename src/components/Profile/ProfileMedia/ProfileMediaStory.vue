@@ -1,6 +1,6 @@
 <template>
   <div
-      class="instagram__media__reel"
+      class="instagram-profile__media__reel"
   >
     <video
         ref="reel"
@@ -9,21 +9,19 @@
     <input
         ref="slider"
         type="range"
-        class="instagram__media__reel-slider"
+        class="instagram-profile__media__reel-slider"
         v-model="media.cover"
         @change="updateMediaCover"
     />
-    <div class="instagram__media__reel-slider__value">
+    <div class="instagram-profile__media__reel-slider__value">
       {{media.cover / 10}}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {defineProps, onMounted, ref} from "vue";
-
 const props = defineProps({
-  media: Object
+  media: Object as () => IProfileMedia
 })
 
 const reel = ref(null)

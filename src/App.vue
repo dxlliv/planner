@@ -24,6 +24,8 @@ const options = reactive({
 
 provide('options', options)
 
+useConfigStore().loadConfig()
+
 onMounted(() => {
   window.addEventListener('keydown', e => {
     if (String.fromCharCode(e.keyCode) === 'R') {
