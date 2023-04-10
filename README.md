@@ -1,5 +1,5 @@
 # Instagram Planner
-> Plan your Instagram posts to preview what your profile grid will look like
+> Plan your Instagram profile like a pro and see how it will look like
 
 ## Documentation
 
@@ -23,7 +23,7 @@ yarn install && yarn dev
 
 ### Configuration
 
-Instagram Planner isn't a drag & drop tool since I prefer to edit a configuration file with my favorite code editor.    
-If you know how to properly edit a JSON file using a text editor or a code editor, it will be really simple.
+The planner isn't drag & drop because it worked for me as it is.    
+If you know how to properly edit a .json file, it will be simple.
 
 Read the [documentation](https://dxlliv.github.io/ig-planner/docs) for further info.
