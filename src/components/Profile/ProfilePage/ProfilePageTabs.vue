@@ -1,9 +1,9 @@
 <template>
-  <div class="instagram-profile__tabs">
+  <div class="ig-planner-profile__tabs">
     <template v-for="(tab, i) of tabs">
       <div
           v-if="profile.stats[tab.name] > 0"
-          :class="['instagram-profile__tabs__tab', {'instagram-profile__tabs__tab--active': active === tab.name}]"
+          :class="['ig-planner-profile__tabs__tab', {'ig-planner-profile__tabs__tab--active': active === tab.name}]"
           @click="emit('select', tab.name)"
       >
         <v-icon size="15">{{tab.icon}}</v-icon> {{tab.label}}
@@ -35,7 +35,7 @@ const tabs = [
 </script>
 
 <style scoped lang="scss">
-.instagram-profile__tabs {
+.ig-planner-profile__tabs {
   display: block;
   margin-top: -20px;
   padding: 0;

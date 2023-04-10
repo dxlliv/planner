@@ -1,7 +1,7 @@
 <template>
-  <div class="instagram-profile__header pb-10 mb-5">
+  <div class="ig-planner-profile__header pb-10 mb-5">
     <v-row>
-      <v-col cols="4" class="instagram-profile__header__avatar text-center">
+      <v-col cols="4" class="ig-planner-profile__header__avatar text-center">
         <v-avatar :size="150">
           <v-img :src="profile.fields.avatar" />
         </v-avatar>
@@ -9,11 +9,11 @@
 
       <v-col cols="8">
         <div
-            class="instagram-profile__header__username mb-4"
+            class="ig-planner-profile__header__username mb-4"
            v-text="profile.fields.username"
         />
 
-      <ul class="instagram-profile__header__stats mb-5">
+      <ul class="ig-planner-profile__header__stats mb-5">
           <li>
             <b v-text="profile.media && profile.media.length" /> posts
           </li>
@@ -26,17 +26,17 @@
         </ul>
 
         <p
-            class="instagram-profile__header__name"
+            class="ig-planner-profile__header__name"
             v-text="profile.fields.name"
         />
         <p
-            class="instagram-profile__header__description"
+            class="ig-planner-profile__header__description"
             v-html="profile.fields.description"
         />
 
         <a
             v-if="profile.fields.website"
-            class="instagram-profile__header__website"
+            class="ig-planner-profile__header__website"
             :href="profile.fields.website" target="_blank"
             v-text="profile.fields.website.replace('http://', '').replace('https://', '')"
         />
@@ -52,7 +52,7 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-.instagram-profile__header {
+.ig-planner-profile__header {
   text-align: left;
   border-bottom: 1px solid #dbdbdb;
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="instagram-profile__media">
+  <div class="ig-planner-profile__media">
     <v-container class="pt-1 px-0">
       <v-row>
         <template v-for="(media, i) of profile.media" :key="i">
@@ -37,13 +37,13 @@ defineProps({
 </script>
 
 <style lang="scss">
-.instagram-profile__media {
+.ig-planner-profile__media {
   user-select: none;
 
   &__post {
     position: relative;
 
-    .instagram-profile__media__icon {
+    .ig-planner-profile__media__icon {
       position: absolute;
       top: 12px;
       right: 15px;

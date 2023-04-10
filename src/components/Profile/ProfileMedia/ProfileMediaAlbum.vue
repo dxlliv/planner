@@ -1,5 +1,5 @@
 <template>
-  <div class="instagram-profile__media__post instagram__media__album">
+  <div class="ig-planner-profile__media__post instagram__media__album">
 
     <Carousel>
       <Slide v-for="(media, i) of media.list" :key="i">
@@ -7,7 +7,7 @@
       </Slide>
     </Carousel>
 
-    <div class="instagram-profile__media__icon">
+    <div class="ig-planner-profile__media__icon">
       <v-icon>mdi-folder-multiple-image</v-icon>
     </div>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="instagram-profile__media__post instagram__media__video">
+  <div class="ig-planner-profile__media__post instagram__media__video">
     <video
         ref="video"
         :src="media.path"
@@ -7,15 +7,15 @@
     <input
         ref="slider"
         type="range"
-        class="instagram-profile__media__video-slider"
+        class="ig-planner-profile__media__video-slider"
         v-model="media.cover"
         @change="updateMediaCover"
     />
-    <div class="instagram-profile__media__video-slider__value">
+    <div class="ig-planner-profile__media__video-slider__value">
       {{media.cover / 10}}
     </div>
 
-    <div class="instagram-profile__media__icon">
+    <div class="ig-planner-profile__media__icon">
       <v-icon>mdi-play</v-icon>
     </div>
   </div>
