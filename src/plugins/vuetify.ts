@@ -1,4 +1,3 @@
-import {App} from 'vue'
 // @ts-ignore
 import { Vuetify, createVuetify } from 'vuetify/dist/vuetify.js'
 

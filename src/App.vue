@@ -17,8 +17,6 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, reactive, provide} from "vue";
-
 const options = reactive({
   rulers: false,
   theme: 'light'

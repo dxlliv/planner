@@ -13,10 +13,7 @@
 import InstagramProfile from '~/components/instagram/InstagramProfile.vue'
 import PageRuler from "../components/ruler/PageRuler.vue";
 
-import {onBeforeMount, reactive, inject, onMounted} from "vue";
-import {useRouter} from "vue-router";
-import {loadProfile} from "~/api/profiles";
-
+const route = useRoute()
 const router = useRouter()
 
 const profile = reactive({})
