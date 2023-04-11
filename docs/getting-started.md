@@ -2,7 +2,7 @@
 
 ## Installation
 
-Be sure you have Node.js and NPM installed.  
+Be sure you have [Node.js](https://nodejs.org) and NPM installed.   
 Clone the repository and move to the project directory:
 
 ```bash
@@ -20,43 +20,44 @@ yarn install && yarn dev
 
 ## Configuration
 
-You can find the profiles configuration in `config/profiles.json`.
+You can find profiles configuration in `config/profiles.json`.
 
 ```json
-{
-  "dxlliv": {
-    "details": {
-      "name": "",
+[
+  {
+    "fields": {
       "username": "dxlliv",
-      "description": "Developer of things",
+      "biography": "Developer of Things.",
       "avatar": "avatar.jpg",
       "website": "",
-      "stats": {
-        "followers": 50,
-        "following": 50
-      }
+      "followers_count": 50,
+      "follows_count": 50
     },
-    "media": ["3.jpg", "2.jpg", "1.jpg"]
+    "media": {
+      "posts": ["3.jpg", "2.jpg", "1.jpg"],
+      "reels": [],
+      "stories": [],
+      "highlights": []
+    }
   }
-}
+]
 ```
 
 ### Set up a new profile
 
-Define in the profiles configuration a new profile `id` (it can be your username) and use the object structure above.
-Then create a folder in `public/profiles/` with the `id` of the profile you added.
+Define your profiles under the `config/profiles.json` configuration file  
+and create a folder for each profile in `public/profiles/{username}`.
 
-Create also a folder called `media` in `public/profiles/{id}/`.  
-An avatar should be placed as `avatar.jpg` in your profile folder.
+Place an image called `avatar.jpg` in your profile folder.
 
 ### Add some media
 
-IG Planner supports different [media types](media): images, videos, albums and reels.
+Instagram Planner supports different [media types](media): images, videos, albums and reels.
 
-Just add your files in the media profiles folder in `public/profiles/{id}/media/`,  
-then define all your media in the profiles configuration like the example above.
+Just add your files in the profile media folder in `public/profiles/{username}/media/`,  
+then define all your media in the profile configuration like the example above.
 
 ## Keyboard shortcuts
 
-Press **R** to show some rulers.  
 Press **D** to toggle dark theme.
+Press **R** to show some rulers.  

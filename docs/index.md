@@ -4,11 +4,11 @@ actionText: Getting Started →
 actionLink: /getting-started
 features:
   - title: 🧁 Preview your grid
-    details: Plan your Instagram posts to preview what your profile grid will look like
-  - title: 📱 Media support
-    details: "You can preview all kind of media: images, videos, albums and reels"
-  - title: 📐 Extra tools
-    details: These tools will help you with color consistency and media alignment
+    details: "Plan your Instagram posts to preview what your profile grid will look like"
+  - title: 📱 Media support (wip)
+    details: "You can preview all kind of media: images, videos, reels and albums"
+  - title: 📐 Extra tools (wip)
+    details: "These tools will help you with color consistency and media alignment"
     footer: MIT Licensed
     description: Plan your Instagram posts to preview what your profile grid will look like
     meta:
@@ -40,7 +40,4 @@ yarn install && yarn dev
 
 ### Configuration
 
-Instagram Planner isn't a drag & drop tool since I prefer to edit a configuration file with my favorite code editor.  
-If you know how to properly edit a JSON file using a text editor like Notepad++, it will be really simple.
-
-Read more about configuration in [Getting Started](getting-started#configuration).
+Read more about the configuration in [Getting Started](getting-started#configuration).
