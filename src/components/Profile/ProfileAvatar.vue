@@ -1,12 +1,12 @@
 <template>
   <v-avatar class="igp-profile-avatar">
-    <v-img :src="src" />
+    <v-img :src="avatar.path" />
   </v-avatar>
 </template>
 
 <script setup lang="ts">
 defineProps({
-  src: String
+  avatar: Object as () => IProfileMediaFile
 })
 </script>
 

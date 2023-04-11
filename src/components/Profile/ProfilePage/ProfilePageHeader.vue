@@ -2,7 +2,7 @@
   <div class="igp-profile-page__header pb-10 mb-5">
     <v-row>
       <v-col cols="4" class="igp-profile-page__header__avatar text-center">
-        <ProfileAvatar :size="150" :src="profile?.avatar?.path" />
+        <ProfileAvatar :size="150" :avatar="profile?.avatar" />
       </v-col>
 
       <v-col cols="8">
