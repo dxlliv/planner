@@ -5,17 +5,27 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-essential',
-    'standard-with-typescript'
+    'plugin:vue/vue3-recommended',
+    'eslint:recommended',
+    'eslint:recommended',
+    '.eslintrc-auto-import.json',
+    '.prettierrc.json',
   ],
-  overrides: [
-  ],
+  parser: "vue-eslint-parser",
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module'
+    parser: "@typescript-eslint/parser",
+    sourceType: "module"
   },
   plugins: [
     'vue'
   ],
   rules: {
-  }
+    "no-undef": 0,
+    "vue/max-attributes-per-line": 0,
+    "vue/script-indent": ["error", 2, {
+      "baseIndent": 0,
+      "switchCase": 0,
+      "ignores": []
+    }]
+  },
 }
