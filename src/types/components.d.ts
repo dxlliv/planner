@@ -9,10 +9,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Intro: typeof import('./../components/Main/Intro.vue')['default']
     MainFooter: typeof import('./../components/Main/MainFooter.vue')['default']
     MainIntro: typeof import('./../components/Main/MainIntro.vue')['default']
-    PageRuler: typeof import("./../components/Tool/PageRuler.vue")["default"]
     Profile: typeof import('./../components/Profile/Profile.vue')['default']
     ProfileAvatar: typeof import('./../components/Profile/ProfileAvatar.vue')['default']
     ProfileFeed: typeof import('./../components/Profile/ProfileFeed/ProfileFeed.vue')['default']
@@ -26,8 +24,6 @@ declare module '@vue/runtime-core' {
     ProfilePageHeader: typeof import('./../components/Profile/ProfilePage/ProfilePageHeader.vue')['default']
     ProfilePageMedia: typeof import('./../components/Profile/ProfilePage/ProfilePageMedia.vue')['default']
     ProfilePageTabs: typeof import('./../components/Profile/ProfilePage/ProfilePageTabs.vue')['default']
-    RouterLink: typeof import("vue-router")["RouterLink"]
-    RouterView: typeof import("vue-router")["RouterView"]
     ToolRuler: typeof import('./../components/Tool/ToolRuler.vue')['default']
   }
 }
