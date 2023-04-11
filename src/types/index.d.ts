@@ -28,6 +28,7 @@ interface IProfileMedia {
   album?: string[] | IProfileMedia[]
   type: "image" | "video" | "album"
   cover?: string
+  date?: string
 }
 
 interface IProfileMediaFile {

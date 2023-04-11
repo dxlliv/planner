@@ -9,9 +9,15 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Intro: typeof import('./../components/Main/Intro.vue')['default']
+    MainFooter: typeof import('./../components/Main/MainFooter.vue')['default']
+    MainIntro: typeof import('./../components/Main/MainIntro.vue')['default']
     PageRuler: typeof import("./../components/Tool/PageRuler.vue")["default"]
     Profile: typeof import('./../components/Profile/Profile.vue')['default']
     ProfileAvatar: typeof import('./../components/Profile/ProfileAvatar.vue')['default']
+    ProfileFeed: typeof import('./../components/Profile/ProfileFeed/ProfileFeed.vue')['default']
+    ProfileFeedPost: typeof import('./../components/Profile/ProfileFeed/ProfileFeedPost.vue')['default']
+    ProfileFeedPostHeader: typeof import('./../components/Profile/ProfileFeed/ProfileFeedPostHeader.vue')['default']
     ProfileMediaAlbum: typeof import('./../components/Profile/ProfileMedia/ProfileMediaAlbum.vue')['default']
     ProfileMediaImage: typeof import('./../components/Profile/ProfileMedia/ProfileMediaImage.vue')['default']
     ProfileMediaStory: typeof import('./../components/Profile/ProfileMedia/ProfileMediaStory.vue')['default']
