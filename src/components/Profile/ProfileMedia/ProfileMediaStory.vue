@@ -1,6 +1,6 @@
 <template>
   <div class="ig-planner-profile__media__reel">
-    <video ref="reel" :src="media.path" />
+    <video ref="reel" :src="media.file.path" />
     <input ref="slider" v-model="mediaCover" type="range" class="ig-planner-profile__media__reel-slider" @change="updateMediaCover" />
     <div class="ig-planner-profile__media__reel-slider__value">
       {{ mediaCover / 10 }}

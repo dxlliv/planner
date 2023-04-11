@@ -2,9 +2,7 @@
   <div class="ig-planner-profile__header pb-10 mb-5">
     <v-row>
       <v-col cols="4" class="ig-planner-profile__header__avatar text-center">
-        <v-avatar :size="150">
-          <v-img :src="profile.fields.avatar" />
-        </v-avatar>
+        <ProfileAvatar :size="150" :src="profile.avatar.path" />
       </v-col>
 
       <v-col cols="8">
@@ -12,7 +10,7 @@
 
         <ul class="ig-planner-profile__header__stats mb-5">
           <li>
-            <b v-text="profile.media && profile.media.length" />
+            <b v-text="profile.counters.posts" />
             posts
           </li>
           <li>

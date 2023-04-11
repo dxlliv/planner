@@ -1,8 +1,8 @@
 interface IConfig {
-  profiles: {
-    [username: string]: IProfile
-  }
+  profiles: IConfigProfiles
 }
+
+type IConfigProfiles = { [username: string]: IProfile }
 
 interface IProfile {
   fields: {
@@ -14,20 +14,47 @@ interface IProfile {
     username: string
     website: string
   }
-  media: IProfileMedia
-  reels: []
-  stories: []
-  highlights: []
+  media: {
+    posts: string[] | IProfileMediaPosts
+    reels: string[] | IProfileMediaReels
+    stories: string[] | IProfileMediaStories
+    highlights: string[] | IProfileMediaHighlights
+  }
 }
 
-type IProfileMedia = string[] | IProfileMediaImage[] | IProfileMediaList
+interface IProfileLoaded extends IProfile {
+  avatar: IProfileMediaFile
+  counters: {
+    posts: number
+    stories: number
+    reels: number
+    highlights: number
+  }
+  media: {
+    posts: IProfileMediaPosts
+    reels: IProfileMediaReels
+    stories: IProfileMediaStories
+    highlights: IProfileMediaHighlights
+  }
+}
 
-interface IProfileMediaImage {
+interface IProfileMedia {
+  file?: IProfileMediaFile
+  album?: string[] | IProfileMedia[]
+  type: "image" | "video" | "album"
+  cover?: string
+}
+
+interface IProfileMediaFile {
+  filename: string
   path: string
 }
 
-interface IProfileMediaList {
-  type: string
-  list: string[] | IProfileMediaImage[]
-  cover: string
-}
+type IProfileMediaPosts = IProfileMedia[]
+type IProfileMediaReels = IProfileMediaReel[]
+type IProfileMediaStories = IProfileMediaStory[]
+type IProfileMediaHighlights = IProfileMediaHighlight[]
+
+interface IProfileMediaReel extends IProfileMedia {}
+interface IProfileMediaStory extends IProfileMedia {}
+interface IProfileMediaHighlight extends IProfileMediaStory {}

@@ -53,6 +53,7 @@ export default defineConfig({
       // by default it only scan one level of modules under the directory
       dirs: [
         "./src/stores/**",
+        "./src/utils/**",
         //
         // './composables' // only root modules
         // './composables/**', // all nested modules

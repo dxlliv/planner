@@ -1,5 +1,5 @@
 <template>
-  <v-img :src="media.path" />
+  <v-img :src="media.file.path" />
 </template>
 
 <script setup lang="ts">

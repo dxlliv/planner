@@ -1,24 +1,27 @@
 import profilesDefault from "../config/profiles.json"
 import profilesLocal from "../../config/profiles.json"
+import {ComputedRef} from "vue";
 
 export const useConfigStore = defineStore("config", () => {
   const profileStore = useProfileStore()
   const config: Ref<IConfig> = ref({} as IConfig)
 
-  function setConfig(data: any) {
+  function setConfig(data: any): void {
     config.value = data
   }
 
-  function loadConfig() {
+  function loadConfig(): IConfig {
     const profiles = loadConfigProfiles()
 
     config.value = {
       profiles
     }
+
+    return config.value
   }
 
-  function loadConfigProfiles() {
-    let profiles = {}
+  function loadConfigProfiles(): IConfigProfiles {
+    let profiles: IConfigProfiles = {}
 
     if (Array.isArray(profilesLocal) && profilesLocal.length > 0) {
       // load local profiles configuration provided as array
@@ -40,7 +43,7 @@ export const useConfigStore = defineStore("config", () => {
     return profiles
   }
 
-  const profiles = computed(() => config.value.profiles)
+  const profiles: ComputedRef<IConfigProfiles> = computed(() => config.value.profiles)
 
   return {
     config,

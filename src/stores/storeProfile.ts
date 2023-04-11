@@ -1,9 +1,8 @@
-import { useConfigStore } from "./storeConfig"
-
 export const useProfileStore = defineStore("profile", () => {
   const configStore = useConfigStore()
+
   const profile: Ref<IProfile> = ref({} as IProfile)
-  function setProfile(data: IProfile) {
+  function setProfile(data: IProfile): void {
     profile.value = data
   }
 
@@ -16,78 +15,101 @@ export const useProfileStore = defineStore("profile", () => {
 
     throw new Error("Profile not found")
   }
-  function parseProfile(data: IProfile) {
-    data.fields.avatar = getProfileAvatar(data)
+  function parseProfile(data: IProfile): IProfileLoaded {
+    const profileLoaded: IProfileLoaded = {} as IProfileLoaded
 
-    if (data.fields.description) {
-      data.fields.description = data.fields.description.replace(/(?:\r\n|\r|\n)/g, "<br>")
+    // set parsed avatar
+    profileLoaded.avatar = getProfileAvatar(data)
+
+    // set fields
+    profileLoaded.fields = data.fields
+
+    // parse fields biography
+    if (profileLoaded.fields.biography) {
+      profileLoaded.fields.biography = profileLoaded.fields.biography.replace(/(?:\r\n|\r|\n)/g, "<br>")
     }
 
-    data.stats = {
-      media: 0,
+    // set empty counters
+    profileLoaded.counters = {
+      posts: 0,
       stories: 0,
+      reels: 0,
       highlights: 0
     }
 
-    // parse profile ProfileMedia
-    if (data.media) {
-      for (let i = 0; i < data.media.length; i++) {
-        switch (typeof data.media[i]) {
-          case "string":
-            data.stats.media++
-            data.media[i] = {
-              type: "image",
-              path: getMediaPath(data, data.media[i])
-            }
-            break
-          case "object":
-            switch (data.media[i].type) {
-              case "album":
-                data.stats.media++
+    // set empty media
+    profileLoaded.media = {
+      posts: [],
+      stories: [],
+      reels: [],
+      highlights: []
+    }
 
-                if (Array.isArray(data.media[i].list)) {
-                  for (let m = 0; m < data.media[i].list.length; m++) {
-                    data.media[i].list[m] = {
-                      path: getMediaPath(data, data.media[i].list[m])
+    // check for media property
+    if (!Object.prototype.hasOwnProperty.call(data, 'media')) {
+      profileLoaded.media = {}
+    } else {
+
+      const mediaPosts: IProfileMediaPosts = []
+
+      // parse media posts
+      if (data.media.posts) {
+        // define variable for media albums
+        let mediaAlbum: IProfileMediaPosts = []
+
+        for (let i = 0; i < data.media.posts.length; i++) {
+          const mediaPost: string | IProfileMedia = data.media.posts[i]
+
+          switch (typeof mediaPost) {
+            case "string":
+              profileLoaded.counters.posts++
+              mediaPosts.push({
+                file: getProfileMedia(data, mediaPost),
+                type: "image",
+              })
+              break
+            case "object":
+              switch (mediaPost.type) {
+                case "album":
+                  profileLoaded.counters.posts++
+
+                  // reset array
+                  mediaAlbum = []
+
+                  // parse albums
+                  if (Array.isArray(mediaPost.album)) {
+                    for (let m = 0; m < mediaPost.album.length; m++) {
+                      mediaAlbum.push({
+                        file: getProfileMedia(data, mediaPost.album[m]),
+                        type: mediaPost.album[m].type,
+                      })
                     }
                   }
-                }
-                break
-              case "video":
-                data.stats.media++
 
-                if (data.media[i].name) {
-                  data.media[i].path = getMediaPath(data, data.media[i].name)
-                }
-                break
-              case "stories":
-                data.stats.stories++
+                  mediaPosts.push({
+                    album: mediaAlbum,
+                    type: "album",
+                  })
+                  break
+                case "video":
+                  profileLoaded.counters.posts++
 
-                if (data.media[i].name) {
-                  data.media[i].path = getMediaPath(data, data.media[i].name)
-                }
-                break
-            }
+                  mediaPosts.push({
+                    file: getProfileMedia(data, data.media[i].name),
+                    type: "video",
+                  })
+                  break
+              }
 
-            break
+              break
+          }
         }
+
+        profileLoaded.media.posts = mediaPosts
       }
-    } else {
-      data.media = []
     }
-    return data
-  }
 
-  function getProfileAvatar(profile: IProfile) {
-    if (!profile.fields.avatar) {
-      return `profiles/${profile.fields.username}/avatar.jpg`
-    } else {
-      return `profiles/${profile.fields.username}/${profile.fields.avatar}`
-    }
-  }
-
-  function getMediaPath(profile: IProfile, filename: string) {
-    return `profiles/${profile.fields.username}/media/${filename}`
+    return profileLoaded
   }
 
   return {
@@ -95,7 +117,5 @@ export const useProfileStore = defineStore("profile", () => {
     setProfile,
     loadProfile,
     parseProfile,
-    getProfileAvatar,
-    getMediaPath
   }
 })

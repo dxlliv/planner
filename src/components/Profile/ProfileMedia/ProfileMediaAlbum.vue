@@ -1,7 +1,7 @@
 <template>
   <div class="ig-planner-profile__media__post instagram__media__album">
     <Carousel>
-      <Slide v-for="(media, i) of media.list" :key="i">
+      <Slide v-for="(media, i) of media.album" :key="i">
         <ProfileMediaImage :media="media" />
       </Slide>
     </Carousel>

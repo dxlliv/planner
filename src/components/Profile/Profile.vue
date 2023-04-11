@@ -8,9 +8,7 @@
         }
       }"
     >
-      <v-avatar :size="120">
-        <v-img :src="profile.fields.avatar" />
-      </v-avatar>
+      <ProfileAvatar :size="120" :src="profile.avatar.path" />
 
       <h3 class="mt-4" v-text="profile.fields.username" />
     </router-link>

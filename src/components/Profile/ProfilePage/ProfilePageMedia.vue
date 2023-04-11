@@ -2,7 +2,7 @@
   <div class="ig-planner-profile__media">
     <v-container class="pt-1 px-0">
       <v-row>
-        <template v-for="(media, i) of profile.media" :key="i">
+        <template v-for="(media, i) of profile.media.posts" :key="i">
           <v-col v-if="mode === 'posts' && media.type === 'image'" :cols="4">
             <ProfileMediaImage :media="media" />
           </v-col>
