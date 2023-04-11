@@ -10,7 +10,7 @@ export default defineConfig({
   base: "/ig-planner/",
   plugins: [
     vue(),
-    //eslint(),
+    eslint(),
     autoImport({
       // targets to transform
       include: [

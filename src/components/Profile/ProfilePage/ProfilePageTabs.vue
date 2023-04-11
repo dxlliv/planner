@@ -3,6 +3,7 @@
     <template v-for="(tab, i) of tabs">
       <div
         v-if="profile.stats[tab.name] > 0"
+        :key="i"
         :class="[
           'ig-planner-profile__tabs__tab',
           {

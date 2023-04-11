@@ -23,6 +23,7 @@ interface IProfile {
 interface IProfileMediaList {
   type: string
   list: string[] | IProfileMediaImage[]
+  cover: string
 }
 
 interface IProfileMediaImage {
