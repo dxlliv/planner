@@ -38,6 +38,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
+@import "assets/styles/variables.scss";
+
 #app {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
