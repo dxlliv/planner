@@ -96,10 +96,6 @@ export default defineConfig({
             // valid file extensions for components.
             extensions: ['vue'],
 
-            // Glob patterns to match file names to be detected as components.
-            // When specified, the `dirs` and `extensions` options will be ignored.
-            globs: ['src/components/*.{vue}'],
-
             // search for subdirectories
             deep: true,
 
@@ -109,15 +105,15 @@ export default defineConfig({
             // generate `components.d.ts` global declarations,
             // also accepts a path for custom filename
             // default: `true` if package typescript is installed
-            dts: false,
+            dts: './src/types/components.d.ts',
 
             // Allow subdirectories as namespace prefix for components.
-            directoryAsNamespace: true,
+            directoryAsNamespace: false,
 
             // Collapse same prefixes (camel-sensitive) of folders and components
             // to prevent duplication inside namespaced component name.
             // works when `directoryAsNamespace: true`
-            collapseSamePrefixes: true,
+            collapseSamePrefixes: false,
 
             // Subdirectory paths for ignoring namespace prefixes.
             // works when `directoryAsNamespace: true`
