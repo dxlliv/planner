@@ -1,18 +1,15 @@
 <template>
-  <InstagramProfilePage
-      :profile="profile"
+  <ProfilePage
+    :profile="profile"
   />
 
   <template v-if="options.rulers">
-    <PageRuler left />
-    <PageRuler right />
+    <ToolRuler left />
+    <ToolRuler right />
   </template>
 </template>
 
 <script setup lang="ts">
-import InstagramProfilePage from '~/components/Profile/ProfilePage/ProfilePage.vue'
-import PageRuler from "../components/ruler/PageRuler.vue";
-
 const route = useRoute()
 const router = useRouter()
 
@@ -24,6 +21,7 @@ const options = inject('options')
 onBeforeMount(async () => {
   await profileStore.loadProfile(route.params.username)
     .catch(e => {
+      console.error(e)
       router.push({ name: 'index', hash: '#404' })
     })
 })

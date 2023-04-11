@@ -8,12 +8,12 @@ export default {
                 {
                     name: 'index',
                     path: '/ig-planner/',
-                    component: () => import('../pages/Index.vue')
+                    component: () => import('../pages/PageIndex.vue')
                 },
                 {
                     name: 'profile',
                     path: '/ig-planner/:username',
-                    component: () => import('../pages/Profile.vue')
+                    component: () => import('../pages/PageProfile.vue')
                 }
             ]
         }))
