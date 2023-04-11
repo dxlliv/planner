@@ -1,14 +1,14 @@
 <template>
-  <div class="ig-planner-profile__header pb-10 mb-5">
+  <div class="igp-profile-page__header pb-10 mb-5">
     <v-row>
-      <v-col cols="4" class="ig-planner-profile__header__avatar text-center">
+      <v-col cols="4" class="igp-profile-page__header__avatar text-center">
         <ProfileAvatar :size="150" :src="profile?.avatar?.path" />
       </v-col>
 
       <v-col cols="8">
-        <div class="ig-planner-profile__header__username mb-4" v-text="profile.fields.username" />
+        <div class="igp-profile-page__header__username mb-5" v-text="profile.fields.username" />
 
-        <ul class="ig-planner-profile__header__stats mb-5">
+        <ul class="igp-profile-page__header__stats mb-5">
           <li>
             <b v-text="profile?.media.posts.length" />
             posts
@@ -23,12 +23,12 @@
           </li>
         </ul>
 
-        <p class="ig-planner-profile__header__name" v-text="profile?.fields.name" />
-        <p class="ig-planner-profile__header__biography" v-html="profile?.fields.biography" />
+        <p class="igp-profile-page__header__name" v-text="profile?.fields.name" />
+        <p class="igp-profile-page__header__biography" v-html="profile?.fields.biography" />
 
         <a
           v-if="profile?.fields.website"
-          class="ig-planner-profile__header__website"
+          class="igp-profile-page__header__website"
           :href="profile.fields.website"
           target="_blank"
           v-text="profile.fields.website.replace('http://', '').replace('https://', '')"
@@ -45,12 +45,17 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-.ig-planner-profile__header {
+.igp-profile-page__header {
   text-align: left;
-  border-bottom: 1px solid #dbdbdb;
+  min-height: 210px;
+  border-bottom: 1px solid var(--igp-border);
 
   &__avatar {
     user-select: none;
+
+    .v-avatar {
+      border: 1px solid var(--igp-border);
+    }
   }
 
   &__username {

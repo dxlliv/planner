@@ -1,5 +1,5 @@
 <template>
-  <div class="ig-planner-profile__media">
+  <div class="igp-profile-page__media">
     <v-container class="pt-1 px-0">
       <v-row v-if="mode === 'posts' && profile.media.posts.length > 0">
         <template v-for="(media, i) of profile.media.posts" :key="i">
@@ -37,19 +37,15 @@ defineProps({
 </script>
 
 <style lang="scss">
-.ig-planner-profile__media {
-  user-select: none;
+.igp-profile-media {
+  position: relative;
 
-  &__post {
-    position: relative;
-
-    .ig-planner-profile__media__icon {
-      position: absolute;
-      top: 12px;
-      right: 15px;
-      color: white;
-      font-size: 14px;
-    }
+  &__icon {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    color: white;
+    font-size: 14px;
   }
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
-  <div class="ig-planner-profile__tabs">
+  <div class="igp-profile-page__tabs">
     <template v-for="(tab, i) of tabs">
       <div
         v-if="profile?.media[tab.name].length > 0"
         :key="i"
         :class="[
-          'ig-planner-profile__tabs__tab',
+          'igp-profile-page__tabs__tab',
           {
-            'ig-planner-profile__tabs__tab--active': active === tab.name
+            'igp-profile-page__tabs__tab--active': active === tab.name
           }
         ]"
         @click="emit('select', tab.name)"
@@ -44,7 +44,7 @@ const tabs = [
 </script>
 
 <style scoped lang="scss">
-.ig-planner-profile__tabs {
+.igp-profile-page__tabs {
   display: block;
   margin-top: -20px;
   padding: 0;

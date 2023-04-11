@@ -1,5 +1,5 @@
 <template>
-  <div v-if="profile" class="ig-planner-profile">
+  <div v-if="profile" class="igp-profile-page">
     <v-container>
       <ProfilePageHeader :profile="profile" />
 
@@ -19,7 +19,7 @@ const tab = ref("posts")
 </script>
 
 <style scoped lang="scss">
-.ig-planner-profile {
+.igp-profile-page {
   width: 960px;
   max-width: 100%;
   margin: 0 auto;

@@ -1,12 +1,12 @@
 <template>
-  <div class="ig-planner-profile__media__post instagram__media__video">
+  <div class="igp-profile-media igp-profile-media--video">
     <video ref="video" :src="media.file.path" />
-    <input ref="slider" v-model="mediaCover" type="range" class="ig-planner-profile__media__video-slider" @change="updateMediaCover" />
-    <div class="ig-planner-profile__media__video-slider__value">
+    <input ref="slider" v-model="mediaCover" type="range" class="igp-profile-media--video-slider" @change="updateMediaCover" />
+    <div class="igp-profile-media--video-slider__value">
       {{ mediaCover / 10 }}
     </div>
 
-    <div class="ig-planner-profile__media__icon">
+    <div class="igp-profile-media__icon">
       <v-icon>mdi-play</v-icon>
     </div>
   </div>

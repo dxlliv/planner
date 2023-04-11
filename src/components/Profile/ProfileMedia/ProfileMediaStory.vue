@@ -1,8 +1,8 @@
 <template>
-  <div class="ig-planner-profile__media__reel">
+  <div class="igp-profile-media igp-profile-media--story">
     <video ref="reel" :src="media.file.path" />
-    <input ref="slider" v-model="mediaCover" type="range" class="ig-planner-profile__media__reel-slider" @change="updateMediaCover" />
-    <div class="ig-planner-profile__media__reel-slider__value">
+    <input ref="slider" v-model="mediaCover" type="range" class="igp-profile-media--story-slider" @change="updateMediaCover" />
+    <div class="igp-profile-media--story-slider__value">
       {{ mediaCover / 10 }}
     </div>
   </div>
@@ -36,13 +36,13 @@ function updateMediaCover() {
 </script>
 
 <style scoped lang="scss">
-.instagram__media {
+.igp-profile-media {
   border-top: 1px solid #dbdbdb;
   margin-top: 40px;
   padding-top: 20px;
   user-select: none;
 
-  &__reel {
+  &--reel {
     position: relative;
 
     video {
@@ -75,7 +75,7 @@ function updateMediaCover() {
     }
 
     &:hover {
-      .instagram__media__reel-slider {
+      .igp-profile-media--reel-slider {
         opacity: 1;
 
         &__value {

@@ -1,5 +1,5 @@
 <template>
-  <v-avatar>
+  <v-avatar class="igp-profile-avatar">
     <v-img :src="src" />
   </v-avatar>
 </template>

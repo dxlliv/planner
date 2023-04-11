@@ -1,5 +1,5 @@
 <template>
-  <v-img :src="media.file.path" />
+  <v-img class="igp-profile-media igp-profile-media--image" :src="media.file.path" />
 </template>
 
 <script setup lang="ts">
