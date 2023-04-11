@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   media: Object as () => IProfileMedia
 })
 </script>
