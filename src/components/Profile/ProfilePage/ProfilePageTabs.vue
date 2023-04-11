@@ -2,7 +2,7 @@
   <div class="ig-planner-profile__tabs">
     <template v-for="(tab, i) of tabs">
       <div
-        v-if="profile.counters[tab.name] > 0"
+        v-if="profile?.media[tab.name].length > 0"
         :key="i"
         :class="[
           'ig-planner-profile__tabs__tab',

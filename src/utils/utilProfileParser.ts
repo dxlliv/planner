@@ -1,5 +1,5 @@
-export function parseProfile(data: IProfile): IProfileLoaded {
-  const profileLoaded: IProfileLoaded = {} as IProfileLoaded
+export function parseProfile(data: IProfile): IProfile {
+  const profileLoaded: IProfile = {} as IProfile
 
   // set parsed avatar
   profileLoaded.avatar = getProfileAvatar(data)
@@ -12,14 +12,6 @@ export function parseProfile(data: IProfile): IProfileLoaded {
     profileLoaded.fields.biography = profileLoaded.fields.biography.replace(/(?:\r\n|\r|\n)/g, "<br>")
   }
 
-  // set empty counters
-  profileLoaded.counters = {
-    posts: 0,
-    stories: 0,
-    reels: 0,
-    highlights: 0
-  }
-
   // set empty media
   profileLoaded.media = {
     posts: [],
@@ -28,74 +20,131 @@ export function parseProfile(data: IProfile): IProfileLoaded {
     highlights: []
   }
 
-  if (!data.media) {
-    data.media = {
-      posts: [],
-      stories: [],
-      reels: [],
-      highlights: []
-    }
-  }
+  // check for media property
+  if (!Object.prototype.hasOwnProperty.call(data, "media")) {
+    profileLoaded.media = {}
+  } else {
 
-  // parse media posts
-  if (data.media.posts.length > 0) {
-    const mediaPosts: IProfileMediaPosts = []
+    // parse media posts
+    if (data.media.posts) {
+      const profilePosts = parseProfilePosts(data)
 
-    // define variable for media albums
-    let mediaAlbum: IProfileMediaPosts = []
-
-    for (let i = 0; i < data.media.posts.length; i++) {
-      const mediaPost: string | IProfileMedia = data.media.posts[i]
-
-      switch (typeof mediaPost) {
-        case "string":
-          profileLoaded.counters.posts++
-          mediaPosts.push({
-            type: "image",
-            path: getProfileMedia(data, mediaPost)
-          })
-          break
-        case "object":
-          switch (mediaPost.type) {
-            case "album":
-              profileLoaded.counters.posts++
-
-              // reset array
-              mediaAlbum = []
-
-              // parse albums
-              if (Array.isArray(mediaPost.album)) {
-                for (let m = 0; m < mediaPost.album.length; m++) {
-                  mediaAlbum.push({
-                    type: mediaPost.album[m].type,
-                    path: getProfileMedia(data, mediaPost.album[m])
-                  })
-                }
-              }
-
-              mediaPosts.push({
-                type: "album",
-                album: mediaAlbum
-              })
-              break
-            case "video":
-              profileLoaded.counters.posts++
-
-              mediaPosts.push({
-                type: "video",
-                path: getProfileMedia(data, data.media[i].name)
-              })
-              break
-          }
-
-          break
-      }
+      profileLoaded.media.posts = profilePosts.posts
     }
 
-    profileLoaded.media.posts = mediaPosts
+    // parse media reels
+    if (data.media.reels) {
+      const profileReels = parseProfileReels(data)
+
+      profileLoaded.media.reels = profileReels.reels
+    }
   }
 
   return profileLoaded
+}
+
+function parseProfilePosts(profile: IProfile) {
+  const mediaPosts: IProfileMediaPosts = []
+
+  let counter = 0
+
+  // define variable for media albums
+  let mediaAlbum: IProfileMediaPosts = []
+
+  for (let i = 0; i < profile.media.posts.length; i++) {
+    const mediaPost: string | IProfileMedia = profile.media.posts[i]
+
+    switch (typeof mediaPost) {
+      case "string":
+        counter++
+        mediaPosts.push({
+          file: getProfileMedia(profile, mediaPost),
+          type: "image"
+        })
+        break
+      case "object":
+        switch (mediaPost.type) {
+          case "album":
+            counter++
+
+            // reset array
+            mediaAlbum = []
+
+            // parse albums
+            if (Array.isArray(mediaPost.album)) {
+              for (let m = 0; m < mediaPost.album.length; m++) {
+                mediaAlbum.push({
+                  file: getProfileMedia(profile, mediaPost.album[m]),
+                  type: mediaPost.album[m].type
+                })
+              }
+            }
+
+            mediaPosts.push({
+              album: mediaAlbum,
+              type: "album"
+            })
+            break
+          case "reel":
+          case "story":
+          case "video":
+            counter++
+
+            mediaPosts.push({
+              file: getProfileMedia(profile, profile.media[i].name),
+              type: "video"
+            })
+            break
+        }
+
+        break
+    }
+  }
+
+  return {
+    count: counter,
+    posts: mediaPosts
+  }
+}
+
+function parseProfileReels(profile: IProfile) {
+  const mediaReels: IProfileMediaReels = []
+
+  let counter = 0
+
+  for (let i = 0; i < profile.media.posts.length; i++) {
+    const mediaReel: string | IProfileMedia = profile.media.posts[i]
+
+    switch (typeof mediaReel) {
+      case "string":
+        counter++
+        mediaReels.push({
+          file: getProfileMedia(profile, mediaReel),
+          type: "image"
+        })
+        break
+      case "object":
+        switch (mediaReel.type) {
+          case "story":
+          case "reel":
+          case "video":
+            counter++
+
+            mediaReels.push({
+              file: getProfileMedia(profile, profile.media[i].name),
+              type: "video"
+            })
+            break
+        }
+
+        break
+    }
+  }
+
+  return {
+    count: counter,
+    reels: mediaReels
+  }
 }
 
 export function getProfileAvatar(profile: IProfile): IProfileMediaFile {

@@ -7,21 +7,21 @@ import '@vue/runtime-core'
 
 export {}
 
-declare module "@vue/runtime-core" {
+declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     PageRuler: typeof import("./../components/Tool/PageRuler.vue")["default"]
-    Profile: typeof import("./../components/Profile/Profile.vue")["default"]
-    ProfileAvatar: typeof import("./../components/Profile/ProfileAvatar.vue")["default"]
-    ProfileMediaAlbum: typeof import("./../components/Profile/ProfileMedia/ProfileMediaAlbum.vue")["default"]
-    ProfileMediaImage: typeof import("./../components/Profile/ProfileMedia/ProfileMediaImage.vue")["default"]
-    ProfileMediaStory: typeof import("./../components/Profile/ProfileMedia/ProfileMediaStory.vue")["default"]
-    ProfileMediaVideo: typeof import("./../components/Profile/ProfileMedia/ProfileMediaVideo.vue")["default"]
-    ProfilePage: typeof import("./../components/Profile/ProfilePage/ProfilePage.vue")["default"]
-    ProfilePageHeader: typeof import("./../components/Profile/ProfilePage/ProfilePageHeader.vue")["default"]
-    ProfilePageMedia: typeof import("./../components/Profile/ProfilePage/ProfilePageMedia.vue")["default"]
-    ProfilePageTabs: typeof import("./../components/Profile/ProfilePage/ProfilePageTabs.vue")["default"]
+    Profile: typeof import('./../components/Profile/Profile.vue')['default']
+    ProfileAvatar: typeof import('./../components/Profile/ProfileAvatar.vue')['default']
+    ProfileMediaAlbum: typeof import('./../components/Profile/ProfileMedia/ProfileMediaAlbum.vue')['default']
+    ProfileMediaImage: typeof import('./../components/Profile/ProfileMedia/ProfileMediaImage.vue')['default']
+    ProfileMediaStory: typeof import('./../components/Profile/ProfileMedia/ProfileMediaStory.vue')['default']
+    ProfileMediaVideo: typeof import('./../components/Profile/ProfileMedia/ProfileMediaVideo.vue')['default']
+    ProfilePage: typeof import('./../components/Profile/ProfilePage/ProfilePage.vue')['default']
+    ProfilePageHeader: typeof import('./../components/Profile/ProfilePage/ProfilePageHeader.vue')['default']
+    ProfilePageMedia: typeof import('./../components/Profile/ProfilePage/ProfilePageMedia.vue')['default']
+    ProfilePageTabs: typeof import('./../components/Profile/ProfilePage/ProfilePageTabs.vue')['default']
     RouterLink: typeof import("vue-router")["RouterLink"]
     RouterView: typeof import("vue-router")["RouterView"]
-    ToolRuler: typeof import("./../components/Tool/ToolRuler.vue")["default"]
+    ToolRuler: typeof import('./../components/Tool/ToolRuler.vue')['default']
   }
 }

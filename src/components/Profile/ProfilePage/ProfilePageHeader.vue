@@ -2,7 +2,7 @@
   <div class="ig-planner-profile__header pb-10 mb-5">
     <v-row>
       <v-col cols="4" class="ig-planner-profile__header__avatar text-center">
-        <ProfileAvatar :size="150" :src="profile.avatar.path" />
+        <ProfileAvatar :size="150" :src="profile?.avatar?.path" />
       </v-col>
 
       <v-col cols="8">
@@ -10,24 +10,24 @@
 
         <ul class="ig-planner-profile__header__stats mb-5">
           <li>
-            <b v-text="profile.counters.posts" />
+            <b v-text="profile?.media.posts.length" />
             posts
           </li>
           <li>
-            <b v-text="profile.fields.followers_count" />
+            <b v-text="profile?.fields.followers_count" />
             followers
           </li>
           <li>
-            <b v-text="profile.fields.follows_count" />
+            <b v-text="profile?.fields.follows_count" />
             following
           </li>
         </ul>
 
-        <p class="ig-planner-profile__header__name" v-text="profile.fields.name" />
-        <p class="ig-planner-profile__header__description" v-html="profile.fields.description" />
+        <p class="ig-planner-profile__header__name" v-text="profile?.fields.name" />
+        <p class="ig-planner-profile__header__biography" v-html="profile?.fields.biography" />
 
         <a
-          v-if="profile.fields.website"
+          v-if="profile?.fields.website"
           class="ig-planner-profile__header__website"
           :href="profile.fields.website"
           target="_blank"
@@ -75,7 +75,7 @@ defineProps({
     word-wrap: break-word;
   }
 
-  &__description {
+  &__biography {
     font-size: 16px;
     line-height: 24px;
     word-wrap: break-word;

@@ -5,6 +5,7 @@ interface IConfig {
 type IConfigProfiles = { [username: string]: IProfile }
 
 interface IProfile {
+  avatar?: IProfileMediaFile
   fields: {
     biography: string
     followers_count: number
@@ -19,22 +20,6 @@ interface IProfile {
     reels: string[] | IProfileMediaReels
     stories: string[] | IProfileMediaStories
     highlights: string[] | IProfileMediaHighlights
-  }
-}
-
-interface IProfileLoaded extends IProfile {
-  avatar: IProfileMediaFile
-  counters: {
-    posts: number
-    stories: number
-    reels: number
-    highlights: number
-  }
-  media: {
-    posts: IProfileMediaPosts
-    reels: IProfileMediaReels
-    stories: IProfileMediaStories
-    highlights: IProfileMediaHighlights
   }
 }
 
