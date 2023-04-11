@@ -112,8 +112,8 @@ function parseProfileReels(profile: IProfile) {
 
   let counter = 0
 
-  for (let i = 0; i < profile.media.posts.length; i++) {
-    const mediaReel: string | IProfileMedia = profile.media.posts[i]
+  for (let i = 0; i < profile.media.reels.length; i++) {
+    const mediaReel: string | IProfileMedia = profile.media.reels[i]
 
     switch (typeof mediaReel) {
       case "string":
