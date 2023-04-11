@@ -2,7 +2,6 @@ import profilesDefault from "../config/profiles.json"
 import profilesLocal from "../../config/profiles.json"
 
 export const useConfigStore = defineStore("config", () => {
-  const profileStore = useProfileStore()
   const config: Ref<IConfig> = ref({} as IConfig)
 
   function setConfig(data: any): void {
@@ -25,17 +24,17 @@ export const useConfigStore = defineStore("config", () => {
     if (Array.isArray(profilesLocal) && profilesLocal.length > 0) {
       // load local profiles configuration provided as array
       profilesLocal.map((profile) => {
-        profiles[profile.fields.username] = profileStore.parseProfile(profile)
+        profiles[profile.fields.username] = parseProfile(profile)
       })
     } else if (Object.keys(profilesLocal).length > 0) {
       // load local profiles configuration provided as object
       Object.values(profilesLocal).map((profile) => {
-        profiles[profile.fields.username] = profileStore.parseProfile(profile)
+        profiles[profile.fields.username] = parseProfile(profile)
       })
     } else {
       // load default profiles configuration provided as object
       Object.values(profilesDefault).map((profile) => {
-        profiles[profile.fields.username] = profileStore.parseProfile(profile)
+        profiles[profile.fields.username] = parseProfile(profile)
       })
     }
 

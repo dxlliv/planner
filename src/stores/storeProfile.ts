@@ -2,6 +2,7 @@ export const useProfileStore = defineStore("profile", () => {
   const configStore = useConfigStore()
 
   const profile: Ref<IProfile> = ref({} as IProfile)
+
   function setProfile(data: IProfile): void {
     profile.value = data
   }
@@ -20,6 +21,5 @@ export const useProfileStore = defineStore("profile", () => {
     profile,
     setProfile,
     loadProfile,
-    parseProfile
   }
 })
