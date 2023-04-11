@@ -14,18 +14,20 @@ interface IProfile {
     username: string
     website: string
   }
-  media: string[] | IProfileMediaImage[] | IProfileMediaList
+  media: IProfileMedia
   reels: []
   stories: []
   highlights: []
+}
+
+type IProfileMedia = string[] | IProfileMediaImage[] | IProfileMediaList
+
+interface IProfileMediaImage {
+  path: string
 }
 
 interface IProfileMediaList {
   type: string
   list: string[] | IProfileMediaImage[]
   cover: string
-}
-
-interface IProfileMediaImage {
-  path: string
 }
