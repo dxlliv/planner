@@ -6,10 +6,8 @@
 
 <script setup lang="ts">
 defineProps({
-    src: String
+  src: String
 })
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

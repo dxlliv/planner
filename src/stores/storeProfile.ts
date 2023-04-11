@@ -46,10 +46,9 @@ export const useProfileStore = defineStore("profile", () => {
     }
 
     // check for media property
-    if (!Object.prototype.hasOwnProperty.call(data, 'media')) {
+    if (!Object.prototype.hasOwnProperty.call(data, "media")) {
       profileLoaded.media = {}
     } else {
-
       const mediaPosts: IProfileMediaPosts = []
 
       // parse media posts
@@ -65,7 +64,7 @@ export const useProfileStore = defineStore("profile", () => {
               profileLoaded.counters.posts++
               mediaPosts.push({
                 file: getProfileMedia(data, mediaPost),
-                type: "image",
+                type: "image"
               })
               break
             case "object":
@@ -81,14 +80,14 @@ export const useProfileStore = defineStore("profile", () => {
                     for (let m = 0; m < mediaPost.album.length; m++) {
                       mediaAlbum.push({
                         file: getProfileMedia(data, mediaPost.album[m]),
-                        type: mediaPost.album[m].type,
+                        type: mediaPost.album[m].type
                       })
                     }
                   }
 
                   mediaPosts.push({
                     album: mediaAlbum,
-                    type: "album",
+                    type: "album"
                   })
                   break
                 case "video":
@@ -96,7 +95,7 @@ export const useProfileStore = defineStore("profile", () => {
 
                   mediaPosts.push({
                     file: getProfileMedia(data, data.media[i].name),
-                    type: "video",
+                    type: "video"
                   })
                   break
               }
@@ -116,6 +115,6 @@ export const useProfileStore = defineStore("profile", () => {
     profile,
     setProfile,
     loadProfile,
-    parseProfile,
+    parseProfile
   }
 })

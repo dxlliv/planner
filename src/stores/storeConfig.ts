@@ -1,6 +1,5 @@
 import profilesDefault from "../config/profiles.json"
 import profilesLocal from "../../config/profiles.json"
-import {ComputedRef} from "vue";
 
 export const useConfigStore = defineStore("config", () => {
   const profileStore = useProfileStore()
