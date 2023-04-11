@@ -1,15 +1,20 @@
 <template>
-  <div :class="[
-    'rulers', {
-      'rulers--left': props.left,
-      'rulers--right': props.right
-    }
-  ]">
-    <input ref="pageRulerY" type="range" v-model="pageRulerPositionY" />
+  <div
+    :class="[
+      'rulers',
+      {
+        'rulers--left': props.left,
+        'rulers--right': props.right
+      }
+    ]"
+  >
+    <input ref="pageRulerY" v-model="pageRulerPositionY" type="range" />
 
     <div
-        class="ruler ruler--horizontal"
-        :style="{top: `${pageRulerPositionY}px`}"
+      class="ruler ruler--horizontal"
+      :style="{
+        top: `${pageRulerPositionY}px`
+      }"
     />
   </div>
 </template>
@@ -37,8 +42,7 @@ onMounted(() => {
     top: 0;
     width: 5px;
     height: 100%;
-    transform: rotate(180deg)
-
+    transform: rotate(180deg);
   }
 
   &--left {

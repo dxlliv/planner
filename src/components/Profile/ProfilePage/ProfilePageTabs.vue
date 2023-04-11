@@ -2,18 +2,26 @@
   <div class="ig-planner-profile__tabs">
     <template v-for="(tab, i) of tabs">
       <div
-          v-if="profile.stats[tab.name] > 0"
-          :class="['ig-planner-profile__tabs__tab', {'ig-planner-profile__tabs__tab--active': active === tab.name}]"
-          @click="emit('select', tab.name)"
+        v-if="profile.stats[tab.name] > 0"
+        :class="[
+          'ig-planner-profile__tabs__tab',
+          {
+            'ig-planner-profile__tabs__tab--active': active === tab.name
+          }
+        ]"
+        @click="emit('select', tab.name)"
       >
-        <v-icon size="15">{{tab.icon}}</v-icon> {{tab.label}}
+        <v-icon size="15">
+          {{ tab.icon }}
+        </v-icon>
+        {{ tab.label }}
       </div>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits(['select'])
+const emit = defineEmits(["select"])
 
 defineProps({
   profile: Object as () => IProfile,
@@ -22,14 +30,14 @@ defineProps({
 
 const tabs = [
   {
-    name: 'media',
-    label: 'Posts',
-    icon: 'mdi-grid'
+    name: "media",
+    label: "Posts",
+    icon: "mdi-grid"
   },
   {
-    name: 'reels',
-    label: 'Reels',
-    icon: 'mdi-play-box-multiple-outline'
+    name: "reels",
+    label: "Reels",
+    icon: "mdi-play-box-multiple-outline"
   }
 ]
 </script>

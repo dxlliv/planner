@@ -1,10 +1,7 @@
 <template>
   <v-container class="text-left">
     <v-row no-gutters>
-      <v-col
-        v-for="(profile, p) of profiles"
-        :key="p" class="text-center"
-      >
+      <v-col v-for="(profile, p) of profiles" :key="p" class="text-center">
         <Profile :profile="profile" />
       </v-col>
     </v-row>
@@ -14,7 +11,8 @@
     <div class="ig-planner-intro text-center">
       <h2>Plan your Instagram grid like a pro</h2>
       <p class="mt-2">
-        <a href="https://github.com/dxlliv/ig-planner">dxlliv/ig-planner</a> let you preview what your profile grid will look like.<br>
+        <a href="https://github.com/dxlliv/ig-planner">dxlliv/ig-planner</a>
+        let you preview what your profile grid will look like.<br />
         Clone the repository and build your definitive Instagram profile.
       </p>
     </div>

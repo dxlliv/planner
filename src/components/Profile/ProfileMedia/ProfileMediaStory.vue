@@ -1,20 +1,9 @@
 <template>
-  <div
-      class="ig-planner-profile__media__reel"
-  >
-    <video
-        ref="reel"
-        :src="media.path"
-    />
-    <input
-        ref="slider"
-        type="range"
-        class="ig-planner-profile__media__reel-slider"
-        v-model="media.cover"
-        @change="updateMediaCover"
-    />
+  <div class="ig-planner-profile__media__reel">
+    <video ref="reel" :src="media.path" />
+    <input ref="slider" v-model="media.cover" type="range" class="ig-planner-profile__media__reel-slider" @change="updateMediaCover" />
     <div class="ig-planner-profile__media__reel-slider__value">
-      {{media.cover / 10}}
+      {{ media.cover / 10 }}
     </div>
   </div>
 </template>
@@ -28,11 +17,15 @@ const reel = ref(null)
 const slider = ref(null)
 
 onMounted(() => {
-  reel.value.addEventListener('loadedmetadata', function() {
-    props.media.cover = props.media.cover * 10
-    reel.value.currentTime = props.media.cover / 10
-    slider.value.max = reel.value.duration * 10
-  }, false)
+  reel.value.addEventListener(
+    "loadedmetadata",
+    function () {
+      props.media.cover = props.media.cover * 10
+      reel.value.currentTime = props.media.cover / 10
+      slider.value.max = reel.value.duration * 10
+    },
+    false
+  )
 })
 
 function updateMediaCover() {

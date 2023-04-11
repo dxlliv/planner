@@ -1,37 +1,21 @@
 <template>
   <div v-if="profile" class="ig-planner-profile">
     <v-container>
+      <ProfilePageHeader :profile="profile" />
 
-      <InstagramProfileHeader
-          :profile="profile"
-      />
+      <ProfilePageTabs :profile="profile" :active="tab" @select="(value) => (tab = value)" />
 
-      <InstagramProfileTabs
-        @select="(value) => tab = value"
-        :profile="profile"
-        :active="tab"
-      />
-
-      <InstagramProfileMedia
-          v-if="profile.media"
-          :profile="profile"
-          :mode="tab"
-      />
-
+      <ProfilePageMedia v-if="profile.media" :profile="profile" :mode="tab" />
     </v-container>
   </div>
 </template>
 
 <script setup lang="ts">
-import InstagramProfileHeader from "~/components/Profile/ProfilePage/ProfilePageHeader.vue"
-import InstagramProfileTabs from "~/components/Profile/ProfilePage/ProfilePageTabs.vue";
-import InstagramProfileMedia from "~/components/Profile/ProfilePage/ProfilePageMedia.vue";
-
 defineProps({
   profile: Object as () => IProfile
 })
 
-const tab = ref('posts')
+const tab = ref("posts")
 </script>
 
 <style scoped lang="scss">

@@ -1,6 +1,6 @@
 {
   "dxlliv": {
-    "fields":  {
+    "fields": {
       "username": "dxlliv",
       "biography": "Developer of Things\n\n",
       "avatar": "avatar.jpg",
@@ -11,11 +11,7 @@
     "media": [
       {
         "type": "album",
-        "list": [
-          "6.jpg",
-          "6x1.jpg",
-          "6x2.jpg"
-        ]
+        "list": ["6.jpg", "6x1.jpg", "6x2.jpg"]
       },
       "5.jpg",
       "4.jpg",

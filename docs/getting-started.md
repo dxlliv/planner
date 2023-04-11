@@ -25,7 +25,7 @@ You can find the profiles configuration in `config/profiles.json`.
 ```json
 {
   "dxlliv": {
-    "details":  {
+    "details": {
       "name": "",
       "username": "dxlliv",
       "description": "Developer of things",
@@ -36,11 +36,7 @@ You can find the profiles configuration in `config/profiles.json`.
         "following": 50
       }
     },
-    "media": [
-      "3.jpg",
-      "2.jpg",
-      "1.jpg"
-    ]
+    "media": ["3.jpg", "2.jpg", "1.jpg"]
   }
 }
 ```
@@ -55,7 +51,7 @@ An avatar should be placed as `avatar.jpg` in your profile folder.
 
 ### Add some media
 
-IG Planner supports different [media types](media): images, videos, albums and reels.  
+IG Planner supports different [media types](media): images, videos, albums and reels.
 
 Just add your files in the media profiles folder in `public/profiles/{id}/media/`,  
 then define all your media in the profiles configuration like the example above.

@@ -4,14 +4,13 @@
 
     <footer class="py-6">
       <a href="https://github.com/dxlliv/ig-planner" target="_blank">
-        <v-icon class="mt-n1 mr-1">mdi-github</v-icon> IG Planner
+        <v-icon class="mt-n1 mr-1">mdi-github</v-icon>
+        IG Planner
       </a>
 
       &middot;
 
-      <a href="https://dxlliv.github.io/ig-planner/docs" target="_blank">
-        Docs
-      </a>
+      <a href="https://dxlliv.github.io/ig-planner/docs" target="_blank"> Docs </a>
     </footer>
   </v-app>
 </template>
@@ -19,20 +18,20 @@
 <script setup lang="ts">
 const options = reactive({
   rulers: false,
-  theme: 'light'
+  theme: "light"
 })
 
-provide('options', options)
+provide("options", options)
 
 useConfigStore().loadConfig()
 
 onMounted(() => {
-  window.addEventListener('keydown', e => {
-    if (String.fromCharCode(e.keyCode) === 'R') {
+  window.addEventListener("keydown", (e) => {
+    if (String.fromCharCode(e.keyCode) === "R") {
       options.rulers = !options.rulers
     }
-    if (String.fromCharCode(e.keyCode) === 'D') {
-      options.theme = options.theme === 'dark' ? 'light' : 'dark'
+    if (String.fromCharCode(e.keyCode) === "D") {
+      options.theme = options.theme === "dark" ? "light" : "dark"
     }
   })
 })
@@ -40,7 +39,7 @@ onMounted(() => {
 
 <style lang="scss">
 #app {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

@@ -8,37 +8,32 @@
       </v-col>
 
       <v-col cols="8">
-        <div
-            class="ig-planner-profile__header__username mb-4"
-           v-text="profile.fields.username"
-        />
+        <div class="ig-planner-profile__header__username mb-4" v-text="profile.fields.username" />
 
-      <ul class="ig-planner-profile__header__stats mb-5">
+        <ul class="ig-planner-profile__header__stats mb-5">
           <li>
-            <b v-text="profile.media && profile.media.length" /> posts
+            <b v-text="profile.media && profile.media.length" />
+            posts
           </li>
           <li>
-            <b v-text="profile.fields.followers_count" /> followers
+            <b v-text="profile.fields.followers_count" />
+            followers
           </li>
           <li>
-            <b v-text="profile.fields.follows_count" /> following
+            <b v-text="profile.fields.follows_count" />
+            following
           </li>
         </ul>
 
-        <p
-            class="ig-planner-profile__header__name"
-            v-text="profile.fields.name"
-        />
-        <p
-            class="ig-planner-profile__header__description"
-            v-html="profile.fields.description"
-        />
+        <p class="ig-planner-profile__header__name" v-text="profile.fields.name" />
+        <p class="ig-planner-profile__header__description" v-html="profile.fields.description" />
 
         <a
-            v-if="profile.fields.website"
-            class="ig-planner-profile__header__website"
-            :href="profile.fields.website" target="_blank"
-            v-text="profile.fields.website.replace('http://', '').replace('https://', '')"
+          v-if="profile.fields.website"
+          class="ig-planner-profile__header__website"
+          :href="profile.fields.website"
+          target="_blank"
+          v-text="profile.fields.website.replace('http://', '').replace('https://', '')"
         />
       </v-col>
     </v-row>

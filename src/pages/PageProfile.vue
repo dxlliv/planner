@@ -1,7 +1,5 @@
 <template>
-  <ProfilePage
-    :profile="profile"
-  />
+  <ProfilePage :profile="profile" />
 
   <template v-if="options.rulers">
     <ToolRuler left />
@@ -16,13 +14,15 @@ const router = useRouter()
 const profileStore = useProfileStore()
 
 const profile = computed(() => profileStore.profile)
-const options = inject('options')
+const options = inject("options")
 
 onBeforeMount(async () => {
-  await profileStore.loadProfile(route.params.username)
-    .catch(e => {
-      console.error(e)
-      router.push({ name: 'index', hash: '#404' })
+  await profileStore.loadProfile(route.params.username).catch((e) => {
+    console.error(e)
+    router.push({
+      name: "index",
+      hash: "#404"
     })
+  })
 })
 </script>
