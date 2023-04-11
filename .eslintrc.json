@@ -8,6 +8,7 @@
     "plugin:vue/vue3-recommended",
     "eslint:recommended",
     ".eslintrc-auto-import.json",
+    "prettier",
     ".prettierrc.json"
   ],
   "parser": "vue-eslint-parser",
