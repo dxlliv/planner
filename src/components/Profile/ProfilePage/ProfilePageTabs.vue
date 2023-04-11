@@ -24,23 +24,28 @@
 <script setup lang="ts">
 const emit = defineEmits(["select"])
 
-defineProps({
+const props = defineProps({
   profile: Object as () => IProfile,
   active: String
 })
 
-const tabs = [
-  {
-    name: "posts",
-    label: "Posts",
-    icon: "mdi-grid"
-  },
-  {
-    name: "reels",
-    label: "Reels",
-    icon: "mdi-play-box-multiple-outline"
-  }
-]
+const tabs = []
+
+if (props.profile?.media.posts.length > 0) {
+    tabs.push({
+      name: "posts",
+      label: "Posts",
+      icon: "mdi-grid"
+    })
+}
+
+if (props.profile?.media.reels.length > 0) {
+    tabs.push({
+      name: "reels",
+      label: "Reels",
+      icon: "mdi-play-box-multiple-outline"
+    })
+}
 </script>
 
 <style scoped lang="scss">
