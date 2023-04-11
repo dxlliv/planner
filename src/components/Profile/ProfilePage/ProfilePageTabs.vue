@@ -61,11 +61,11 @@ if (props.profile?.media.reels.length > 0) {
     font-size: 13px;
     font-weight: 600;
     padding: 18px 25px;
-    color: #929292;
+    color: var(--igp-tab-color);
 
     &--active {
-      color: #262626;
-      box-shadow: 0 -1px 0 0 black;
+      color: var(--igp-tab-color-active);
+      box-shadow: 0 -1px 0 0 var(--igp-tab-color-border);
     }
 
     .v-icon {

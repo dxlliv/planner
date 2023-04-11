@@ -1,5 +1,5 @@
 <template>
-  <v-app :data-theme="options.theme">
+  <v-app>
     <router-view />
 
     <MainFooter />
@@ -7,14 +7,17 @@
 </template>
 
 <script setup lang="ts">
+import {useTheme} from "vuetify";
+
 const options = reactive({
-  rulers: false,
-  theme: "light"
+  rulers: false
 })
 
 provide("options", options)
 
 useConfigStore().loadConfig()
+
+const theme = useTheme()
 
 onMounted(() => {
   window.addEventListener("keydown", (e) => {
@@ -22,7 +25,7 @@ onMounted(() => {
       options.rulers = !options.rulers
     }
     if (String.fromCharCode(e.keyCode) === "D") {
-      options.theme = options.theme === "dark" ? "light" : "dark"
+      theme.global.name.value = theme.global.name.value === "dark" ? "light" : "dark"
     }
   })
 })
@@ -30,34 +33,5 @@ onMounted(() => {
 
 <style lang="scss">
 @import "assets/styles/variables.scss";
-
-#app {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-
-  .v-application {
-    padding-top: 60px;
-
-    &[data-theme="dark"] {
-      background: white;
-      color: #262626;
-    }
-
-    &[data-theme="dark"] {
-      background: black;
-      color: white;
-
-      .instagram__header {
-        border-bottom: 1px solid #282828;
-      }
-
-      .instagram__tabs__tab--active {
-        color: #bbbbbb;
-        box-shadow: 0 -1px 0 0 #4c4c4c;
-      }
-    }
-  }
-}
+@import "assets/styles/index.scss";
 </style>
