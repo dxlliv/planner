@@ -1,12 +1,12 @@
-{
-  "dxlliv": {
+[
+  {
     "fields": {
       "username": "dxlliv",
-      "biography": "Developer of Things.\n",
+      "biography": "Developer of Things.",
       "avatar": "avatar.jpg",
       "website": "https://dxlliv.dev",
-      "followers_count": 0,
-      "follows_count": 0
+      "followers_count": 50,
+      "follows_count": 50
     },
     "media": {
       "posts": [
@@ -20,8 +20,9 @@
         "2.jpg",
         "1.jpg"
       ],
+      "reels": [],
       "stories": [],
       "highlights": []
     }
   }
-}
+]
