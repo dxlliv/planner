@@ -1,5 +1,5 @@
 <template>
-  <div class="igp-profile-feed__post__header">
+  <div class="ig-profile-feed__post__header">
     <v-row>
       <v-col class="flex-lg-shrink-0">
         <ProfileAvatar :size="32" :avatar="profile?.avatar"  />
@@ -12,9 +12,9 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-    profile: Object as () => IProfile
-})
+defineProps<{
+  profile: IProfile
+}>()
 </script>
 
 <style scoped lang="scss">

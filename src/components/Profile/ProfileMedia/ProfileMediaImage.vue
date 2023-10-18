@@ -1,11 +1,11 @@
 <template>
-  <v-img class="igp-profile-media igp-profile-media--image" :src="media.file.path" />
+  <v-img class="ig-profile-media ig-profile-media--image" :src="media.file.path" />
 </template>
 
 <script setup lang="ts">
-defineProps({
-  media: Object as () => IProfileMedia
-})
+defineProps<{
+  media: IProfileMedia
+}>()
 </script>
 
 <style scoped lang="scss">

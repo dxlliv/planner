@@ -2,6 +2,10 @@ import usersDemo from "../config/users.json"
 import usersLocal from "../../config/users.json"
 
 export const useConfigStore = defineStore("config", () => {
+    const options: Ref<any> = ref({
+        rulers: false
+    })
+
     const users: Ref<IUsers> = ref({})
 
     function loadConfig(): boolean {
@@ -42,6 +46,7 @@ export const useConfigStore = defineStore("config", () => {
 
     return {
         loadConfig,
-        users
+        options,
+        users,
     }
 })

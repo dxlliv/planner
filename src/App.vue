@@ -8,18 +8,14 @@
 
 <script setup lang="ts">
 const theme = useTheme()
-const options = reactive({
-  rulers: false
-})
-
-provide("options", options)
+const configStore = useConfigStore()
 
 useConfigStore().loadConfig()
 
 onMounted(() => {
   window.addEventListener("keydown", (e) => {
     if (String.fromCharCode(e.keyCode) === "R") {
-      options.rulers = !options.rulers
+      configStore.options.rulers = !configStore.options.rulers
     }
     if (String.fromCharCode(e.keyCode) === "D") {
       theme.global.name.value = theme.global.name.value === "dark" ? "light" : "dark"
@@ -31,4 +27,5 @@ onMounted(() => {
 <style lang="scss">
 @import "assets/styles/variables.scss";
 @import "assets/styles/index.scss";
+@import "vue3-carousel/dist/carousel.css";
 </style>

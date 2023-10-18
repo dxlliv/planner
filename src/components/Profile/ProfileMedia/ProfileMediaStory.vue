@@ -1,17 +1,17 @@
 <template>
-  <div class="igp-profile-media igp-profile-media--story">
+  <div class="ig-profile-media ig-profile-media--story">
     <video ref="reel" :src="media.file.path" />
-    <input ref="slider" v-model="mediaCover" type="range" class="igp-profile-media--story-slider" @change="updateMediaCover" />
-    <div class="igp-profile-media--story-slider__value">
+    <input ref="slider" v-model="mediaCover" type="range" class="ig-profile-media--story-slider" @change="updateMediaCover" />
+    <div class="ig-profile-media--story-slider__value">
       {{ mediaCover / 10 }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  media: Object as () => IProfileMedia
-})
+const props = defineProps<{
+  media: IProfileMedia
+}>()
 
 const reel = ref(null)
 const slider = ref(null)
@@ -36,7 +36,7 @@ function updateMediaCover() {
 </script>
 
 <style scoped lang="scss">
-.igp-profile-media {
+.ig-profile-media {
   border-top: 1px solid #dbdbdb;
   margin-top: 40px;
   padding-top: 20px;
@@ -75,7 +75,7 @@ function updateMediaCover() {
     }
 
     &:hover {
-      .igp-profile-media--reel-slider {
+      .ig-profile-media--reel-slider {
         opacity: 1;
 
         &__value {

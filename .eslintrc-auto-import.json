@@ -89,6 +89,7 @@
     "toValue": true,
     "useTheme": true,
     "getProfileMediaImage": true,
-    "getProfileMediaVideo": true
+    "getProfileMediaVideo": true,
+    "useUserStore": true
   }
 }

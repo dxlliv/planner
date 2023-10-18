@@ -1,37 +1,40 @@
 <template>
-  <div class="igp-profile-page__header pb-10 mb-5">
+  <div class="ig-profile-page__header pb-10 mb-5">
     <v-row>
-      <v-col cols="4" class="igp-profile-page__header__avatar text-center">
+      <v-col cols="4" class="ig-profile-page__header__avatar text-center">
         <ProfileAvatar :size="150" :avatar="profile?.avatar" />
       </v-col>
 
       <v-col cols="8">
-        <div class="igp-profile-page__header__username mb-5" v-text="profile.fields.username" />
+        <div
+            class="ig-profile-page__header__username mb-5"
+            v-text="profile.username"
+        />
 
-        <ul class="igp-profile-page__header__stats mb-5">
+        <ul class="ig-profile-page__header__stats mb-5">
           <li>
-            <b v-text="profile?.media.posts.length" />
+            <b v-text="profile?.posts_count" />
             posts
           </li>
           <li>
-            <b v-text="profile?.fields.followers_count" />
+            <b v-text="profile?.followers_count" />
             followers
           </li>
           <li>
-            <b v-text="profile?.fields.follows_count" />
+            <b v-text="profile?.follows_count" />
             following
           </li>
         </ul>
 
-        <p class="igp-profile-page__header__name" v-text="profile?.fields.name" />
-        <p class="igp-profile-page__header__biography" v-html="profile?.fields.biography" />
+        <p class="ig-profile-page__header__name" v-text="profile.name" />
+        <p class="ig-profile-page__header__biography" v-html="profile.biography" />
 
         <a
-          v-if="profile?.fields.website"
-          class="igp-profile-page__header__website"
-          :href="profile.fields.website"
+          v-if="profile.website"
+          class="ig-profile-page__header__website"
+          :href="profile.website.href"
           target="_blank"
-          v-text="profile.fields.website.replace('http://', '').replace('https://', '')"
+          v-text="profile.website.label"
         />
       </v-col>
     </v-row>
@@ -39,22 +42,22 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  profile: Object as () => IProfile
-})
+const {profile} = defineProps<{
+  profile: IUserProfile
+}>()
 </script>
 
 <style scoped lang="scss">
-.igp-profile-page__header {
+.ig-profile-page__header {
   text-align: left;
   min-height: 210px;
-  border-bottom: 1px solid var(--igp-border);
+  border-bottom: 1px solid var(--ig-border);
 
   &__avatar {
     user-select: none;
 
     .v-avatar {
-      border: 1px solid var(--igp-border);
+      border: 1px solid var(--ig-border);
     }
   }
 

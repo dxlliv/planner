@@ -1,5 +1,5 @@
 <template>
-  <div class="igp-profile-feed">
+  <div class="ig-profile-feed">
     <slot />
   </div>
 </template>

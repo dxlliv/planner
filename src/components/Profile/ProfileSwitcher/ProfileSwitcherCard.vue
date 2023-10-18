@@ -1,5 +1,5 @@
 <template>
-  <div class="igp-profile">
+  <div class="ig-profile">
     <router-link
       :to="{
         name: 'profile',
@@ -17,9 +17,9 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  profile: Object as () => IProfile
-})
+const {profile} = defineProps<{
+  profile: IProfile
+}>()
 </script>
 
 <style scoped lang="scss">

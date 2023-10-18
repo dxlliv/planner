@@ -54,11 +54,15 @@ interface IUser {
 interface IUserProfile {
   name: string
   username: string
-  website?: string
+  website: null | {
+    href: string
+    label: string
+  }
   biography?: string
   avatar: IProfileMediaFile
   followers_count: number
   follows_count: number
+  posts_count: number
   media: {
     posts: IProfileMedia[]
     reels: IProfileMedia[]

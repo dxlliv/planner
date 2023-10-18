@@ -1,21 +1,21 @@
 <template>
-  <div class="igp-profile-media igp-profile-media--video">
+  <div class="ig-profile-media ig-profile-media--video">
     <video ref="video" :src="media.file.path" />
-    <input ref="slider" v-model="mediaCover" type="range" class="igp-profile-media--video-slider" @change="updateMediaCover" />
-    <div class="igp-profile-media--video-slider__value">
+    <input ref="slider" v-model="mediaCover" type="range" class="ig-profile-media--video-slider" @change="updateMediaCover" />
+    <div class="ig-profile-media--video-slider__value">
       {{ mediaCover / 10 }}
     </div>
 
-    <div class="igp-profile-media__icon">
+    <div class="ig-profile-media__icon">
       <v-icon>mdi-play</v-icon>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  media: Object as () => IProfileMedia
-})
+const props = defineProps<{
+  media: IProfileMedia
+}>()
 
 const video = ref(null)
 const slider = ref(null)

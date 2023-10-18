@@ -1,5 +1,5 @@
 <template>
-  <div class="igp-intro text-center">
+  <div class="ig-intro text-center">
     <h2>Plan your Instagram grid like a pro</h2>
     <p class="mt-2">
       <a href="https://github.com/dxlliv/ig-planner">dxlliv/ig-planner</a>
@@ -10,7 +10,7 @@
 </template>
 
 <style scoped lang="scss">
-.igp-intro {
+.ig-intro {
   a {
     color: inherit;
     opacity: 0.65;

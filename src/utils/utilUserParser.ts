@@ -6,11 +6,19 @@ export function parseProfile(config: IConfigUser): IUser {
   // set fields
   data.profile.name = config.profile.name
   data.profile.username = config.profile.username
-  data.profile.website = config.profile.website
+
+  data.profile.posts_count = 0
+  data.profile.followers_count = Number(config.profile.followers_count)
+  data.profile.follows_count = Number(config.profile.follows_count)
+
+  data.profile.website = !config.profile.website ? null : {
+    href: config.profile.website,
+    label: new URL(config.profile.website).hostname
+  }
 
   // parse fields biography
-  if (data.profile.biography) {
-    data.profile.biography = data.profile.biography.replace(/(?:\r\n|\r|\n)/g, "<br>")
+  if (config.profile.biography) {
+    data.profile.biography = config.profile.biography?.replace(/(?:\r\n|\r|\n)/g, "<br>")
   }
 
   // set parsed avatar
@@ -25,7 +33,7 @@ export function parseProfile(config: IConfigUser): IUser {
   }
 
   // check for media property
-  if (Object.prototype.hasOwnProperty.call(config, "media")) {
+  if (Object.prototype.hasOwnProperty.call(config.profile, "media")) {
 
     // parse media posts
     if (config.profile.media.posts) {
@@ -43,6 +51,8 @@ export function parseProfile(config: IConfigUser): IUser {
 
 function parseProfilePosts(config: IConfigUser) {
   const parsedPosts: any = []
+
+  let mediaAlbum: IProfileMediaAlbumList = []
 
   for (let mediaPost of config.profile.media.posts) {
 
@@ -69,29 +79,37 @@ function parseProfilePosts(config: IConfigUser) {
               type: "video"
             })
             break;
-          /*
           case "album":
 
-            // reset array
-            const mediaAlbum: IUserMediaAlbumList = []
+            mediaAlbum = []
 
             // parse albums
             if (Array.isArray(mediaPost.list)) {
               for (let albumMediaPost of mediaPost.list) {
-                switch (albumMediaPost.type) {
-                  case "image":
-                    mediaAlbum.push({
-                      file: getProfileMediaImage(config, albumMediaPost.file),
-                      type: "video"
-                    })
-                    break;
-                  case "video":
-                    mediaAlbum.push({
-                      file: getProfileMediaVideo(config, albumMediaPost.file),
-                      type: "video"
-                    })
-                    break;
 
+                switch (typeof albumMediaPost) {
+                  case "string":
+                    mediaAlbum.push({
+                      file: getProfileMediaImage(config, albumMediaPost),
+                      type: "image"
+                    })
+                    break;
+                  case "object":
+                    switch (albumMediaPost.type) {
+                      case "image":
+                        mediaAlbum.push({
+                          file: getProfileMediaImage(config, albumMediaPost.file),
+                          type: "image"
+                        })
+                        break;
+                      case "video":
+                        mediaAlbum.push({
+                          file: getProfileMediaVideo(config, albumMediaPost.file),
+                          type: "video"
+                        })
+                        break;
+                    }
+                    break;
                 }
               }
             }
@@ -101,7 +119,6 @@ function parseProfilePosts(config: IConfigUser) {
               type: 'album'
             })
             break
-           */
         }
 
         break

@@ -1,23 +1,23 @@
 :root {
   .v-theme--light {
-    --igp-background: white;
-    --igp-color: #262626;
+    --ig-background: white;
+    --ig-color: #262626;
 
-    --igp-border: #dbdbdb;
+    --ig-border: #dbdbdb;
 
-    --igp-tab-color: #929292;
-    --igp-tab-color-active: #262626;
-    --igp-tab-color-border: black;
+    --ig-tab-color: #929292;
+    --ig-tab-color-active: #262626;
+    --ig-tab-color-border: black;
   }
 
   .v-theme--dark {
-    --igp-background: black;
-    --igp-color: white;
+    --ig-background: black;
+    --ig-color: white;
 
-    --igp-border: #282828;
+    --ig-border: #282828;
 
-    --igp-tab-color: #929292;
-    --igp-tab-color-active: #bbbbbb;
-    --igp-tab-color-border: #4c4c4c;
+    --ig-tab-color: #929292;
+    --ig-tab-color-active: #bbbbbb;
+    --ig-tab-color-border: #4c4c4c;
   }
 }

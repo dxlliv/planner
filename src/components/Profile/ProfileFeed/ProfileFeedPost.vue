@@ -1,13 +1,13 @@
 <template>
-  <div class="igp-profile-feed-post">
+  <div class="ig-profile-feed-post">
     <ProfileFeedPostHeader :profile="profile" />
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps({
-    profile: Object as () => IProfile
-})
+defineProps<{
+  profile: IProfile
+}>()
 </script>
 
 <style scoped lang="scss">

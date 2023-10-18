@@ -19,11 +19,11 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  left: Boolean,
-  right: Boolean
-})
+<script setup lang="ts">
+const props = defineProps<{
+  left: boolean
+  right: boolean
+}>()
 
 const pageRulerY = ref()
 const pageRulerPositionY = ref(0)
@@ -37,7 +37,6 @@ onMounted(() => {
 .rulers {
   input {
     writing-mode: bt-lr; /* IE */
-    -webkit-appearance: slider-vertical; /* WebKit */
     position: fixed;
     top: 0;
     width: 5px;

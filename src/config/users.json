@@ -2,7 +2,7 @@
   "dxlliv": {
     "profile": {
       "username": "dxlliv",
-      "biography": "Developer of Things.",
+      "biography": "I write code on WebStorm.",
       "avatar": "avatar.jpg",
       "website": "https://dxlliv.dev",
       "followers_count": 50,
@@ -11,7 +11,7 @@
         "posts": [
           {
             "type": "album",
-            "list": ["6.jpg", "6x1.jpg", "6x2.jpg"]
+            "list": ["6.jpg", "6x1.jpg"]
           },
           "5.jpg",
           "4.jpg",

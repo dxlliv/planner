@@ -1,22 +1,21 @@
 <template>
-  <div class="igp-profile-media igp-profile-media--album">
+  <div class="ig-profile-media ig-profile-media--album">
     <Carousel>
-      <Slide v-for="(media, i) of media.album" :key="i">
-        <ProfileMediaImage :media="media" />
+      <Slide v-for="(item, i) of media.list" :key="i">
+        <ProfileMediaImage :media="item" />
       </Slide>
     </Carousel>
 
-    <div class="igp-profile-media__icon">
+    <div class="ig-profile-media__icon">
       <v-icon>mdi-folder-multiple-image</v-icon>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import "vue3-carousel/dist/carousel.css"
 import { Carousel, Slide } from "vue3-carousel"
 
-defineProps({
-  media: Object as () => IProfileMedia
-})
+defineProps<{
+  media: IProfileMedia
+}>()
 </script>

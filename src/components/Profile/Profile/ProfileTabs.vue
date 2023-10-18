@@ -1,13 +1,13 @@
 <template>
-  <div class="igp-profile-page__tabs">
+  <div class="ig-profile-page__tabs">
     <template v-for="(tab, i) of tabs">
       <div
         v-if="profile?.media[tab.name].length > 0"
         :key="i"
         :class="[
-          'igp-profile-page__tabs__tab',
+          'ig-profile-page__tabs__tab',
           {
-            'igp-profile-page__tabs__tab--active': active === tab.name
+            'ig-profile-page__tabs__tab--active': active === tab.name
           }
         ]"
         @click="emit('select', tab.name)"
@@ -24,10 +24,10 @@
 <script setup lang="ts">
 const emit = defineEmits(["select"])
 
-const props = defineProps({
-  profile: Object as () => IProfile,
-  active: String
-})
+const props = defineProps<{
+  profile: IProfile,
+  active: string
+}>()
 
 const tabs = []
 
@@ -49,7 +49,7 @@ if (props.profile?.media.reels.length > 0) {
 </script>
 
 <style scoped lang="scss">
-.igp-profile-page__tabs {
+.ig-profile-page__tabs {
   display: block;
   margin-top: -20px;
   padding: 0;
@@ -61,11 +61,11 @@ if (props.profile?.media.reels.length > 0) {
     font-size: 13px;
     font-weight: 600;
     padding: 18px 25px;
-    color: var(--igp-tab-color);
+    color: var(--ig-tab-color);
 
     &--active {
-      color: var(--igp-tab-color-active);
-      box-shadow: 0 -1px 0 0 var(--igp-tab-color-border);
+      color: var(--ig-tab-color-active);
+      box-shadow: 0 -1px 0 0 var(--ig-tab-color-border);
     }
 
     .v-icon {

@@ -2,7 +2,7 @@
   <v-container class="text-left">
     <v-row no-gutters>
       <v-col v-for="(user, p) of users" :key="p" class="text-center">
-        <Profile :profile="user.profile" />
+        <ProfileSwitcherCard :profile="user.profile" />
       </v-col>
     </v-row>
 
