@@ -34,11 +34,10 @@ export const useConfigStore = defineStore("config", () => {
         }
 
         // parse local profiles
-        Object.keys(usersConfig).map((userKey: string) => {
-            const user = usersConfig[userKey]
+        usersConfig.map((user: IUser) => {
 
             // parse profile
-            users.value[userKey] = parseProfile(user)
+            users.value[user.profile.username] = parseProfile(user)
         })
 
         return true

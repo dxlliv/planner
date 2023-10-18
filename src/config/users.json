@@ -1,5 +1,5 @@
-{
-  "dxlliv": {
+[
+  {
     "profile": {
       "username": "dxlliv",
       "biography": "I write code on WebStorm.",
@@ -26,4 +26,4 @@
     },
     "options": {}
   }
-}
+]
