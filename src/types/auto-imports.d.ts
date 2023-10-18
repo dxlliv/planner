@@ -21,6 +21,7 @@ declare global {
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getProfileAvatar: typeof import('../utils/utilUserParser')['getProfileAvatar']
   const getProfileMedia: typeof import('../utils/utilProfileParser')['getProfileMedia']
+  const getProfileMediaIframe: typeof import('../utils/utilUserParser')['getProfileMediaIframe']
   const getProfileMediaImage: typeof import('../utils/utilUserParser')['getProfileMediaImage']
   const getProfileMediaVideo: typeof import('../utils/utilUserParser')['getProfileMediaVideo']
   const h: typeof import('vue')['h']

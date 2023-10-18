@@ -23,8 +23,12 @@ interface IConfigUser {
   options: any
 }
 
-type IConfigUserProfileMedia = string | IConfigUserProfileMediaImage | IConfigUserProfileMediaVideo | IConfigUserProfileMediaAlbum
-type IConfigUserProfileMediaAlbumList = (IConfigUserProfileMediaImage|IConfigUserProfileMediaVideo)[]
+type IConfigUserProfileMedia = string
+    | IConfigUserProfileMediaImage
+    | IConfigUserProfileMediaVideo
+    | IConfigUserProfileMediaIframe
+    | IConfigUserProfileMediaAlbum
+type IConfigUserProfileMediaAlbumList = (IConfigUserProfileMediaImage|IConfigUserProfileMediaVideo|IConfigUserProfileMediaIframe)[]
 
 type IConfigUserProfileMediaImage = {
   type: "image"
@@ -34,6 +38,11 @@ type IConfigUserProfileMediaImage = {
 type IConfigUserProfileMediaVideo = {
   type: "video"
   file: string
+}
+
+type IConfigUserProfileMediaIframe = {
+  type: "iframe"
+  href: string
 }
 
 type IConfigUserProfileMediaAlbum = {
@@ -76,8 +85,12 @@ interface IUserOptions {
 }
 
 
-type IProfileMedia = string | IProfileMediaImage | IProfileMediaVideo | IProfileMediaAlbum
-type IProfileMediaAlbumList = (IProfileMediaImage|IProfileMediaVideo)[]
+type IProfileMedia = string
+    | IProfileMediaImage
+    | IProfileMediaVideo
+    | IProfileMediaIframe
+    | IProfileMediaAlbum
+type IProfileMediaAlbumList = (IProfileMediaImage|IProfileMediaVideo|IProfileMediaIframe)[]
 
 type IProfileMediaImage = {
   type: "image"
@@ -87,6 +100,11 @@ type IProfileMediaImage = {
 type IProfileMediaVideo = {
   type: "video"
   file: IProfileMediaFile
+}
+
+type IProfileMediaIframe = {
+  type: "iframe"
+  href: string
 }
 
 type IProfileMediaAlbum = {

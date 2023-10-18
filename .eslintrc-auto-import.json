@@ -90,6 +90,7 @@
     "useTheme": true,
     "getProfileMediaImage": true,
     "getProfileMediaVideo": true,
-    "useUserStore": true
+    "useUserStore": true,
+    "getProfileMediaIframe": true
   }
 }

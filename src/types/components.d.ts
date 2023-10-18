@@ -18,6 +18,7 @@ declare module 'vue' {
     ProfileHeader: typeof import('./../components/Profile/Profile/ProfileHeader.vue')['default']
     ProfileMedia: typeof import('./../components/Profile/Profile/ProfileMedia.vue')['default']
     ProfileMediaAlbum: typeof import('./../components/Profile/ProfileMedia/ProfileMediaAlbum.vue')['default']
+    ProfileMediaIframe: typeof import('./../components/Profile/ProfileMedia/ProfileMediaIframe.vue')['default']
     ProfileMediaImage: typeof import('./../components/Profile/ProfileMedia/ProfileMediaImage.vue')['default']
     ProfileMediaStory: typeof import('./../components/Profile/ProfileMedia/ProfileMediaStory.vue')['default']
     ProfileMediaVideo: typeof import('./../components/Profile/ProfileMedia/ProfileMediaVideo.vue')['default']

@@ -79,6 +79,12 @@ function parseProfilePosts(config: IConfigUser) {
               type: "video"
             })
             break;
+          case "iframe":
+            parsedPosts.push({
+              href: getProfileMediaIframe(config, mediaPost.href),
+              type: "iframe"
+            })
+            break;
           case "album":
 
             mediaAlbum = []
@@ -108,6 +114,12 @@ function parseProfilePosts(config: IConfigUser) {
                           type: "video"
                         })
                         break;
+                      case "iframe":
+                        parsedPosts.push({
+                          href: getProfileMediaIframe(config, albumMediaPost.href),
+                          type: "iframe"
+                        })
+                        break;
                     }
                     break;
                 }
@@ -128,7 +140,15 @@ function parseProfilePosts(config: IConfigUser) {
   return parsedPosts
 }
 
-export function getProfileAvatar(config: IConfigUser): IUserMediaFile {
+function getMediaPath(config: IConfigUser, filename: string) {
+  if (filename.startsWith('http')) {
+    return ''
+  }
+
+  return `profiles/${config.profile.username}/media/${filename}`
+}
+
+export function getProfileAvatar(config: IConfigUser): IProfileMediaFile {
   let avatarFilename = "avatar.jpg"
 
   if (config.profile.avatar) {
@@ -141,16 +161,20 @@ export function getProfileAvatar(config: IConfigUser): IUserMediaFile {
   }
 }
 
-export function getProfileMediaImage(config: IConfigUser, filename: string): IUserMediaFile {
+export function getProfileMediaImage(config: IConfigUser, filename: string): IProfileMediaFile {
   return {
     filename,
-    path: `profiles/${config.profile.username}/media/${filename}`
+    path: getMediaPath(config, filename)
   }
 }
 
-export function getProfileMediaVideo(config: IConfigUser, filename: string): IUserMediaFile {
+export function getProfileMediaIframe(config: IConfigUser, href: string): string {
+  return href
+}
+
+export function getProfileMediaVideo(config: IConfigUser, filename: string): IProfileMediaFile {
   return {
     filename,
-    path: `profiles/${config.profile.username}/media/${filename}`
+    path: getMediaPath(config, filename)
   }
 }

@@ -12,6 +12,10 @@
             <ProfileMediaVideo :media="media" />
           </v-col>
 
+          <v-col v-if="media.type === 'iframe'" :cols="4">
+            <ProfileMediaIframe :media="media" />
+          </v-col>
+
           <v-col v-if="media.type === 'album'" :cols="4">
             <ProfileMediaAlbum :media="media" />
           </v-col>
