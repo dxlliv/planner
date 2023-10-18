@@ -28,6 +28,11 @@ export default defineConfig({
         "pinia",
         // custom
         {
+          "vuetify": [
+              "useTheme"
+          ]
+        },
+        {
           "@vueuse/core": [
             // named imports
             // 'useMouse', // import { useMouse } from '@vueuse/core',

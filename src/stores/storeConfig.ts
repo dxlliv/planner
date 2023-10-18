@@ -1,52 +1,47 @@
-import profilesDefault from "../config/profiles.json"
-import profilesLocal from "../../config/profiles.json"
+import usersDemo from "../config/users.json"
+import usersLocal from "../../config/users.json"
 
 export const useConfigStore = defineStore("config", () => {
-  const config: Ref<IConfig> = ref({} as IConfig)
+    const users: Ref<IUsers> = ref({})
 
-  function setConfig(data: any): void {
-    config.value = data
-  }
+    function loadConfig(): boolean {
+        loadUsers()
 
-  function loadConfig(): IConfig {
-    const profiles = loadConfigProfiles()
-
-    config.value = {
-      profiles
+        return true
     }
 
-    return config.value
-  }
-
-  function loadConfigProfiles(): IConfigProfiles {
-    let profiles: IConfigProfiles = {}
-
-    if (Array.isArray(profilesLocal) && profilesLocal.length > 0) {
-      // load local profiles configuration provided as array
-      profilesLocal.map((profile) => {
-        profiles[profile.fields.username] = parseProfile(profile)
-      })
-    } else if (Object.keys(profilesLocal).length > 0) {
-      // load local profiles configuration provided as object
-      Object.values(profilesLocal).map((profile) => {
-        profiles[profile.fields.username] = parseProfile(profile)
-      })
-    } else {
-      // load default profiles configuration provided as object
-      Object.values(profilesDefault).map((profile) => {
-        profiles[profile.fields.username] = parseProfile(profile)
-      })
+    /**
+     * Check if profiles config is defined
+     */
+    function isUsersConfigProvided() {
+        return usersLocal && Object.keys(usersLocal).length > 0
     }
 
-    return profiles
-  }
+    /**
+     * Parse profiles from config
+     */
+    function loadUsers(): boolean {
+        let usersConfig: any = {} as IConfig
 
-  const profiles: ComputedRef<IConfigProfiles> = computed(() => config.value.profiles)
+        if (isUsersConfigProvided()) {
+            usersConfig = usersLocal
+        } else {
+            usersConfig = usersDemo
+        }
 
-  return {
-    config,
-    setConfig,
-    loadConfig,
-    profiles
-  }
+        // parse local profiles
+        Object.keys(usersConfig).map((userKey: string) => {
+            const user = usersConfig[userKey]
+
+            // parse profile
+            users.value[userKey] = parseProfile(user)
+        })
+
+        return true
+    }
+
+    return {
+        loadConfig,
+        users
+    }
 })

@@ -1,46 +1,96 @@
 interface IConfig {
-  profiles: IConfigProfiles
+  profiles: IConfigUsers
 }
 
-type IConfigProfiles = { [username: string]: IProfile }
+type IConfigUsers = { [username: string]: IConfigUser }
 
-interface IProfile {
-  avatar?: IProfileMediaFile
-  fields: {
-    biography: string
+interface IConfigUser {
+  profile: {
+    name: string
+    username: string
+    website?: string
+    biography?: string
+    avatar?: string
     followers_count: number
     follows_count: number
-    name: string
-    avatar: string
-    username: string
-    website: string
+    media: {
+      posts: IConfigUserProfileMedia[]
+      reels: IConfigUserProfileMedia[]
+      stories: IConfigUserProfileMedia[]
+      highlights: IConfigUserProfileMedia[]
+    }
   }
+  options: any
+}
+
+type IConfigUserProfileMedia = string | IConfigUserProfileMediaImage | IConfigUserProfileMediaVideo | IConfigUserProfileMediaAlbum
+type IConfigUserProfileMediaAlbumList = (IConfigUserProfileMediaImage|IConfigUserProfileMediaVideo)[]
+
+type IConfigUserProfileMediaImage = {
+  type: "image"
+  file: string
+}
+
+type IConfigUserProfileMediaVideo = {
+  type: "video"
+  file: string
+}
+
+type IConfigUserProfileMediaAlbum = {
+  type: "album"
+  list: IConfigUserProfileMediaAlbumList
+}
+
+
+// parsed config
+
+type IUsers = { [username: string]: IUser }
+
+interface IUser {
+  profile: IUserProfile
+  options: IUserOptions
+}
+
+interface IUserProfile {
+  name: string
+  username: string
+  website?: string
+  biography?: string
+  avatar: IProfileMediaFile
+  followers_count: number
+  follows_count: number
   media: {
-    posts: string[] | IProfileMediaPosts
-    reels: string[] | IProfileMediaReels
-    stories: string[] | IProfileMediaStories
-    highlights: string[] | IProfileMediaHighlights
+    posts: IProfileMedia[]
+    reels: IProfileMedia[]
+    stories: IProfileMedia[]
+    highlights: IProfileMedia[]
   }
 }
 
-interface IProfileMedia {
-  file?: IProfileMediaFile
-  album?: string[] | IProfileMedia[]
-  type: "image" | "video" | "album"
-  cover?: string
-  date?: string
+interface IUserOptions {
+
+}
+
+
+type IProfileMedia = string | IProfileMediaImage | IProfileMediaVideo | IProfileMediaAlbum
+type IProfileMediaAlbumList = (IProfileMediaImage|IProfileMediaVideo)[]
+
+type IProfileMediaImage = {
+  type: "image"
+  file: IProfileMediaFile
+}
+
+type IProfileMediaVideo = {
+  type: "video"
+  file: IProfileMediaFile
+}
+
+type IProfileMediaAlbum = {
+  type: "album"
+  list: IProfileMediaAlbumList
 }
 
 interface IProfileMediaFile {
   filename: string
   path: string
 }
-
-type IProfileMediaPosts = IProfileMedia[]
-type IProfileMediaReels = IProfileMediaReel[]
-type IProfileMediaStories = IProfileMediaStory[]
-type IProfileMediaHighlights = IProfileMediaHighlight[]
-
-interface IProfileMediaReel extends IProfileMedia {}
-interface IProfileMediaStory extends IProfileMedia {}
-interface IProfileMediaHighlight extends IProfileMediaStory {}

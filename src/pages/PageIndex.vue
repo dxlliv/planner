@@ -1,8 +1,8 @@
 <template>
   <v-container class="text-left">
     <v-row no-gutters>
-      <v-col v-for="(profile, p) of profiles" :key="p" class="text-center">
-        <Profile :profile="profile" />
+      <v-col v-for="(user, p) of users" :key="p" class="text-center">
+        <Profile :profile="user.profile" />
       </v-col>
     </v-row>
 
@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-const profiles = computed(() => Object.values(useConfigStore().profiles))
+const users = Object.values(useConfigStore().users)
 </script>
 
 <style scoped lang="scss">

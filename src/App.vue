@@ -7,8 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import {useTheme} from "vuetify";
-
+const theme = useTheme()
 const options = reactive({
   rulers: false
 })
@@ -16,8 +15,6 @@ const options = reactive({
 provide("options", options)
 
 useConfigStore().loadConfig()
-
-const theme = useTheme()
 
 onMounted(() => {
   window.addEventListener("keydown", (e) => {
