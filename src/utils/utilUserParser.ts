@@ -70,7 +70,7 @@ function parseProfilePosts(config: IConfigUser) {
           case "image":
             parsedPosts.push({
               file: getProfileMediaImage(config, mediaPost.file),
-              type: "video"
+              type: "image"
             })
             break;
           case "video":
