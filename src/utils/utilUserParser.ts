@@ -150,14 +150,21 @@ function getMediaPath(config: IConfigUser, filename: string) {
 
 export function getProfileAvatar(config: IConfigUser): IProfileMediaFile {
   let avatarFilename = "avatar.jpg"
+  let path = ''
 
   if (config.profile.avatar) {
     avatarFilename = config.profile.avatar
   }
 
+  if (avatarFilename.startsWith('http')) {
+    path = avatarFilename
+  } else {
+    path = `profiles/${config.profile.username}/${avatarFilename}`
+  }
+
   return {
     filename: avatarFilename,
-    path: `profiles/${config.profile.username}/${avatarFilename}`
+    path
   }
 }
 
