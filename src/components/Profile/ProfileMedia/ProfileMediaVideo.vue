@@ -3,7 +3,13 @@
     <video ref="video" :src="media.file.path" />
 
     <template v-if="typeof mediaCover === 'number'">
-      <input ref="slider" v-model="mediaCover" type="range" class="ig-profile-media--video-slider" @change="updateMediaCover" />
+      <input
+        ref="slider"
+        v-model="mediaCover"
+        type="range"
+        class="ig-profile-media--video-slider"
+        @change="updateMediaCover"
+      />
       <div class="ig-profile-media--video-slider__value">
         {{ mediaCover / 10 }}
       </div>
@@ -17,28 +23,28 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  media: IProfileMediaVideo
-}>()
+  media: IProfileMediaVideo;
+}>();
 
-const video: Ref<any> = ref({})
-const slider: Ref<any> = ref({})
+const video: Ref<any> = ref({});
+const slider: Ref<any> = ref({});
 
-const mediaCover = ref(props.media.cover ? props.media.cover : 0)
+const mediaCover = ref(props.media.cover ? props.media.cover : 0);
 
 onMounted(() => {
   video.value.addEventListener(
     "loadedmetadata",
     () => {
-      mediaCover.value = Number(mediaCover.value) * 10
-      video.value.currentTime = mediaCover.value / 10
-      slider.value.max = video.value.duration * 10
+      mediaCover.value = Number(mediaCover.value) * 10;
+      video.value.currentTime = mediaCover.value / 10;
+      slider.value.max = video.value.duration * 10;
     },
-    false
-  )
-})
+    false,
+  );
+});
 
 function updateMediaCover() {
-  video.value.currentTime = Number(mediaCover.value) / 10
+  video.value.currentTime = Number(mediaCover.value) / 10;
 }
 </script>
 

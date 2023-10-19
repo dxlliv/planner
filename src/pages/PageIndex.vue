@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-const users = Object.values(useConfigStore().users)
+const users = Object.values(useConfigStore().users);
 </script>
 
 <style scoped lang="scss">

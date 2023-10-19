@@ -6,10 +6,8 @@
 
 <script setup lang="ts">
 defineProps<{
-  profile: IProfile
-}>()
+  profile: IProfile;
+}>();
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

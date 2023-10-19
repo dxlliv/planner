@@ -3,7 +3,6 @@
     <v-container class="pt-1 px-0">
       <v-row v-if="tab === 'posts' && profile.media.posts.length > 0">
         <template v-for="(media, i) of profile.media.posts" :key="i">
-
           <v-col v-if="media.type === 'image'" :cols="4">
             <ProfileMediaImage :media="media" />
           </v-col>
@@ -19,7 +18,6 @@
           <v-col v-if="media.type === 'album'" :cols="4">
             <ProfileMediaAlbum :media="media" />
           </v-col>
-
         </template>
       </v-row>
       <v-row v-if="props.tab === 'reels' && profile.media.reels.length > 0">
@@ -33,9 +31,9 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  profile: IProfile,
-  tab: string
-}>()
+  profile: IProfile;
+  tab: string;
+}>();
 </script>
 
 <style lang="scss">

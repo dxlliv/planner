@@ -15,9 +15,9 @@
 </template>
 
 <script setup lang="ts">
-import { Carousel, Slide } from "vue3-carousel"
+import { Carousel, Slide } from "vue3-carousel";
 
 defineProps<{
-  media: IProfileMediaAlbum
-}>()
+  media: IProfileMediaAlbum;
+}>();
 </script>

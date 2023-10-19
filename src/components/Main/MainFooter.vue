@@ -7,7 +7,9 @@
 
     &middot;
 
-    <a href="https://dxlliv.github.io/ig-planner/docs" target="_blank"> Docs </a>
+    <a href="https://dxlliv.github.io/ig-planner/docs" target="_blank">
+      Docs
+    </a>
   </footer>
 </template>
 

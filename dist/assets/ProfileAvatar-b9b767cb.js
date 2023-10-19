@@ -1,1 +1,0 @@
-import{d as t,r as a,o as s,f as n,w as r,b as c,_ as p}from"./index-2d76220c.js";const v=t({__name:"ProfileAvatar",props:{avatar:{}},setup(l){return(e,i)=>{const _=a("v-img"),o=a("v-avatar");return s(),n(o,{class:"ig-profile-avatar"},{default:r(()=>[c(_,{src:e.avatar.path},null,8,["src"])]),_:1})}}});const f=p(v,[["__scopeId","data-v-76071239"]]);export{f as _};

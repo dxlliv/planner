@@ -4,8 +4,8 @@
       'rulers',
       {
         'rulers--left': props.left,
-        'rulers--right': props.right
-      }
+        'rulers--right': props.right,
+      },
     ]"
   >
     <input ref="pageRulerY" v-model="pageRulerPositionY" type="range" />
@@ -13,7 +13,7 @@
     <div
       class="ruler ruler--horizontal"
       :style="{
-        top: `${pageRulerPositionY}px`
+        top: `${pageRulerPositionY}px`,
       }"
     />
   </div>
@@ -21,16 +21,16 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  left?: boolean
-  right?: boolean
-}>()
+  left?: boolean;
+  right?: boolean;
+}>();
 
-const pageRulerY = ref()
-const pageRulerPositionY = ref(0)
+const pageRulerY = ref();
+const pageRulerPositionY = ref(0);
 
 onMounted(() => {
-  pageRulerY.value.max = window.innerHeight
-})
+  pageRulerY.value.max = window.innerHeight;
+});
 </script>
 
 <style lang="scss">

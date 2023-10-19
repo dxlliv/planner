@@ -1,12 +1,12 @@
 <template>
   <div class="ig-profile-page__tabs">
-    <template v-for="(tab, i) of tabs">
+    <template v-for="(tab, i) of tabs" :key="i">
       <div
         :class="[
           'ig-profile-page__tabs__tab',
           {
-            'ig-profile-page__tabs__tab--active': active === tab.name
-          }
+            'ig-profile-page__tabs__tab--active': active === tab.name,
+          },
         ]"
         @click="emit('select', tab.name)"
       >
@@ -20,29 +20,29 @@
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits(["select"])
+const emit = defineEmits(["select"]);
 
 const props = defineProps<{
-  profile: IProfile,
-  active: string
-}>()
+  profile: IProfile;
+  active: string;
+}>();
 
-const tabs: {name: string, label: string, icon: string}[] = []
+const tabs: { name: string; label: string; icon: string }[] = [];
 
 if (props.profile?.media.posts.length > 0) {
-    tabs.push({
-      name: "posts",
-      label: "Posts",
-      icon: "mdi-grid"
-    })
+  tabs.push({
+    name: "posts",
+    label: "Posts",
+    icon: "mdi-grid",
+  });
 }
 
 if (props.profile?.media.reels.length > 0) {
-    tabs.push({
-      name: "reels",
-      label: "Reels",
-      icon: "mdi-play-box-multiple-outline"
-    })
+  tabs.push({
+    name: "reels",
+    label: "Reels",
+    icon: "mdi-play-box-multiple-outline",
+  });
 }
 </script>
 

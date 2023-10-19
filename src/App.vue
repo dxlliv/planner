@@ -7,21 +7,22 @@
 </template>
 
 <script setup lang="ts">
-const theme = useTheme()
-const configStore = useConfigStore()
+const theme = useTheme();
+const configStore = useConfigStore();
 
-useConfigStore().loadConfig()
+useConfigStore().loadConfig();
 
 onMounted(() => {
   window.addEventListener("keydown", (e) => {
     if (String.fromCharCode(e.keyCode) === "R") {
-      configStore.options.rulers = !configStore.options.rulers
+      configStore.options.rulers = !configStore.options.rulers;
     }
     if (String.fromCharCode(e.keyCode) === "D") {
-      theme.global.name.value = theme.global.name.value === "dark" ? "light" : "dark"
+      theme.global.name.value =
+        theme.global.name.value === "dark" ? "light" : "dark";
     }
-  })
-})
+  });
+});
 </script>
 
 <style lang="scss">

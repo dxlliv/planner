@@ -7,8 +7,8 @@
 
       <v-col cols="8">
         <div
-            class="ig-profile-page__header__username mb-5"
-            v-text="profile.username"
+          class="ig-profile-page__header__username mb-5"
+          v-text="profile.username"
         />
 
         <ul class="ig-profile-page__header__stats mb-5">
@@ -27,7 +27,10 @@
         </ul>
 
         <p class="ig-profile-page__header__name" v-text="profile.name" />
-        <p class="ig-profile-page__header__biography" v-html="profile.biography" />
+        <p
+          class="ig-profile-page__header__biography"
+          v-html="profile.biography"
+        />
 
         <a
           v-if="profile.website"
@@ -42,9 +45,9 @@
 </template>
 
 <script setup lang="ts">
-const {profile} = defineProps<{
-  profile: IProfile
-}>()
+const { profile } = defineProps<{
+  profile: IProfile;
+}>();
 </script>
 
 <style scoped lang="scss">

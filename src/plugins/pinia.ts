@@ -1,5 +1,5 @@
 export default {
   install: (app: App) => {
-    app.use(createPinia())
-  }
-}
+    app.use(createPinia());
+  },
+};

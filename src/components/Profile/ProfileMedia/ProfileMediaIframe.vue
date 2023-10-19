@@ -4,8 +4,8 @@
 
 <script setup lang="ts">
 defineProps<{
-  media: IProfileMediaIframe
-}>()
+  media: IProfileMediaIframe;
+}>();
 </script>
 
 <style scoped lang="scss">

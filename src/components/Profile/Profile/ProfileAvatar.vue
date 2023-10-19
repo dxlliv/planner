@@ -1,13 +1,13 @@
 <template>
   <v-avatar class="ig-profile-avatar">
-    <v-img :src="avatar.path" />
+    <v-img width="150px" height="150px" :src="avatar.path" />
   </v-avatar>
 </template>
 
 <script setup lang="ts">
-const {avatar} = defineProps<{
-  avatar: IProfileMediaFile
-}>()
+const { avatar } = defineProps<{
+  avatar: IProfileMediaFile;
+}>();
 </script>
 
 <style scoped lang="scss">
