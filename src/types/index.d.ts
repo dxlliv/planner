@@ -2,7 +2,7 @@ interface IConfig {
   profiles: IConfigUsers
 }
 
-type IConfigUsers = { [username: string]: IConfigUser }
+type IConfigUsers = IConfigUser[]
 
 interface IConfigUser {
   profile: {
@@ -56,11 +56,11 @@ type IConfigUserProfileMediaAlbum = {
 type IUsers = { [username: string]: IUser }
 
 interface IUser {
-  profile: IUserProfile
+  profile: IProfile
   options: IUserOptions
 }
 
-interface IUserProfile {
+interface IProfile {
   name: string
   username: string
   website: null | {
@@ -74,9 +74,9 @@ interface IUserProfile {
   posts_count: number
   media: {
     posts: IProfileMedia[]
-    reels: IProfileMedia[]
-    stories: IProfileMedia[]
-    highlights: IProfileMedia[]
+    reels: IProfileMediaVideo[]
+    stories: IProfileMediaVideo[]
+    highlights: IProfileMediaAlbum[]
   }
 }
 
@@ -85,8 +85,7 @@ interface IUserOptions {
 }
 
 
-type IProfileMedia = string
-    | IProfileMediaImage
+type IProfileMedia = IProfileMediaImage
     | IProfileMediaVideo
     | IProfileMediaIframe
     | IProfileMediaAlbum
@@ -100,6 +99,8 @@ type IProfileMediaImage = {
 type IProfileMediaVideo = {
   type: "video"
   file: IProfileMediaFile
+  reel?: boolean
+  cover?: string | number
 }
 
 type IProfileMediaIframe = {
