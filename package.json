@@ -22,11 +22,12 @@
     "vue": "^3.3.4",
     "vue-router": "^4.2.5",
     "vue3-carousel": "^0.3.1",
-    "vuetify": "3.3.22"
+    "vuetify": "3.3.22",
+    "@mdi/font": "^7.3.67",
+    "vue3-simple-icons": "^9.10.0"
   },
   "devDependencies": {
     "@babel/types": "^7.23.0",
-    "@mdi/font": "^6.9.96",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@vitejs/plugin-vue": "^4.4.0",
     "@vue/compiler-sfc": "^3.3.4",

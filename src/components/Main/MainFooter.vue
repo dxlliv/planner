@@ -1,7 +1,11 @@
+<script setup lang="ts">
+import {GithubIcon} from 'vue3-simple-icons'
+</script>
+
 <template>
-  <footer class="ig-footer py-6">
+  <footer class="ig-footer text-overline py-6">
     <a href="https://github.com/dxlliv/ig-planner" target="_blank">
-      <v-icon class="mt-n1 mr-1">mdi-github</v-icon>
+      <GithubIcon width="14" class="mr-1" />
       IG Planner
     </a>
 
@@ -21,6 +25,10 @@
   a {
     color: #333;
     text-decoration: none;
+
+    svg {
+      vertical-align: -6px;
+    }
   }
 }
 </style>
