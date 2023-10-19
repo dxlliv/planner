@@ -5,15 +5,15 @@ actionLink: /getting-started
 features:
   - title: 🧁 Preview your grid
     details: "Plan your Instagram posts to preview what your profile grid will look like"
-  - title: 📱 Media support (wip)
+  - title: 📱 Media support
     details: "You can preview all kind of media: images, videos, reels and albums"
-  - title: 📐 Extra tools (wip)
+  - title: 📐 Extra tools
     details: "These tools will help you with color consistency and media alignment"
     footer: MIT Licensed
     description: Plan your Instagram posts to preview what your profile grid will look like
     meta:
       - name: og:title
-        content: Instagram Planner
+        content: IG Planner
       - name: og:description
         content: Plan your Instagram posts to preview what your profile grid will look like
 ---
@@ -29,7 +29,7 @@ Clone the repository and move to the project directory:
 git clone https://github.com/dxlliv/ig-planner.git && cd ig-planner
 ```
 
-Install dependencies and run the project with `yarn` or `npm`:
+Install dependencies and run the project:
 
 ```bash
 npm install && npm run dev
