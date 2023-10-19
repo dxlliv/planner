@@ -53,7 +53,7 @@ Place an image called `avatar.jpg` in your profile folder.
 
 ### Add some media
 
-IG Planner supports different [media types](media): image, video, album and iframe.
+IG Planner supports different media types: image, video, album and iframe.
 
 Add your media to the profile media folder in `public/profiles/{username}/media/`,  
 then define all your media in the user configuration like the example above.
