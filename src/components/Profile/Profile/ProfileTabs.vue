@@ -2,8 +2,6 @@
   <div class="ig-profile-page__tabs">
     <template v-for="(tab, i) of tabs">
       <div
-        v-if="profile?.media[tab.name].length > 0"
-        :key="i"
         :class="[
           'ig-profile-page__tabs__tab',
           {
@@ -29,7 +27,7 @@ const props = defineProps<{
   active: string
 }>()
 
-const tabs = []
+const tabs: {name: string, label: string, icon: string}[] = []
 
 if (props.profile?.media.posts.length > 0) {
     tabs.push({

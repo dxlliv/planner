@@ -25,16 +25,18 @@ export const useConfigStore = defineStore("config", () => {
      * Parse profiles from config
      */
     function loadUsers(): boolean {
-        let usersConfig: any = {} as IConfig
+        let usersConfig: IConfigUsers = [] as IConfigUsers
 
         if (isUsersConfigProvided()) {
+            // @ts-ignore
             usersConfig = usersLocal
         } else {
+            // @ts-ignore
             usersConfig = usersDemo
         }
 
         // parse local profiles
-        usersConfig.map((user: IUser) => {
+        usersConfig.map((user: IConfigUser) => {
 
             // parse profile
             users.value[user.profile.username] = parseProfile(user)

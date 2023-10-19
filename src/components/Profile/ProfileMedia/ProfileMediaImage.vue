@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 defineProps<{
-  media: IProfileMedia
+  media: IProfileMediaImage
 }>()
 </script>
 

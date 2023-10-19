@@ -10,4 +10,9 @@ const {avatar} = defineProps<{
 }>()
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.ig-profile-avatar {
+  user-select: none;
+  border: 1px solid var(--ig-border);
+}
+</style>

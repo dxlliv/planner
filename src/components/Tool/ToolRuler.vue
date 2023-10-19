@@ -21,8 +21,8 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  left: boolean
-  right: boolean
+  left?: boolean
+  right?: boolean
 }>()
 
 const pageRulerY = ref()

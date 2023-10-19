@@ -43,7 +43,7 @@
 
 <script setup lang="ts">
 const {profile} = defineProps<{
-  profile: IUserProfile
+  profile: IProfile
 }>()
 </script>
 
@@ -52,14 +52,6 @@ const {profile} = defineProps<{
   text-align: left;
   min-height: 210px;
   border-bottom: 1px solid var(--ig-border);
-
-  &__avatar {
-    user-select: none;
-
-    .v-avatar {
-      border: 1px solid var(--ig-border);
-    }
-  }
 
   &__username {
     font-weight: 300;

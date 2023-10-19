@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 const {profile} = defineProps<{
-  profile: IUserProfile
+  profile: IProfile
 }>()
 
 const tab = ref("posts")

@@ -5,7 +5,7 @@
         <ProfileAvatar :size="32" :avatar="profile?.avatar"  />
       </v-col>
       <v-col class="flex-lg-shrink-1">
-        {{profile.fields.username}}
+        {{profile.username}}
       </v-col>
     </v-row>
   </div>

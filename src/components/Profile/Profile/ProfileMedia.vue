@@ -20,15 +20,11 @@
             <ProfileMediaAlbum :media="media" />
           </v-col>
 
-          <v-col v-if="media.type === 'reel'" :cols="4">
-            <ProfileMediaStory :media="media" />
-          </v-col>
-
         </template>
       </v-row>
       <v-row v-if="props.tab === 'reels' && profile.media.reels.length > 0">
         <template v-for="(media, i) of profile.media.reels" :key="i">
-          <ProfileMediaStory :media="media" />
+          <ProfileMediaVideo reel :media="media" />
         </template>
       </v-row>
     </v-container>
@@ -37,7 +33,7 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  profile: IUserProfile,
+  profile: IProfile,
   tab: string
 }>()
 </script>

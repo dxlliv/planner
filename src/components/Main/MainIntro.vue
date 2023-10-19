@@ -1,10 +1,11 @@
 <template>
   <div class="ig-intro text-center">
-    <h2>Plan your Instagram grid like a pro</h2>
-    <p class="mt-2">
+    <h2 class="hidden-md-and-up">Plan your Instagram grid<br />like a pro with IG Planner</h2>
+    <h2 class="hidden-sm-and-down">Plan your Instagram grid like a pro</h2>
+    <p class="mt-5">
       <a href="https://github.com/dxlliv/ig-planner">dxlliv/ig-planner</a>
-      let you preview what your profile grid will look like.<br />
-      Clone the repository and build your definitive Instagram profile.
+      let you preview what your profile grid will look like.<br class="hidden-xs" />
+      Clone the repository and build your Instagram grid with a text editor.
     </p>
   </div>
 </template>
@@ -18,3 +19,5 @@
   }
 }
 </style>
+<script setup lang="ts">
+</script>

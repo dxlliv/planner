@@ -1,4 +1,4 @@
-import { createVuetify } from "vuetify/dist/vuetify.js"
+import { createVuetify } from "vuetify"
 
 import "vuetify/dist/vuetify.min.css"
 import "@mdi/font/css/materialdesignicons.css"
