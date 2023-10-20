@@ -48,7 +48,7 @@ Visual Studio Code will just be fine, but you can use Notepad++ too.
 ### Set up a new user
 
 Define your users under the `config/users.json` configuration file  
-and create a `public/profiles/{username}` folder for each one.
+and create a `public/users/{username}` folder for each one.
 
 Place an image called `avatar.jpg` in your profile folder.
 
@@ -56,7 +56,7 @@ Place an image called `avatar.jpg` in your profile folder.
 
 IG Planner supports different media types: image, video, album and iframe.
 
-Add your media to your `public/profiles/{username}/media/` folder  
+Add your media to your `public/users/{username}/media/` folder  
 and define all the media in the users configuration like the examples.
 
 ### Media support

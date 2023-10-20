@@ -154,7 +154,7 @@ function getMediaPath(config: IConfigUser, filename: string) {
     return "";
   }
 
-  return `profiles/${config.profile.username}/media/${filename}`;
+  return `users/${config.profile.username}/media/${filename}`;
 }
 
 export function getProfileAvatar(config: IConfigUser): IProfileMediaFile {
@@ -168,7 +168,7 @@ export function getProfileAvatar(config: IConfigUser): IProfileMediaFile {
   if (avatarFilename.startsWith("http")) {
     path = avatarFilename;
   } else {
-    path = `profiles/${config.profile.username}/${avatarFilename}`;
+    path = `users/${config.profile.username}/${avatarFilename}`;
   }
 
   return {

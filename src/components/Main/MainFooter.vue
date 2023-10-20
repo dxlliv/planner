@@ -5,7 +5,7 @@ import {GithubIcon} from 'vue3-simple-icons'
 <template>
   <footer class="ig-footer text-overline py-6">
     <a href="https://github.com/dxlliv/ig-planner" target="_blank">
-      <GithubIcon width="14" class="mr-1" />
+      <GithubIcon width="14" height="23" class="mr-1" />
       IG Planner
     </a>
 
