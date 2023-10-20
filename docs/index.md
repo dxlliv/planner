@@ -3,10 +3,10 @@ home: true
 actionText: Getting Started →
 actionLink: /getting-started
 features:
-  - title: 🧁 Preview your grid
+  - title: 🖼️ Planner for nerds
     details: "Plan your Instagram posts to preview what your profile grid will look like"
   - title: 📱 Media support
-    details: "You can preview all kind of media: images, videos, reels and albums"
+    details: "You can preview all kind of media: images, videos, albums and iframes"
   - title: 📐 Extra tools
     details: "These tools will help you with color consistency and media alignment"
     footer: MIT Licensed

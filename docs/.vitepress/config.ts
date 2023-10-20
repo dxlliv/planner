@@ -1,6 +1,6 @@
 module.exports = {
   base: "/ig-planner/docs/",
-  title: "dxlliv/ig-planner",
+  title: "IG Planner",
   description: "Plan your Instagram grid like a pro",
 
   themeConfig: {
@@ -11,6 +11,9 @@ module.exports = {
     docsBranch: "master",
     editLinks: true,
 
+    nav: [
+      { text: "Demo", link: "https://dxlliv.github.io/ig-planner/" },
+    ],
     sidebar: {
       "/": [
         { text: "Quick Start", link: "/" },

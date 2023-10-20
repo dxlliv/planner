@@ -20,7 +20,8 @@ yarn install && yarn dev
 
 ## Configuration
 
-Here is the users configuration you can find in `config/users.json`.
+Customize the `config/users.json` file with your favorite editor.  
+Visual Studio Code will just be fine, but you can use Notepad++ too.
 
 ```json
 [
@@ -47,21 +48,20 @@ Here is the users configuration you can find in `config/users.json`.
 ### Set up a new user
 
 Define your users under the `config/users.json` configuration file  
-and create a folder for each user in `public/profiles/{username}`.
+and create a `public/profiles/{username}` folder for each one.
 
 Place an image called `avatar.jpg` in your profile folder.
 
-### Add some media
+### Provide some media
 
 IG Planner supports different media types: image, video, album and iframe.
 
-Add your media to the profile media folder in `public/profiles/{username}/media/`,  
-then define all your media in the user configuration like the example above.
+Add your media to your `public/profiles/{username}/media/` folder  
+and define all the media in the users configuration like the examples.
 
 ### Media support
 
 IG Planner supports different media types: image, video, album and iframe.  
-Add your files to the `config/profiles/{id}/media/` folder and define all your media.
 
 #### Images
 
@@ -91,7 +91,7 @@ Add your files to the `config/profiles/{id}/media/` folder and define all your m
     "media": [
       {
         "type": "video",
-        "name": "4-video.mp4",
+        "name": "4.mp4",
         "cover": 0
       },
       
@@ -131,10 +131,9 @@ Add your files to the `config/profiles/{id}/media/` folder and define all your m
 {
   "dxlliv": {
     "media": [
-      // use iframe
       {
         "type": "iframe",
-        "href": "http://localhost:3000/my-page"
+        "href": "http://localhost:3000/my-post"
       },
 
       // shortened imports
