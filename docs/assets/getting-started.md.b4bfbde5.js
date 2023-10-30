@@ -3,7 +3,7 @@ import{_ as n,c as s,o as a,a as t}from"./app.9ee124ad.js";const q='{"title":"Ge
 
 <span class="token comment"># or use yarn</span>
 <span class="token function">yarn</span> <span class="token function">install</span> <span class="token operator">&amp;&amp;</span> <span class="token function">yarn</span> dev
-</code></pre></div><h2 id="configuration" tabindex="-1">Configuration <a class="header-anchor" href="#configuration" aria-hidden="true">#</a></h2><p>Customize the <code>config/users.json</code> file with your favorite editor.<br> Visual Studio Code will just be fine, but you can use Notepad++ too.</p><div class="language-json"><pre><code><span class="token punctuation">[</span>
+</code></pre></div><h2 id="configuration" tabindex="-1">Configuration <a class="header-anchor" href="#configuration" aria-hidden="true">#</a></h2><p>Customize the <code>config/users.json</code> file with your favorite editor.</p><div class="language-json"><pre><code><span class="token punctuation">[</span>
   <span class="token punctuation">{</span>
     <span class="token property">&quot;profile&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
       <span class="token property">&quot;fields&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -84,4 +84,4 @@ import{_ as n,c as s,o as a,a as t}from"./app.9ee124ad.js";const q='{"title":"Ge
     <span class="token punctuation">]</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre></div><h2 id="tools" tabindex="-1">Tools <a class="header-anchor" href="#tools" aria-hidden="true">#</a></h2><h3 id="dark-theme" tabindex="-1">Dark theme <a class="header-anchor" href="#dark-theme" aria-hidden="true">#</a></h3><p>Press <strong>D</strong> to toggle dark theme.</p><h3 id="text-ruler" tabindex="-1">Text ruler <a class="header-anchor" href="#text-ruler" aria-hidden="true">#</a></h3><p>Press <strong>R</strong> to show some rulers.</p>`,30),e=[p];function u(r,c,l,i,k,d){return a(),s("div",null,e)}var g=n(o,[["render",u]]);export{q as __pageData,g as default};
+</code></pre></div><h2 id="tools" tabindex="-1">Tools <a class="header-anchor" href="#tools" aria-hidden="true">#</a></h2><h3 id="dark-theme" tabindex="-1">Dark theme <a class="header-anchor" href="#dark-theme" aria-hidden="true">#</a></h3><p>Press <strong>D</strong> to toggle dark theme.</p><h3 id="text-ruler" tabindex="-1">Text ruler <a class="header-anchor" href="#text-ruler" aria-hidden="true">#</a></h3><p>Press <strong>R</strong> to show some rulers.</p>`,30),e=[p];function r(u,c,l,i,k,d){return a(),s("div",null,e)}var g=n(o,[["render",r]]);export{q as __pageData,g as default};
