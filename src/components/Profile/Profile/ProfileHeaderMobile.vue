@@ -6,6 +6,15 @@ defineProps<{
 
 <template>
   <div class="ig-profile-page__header">
+    <div
+        class="ig-profile-page__header__top py-4"
+    >
+      <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px;" />
+      <b v-text="profile?.username" />
+    </div>
+
+    <v-divider class="mx-n4" />
+
     <div class="my-8">
       <v-row>
         <v-col cols="3" class="ig-profile-page__header__avatar text-left">
