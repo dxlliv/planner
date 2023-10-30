@@ -1,7 +1,10 @@
 <template>
   <div class="ig-profile-page__media">
     <v-container class="pt-1 px-0">
-      <v-row v-if="tab === 'posts' && profile.media.posts.length > 0">
+      <v-row
+          v-if="tab === 'posts' && profile.media.posts.length > 0"
+          :no-gutters="$vuetify.display.smAndDown"
+      >
         <template v-for="(media, i) of profile.media.posts" :key="i">
           <v-col v-if="media.type === 'image'" :cols="4">
             <ProfileMediaImage :media="media" />
@@ -37,6 +40,11 @@ const props = defineProps<{
 </script>
 
 <style lang="scss">
+.ig-profile-page__media > .v-container > .v-row > .v-col {
+  > .ig-profile-media {
+    margin: 1px !important;
+  }
+}
 .ig-profile-media {
   position: relative;
 
