@@ -8,6 +8,6 @@
   .v-application {
     background: var(--ig-background);
     color: var(--ig-color);
-    padding-top: 60px;
+    user-select: none;
   }
 }

@@ -4,14 +4,14 @@ import {GithubIcon} from 'vue3-simple-icons'
 
 <template>
   <footer class="ig-footer text-overline py-6">
-    <a href="https://github.com/dxlliv/ig-planner" target="_blank">
+    <a href="https://github.com/dxlliv/ig-planner">
       <GithubIcon width="14" height="23" class="mr-1" />
       IG Planner
     </a>
 
     &middot;
 
-    <a href="https://dxlliv.github.io/ig-planner/docs" target="_blank">
+    <a href="https://dxlliv.github.io/ig-planner/docs">
       Docs
     </a>
   </footer>

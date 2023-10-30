@@ -20,8 +20,7 @@ yarn install && yarn dev
 
 ## Configuration
 
-Customize the `config/users.json` file with your favorite editor.  
-Visual Studio Code will just be fine, but you can use Notepad++ too.
+Customize the `config/users.json` file with your favorite editor.
 
 ```json
 [
