@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="ig-profile-page__header pt-5 mb-5">
+  <div class="ig-profile-page__header py-12">
     <v-row>
       <v-col cols="4" class="ig-profile-page__header__avatar text-center">
         <ProfileAvatar :size="150" :avatar="profile?.avatar" />
@@ -43,7 +43,6 @@ defineProps<{
 <style scoped lang="scss">
 .ig-profile-page__header {
   text-align: left;
-  min-height: 210px;
   border-bottom: 1px solid var(--ig-border);
 
   &__username {

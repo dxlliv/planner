@@ -3,7 +3,7 @@
     <v-container class="pt-1 px-0">
       <v-row
           v-if="tab === 'posts' && profile.media.posts.length > 0"
-          :no-gutters="$vuetify.display.smAndDown"
+          :no-gutters="$vuetify.display.xs"
       >
         <template v-for="(media, i) of profile.media.posts" :key="i">
           <v-col v-if="media.type === 'image'" :cols="4">

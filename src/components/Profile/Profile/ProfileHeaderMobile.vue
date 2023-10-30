@@ -5,15 +5,17 @@ defineProps<{
 </script>
 
 <template>
-  <div class="ig-profile-page__header pt-1 mb-5">
-    <v-row>
-      <v-col cols="3" class="ig-profile-page__header__avatar text-left">
-        <ProfileAvatar :size="120" :avatar="profile?.avatar" />
-      </v-col>
-      <v-col cols="9" />
-    </v-row>
+  <div class="ig-profile-page__header">
+    <div class="my-8">
+      <v-row>
+        <v-col cols="3" class="ig-profile-page__header__avatar text-left">
+          <ProfileAvatar :size="120" :avatar="profile?.avatar" />
+        </v-col>
+        <v-col cols="9" />
+      </v-row>
+    </div>
 
-    <div class="mt-5">
+    <div class="my-4 mt-n6">
       <p class="ig-profile-page__header__name" v-text="profile.name" />
       <p
           class="ig-profile-page__header__biography"
@@ -40,7 +42,6 @@ defineProps<{
 <style scoped lang="scss">
 .ig-profile-page__header {
   text-align: left;
-  min-height: 210px;
   border-bottom: 1px solid var(--ig-border);
 
   &__username {

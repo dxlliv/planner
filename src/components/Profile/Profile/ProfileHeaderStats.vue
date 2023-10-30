@@ -34,7 +34,6 @@ defineProps<{
     border-top: 1px solid var(--ig-border);
     padding: 12px 0;
     font-size: 14px;
-    margin-top: 16px;
     text-align: center;
     width: 100%;
 
