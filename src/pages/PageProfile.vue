@@ -4,6 +4,8 @@
   <template v-if="options.rulers">
     <ToolRuler left />
     <ToolRuler right />
+    <ToolRuler top />
+    <ToolRuler bottom />
   </template>
 </template>
 

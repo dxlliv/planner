@@ -5,15 +5,29 @@
       {
         'rulers--left': props.left,
         'rulers--right': props.right,
+        'rulers--top': props.top,
+        'rulers--bottom': props.bottom,
       },
     ]"
   >
-    <input ref="pageRulerY" v-model="pageRulerPositionY" type="range" />
+    <v-slider
+        ref="pageRuler" v-model="pageRulerPosition" :min="0" :max="max"
+        :direction="props.left || props.right ? 'vertical' : 'horizontal'"
+    />
 
     <div
+      v-if="props.left || props.right"
       class="ruler ruler--horizontal"
       :style="{
-        top: `${pageRulerPositionY}px`,
+        top: `${pageRulerPosition}px`,
+      }"
+    />
+
+    <div
+      v-if="props.top || props.bottom"
+      class="ruler ruler--vertical"
+      :style="{
+        left: `${pageRulerPosition}px`,
       }"
     />
   </div>
@@ -21,40 +35,72 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  left?: boolean;
-  right?: boolean;
+  left?: boolean
+  right?: boolean
+  top?: boolean
+  bottom?: boolean
 }>();
 
-const pageRulerY = ref();
-const pageRulerPositionY = ref(0);
+const max = ref(0)
+const pageRuler = ref()
+const pageRulerPosition = ref(0)
 
 onMounted(() => {
-  pageRulerY.value.max = window.innerHeight;
+  if (props.left || props.right) {
+    max.value = window.innerHeight
+  } else {
+    max.value = window.innerWidth
+  }
 });
 </script>
 
 <style lang="scss">
 .rulers {
-  input {
-    writing-mode: bt-lr; /* IE */
-    position: fixed;
-    top: 0;
-    width: 5px;
-    height: 100%;
-    transform: rotate(180deg);
+  position: fixed;
+
+  &--top {
+    left: 0;
+    right: 0;
+    margin-top: -14px;
+    margin-left: -10px;
+    margin-right: -25px;
+  }
+
+  &--bottom {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: -36px;
+    margin-left: -10px;
+    margin-right: -25px;
   }
 
   &--left {
-    input {
-      left: 0;
+    left: -2px;
+    top: 0;
+    bottom: 0;
+    margin-top: -5px;
+
+    .v-input {
+      margin: 0;
     }
   }
 
   &--right {
-    input {
-      right: 0;
+    top: 0;
+    bottom: 0;
+    right: -2px;
+    margin-top: -5px;
+    height: 100vh;
+
+    .v-input {
+      margin: 0;
     }
   }
+
+ /*
+
+  */
 
   .ruler {
     position: fixed;
@@ -63,9 +109,20 @@ onMounted(() => {
     &--horizontal {
       left: 0;
       right: 0;
-      background: #0075ff;
+      background: #444;
       height: 1px;
     }
+
+    &--vertical {
+      top: 0;
+      bottom: 0;
+      background: #444;
+      width: 1px;
+    }
   }
+}
+
+.v-slider.v-input--vertical .v-slider-track {
+  height: 100vh;
 }
 </style>
