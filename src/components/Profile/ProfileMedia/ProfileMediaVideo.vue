@@ -15,6 +15,13 @@
       </div>
     </template>
 
+    <template v-else-if="typeof mediaCover === 'string'">
+      {{mediaCover}}
+      <!--
+      <ProfileMediaImage :media="" />
+      -->
+    </template>
+
     <div class="ig-profile-media__icon">
       <v-icon>mdi-play</v-icon>
     </div>
@@ -49,17 +56,14 @@ function updateMediaCover() {
 </script>
 
 <style scoped lang="scss">
-.instagram__media {
-  border-top: 1px solid #dbdbdb;
-  margin-top: 40px;
-  padding-top: 20px;
-  user-select: none;
-
-  &__video {
+.ig-profile-media {
+  &--video {
     position: relative;
 
     video {
-      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     &-slider {

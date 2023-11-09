@@ -53,97 +53,81 @@ export function parseProfile(config: IConfigUser): IUser {
   return data;
 }
 
+function parseProfileMedia(
+    config: IConfigUser,
+    media: IConfigUserProfileMedia
+) {
+  let parsedMedia = null
+
+  let mediaAlbum: IProfileMediaAlbumList = []
+
+  switch (typeof media) {
+
+    // is it a short import?
+    case "string":
+
+      parsedMedia = {
+        file: getProfileMediaImage(config, media),
+        type: "image",
+      }
+
+      break;
+
+    // is it a regular import?
+    case "object":
+
+      switch (media.type) {
+
+        case "image":
+          parsedMedia = {
+            file: getProfileMediaImage(config, media.file),
+            type: "image",
+          }
+          break;
+
+        case "album":
+          if (media.list && Array.isArray(media.list)) {
+            for (let albumMediaPost of media.list) {
+              mediaAlbum.push(
+                  parseProfileMedia(config, albumMediaPost)
+              )
+            }
+          }
+
+          parsedMedia = {
+            list: mediaAlbum,
+            type: "album",
+          }
+          break;
+
+        case "video":
+          parsedMedia = {
+            file: getProfileMediaVideo(config, media.file),
+            type: "video",
+          }
+          break;
+
+        case "iframe":
+          parsedMedia = {
+            href: getProfileMediaIframe(config, media.href),
+            type: "iframe",
+          }
+          break;
+
+      }
+      break;
+  }
+
+  return parsedMedia
+}
+
 function parseProfilePosts(config: IConfigUser) {
   const parsedPosts: any = [];
 
-  let mediaAlbum: IProfileMediaAlbumList = [];
-
   for (let mediaPost of config.profile.media.posts) {
-    switch (typeof mediaPost) {
-      case "string":
-        parsedPosts.push({
-          file: getProfileMediaImage(config, mediaPost),
-          type: "image",
-        });
-        break;
-
-      case "object":
-        switch (mediaPost.type) {
-          case "image":
-            parsedPosts.push({
-              file: getProfileMediaImage(config, mediaPost.file),
-              type: "image",
-            });
-            break;
-          case "video":
-            parsedPosts.push({
-              file: getProfileMediaVideo(config, mediaPost.file),
-              type: "video",
-            });
-            break;
-          case "iframe":
-            parsedPosts.push({
-              href: getProfileMediaIframe(config, mediaPost.href),
-              type: "iframe",
-            });
-            break;
-          case "album":
-            mediaAlbum = [];
-
-            // parse albums
-            if (Array.isArray(mediaPost.list)) {
-              for (let albumMediaPost of mediaPost.list) {
-                switch (typeof albumMediaPost) {
-                  case "string":
-                    mediaAlbum.push({
-                      file: getProfileMediaImage(config, albumMediaPost),
-                      type: "image",
-                    });
-                    break;
-                  case "object":
-                    switch (albumMediaPost.type) {
-                      case "image":
-                        mediaAlbum.push({
-                          file: getProfileMediaImage(
-                            config,
-                            albumMediaPost.file,
-                          ),
-                          type: "image",
-                        });
-                        break;
-                      case "video":
-                        mediaAlbum.push({
-                          file: getProfileMediaVideo(
-                            config,
-                            albumMediaPost.file,
-                          ),
-                          type: "video",
-                        });
-                        break;
-                      case "iframe":
-                        parsedPosts.push({
-                          href: getProfileMediaIframe(
-                            config,
-                            albumMediaPost.href,
-                          ),
-                          type: "iframe",
-                        });
-                        break;
-                    }
-                    break;
-                }
-              }
-            }
-
-            parsedPosts.push({
-              list: mediaAlbum,
-              type: "album",
-            });
-            break;
-        }
-
-        break;
-    }
+    parsedPosts.push(
+        parseProfileMedia(config, mediaPost)
+    )
   }
 
   return parsedPosts;

@@ -47,6 +47,7 @@ const props = defineProps<{
 }
 .ig-profile-media {
   position: relative;
+  height: 100%;
 
   &__icon {
     position: absolute;
