@@ -77,6 +77,7 @@ function parseProfileMedia(
           parsedMedia = {
             file: getProfileMediaVideo(config, media),
             type: "video",
+            cover: 0
           }
           break;
 
