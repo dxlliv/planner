@@ -53,6 +53,10 @@ export function parseProfile(config: IConfigUser): IUser {
   return data;
 }
 
+function getFileExtension(filename: string) {
+  return filename.split('.').pop()
+}
+
 function parseProfileMedia(
     config: IConfigUser,
     media: IConfigUserProfileMedia
@@ -66,9 +70,22 @@ function parseProfileMedia(
     // is it a short import?
     case "string":
 
-      parsedMedia = {
-        file: getProfileMediaImage(config, media),
-        type: "image",
+      switch(getFileExtension(media)) {
+
+        case 'mp4':
+          parsedMedia = {
+            file: getProfileMediaVideo(config, media),
+            type: "video",
+          }
+          break;
+
+        default:
+          parsedMedia = {
+            file: getProfileMediaImage(config, media),
+            type: "image",
+          }
+          break;
+
       }
 
       break;
