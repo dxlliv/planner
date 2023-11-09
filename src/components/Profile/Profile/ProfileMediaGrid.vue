@@ -1,5 +1,5 @@
 <template>
-  <div class="ig-profile-page__media">
+  <div class="ig-profile-page__media-grid">
     <v-container class="pt-1 px-0">
       <v-row
           v-if="tab === 'posts' && profile.media.posts.length > 0"
@@ -40,7 +40,7 @@ const props = defineProps<{
 </script>
 
 <style lang="scss">
-.ig-profile-page__media > .v-container > .v-row > .v-col {
+.ig-profile-page__media-grid > .v-container > .v-row > .v-col {
   > .ig-profile-media {
     margin: 1px !important;
   }
@@ -55,6 +55,12 @@ const props = defineProps<{
     right: 15px;
     color: white;
     font-size: 14px;
+
+    .mdi-play {
+      font-size: 28px;
+      margin-top: -3px;
+      margin-right: -8px;
+    }
   }
 }
 </style>

@@ -64,6 +64,7 @@ function parseProfileMedia(
   let parsedMedia = null
 
   let mediaAlbum: IProfileMediaAlbumList = []
+  let mediaVideoCover = null
 
   switch (typeof media) {
 
@@ -97,7 +98,7 @@ function parseProfileMedia(
 
         case "image":
           parsedMedia = {
-            file: getProfileMediaImage(config, media.file),
+            file: getProfileMediaImage(config, media.name),
             type: "image",
           }
           break;
@@ -118,9 +119,25 @@ function parseProfileMedia(
           break;
 
         case "video":
+          // parse video cover
+          if (media.cover) {
+              switch(typeof media.cover) {
+                case "string":
+                  mediaVideoCover = {
+                    file: getProfileMediaImage(config, media.cover),
+                    type: "image",
+                  }
+                  break;
+                case "number":
+                  mediaVideoCover = media.cover
+                  break;
+              }
+          }
+
           parsedMedia = {
-            file: getProfileMediaVideo(config, media.file),
+            file: getProfileMediaVideo(config, media.name),
             type: "video",
+            cover: mediaVideoCover
           }
           break;
 

@@ -9,7 +9,7 @@
         @select="(value: string) => (tab = value)"
       />
 
-      <ProfileMedia v-if="profile.media" :profile="profile" :tab="tab" />
+      <ProfileMediaGrid v-if="profile.media" :profile="profile" :tab="tab" />
     </v-container>
   </div>
 </template>

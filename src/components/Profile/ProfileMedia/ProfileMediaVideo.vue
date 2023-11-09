@@ -1,10 +1,11 @@
 <template>
   <div class="ig-profile-media ig-profile-media--video">
-    <video ref="video" :src="media.file.path" />
 
-    <template v-if="typeof mediaCover === 'number'">
+    <template v-if="typeof media.cover === 'number'">
+      <video ref="videoElement" :src="media.file.path" />
+
       <input
-        ref="slider"
+        ref="sliderElement"
         v-model="mediaCover"
         type="range"
         class="ig-profile-media--video-slider"
@@ -15,11 +16,8 @@
       </div>
     </template>
 
-    <template v-else-if="typeof mediaCover === 'string'">
-      {{mediaCover}}
-      <!--
-      <ProfileMediaImage :media="" />
-      -->
+    <template v-else-if="typeof media.cover === 'object'">
+      <ProfileMediaImage :media="media.cover" />
     </template>
 
     <div class="ig-profile-media__icon">
@@ -33,25 +31,27 @@ const props = defineProps<{
   media: IProfileMediaVideo;
 }>();
 
-const video: Ref<any> = ref({});
-const slider: Ref<any> = ref({});
+const videoElement: Ref<HTMLElement> = ref(null);
+const sliderElement: Ref<any> = ref({});
 
 const mediaCover = ref(props.media.cover ? props.media.cover : 0);
 
 onMounted(() => {
-  video.value.addEventListener(
+  if (!videoElement.value) return
+
+  videoElement.value.addEventListener(
     "loadedmetadata",
     () => {
       mediaCover.value = Number(mediaCover.value) * 10;
-      video.value.currentTime = mediaCover.value / 10;
-      slider.value.max = video.value.duration * 10;
+      videoElement.value.currentTime = mediaCover.value / 10;
+      sliderElement.value.max = videoElement.value.duration * 10;
     },
     false,
   );
 });
 
 function updateMediaCover() {
-  video.value.currentTime = Number(mediaCover.value) / 10;
+  videoElement.value.currentTime = Number(mediaCover.value) / 10;
 }
 </script>
 
@@ -68,7 +68,7 @@ function updateMediaCover() {
 
     &-slider {
       position: absolute;
-      bottom: 20px;
+      bottom: 15px;
       left: 15px;
       right: 15px;
       width: calc(100% - 30px);
@@ -92,7 +92,7 @@ function updateMediaCover() {
     }
 
     &:hover {
-      .instagram__media__video-slider {
+      .ig-profile-media--video-slider {
         opacity: 1;
 
         &__value {
