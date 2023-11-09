@@ -1,5 +1,5 @@
 <template>
-  <div class="ig-profile-media ig-profile-media--video">
+  <ProfileMediaContainer type="video" class="ig-profile-media--video">
 
     <template v-if="typeof media.cover === 'number'">
       <video ref="videoElement" :src="media.file.path" />
@@ -20,10 +20,7 @@
       <ProfileMediaImage :media="media.cover" />
     </template>
 
-    <div class="ig-profile-media__icon">
-      <v-icon>mdi-play</v-icon>
-    </div>
-  </div>
+  </ProfileMediaContainer>
 </template>
 
 <script setup lang="ts">

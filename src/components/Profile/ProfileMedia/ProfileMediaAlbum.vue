@@ -1,17 +1,11 @@
 <template>
-  <div class="ig-profile-media ig-profile-media--album">
+  <ProfileMediaContainer type="album" class="ig-profile-media--album">
     <Carousel>
-      <Slide v-for="(item, i) of media.list" :key="i">
-        <ProfileMediaImage v-if="item.type === 'image'" :media="item" />
-        <ProfileMediaVideo v-if="item.type === 'video'" :media="item" />
-        <ProfileMediaIframe v-if="item.type === 'iframe'" :media="item" />
+      <Slide v-for="(media, i) of media.list" :key="i">
+        <ProfileMedia :media="media" />
       </Slide>
     </Carousel>
-
-    <div class="ig-profile-media__icon">
-      <v-icon>mdi-folder-multiple-image</v-icon>
-    </div>
-  </div>
+  </ProfileMediaContainer>
 </template>
 
 <script setup lang="ts">
