@@ -1,8 +1,8 @@
 <template>
   <ProfileMediaContainer type="album" class="ig-profile-media--album">
     <Carousel>
-      <Slide v-for="(media, i) of media.list" :key="i">
-        <ProfileMedia :media="media" />
+      <Slide v-for="(item, i) of media.list" :key="i">
+        <ProfileMedia :media="item" />
       </Slide>
     </Carousel>
   </ProfileMediaContainer>
