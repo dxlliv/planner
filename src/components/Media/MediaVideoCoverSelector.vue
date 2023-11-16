@@ -23,7 +23,7 @@ function updateMediaCover() {
       @change="updateMediaCover"
   />
   <div class="ig-media--video-slider__value">
-    {{ mediaCover / 10 }}
+    {{ mediaCover }}
   </div>
 </template>
 
