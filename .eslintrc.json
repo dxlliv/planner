@@ -19,7 +19,7 @@
   "plugins": ["vue", "prettier"],
   "rules": {
     "no-undef": 0,
-    "vue/no-html": 0,
+    "vue/no-v-html": 0,
     "vue/require-default-prop": 0,
     "vue/html-self-closing": 0,
     "vue/max-attributes-per-line": 0,
