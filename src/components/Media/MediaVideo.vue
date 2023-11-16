@@ -5,6 +5,7 @@
       <video ref="videoElement" :src="media.file.path" />
 
       <MediaVideoCoverSelector
+        v-if="coverSelector"
         :media="media"
         @updateCoverTime="onUpdateCoverTime"
       />
@@ -19,12 +20,13 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMediaVideo;
+  media: IMediaVideo
+  coverSelector?: boolean
+  reel?: boolean
 }>()
 
 const videoElement: Ref<HTMLVideoElement|null> = ref(null);
 const sliderElement: Ref<any> = ref({});
-
 
 function onUpdateCoverTime(value: number) {
   if (!videoElement.value) return

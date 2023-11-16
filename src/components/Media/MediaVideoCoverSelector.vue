@@ -5,7 +5,9 @@ const props = defineProps<{
   media: IMediaVideo;
 }>()
 
-const mediaCover = ref(props.media.cover ? props.media.cover : 0);
+const mediaCover: Ref<number> = ref(
+    typeof props.media.cover === 'number' ? props.media.cover : 0
+)
 
 function updateMediaCover() {
   emit('updateCoverTime', Number(mediaCover.value))
