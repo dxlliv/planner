@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="ig-media">
+  <div :class="['ig-media', `ig-media--${type}`]">
     <slot />
 
     <div class="ig-media__icon">

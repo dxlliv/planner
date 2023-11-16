@@ -1,7 +1,7 @@
 <template>
-  <MediaPostContainer class="ig-media--image">
+  <MediaContainer type="image">
     <v-img :src="media.file.path" />
-  </MediaPostContainer>
+  </MediaContainer>
 </template>
 
 <script setup lang="ts">

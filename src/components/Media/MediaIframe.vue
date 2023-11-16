@@ -1,7 +1,7 @@
 <template>
-  <MediaPostContainer class="ig-media--iframe">
+  <MediaContainer type="iframe">
     <iframe :src="media.href" />
-  </MediaPostContainer>
+  </MediaContainer>
 </template>
 
 <script setup lang="ts">

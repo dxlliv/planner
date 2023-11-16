@@ -1,11 +1,11 @@
 <template>
-  <MediaPostContainer type="album" class="ig-media--album">
+  <MediaContainer type="album">
     <Carousel>
       <Slide v-for="(item, i) of media.list" :key="i">
         <MediaPost :media="item" />
       </Slide>
     </Carousel>
-  </MediaPostContainer>
+  </MediaContainer>
 </template>
 
 <script setup lang="ts">

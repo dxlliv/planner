@@ -10,6 +10,7 @@ declare module 'vue' {
     MainFooter: typeof import('./../components/Main/MainFooter.vue')['default']
     MainIntro: typeof import('./../components/Main/MainIntro.vue')['default']
     MediaAlbum: typeof import('./../components/Media/MediaAlbum.vue')['default']
+    MediaContainer: typeof import('./../components/Media/MediaContainer.vue')['default']
     MediaIframe: typeof import('./../components/Media/MediaIframe.vue')['default']
     MediaImage: typeof import('./../components/Media/MediaImage.vue')['default']
     MediaPost: typeof import('./../components/Media/MediaPost.vue')['default']
