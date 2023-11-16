@@ -5,10 +5,10 @@ defineProps<{
 </script>
 
 <template>
-  <div class="ig-profile-media">
+  <div class="ig-media">
     <slot />
 
-    <div class="ig-profile-media__icon">
+    <div class="ig-media__icon">
       <v-icon v-if="type === 'album'">mdi-folder-multiple-image</v-icon>
       <v-icon v-if="type === 'video'">mdi-play</v-icon>
     </div>
@@ -16,7 +16,7 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-.ig-profile-media {
+.ig-media {
   position: relative;
   width: 100%;
   height: 100%;

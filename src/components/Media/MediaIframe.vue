@@ -1,5 +1,5 @@
 <template>
-  <MediaPostContainer class="ig-profile-media--iframe">
+  <MediaPostContainer class="ig-media--iframe">
     <iframe :src="media.href" />
   </MediaPostContainer>
 </template>
@@ -11,7 +11,7 @@ defineProps<{
 </script>
 
 <style scoped lang="scss">
-.ig-profile-media--iframe {
+.ig-media--iframe {
   iframe {
     width: 100%;
     height: 100%;

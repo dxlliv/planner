@@ -1,5 +1,5 @@
 <template>
-  <MediaPostContainer type="album" class="ig-profile-media--album">
+  <MediaPostContainer type="album" class="ig-media--album">
     <Carousel>
       <Slide v-for="(item, i) of media.list" :key="i">
         <MediaPost :media="item" />

@@ -1,5 +1,5 @@
 <template>
-  <MediaPostContainer type="video" class="ig-profile-media--video">
+  <MediaPostContainer type="video" class="ig-media--video">
 
     <template v-if="!media.cover || typeof media.cover === 'number'">
       <video ref="videoElement" :src="media.file.path" />

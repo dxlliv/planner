@@ -1,5 +1,5 @@
 <template>
-  <MediaPostContainer class="ig-profile-media--image">
+  <MediaPostContainer class="ig-media--image">
     <v-img :src="media.file.path" />
   </MediaPostContainer>
 </template>
