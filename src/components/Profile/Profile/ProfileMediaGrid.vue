@@ -7,7 +7,7 @@
       >
         <template v-for="(media, i) of profile.media.posts" :key="i">
           <v-col :cols="4">
-            <ProfileMedia :media="media" />
+            <MediaPost :media="media" />
           </v-col>
         </template>
       </v-row>

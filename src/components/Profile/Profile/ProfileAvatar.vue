@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 const { avatar } = defineProps<{
-  avatar: IProfileMediaFile;
+  avatar: IMediaFile;
 }>();
 </script>
 

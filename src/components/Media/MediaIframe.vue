@@ -1,12 +1,12 @@
 <template>
-  <ProfileMediaContainer class="ig-profile-media--iframe">
+  <MediaPostContainer class="ig-profile-media--iframe">
     <iframe :src="media.href" />
-  </ProfileMediaContainer>
+  </MediaPostContainer>
 </template>
 
 <script setup lang="ts">
 defineProps<{
-  media: IProfileMediaIframe;
+  media: IMediaIframe;
 }>();
 </script>
 

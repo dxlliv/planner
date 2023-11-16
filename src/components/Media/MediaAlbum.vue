@@ -1,17 +1,17 @@
 <template>
-  <ProfileMediaContainer type="album" class="ig-profile-media--album">
+  <MediaPostContainer type="album" class="ig-profile-media--album">
     <Carousel>
       <Slide v-for="(item, i) of media.list" :key="i">
-        <ProfileMedia :media="item" />
+        <MediaPost :media="item" />
       </Slide>
     </Carousel>
-  </ProfileMediaContainer>
+  </MediaPostContainer>
 </template>
 
 <script setup lang="ts">
 import { Carousel, Slide } from "vue3-carousel";
 
 defineProps<{
-  media: IProfileMediaAlbum;
+  media: IMediaAlbum;
 }>();
 </script>

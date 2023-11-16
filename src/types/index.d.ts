@@ -72,54 +72,54 @@ interface IProfile {
     label: string;
   };
   biography?: string;
-  avatar: IProfileMediaFile;
+  avatar: IMediaFile;
   followers_count: number;
   follows_count: number;
   posts_count: number;
   media: {
-    posts: IProfileMedia[];
-    reels: IProfileMediaVideo[];
-    stories: IProfileMediaVideo[];
-    highlights: IProfileMediaAlbum[];
+    posts: IMedia[];
+    reels: IMediaVideo[];
+    stories: IMediaVideo[];
+    highlights: IMediaAlbum[];
   };
 }
 
 interface IUserOptions {}
 
-type IProfileMedia =
-  | IProfileMediaImage
-  | IProfileMediaVideo
-  | IProfileMediaIframe
-  | IProfileMediaAlbum;
-type IProfileMediaAlbumList = (
-  | IProfileMediaImage
-  | IProfileMediaVideo
-  | IProfileMediaIframe
+type IMedia =
+  | IMediaImage
+  | IMediaVideo
+  | IMediaIframe
+  | IMediaAlbum;
+type IMediaAlbumList = (
+  | IMediaImage
+  | IMediaVideo
+  | IMediaIframe
 )[];
 
-type IProfileMediaImage = {
+type IMediaImage = {
   type: "image";
-  file: IProfileMediaFile;
+  file: IMediaFile;
 };
 
-type IProfileMediaVideo = {
+type IMediaVideo = {
   type: "video";
-  file: IProfileMediaFile;
+  file: IMediaFile;
   reel?: boolean;
   cover?: string | number;
 };
 
-type IProfileMediaIframe = {
+type IMediaIframe = {
   type: "iframe";
   href: string;
 };
 
-type IProfileMediaAlbum = {
+type IMediaAlbum = {
   type: "album";
-  list: IProfileMediaAlbumList;
+  list: IMediaAlbumList;
 };
 
-interface IProfileMediaFile {
+interface IMediaFile {
   filename: string;
   path: string;
 }

@@ -1,5 +1,5 @@
 <template>
-  <ProfileMediaContainer type="video" class="ig-profile-media--video">
+  <MediaPostContainer type="video" class="ig-profile-media--video">
 
     <template v-if="!media.cover || typeof media.cover === 'number'">
       <video ref="videoElement" :src="media.file.path" />
@@ -17,15 +17,15 @@
     </template>
 
     <template v-else-if="typeof media.cover === 'object'">
-      <ProfileMediaImage :media="media.cover" />
+      <MediaImage :media="media.cover" />
     </template>
 
-  </ProfileMediaContainer>
+  </MediaPostContainer>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
-  media: IProfileMediaVideo;
+  media: IMediaVideo;
 }>();
 
 const videoElement: Ref<HTMLElement> = ref(null);

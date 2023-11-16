@@ -63,7 +63,7 @@ function parseProfileMedia(
 ) {
   let parsedMedia = null
 
-  let mediaAlbum: IProfileMediaAlbumList = []
+  let mediaAlbum: IMediaAlbumList = []
   let mediaVideoCover = null
 
   switch (typeof media) {
@@ -176,7 +176,7 @@ function getMediaPath(config: IConfigUser, filename: string) {
   return `users/${config.profile.username}/media/${filename}`;
 }
 
-export function getProfileAvatar(config: IConfigUser): IProfileMediaFile {
+export function getProfileAvatar(config: IConfigUser): IMediaFile {
   let avatarFilename = "avatar.jpg";
   let path = "";
 
@@ -199,7 +199,7 @@ export function getProfileAvatar(config: IConfigUser): IProfileMediaFile {
 export function getProfileMediaImage(
   config: IConfigUser,
   filename: string,
-): IProfileMediaFile {
+): IMediaFile {
   return {
     filename,
     path: getMediaPath(config, filename),
@@ -216,7 +216,7 @@ export function getProfileMediaIframe(
 export function getProfileMediaVideo(
   config: IConfigUser,
   filename: string,
-): IProfileMediaFile {
+): IMediaFile {
   return {
     filename,
     path: getMediaPath(config, filename),
