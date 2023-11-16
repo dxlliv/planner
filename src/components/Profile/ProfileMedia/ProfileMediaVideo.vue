@@ -1,7 +1,7 @@
 <template>
   <ProfileMediaContainer type="video" class="ig-profile-media--video">
 
-    <template v-if="typeof media.cover === 'number'">
+    <template v-if="!media.cover || typeof media.cover === 'number'">
       <video ref="videoElement" :src="media.file.path" />
 
       <input
