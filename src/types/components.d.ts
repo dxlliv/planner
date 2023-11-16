@@ -17,6 +17,7 @@ declare module 'vue' {
     MediaPostImage: typeof import('./../components/Media/MediaPostImage.vue')['default']
     MediaReel: typeof import('./../components/Media/MediaReel.vue')['default']
     MediaVideo: typeof import('./../components/Media/MediaVideo.vue')['default']
+    MediaVideoCoverSelector: typeof import('./../components/Media/MediaVideoCoverSelector.vue')['default']
     Profile: typeof import('./../components/Profile/Profile/Profile.vue')['default']
     ProfileAvatar: typeof import('./../components/Profile/Profile/ProfileAvatar.vue')['default']
     ProfileFeed: typeof import('./../components/Profile/ProfileFeed/ProfileFeed.vue')['default']
