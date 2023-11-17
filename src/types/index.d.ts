@@ -77,8 +77,8 @@ interface IProfile {
   follows_count: number;
   posts_count: number;
   media: {
-    posts: IMedia[];
-    reels: IMediaVideo[];
+    posts: IMediaPost[];
+    reels: IMediaReel[];
     stories: IMediaVideo[];
     highlights: IMediaAlbum[];
   };
@@ -86,11 +86,14 @@ interface IProfile {
 
 interface IUserOptions {}
 
-type IMedia =
+type IMediaPost =
   | IMediaImage
   | IMediaVideo
   | IMediaIframe
   | IMediaAlbum;
+
+type IMediaReel = IMediaVideo
+
 type IMediaAlbumList = (
   | IMediaImage
   | IMediaVideo

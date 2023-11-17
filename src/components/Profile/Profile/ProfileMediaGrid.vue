@@ -1,16 +1,14 @@
 <template>
   <div class="ig-profile-page__media-grid">
     <v-container class="pt-1 px-0">
-      <v-row
+      <ProfileMediaGridPosts
           v-if="tab === 'posts' && profile.media.posts.length > 0"
-          :no-gutters="$vuetify.display.xs"
-      >
-        <template v-for="(media, i) of profile.media.posts" :key="i">
-          <v-col :cols="4">
-            <MediaPost :media="media" />
-          </v-col>
-        </template>
-      </v-row>
+          :posts="profile.media.posts"
+      />
+      <ProfileMediaGridReels
+          v-if="tab === 'reels' && profile.media.reels.length > 0"
+          :reels="profile.media.reels"
+      />
     </v-container>
   </div>
 </template>
