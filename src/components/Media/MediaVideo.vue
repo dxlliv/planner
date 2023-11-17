@@ -1,5 +1,5 @@
 <template>
-  <MediaContainer type="video">
+  <MediaContainer type="video" :class="{'ig-media--reel': reel}">
 
     <template v-if="!media.cover || typeof media.cover === 'number'">
       <video ref="videoElement" :src="media.file.path" />
@@ -61,6 +61,7 @@ onMounted(() => {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      vertical-align: top;
       aspect-ratio: 1;
     }
 
@@ -71,6 +72,12 @@ onMounted(() => {
       :deep(.ig-media--video-slider__value) {
         opacity: 1;
       }
+    }
+  }
+
+  &--reel {
+    video {
+      aspect-ratio: 9 / 16;
     }
   }
 }

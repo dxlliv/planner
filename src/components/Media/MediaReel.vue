@@ -5,5 +5,5 @@ defineProps<{
 </script>
 
 <template>
-  <MediaVideo :media="media" />
+  <MediaVideo :media="media" cover-selector reel />
 </template>

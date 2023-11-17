@@ -46,7 +46,7 @@ export function parseProfile(config: IConfigUser): IUser {
 
     // parse media reels
     if (config.profile.media.reels) {
-      // data.profile.media.reels = parseProfileReels(config)
+      data.profile.media.reels = parseProfileReels(config)
     }
   }
 
@@ -166,6 +166,24 @@ function parseProfilePosts(config: IConfigUser) {
   }
 
   return parsedPosts;
+}
+
+function parseProfileReels(config: IConfigUser) {
+  const parsedReels: any = [];
+
+  for (let mediaPost of config.profile.media.posts) {
+    parsedReels.push(
+        parseProfileMedia(config, mediaPost)
+    )
+  }
+
+  for (let mediaReel of config.profile.media.reels) {
+    parsedReels.push(
+        parseProfileMedia(config, mediaReel)
+    )
+  }
+
+  return parsedReels;
 }
 
 function getMediaPath(config: IConfigUser, filename: string) {
