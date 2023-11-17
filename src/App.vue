@@ -15,7 +15,7 @@ useConfigStore().loadConfig();
 onMounted(() => {
   window.addEventListener("keydown", (e) => {
     if (String.fromCharCode(e.keyCode) === "R") {
-      configStore.options.rulers = !configStore.options.rulers;
+      configStore.options.guides = !configStore.options.guides;
     }
     if (String.fromCharCode(e.keyCode) === "D") {
       theme.global.name.value =

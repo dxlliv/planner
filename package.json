@@ -22,9 +22,9 @@
     "vue": "^3.3.8",
     "vue-router": "^4.2.5",
     "vue3-carousel": "^0.3.1",
-    "vuetify": "3.4.0",
-    "@mdi/font": "^7.3.67",
-    "vue3-simple-icons": "^9.10.0"
+    "vue3-guides": "^0.12.2",
+    "vue3-simple-icons": "^9.10.0",
+    "vuetify": "3.4.0"
   },
   "devDependencies": {
     "@babel/types": "^7.23.3",

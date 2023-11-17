@@ -3,7 +3,7 @@ import usersLocal from "../../config/users.json";
 
 export const useConfigStore = defineStore("config", () => {
   const options: Ref<any> = ref({
-    rulers: false,
+    guides: false,
   });
 
   const users: Ref<IUsers> = ref({});

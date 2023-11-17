@@ -44,6 +44,6 @@ declare module 'vue' {
     ProfileMediaVideo: typeof import('./../components/Media/ProfileMediaVideo.vue')['default']
     ProfileSwitcherCard: typeof import('./../components/Profile/ProfileSwitcher/ProfileSwitcherCard.vue')['default']
     ProfileTabs: typeof import('./../components/Profile/Profile/ProfileTabs.vue')['default']
-    ToolRuler: typeof import('./../components/Tool/ToolRuler.vue')['default']
+    ToolGuides: typeof import('./../components/Tool/ToolGuides.vue')['default']
   }
 }

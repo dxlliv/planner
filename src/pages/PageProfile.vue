@@ -1,12 +1,7 @@
 <template>
   <Profile :profile="profile" />
 
-  <template v-if="options.rulers">
-    <ToolRuler left />
-    <ToolRuler right />
-    <ToolRuler top />
-    <ToolRuler bottom />
-  </template>
+  <ToolGuides v-if="options.guides" />
 </template>
 
 <script setup lang="ts">
