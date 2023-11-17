@@ -38,12 +38,13 @@ type IConfigUserProfileMediaAlbumList = (
 
 type IConfigUserProfileMediaImage = {
   type: "image";
-  file: string;
+  name: string;
 };
 
 type IConfigUserProfileMediaVideo = {
   type: "video";
-  file: string;
+  name: string;
+  cover?: number|string
 };
 
 type IConfigUserProfileMediaIframe = {
