@@ -6,6 +6,7 @@ export function parseProfile(config: IConfigUser): IUser {
   // set fields
   data.profile.name = config.profile.name;
   data.profile.username = config.profile.username;
+  data.profile.verified = Boolean(config.profile.verified);
 
   data.profile.posts_count = 0;
   data.profile.followers_count = Number(config.profile.followers_count);

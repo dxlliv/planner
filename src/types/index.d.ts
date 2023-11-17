@@ -11,6 +11,7 @@ interface IConfigUser {
     website?: string;
     biography?: string;
     avatar?: string;
+    verified?: boolean
     followers_count: number;
     follows_count: number;
     media: {
@@ -71,6 +72,7 @@ interface IProfile {
     href: string;
     label: string;
   };
+  verified?: boolean
   biography?: string;
   avatar: IMediaFile;
   followers_count: number;
