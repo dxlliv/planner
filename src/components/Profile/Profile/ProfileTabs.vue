@@ -62,7 +62,7 @@ if (props.profile?.media.reels.length > 0) {
 
     &--active {
       color: var(--ig-tab-color-active);
-      box-shadow: 0 -1px 0 0 var(--ig-tab-color-border);
+      border-top: 1px solid var(--ig-tab-color-border);
     }
 
     .v-icon {
