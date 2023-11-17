@@ -91,6 +91,10 @@
     "getProfileMediaImage": true,
     "getProfileMediaVideo": true,
     "useUserStore": true,
-    "getProfileMediaIframe": true
+    "getProfileMediaIframe": true,
+    "parseMediaPosts": true,
+    "parseMediaReels": true,
+    "parseProfileMedia": true,
+    "getMediaPath": true
   }
 }
