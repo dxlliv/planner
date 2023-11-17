@@ -6,19 +6,25 @@ defineProps<{
 
 <template>
   <div class="ig-profile-page__header__inner">
-    <ProfileHeaderName :profile="profile" />
+    <ProfileHeaderName
+        :profile="profile"
+    />
+
     <p
         class="ig-profile-page__header__biography"
         v-html="profile.biography"
     />
 
-    <ProfileHeaderWebsite :profile="profile" />
+    <ProfileHeaderWebsite
+        :profile="profile"
+    />
   </div>
 
 </template>
 
 <style scoped lang="scss">
 .ig-profile-page__header__inner {
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 18px;
 }
 </style>

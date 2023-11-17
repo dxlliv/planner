@@ -22,8 +22,8 @@ defineProps<{
 
 <style lang="scss">
 .ig-profile-page__media-grid > .v-container > .v-row > .v-col {
-  > .ig-media {
-    margin: 1px !important;
-  }
+   @media(max-width: 600px) {
+     padding: 1px !important;
+   }
 }
 </style>

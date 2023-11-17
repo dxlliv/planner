@@ -41,6 +41,10 @@ defineProps<{
   text-align: left;
   border-bottom: 1px solid var(--ig-border);
 
+  &__username {
+    font-weight: 800;
+  }
+
   &__biography {
     font-size: 16px;
     line-height: 24px;

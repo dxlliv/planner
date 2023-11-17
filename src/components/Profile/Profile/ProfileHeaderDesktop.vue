@@ -25,6 +25,13 @@ defineProps<{
   text-align: left;
   border-bottom: 1px solid var(--ig-border);
 
+  :deep(.ig-profile-page__header__username) {
+    display: block;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 32px;
+  }
+
   &__biography {
     font-size: 16px;
     line-height: 24px;
