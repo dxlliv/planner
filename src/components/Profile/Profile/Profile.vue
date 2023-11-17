@@ -1,5 +1,5 @@
 <template>
-  <div class="ig-profile-page">
+  <v-sheet color="transparent" class="ig-profile-page">
     <v-container>
       <ProfileHeader :profile="profile" />
 
@@ -11,7 +11,7 @@
 
       <ProfileMediaGrid v-if="profile.media" :profile="profile" :tab="tab" />
     </v-container>
-  </div>
+  </v-sheet>
 </template>
 
 <script setup lang="ts">
@@ -22,10 +22,20 @@ const { profile } = defineProps<{
 const tab = ref("posts");
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .ig-profile-page {
   width: 960px;
   max-width: 100%;
   margin: 0 auto;
+
+  a {
+    color: #00376b;
+  }
+
+  &.v-theme--dark {
+    a {
+      color: white;
+    }
+  }
 }
 </style>

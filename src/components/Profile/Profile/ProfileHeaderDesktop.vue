@@ -12,29 +12,9 @@ defineProps<{
       </v-col>
 
       <v-col cols="8">
-        <div
-          class="ig-profile-page__header__username mb-5"
-          v-text="profile.username"
-        />
-
-        <ProfileHeaderStats
-            class="mb-5"
-            :profile="profile"
-        />
-
-        <p class="ig-profile-page__header__name" v-text="profile.name" />
-        <p
-          class="ig-profile-page__header__biography"
-          v-html="profile.biography"
-        />
-
-        <a
-          v-if="profile.website"
-          class="ig-profile-page__header__website"
-          :href="profile.website.href"
-          target="_blank"
-          v-text="profile.website.label"
-        />
+        <ProfileHeaderUsername :profile="profile" class="mb-5" />
+        <ProfileHeaderStats :profile="profile" class="mb-5" />
+        <ProfileHeaderInner :profile="profile" />
       </v-col>
     </v-row>
   </div>
@@ -45,45 +25,10 @@ defineProps<{
   text-align: left;
   border-bottom: 1px solid var(--ig-border);
 
-  &__username {
-    font-weight: 300;
-    font-size: 28px;
-    line-height: 32px;
-  }
-
-  &__stats {
-    list-style-type: none;
-
-    li {
-      display: inline-block;
-      margin-right: 40px;
-    }
-  }
-
-  &__name {
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 24px;
-    word-wrap: break-word;
-  }
-
   &__biography {
     font-size: 16px;
     line-height: 24px;
     word-wrap: break-word;
-  }
-
-  &__website {
-    display: inline-block;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 24px;
-    text-decoration: none;
-    word-wrap: break-word;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #00376b;
   }
 }
 </style>

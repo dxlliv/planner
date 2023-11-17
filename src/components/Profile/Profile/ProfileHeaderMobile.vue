@@ -10,7 +10,7 @@ defineProps<{
         class="ig-profile-page__header__top py-4"
     >
       <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px;" />
-      <b v-text="profile?.username" />
+      <ProfileHeaderUsername :profile="profile" class="mb-5" />
     </div>
 
     <v-divider class="mx-n4" />
@@ -25,19 +25,7 @@ defineProps<{
     </div>
 
     <div class="my-4 mt-n6">
-      <p class="ig-profile-page__header__name" v-text="profile.name" />
-      <p
-          class="ig-profile-page__header__biography"
-          v-html="profile.biography"
-      />
-
-      <a
-          v-if="profile.website"
-          class="ig-profile-page__header__website"
-          :href="profile.website.href"
-          target="_blank"
-          v-text="profile.website.label"
-      />
+      <ProfileHeaderInner :profile="profile" />
     </div>
 
     <ProfileHeaderStats
@@ -53,45 +41,10 @@ defineProps<{
   text-align: left;
   border-bottom: 1px solid var(--ig-border);
 
-  &__username {
-    font-weight: 300;
-    font-size: 28px;
-    line-height: 32px;
-  }
-
-  &__stats {
-    list-style-type: none;
-
-    li {
-      display: inline-block;
-      margin-right: 40px;
-    }
-  }
-
-  &__name {
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 24px;
-    word-wrap: break-word;
-  }
-
   &__biography {
     font-size: 16px;
     line-height: 24px;
     word-wrap: break-word;
-  }
-
-  &__website {
-    display: inline-block;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 24px;
-    text-decoration: none;
-    word-wrap: break-word;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #00376b;
   }
 }
 </style>
