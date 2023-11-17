@@ -29,7 +29,7 @@ defineProps<{
     display: block;
     font-weight: 300;
     font-size: 20px;
-    line-height: 32px;
+    line-height: 24px;
   }
 
   &__biography {

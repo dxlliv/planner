@@ -31,4 +31,14 @@ import {GithubIcon} from 'vue3-simple-icons'
     }
   }
 }
+
+.v-application.v-theme--dark {
+  .ig-footer a {
+    color: rgb(168, 168, 168);
+
+    svg {
+      fill: lightgrey;
+    }
+  }
+}
 </style>
