@@ -57,6 +57,7 @@ export default defineConfig({
       // Auto import for module exports under directories
       // by default it only scan one level of modules under the directory
       dirs: [
+        "./src/core/**",
         "./src/stores/**",
         "./src/utils/**",
         //
