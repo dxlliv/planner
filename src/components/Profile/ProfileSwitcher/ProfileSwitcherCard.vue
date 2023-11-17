@@ -28,8 +28,14 @@ const { profile } = defineProps<{
 </script>
 
 <style scoped lang="scss">
-a {
-  color: inherit;
-  text-decoration: initial;
+.ig-profile {
+  display: inline-block;
+  text-align: center;
+  margin: 0 32px;
+
+  a {
+    color: inherit;
+    text-decoration: initial;
+  }
 }
 </style>

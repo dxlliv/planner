@@ -1,10 +1,10 @@
 <template>
-  <v-container class="text-left pt-16">
-    <v-row no-gutters>
-      <v-col v-for="(user, p) of users" :key="p" class="text-center">
-        <ProfileSwitcherCard :profile="user.profile" />
-      </v-col>
-    </v-row>
+  <v-container class="text-center pt-16">
+    <ProfileSwitcherCard
+        v-for="(user, i) of users"
+        :profile="user.profile"
+        :key="i"
+    />
 
     <v-divider class="mt-15 mb-10" />
 
