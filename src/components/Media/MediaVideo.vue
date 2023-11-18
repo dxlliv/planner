@@ -1,8 +1,8 @@
 <template>
   <MediaContainer type="video" :class="{'ig-media--reel': reel}">
 
-    <template v-if="!media.cover || typeof media.cover === 'number'">
-      <video ref="videoElement" :src="media.file.path" />
+    <template v-if="!media.data.cover || typeof media.data.cover === 'number'">
+      <video ref="videoElement" :src="media.data.file.path" />
 
       <MediaVideoCoverSelector
         v-if="coverSelector"
@@ -11,8 +11,8 @@
       />
     </template>
 
-    <template v-else-if="typeof media.cover === 'object'">
-      <MediaImage :media="media.cover" />
+    <template v-else-if="typeof media.data.cover === 'object'">
+      <MediaImage :media="media.data.cover" />
     </template>
 
   </MediaContainer>
@@ -40,10 +40,10 @@ onMounted(() => {
   videoElement.value.addEventListener(
     "loadedmetadata",
     () => {
-      if (!videoElement.value || typeof props.media.cover === 'object') return
+      if (!videoElement.value || typeof props.media.data.cover === 'object') return
 
-      if (typeof props.media.cover === 'number') {
-        videoElement.value.currentTime = props.media.cover
+      if (typeof props.media.data.cover === 'number') {
+        videoElement.value.currentTime = props.media.data.cover
         sliderElement.value.max = videoElement.value.duration
       }
     },

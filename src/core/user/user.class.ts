@@ -67,26 +67,6 @@ export default class User {
         return profile
     }
 
-    private parseUserProfileAvatar(): IMediaFile {
-        let avatarFilename = "avatar.jpg";
-        let path = "";
-
-        if (this.config.profile.avatar) {
-            avatarFilename = this.config.profile.avatar;
-        }
-
-        if (avatarFilename.startsWith("http")) {
-            path = avatarFilename;
-        } else {
-            path = `users/${this.config.profile.username}/${avatarFilename}`;
-        }
-
-        return {
-            filename: avatarFilename,
-            path,
-        };
-    }
-
     private parseUserProfileMedia(): IProfileMedia {
         const media = {
             posts: [],

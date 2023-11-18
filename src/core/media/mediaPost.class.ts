@@ -27,11 +27,33 @@ export default class MediaPost extends Media {
         return this.data.list
     }
 
-    public parseMedia(media: IRawMedia): IMedia {
+    private parseMediaVideoCover(): IMedia | number {
+        if (typeof this.raw !== 'object' || !this.raw.cover) {
+            return 0
+        }
+
+        switch(typeof this.raw.cover) {
+            case "string":
+                return {
+                    type: "image",
+                    file: this.getMediaFile(this.raw.cover),
+                }
+            case "number":
+                return this.raw.cover
+        }
+    }
+
+    private parseMediaIframeCover(): IMedia {
+        return {
+            type: "image",
+            file: this.getMediaFile(this.raw.cover),
+        }
+    }
+
+    public parseMedia(): IMedia {
         let parsedMedia = null
 
         let mediaAlbum: IMediaAlbumList = []
-        let mediaVideoCover = null
 
         switch (typeof this.raw) {
 
@@ -88,24 +110,10 @@ export default class MediaPost extends Media {
 
                     case "video":
                         // parse video cover
-                        if (typeof media === 'object' && media.cover) {
-                            switch(typeof this.raw.cover) {
-                                case "string":
-                                    mediaVideoCover = {
-                                        type: "image",
-                                        file: this.getMediaFile(this.raw.cover),
-                                    }
-                                    break;
-                                case "number":
-                                    mediaVideoCover = this.raw.cover
-                                    break;
-                            }
-                        }
-
                         parsedMedia = {
                             type: "video",
                             file: this.getMediaFile(this.raw.name),
-                            cover: mediaVideoCover
+                            cover: this.parseMediaVideoCover()
                         }
                         break;
 
@@ -113,6 +121,8 @@ export default class MediaPost extends Media {
                         parsedMedia = {
                             type: "iframe",
                             href: this.raw.href,
+                            cover: this.parseMediaIframeCover(),
+                            reel: !!this.raw.reel
                         }
                         break;
 

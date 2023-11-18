@@ -10,7 +10,7 @@ interface IConfigUser {
     username: string;
     website?: string;
     biography?: string;
-    avatar?: string;
+    avatar: string;
     verified?: boolean
     followers_count: number;
     follows_count: number;
@@ -54,7 +54,7 @@ type IRawMediaVideo = {
 type IRawMediaIframe = {
   type: "iframe";
   href: string;
-  cover: undefined;
+  cover?: string;
 };
 
 type IRawMediaAlbum = {
@@ -100,52 +100,41 @@ interface IUserOptions {}
 
 interface IMedia {
   file: IMediaFile
-  type: string
+  path: string
 }
 
-type IMediaPost =
-  | IMediaImage
-  | IMediaVideo
-  | IMediaIframe
-  | IMediaAlbum;
+interface IMediaImage {
+  type: 'image'
+  data: {
+    file: IMediaFile
+    path: string
+  }
+}
 
-type IMediaReel = IMediaVideo
+interface IMediaVideo {
+  type: 'video'
+  data: {
+    file: IMediaFile
+    path: string
+    cover: IMediaImage | number
+  }
+}
 
-type IMediaAlbumList = (
-  | IMediaImage
-  | IMediaVideo
-  | IMediaIframe
-)[];
+interface IMediaAlbum {
+  type: 'album'
+  data: {
+    list: (IMediaImage|IMediaVideo|IMediaIframe)[]
+  }
+}
 
-type IMediaImage = {
-  type: "image";
-  file: IMediaFile;
-  cover: null
-  list: null
-};
-
-type IMediaVideo = {
-  type: "video";
-  file: IMediaFile;
-  cover: IMediaFile | number;
-  list: null
-  reel?: boolean;
-};
-
-type IMediaIframe = {
-  type: "iframe";
-  cover: null
-  file: null
-  list: null
-  href: string;
-};
-
-type IMediaAlbum = {
-  type: "album";
-  file: null
-  cover: null
-  list: IMediaAlbumList;
-};
+interface IMediaIframe {
+  type: string
+  data: {
+    file: IMediaFile
+    path: string
+    cover: IMediaImage
+  }
+}
 
 type IMediaFile = {
   name: string;

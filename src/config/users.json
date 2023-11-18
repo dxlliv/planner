@@ -39,7 +39,12 @@
       "media": {
         "posts": [
           "6.jpg",
-          "5.jpg",
+          {
+            "type": "iframe",
+            "href": "https://youtube.com/embed/j9oLm2FLBNI",
+            "cover": "5.jpg",
+            "reel": true
+          },
           {
             "type": "album",
             "list": ["4.jpg", "4x1.jpg"]

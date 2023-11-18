@@ -1,6 +1,6 @@
 <template>
   <MediaContainer type="image">
-    <v-img :src="media.file.path" />
+    <v-img cover height="100%" :src="media.file.path" />
   </MediaContainer>
 </template>
 
