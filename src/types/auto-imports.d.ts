@@ -86,6 +86,7 @@ declare global {
   const useConfigStore: typeof import('../stores/storeConfig')['useConfigStore']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
+  const useExtraStore: typeof import('../stores/storeExtra')['useExtraStore']
   const useLink: typeof import('vue-router')['useLink']
   const useProfileStore: (typeof import("../stores/storeProfile"))["useProfileStore"]
   const useRoute: typeof import('vue-router')['useRoute']

@@ -1,17 +1,17 @@
 <template>
   <Profile :profile="profile" />
 
-  <ToolGuides v-if="options.guides" />
+  <ToolGuides v-if="extraOptions.guides" />
 </template>
 
 <script setup lang="ts">
 const route = useRoute();
-const configStore = useConfigStore();
+const extraStore = useExtraStore();
 const userStore = useUserStore();
 
 const username: string = route.params.username.toString();
 
-const options = computed(() => configStore.options);
+const extraOptions = computed(() => extraStore.options);
 const profile = computed(() => userStore.profile);
 
 onBeforeMount(async () => {

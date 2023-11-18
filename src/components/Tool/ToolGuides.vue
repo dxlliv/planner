@@ -10,6 +10,12 @@ import Guides from "vue3-guides";
 </script>
 
 <style lang="scss">
+body.tool-guides--enabled {
+  .v-application__wrap {
+    padding-top: 36px;
+  }
+}
+
 .tool-guides {
   &:after {
     position: absolute;

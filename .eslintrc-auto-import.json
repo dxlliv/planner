@@ -108,6 +108,7 @@
     "export": true,
     "userProfileAvatarClass": true,
     "profileAvatarClass": true,
-    "mediaAvatarClass": true
+    "mediaAvatarClass": true,
+    "useExtraStore": true
   }
 }

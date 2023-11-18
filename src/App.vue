@@ -8,14 +8,14 @@
 
 <script setup lang="ts">
 const theme = useTheme();
-const configStore = useConfigStore();
+const extraStore = useExtraStore();
 
 useConfigStore().loadConfig();
 
 onMounted(() => {
   window.addEventListener("keydown", (e) => {
     if (String.fromCharCode(e.keyCode) === "R") {
-      configStore.options.guides = !configStore.options.guides;
+      extraStore.toggleGuides();
     }
     if (String.fromCharCode(e.keyCode) === "D") {
       theme.global.name.value =
