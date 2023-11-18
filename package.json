@@ -18,6 +18,7 @@
     "docs:serve": "vitepress serve docs"
   },
   "dependencies": {
+    "@mdi/font": "^7.3.67",
     "pinia": "^2.1.7",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5",
