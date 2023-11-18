@@ -1,5 +1,6 @@
 import usersDemo from "../config/users.json";
 import usersLocal from "../../config/users.json";
+import User from "../core/user/user.class";
 
 export const useConfigStore = defineStore("config", () => {
   const options: Ref<any> = ref({
@@ -36,9 +37,11 @@ export const useConfigStore = defineStore("config", () => {
     }
 
     // parse local profiles
-    usersConfig.map((user: IConfigUser) => {
+    usersConfig.map((config: IConfigUser) => {
+      const user: User = new User(config)
+
       // parse profile
-      users.value[user.profile.username] = parseProfile(user);
+      users.value[user.profile.username] = user;
     });
 
     return true;

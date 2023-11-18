@@ -95,6 +95,19 @@
     "parseMediaPosts": true,
     "parseMediaReels": true,
     "parseProfileMedia": true,
-    "getMediaPath": true
+    "getMediaPath": true,
+    "profileClass": true,
+    "userClass": true,
+    "userMediaClass": true,
+    "userProfileMediaClass": true,
+    "userProfileMediaPostClass": true,
+    "mediaPostClass": true,
+    "detectProfileMediaType": true,
+    "mediaClass": true,
+    "getFileExtension": true,
+    "export": true,
+    "userProfileAvatarClass": true,
+    "profileAvatarClass": true,
+    "mediaAvatarClass": true
   }
 }

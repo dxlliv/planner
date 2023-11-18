@@ -15,46 +15,52 @@ interface IConfigUser {
     followers_count: number;
     follows_count: number;
     media: {
-      posts: IConfigUserProfileMedia[];
-      reels: IConfigUserProfileMedia[];
-      stories: IConfigUserProfileMedia[];
-      highlights: IConfigUserProfileMedia[];
+      posts: IRawMedia[];
+      reels: IRawMedia[];
+      stories: IRawMedia[];
+      highlights: IRawMedia[];
     };
   };
   options: any;
 }
 
-type IConfigUserProfileMedia =
+type IRawMedia =
   | string
-  | IConfigUserProfileMediaImage
-  | IConfigUserProfileMediaVideo
-  | IConfigUserProfileMediaIframe
-  | IConfigUserProfileMediaAlbum;
-type IConfigUserProfileMediaAlbumList = (
-  | IConfigUserProfileMediaImage
-  | IConfigUserProfileMediaVideo
-  | IConfigUserProfileMediaIframe
-)[];
+  | IRawMediaImage
+  | IRawMediaVideo
+  | IRawMediaIframe
+  | IRawMediaAlbum;
 
-type IConfigUserProfileMediaImage = {
+type IRawMediaAlbumItem = (
+    | IRawMediaImage
+    | IRawMediaVideo
+    | IRawMediaIframe
+)
+
+type IRawMediaAlbumList = IRawMediaAlbumItem[];
+
+type IRawMediaImage = {
   type: "image";
   name: string;
+  cover: undefined;
 };
 
-type IConfigUserProfileMediaVideo = {
+type IRawMediaVideo = {
   type: "video";
   name: string;
   cover?: number|string
 };
 
-type IConfigUserProfileMediaIframe = {
+type IRawMediaIframe = {
   type: "iframe";
   href: string;
+  cover: undefined;
 };
 
-type IConfigUserProfileMediaAlbum = {
+type IRawMediaAlbum = {
   type: "album";
-  list: IConfigUserProfileMediaAlbumList;
+  list: IRawMediaAlbumList;
+  cover: undefined;
 };
 
 // parsed config
@@ -75,19 +81,27 @@ interface IProfile {
   };
   verified?: boolean
   biography?: string;
-  avatar: IMediaFile;
+  avatar: IMedia;
   followers_count: number;
   follows_count: number;
   posts_count: number;
-  media: {
-    posts: IMediaPost[];
-    reels: IMediaReel[];
-    stories: IMediaVideo[];
-    highlights: IMediaAlbum[];
-  };
+  media: IProfileMedia;
+  publicProfile: string
+}
+
+interface IProfileMedia {
+  posts: IMedia[];
+  reels: IMediaReel[];
+  stories: IMediaVideo[];
+  highlights: IMediaAlbum[];
 }
 
 interface IUserOptions {}
+
+interface IMedia {
+  file: IMediaFile
+  type: string
+}
 
 type IMediaPost =
   | IMediaImage
@@ -106,26 +120,34 @@ type IMediaAlbumList = (
 type IMediaImage = {
   type: "image";
   file: IMediaFile;
+  cover: null
+  list: null
 };
 
 type IMediaVideo = {
   type: "video";
   file: IMediaFile;
+  cover: IMediaFile | number;
+  list: null
   reel?: boolean;
-  cover?: string | number;
 };
 
 type IMediaIframe = {
   type: "iframe";
+  cover: null
+  file: null
+  list: null
   href: string;
 };
 
 type IMediaAlbum = {
   type: "album";
+  file: null
+  cover: null
   list: IMediaAlbumList;
 };
 
-interface IMediaFile {
-  filename: string;
+type IMediaFile = {
+  name: string;
   path: string;
-}
+} | null

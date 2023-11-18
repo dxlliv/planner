@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  media: IMediaPost;
+  media: IMedia;
 }>()
 </script>
 

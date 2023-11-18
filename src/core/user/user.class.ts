@@ -1,3 +1,6 @@
+import MediaAvatar from "../media/mediaAvatar.class";
+import MediaPost from "../media/mediaPost.class";
+
 export default class User {
     private readonly config: IConfigUser
     private user: IUser
@@ -56,7 +59,10 @@ export default class User {
         }
 
         // parse avatar
-        profile.avatar = this.parseUserProfileAvatar();
+        profile.avatar = new MediaAvatar(this.config, this.config.profile.avatar);
+
+        // public profile
+        profile.publicProfile = `https://instagram.com/${this.config.profile.username}`
 
         return profile
     }
@@ -95,14 +101,46 @@ export default class User {
 
         // parse media posts
         if (this.config.profile.media.posts) {
-            media.posts = parseMediaPosts(this.config);
+            media.posts = this.parseUserProfileMediaPosts();
         }
 
         // parse media reels
         if (this.config.profile.media.reels) {
-            media.reels = parseMediaReels(this.config)
+            media.reels = this.parseUserProfileMediaReels()
         }
 
         return media
+    }
+
+    private parseUserProfileMediaPosts() {
+        const parsedPosts: any = [];
+
+        for (let configMediaPost of this.config.profile.media.posts) {
+            const media = new MediaPost(this.config, configMediaPost)
+
+            parsedPosts.push(media)
+        }
+
+        return parsedPosts;
+    }
+
+    private parseUserProfileMediaReels() {
+        const parsedReels: any = [];
+
+        for (let mediaPost of this.config.profile.media.posts) {
+            if (!mediaPost.reel) continue
+
+            const media = new MediaPost(this.config, mediaPost)
+
+            parsedReels.push(media)
+        }
+
+        for (let mediaReel of this.config.profile.media.reels) {
+            const media = new MediaPost(this.config, mediaReel)
+
+            parsedReels.push(media)
+        }
+
+        return parsedReels;
     }
 }

@@ -14,7 +14,7 @@
     </router-link>
     <a
       class="text-blue-grey-lighten-4"
-      :href="`https://instagram.com/${profile.username}`"
+      :href="profile.publicProfile"
       target="_blank"
       >🡥</a
     >
