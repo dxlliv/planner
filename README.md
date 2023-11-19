@@ -22,7 +22,7 @@ Plan the grid with a text editor and build your definitive Instagram profile.
   You will be able to plan posts, reels, stories and highlights in a while.
 
 
-- **Host it anywhere**  
+- **Limitless changes**  
   Edit your media as much as you want and build your definitive profile.
 
 
@@ -30,8 +30,12 @@ Plan the grid with a text editor and build your definitive Instagram profile.
   It can serve as a planner but also as a backup for all of your content.
 
 
-- **Censorship resistant**  
-  Take ownership of your files, put your profile in a repository and commit.
+- **High quality media**  
+  Avoid compression and deliver your profile without annoying stuff.
+
+
+- **Host it anywhere**  
+  Take ownership of your data, put your files in a repository and deploy.
 
 
 ## Getting started
@@ -59,4 +63,4 @@ Read the [documentation](https://dxlliv.github.io/ig-planner/docs/) for further 
 
 ## Development
 
-I'd like to make this tool accessible to all the people with an intuitive interface, directly from the browser, without installing any software or changing a single line of code. Said so, feel free to support the project.
+I'd like to make this tool accessible to all the people with an intuitive interface directly from the browser, without installing any software or changing a single line of code. Said so, feel free to support the project.
