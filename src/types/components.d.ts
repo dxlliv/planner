@@ -11,6 +11,8 @@ declare module 'vue' {
     MainIntro: typeof import('./../components/Main/MainIntro.vue')['default']
     MediaAlbum: typeof import('./../components/Media/MediaType/MediaAlbum.vue')['default']
     MediaContainer: typeof import('./../components/Media/MediaContainer.vue')['default']
+    MediaDetail: typeof import('./../components/Media/MediaDetail.vue')['default']
+    MediaDialog: typeof import('./../components/Media/MediaDialog.vue')['default']
     MediaIframe: typeof import('./../components/Media/MediaType/MediaIframe.vue')['default']
     MediaImage: typeof import('./../components/Media/MediaType/MediaImage.vue')['default']
     MediaPost: typeof import('./../components/Media/MediaPost.vue')['default']
