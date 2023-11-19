@@ -1,5 +1,4 @@
-import usersDemo from "../config/users.json";
-import usersLocal from "../../config/users.json";
+import usersConfig from "../../public/users/config.json";
 import User from "../core/user/user.class";
 
 export const useConfigStore = defineStore("config", () => {
@@ -12,26 +11,9 @@ export const useConfigStore = defineStore("config", () => {
   }
 
   /**
-   * Check if profiles config is defined
-   */
-  function isUsersConfigProvided() {
-    return usersLocal && Object.keys(usersLocal).length > 0;
-  }
-
-  /**
    * Parse profiles from config
    */
   function loadUsers(): boolean {
-    let usersConfig: IConfigUsers = [] as IConfigUsers;
-
-    if (isUsersConfigProvided()) {
-      // @ts-ignore
-      usersConfig = usersLocal;
-    } else {
-      // @ts-ignore
-      usersConfig = usersDemo;
-    }
-
     // parse local profiles
     usersConfig.map((config: IConfigUser) => {
       const user: User = new User(config)
