@@ -1,4 +1,7 @@
 :root {
     --c-brand: #000;
     --c-brand-light: #000;
+    --c-text-light-1: #222;
+    --c-text-light-2: #555;
+    --c-text-light-3: #888;
 }
