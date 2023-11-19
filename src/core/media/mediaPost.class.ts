@@ -3,7 +3,10 @@ import Media from "./media.class";
 export default class MediaPost extends Media {
     readonly #allowedMediaTypes: string[] = ['image', 'album', 'video', 'iframe']
 
-    constructor(config: IConfigUser, rawMedia: IRawMedia) {
+    constructor(
+        config: IConfigUser,
+        rawMedia: string | IRawMedia
+    ) {
         super(config, rawMedia)
 
         this.setMediaFolder('/media')
@@ -19,109 +22,120 @@ export default class MediaPost extends Media {
         return this.data.list
     }
 
+    /**
+     * Media can be simply defined with a string (perhaps "1.jpg")
+     * or in an exhaustive way defining all of its options
+     */
     public parseMedia(): IMediaData {
-        let parsedMedia = null
-
-        let mediaAlbumList: any[] = []
-
         switch (typeof this.raw) {
-
-            // is it a short import?
             case "string":
-
-                switch(getFileExtension(this.raw)) {
-
-                    case 'mp4':
-                        parsedMedia = this.getMediaVideo(this.raw, {
-                            cover: 0
-                        })
-                        break;
-
-                    default:
-                        parsedMedia = this.getMediaImage(this.raw)
-                        break;
-
-                }
-
-                break;
-
-            // is it a regular import?
+                return this.parseMediaShortImport(this.raw)
             case "object":
-
-                switch (this.raw.type) {
-
-                    case "image":
-                        parsedMedia = this.getMediaImage(this.raw.name)
-                        break;
-
-                    case "album":
-                        if (this.raw.list && Array.isArray(this.raw.list)) {
-                            for (let albumMediaPost of this.raw.list) {
-                                const albumMedia = new MediaPost(this.config, albumMediaPost)
-
-                                mediaAlbumList.push(albumMedia)
-                            }
-                        }
-
-                        parsedMedia = this.getMediaAlbum(mediaAlbumList)
-                        break;
-
-                    case "video":
-                        // parse video cover
-                        parsedMedia = this.getMediaVideo(this.raw.name, {
-                            cover: this.raw.cover
-                        })
-                        break;
-
-                    case "iframe":
-                        parsedMedia = this.getMediaIframe(this.raw.href, {
-                            cover: this.raw.cover,
-                            reel: this.raw.reel
-                        })
-                        break;
-
+                if (!this.#allowedMediaTypes.includes(this.raw.type)) {
+                    throw Error('Media type not recognized')
                 }
+
+                return this.parseMediaRegularImport(this.raw)
+        }
+    }
+
+    /**
+     * Parse media with short import
+     *
+     * @param rawMediaFileName
+     * @private
+     */
+    private parseMediaShortImport(rawMediaFileName: string): IMediaData {
+        switch(getFileExtension(rawMediaFileName)) {
+            case 'mp4':
+                return this.getMediaVideo({
+                    type: "video",
+                    name: rawMediaFileName
+                })
+            default:
+                return this.getMediaImage({
+                    type: "image",
+                    name: rawMediaFileName
+                })
+
+        }
+    }
+
+    /**
+     * Parse media with regular import
+     *
+     * @param rawMedia
+     */
+    public parseMediaRegularImport(rawMedia: any): IMediaData {
+        switch (rawMedia.type) {
+            case "image":
+                return this.getMediaImage(rawMedia)
+            case "video":
+                return this.getMediaVideo(rawMedia)
+            case "album":
+                return this.getMediaAlbum(rawMedia)
+            case "iframe":
+                return this.getMediaIframe(rawMedia)
+            default:
+                throw Error('Media not supported')
+        }
+    }
+
+    private getMediaImage(rawMedia: IRawMediaImage): IMediaData {
+        return {
+            file: this.getMediaFile(rawMedia.name),
+        }
+    }
+
+    private getMediaVideo(rawMedia: IRawMediaVideo): IMediaData {
+        const mediaData: IMediaData = {
+            file: this.getMediaFile(rawMedia.name),
+            reel: !!rawMedia.reel,
+        }
+
+        switch (typeof rawMedia.cover) {
+            case "number":
+                mediaData.coverTime = Number(rawMedia.cover)
+                break;
+            case "string":
+                mediaData.cover = new MediaPost(this.config, rawMedia.cover)
                 break;
         }
 
-        return parsedMedia
+        return mediaData
     }
 
-    private getMediaImage(fileName: string) {
-        return {
-            file: this.getMediaFile(fileName),
-        }
-    }
+    private getMediaAlbum(rawMedia: IRawMediaAlbum): IMediaData {
+        const mediaAlbumList: MediaPost[] = []
 
-    private getMediaVideo(fileName: string, options) {
-        if (typeof cover !== 'number') {
-            options.cover = new MediaPost(this.config, options.cover)
-        }
+        if (rawMedia.list && Array.isArray(rawMedia.list)) {
+            for (let albumMediaPost of rawMedia.list) {
+                const albumMedia = new MediaPost(this.config, albumMediaPost)
 
-        return {
-            file: this.getMediaFile(fileName),
-            options: {
-                cover: options.cover,
-                reel: options.reel,
+                mediaAlbumList.push(albumMedia)
             }
         }
-    }
-
-    private getMediaAlbum(list: MediaPost[]) {
-        return {
-            list
-        }
-    }
-
-    private getMediaIframe(href: string, options) {
-        if (href && href.startsWith('https://youtube.com/embed/')) {
-            href = href + '?autoplay=1&version=3&vq=hd1080'
-        }
 
         return {
-            href,
-            cover: new MediaPost(this.config, options.cover),
-            reel: options.reel
+            list: mediaAlbumList
         }
+    }
+
+    private getMediaIframe(rawMedia: IRawMediaIframe): IMediaData {
+        // set max quality to youtube embed videos
+        if (rawMedia.href && rawMedia.href.startsWith('https://youtube.com/embed/')) {
+            rawMedia.href = rawMedia.href + '?autoplay=1&version=3&vq=hd1080'
+        }
+
+        const mediaData: IMediaData = {
+            href: rawMedia.href,
+            reel: rawMedia.reel,
+        }
+
+        if (rawMedia.cover) {
+            mediaData.cover = new MediaPost(this.config, rawMedia.cover)
+        }
+
+        return mediaData
     }
 }

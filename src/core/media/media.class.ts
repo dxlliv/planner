@@ -9,7 +9,7 @@ export default class Media {
 
     constructor(
         config: IConfigUser,
-        rawMedia: IRawMedia
+        rawMedia: string | IRawMedia
     ) {
         this.config = config
 

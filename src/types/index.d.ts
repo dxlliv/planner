@@ -15,22 +15,39 @@ interface IConfigUser {
     followers_count: number;
     follows_count: number;
     media: {
-      posts: IRawMedia[];
-      reels: IRawMedia[];
-      stories: IRawMedia[];
-      highlights: IRawMedia[];
+      posts: string | IRawMedia[];
+      reels: string | IRawMedia[];
+      stories: string | IRawMedia[];
+      highlights: string | IRawMedia[];
     };
   };
   options: any;
 }
 
-type IRawMedia = string | {
-  name: string;
+interface IRawMedia {
   type: IMediaType;
-  cover: IRawMedia;
+  name: string;
+  reel?: boolean
+}
+
+interface IRawMediaImage extends IRawMedia {
+  type: "image"
+  reel?: boolean
+}
+
+interface IRawMediaVideo extends IRawMedia {
+  type: "video"
+  cover?: IRawMedia | number;
+}
+
+interface IRawMediaAlbum extends IRawMedia {
+  type: "album"
   list: IRawMedia[]
+}
+
+interface IRawMediaIframe extends IRawMedia {
   href: string;
-  reel: boolean
+  cover?: IRawMedia;
 }
 
 // parsed config
@@ -51,7 +68,7 @@ interface IProfile {
   };
   verified?: boolean
   biography?: string;
-  avatar: Media;
+  avatar: IMediaAvatar;
   followers_count: number;
   follows_count: number;
   posts_count: number;
@@ -70,24 +87,26 @@ interface IUserOptions {}
 
 interface Media {
   folder: string
-
-  raw: IRawMedia
   type: string
-
   data: IMediaData
-
-  setMediaFolder: (folderName: string) => void
-  getMediaImage: (fileName: string) => IMediaData
-  getMediaVideo: (fileName: string, cover: MediaPost | number, reel?: boolean) => IMediaData
-  getMediaAlbum: (list: any) => IMediaData
-  getMediaIframe: (href: string, cover: MediaPost, reel?: boolean) => IMediaData
-  getMediaFile: (fileName: string) => IMediaFile
 }
 
 interface MediaPost extends Media {
 }
 
 interface MediaReel extends Media {
+}
+
+type IMediaType = 'image' | 'video' | 'album' | 'iframe'
+
+interface IMediaAvatar {
+  type: "image"
+  file: IMediaFile
+}
+
+interface IMediaFile {
+  name: string;
+  path: string;
 }
 
 interface IMediaData {
@@ -99,15 +118,7 @@ interface IMediaData {
   href?: string
 }
 
-type IMediaType = 'image' | 'video' | 'album' | 'iframe'
-
-interface IMediaFile {
-  name: string;
-  path: string;
-}
-
 /*
-
 interface IMediaImage {
   type: 'image'
   data: {

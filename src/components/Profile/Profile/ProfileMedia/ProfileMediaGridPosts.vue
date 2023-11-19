@@ -13,6 +13,6 @@
 
 <script setup lang="ts">
 defineProps<{
-  posts: IMedia[];
+  posts: MediaPost[];
 }>();
 </script>
