@@ -114,6 +114,10 @@ export default class MediaPost extends Media {
     }
 
     private getMediaIframe(href: string, options) {
+        if (href && href.startsWith('https://youtube.com/embed/')) {
+            href = href + '?autoplay=1&version=3&vq=hd1080'
+        }
+
         return {
             href,
             cover: new MediaPost(this.config, options.cover),
