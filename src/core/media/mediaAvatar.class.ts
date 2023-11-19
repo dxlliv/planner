@@ -12,9 +12,9 @@ export default class MediaAvatar extends Media {
         this.data = this.parseMediaAvatar()
     }
 
-    public parseMediaAvatar(): IMedia {
+    public parseMediaAvatar(): IMediaAvatar {
         if (typeof this.raw !== 'string') {
-            throw Error('Avatar is not a string')
+            this.raw = this.#defaultAvatarFilename
         }
 
         return {
