@@ -91,12 +91,12 @@ interface MediaReel extends Media {
 }
 
 interface IMediaData {
-  href?: string
   file?: IMediaFile
   cover?: MediaPost
   coverTime?: number
   list?: MediaPost[]
   reel?: boolean
+  href?: string
 }
 
 type IMediaType = 'image' | 'video' | 'album' | 'iframe'

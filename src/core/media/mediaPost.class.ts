@@ -32,7 +32,9 @@ export default class MediaPost extends Media {
                 switch(getFileExtension(this.raw)) {
 
                     case 'mp4':
-                        parsedMedia = this.getMediaVideo(this.raw, 0)
+                        parsedMedia = this.getMediaVideo(this.raw, {
+                            cover: 0
+                        })
                         break;
 
                     default:
@@ -66,11 +68,16 @@ export default class MediaPost extends Media {
 
                     case "video":
                         // parse video cover
-                        parsedMedia = this.getMediaVideo(this.raw.name, this.raw.cover)
+                        parsedMedia = this.getMediaVideo(this.raw.name, {
+                            cover: this.raw.cover
+                        })
                         break;
 
                     case "iframe":
-                        parsedMedia = this.getMediaIframe(this.raw.href, this.raw.cover, this.raw.reel)
+                        parsedMedia = this.getMediaIframe(this.raw.href, {
+                            cover: this.raw.cover,
+                            reel: this.raw.reel
+                        })
                         break;
 
                 }
@@ -86,15 +93,17 @@ export default class MediaPost extends Media {
         }
     }
 
-    private getMediaVideo(fileName: string, cover?: IRawMedia | number | string, reel?: boolean) {
+    private getMediaVideo(fileName: string, options) {
         if (typeof cover !== 'number') {
-            cover = new MediaPost(this.config, cover)
+            options.cover = new MediaPost(this.config, options.cover)
         }
 
         return {
             file: this.getMediaFile(fileName),
-            cover,
-            reel,
+            options: {
+                cover: options.cover,
+                reel: options.reel,
+            }
         }
     }
 
@@ -104,11 +113,11 @@ export default class MediaPost extends Media {
         }
     }
 
-    private getMediaIframe(href: string, cover: IRawMedia, reel?: boolean) {
+    private getMediaIframe(href: string, options) {
         return {
             href,
-            cover: new MediaPost(this.config, cover),
-            reel
+            cover: new MediaPost(this.config, options.cover),
+            reel: options.reel
         }
     }
 }
