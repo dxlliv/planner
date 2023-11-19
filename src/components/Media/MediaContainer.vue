@@ -27,6 +27,7 @@ defineProps<{
     right: 15px;
     color: white;
     font-size: 14px;
+    pointer-events: none;
 
     .mdi-play {
       font-size: 28px;
