@@ -1,22 +1,14 @@
 import Media from "./media.class";
 
 export default class MediaPost extends Media {
-    private readonly allowedMediaTypes: string[] = ['image', 'album', 'video', 'iframe']
+    readonly #allowedMediaTypes: string[] = ['image', 'album', 'video', 'iframe']
 
     constructor(config: IConfigUser, rawMedia: IRawMedia) {
         super(config, rawMedia)
 
         this.setMediaFolder('/media')
 
-        this.data = this.parseMedia(rawMedia)
-    }
-
-    get cover(): IMediaFile | number {
-        if (this.type === 'video') {
-            return this.data.cover
-        }
-
-        return this.data.file
+        this.data = this.parseMedia()
     }
 
     get list() {
@@ -27,33 +19,10 @@ export default class MediaPost extends Media {
         return this.data.list
     }
 
-    private parseMediaVideoCover(): IMedia | number {
-        if (typeof this.raw !== 'object' || !this.raw.cover) {
-            return 0
-        }
-
-        switch(typeof this.raw.cover) {
-            case "string":
-                return {
-                    type: "image",
-                    file: this.getMediaFile(this.raw.cover),
-                }
-            case "number":
-                return this.raw.cover
-        }
-    }
-
-    private parseMediaIframeCover(): IMedia {
-        return {
-            type: "image",
-            file: this.getMediaFile(this.raw.cover),
-        }
-    }
-
-    public parseMedia(): IMedia {
+    public parseMedia(): IMediaData {
         let parsedMedia = null
 
-        let mediaAlbum: IMediaAlbumList = []
+        let mediaAlbumList: any[] = []
 
         switch (typeof this.raw) {
 
@@ -63,18 +32,11 @@ export default class MediaPost extends Media {
                 switch(getFileExtension(this.raw)) {
 
                     case 'mp4':
-                        parsedMedia = {
-                            type: "video",
-                            file: this.getMediaFile(this.raw),
-                            cover: 0
-                        }
+                        parsedMedia = this.getMediaVideo(this.raw, 0)
                         break;
 
                     default:
-                        parsedMedia = {
-                            type: "image",
-                            file: this.getMediaFile(this.raw),
-                        }
+                        parsedMedia = this.getMediaImage(this.raw)
                         break;
 
                 }
@@ -87,43 +49,28 @@ export default class MediaPost extends Media {
                 switch (this.raw.type) {
 
                     case "image":
-                        parsedMedia = {
-                            type: "image",
-                            file: this.getMediaFile(this.raw.name),
-                        }
+                        parsedMedia = this.getMediaImage(this.raw.name)
                         break;
 
                     case "album":
                         if (this.raw.list && Array.isArray(this.raw.list)) {
                             for (let albumMediaPost of this.raw.list) {
-                                const albumMedia: IMedia = new MediaPost(this.config, albumMediaPost)
+                                const albumMedia = new MediaPost(this.config, albumMediaPost)
 
-                                mediaAlbum.push(albumMedia)
+                                mediaAlbumList.push(albumMedia)
                             }
                         }
 
-                        parsedMedia = {
-                            type: "album",
-                            list: mediaAlbum,
-                        }
+                        parsedMedia = this.getMediaAlbum(mediaAlbumList)
                         break;
 
                     case "video":
                         // parse video cover
-                        parsedMedia = {
-                            type: "video",
-                            file: this.getMediaFile(this.raw.name),
-                            cover: this.parseMediaVideoCover()
-                        }
+                        parsedMedia = this.getMediaVideo(this.raw.name, this.raw.cover)
                         break;
 
                     case "iframe":
-                        parsedMedia = {
-                            type: "iframe",
-                            href: this.raw.href,
-                            cover: this.parseMediaIframeCover(),
-                            reel: !!this.raw.reel
-                        }
+                        parsedMedia = this.getMediaIframe(this.raw.href, this.raw.cover, this.raw.reel)
                         break;
 
                 }
@@ -131,5 +78,37 @@ export default class MediaPost extends Media {
         }
 
         return parsedMedia
+    }
+
+    private getMediaImage(fileName: string) {
+        return {
+            file: this.getMediaFile(fileName),
+        }
+    }
+
+    private getMediaVideo(fileName: string, cover?: IRawMedia | number | string, reel?: boolean) {
+        if (typeof cover !== 'number') {
+            cover = new MediaPost(this.config, cover)
+        }
+
+        return {
+            file: this.getMediaFile(fileName),
+            cover,
+            reel,
+        }
+    }
+
+    private getMediaAlbum(list: MediaPost[]) {
+        return {
+            list
+        }
+    }
+
+    private getMediaIframe(href: string, cover: IRawMedia, reel?: boolean) {
+        return {
+            href,
+            cover: new MediaPost(this.config, cover),
+            reel
+        }
     }
 }

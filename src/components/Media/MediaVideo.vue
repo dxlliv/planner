@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMediaVideo
+  media: MediaPost
   coverSelector?: boolean
   reel?: boolean
 }>()

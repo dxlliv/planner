@@ -1,11 +1,11 @@
 export default class Media {
-    private readonly config: IConfigUser
-    public folder: string = ''
+    readonly config
+    public folder = ''
 
-    public raw: IRawMedia
-    public type: string
+    public raw
+    public type
 
-    public data: IMedia = {} as IMedia
+    public data = {} as IMediaData
 
     constructor(
         config: IConfigUser,
@@ -17,27 +17,8 @@ export default class Media {
         this.type = this.detectMediaType()
     }
 
-    get file(): IMediaFile {
-        return this.data.file
-    }
-
     public setMediaFolder(folderName: string) {
         this.folder = folderName
-    }
-
-    public getMediaFile(fileName: string): IMediaFile {
-        let filePath = ''
-
-        if (fileName.startsWith("http")) {
-            filePath = fileName
-        } else {
-            filePath = this.getMediaPath(fileName)
-        }
-
-        return {
-            name: fileName,
-            path: filePath,
-        };
     }
 
     private detectMediaType() {
@@ -60,7 +41,22 @@ export default class Media {
         }
     }
 
-    private getMediaPath(filename: string): string {
+    public getMediaFile(fileName: string) {
+        let filePath = ''
+
+        if (fileName.startsWith("http")) {
+            filePath = fileName
+        } else {
+            filePath = this.getMediaPath(fileName)
+        }
+
+        return {
+            name: fileName,
+            path: filePath,
+        };
+    }
+
+    private getMediaPath(filename: string) {
         if (filename.startsWith("http")) {
             return "";
         }

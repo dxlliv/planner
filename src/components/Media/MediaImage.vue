@@ -1,11 +1,11 @@
 <template>
   <MediaContainer type="image">
-    <v-img cover height="100%" :src="media.file.path" />
+    <v-img cover height="100%" :src="media.data?.file.path" />
   </MediaContainer>
 </template>
 
 <script setup lang="ts">
 defineProps<{
-  media: IMediaImage;
+  media: MediaPost;
 }>();
 </script>
