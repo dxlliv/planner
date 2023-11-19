@@ -2,9 +2,37 @@
 
 > Plan your Instagram profile like a pro and see how it will look like
 
-## Documentation
+## About
 
-https://dxlliv.github.io/ig-planner/docs
+[dxlliv/ig-planner](https://dxlliv.github.io/ig-planner/) let you preview what your profile grid will look like.  
+Plan the grid with a text editor and build your definitive Instagram profile.
+
+**[Demo](https://dxlliv.github.io/ig-planner/) · [Documentation](https://dxlliv.github.io/ig-planner/docs/) · [Support](https://patreon.com/dxlliv)**
+
+## Features
+- **Organize your grid**  
+  Place your media in the user folder and define it in the configuration.
+
+
+- **A wide range of media**  
+  It supports both local and remote images, videos, albums and iframes.
+
+
+- **Plan your everything**  
+  You will be able to plan posts, reels, stories and highlights in a while.
+
+
+- **Host it anywhere**  
+  Edit your media as much as you want and build your definitive profile.
+
+
+- **Backup your account**  
+  It can serve as a planner but also as a backup for all of your content.
+
+
+- **Censorship resistant**  
+  Take ownership of your files, put your profile in a repository and commit.
+
 
 ## Getting started
 
@@ -26,7 +54,9 @@ npm install && npm run dev
 
 ### Configuration
 
-This planner isn't drag & drop because it worked for me as it is.  
-If you know how to properly edit a .json file, it will be simple.
+If you know how to properly edit a .json file, it will be simple.  
+Read the [documentation](https://dxlliv.github.io/ig-planner/docs/) for further information.
 
-Read the [documentation](https://dxlliv.github.io/ig-planner/docs) for further info.
+## Development
+
+I'd like to make this tool accessible to all the people with an intuitive interface, directly from the browser, without installing any software or changing a single line of code. Said so, feel free to support the project.
