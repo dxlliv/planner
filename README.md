@@ -1,10 +1,10 @@
 # Instagram Planner
 
-> Plan your Instagram profile like a pro and see how it will look like
+> An open-source planner for your Instagram profile
 
 ## About
 
-[dxlliv/ig-planner](https://dxlliv.github.io/ig-planner/) let you preview what your profile grid will look like.  
+**dxlliv/ig-planner** let you preview what your profile grid will look like.  
 Plan the grid with a text editor and build your definitive Instagram profile.
 
 **[Demo](https://dxlliv.github.io/ig-planner/) · [Documentation](https://dxlliv.github.io/ig-planner/docs/) · [Support](https://patreon.com/dxlliv)**
