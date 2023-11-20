@@ -1,9 +1,11 @@
 <template>
   <v-container class="text-center pt-16">
-    <ProfileSwitcherCard
-        v-for="(user, i) of users" :key="i"
-        :profile="user.profile"
-    />
+
+    <template v-for="(user, i) of users" :key="i">
+      <ProfileSelector
+          :profile="user.profile"
+      />
+    </template>
 
     <v-divider class="mt-15 mb-10" />
 

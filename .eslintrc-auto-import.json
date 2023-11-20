@@ -109,6 +109,8 @@
     "userProfileAvatarClass": true,
     "profileAvatarClass": true,
     "mediaAvatarClass": true,
-    "useExtraStore": true
+    "useExtraStore": true,
+    "loadRemoteUserConfig": true,
+    "useConfigUserStore": true
   }
 }

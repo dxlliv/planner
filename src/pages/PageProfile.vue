@@ -14,9 +14,5 @@ const username: string = route.params.username.toString();
 const extraOptions = computed(() => extraStore.options);
 const profile = computed(() => userStore.profile);
 
-onBeforeMount(async () => {
-  await userStore.setActiveUser(username).catch((e) => {
-    console.error(e);
-  });
-});
+userStore.loadUserPage(username);
 </script>

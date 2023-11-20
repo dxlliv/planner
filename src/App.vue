@@ -9,8 +9,10 @@
 const theme = useTheme();
 const extraStore = useExtraStore();
 
+// app initialize
 useConfigStore().loadConfig()
 
+// kbd shortcuts
 onMounted(() => {
   window.addEventListener("keydown", (e) => {
     if (String.fromCharCode(e.keyCode) === "R") {

@@ -1,5 +1,5 @@
 <template>
-  <div class="ig-profile">
+  <div class="ig-profile-selector">
     <router-link
       :to="{
         name: 'profile',
@@ -28,7 +28,7 @@ const { profile } = defineProps<{
 </script>
 
 <style scoped lang="scss">
-.ig-profile {
+.ig-profile-selector {
   display: inline-block;
   text-align: center;
   margin: 0 32px;

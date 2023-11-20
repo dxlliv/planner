@@ -1,19 +1,32 @@
 import User from "../core/user/user.class";
 
 export const useUserStore = defineStore("user", () => {
-  const users: Ref<IUsers> = ref({});
-  const user: Ref<IUser> = ref({} as IUser);
+  const users: Ref<{[username: string]: User}> = ref({});
+  const userActive: Ref<string> = ref('')
 
   /**
-   * Import user configuration
+   * Initialize user
    *
-   * @param userConfig
+   * @param config
    */
-  function loadUserConfig(userConfig: IRawUser) {
-    const user: User = new User(userConfig)
+  function loadUserConfig(config: IRawUser): boolean {
+    users.value[config.profile.username] = new User(config)
 
-    // parse profile
-    users.value[user.profile.username] = user;
+    return true;
+  }
+
+  /**
+   * Initialize user from username
+   *
+   * @param username
+   */
+  function loadUserPage(username: string): boolean {
+    const config = useConfigUserStore().getUserConfig(username)
+
+    loadUserConfig(config)
+    setUserActive(username)
+
+    return true;
   }
 
   /**
@@ -21,27 +34,19 @@ export const useUserStore = defineStore("user", () => {
    *
    * @param username
    */
-  function setActiveUser(username: string): boolean {
-    if (!Object.prototype.hasOwnProperty.call(users.value, username)) {
-      throw new Error("User not found");
-    }
-
-    user.value = users.value[username];
-
-    return true;
+  function setUserActive(username: string) {
+    userActive.value = username
   }
 
   const profile = computed(() => {
-    return {
-      ...user.value.profile,
-      posts_count: user.value.profile.media.posts.length,
-    };
+    // posts_count: user.value.profile.media.posts.length todo
+    return users.value[userActive.value].profile
   });
 
   return {
     users,
     profile,
     loadUserConfig,
-    setActiveUser,
+    loadUserPage,
   };
 });

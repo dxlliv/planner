@@ -1,8 +1,7 @@
 import plannerConfig from "../../config.json";
-import {useUserStore} from "./storeUser";
 
 export const useConfigStore = defineStore("config", () => {
-  const userStore = useUserStore()
+  const configUserStore = useConfigUserStore()
 
   const config: Ref<IConfig> = ref({
     users: []
@@ -15,31 +14,21 @@ export const useConfigStore = defineStore("config", () => {
   async function loadConfig(): Promise<boolean> {
     config.value.users = plannerConfig.users
 
+      // load user config only with no loaded users
+      if (configUserStore.count > 0) {
+          return true
+      }
+
     // load remote user configuration
     // from /ig-planner/public or any remote url
     config.value.users.map(async userConfigPath => {
-      await loadRemoteUserConfig(`${userConfigPath}/config.json`)
+        const remoteUserConfig = await loadRemoteUserConfig(`${userConfigPath}/config.json`)
+        configUserStore.setUserConfig(remoteUserConfig)
     })
 
+    configUserStore.loadUsers()
+
     return true;
-  }
-
-  /**
-   * Fetch user configuration from the provided url
-   *
-   * @param url
-   */
-  async function loadRemoteUserConfig(url: string) {
-    await fetch(url)
-        .then(async response => {
-          const userConfig = await response.json()
-
-          userStore.loadUserConfig(userConfig)
-          return true
-        })
-        .catch(e => {
-          throw Error(e)
-        })
   }
 
   return {
