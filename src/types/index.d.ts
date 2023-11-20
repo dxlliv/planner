@@ -1,10 +1,8 @@
 interface IConfig {
-  profiles: IConfigUsers;
+  users: string[]
 }
 
-type IConfigUsers = IConfigUser[];
-
-interface IConfigUser {
+interface IRawUser {
   profile: {
     name: string;
     username: string;

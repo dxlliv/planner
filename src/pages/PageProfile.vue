@@ -6,8 +6,8 @@
 
 <script setup lang="ts">
 const route = useRoute();
-const extraStore = useExtraStore();
 const userStore = useUserStore();
+const extraStore = useExtraStore();
 
 const username: string = route.params.username.toString();
 
@@ -15,7 +15,7 @@ const extraOptions = computed(() => extraStore.options);
 const profile = computed(() => userStore.profile);
 
 onBeforeMount(async () => {
-  await userStore.loadUser(username).catch((e) => {
+  await userStore.setActiveUser(username).catch((e) => {
     console.error(e);
   });
 });

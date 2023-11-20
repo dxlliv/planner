@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <router-view />
-
     <MainFooter />
   </v-app>
 </template>
@@ -10,7 +9,7 @@
 const theme = useTheme();
 const extraStore = useExtraStore();
 
-useConfigStore().loadConfig();
+useConfigStore().loadConfig()
 
 onMounted(() => {
   window.addEventListener("keydown", (e) => {

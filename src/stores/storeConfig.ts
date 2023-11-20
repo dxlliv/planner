@@ -1,32 +1,48 @@
-import usersConfig from "../../public/users/config.json";
-import User from "../core/user/user.class";
+import plannerConfig from "../../config.json";
+import {useUserStore} from "./storeUser";
 
 export const useConfigStore = defineStore("config", () => {
-  const users: Ref<IUsers> = ref({});
+  const userStore = useUserStore()
 
-  function loadConfig(): boolean {
-    loadUsers();
+  const config: Ref<IConfig> = ref({
+    users: []
+  })
+
+  /**
+   * Load ig-planner local configuration
+   * from /ig-planner/config.json
+   */
+  async function loadConfig(): Promise<boolean> {
+    config.value.users = plannerConfig.users
+
+    // load remote user configuration
+    // from /ig-planner/public or any remote url
+    config.value.users.map(async userConfigPath => {
+      await loadRemoteUserConfig(`${userConfigPath}/config.json`)
+    })
 
     return true;
   }
 
   /**
-   * Parse profiles from config
+   * Fetch user configuration from the provided url
+   *
+   * @param url
    */
-  function loadUsers(): boolean {
-    // parse local profiles
-    usersConfig.map((config: IConfigUser) => {
-      const user: User = new User(config)
+  async function loadRemoteUserConfig(url: string) {
+    await fetch(url)
+        .then(async response => {
+          const userConfig = await response.json()
 
-      // parse profile
-      users.value[user.profile.username] = user;
-    });
-
-    return true;
+          userStore.loadUserConfig(userConfig)
+          return true
+        })
+        .catch(e => {
+          throw Error(e)
+        })
   }
 
   return {
     loadConfig,
-    users,
   };
 });

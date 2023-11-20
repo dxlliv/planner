@@ -1,16 +1,34 @@
-export const useUserStore = defineStore("user", () => {
-  const configStore = useConfigStore();
+import User from "../core/user/user.class";
 
+export const useUserStore = defineStore("user", () => {
+  const users: Ref<IUsers> = ref({});
   const user: Ref<IUser> = ref({} as IUser);
 
-  async function loadUser(username: string): Promise<boolean> {
-    if (Object.prototype.hasOwnProperty.call(configStore.users, username)) {
-      user.value = configStore.users[username];
+  /**
+   * Import user configuration
+   *
+   * @param userConfig
+   */
+  function loadUserConfig(userConfig: IRawUser) {
+    const user: User = new User(userConfig)
 
-      return true;
+    // parse profile
+    users.value[user.profile.username] = user;
+  }
+
+  /**
+   * Set active user
+   *
+   * @param username
+   */
+  function setActiveUser(username: string): boolean {
+    if (!Object.prototype.hasOwnProperty.call(users.value, username)) {
+      throw new Error("User not found");
     }
 
-    throw new Error("User not found");
+    user.value = users.value[username];
+
+    return true;
   }
 
   const profile = computed(() => {
@@ -21,7 +39,9 @@ export const useUserStore = defineStore("user", () => {
   });
 
   return {
-    loadUser,
+    users,
     profile,
+    loadUserConfig,
+    setActiveUser,
   };
 });
