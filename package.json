@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@mdi/font": "^7.3.67",
+    "browser-fs-access": "^0.35.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.0",
     "vue": "^3.3.8",
