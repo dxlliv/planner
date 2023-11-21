@@ -21,9 +21,19 @@ defineProps<{
 </script>
 
 <style lang="scss">
-.ig-profile-page__media-grid > .v-container > .v-row > .v-col {
-   @media(max-width: 600px) {
-     padding: 1px !important;
-   }
+.ig-profile-page__media-grid > .v-container > .v-row {
+  margin: -1.5px !important;
+
+  @media(max-width: 600px) {
+    margin: -1px !important;
+  }
+
+  & > .v-col {
+    padding: 1.5px !important;
+
+    @media(max-width: 600px) {
+      padding: 1px !important;
+    }
+  }
 }
 </style>

@@ -18,7 +18,7 @@ defineProps<{
 <style scoped lang="scss">
 .ig-media {
   position: relative;
-  max-width: 280px;
+  max-width: 300px;
   width: 100%;
   height: 100%;
 
