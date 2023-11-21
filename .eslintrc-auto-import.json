@@ -111,6 +111,10 @@
     "mediaAvatarClass": true,
     "useExtraStore": true,
     "loadRemoteUserConfig": true,
-    "useConfigUserStore": true
+    "useConfigUserStore": true,
+    "openProfileDirectory": true,
+    "useProfileManagerStore": true,
+    "readFile": true,
+    "readProfileDirectoryConfig": true
   }
 }

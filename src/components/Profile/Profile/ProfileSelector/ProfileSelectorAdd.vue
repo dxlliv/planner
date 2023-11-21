@@ -10,11 +10,10 @@
 </template>
 
 <script setup lang="ts">
-//const configUserStore = useConfigUserStore()
+const profileManagerStore = useProfileManagerStore()
 
 async function onProfileAdd() {
-
-
+  profileManagerStore.importProfile()
 
 
   //configUserStore.setUserConfig(config)
