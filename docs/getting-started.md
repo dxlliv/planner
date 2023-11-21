@@ -3,13 +3,13 @@
 ## Installation
 
 Be sure you have [Node.js](https://nodejs.org) and NPM installed.   
-Clone the repository and move to the project directory:
+Clone the repository and move to the project directory.
 
 ```bash
 git clone https://github.com/dxlliv/ig-planner.git && cd ig-planner
 ```
 
-Install dependencies and run the project:
+Install dependencies and run the project.
 
 ```bash
 npm install && npm run dev
@@ -20,49 +20,58 @@ yarn install && yarn dev
 
 ## Configuration
 
-Customize the `config/users.json` file with your favorite editor.
+Define your profile using your favorite editor and create a `config.json` file.
 
 ```json
-[
-  {
-    "profile": {
-      "fields": {
-        "username": "dxlliv",
-        "avatar": "avatar.jpg",
-        "website": "",
-        "followers_count": 50,
-        "follows_count": 50
-      },
-      "media": {
-        "posts": ["3.jpg", "2.jpg", "1.jpg"],
-        "reels": [],
-        "stories": [],
-        "highlights": []
-      }
+{
+  "profile": {
+    "fields": {
+      "username": "dxlliv",
+      "avatar": "avatar.jpg",
+      "website": "",
+      "followers_count": 50,
+      "follows_count": 50
+    },
+    "media": {
+      "posts": ["3.jpg", "2.jpg", "1.jpg"],
+      "reels": [],
+      "stories": [],
+      "highlights": []
     }
   }
-]
+}
 ```
 
 ### Set up a new user
 
-Define your users under the `config/users.json` configuration file  
-and create a `public/users/{username}` folder for each one.
+After defining your profile configuration,
+create a new folder under `public/user/{username}`
+and put the `config.json` you created just before,
+making sure you have provided a valid JSON.
+
+Then you have to define the profile path in the root `config.json`, like the example.
+
+```json
+{
+  "users": [
+    "/user/dxlliv",
+    "/user/dxvfpv",
+    "/user/{username}"
+  ]
+}
+```
 
 Place an image called `avatar.jpg` in your profile folder.
 
-### Provide some media
+### Provide your media
 
-IG Planner supports different media types: image, video, album and iframe.
+This planner supports different media types: images, videos, albums and iframes.
 
-Add your media to your `public/users/{username}/media/` folder  
-and define all the media in the users configuration like the examples.
-
-### Media support
-
-IG Planner supports different media types: image, video, album and iframe.  
+Place your media in the `public/user/{username}/media/` and define all of your content in the profile configuration like the examples. Create the `media` folder if you are setting a new user.
 
 #### Images
+
+You can short import images just defining the path, without the `type` property.
 
 ```json
 {
@@ -84,6 +93,8 @@ IG Planner supports different media types: image, video, album and iframe.
 
 #### Videos
 
+As for images, you can short import videos but it will used the first frame as cover.
+
 ```json
 {
   "dxlliv": {
@@ -91,10 +102,11 @@ IG Planner supports different media types: image, video, album and iframe.
       {
         "type": "video",
         "name": "4.mp4",
-        "cover": 0
+        "reel": true, // optional
+        "cover": 15 // optional
       },
       
-      // shortened imports (todo)
+      // shortened imports
       "3.mp4",
       "2.mp4",
       "1.mp4"
@@ -102,6 +114,8 @@ IG Planner supports different media types: image, video, album and iframe.
   }
 }
 ```
+
+You can set a custom cover using strings like `4-cover.jpg` providing the image in the media folder, or simply use a number that will set a specific frame of your video as the cover.
 
 #### Albums
 
@@ -115,8 +129,8 @@ IG Planner supports different media types: image, video, album and iframe.
         "list": ["4.jpg", "4x1.jpg", "4x2.jpg"]
       },
 
-      // shortened imports
-      "3.mp4",
+      // other imports
+      ["3.jpg", "3x1.jpg", "3x2.jpg"], // todo
       "2.jpg",
       "1.jpg"
     ]
@@ -125,6 +139,8 @@ IG Planner supports different media types: image, video, album and iframe.
 ```
 
 #### Iframes
+
+You could use iframes if you are using external tools, or maybe to define a YouTube Short as reel.
 
 ```json
 {
@@ -135,7 +151,7 @@ IG Planner supports different media types: image, video, album and iframe.
         "href": "http://localhost:3000/my-post"
       },
 
-      // shortened imports
+      // other imports
       "3.jpg",
       "2.jpg",
       "1.jpg"
