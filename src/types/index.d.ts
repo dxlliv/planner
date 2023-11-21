@@ -95,12 +95,10 @@ interface MediaPost extends Media {
 interface MediaReel extends Media {
 }
 
-type IMediaType = 'image' | 'video' | 'album' | 'iframe'
-
-interface IMediaAvatar {
-  type: "image"
-  file: IMediaFile
+interface IMediaAvatar extends Media {
 }
+
+type IMediaType = 'image' | 'video' | 'album' | 'iframe'
 
 interface IMediaFile {
   name: string;

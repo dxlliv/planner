@@ -21,9 +21,18 @@ export const useConfigUserStore = defineStore("config/user", () => {
     config.value[rawUser.profile.username] = rawUser;
   }
 
+  /**
+   * Remove user configuration
+   *
+   * @param username
+   */
+  function unsetUserConfig(username: string) {
+    delete config.value[username];
+  }
+
   function loadUsers() {
     Object.values(config.value).map(rawUser => {
-      userStore.loadUserConfig(rawUser)
+      userStore.initializeUserConfig(rawUser)
     })
   }
 
@@ -36,6 +45,7 @@ export const useConfigUserStore = defineStore("config/user", () => {
     count,
     getUserConfig,
     setUserConfig,
+    unsetUserConfig,
     loadUsers,
   };
 }, {

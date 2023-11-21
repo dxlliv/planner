@@ -14,13 +14,15 @@ export const useConfigStore = defineStore("config", () => {
   async function loadConfig(): Promise<boolean> {
     config.value.users = plannerConfig.users
 
-      // load user config only with no loaded users
-      if (configUserStore.count > 0) {
-          return true
-      }
+    // users defined in /ig-planner/config.json have already been set
+    // and are stored in local storage with the pinia persistent lib
+    if (configUserStore.count > 0) {
+        // initialize users
+        configUserStore.loadUsers()
+        return true
+    }
 
-    // load remote user configuration
-    // from /ig-planner/public or any remote url
+    // fresh start: load users defined in /ig-planner/config.json
     config.value.users.map(async userConfigPath => {
         const remoteUserConfig = await loadRemoteUserConfig(`${userConfigPath}/config.json`)
         configUserStore.setUserConfig(remoteUserConfig)

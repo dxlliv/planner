@@ -9,7 +9,7 @@ export const useUserStore = defineStore("user", () => {
    *
    * @param config
    */
-  function loadUserConfig(config: IRawUser): boolean {
+  function initializeUserConfig(config: IRawUser): boolean {
     users.value[config.profile.username] = new User(config)
 
     return true;
@@ -20,10 +20,10 @@ export const useUserStore = defineStore("user", () => {
    *
    * @param username
    */
-  function loadUserPage(username: string): boolean {
+  function initializeUserPage(username: string): boolean {
     const config = useConfigUserStore().getUserConfig(username)
 
-    loadUserConfig(config)
+    initializeUserConfig(config)
     setUserActive(username)
 
     return true;
@@ -46,7 +46,7 @@ export const useUserStore = defineStore("user", () => {
   return {
     users,
     profile,
-    loadUserConfig,
-    loadUserPage,
+    initializeUserConfig,
+    initializeUserPage,
   };
 });

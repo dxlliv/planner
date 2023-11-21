@@ -1,13 +1,20 @@
 <template>
-  <v-avatar class="ig-profile-avatar">
-    <v-img width="150px" height="150px" :src="avatar.data.file?.path" />
+  <v-avatar :size="size" class="ig-profile-avatar">
+    <v-img
+        v-if="avatar"
+        :src="avatar.data.file?.path"
+    />
+    <slot />
   </v-avatar>
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  avatar: Media;
-}>();
+withDefaults(defineProps<{
+  avatar?: IMediaAvatar;
+  size?: string
+}>(), {
+  size: '120px'
+});
 </script>
 
 <style scoped lang="scss">

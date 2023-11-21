@@ -14,5 +14,5 @@ const username: string = route.params.username.toString();
 const extraOptions = computed(() => extraStore.options);
 const profile = computed(() => userStore.profile);
 
-userStore.loadUserPage(username);
+userStore.initializeUserPage(username);
 </script>

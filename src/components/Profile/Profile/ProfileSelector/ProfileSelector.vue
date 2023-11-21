@@ -1,41 +1,99 @@
 <template>
-  <div class="ig-profile-selector">
-    <router-link
-      :to="{
-        name: 'profile',
-        params: {
-          username: profile.username,
-        },
-      }"
-    >
-      <ProfileAvatar size="120px" :avatar="profile.avatar" />
+  <div :class="['ig-profile-selector', {'ig-profile-selector--add': add}]">
+    <template v-if="profile">
+      <router-link
+          :to="{
+            name: 'profile',
+            params: {
+              username: profile.username,
+            },
+          }"
+          @contextmenu="showProfileContextMenu"
+      >
+        <ProfileAvatar :avatar="profile.avatar" />
 
-      <h3 class="mt-4" v-text="profile.username" />
-    </router-link>
-    <a
-      class="text-blue-grey-lighten-4"
-      :href="profile.publicProfile"
-      target="_blank"
-      >🡥</a
-    >
+        <h3 class="mt-4" v-text="profile.username" />
+
+        <ProfileSelectorMenu
+            v-model="contextMenu.enabled"
+            :profile="profile"
+        />
+
+      </router-link>
+
+      <a
+          class="text-blue-grey-lighten-4"
+          :href="profile.publicProfile" target="_blank"
+      >🡥</a>
+    </template>
+    <slot />
   </div>
 </template>
 
 <script setup lang="ts">
 const { profile } = defineProps<{
-  profile: IProfile;
+  profile?: IProfile;
+  add?: boolean
 }>();
+
+const contextMenu = reactive({
+  enabled: false,
+  x: 0,
+  y: 0
+})
+
+function showProfileContextMenu(e) {
+  e.preventDefault()
+
+  contextMenu.enabled = false
+  contextMenu.x = e.clientX
+  contextMenu.y = e.clientY
+
+  nextTick(() => {
+    contextMenu.enabled = true
+  })
+}
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+.ig-profile-selector__context-menu {
+  .v-list {
+    padding: 0;
+
+    &-item {
+      min-height: 0;
+    }
+
+    &-item-title {
+      font-size: 13px;
+    }
+  }
+}
+
 .ig-profile-selector {
+  position: relative;
   display: inline-block;
   text-align: center;
   margin: 0 32px;
+  vertical-align: top;
 
   a {
     color: inherit;
     text-decoration: initial;
+  }
+
+  &--add {
+    cursor: pointer;
+
+    :deep(.v-icon) {
+      opacity: 0.5;
+    }
+
+    &:hover {
+      :deep(.v-icon) {
+        opacity: 1;
+      }
+    }
   }
 }
 </style>
