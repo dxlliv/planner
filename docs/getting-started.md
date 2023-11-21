@@ -54,9 +54,9 @@ Then you have to define the profile path in the root `config.json`, like the exa
 ```json
 {
   "users": [
-    "/user/dxlliv",
-    "/user/dxvfpv",
-    "/user/{username}"
+    "user/dxlliv",
+    "user/dxvfpv",
+    "user/{username}"
   ]
 }
 ```
