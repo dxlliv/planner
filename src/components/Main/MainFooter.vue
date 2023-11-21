@@ -19,6 +19,7 @@ import {GithubIcon} from 'vue3-simple-icons'
 
 <style scoped lang="scss">
 .ig-footer {
+  text-align: center;
   font-size: 13px;
   color: #8e8e8e;
 
