@@ -34,6 +34,7 @@ declare module 'vue' {
     ProfileMediaGridPosts: typeof import('./../components/Profile/Profile/ProfileMedia/ProfileMediaGridPosts.vue')['default']
     ProfileMediaGridReels: typeof import('./../components/Profile/Profile/ProfileMedia/ProfileMediaGridReels.vue')['default']
     ProfileSelector: typeof import('./../components/Profile/Profile/ProfileSelector/ProfileSelector.vue')['default']
+    ProfileSelectorAdd: typeof import('./../components/Profile/Profile/ProfileSelector/ProfileSelectorAdd.vue')['default']
     ProfileSelectorCard: typeof import('./../components/Profile/ProfileSelector/ProfileSelectorCard.vue')['default']
     ProfileSelectorMenu: typeof import('./../components/Profile/Profile/ProfileSelector/ProfileSelectorMenu.vue')['default']
     ProfileSwitcherCard: typeof import('./../components/Profile/ProfileSelector/ProfileSwitcherCard.vue')['default']

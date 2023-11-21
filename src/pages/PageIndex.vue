@@ -7,6 +7,8 @@
       />
     </template>
 
+    <ProfileSelectorAdd />
+
     <v-divider class="mt-15 mb-10" />
 
     <MainIntro />
