@@ -49,6 +49,7 @@ if (props.profile?.media.reels.length > 0) {
 <style scoped lang="scss">
 .ig-profile-page__tabs {
   display: block;
+  text-align: center;
   padding: 0;
 
   &__tab {

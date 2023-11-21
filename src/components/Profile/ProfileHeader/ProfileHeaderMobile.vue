@@ -42,6 +42,7 @@ defineProps<{
   border-bottom: 1px solid var(--ig-border);
 
   &__username {
+    display: inline;
     font-weight: 800;
   }
 
