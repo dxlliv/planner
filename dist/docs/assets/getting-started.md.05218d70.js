@@ -22,9 +22,9 @@ import{_ as n,c as s,o as a,a as t}from"./app.4ed376f9.js";const h='{"title":"Ge
 <span class="token punctuation">}</span>
 </code></pre></div><h3 id="set-up-a-new-user" tabindex="-1">Set up a new user <a class="header-anchor" href="#set-up-a-new-user" aria-hidden="true">#</a></h3><p>After defining your profile configuration, create a new folder under <code>public/user/{username}</code> and put the <code>config.json</code> you created just before, making sure you have provided a valid JSON.</p><p>Then you have to define the profile path in the root <code>config.json</code>, like the example.</p><div class="language-json"><pre><code><span class="token punctuation">{</span>
   <span class="token property">&quot;users&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token string">&quot;/user/dxlliv&quot;</span><span class="token punctuation">,</span>
-    <span class="token string">&quot;/user/dxvfpv&quot;</span><span class="token punctuation">,</span>
-    <span class="token string">&quot;/user/{username}&quot;</span>
+    <span class="token string">&quot;user/dxlliv&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;user/dxvfpv&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;user/{username}&quot;</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </code></pre></div><p>Place an image called <code>avatar.jpg</code> in your profile folder.</p><h3 id="provide-your-media" tabindex="-1">Provide your media <a class="header-anchor" href="#provide-your-media" aria-hidden="true">#</a></h3><p>This planner supports different media types: images, videos, albums and iframes.</p><p>Place your media in the <code>public/user/{username}/media/</code> and define all of your content in the profile configuration like the examples. Create the <code>media</code> folder if you are setting a new user.</p><h4 id="images" tabindex="-1">Images <a class="header-anchor" href="#images" aria-hidden="true">#</a></h4><p>You can short import images just defining the path, without the <code>type</code> property.</p><div class="language-json"><pre><code><span class="token punctuation">{</span>
