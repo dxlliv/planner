@@ -4,7 +4,7 @@ export default class MediaAvatar extends Media {
     readonly #defaultAvatarFilename: string = 'avatar.jpg'
 
     constructor(
-        config: IConfigUser,
+        config: IRawUser,
         rawMedia: string
     ) {
         super(config, rawMedia)

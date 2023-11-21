@@ -4,6 +4,15 @@ export const useConfigUserStore = defineStore("config/user", () => {
   const config: Ref<{[username: string]: IRawUser}> = ref({});
 
   /**
+   * Initialize user configuration
+   */
+  function loadUsers() {
+    Object.values(config.value).map(rawUser => {
+      userStore.initializeUserConfig(rawUser)
+    })
+  }
+
+  /**
    * Get user configuration
    *
    * @param username
@@ -18,6 +27,10 @@ export const useConfigUserStore = defineStore("config/user", () => {
    * @param rawUser
    */
   function setUserConfig(rawUser: IRawUser) {
+    // set user order for right position
+    rawUser.order = count.value
+
+    // set user configuration
     config.value[rawUser.profile.username] = rawUser;
   }
 
@@ -30,22 +43,18 @@ export const useConfigUserStore = defineStore("config/user", () => {
     delete config.value[username];
   }
 
-  function loadUsers() {
-    Object.values(config.value).map(rawUser => {
-      userStore.initializeUserConfig(rawUser)
-    })
-  }
-
-  const count = computed(() => {
-    return Object.values(config.value).length
+  /**
+   * Return users count
+   */
+  const count: ComputedRef<number> = computed(() => {
+    return Object.keys(config.value).length
   })
 
   return {
-    config,
     count,
-    getUserConfig,
     setUserConfig,
     unsetUserConfig,
+    getUserConfig,
     loadUsers,
   };
 }, {

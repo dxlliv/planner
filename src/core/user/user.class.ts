@@ -2,10 +2,10 @@ import MediaAvatar from "../media/mediaAvatar.class";
 import MediaPost from "../media/mediaPost.class";
 
 export default class User {
-    private readonly config: IConfigUser
+    private readonly config: IRawUser
     private user: IUser
 
-    constructor(config: IConfigUser) {
+    constructor(config: IRawUser) {
         this.config = config
 
         this.user = this.parseUser()

@@ -1,8 +1,9 @@
-interface IConfig {
+interface IRawConfig {
   users: string[]
 }
 
 interface IRawUser {
+  order: number
   profile: {
     name: string;
     username: string;
@@ -53,6 +54,7 @@ interface IRawMediaIframe extends IRawMedia {
 type IUsers = { [username: string]: IUser };
 
 interface IUser {
+  order: number
   profile: IProfile;
   options: IUserOptions;
 }

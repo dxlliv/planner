@@ -7,16 +7,17 @@ export const useUserStore = defineStore("user", () => {
   /**
    * Initialize user
    *
-   * @param config
+   * @param rawUser
    */
-  function initializeUserConfig(config: IRawUser): boolean {
-    users.value[config.profile.username] = new User(config)
+  function initializeUserConfig(rawUser: IRawUser): boolean {
+    users.value[rawUser.profile.username] = new User(rawUser)
 
     return true;
   }
 
   /**
    * Initialize user from username
+   * (called in PageProfile.vue)
    *
    * @param username
    */
@@ -38,14 +39,17 @@ export const useUserStore = defineStore("user", () => {
     userActive.value = username
   }
 
-  const profile = computed(() => {
-    // posts_count: user.value.profile.media.posts.length todo
-    return users.value[userActive.value].profile
-  });
+  /**
+   * Return users sorted by order
+   */
+  const userList: ComputedRef<User[]> = computed(() => {
+    return Object.values(users.value).sort((a: any, b: any) => a.order - b.order)
+  })
 
   return {
     users,
-    profile,
+    userList,
+    userActive,
     initializeUserConfig,
     initializeUserPage,
   };

@@ -8,7 +8,7 @@ export default class Media {
     public data = {} as IMediaData
 
     constructor(
-        config: IConfigUser,
+        config: IRawUser,
         rawMedia: string | IRawMedia
     ) {
         this.config = config

@@ -4,7 +4,7 @@ export default class MediaPost extends Media {
     readonly #allowedMediaTypes: string[] = ['image', 'album', 'video', 'iframe']
 
     constructor(
-        config: IConfigUser,
+        config: IRawUser,
         rawMedia: string | IRawMedia
     ) {
         super(config, rawMedia)

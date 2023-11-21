@@ -3,7 +3,7 @@ import plannerConfig from "../../config.json";
 export const useConfigStore = defineStore("config", () => {
   const configUserStore = useConfigUserStore()
 
-  const config: Ref<IConfig> = ref({
+  const config: Ref<IRawConfig> = ref({
     users: []
   })
 
@@ -14,20 +14,14 @@ export const useConfigStore = defineStore("config", () => {
   async function loadConfig(): Promise<boolean> {
     config.value.users = plannerConfig.users
 
-    // users defined in /ig-planner/config.json have already been set
-    // and are stored in local storage with the pinia persistent lib
-    if (configUserStore.count > 0) {
-        // initialize users
-        configUserStore.loadUsers()
-        return true
+    // for each user config path
+    for await (const userConfigPath of config.value.users) {
+      // fetch user config from its local/remote path
+      const remoteUserConfig = await loadRemoteUserConfig(`${userConfigPath}/config.json`)
+      configUserStore.setUserConfig(remoteUserConfig)
     }
 
-    // fresh start: load users defined in /ig-planner/config.json
-    config.value.users.map(async userConfigPath => {
-        const remoteUserConfig = await loadRemoteUserConfig(`${userConfigPath}/config.json`)
-        configUserStore.setUserConfig(remoteUserConfig)
-    })
-
+    // initialize users
     configUserStore.loadUsers()
 
     return true;
