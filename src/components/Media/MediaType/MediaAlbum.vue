@@ -1,7 +1,7 @@
 <template>
   <MediaContainer type="album">
     <Carousel>
-      <Slide v-for="(item, i) of media.list" :key="i">
+      <Slide v-for="(item, i) of media.data.list" :key="i">
         <MediaPost :media="item" />
       </Slide>
     </Carousel>

@@ -2,7 +2,6 @@ import type { Preview } from "@storybook/vue3";
 import { setup } from "@storybook/vue3";
 
 // styles
-import '../src/assets/styles/variables.scss'
 import '../src/assets/styles/index.scss'
 
 // plugins
