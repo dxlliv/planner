@@ -2,7 +2,12 @@
   <MediaContainer type="video" :class="{'ig-media--reel': reel}">
 
     <template v-if="!media.data.cover || typeof media.data.cover === 'number'">
-      <video ref="videoElement" :src="media.data.file.path" />
+      <video
+          ref="videoElement"
+          :src="media.data.file?.path"
+          :autoplay="isPlaying"
+          @click="isPlaying = !isPlaying"
+      />
 
       <MediaVideoCoverSelector
         v-if="coverSelector"
@@ -12,7 +17,10 @@
     </template>
 
     <template v-else-if="typeof media.data.cover === 'object'">
-      <MediaImage :media="media.data.cover" />
+      <MediaImage
+          :media="media.data.cover"
+          @click="isPlaying = true"
+      />
     </template>
 
   </MediaContainer>
@@ -22,8 +30,11 @@
 const props = defineProps<{
   media: MediaPost
   coverSelector?: boolean
+  playable?: boolean
   reel?: boolean
 }>()
+
+const isPlaying: Ref<boolean> = ref(false)
 
 const videoElement: Ref<HTMLVideoElement|null> = ref(null);
 const sliderElement: Ref<any> = ref({});
@@ -50,6 +61,18 @@ onMounted(() => {
     false,
   );
 });
+
+watch(() => isPlaying.value, (isPlaying) => {
+  if (!videoElement.value || !props.playable) {
+    return false
+  }
+
+  if (isPlaying) {
+    videoElement.value.play()
+  } else {
+    videoElement.value.pause()
+  }
+})
 </script>
 
 <style scoped lang="scss">
