@@ -64,3 +64,29 @@ Read the [documentation](https://dxlliv.github.io/ig-planner/docs/) for further 
 ## Development
 
 I'd like to make this tool accessible to all the people with an intuitive interface directly from the browser, without installing any software or changing a single line of code. Said so, feel free to support the project.
+
+## Roadmap
+- [ ] Profile viewer
+  - [x] Posts
+    - [x] Image support
+    - [x] Video support
+    - [x] Album support
+    - [x] Iframe support
+    - [ ] Caption
+    - [ ] Location
+    - [ ] Sound
+    - [ ] Publication date
+  - [x] Reels
+  - [ ] Stories
+  - [ ] Highlights
+- [ ] Profile editor
+  - [ ] Make use of indexedDB with Dexie.js
+  - [ ] Create a local database
+  - [ ] Import profile from folder to local db
+  - [ ] Edit profile
+  - [ ] Drag & drop media
+  - [ ] Sort media
+  - [ ] Delete profile from local db
+  - [ ] Export profile to folder
+- [ ] Implement Storybook
+- [ ] Implement i18n
