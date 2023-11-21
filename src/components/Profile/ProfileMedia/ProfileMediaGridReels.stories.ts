@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 import ProfileMediaGridReels from './ProfileMediaGridReels.vue';
-import {profileMockup} from "../../../stories/mockup/profile.mockup";
+import {mockupProfile} from "~/stories/mockup/profile.mockup";
 
 const meta = {
     component: ProfileMediaGridReels,
     args: {
-        reels: profileMockup.media.reels,
+        reels: mockupProfile.media.reels,
     },
 } satisfies Meta<typeof ProfileMediaGridReels>;
 
