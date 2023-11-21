@@ -15,10 +15,7 @@
           "cover": "5.jpg",
           "reel": true
         },
-        {
-          "type": "album",
-          "list": ["4.jpg", "4x1.jpg"]
-        },
+        ["4.jpg", "4x1.jpg"],
         "3.jpg",
         "2.jpg",
         "1.jpg"

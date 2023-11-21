@@ -129,8 +129,10 @@ You can set a custom cover using strings like `4-cover.jpg` providing the image 
         "list": ["4.jpg", "4x1.jpg", "4x2.jpg"]
       },
 
+      // shortened import
+      ["3.jpg", "3x1.jpg", "3x2.jpg"],
+      
       // other imports
-      ["3.jpg", "3x1.jpg", "3x2.jpg"], // todo
       "2.jpg",
       "1.jpg"
     ]

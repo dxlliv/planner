@@ -31,7 +31,7 @@ export default class MediaPost extends Media {
             case "string":
                 return this.parseMediaShortImport(this.raw)
             case "object":
-                if (!this.#allowedMediaTypes.includes(this.raw.type)) {
+                if (!this.#allowedMediaTypes.includes(this.raw.type) && !Array.isArray(this.raw)) {
                     throw Error('Media type not recognized')
                 }
 
@@ -67,6 +67,11 @@ export default class MediaPost extends Media {
      * @param rawMedia
      */
     public parseMediaRegularImport(rawMedia: any): IMediaData {
+        // albums may be defined as simple arrays
+        if (Array.isArray(rawMedia)) {
+            return this.getMediaAlbum(rawMedia)
+        }
+
         switch (rawMedia.type) {
             case "image":
                 return this.getMediaImage(rawMedia)
@@ -105,8 +110,14 @@ export default class MediaPost extends Media {
         return mediaData
     }
 
-    private getMediaAlbum(rawMedia: IRawMediaAlbum): IMediaData {
+    private getMediaAlbum(rawMedia: any): IMediaData {
         const mediaAlbumList: MediaPost[] = []
+
+        if (Array.isArray(rawMedia)) {
+            rawMedia = {
+                list: rawMedia
+            }
+        }
 
         if (rawMedia.list && Array.isArray(rawMedia.list)) {
             for (let albumMediaPost of rawMedia.list) {

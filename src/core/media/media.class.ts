@@ -37,7 +37,11 @@ export default class Media {
                 return mediaType
 
             case "object":
-                return this.raw.type
+                if (Array.isArray(this.raw)) {
+                    return 'album'
+                } else {
+                    return this.raw.type
+                }
         }
     }
 

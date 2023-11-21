@@ -12,6 +12,6 @@
 import { Carousel, Slide } from "vue3-carousel";
 
 defineProps<{
-  media: IMediaAlbum;
+  media: MediaPost;
 }>();
 </script>
