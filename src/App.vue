@@ -27,7 +27,5 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-@import "assets/styles/variables.scss";
 @import "assets/styles/index.scss";
-@import "vue3-carousel/dist/carousel.css";
 </style>
