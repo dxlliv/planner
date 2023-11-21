@@ -14,10 +14,12 @@
 
         <h3 class="mt-4" v-text="profile.username" />
 
+        <!--
         <ProfileSelectorMenu
             v-model="contextMenu.enabled"
             :profile="profile"
         />
+        -->
 
       </router-link>
 
