@@ -21,7 +21,6 @@ declare module 'vue' {
     MediaVideoCoverSelector: typeof import('./../components/Media/MediaType/MediaVideoCoverSelector.vue')['default']
     Profile: typeof import('./../components/Profile/Profile/Profile.vue')['default']
     ProfileAvatar: typeof import('./../components/Profile/Profile/ProfileAvatar/ProfileAvatar.vue')['default']
-    ProfileAvatarContainer: typeof import('./../components/Profile/Profile/ProfileAvatar/ProfileAvatarContainer.vue')['default']
     ProfileHeader: typeof import('./../components/Profile/Profile/ProfileHeader.vue')['default']
     ProfileHeaderDesktop: typeof import('./../components/Profile/Profile/ProfileHeader/ProfileHeaderDesktop.vue')['default']
     ProfileHeaderInner: typeof import('./../components/Profile/Profile/ProfileHeader/ProfileHeaderInner.vue')['default']
@@ -35,9 +34,7 @@ declare module 'vue' {
     ProfileMediaGridReels: typeof import('./../components/Profile/Profile/ProfileMedia/ProfileMediaGridReels.vue')['default']
     ProfileSelector: typeof import('./../components/Profile/Profile/ProfileSelector/ProfileSelector.vue')['default']
     ProfileSelectorAdd: typeof import('./../components/Profile/Profile/ProfileSelector/ProfileSelectorAdd.vue')['default']
-    ProfileSelectorCard: typeof import('./../components/Profile/ProfileSelector/ProfileSelectorCard.vue')['default']
     ProfileSelectorMenu: typeof import('./../components/Profile/Profile/ProfileSelector/ProfileSelectorMenu.vue')['default']
-    ProfileSwitcherCard: typeof import('./../components/Profile/ProfileSelector/ProfileSwitcherCard.vue')['default']
     ProfileTabs: typeof import('./../components/Profile/Profile/ProfileTabs.vue')['default']
     ToolGuides: typeof import('./../components/Tool/ToolGuides.vue')['default']
   }
