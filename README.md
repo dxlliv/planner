@@ -88,5 +88,5 @@ I'd like to make this tool accessible to all the people with an intuitive interf
   - [ ] Sort media
   - [ ] Delete profile from local db
   - [ ] Export profile to folder
-- [ ] Implement Storybook
+- [x] Implement Storybook
 - [ ] Implement i18n
