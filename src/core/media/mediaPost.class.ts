@@ -14,14 +14,6 @@ export default class MediaPost extends Media {
         this.data = this.parseMedia()
     }
 
-    get list() {
-        if (this.type !== 'album') {
-            return null
-        }
-
-        return this.data.list
-    }
-
     /**
      * Media can be simply defined with a string (perhaps "1.jpg")
      * or in an exhaustive way defining all of its options
