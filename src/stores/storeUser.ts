@@ -5,12 +5,23 @@ export const useUserStore = defineStore("user", () => {
   const userActive: Ref<string> = ref('')
 
   /**
-   * Initialize user
+   * Load user
    *
    * @param rawUser
    */
-  function initializeUserConfig(rawUser: IRawUser): boolean {
+  function loadUserConfig(rawUser: IRawUser): boolean {
     users.value[rawUser.profile.username] = new User(rawUser)
+
+    return true;
+  }
+
+  /**
+   * Unload user
+   *
+   * @param username
+   */
+  function unloadUserConfig(username: string): boolean {
+    delete users.value[username]
 
     return true;
   }
@@ -21,10 +32,10 @@ export const useUserStore = defineStore("user", () => {
    *
    * @param username
    */
-  function initializeUserPage(username: string): boolean {
+  function loadUserPage(username: string): boolean {
     const config = useConfigUserStore().getUserConfig(username)
 
-    initializeUserConfig(config)
+    loadUserConfig(config)
     setUserActive(username)
 
     return true;
@@ -50,7 +61,8 @@ export const useUserStore = defineStore("user", () => {
     users,
     userList,
     userActive,
-    initializeUserConfig,
-    initializeUserPage,
+    loadUserConfig,
+    unloadUserConfig,
+    loadUserPage,
   };
 });
