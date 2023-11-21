@@ -61,6 +61,6 @@ export default class Media {
             return "";
         }
 
-        return `/user/${this.config.profile.username}${this.folder}/${filename}`;
+        return `${import.meta.env.BASE_URL}user/${this.config.profile.username}${this.folder}/${filename}`;
     }
 }
