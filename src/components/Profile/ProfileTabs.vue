@@ -23,13 +23,13 @@
 const emit = defineEmits(["select"]);
 
 const props = defineProps<{
-  profile: IProfile;
+  media: IUserMedia;
   active: string;
 }>();
 
 const tabs: { name: string; label: string; icon: string }[] = [];
 
-if (props.profile?.media.posts.length > 0) {
+if (props.media.posts.length > 0) {
   tabs.push({
     name: "posts",
     label: "Posts",
@@ -37,7 +37,7 @@ if (props.profile?.media.posts.length > 0) {
   });
 }
 
-if (props.profile?.media.reels.length > 0) {
+if (props.media.reels.length > 0) {
   tabs.push({
     name: "reels",
     label: "Reels",

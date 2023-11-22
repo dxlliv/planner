@@ -5,24 +5,24 @@
     "avatar": "avatar.jpg",
     "website": "https://dxlliv.github.io",
     "followers_count": 50,
-    "follows_count": 50,
-    "media": {
-      "posts": [
-        "6.jpg",
-        {
-          "type": "iframe",
-          "href": "https://youtube.com/embed/j9oLm2FLBNI",
-          "cover": "5.jpg",
-          "reel": true
-        },
-        ["4.jpg", "4x1.jpg"],
-        "3.jpg",
-        "2.jpg",
-        "1.jpg"
-      ],
-      "reels": [],
-      "stories": []
-    }
+    "follows_count": 50
+  },
+  "media": {
+    "posts": [
+      "6.jpg",
+      {
+        "type": "iframe",
+        "href": "https://youtube.com/embed/j9oLm2FLBNI",
+        "cover": "5.jpg",
+        "reel": true
+      },
+      ["4.jpg", "4x1.jpg"],
+      "3.jpg",
+      "2.jpg",
+      "1.jpg"
+    ],
+    "reels": [],
+    "stories": []
   },
   "options": {}
 }

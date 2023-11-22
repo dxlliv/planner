@@ -119,6 +119,11 @@
     "parseUserProfileDetails": true,
     "parseUserProfileMedia": true,
     "parseUserProfileMediaPosts": true,
-    "parseUserProfileMediaReels": true
+    "parseUserProfileMediaReels": true,
+    "exportUserProfile": true,
+    "parseUserMedia": true,
+    "parseUserMediaPosts": true,
+    "parseUserMediaReels": true,
+    "parseUserProfile": true
   }
 }

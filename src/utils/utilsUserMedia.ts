@@ -1,6 +1,6 @@
 import MediaPost from "../core/media/mediaPost.class";
 
-export function parseUserProfileMedia(rawUser: IRawUser): IProfileMedia {
+export function parseUserMedia(rawUser: IRawUser): IUserMedia {
     const media = {
         posts: [],
         stories: [],
@@ -8,27 +8,23 @@ export function parseUserProfileMedia(rawUser: IRawUser): IProfileMedia {
         highlights: [],
     }
 
-    if (!Object.prototype.hasOwnProperty.call(rawUser.profile, "media")) {
-        return media
-    }
-
     // parse media posts
-    if (rawUser.profile.media.posts) {
-        media.posts = parseUserProfileMediaPosts(rawUser);
+    if (rawUser.media.posts) {
+        media.posts = parseUserMediaPosts(rawUser);
     }
 
     // parse media reels
-    if (rawUser.profile.media.reels) {
-        media.reels = parseUserProfileMediaReels(rawUser)
+    if (rawUser.media.reels) {
+        media.reels = parseUserMediaReels(rawUser)
     }
 
     return media
 }
 
-export function parseUserProfileMediaPosts(rawUser: IRawUser) {
+export function parseUserMediaPosts(rawUser: IRawUser) {
     const parsedPosts: any = [];
 
-    for (let configMediaPost of rawUser.profile.media.posts) {
+    for (let configMediaPost of rawUser.media.posts) {
         const media = new MediaPost(rawUser, configMediaPost)
 
         parsedPosts.push(media)
@@ -37,10 +33,10 @@ export function parseUserProfileMediaPosts(rawUser: IRawUser) {
     return parsedPosts;
 }
 
-export function parseUserProfileMediaReels(rawUser: IRawUser) {
+export function parseUserMediaReels(rawUser: IRawUser) {
     const parsedReels: any = [];
 
-    for (let mediaPost of rawUser.profile.media.posts) {
+    for (let mediaPost of rawUser.media.posts) {
         if (!mediaPost.reel) continue
 
         const media = new MediaPost(rawUser, mediaPost)
@@ -48,7 +44,7 @@ export function parseUserProfileMediaReels(rawUser: IRawUser) {
         parsedReels.push(media)
     }
 
-    for (let mediaReel of rawUser.profile.media.reels) {
+    for (let mediaReel of rawUser.media.reels) {
         const media = new MediaPost(rawUser, mediaReel)
 
         parsedReels.push(media)

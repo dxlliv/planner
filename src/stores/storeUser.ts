@@ -57,10 +57,15 @@ export const useUserStore = defineStore("user", () => {
     return Object.values(users.value).sort((a: any, b: any) => a.order - b.order)
   })
 
+  const user = computed(() => {
+    return users.value[userActive.value]
+  })
+
   return {
     users,
     userList,
     userActive,
+    user,
     loadUserConfig,
     unloadUserConfig,
     loadUserPage,

@@ -4,19 +4,20 @@
       <ProfileHeader :profile="profile" />
 
       <ProfileTabs
-        :profile="profile"
+        :media="media"
         :active="tab"
         @select="(value: string) => (tab = value)"
       />
 
-      <ProfileMediaGrid v-if="profile.media" :profile="profile" :tab="tab" />
+      <ProfileMediaGrid v-if="media" :media="media" :tab="tab" />
     </v-container>
   </v-sheet>
 </template>
 
 <script setup lang="ts">
-const { profile } = defineProps<{
-  profile: IProfile;
+defineProps<{
+  profile: IUserProfile;
+  media: IUserMedia;
 }>();
 
 const tab = ref("posts");

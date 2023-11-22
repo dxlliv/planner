@@ -4,6 +4,7 @@ export default class User {
     public order: number = 0
     public options: IUserOptions = {}
     public profile: IUserProfile = {}
+    public media: IUserMedia = {}
 
     constructor(rawUser: IRawUser) {
         this.rawUser = rawUser
@@ -12,13 +13,10 @@ export default class User {
     }
 
     private parseUser(): IUser {
-        const data: IUser = {
-            profile: {},
-            options: {}
-        } as IUser;
+        const data: IUser = {} as IUser;
 
-        this.profile = parseUserProfileDetails(this.rawUser)
-        this.profile.media = parseUserProfileMedia(this.rawUser);
+        this.profile = parseUserProfile(this.rawUser)
+        this.media = parseUserMedia(this.rawUser);
         this.options = this.rawUser.options
 
         return data

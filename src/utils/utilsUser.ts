@@ -1,6 +1,6 @@
 import MediaAvatar from "../core/media/mediaAvatar.class";
 
-export function parseUserProfileDetails(rawUser: IRawUser): IProfile {
+export function parseUserProfile(rawUser: IRawUser): IProfile {
     const profile: IProfile = {} as IProfile
 
     // parse basic info
@@ -34,4 +34,8 @@ export function parseUserProfileDetails(rawUser: IRawUser): IProfile {
     profile.publicProfile = `https://instagram.com/${rawUser.profile.username}`
 
     return profile
+}
+
+export function exportUserProfile() {
+
 }

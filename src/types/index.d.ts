@@ -13,12 +13,12 @@ interface IRawUser {
     verified?: boolean
     followers_count: number;
     follows_count: number;
-    media: {
-      posts: string | IRawMedia[];
-      reels: string | IRawMedia[];
-      stories: string | IRawMedia[];
-      highlights: string | IRawMedia[];
-    };
+  };
+  media: {
+    posts: string | IRawMedia[];
+    reels: string | IRawMedia[];
+    stories: string | IRawMedia[];
+    highlights: string | IRawMedia[];
   };
   options: any;
 }
@@ -57,6 +57,7 @@ interface IUser {
   order: number
   options: IUserOptions;
   profile: IUserProfile;
+  media: IUserMedia;
 }
 
 interface IUserProfile extends IProfile {}
@@ -74,11 +75,10 @@ interface IProfile {
   followers_count: number;
   follows_count: number;
   posts_count: number;
-  media: IProfileMedia;
   publicProfile: string
 }
 
-interface IProfileMedia {
+interface IUserMedia {
   posts: MediaPost[];
   reels: MediaPost[];
   stories: MediaPost[];
