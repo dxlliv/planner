@@ -4,23 +4,27 @@ interface IRawConfig {
 
 interface IRawUser {
   order: number
-  profile: {
-    name: string;
-    username: string;
-    website?: string;
-    biography?: string;
-    avatar: string;
-    verified?: boolean
-    followers_count: number;
-    follows_count: number;
-  };
-  media: {
-    posts: string | IRawMedia[];
-    reels: string | IRawMedia[];
-    stories: string | IRawMedia[];
-    highlights: string | IRawMedia[];
-  };
+  profile: IRawUserProfile;
+  media: IRawUserMedia;
   options: any;
+}
+
+interface IRawUserProfile {
+  name: string;
+  username: string;
+  website?: string;
+  biography?: string;
+  avatar: string;
+  verified?: boolean
+  followers_count: number;
+  follows_count: number;
+}
+
+interface IRawUserMedia {
+  posts: string | IRawMedia[];
+  reels: string | IRawMedia[];
+  stories: string | IRawMedia[];
+  highlights: string | IRawMedia[];
 }
 
 interface IRawMedia {
@@ -60,9 +64,7 @@ interface IUser {
   media: IUserMedia;
 }
 
-interface IUserProfile extends IProfile {}
-
-interface IProfile {
+interface IUserProfile {
   name: string;
   username: string;
   website: null | {
@@ -91,6 +93,7 @@ interface Media {
   folder: string
   type: string
   data: IMediaData
+  exportMedia: () => any
 }
 
 interface MediaPost extends Media {

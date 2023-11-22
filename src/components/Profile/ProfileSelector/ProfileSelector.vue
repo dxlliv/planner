@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 const { profile } = defineProps<{
-  profile?: IProfile;
+  profile?: IUserProfile;
   add?: boolean
 }>();
 

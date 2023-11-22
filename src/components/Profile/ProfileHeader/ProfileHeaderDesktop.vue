@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  profile: IProfile;
+  profile: IUserProfile;
 }>();
 </script>
 

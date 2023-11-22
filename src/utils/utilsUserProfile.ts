@@ -1,7 +1,7 @@
 import MediaAvatar from "../core/media/mediaAvatar.class";
 
-export function parseUserProfile(rawUser: IRawUser): IProfile {
-    const profile: IProfile = {} as IProfile
+export function parseUserProfile(rawUser: IRawUser): IUserProfile {
+    const profile: IUserProfile = {} as IUserProfile
 
     // parse basic info
     profile.name = rawUser.profile.name;

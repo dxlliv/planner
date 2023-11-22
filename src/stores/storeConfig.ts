@@ -17,7 +17,7 @@ export const useConfigStore = defineStore("config", () => {
     // for each user config path
     for await (const userConfigPath of config.value.users) {
       // fetch user config from its local/remote path
-      const remoteUserConfig = await loadRemoteUserConfig(`${userConfigPath}/config.json`)
+      const remoteUserConfig = await fetchRemoteUserConfig(`${userConfigPath}/config.json`)
       configUserStore.setUserConfig(remoteUserConfig)
     }
 

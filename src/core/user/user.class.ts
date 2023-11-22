@@ -3,8 +3,8 @@ export default class User {
 
     public order: number = 0
     public options: IUserOptions = {}
-    public profile: IUserProfile = {}
-    public media: IUserMedia = {}
+    public profile: IUserProfile = {} as IUserProfile
+    public media: IUserMedia = {} as IUserMedia
 
     constructor(rawUser: IRawUser) {
         this.rawUser = rawUser

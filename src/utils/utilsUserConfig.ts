@@ -3,7 +3,7 @@
  *
  * @param url
  */
-export async function loadRemoteUserConfig(url: string): Promise<IRawUser> {
+export async function fetchRemoteUserConfig(url: string): Promise<IRawUser> {
     return fetch(url)
         .then(response => response.json())
         .catch(e => {

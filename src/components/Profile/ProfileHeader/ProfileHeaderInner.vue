@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-  profile: IProfile;
+  profile: IUserProfile;
 }>();
 
 const biography = computed(() => {
