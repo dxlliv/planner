@@ -10,7 +10,7 @@ export const useUserStore = defineStore("user", () => {
    * @param rawUser
    */
   function loadUserConfig(rawUser: IRawUser): boolean {
-    users.value[rawUser.profile.username] = new User(rawUser)
+    users.value[rawUser.profile.username] = new User(toRaw(rawUser))
 
     return true;
   }

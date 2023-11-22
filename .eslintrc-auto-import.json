@@ -115,6 +115,10 @@
     "openProfileDirectory": true,
     "useProfileManagerStore": true,
     "readFile": true,
-    "readProfileDirectoryConfig": true
+    "readProfileDirectoryConfig": true,
+    "parseUserProfileDetails": true,
+    "parseUserProfileMedia": true,
+    "parseUserProfileMediaPosts": true,
+    "parseUserProfileMediaReels": true
   }
 }
