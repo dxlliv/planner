@@ -76,7 +76,7 @@ interface IUserProfile {
   avatar: IMediaAvatar;
   followers_count: number;
   follows_count: number;
-  posts_count: number;
+  posts_count: ComputedRef<number>;
   publicProfile: string
 }
 

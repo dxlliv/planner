@@ -9,7 +9,6 @@ export function parseUserProfile(rawUser: IRawUser): IUserProfile {
     profile.username = rawUser.profile.username;
     profile.verified = Boolean(rawUser.profile.verified);
 
-    profile.posts_count = 0;
     profile.followers_count = Number(rawUser.profile.followers_count);
     profile.follows_count = Number(rawUser.profile.follows_count);
 

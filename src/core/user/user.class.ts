@@ -15,7 +15,10 @@ export default class User {
     private parseUser(): IUser {
         const data: IUser = {} as IUser;
 
-        this.profile = parseUserProfile(this.rawUser)
+        this.profile = {
+            ...parseUserProfile(this.rawUser),
+            posts_count: computed(() => this.media.posts.length)
+        }
         this.media = parseUserMedia(this.rawUser);
         this.options = this.rawUser.options
 
