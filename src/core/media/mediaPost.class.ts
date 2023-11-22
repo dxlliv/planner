@@ -4,10 +4,10 @@ export default class MediaPost extends Media {
     readonly #allowedMediaTypes: string[] = ['image', 'album', 'video', 'iframe']
 
     constructor(
-        config: IRawUser,
+        rawUser: IRawUser,
         rawMedia: string | IRawMedia
     ) {
-        super(config, rawMedia)
+        super(rawUser, rawMedia)
 
         this.setMediaFolder('/media')
 
@@ -41,12 +41,10 @@ export default class MediaPost extends Media {
         switch(getFileExtension(rawMediaFileName)) {
             case 'mp4':
                 return this.getMediaVideo({
-                    type: "video",
                     name: rawMediaFileName
                 })
             default:
                 return this.getMediaImage({
-                    type: "image",
                     name: rawMediaFileName
                 })
 
@@ -95,7 +93,7 @@ export default class MediaPost extends Media {
                 mediaData.coverTime = Number(rawMedia.cover)
                 break;
             case "string":
-                mediaData.cover = new MediaPost(this.config, rawMedia.cover)
+                mediaData.cover = new MediaPost(this.rawUser, rawMedia.cover)
                 break;
         }
 
@@ -113,7 +111,7 @@ export default class MediaPost extends Media {
 
         if (rawMedia.list && Array.isArray(rawMedia.list)) {
             for (let albumMediaPost of rawMedia.list) {
-                const albumMedia = new MediaPost(this.config, albumMediaPost)
+                const albumMedia = new MediaPost(this.rawUser, albumMediaPost)
 
                 mediaAlbumList.push(albumMedia)
             }
@@ -136,7 +134,7 @@ export default class MediaPost extends Media {
         }
 
         if (rawMedia.cover) {
-            mediaData.cover = new MediaPost(this.config, rawMedia.cover)
+            mediaData.cover = new MediaPost(this.rawUser, rawMedia.cover)
         }
 
         return mediaData

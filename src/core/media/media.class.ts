@@ -1,5 +1,6 @@
 export default class Media {
-    readonly config
+    private readonly rawUser: IRawUser
+
     public folder = ''
 
     public raw
@@ -8,10 +9,10 @@ export default class Media {
     public data = {} as IMediaData
 
     constructor(
-        config: IRawUser,
+        rawUser: IRawUser,
         rawMedia: string | IRawMedia
     ) {
-        this.config = config
+        this.rawUser = rawUser
 
         this.raw = rawMedia
         this.type = this.detectMediaType()
@@ -65,6 +66,6 @@ export default class Media {
             return "";
         }
 
-        return `${import.meta.env.BASE_URL}user/${this.config.profile.username}${this.folder}/${filename}`;
+        return `${import.meta.env.BASE_URL}user/${this.rawUser.profile.username}${this.folder}/${filename}`;
     }
 }

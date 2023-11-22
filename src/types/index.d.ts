@@ -55,9 +55,11 @@ type IUsers = { [username: string]: IUser };
 
 interface IUser {
   order: number
-  profile: IProfile;
   options: IUserOptions;
+  profile: IUserProfile;
 }
+
+interface IUserProfile extends IProfile {}
 
 interface IProfile {
   name: string;

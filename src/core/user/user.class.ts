@@ -2,21 +2,16 @@ import MediaAvatar from "../media/mediaAvatar.class";
 import MediaPost from "../media/mediaPost.class";
 
 export default class User {
-    private readonly config: IRawUser
-    private user: IUser
+    private readonly raw: IRawUser
 
-    constructor(config: IRawUser) {
-        this.config = config
+    public order: number = 0
+    public options: IUserOptions = {}
+    public profile: IUserProfile = {}
 
-        this.user = this.parseUser()
-    }
+    constructor(rawUser: IRawUser) {
+        this.raw = rawUser
 
-    get profile() {
-        return this.user.profile
-    }
-
-    get options() {
-        return this.user.options
+        this.parseUser()
     }
 
     private parseUser(): IUser {
@@ -25,8 +20,9 @@ export default class User {
             options: {}
         } as IUser;
 
-        data.profile = this.parseUserProfileDetails()
-        data.profile.media = this.parseUserProfileMedia();
+        this.profile = this.parseUserProfileDetails()
+        this.profile.media = this.parseUserProfileMedia();
+        this.options = this.raw.options
 
         return data
     }
@@ -35,34 +31,34 @@ export default class User {
         const profile: IProfile = {} as IProfile
 
         // parse basic info
-        profile.name = this.config.profile.name;
-        profile.username = this.config.profile.username;
-        profile.verified = Boolean(this.config.profile.verified);
+        profile.name = this.raw.profile.name;
+        profile.username = this.raw.profile.username;
+        profile.verified = Boolean(this.raw.profile.verified);
 
         profile.posts_count = 0;
-        profile.followers_count = Number(this.config.profile.followers_count);
-        profile.follows_count = Number(this.config.profile.follows_count);
+        profile.followers_count = Number(this.raw.profile.followers_count);
+        profile.follows_count = Number(this.raw.profile.follows_count);
 
-        profile.website = !this.config.profile.website
+        profile.website = !this.raw.profile.website
             ? null
             : {
-                href: this.config.profile.website,
-                label: new URL(this.config.profile.website).hostname,
+                href: this.raw.profile.website,
+                label: new URL(this.raw.profile.website).hostname,
             };
 
         // parse biography
-        if (this.config.profile.biography) {
-            profile.biography = this.config.profile.biography?.replace(
+        if (this.raw.profile.biography) {
+            profile.biography = this.raw.profile.biography?.replace(
                 /(?:\r\n|\r|\n)/g,
                 "<br>",
             );
         }
 
         // parse avatar
-        profile.avatar = new MediaAvatar(this.config, this.config.profile.avatar);
+        profile.avatar = new MediaAvatar(this.raw, this.raw.profile.avatar);
 
         // public profile
-        profile.publicProfile = `https://instagram.com/${this.config.profile.username}`
+        profile.publicProfile = `https://instagram.com/${this.raw.profile.username}`
 
         return profile
     }
@@ -75,17 +71,17 @@ export default class User {
             highlights: [],
         }
 
-        if (!Object.prototype.hasOwnProperty.call(this.config.profile, "media")) {
+        if (!Object.prototype.hasOwnProperty.call(this.raw.profile, "media")) {
             return media
         }
 
         // parse media posts
-        if (this.config.profile.media.posts) {
+        if (this.raw.profile.media.posts) {
             media.posts = this.parseUserProfileMediaPosts();
         }
 
         // parse media reels
-        if (this.config.profile.media.reels) {
+        if (this.raw.profile.media.reels) {
             media.reels = this.parseUserProfileMediaReels()
         }
 
@@ -95,8 +91,8 @@ export default class User {
     private parseUserProfileMediaPosts() {
         const parsedPosts: any = [];
 
-        for (let configMediaPost of this.config.profile.media.posts) {
-            const media = new MediaPost(this.config, configMediaPost)
+        for (let configMediaPost of this.raw.profile.media.posts) {
+            const media = new MediaPost(this.raw, configMediaPost)
 
             parsedPosts.push(media)
         }
@@ -107,16 +103,16 @@ export default class User {
     private parseUserProfileMediaReels() {
         const parsedReels: any = [];
 
-        for (let mediaPost of this.config.profile.media.posts) {
+        for (let mediaPost of this.raw.profile.media.posts) {
             if (!mediaPost.reel) continue
 
-            const media = new MediaPost(this.config, mediaPost)
+            const media = new MediaPost(this.raw, mediaPost)
 
             parsedReels.push(media)
         }
 
-        for (let mediaReel of this.config.profile.media.reels) {
-            const media = new MediaPost(this.config, mediaReel)
+        for (let mediaReel of this.raw.profile.media.reels) {
+            const media = new MediaPost(this.raw, mediaReel)
 
             parsedReels.push(media)
         }

@@ -4,10 +4,10 @@ export default class MediaAvatar extends Media {
     readonly #defaultAvatarFilename: string = 'avatar.jpg'
 
     constructor(
-        config: IRawUser,
+        rawUser: IRawUser,
         rawMedia: string
     ) {
-        super(config, rawMedia)
+        super(rawUser, rawMedia)
 
         this.data = this.parseMediaAvatar()
     }
@@ -18,7 +18,6 @@ export default class MediaAvatar extends Media {
         }
 
         return {
-            type: "image",
             file: this.getMediaFile(this.raw),
         }
     }
