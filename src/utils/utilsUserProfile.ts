@@ -1,4 +1,5 @@
 import MediaAvatar from "../core/media/mediaAvatar.class";
+import {removeUndefinedFromObject} from "./utilsObject";
 
 export function parseUserProfile(rawUser: IRawUser): IUserProfile {
     const profile: IUserProfile = {} as IUserProfile
@@ -31,6 +32,15 @@ export function parseUserProfile(rawUser: IRawUser): IUserProfile {
     return profile
 }
 
-export function exportUserProfile() {
-
+export function exportUserProfile(profile: IUserProfile): IRawUser {
+    return removeUndefinedFromObject({
+        name: profile.name,
+        username: profile.username,
+        verified: profile.verified,
+        followers_count: profile.followers_count,
+        follows_count: profile.follows_count,
+        website: profile.website?.href,
+        biography: profile.biography,
+        avatar: profile.avatar
+    })
 }

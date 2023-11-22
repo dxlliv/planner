@@ -21,4 +21,15 @@ export default class User {
 
         return data
     }
+
+    public exportUser() {
+        return {
+            profile: exportUserProfile(this.profile),
+            media: exportUserMedia(this.media),
+        }
+    }
+
+    public writeUserChanges() {
+
+    }
 }

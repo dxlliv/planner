@@ -68,4 +68,14 @@ export default class Media {
 
         return `${import.meta.env.BASE_URL}user/${this.rawUser.profile.username}${this.folder}/${filename}`;
     }
+
+    public exportMedia() {
+        if (typeof this.raw !== 'object') {
+            return this.raw
+        }
+
+        return {
+            ...this.raw
+        }
+    }
 }

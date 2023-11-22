@@ -124,6 +124,9 @@
     "parseUserMedia": true,
     "parseUserMediaPosts": true,
     "parseUserMediaReels": true,
-    "parseUserProfile": true
+    "parseUserProfile": true,
+    "fetchRemoteUserConfig": true,
+    "exportUserMedia": true,
+    "removeUndefinedFromObject": true
   }
 }

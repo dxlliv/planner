@@ -52,3 +52,12 @@ export function parseUserMediaReels(rawUser: IRawUser) {
 
     return parsedReels;
 }
+
+export function exportUserMedia(media: IUserMedia): IRawUserMedia {
+    return {
+        posts: media.posts.map(m => m.exportMedia()),
+        reels: media.reels.map(m => m.exportMedia()),
+        stories: media.stories.map(m => m.exportMedia()),
+        highlights: media.highlights.map(m => m.exportMedia()),
+    }
+}
