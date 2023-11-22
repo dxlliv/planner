@@ -31,13 +31,13 @@ Define your profile using your favorite editor and create a `config.json` file.
       "website": "",
       "followers_count": 50,
       "follows_count": 50
-    },
-    "media": {
-      "posts": ["3.jpg", "2.jpg", "1.jpg"],
-      "reels": [],
-      "stories": [],
-      "highlights": []
     }
+  },
+  "media": {
+    "posts": ["3.jpg", "2.jpg", "1.jpg"],
+    "reels": [],
+    "stories": [],
+    "highlights": []
   }
 }
 ```
@@ -75,19 +75,18 @@ You can short import images just defining the path, without the `type` property.
 
 ```json
 {
-  "profile": {
-    "media": [
-      {
-        "type": "image",
-        "name": "4.jpg"
-      },
+  "profile": { ... },
+  "media": [
+    {
+      "type": "image",
+      "name": "4.jpg"
+    },
 
-      // shortened imports
-      "3.jpg",
-      "2.jpg",
-      "1.jpg"
-    ]
-  }
+    // shortened imports
+    "3.jpg",
+    "2.jpg",
+    "1.jpg"
+  ]
 }
 ```
 
@@ -97,21 +96,20 @@ As for images, you can short import videos but it will used the first frame as c
 
 ```json
 {
-  "dxlliv": {
-    "media": [
-      {
-        "type": "video",
-        "name": "4.mp4",
-        "reel": true, // optional
-        "cover": 15 // optional
-      },
-      
-      // shortened imports
-      "3.mp4",
-      "2.mp4",
-      "1.mp4"
-    ]
-  }
+  "profile": { ... },
+  "media": [
+    {
+      "type": "video",
+      "name": "4.mp4",
+      "reel": true, // optional
+      "cover": 15 // optional
+    },
+
+    // shortened imports
+    "3.mp4",
+    "2.mp4",
+    "1.mp4"
+  ]
 }
 ```
 
@@ -121,22 +119,21 @@ You can set a custom cover using strings like `4-cover.jpg` providing the image 
 
 ```json
 {
-  "dxlliv": {
-    "media": [
-      // import images as album
-      {
-        "type": "album",
-        "list": ["4.jpg", "4x1.jpg", "4x2.jpg"]
-      },
+  "profile": { ... },
+  "media": [
+    // import images as album
+    {
+      "type": "album",
+      "list": ["4.jpg", "4x1.jpg", "4x2.jpg"]
+    },
 
-      // shortened import
-      ["3.jpg", "3x1.jpg", "3x2.jpg"],
-      
-      // other imports
-      "2.jpg",
-      "1.jpg"
-    ]
-  }
+    // shortened import
+    ["3.jpg", "3x1.jpg", "3x2.jpg"],
+
+    // other imports
+    "2.jpg",
+    "1.jpg"
+  ]
 }
 ```
 
@@ -146,19 +143,18 @@ You could use iframes if you are using external tools, or maybe to define a YouT
 
 ```json
 {
-  "dxlliv": {
-    "media": [
-      {
-        "type": "iframe",
-        "href": "http://localhost:3000/my-post"
-      },
+  "profile": { ... },
+  "media": [
+    {
+      "type": "iframe",
+      "href": "http://localhost:3000/my-post"
+    },
 
-      // other imports
-      "3.jpg",
-      "2.jpg",
-      "1.jpg"
-    ]
-  }
+    // other imports
+    "3.jpg",
+    "2.jpg",
+    "1.jpg"
+  ]
 }
 ```
 
