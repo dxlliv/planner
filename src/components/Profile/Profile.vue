@@ -1,23 +1,25 @@
 <template>
   <v-sheet color="transparent" class="ig-profile-page">
     <v-container>
-      <ProfileHeader :profile="profile" />
+      <ProfileHeader :profile="user.profile" />
 
       <ProfileTabs
-        :media="media"
+        :media="user.media"
         :active="tab"
         @select="(value: string) => (tab = value)"
       />
 
-      <ProfileMediaGrid v-if="media" :media="media" :tab="tab" />
+      <ProfileMediaGridContainer
+          :user="user"
+          :tab="tab"
+      />
     </v-container>
   </v-sheet>
 </template>
 
 <script setup lang="ts">
 defineProps<{
-  profile: IUserProfile;
-  media: IUserMedia;
+  user: any;
 }>();
 
 const tab = ref("posts");

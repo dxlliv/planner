@@ -1,8 +1,7 @@
 <template>
   <Profile
       v-if="user"
-      :profile="user.profile"
-      :media="user.media"
+      :user="user"
   />
 
   <ToolGuides v-if="extraOptions.guides" />

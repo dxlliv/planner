@@ -30,6 +30,7 @@ declare module 'vue' {
     ProfileHeaderUsername: typeof import('./../components/Profile/ProfileHeader/ProfileHeaderUsername.vue')['default']
     ProfileHeaderWebsite: typeof import('./../components/Profile/ProfileHeader/ProfileHeaderWebsite.vue')['default']
     ProfileMediaGrid: typeof import('./../components/Profile/ProfileMedia/ProfileMediaGrid.vue')['default']
+    ProfileMediaGridContainer: typeof import('./../components/Profile/ProfileMedia/ProfileMediaGridContainer.vue')['default']
     ProfileMediaGridPosts: typeof import('./../components/Profile/ProfileMedia/ProfileMediaGridPosts.vue')['default']
     ProfileMediaGridReels: typeof import('./../components/Profile/ProfileMedia/ProfileMediaGridReels.vue')['default']
     ProfileSelector: typeof import('./../components/Profile/ProfileSelector/ProfileSelector.vue')['default']

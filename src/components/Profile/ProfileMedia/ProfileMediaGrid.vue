@@ -1,39 +1,30 @@
 <template>
-  <div class="ig-profile-page__media-grid">
-    <v-container class="pt-1 px-0">
-      <ProfileMediaGridPosts
-          v-if="tab === 'posts' && media.posts.length > 0"
-          :posts="media.posts"
-      />
-      <ProfileMediaGridReels
-          v-if="tab === 'reels' && media.reels.length > 0"
-          :reels="media.reels"
-      />
-    </v-container>
-  </div>
+  <SlickList
+      v-if="props.user.media[props.mode].length > 0"
+      v-model:list="props.user.media[props.mode]"
+      axis="xy"
+      class="v-row"
+      :pressDelay="100"
+  >
+    <SlickItem
+        v-for="(media, i) of props.user.media[props.mode]" :key="i" :index="i"
+        class="v-col v-col-4"
+    >
+      <MediaPost v-if="mode === 'posts'" :media="media" />
+      <MediaReel v-if="mode === 'reels'" :media="media" />
+    </SlickItem>
+  </SlickList>
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  media: IUserMedia;
-  tab: string;
+import { SlickList, SlickItem } from 'vue-slicksort';
+
+const props = defineProps<{
+  user: any;
+  mode: string
 }>();
+
+watch(() => props.user.media[props.mode], listChanged => {
+  // props.user.setChanged(true)
+})
 </script>
-
-<style lang="scss">
-.ig-profile-page__media-grid > .v-container > .v-row {
-  margin: -1.5px !important;
-
-  @media(max-width: 600px) {
-    margin: -1px !important;
-  }
-
-  & > .v-col {
-    padding: 1.5px !important;
-
-    @media(max-width: 600px) {
-      padding: 1px !important;
-    }
-  }
-}
-</style>
