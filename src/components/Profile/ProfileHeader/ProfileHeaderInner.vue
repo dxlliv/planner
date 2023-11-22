@@ -1,7 +1,14 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   profile: IProfile;
 }>();
+
+const biography = computed(() => {
+  return props.profile.biography?.replace(
+      /(?:\r\n|\r|\n)/g,
+      "<br>",
+  )
+})
 </script>
 
 <template>
@@ -12,7 +19,7 @@ defineProps<{
 
     <p
         class="ig-profile-page__header__biography"
-        v-html="profile.biography"
+        v-html="biography"
     />
 
     <ProfileHeaderWebsite

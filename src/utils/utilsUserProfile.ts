@@ -20,12 +20,7 @@ export function parseUserProfile(rawUser: IRawUser): IProfile {
         };
 
     // parse biography
-    if (rawUser.profile.biography) {
-        profile.biography = rawUser.profile.biography?.replace(
-            /(?:\r\n|\r|\n)/g,
-            "<br>",
-        );
-    }
+    profile.biography = rawUser.profile.biography;
 
     // parse avatar
     profile.avatar = new MediaAvatar(rawUser, rawUser.profile.avatar);
