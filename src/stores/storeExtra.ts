@@ -14,4 +14,6 @@ export const useExtraStore = defineStore("extra", () => {
     toggleGuides,
     options,
   };
+}, {
+  persist: true
 });

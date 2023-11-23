@@ -5,11 +5,15 @@
 </template>
 
 <script setup lang="ts">
-const theme = useTheme();
 const extraStore = useExtraStore();
+const themeStore = useThemeStore();
+const theme = useTheme()
 
 // app initialize
 useConfigStore().loadConfig()
+
+// restore previous dark theme state
+themeStore.restorePreviousState(theme)
 
 // kbd shortcuts
 onMounted(() => {
@@ -18,8 +22,7 @@ onMounted(() => {
       extraStore.toggleGuides();
     }
     if (String.fromCharCode(e.keyCode) === "D") {
-      theme.global.name.value =
-        theme.global.name.value === "dark" ? "light" : "dark";
+      themeStore.toggleDarkTheme(theme);
     }
   });
 });

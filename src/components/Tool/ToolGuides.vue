@@ -7,6 +7,9 @@
 
 <script setup lang="ts">
 import Guides from "vue3-guides";
+
+// add body class for extra v-application padding
+document.body.classList.add('tool-guides--enabled')
 </script>
 
 <style lang="scss">

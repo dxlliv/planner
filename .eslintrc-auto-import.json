@@ -127,6 +127,8 @@
     "parseUserProfile": true,
     "fetchRemoteUserConfig": true,
     "exportUserMedia": true,
-    "removeUndefinedFromObject": true
+    "removeUndefinedFromObject": true,
+    "useThemeStore": true,
+    "ThemeInstance": true
   }
 }

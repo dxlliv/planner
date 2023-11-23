@@ -6,6 +6,7 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
+  const ThemeInstance: typeof import('vuetify')['ThemeInstance']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
   const axios: typeof import('axios')['default']
   const computed: typeof import('vue')['computed']
@@ -110,6 +111,7 @@ declare global {
   const useRouter: typeof import('vue-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
   const useTheme: typeof import('vuetify')['useTheme']
+  const useThemeStore: typeof import('../stores/storeTheme')['useThemeStore']
   const useUserStore: typeof import('../stores/storeUser')['useUserStore']
   const userClass: typeof import('../core/user/user.class')['default']
   const userMediaClass: typeof import('../core/userMedia.class')['default']
