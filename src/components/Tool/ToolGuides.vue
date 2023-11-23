@@ -13,6 +13,7 @@ import Guides from "vue3-guides";
 body.tool-guides--enabled {
   .v-application__wrap {
     padding-top: 36px;
+    padding-left: 36px;
   }
 }
 
@@ -31,13 +32,13 @@ body.tool-guides--enabled {
     canvas {
       vertical-align: top;
     }
-
     &.scena-guides-horizontal {
       position: absolute;
       top: 0;
       left: 36px;
       height: 36px;
       width: 100vw;
+      z-index: 9999;
     }
     &.scena-guides-vertical {
       position: absolute;
@@ -45,6 +46,7 @@ body.tool-guides--enabled {
       left: 0;
       width: 36px;
       height: 100%;
+      z-index: 9999;
     }
   }
 }
