@@ -7,6 +7,15 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    IconDocumentation: typeof import('./../components/Icon/IconDocumentation.vue')['default']
+    IconDonors: typeof import('./../components/Icon/IconDonors.vue')['default']
+    IconExplore: typeof import('./../components/Icon/IconExplore.vue')['default']
+    IconHome: typeof import('./../components/Icon/IconHome.vue')['default']
+    IconNewPost: typeof import('./../components/Icon/IconNewPost.vue')['default']
+    IconSearch: typeof import('./../components/Icon/IconSearch.vue')['default']
+    IconSponsor: typeof import('./../components/Icon/IconSponsor.vue')['default']
+    IconSupport: typeof import('./../components/Icon/IconSupport.vue')['default']
+    Logo: typeof import('./../components/Logo.vue')['default']
     MainFooter: typeof import('./../components/Main/MainFooter.vue')['default']
     MainIntro: typeof import('./../components/Main/MainIntro.vue')['default']
     MediaAlbum: typeof import('./../components/Media/MediaType/MediaAlbum.vue')['default']
@@ -19,8 +28,10 @@ declare module 'vue' {
     MediaReel: typeof import('./../components/Media/MediaReel.vue')['default']
     MediaVideo: typeof import('./../components/Media/MediaType/MediaVideo.vue')['default']
     MediaVideoCoverSelector: typeof import('./../components/Media/MediaType/MediaVideoCoverSelector.vue')['default']
+    NavigationDrawer: typeof import('./../components/Navigation/NavigationDrawer.vue')['default']
     Profile: typeof import('./../components/Profile/Profile.vue')['default']
     ProfileAvatar: typeof import('./../components/Profile/ProfileAvatar/ProfileAvatar.vue')['default']
+    ProfileEditBanner: typeof import('./../components/Profile/ProfileEdit/ProfileEditBanner.vue')['default']
     ProfileHeader: typeof import('./../components/Profile/ProfileHeader.vue')['default']
     ProfileHeaderDesktop: typeof import('./../components/Profile/ProfileHeader/ProfileHeaderDesktop.vue')['default']
     ProfileHeaderInner: typeof import('./../components/Profile/ProfileHeader/ProfileHeaderInner.vue')['default']

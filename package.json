@@ -20,6 +20,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@fontsource/cookie": "^5.0.17",
     "@mdi/font": "^7.3.67",
     "browser-fs-access": "^0.35.0",
     "pinia": "^2.1.7",
