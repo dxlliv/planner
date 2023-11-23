@@ -9,7 +9,7 @@ const nav = [
       href: "https://dxlliv.github.io/ig-planner/docs",
       target: "_blank",
     },
-    icon: "IconDocumentation"
+    icon: "IconReadme"
   },
   {
     item: {
@@ -22,7 +22,7 @@ const nav = [
   {
     item: {
       title: "Donors",
-      to: "/ig-planner/donors/",
+      to: "/ig-planner/donors",
     },
     icon: "IconDonors"
   },
@@ -58,7 +58,7 @@ const nav = [
         <template #prepend>
           <!--<component :is="navItem.icon" />-->
           <IconSupport v-if="navItem.icon === 'IconSupport'" />
-          <IconDocumentation v-if="navItem.icon === 'IconDocumentation'" />
+          <IconReadme v-if="navItem.icon === 'IconReadme'" />
           <IconDonors v-if="navItem.icon === 'IconDonors'" />
         </template>
       </v-list-item>
@@ -71,7 +71,7 @@ const nav = [
 
       <v-list-item
           title="Profile"
-          :to="`/ig-planner/${userStore.user.profile.username}/`"
+          :to="`/ig-planner/${userStore.user.profile.username}`"
       >
         <template #prepend>
           <ProfileAvatar

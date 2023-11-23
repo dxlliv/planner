@@ -12,6 +12,7 @@ declare module 'vue' {
     IconExplore: typeof import('./../components/Icon/IconExplore.vue')['default']
     IconHome: typeof import('./../components/Icon/IconHome.vue')['default']
     IconNewPost: typeof import('./../components/Icon/IconNewPost.vue')['default']
+    IconReadme: typeof import('./../components/Icon/IconReadme.vue')['default']
     IconSearch: typeof import('./../components/Icon/IconSearch.vue')['default']
     IconSponsor: typeof import('./../components/Icon/IconSponsor.vue')['default']
     IconSupport: typeof import('./../components/Icon/IconSupport.vue')['default']
