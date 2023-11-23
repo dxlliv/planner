@@ -15,6 +15,11 @@ body.tool-guides--enabled {
     padding-top: 36px;
     padding-left: 36px;
   }
+
+  .ig-navigation-drawer {
+    top: 36px !important;
+    left: 36px !important;
+  }
 }
 
 .tool-guides {

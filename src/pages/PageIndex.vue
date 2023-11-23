@@ -14,6 +14,7 @@
     <v-divider class="mt-15 mb-10" />
 
     <MainIntro />
+    <MainFooter />
   </v-container>
 </template>
 

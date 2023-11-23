@@ -32,7 +32,7 @@ defineProps<{
   }
 
   &--mobile {
-    border-top: 1px solid var(--ig-border);
+    border-top: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
     padding: 12px 0;
     font-size: 14px;
     text-align: center;

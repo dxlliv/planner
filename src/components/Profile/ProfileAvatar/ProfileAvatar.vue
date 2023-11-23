@@ -20,6 +20,6 @@ withDefaults(defineProps<{
 <style scoped lang="scss">
 .ig-profile-avatar {
   user-select: none;
-  border: 1px solid var(--ig-border);
+  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
 }
 </style>

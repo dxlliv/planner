@@ -86,6 +86,7 @@ const nav = [
 <style lang="scss">
 .ig-navigation-drawer {
   position: fixed !important;
+  background: none !important;
 
   &.v-theme--light {
     .ig-profile-avatar {

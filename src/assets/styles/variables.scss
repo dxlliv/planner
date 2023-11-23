@@ -3,21 +3,15 @@
     --ig-background: white;
     --ig-color: #262626;
 
-    --ig-border: #eee;
-
     --ig-tab-color: #929292;
-    --ig-tab-color-active: #262626;
-    --ig-tab-color-border: black;
+    --ig-tab-color-active: black;
   }
 
   .v-theme--dark {
     --ig-background: black;
     --ig-color: white;
 
-    --ig-border: #282828;
-
     --ig-tab-color: #929292;
-    --ig-tab-color-active: #bbbbbb;
-    --ig-tab-color-border: #4c4c4c;
+    --ig-tab-color-active: white;
   }
 }
