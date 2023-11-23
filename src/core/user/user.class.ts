@@ -6,6 +6,10 @@ export default class User {
     public profile: IUserProfile = {} as IUserProfile
     public media: IUserMedia = {} as IUserMedia
 
+    public status = reactive({
+        changed: false
+    })
+
     constructor(rawUser: IRawUser) {
         this.rawUser = rawUser
 
@@ -23,6 +27,14 @@ export default class User {
         this.options = this.rawUser.options
 
         return data
+    }
+
+    get isChanged() {
+        return this.status.changed
+    }
+
+    public setChanged(changed: boolean) {
+        this.status.changed = changed
     }
 
     public exportUser() {

@@ -7,14 +7,10 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    IconDocumentation: typeof import('./../components/Icon/IconDocumentation.vue')['default']
     IconDonors: typeof import('./../components/Icon/IconDonors.vue')['default']
-    IconExplore: typeof import('./../components/Icon/IconExplore.vue')['default']
     IconHome: typeof import('./../components/Icon/IconHome.vue')['default']
     IconNewPost: typeof import('./../components/Icon/IconNewPost.vue')['default']
     IconReadme: typeof import('./../components/Icon/IconReadme.vue')['default']
-    IconSearch: typeof import('./../components/Icon/IconSearch.vue')['default']
-    IconSponsor: typeof import('./../components/Icon/IconSponsor.vue')['default']
     IconSupport: typeof import('./../components/Icon/IconSupport.vue')['default']
     Logo: typeof import('./../components/Logo.vue')['default']
     MainFooter: typeof import('./../components/Main/MainFooter.vue')['default']
@@ -32,7 +28,6 @@ declare module 'vue' {
     NavigationDrawer: typeof import('./../components/Navigation/NavigationDrawer.vue')['default']
     Profile: typeof import('./../components/Profile/Profile.vue')['default']
     ProfileAvatar: typeof import('./../components/Profile/ProfileAvatar/ProfileAvatar.vue')['default']
-    ProfileEditBanner: typeof import('./../components/Profile/ProfileEdit/ProfileEditBanner.vue')['default']
     ProfileHeader: typeof import('./../components/Profile/ProfileHeader.vue')['default']
     ProfileHeaderDesktop: typeof import('./../components/Profile/ProfileHeader/ProfileHeaderDesktop.vue')['default']
     ProfileHeaderInner: typeof import('./../components/Profile/ProfileHeader/ProfileHeaderInner.vue')['default']
@@ -43,8 +38,6 @@ declare module 'vue' {
     ProfileHeaderWebsite: typeof import('./../components/Profile/ProfileHeader/ProfileHeaderWebsite.vue')['default']
     ProfileMediaGrid: typeof import('./../components/Profile/ProfileMedia/ProfileMediaGrid.vue')['default']
     ProfileMediaGridContainer: typeof import('./../components/Profile/ProfileMedia/ProfileMediaGridContainer.vue')['default']
-    ProfileMediaGridPosts: typeof import('./../components/Profile/ProfileMedia/ProfileMediaGridPosts.vue')['default']
-    ProfileMediaGridReels: typeof import('./../components/Profile/ProfileMedia/ProfileMediaGridReels.vue')['default']
     ProfileSelector: typeof import('./../components/Profile/ProfileSelector/ProfileSelector.vue')['default']
     ProfileSelectorAdd: typeof import('./../components/Profile/ProfileSelector/ProfileSelectorAdd.vue')['default']
     ProfileSelectorMenu: typeof import('./../components/Profile/ProfileSelector/ProfileSelectorMenu.vue')['default']

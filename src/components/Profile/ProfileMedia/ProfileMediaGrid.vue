@@ -25,6 +25,6 @@ const props = defineProps<{
 }>();
 
 watch(() => props.user.media[props.mode], listChanged => {
-  // props.user.setChanged(true)
+  props.user.setChanged(true)
 })
 </script>
