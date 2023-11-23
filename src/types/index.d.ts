@@ -77,7 +77,12 @@ interface IUserProfile {
   followers_count: number;
   follows_count: number;
   posts_count: ComputedRef<number>;
-  publicProfile: string
+  public_profile: string
+}
+
+type IUserProfileWebsite = null | {
+  href: string;
+  label: string;
 }
 
 interface IUserMedia {

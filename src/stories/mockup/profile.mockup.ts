@@ -21,7 +21,7 @@ export const mockupProfile = {
             }
         }
     },
-    "publicProfile": "https://instagram.com/dxvfpv",
+    "public_profile": "https://instagram.com/dxvfpv",
     "media": {
         "posts": [
             {

@@ -8,7 +8,7 @@
       :offset="[7, 0]"
   >
     <v-list>
-      <v-list-item :href="profile.publicProfile" target="_blank">
+      <v-list-item :href="profile.public_profile" target="_blank">
         <v-list-item-title>Open on Instagram</v-list-item-title>
       </v-list-item>
       <v-divider />

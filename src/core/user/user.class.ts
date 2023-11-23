@@ -1,9 +1,12 @@
+import Profile from "../profile/profile.class";
+
 export default class User {
     private readonly rawUser: IRawUser
 
     public order: number = 0
     public options: IUserOptions = {}
-    public profile: IUserProfile = {} as IUserProfile
+
+    public profile: Profile = {} as Profile
     public media: IUserMedia = {} as IUserMedia
 
     public status = reactive({
@@ -16,17 +19,10 @@ export default class User {
         this.parseUser()
     }
 
-    private parseUser(): IUser {
-        const data: IUser = {} as IUser;
-
-        this.profile = {
-            ...parseUserProfile(this.rawUser),
-            posts_count: computed(() => this.media.posts.length)
-        }
+    private parseUser() {
+        this.profile = new Profile(this.rawUser)
         this.media = parseUserMedia(this.rawUser);
         this.options = this.rawUser.options
-
-        return data
     }
 
     get isChanged() {

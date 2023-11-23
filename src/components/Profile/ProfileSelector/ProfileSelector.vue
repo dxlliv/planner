@@ -25,7 +25,7 @@
 
       <a
           class="text-blue-grey-lighten-4"
-          :href="profile.publicProfile" target="_blank"
+          :href="profile.public_profile" target="_blank"
       >🡥</a>
     </template>
     <slot />
