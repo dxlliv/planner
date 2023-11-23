@@ -22,6 +22,11 @@
   }
 }
 
+// increase dragged vue-slicksort item z-index
+body > .v-col {
+  z-index: 999;
+}
+
 h2 {
   line-height: 32px;
 }
