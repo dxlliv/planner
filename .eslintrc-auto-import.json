@@ -129,6 +129,9 @@
     "exportUserMedia": true,
     "removeUndefinedFromObject": true,
     "useThemeStore": true,
-    "ThemeInstance": true
+    "ThemeInstance": true,
+    "fetchFileFromUrl": true,
+    "getFileName": true,
+    "handleMediaForSrc": true
   }
 }

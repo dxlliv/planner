@@ -5,10 +5,12 @@ defineProps<{
 </script>
 
 <template>
-  <MediaImage
-      v-if="media.type === 'image'"
-      :media="media"
-  />
+  <suspense>
+    <MediaImage
+        v-if="media.type === 'image'"
+        :media="media"
+    />
+  </suspense>
 
   <MediaVideo
       v-if="media.type === 'video'"

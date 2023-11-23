@@ -1,9 +1,11 @@
+import {fetchFileFromUrl} from "../../utils/utilsFile";
+
 export default class Media {
     private readonly rawUser: IRawUser
+    public raw: IRawMedia
 
     public folder = ''
 
-    public raw
     public type
 
     public data = {} as IMediaData
@@ -58,6 +60,7 @@ export default class Media {
         return {
             name: fileName,
             path: filePath,
+            blob: fetchFileFromUrl(filePath),
         };
     }
 

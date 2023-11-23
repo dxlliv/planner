@@ -6,7 +6,9 @@ defineProps<{
 
 <template>
   <div :class="['ig-media', `ig-media--${type}`]">
-    <slot />
+    <suspense>
+      <slot />
+    </suspense>
 
     <div class="ig-media__icon">
       <v-icon v-if="type === 'album'">mdi-folder-multiple-image</v-icon>
