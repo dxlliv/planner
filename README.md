@@ -80,13 +80,11 @@ I'd like to make this tool accessible to all the people with an intuitive interf
   - [ ] Stories
   - [ ] Highlights
 - [ ] Profile editor
-  - [ ] Make use of indexedDB with Dexie.js
-  - [ ] Create a local database
-  - [ ] Import profile from folder to local db
-  - [ ] Edit profile
-  - [ ] Drag & drop media
-  - [ ] Sort media
-  - [ ] Delete profile from local db
-  - [ ] Export profile to folder
+  - [ ] Basic
+    - [ ] Add media
+    - [ ] Remove media
+    - [ ] Sort media
+  - [ ] Advanced
+  - [ ] Temporary storage
 - [x] Implement Storybook
 - [ ] Implement i18n
