@@ -1,21 +1,3 @@
-<template>
-  <SlickList
-      v-if="props.user.media[props.mode].length > 0"
-      v-model:list="props.user.media[props.mode]"
-      axis="xy"
-      class="v-row"
-      :pressDelay="100"
-  >
-    <SlickItem
-        v-for="(media, i) of props.user.media[props.mode]" :key="i" :index="i"
-        class="v-col v-col-4"
-    >
-      <MediaPost v-if="mode === 'posts'" :media="media" />
-      <MediaReel v-if="mode === 'reels'" :media="media" />
-    </SlickItem>
-  </SlickList>
-</template>
-
 <script setup lang="ts">
 import { SlickList, SlickItem } from 'vue-slicksort';
 
@@ -24,7 +6,44 @@ const props = defineProps<{
   mode: string
 }>();
 
-watch(() => props.user.media[props.mode], listChanged => {
+const gridListElement: Ref<HTMLElement | undefined> = ref()
+
+function onListUpdated() {
   props.user.setChanged(true)
-})
+}
 </script>
+
+<template>
+  <!--
+    <ProfileMediaDropzone
+      @add="onFileAdded"
+  />
+
+  -->
+  <div
+      class="ig-profile-page__media-grid"
+      ref="gridListElement"
+  >
+      <SlickList
+          v-if="props.user.media[props.mode].length > 0"
+          v-model:list="props.user.media[props.mode]"
+          axis="xy"
+          class="v-row"
+          :pressDelay="100"
+          @update:list="onListUpdated"
+      >
+        <SlickItem
+            v-for="(media, i) of props.user.media[props.mode]"
+            :key="media.id" :index="i"
+            class="v-col v-col-4"
+        >
+          <MediaPost v-if="mode === 'posts'" :media="media" />
+          <MediaReel v-if="mode === 'reels'" :media="media" />
+        </SlickItem>
+      </SlickList>
+  </div>
+</template>
+
+<style scoped lang="scss">
+
+</style>

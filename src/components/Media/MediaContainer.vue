@@ -21,6 +21,7 @@ defineProps<{
 .ig-media {
   position: relative;
   max-width: 320px;
+  aspect-ratio: 1;
   width: 100%;
   height: 100%;
 

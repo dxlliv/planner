@@ -1,18 +1,10 @@
 <template>
-  <div class="ig-profile-page__media-grid">
-    <v-container class="pt-1 px-0">
-      <ProfileMediaGrid
-          v-if="tab === 'posts' && user.media.posts.length > 0"
-          :user="user"
-          :mode="tab"
-      />
-      <ProfileMediaGrid
-          v-if="tab === 'reels' && user.media.reels.length > 0"
-          :user="user"
-          :mode="tab"
-      />
-    </v-container>
-  </div>
+  <v-container class="ig-profile-page__media-grid-container pt-1 px-0">
+    <ProfileMediaGrid
+        :user="user"
+        :mode="tab"
+    />
+  </v-container>
 </template>
 
 <script setup lang="ts">
@@ -23,7 +15,7 @@ defineProps<{
 </script>
 
 <style lang="scss">
-.ig-profile-page__media-grid > .v-container > .v-row {
+.ig-profile-page__media-grid-container .v-row {
   margin: -1.5px !important;
 
   @media(max-width: 600px) {
