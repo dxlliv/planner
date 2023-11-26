@@ -27,6 +27,8 @@ const nav = [
     icon: "IconDonors"
   },
 ]
+
+const mediaCreate = ref(false)
 </script>
 
 <template>
@@ -63,9 +65,10 @@ const nav = [
         </template>
       </v-list-item>
 
-      <v-list-item title="Create">
+      <v-list-item title="Create" @click="mediaCreate = true">
         <template #prepend>
           <IconNewPost />
+          <MediaCreate v-model="mediaCreate" />
         </template>
       </v-list-item>
 

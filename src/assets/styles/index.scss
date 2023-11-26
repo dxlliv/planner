@@ -28,6 +28,17 @@
   }
 }
 
+.v-card {
+  border-radius: 12px !important;
+
+  &-title {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    border-bottom: 1px solid var(--v-border-color);
+  }
+}
+
 // increase dragged vue-slicksort item z-index
 body > .v-col {
   z-index: 999;
