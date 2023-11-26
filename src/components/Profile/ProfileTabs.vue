@@ -59,11 +59,11 @@ if (props.media.reels.length > 0) {
     font-size: 13px;
     font-weight: 600;
     padding: 18px 25px;
-    color: var(--ig-tab-color);
+    color: rgba(var(--v-theme-on-background), var(--v-medium-emphasis-opacity));
 
     &--active {
-      color: var(--ig-tab-color-active);
-      border-top: 1px solid var(--ig-tab-color-active);
+      color: rgb(var(--v-theme-on-background));
+      border-top: 1px solid rgb(var(--v-theme-on-background));
     }
 
     .v-icon {

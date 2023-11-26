@@ -1,7 +1,9 @@
-// ui and variables
-@import "./variables.scss";
+@import "./variables";
+
+// ui
 @import "vuetify/styles";
 @import "@mdi/font/css/materialdesignicons.min.css";
+@import "./partials";
 
 // libraries
 @import "vue3-carousel/dist/carousel.css";
@@ -16,26 +18,6 @@
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  .v-application {
-    background: var(--ig-background);
-    color: var(--ig-color);
-    user-select: none;
-  }
-
-  .v-container {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-}
-
-.v-card {
-  &-title {
-    font-size: 16px !important;
-    font-weight: bold !important;
-    text-align: center !important;
-    border-bottom: 1px solid var(--v-border-color);
-  }
 }
 
 // increase dragged vue-slicksort item z-index

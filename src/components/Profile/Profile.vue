@@ -1,6 +1,6 @@
 <template>
   <v-sheet color="transparent" class="ig-profile-page">
-    <v-container>
+    <v-container class="py-0">
       <ProfileHeader :profile="user.profile" />
 
       <ProfileTabs

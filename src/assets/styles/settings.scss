@@ -1,3 +1,6 @@
 @use 'vuetify/settings' with (
-  $dialog-border-radius: 16px
+  $dialog-border-radius: 16px,
+  $button-border-radius: 8px,
+  $list-item-rounded-border-radius: 8px,
+  $button-elevation: ('default': 0, 'hover': 0, 'active': 0)
 );

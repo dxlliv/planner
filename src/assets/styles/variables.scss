@@ -1,17 +1,11 @@
 :root {
   .v-theme--light {
-    --ig-background: white;
-    --ig-color: #262626;
-
-    --ig-tab-color: #929292;
-    --ig-tab-color-active: black;
+    --v-medium-emphasis-opacity: 0.5 !important;
+    --v-theme-primary: 0, 149, 246;
   }
 
   .v-theme--dark {
-    --ig-background: black;
-    --ig-color: white;
-
-    --ig-tab-color: #929292;
-    --ig-tab-color-active: white;
+    --v-medium-emphasis-opacity: 0.5 !important;
+    --v-theme-primary: 0, 149, 246;
   }
 }

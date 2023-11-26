@@ -13,7 +13,7 @@ export default defineConfig({
     vue(),
     vuetify({
       autoImport: true,
-      styles: { configFile: 'src/assets/styles/settings.scss' }
+      styles: { configFile: 'src/assets/styles/settings.scss' },
     }),
     /*
     eslint({
