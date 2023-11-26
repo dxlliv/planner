@@ -1,8 +1,14 @@
+// ui and variables
 @import "@mdi/font/css/materialdesignicons.min.css";
+@import "./variables.scss";
+
+// libraries
 @import "vue3-carousel/dist/carousel.css";
+@import "filepond/dist/filepond.min.css";
+
+// fonts
 @import "@fontsource/cookie";
 @import "@fontsource/cookie/400.css";
-@import "./variables.scss";
 
 #app {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
