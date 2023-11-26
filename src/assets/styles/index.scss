@@ -1,6 +1,7 @@
 // ui and variables
-@import "@mdi/font/css/materialdesignicons.min.css";
 @import "./variables.scss";
+@import "vuetify/styles";
+@import "@mdi/font/css/materialdesignicons.min.css";
 
 // libraries
 @import "vue3-carousel/dist/carousel.css";
@@ -29,8 +30,6 @@
 }
 
 .v-card {
-  border-radius: 12px !important;
-
   &-title {
     font-size: 16px !important;
     font-weight: bold !important;

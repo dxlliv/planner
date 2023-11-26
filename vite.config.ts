@@ -1,5 +1,6 @@
 import { defineConfig } from "vite"
 import vue from "@vitejs/plugin-vue"
+import vuetify from "vite-plugin-vuetify"
 import autoImport from "unplugin-auto-import/vite"
 import components from "unplugin-vue-components/vite"
 import eslint from "vite-plugin-eslint"
@@ -10,6 +11,10 @@ export default defineConfig({
   base: "/ig-planner/",
   plugins: [
     vue(),
+    vuetify({
+      autoImport: true,
+      styles: { configFile: 'src/assets/styles/settings.scss' }
+    }),
     /*
     eslint({
       exclude: [/virtual:/, /node_modules/]
