@@ -86,5 +86,7 @@ I'd like to make this tool accessible to all the people with an intuitive interf
     - [ ] Sort media
   - [ ] Advanced
   - [ ] Temporary storage
+- [ ] Profile export
+  - [ ] Node.js helper
 - [x] Implement Storybook
 - [ ] Implement i18n
