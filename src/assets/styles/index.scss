@@ -18,11 +18,7 @@
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-// increase dragged vue-slicksort item z-index
-body > .v-col {
-  z-index: 999;
+  user-select: none;
 }
 
 h2 {

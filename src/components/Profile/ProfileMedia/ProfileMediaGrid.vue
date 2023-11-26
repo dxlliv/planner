@@ -45,5 +45,7 @@ function onListUpdated() {
 </template>
 
 <style scoped lang="scss">
-
+.v-col {
+  z-index: 999;
+}
 </style>
