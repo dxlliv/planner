@@ -132,6 +132,8 @@
     "ThemeInstance": true,
     "fetchFileFromUrl": true,
     "getFileName": true,
-    "handleMediaForSrc": true
+    "handleMediaForSrc": true,
+    "mediaManagerClass": true,
+    "generateUuidv4": true
   }
 }

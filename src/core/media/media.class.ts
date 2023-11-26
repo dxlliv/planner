@@ -1,12 +1,13 @@
 import {fetchFileFromUrl} from "../../utils/utilsFile";
+import {generateUuidv4} from "../../utils/utilsString";
 
 export default class Media {
     private readonly rawUser: IRawUser
-    public raw: IRawMedia
+    public rawMedia: IRawMedia
 
     public folder = ''
-
     public type
+    public id: string = ''
 
     public data = {} as IMediaData
 
@@ -16,7 +17,7 @@ export default class Media {
     ) {
         this.rawUser = rawUser
 
-        this.raw = rawMedia
+        this.rawMedia = rawMedia
         this.type = this.detectMediaType()
     }
 
@@ -24,27 +25,43 @@ export default class Media {
         this.folder = folderName
     }
 
-    private detectMediaType() {
-        let mediaType = ''
+    public setMedia(media: IMediaData) {
+        this.data = media
+    }
 
-        switch (typeof this.raw) {
+    public setUniqueId() {
+        this.id = generateUuidv4()
+    }
+
+    private detectMediaType() {
+        let fileName = ''
+
+        switch (typeof this.rawMedia) {
             case "string":
-                switch(getFileExtension(this.raw)) {
-                    case 'mp4':
-                        mediaType = 'video'
-                        break;
-                    default:
-                        mediaType = 'image'
-                        break;
-                }
-                return mediaType
+                fileName = this.rawMedia
+                break;
 
             case "object":
-                if (Array.isArray(this.raw)) {
+                if (Array.isArray(this.rawMedia)) {
                     return 'album'
                 } else {
-                    return this.raw.type
+                    if (this.rawMedia.type) {
+                        return this.rawMedia.type
+                    } else {
+                        if (!this.rawMedia.blob) {
+                            fileName = this.rawMedia.name
+                        } else {
+                            fileName = this.rawMedia.blob.name
+                        }
+                    }
                 }
+        }
+
+        switch(getFileExtension(fileName)) {
+            case 'mp4':
+                return 'video'
+            default:
+                return 'image'
         }
     }
 
@@ -73,12 +90,12 @@ export default class Media {
     }
 
     public exportMedia() {
-        if (typeof this.raw !== 'object') {
-            return this.raw
+        if (typeof this.rawMedia !== 'object') {
+            return this.rawMedia
         }
 
         return {
-            ...this.raw
+            ...this.rawMedia
         }
     }
 }

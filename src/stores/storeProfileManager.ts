@@ -9,8 +9,6 @@ export const useProfileManagerStore = defineStore("profile/manager", () => {
 
     const config = await readProfileDirectoryConfig(fileConfig.value)
 
-    console.log('Imported user config', config)
-
     configUserStore.setUserConfig(config)
     configUserStore.loadUsers()
   }

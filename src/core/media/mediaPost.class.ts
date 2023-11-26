@@ -1,4 +1,5 @@
 import Media from "./media.class";
+import {getFileName} from "../../utils/utilsFile";
 
 export default class MediaPost extends Media {
     readonly #allowedMediaTypes: string[] = ['image', 'album', 'video', 'iframe']
@@ -11,7 +12,15 @@ export default class MediaPost extends Media {
 
         this.setMediaFolder('/media')
 
-        this.data = this.parseMedia()
+        const data = this.parseMedia()
+
+        if (data) {
+            // set media data
+            this.setMedia(data)
+
+            // set media unique id
+            this.setUniqueId()
+        }
     }
 
     /**
@@ -19,15 +28,26 @@ export default class MediaPost extends Media {
      * or in an exhaustive way defining all of its options
      */
     public parseMedia(): IMediaData {
-        switch (typeof this.raw) {
+        switch (typeof this.rawMedia) {
             case "string":
-                return this.parseMediaShortImport(this.raw)
+                return this.parseMediaShortImport(this.rawMedia)
             case "object":
-                if (!this.#allowedMediaTypes.includes(this.raw.type) && !Array.isArray(this.raw)) {
+                if (this.rawMedia.blob) {
+                    // it already a blob
+                    return {
+                        file: {
+                            name: getFileName(this.rawMedia.blob.name),
+                            path: this.rawMedia.blob.name,
+                            blob: this.rawMedia.blob
+                        },
+                    }
+                }
+
+                if (!this.#allowedMediaTypes.includes(this.rawMedia.type) && !Array.isArray(this.rawMedia)) {
                     throw Error('Media type not recognized')
                 }
 
-                return this.parseMediaRegularImport(this.raw)
+                return this.parseMediaRegularImport(this.rawMedia)
         }
     }
 

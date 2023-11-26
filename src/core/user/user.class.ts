@@ -1,4 +1,5 @@
 import Profile from "../profile/profile.class";
+import MediaManager from "../media/mediaManager.class";
 
 export default class User {
     private readonly rawUser: IRawUser
@@ -21,7 +22,7 @@ export default class User {
 
     private parseUser() {
         this.profile = new Profile(this.rawUser)
-        this.media = parseUserMedia(this.rawUser);
+        this.media = new MediaManager(this.rawUser);
         this.options = this.rawUser.options
     }
 
