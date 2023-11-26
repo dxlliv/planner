@@ -30,7 +30,7 @@ interface IRawUserMedia {
 interface IRawMedia {
   type: IMediaType;
   name: string;
-  reel?: boolean
+  blob?: Blob
 }
 
 interface IRawMediaImage extends IRawMedia {
@@ -41,6 +41,7 @@ interface IRawMediaImage extends IRawMedia {
 interface IRawMediaVideo extends IRawMedia {
   type: "video"
   cover?: IRawMedia | number;
+  reel?: boolean
 }
 
 interface IRawMediaAlbum extends IRawMedia {
