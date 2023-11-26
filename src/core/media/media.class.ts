@@ -1,9 +1,9 @@
-import {fetchFileFromUrl} from "../../utils/utilsFile";
+import {fetchFileFromUrl, getFileName} from "../../utils/utilsFile";
 import {generateUuidv4} from "../../utils/utilsString";
 
 export default class Media {
-    private readonly rawUser: IRawUser
-    public rawMedia: IRawMedia
+    public readonly rawUser: IRawUser
+    public rawMedia: string | IRawMedia
 
     public folder = ''
     public type
@@ -65,13 +65,14 @@ export default class Media {
         }
     }
 
-    public getMediaFile(fileName: string) {
+    public parseMediaFile(fileName: string): IMediaFile {
         let filePath = ''
 
         if (fileName.startsWith("http")) {
             filePath = fileName
+            fileName = getFileName(filePath)
         } else {
-            filePath = this.getMediaPath(fileName)
+            filePath = this.parseMediaPath(fileName)
         }
 
         return {
@@ -81,21 +82,44 @@ export default class Media {
         };
     }
 
-    private getMediaPath(filename: string) {
-        if (filename.startsWith("http")) {
+    private parseMediaPath(fileName: string) {
+        if (fileName.startsWith("http")) {
             return "";
         }
 
-        return `${import.meta.env.BASE_URL}user/${this.rawUser.profile.username}${this.folder}/${filename}`;
+        return `${import.meta.env.BASE_URL}user/${this.rawUser.profile.username}${this.folder}/${fileName}`;
     }
 
-    public exportMedia() {
-        if (typeof this.rawMedia !== 'object') {
-            return this.rawMedia
-        }
-
-        return {
-            ...this.rawMedia
+    public exportMedia(): IMediaExport | IMediaExport[] | undefined {
+        switch (this.type) {
+            case 'image':
+                return {
+                    type: this.type,
+                    file: this.data.file?.blob
+                }
+            case 'video':
+                return {
+                    type: this.type,
+                    reel: this.data.reel,
+                    file: this.data.file?.blob,
+                    cover: this.data.cover?.data.file?.blob
+                }
+            case 'album':
+                return {
+                    type: this.type,
+                    list: this.data.list?.map(media => {
+                        return {
+                            file: media.data.file?.blob
+                        }
+                    })
+                }
+            case 'iframe':
+                return {
+                    type: this.type,
+                    reel: this.data.reel,
+                    href: this.data.href,
+                    cover: this.data.cover?.data.file?.blob
+                }
         }
     }
 }

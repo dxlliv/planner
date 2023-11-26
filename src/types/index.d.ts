@@ -30,28 +30,26 @@ interface IRawUserMedia {
 interface IRawMedia {
   type: IMediaType;
   name: string;
-  blob?: Blob
+  blob?: any
 }
 
 interface IRawMediaImage extends IRawMedia {
-  type: "image"
   reel?: boolean
 }
 
 interface IRawMediaVideo extends IRawMedia {
-  type: "video"
   cover?: IRawMedia | number;
   reel?: boolean
 }
 
 interface IRawMediaAlbum extends IRawMedia {
-  type: "album"
   list: IRawMedia[]
 }
 
 interface IRawMediaIframe extends IRawMedia {
   href: string;
   cover?: IRawMedia;
+  reel?: boolean
 }
 
 // parsed config
@@ -116,6 +114,7 @@ type IMediaType = 'image' | 'video' | 'album' | 'iframe'
 interface IMediaFile {
   name: string;
   path: string;
+  blob: Promise<File>
 }
 
 interface IMediaData {
@@ -125,6 +124,18 @@ interface IMediaData {
   list?: MediaPost[]
   reel?: boolean
   href?: string
+  blob?: Promise<File>
+}
+
+interface IMediaExport {
+  type: IMediaType
+  file?: Promise<File>
+  reel?: boolean
+  href?: string
+  cover?: Promise<File>
+  list?: {
+    file?: Promise<File>
+  }[]
 }
 
 /*

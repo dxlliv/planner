@@ -16,7 +16,7 @@ export default class Profile {
     constructor(rawUser: IRawUser) {
         this.rawUser = rawUser
 
-        this.parseProfile()
+        this.parseUserProfile()
     }
 
     get posts_count() {
@@ -27,7 +27,7 @@ export default class Profile {
         return `https://instagram.com/${this.rawUser.profile.username}`
     }
 
-    private parseProfile(): IUserProfile {
+    private parseUserProfile(): IUserProfile {
         this.name = this.rawUser.profile.name;
         this.username = this.rawUser.profile.username;
         this.verified = Boolean(this.rawUser.profile.verified);
@@ -49,7 +49,7 @@ export default class Profile {
         this.avatar = new MediaAvatar(this.rawUser, this.rawUser.profile.avatar);
     }
 
-    public exportProfile(): IRawUser {
+    public exportUserProfile(): IRawUser {
         return removeUndefinedFromObject({
             name: this.name,
             username: this.username,

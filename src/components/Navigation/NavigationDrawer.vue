@@ -83,6 +83,21 @@ const mediaCreate = ref(false)
         </template>
       </v-list-item>
     </v-list>
+
+    <v-list
+        density="compact" nav
+        class="ig-navigation-drawer__list-bottom"
+    >
+      <v-list-item
+          v-if="user.isChanged"
+          title="Save" base-color="primary"
+          @click="user.writeUserChanges()"
+      >
+        <template #prepend>
+          <v-icon icon="mdi-content-save-outline" />
+        </template>
+      </v-list-item>
+    </v-list>
   </v-navigation-drawer>
 </template>
 
@@ -101,6 +116,13 @@ const mediaCreate = ref(false)
     .ig-profile-avatar {
       border-color: white;
     }
+  }
+
+  .ig-navigation-drawer__list-bottom {
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   .ig-logo {

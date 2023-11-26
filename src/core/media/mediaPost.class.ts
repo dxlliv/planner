@@ -60,11 +60,13 @@ export default class MediaPost extends Media {
     private parseMediaShortImport(rawMediaFileName: string): IMediaData {
         switch(getFileExtension(rawMediaFileName)) {
             case 'mp4':
-                return this.getMediaVideo({
+                return this.parseMediaVideo({
+                    type: 'video',
                     name: rawMediaFileName
                 })
             default:
-                return this.getMediaImage({
+                return this.parseMediaImage({
+                    type: 'image',
                     name: rawMediaFileName
                 })
 
@@ -79,32 +81,32 @@ export default class MediaPost extends Media {
     public parseMediaRegularImport(rawMedia: any): IMediaData {
         // albums may be defined as simple arrays
         if (Array.isArray(rawMedia)) {
-            return this.getMediaAlbum(rawMedia)
+            return this.parseMediaAlbum(rawMedia)
         }
 
         switch (rawMedia.type) {
             case "image":
-                return this.getMediaImage(rawMedia)
+                return this.parseMediaImage(rawMedia)
             case "video":
-                return this.getMediaVideo(rawMedia)
+                return this.parseMediaVideo(rawMedia)
             case "album":
-                return this.getMediaAlbum(rawMedia)
+                return this.parseMediaAlbum(rawMedia)
             case "iframe":
-                return this.getMediaIframe(rawMedia)
+                return this.parseMediaIframe(rawMedia)
             default:
                 throw Error('Media not supported')
         }
     }
 
-    private getMediaImage(rawMedia: IRawMediaImage): IMediaData {
+    private parseMediaImage(rawMedia: IRawMediaImage): IMediaData {
         return {
-            file: this.getMediaFile(rawMedia.name),
+            file: this.parseMediaFile(rawMedia.name),
         }
     }
 
-    private getMediaVideo(rawMedia: IRawMediaVideo): IMediaData {
+    private parseMediaVideo(rawMedia: IRawMediaVideo): IMediaData {
         const mediaData: IMediaData = {
-            file: this.getMediaFile(rawMedia.name),
+            file: this.parseMediaFile(rawMedia.name),
             reel: !!rawMedia.reel,
         }
 
@@ -120,7 +122,7 @@ export default class MediaPost extends Media {
         return mediaData
     }
 
-    private getMediaAlbum(rawMedia: any): IMediaData {
+    private parseMediaAlbum(rawMedia: any): IMediaData {
         const mediaAlbumList: MediaPost[] = []
 
         if (Array.isArray(rawMedia)) {
@@ -142,7 +144,7 @@ export default class MediaPost extends Media {
         }
     }
 
-    private getMediaIframe(rawMedia: IRawMediaIframe): IMediaData {
+    private parseMediaIframe(rawMedia: IRawMediaIframe): IMediaData {
         // set max quality to youtube embed videos
         if (rawMedia.href && rawMedia.href.startsWith('https://youtube.com/embed/')) {
             rawMedia.href = rawMedia.href + '?autoplay=1&version=3&vq=hd1080'

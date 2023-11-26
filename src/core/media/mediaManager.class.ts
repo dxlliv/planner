@@ -15,37 +15,37 @@ export default class MediaManager {
     }
 
     private parseUserMedia(): IUserMedia {
-        this.parseMediaPosts()
-        this.parseMediaReels()
+        this.parseUserMediaPosts()
+        this.parseUserMediaReels()
     }
 
-    private parseMediaPosts() {
+    private parseUserMediaPosts() {
         for (let rawMedia of this.rawUser.media.posts) {
-            this.addMediaPost(rawMedia)
+            this.addUserMediaPost(rawMedia)
         }
     }
 
-    private parseMediaReels() {
+    private parseUserMediaReels() {
         for (let rawMedia of this.rawUser.media.posts) {
             if (!rawMedia.reel) continue
 
-            this.addMediaReel(rawMedia)
+            this.addUserMediaReel(rawMedia)
         }
 
         for (let rawMedia of this.rawUser.media.reels) {
-            this.addMediaReel(rawMedia)
+            this.addUserMediaReel(rawMedia)
         }
     }
 
-    public addMediaPost(rawMedia: IRawMedia, unshift: boolean = false) {
+    public addUserMediaPost(rawMedia: IRawMedia, unshift: boolean = false) {
         this.posts[!unshift ? 'push' : 'unshift'](new MediaPost(this.rawUser, rawMedia))
     }
 
-    public addMediaReel(rawMedia: IRawMedia, unshift: boolean = false) {
+    public addUserMediaReel(rawMedia: IRawMedia, unshift: boolean = false) {
         this.reels[!unshift ? 'push' : 'unshift'](new MediaPost(this.rawUser, rawMedia))
     }
 
-    public exportMedia(): IRawUserMedia {
+    public exportUserMedia() {
         return {
             posts: this.posts.map(m => m.exportMedia()),
             reels: this.reels.map(m => m.exportMedia()),

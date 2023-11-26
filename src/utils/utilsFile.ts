@@ -6,7 +6,14 @@ export function getFileExtension(filename: string) {
     return filename.split('.').pop()
 }
 
-export async function fetchFileFromUrl(url: string){
+export function createJsonFileFromObject(json: any) {
+    return new Blob(
+        [JSON.stringify(json)],
+        {type: "application/json"}
+    )
+}
+
+export async function fetchFileFromUrl(url: string): Promise<File> {
     const name = getFileName(url)
 
     const response = await fetch(url);
@@ -17,8 +24,8 @@ export async function fetchFileFromUrl(url: string){
     });
 }
 
-export async function handleMediaForSrc(media) {
-    function isPromise(p) {
+export async function handleMediaForSrc(media: MediaPost) {
+    function isPromise(p: any) {
         if (typeof p === 'object' && typeof p.then === 'function') {
             return true;
         }
@@ -27,18 +34,16 @@ export async function handleMediaForSrc(media) {
     }
 
     if (!media.data.file) {
-        return undefined
+        throw Error ('File object is not defined')
     }
 
-    if (media.data.file.blob) {
-        if (isPromise(media.data.file.blob)) {
-            media.data.file.blob = await media.data.file.blob
-        }
+    if (!media.data.file.blob) {
+        throw Error ('File blob is not defined')
     }
 
-    if (media.data.file.blob instanceof Blob) {
-        return URL.createObjectURL(media.data.file.blob)
+    if (!isPromise(media.data.file.blob)) {
+        throw Error ('File blob is not a promise')
     }
 
-    return media.data.file?.path
+    return URL.createObjectURL(await media.data.file.blob)
 }

@@ -8,7 +8,7 @@ export default class User {
     public options: IUserOptions = {}
 
     public profile: Profile = {} as Profile
-    public media: IUserMedia = {} as IUserMedia
+    public media: MediaManager = {} as MediaManager
 
     public status = reactive({
         changed: false
@@ -36,12 +36,8 @@ export default class User {
 
     public exportUser() {
         return {
-            profile: exportUserProfile(this.profile),
-            media: exportUserMedia(this.media),
+            profile: this.profile.exportUserProfile(),
+            media: this.media.exportUserMedia(),
         }
-    }
-
-    public writeUserChanges() {
-
     }
 }

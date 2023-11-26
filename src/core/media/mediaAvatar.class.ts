@@ -12,13 +12,13 @@ export default class MediaAvatar extends Media {
         this.data = this.parseMediaAvatar()
     }
 
-    public parseMediaAvatar(): IMediaAvatar {
+    public parseMediaAvatar(): IMediaData {
         if (typeof this.rawMedia !== 'string') {
             this.rawMedia = this.#defaultAvatarFilename
         }
 
         return {
-            file: this.getMediaFile(this.rawMedia),
+            file: this.parseMediaFile(this.rawMedia),
         }
     }
 }

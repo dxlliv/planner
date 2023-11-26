@@ -134,6 +134,9 @@
     "getFileName": true,
     "handleMediaForSrc": true,
     "mediaManagerClass": true,
-    "generateUuidv4": true
+    "generateUuidv4": true,
+    "createFileFromJson": true,
+    "createJsonFileFromObject": true,
+    "userDirectoryClass": true
   }
 }
