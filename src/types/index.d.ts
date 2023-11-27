@@ -33,8 +33,9 @@ interface IRawMedia {
   type: IMediaType;
   name: string;
   reel?: boolean
-  cover?: IRawMedia | number;
-  list?: IRawMedia[]
+  cover?: number | string | IRawMedia;
+  list?: string[] | IRawMedia[]
+  href?: string
   file?: File
 }
 

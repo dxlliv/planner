@@ -29,7 +29,7 @@ export default class MediaIframe extends Media {
             mediaData.reel = rawMedia.reel
         }
 
-        if (rawMedia.cover) {
+        if (typeof rawMedia.cover === 'string') {
             mediaData.cover = new MediaImage(rawMedia.cover, this.user)
         }
 

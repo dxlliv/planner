@@ -3,13 +3,12 @@ import {generateUuidv4} from "../../utils/utilsString";
 import User from "../user/user.class";
 
 export default class Media {
-    private user: User
+    public user: User
 
     public rawMedia: string | IRawMedia
 
     public id: string = ''
-    public type: IMediaType = ''
-
+    public type: string = ''
     public data = {} as IMediaData
 
     constructor(
@@ -34,7 +33,7 @@ export default class Media {
         this.data = mediaData
     }
 
-    private parseMediaFileName(fileName: string): IMediaFile {
+    public parseMediaFileName(fileName: string): IMediaFile {
         let filePath = ''
 
         if (fileName.startsWith("http")) {
@@ -51,7 +50,7 @@ export default class Media {
         }
     }
 
-    private parseMediaFileBlob(fileBlob: File): IMediaFile {
+    public parseMediaFileBlob(fileBlob: File): IMediaFile {
         return {
             name: fileBlob.name,
             path: fileBlob.name,

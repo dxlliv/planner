@@ -28,8 +28,6 @@ export default class MediaManager {
         for (let rawMedia of this.user.raw.media.posts) {
             this.addMedia(rawMedia, 'posts')
         }
-
-        console.log(this.posts)
     }
 
     private parseRawUserMediaReels() {
