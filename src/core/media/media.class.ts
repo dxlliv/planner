@@ -86,11 +86,12 @@ export default class Media implements IMedia {
                     file: await this.data.file?.blob
                 }
             case 'video':
-                return {
-                    type: this.type,
-                    reel: this.data.reel,
-                    file: await this.data.file?.blob,
-                    cover
+                exportedData.file = await this.data.file?.blob
+
+                if (cover) {
+                    exportedData.cover = cover
+                } else if (this.data.coverTime) {
+                    exportedData.cover = this.data.coverTime
                 }
             case 'album':
                 return {

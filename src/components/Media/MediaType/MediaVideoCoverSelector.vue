@@ -7,25 +7,26 @@ const props = defineProps<{
 }>()
 
 const mediaCover: Ref<number> = ref(
-    typeof props.media.data.coverTime === 'number' ? props.media.data.coverTime : 0
+    typeof props.media.data.coverTime === 'number' ? props.media.data.coverTime*10 : 0
 )
 
 function updateMediaCover() {
-  emit('updateCoverTime', Number(mediaCover.value))
+  emit('updateCoverTime', mediaCover.value/10)
 }
 </script>
 
 <template>
   <input
+      v-if="props.maxLength > 0"
       ref="sliderElement"
       v-model="mediaCover"
-      :max="maxLength"
+      :max="maxLength*10"
       type="range"
       class="ig-media--video-slider"
       @change="updateMediaCover"
   />
   <div class="ig-media--video-slider__value">
-    {{ mediaCover }}
+    {{ mediaCover/10 }}s
   </div>
 </template>
 
