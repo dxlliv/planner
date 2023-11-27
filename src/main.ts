@@ -1,7 +1,14 @@
+import localforage from "localforage";
+import {plugins} from "./plugins";
 import App from "./App.vue";
 
-import {plugins} from "./plugins";
+// set localforage config
+localforage.config({
+    driver      : localforage.INDEXEDDB,
+    name        : 'planner',
+})
 
+// initialize app
 createApp(App)
     .use(plugins)
     .mount("#app");

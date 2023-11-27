@@ -1,55 +1,108 @@
-import MediaAvatar from "../media/mediaAvatar.class";
 import {removeUndefinedFromObject} from "../../utils/utilsObject";
+import User from "../user/user.class";
+import UserAvatar from "../user/userAvatar.class";
 
 export default class Profile {
-    private readonly rawUser: IRawUser
+    private readonly user: User
 
     public name: string = ''
     public username: string = ''
     public website: IUserProfileWebsite = null
-    public verified: boolean
+    public verified: boolean = false
     public biography: string = ''
-    public avatar: IMediaAvatar
-    public followers_count: string = ''
-    public follows_count: string = ''
+    public avatar: UserAvatar | undefined
+    public followers_count: number = 0
+    public follows_count: number = 0
+    public posts_count: number = 0
 
-    constructor(rawUser: IRawUser) {
-        this.rawUser = rawUser
+    constructor(user: User) {
+        this.user = user
 
-        this.parseUserProfile()
-    }
-
-    get posts_count() {
-        return this.rawUser.media.posts.length
+        this.import(this.user.raw.profile)
     }
 
     get public_profile() {
-        return `https://instagram.com/${this.rawUser.profile.username}`
+        return `https://instagram.com/${this.username}`
     }
 
-    private parseUserProfile(): IUserProfile {
-        this.name = this.rawUser.profile.name;
-        this.username = this.rawUser.profile.username;
-        this.verified = Boolean(this.rawUser.profile.verified);
+    public setName(name: string) {
+        this.name = name
+    }
 
-        this.followers_count = Number(this.rawUser.profile.followers_count);
-        this.follows_count = Number(this.rawUser.profile.follows_count);
+    public setUsername(username: string) {
+        this.username = username;
+    }
 
-        this.website = !this.rawUser.profile.website
+    public setBiography(biography: string) {
+        this.biography = biography;
+    }
+
+    public setVerified(verified: boolean) {
+        this.verified = Boolean(verified);
+    }
+
+    public setPostsCount(count: number) {
+        this.posts_count = Number(count);
+    }
+
+    public setFollowersCount(count: number) {
+        this.followers_count = Number(count);
+    }
+
+    public setFollowsCount(count: number) {
+        this.follows_count = Number(count);
+    }
+
+    public setWebsite(website: any) {
+        this.website = !website
             ? null
             : {
-                href: this.rawUser.profile.website,
-                label: new URL(this.rawUser.profile.website).hostname,
+                href: website,
+                label: new URL(website).hostname,
             };
-
-        // parse biography
-        this.biography = this.rawUser.profile.biography;
-
-        // parse avatar
-        this.avatar = new MediaAvatar(this.rawUser, this.rawUser.profile.avatar);
     }
 
-    public exportUserProfile(): IRawUser {
+    public setAvatar(avatar: UserAvatar) {
+        this.avatar = avatar
+    }
+
+    public async import(rawProfile: IRawUserProfile) {
+        if (rawProfile.name) {
+            this.setName(rawProfile.name)
+        }
+
+        if (rawProfile.username) {
+            this.setUsername(rawProfile.username)
+        }
+
+        if (rawProfile.biography) {
+            this.setBiography(rawProfile.biography)
+        }
+
+        if (rawProfile.verified) {
+            this.setVerified(rawProfile.verified)
+        }
+
+        if (rawProfile.followers_count) {
+            this.setFollowersCount(rawProfile.followers_count)
+        }
+
+        if (rawProfile.follows_count) {
+            this.setFollowsCount(rawProfile.follows_count)
+        }
+
+        if (rawProfile.website) {
+            this.setWebsite(rawProfile.website)
+        }
+
+        if (rawProfile.avatar) {
+            const avatar = new UserAvatar(rawProfile.avatar, this.username)
+
+            this.setAvatar(avatar)
+        }
+    }
+
+    public async export(): IRawUserProfile {
         return removeUndefinedFromObject({
             name: this.name,
             username: this.username,
@@ -58,7 +111,7 @@ export default class Profile {
             follows_count: this.follows_count,
             website: this.website?.href,
             biography: this.biography,
-            avatar: this.avatar.data.file.blob
+            avatar: await this.avatar?.file
         })
     }
 }

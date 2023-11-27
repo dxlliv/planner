@@ -137,6 +137,18 @@
     "generateUuidv4": true,
     "createFileFromJson": true,
     "createJsonFileFromObject": true,
-    "userDirectoryClass": true
+    "userDirectoryClass": true,
+    "userStorageClass": true,
+    "fulfillExportedMediaPosts": true,
+    "getFileMediaPath": true,
+    "userAvatarClass": true,
+    "isPromise": true,
+    "fulfillMediaPostsForExport": true,
+    "fulfillMediaPostsForMediaExport": true,
+    "mediaImageClass": true,
+    "mediaVideoClass": true,
+    "getMediaFilePath": true,
+    "mediaAlbumClass": true,
+    "mediaIframeClass": true
   }
 }

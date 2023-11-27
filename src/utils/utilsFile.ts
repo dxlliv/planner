@@ -6,6 +6,14 @@ export function getFileExtension(filename: string) {
     return filename.split('.').pop()
 }
 
+export function getMediaFilePath(filename: string, username: string, folder: string = '') {
+    if (filename.startsWith("http")) {
+        return "";
+    }
+
+    return `${import.meta.env.BASE_URL}user/${username}${folder}/${filename}`;
+}
+
 export function createJsonFileFromObject(json: any) {
     return new Blob(
         [JSON.stringify(json)],
@@ -25,14 +33,6 @@ export async function fetchFileFromUrl(url: string): Promise<File> {
 }
 
 export async function handleMediaForSrc(media: MediaPost) {
-    function isPromise(p: any) {
-        if (typeof p === 'object' && typeof p.then === 'function') {
-            return true;
-        }
-
-        return false;
-    }
-
     if (!media.data.file) {
         throw Error ('File object is not defined')
     }
@@ -46,4 +46,12 @@ export async function handleMediaForSrc(media: MediaPost) {
     }
 
     return URL.createObjectURL(await media.data.file.blob)
+}
+
+export function isPromise(p: any) {
+    if (typeof p === 'object' && typeof p.then === 'function') {
+        return true;
+    }
+
+    return false;
 }

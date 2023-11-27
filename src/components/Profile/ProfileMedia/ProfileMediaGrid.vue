@@ -9,7 +9,7 @@ const props = defineProps<{
 const gridListElement: Ref<HTMLElement | undefined> = ref()
 
 function onListUpdated() {
-  props.user.setChanged(true)
+  props.user.saveChanges()
 }
 </script>
 

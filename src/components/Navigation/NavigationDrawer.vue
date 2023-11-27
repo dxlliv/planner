@@ -73,13 +73,16 @@ const mediaCreate = ref(false)
       </v-list-item>
 
       <v-list-item
+          v-if="user.ready"
           title="Profile"
-          :to="`/ig-planner/${userStore.user.profile.username}`"
+          :to="`/ig-planner/${user.profile.username}`"
       >
         <template #prepend>
-          <ProfileAvatar
-              :avatar="user.profile.avatar" size="26px"
-          />
+          <suspense>
+            <ProfileAvatar
+                :avatar="user.profile.avatar" size="26px"
+            />
+          </suspense>
         </template>
       </v-list-item>
     </v-list>

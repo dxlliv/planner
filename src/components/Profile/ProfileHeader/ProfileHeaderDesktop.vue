@@ -8,7 +8,9 @@ defineProps<{
   <div class="ig-profile-page__header py-12">
     <v-row>
       <v-col cols="4" class="ig-profile-page__header__avatar text-center">
-        <ProfileAvatar :avatar="profile?.avatar" />
+        <suspense>
+          <ProfileAvatar :avatar="profile?.avatar" />
+        </suspense>
       </v-col>
 
       <v-col cols="8">

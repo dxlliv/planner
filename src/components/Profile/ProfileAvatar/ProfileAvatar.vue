@@ -2,19 +2,21 @@
   <v-avatar :size="size" class="ig-profile-avatar">
     <v-img
         v-if="avatar"
-        :src="avatar.data.file?.path"
+        :src="avatar"
     />
     <slot />
   </v-avatar>
 </template>
 
 <script setup lang="ts">
-withDefaults(defineProps<{
-  avatar?: IMediaAvatar;
+const props = withDefaults(defineProps<{
+  avatar: any;
   size?: string
 }>(), {
   size: '120px'
 });
+
+const avatar = URL.createObjectURL(await props.avatar.file)
 </script>
 
 <style scoped lang="scss">

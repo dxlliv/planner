@@ -5,7 +5,7 @@ const emit = defineEmits(['update:modelValue'])
 const user = computed(() => userStore.user);
 
 function onMediaCreate(blob: Blob) {
-  user.value.media.addMediaPost({ blob }, true)
+  user.value.media.addMediaPost(blob, true)
 
   emit('update:modelValue', false)
 }

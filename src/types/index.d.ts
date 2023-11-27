@@ -14,7 +14,7 @@ interface IRawUserProfile {
   username: string;
   website?: string;
   biography?: string;
-  avatar: string;
+  avatar: string | File;
   verified?: boolean
   followers_count: number;
   follows_count: number;
@@ -27,14 +27,19 @@ interface IRawUserMedia {
   highlights: string | IRawMedia[];
 }
 
+type IRawAvatar = File | string
+
 interface IRawMedia {
   type: IMediaType;
   name: string;
-  blob?: any
+  reel?: boolean
+  cover?: IRawMedia | number;
+  list?: IRawMedia[]
+  file?: File
 }
 
 interface IRawMediaImage extends IRawMedia {
-  reel?: boolean
+  reel?: undefined
 }
 
 interface IRawMediaVideo extends IRawMedia {
@@ -72,11 +77,15 @@ interface IUserProfile {
   };
   verified?: boolean
   biography?: string;
-  avatar: IMediaAvatar;
+  avatar: UserAvatar;
   followers_count: number;
   follows_count: number;
   posts_count: ComputedRef<number>;
   public_profile: string
+}
+
+interface UserAvatar {
+
 }
 
 type IUserProfileWebsite = null | {
@@ -94,7 +103,6 @@ interface IUserMedia {
 interface IUserOptions {}
 
 interface Media {
-  folder: string
   type: string
   data: IMediaData
   exportMedia: () => any
@@ -106,8 +114,7 @@ interface MediaPost extends Media {
 interface MediaReel extends Media {
 }
 
-interface IMediaAvatar extends Media {
-}
+type IAvatar = File
 
 type IMediaType = 'image' | 'video' | 'album' | 'iframe'
 
@@ -128,13 +135,16 @@ interface IMediaData {
 }
 
 interface IMediaExport {
-  type: IMediaType
-  file?: Promise<File>
+  type: string
+  file?: File
   reel?: boolean
   href?: string
-  cover?: Promise<File>
+  cover?: {
+    type: string
+    file: File
+  }
   list?: {
-    file?: Promise<File>
+    file?: File
   }[]
 }
 

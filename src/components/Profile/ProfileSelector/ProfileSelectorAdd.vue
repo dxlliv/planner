@@ -1,6 +1,6 @@
 <template>
   <ProfileSelector add @click="onProfileAdd">
-    <ProfileAvatar >
+    <ProfileAvatar>
       <v-icon size="48px" icon="mdi-plus" color="grey-lighten-1" />
       <v-tooltip activator="parent" location="bottom" :offset="[14, 0]">
         Import profile

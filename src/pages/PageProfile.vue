@@ -1,7 +1,7 @@
 <template>
   <LayoutProfile>
     <Profile
-        v-if="user"
+        v-if="user.ready"
         :user="user"
     />
   </LayoutProfile>

@@ -10,7 +10,9 @@
           }"
           @contextmenu="showProfileContextMenu"
       >
-        <ProfileAvatar :avatar="profile.avatar" />
+        <suspense>
+          <ProfileAvatar :avatar="profile.avatar" />
+        </suspense>
 
         <h3 class="mt-4" v-text="profile.username" />
 
