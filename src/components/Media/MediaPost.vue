@@ -12,11 +12,13 @@ defineProps<{
     />
   </suspense>
 
-  <MediaVideo
-      v-if="media.type === 'video'"
-      :media="media"
-      cover-selector
-  />
+  <suspense>
+    <MediaVideo
+        v-if="media.type === 'video'"
+        :media="media"
+        cover-selector
+    />
+  </suspense>
 
   <MediaAlbum
       v-if="media.type === 'album'"

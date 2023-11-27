@@ -55,7 +55,7 @@ declare global {
   const mediaAlbumClass: typeof import('../core/media/mediaAlbum.class')['default']
   const mediaAvatarClass: typeof import('../core/media/mediaAvatar.class')['default']
   const mediaClass: typeof import('../core/media/media.class')['default']
-  const mediaIframeClass: typeof import('../core/media/mediaIframe.class.ts~')['default']
+  const mediaIframeClass: typeof import('../core/media/mediaIframe.class')['default']
   const mediaImageClass: typeof import('../core/media/mediaImage.class')['default']
   const mediaManagerClass: typeof import('../core/media/mediaManager.class')['default']
   const mediaPostClass: typeof import('../core/media/mediaPost.class')['default']

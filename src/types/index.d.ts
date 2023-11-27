@@ -104,7 +104,7 @@ interface IUserMedia {
 interface IUserOptions {}
 
 interface IMedia {
-  user: IUser
+  user: any
   raw: string | IRawMedia
   id: string
   type: string
@@ -139,7 +139,7 @@ interface IMediaExport {
   file?: File
   reel?: boolean
   href?: string
-  cover?: {
+  cover?: number | {
     type: string
     file: File
   }

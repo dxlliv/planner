@@ -5,12 +5,14 @@ defineProps<{
 </script>
 
 <template>
-  <MediaVideo
-      v-if="media.type === 'video'"
-      :media="media"
-      cover-selector
-      reel
-  />
+  <suspense>
+    <MediaVideo
+        v-if="media.type === 'video'"
+        :media="media"
+        cover-selector
+        reel
+    />
+  </suspense>
 
   <MediaIframe
       v-if="media.type === 'iframe'"

@@ -3,13 +3,13 @@ import {generateUuidv4} from "../../utils/utilsString";
 import User from "../user/user.class";
 
 export default class Media implements IMedia {
-    public user
+    public user: User
 
-    public raw
+    public raw: string | IRawMedia
 
-    public id = ''
-    public type = ''
-    public data = {} as IMediaData
+    public id: string = ''
+    public type: string = ''
+    public data: IMediaData = {} as IMediaData
 
     constructor(
         raw: string | IRawMedia,
@@ -59,6 +59,10 @@ export default class Media implements IMedia {
     }
 
     public async exportMedia(): Promise<IMediaExport | IMediaExport[] | undefined> {
+        let exportedData: IMediaExport = {
+            type: this.type
+        }
+
         let cover = undefined
         let listExport = []
 
@@ -80,11 +84,11 @@ export default class Media implements IMedia {
         }
 
         switch (this.type) {
+
             case 'image':
-                return {
-                    type: this.type,
-                    file: await this.data.file?.blob
-                }
+                exportedData.file = await this.data.file?.blob
+                break
+
             case 'video':
                 exportedData.file = await this.data.file?.blob
 
@@ -93,25 +97,31 @@ export default class Media implements IMedia {
                 } else if (this.data.coverTime) {
                     exportedData.cover = this.data.coverTime
                 }
-            case 'album':
-                return {
-                    type: this.type,
-                    list: listExport
-                }
-            case 'iframe':
-                console.log('IFRAME', {
-                    type: this.type,
-                    reel: this.data.reel,
-                    href: this.data.href,
-                    cover
-                })
 
-                return {
-                    type: this.type,
-                    reel: this.data.reel,
-                    href: this.data.href,
-                    cover
+                if (this.data.reel) {
+                    exportedData.reel = this.data.reel
                 }
+                break
+
+            case 'album':
+                exportedData.list = listExport
+                break
+
+            case 'iframe':
+                if (cover) {
+                    exportedData.cover = cover
+                }
+
+                if (this.data.reel) {
+                    exportedData.reel = this.data.reel
+                }
+
+                if (this.data.href) {
+                    exportedData.href = this.data.href
+                }
+                break
         }
+
+        return exportedData
     }
 }

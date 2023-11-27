@@ -19,10 +19,11 @@ export default class UserStorage {
     }
 
     public async restore() {
-        const storedUser = await this.database.getItem('user')
+        const storedUser: null | IRawUser = await this.database.getItem('user')
 
         if (storedUser) {
-            this.user.parseUser(storedUser)
+            this.user.raw.profile = storedUser.profile
+            this.user.raw.media = storedUser.media
         }
     }
 

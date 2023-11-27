@@ -1,6 +1,6 @@
-import Profile from "../profile/profile.class";
-import MediaManager from "../media/mediaManager.class";
+import UserProfile from "./userProfile.class";
 import UserStorage from "./userStorage.class";
+import MediaManager from "../media/mediaManager.class";
 
 export default class User {
     public readonly raw: IRawUser
@@ -8,9 +8,9 @@ export default class User {
     public order: number = 0
     public options: IUserOptions = {}
 
-    public profile: Profile = {} as Profile
-    public media: MediaManager = {} as MediaManager
+    public profile: UserProfile = {} as UserProfile
     public storage: UserStorage = {} as UserStorage
+    public media: MediaManager = {} as MediaManager
 
     public ready: Ref<boolean> = ref(false)
 
@@ -25,18 +25,18 @@ export default class User {
         this.storage.isAvailable().then(async available => {
             if (available) {
                 await this.storage.restore()
-            } else {
-                this.parseUser()
             }
+
+            this.parseUser()
 
             this.ready.value = true
         })
     }
 
     public parseUser() {
-        this.profile = new Profile(this)
-        this.media = new MediaManager(this);
         this.options = this.raw.options
+        this.profile = new UserProfile(this)
+        this.media = new MediaManager(this);
     }
 
     get isChanged() {

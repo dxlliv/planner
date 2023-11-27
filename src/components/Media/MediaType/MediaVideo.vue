@@ -4,7 +4,7 @@
     <template v-if="!media.data.cover || media.data.coverTime">
       <video
           ref="videoElement"
-          :src="media.data.file?.path"
+          :src="src"
           :autoplay="isPlaying"
           @click="isPlaying = !isPlaying"
       />
@@ -36,6 +36,8 @@ const props = defineProps<{
 }>()
 
 const isPlaying: Ref<boolean> = ref(false)
+
+const src = await handleMediaForSrc(props.media)
 
 const videoElement: Ref<HTMLVideoElement|null> = ref(null);
 const videoMaxLength: Ref<number> = ref(0);

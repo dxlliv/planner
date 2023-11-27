@@ -2,7 +2,7 @@ import {removeUndefinedFromObject} from "../../utils/utilsObject";
 import User from "../user/user.class";
 import UserAvatar from "../user/userAvatar.class";
 
-export default class Profile {
+export default class UserProfile {
     private readonly user: User
 
     public name: string = ''
@@ -102,7 +102,7 @@ export default class Profile {
         }
     }
 
-    public async export(): IRawUserProfile {
+    public async export(): Promise<IRawUserProfile> {
         return removeUndefinedFromObject({
             name: this.name,
             username: this.username,
