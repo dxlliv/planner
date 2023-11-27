@@ -66,7 +66,7 @@ export default class Profile {
         this.avatar = avatar
     }
 
-    public async import(rawProfile: IRawUserProfile) {
+    public import(rawProfile: IRawUserProfile) {
         if (rawProfile.name) {
             this.setName(rawProfile.name)
         }

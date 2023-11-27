@@ -32,11 +32,9 @@ export default class MediaManager {
 
     private parseRawUserMediaReels() {
         for (let rawMedia of this.user.raw.media.posts) {
-            if (typeof rawMedia !== 'string' && !rawMedia.reel) {
-                continue
+            if (typeof rawMedia !== 'string' && rawMedia.reel) {
+                this.addMedia(rawMedia, 'reels')
             }
-
-            this.addMedia(rawMedia, 'reels')
         }
 
         for (let rawMedia of this.user.raw.media.reels) {
@@ -67,13 +65,25 @@ export default class MediaManager {
         const mediaType = MediaManager.detectMediaType(rawMedia)
 
         switch (mediaType) {
+
             case 'image':
                 return new MediaImage(rawMedia, user)
+
             case 'video':
                 return new MediaVideo(rawMedia, user)
+
             case 'album':
+                if (typeof rawMedia === 'string') {
+                    throw Error('Album media cannot be a string')
+                }
+
                 return new MediaAlbum(rawMedia, user)
+
             case 'iframe':
+                if (typeof rawMedia === 'string') {
+                    throw Error('Album media cannot be a string')
+                }
+
                 return new MediaIframe(rawMedia, user)
         }
     }

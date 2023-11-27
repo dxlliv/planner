@@ -18,11 +18,13 @@ export default class MediaIframe extends Media {
 
         // set max quality to youtube embed videos
         if (rawMedia.href) {
-            if (rawMedia.href.startsWith('https://youtube.com/embed/')) {
-                rawMedia.href = rawMedia.href + '?autoplay=1&version=3&vq=hd1080'
+            let href = rawMedia.href
+
+            if (href.startsWith('https://youtube.com/embed/')) {
+                href = href + '?autoplay=1&version=3&vq=hd1080'
             }
 
-            mediaData.href = rawMedia.href
+            mediaData.href = href
         }
 
         if (rawMedia.reel) {
