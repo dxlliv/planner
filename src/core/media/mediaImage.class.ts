@@ -1,34 +1,34 @@
 import Media from "./media.class";
 import User from "../user/user.class";
 
-export default class MediaImage extends Media {
+export default class MediaImage extends Media implements IMediaImage {
     constructor(
-        rawMedia: string | IRawMedia,
+        raw: string | IRawMedia,
         user: User
     ) {
-        super(rawMedia, user)
+        super(raw, user)
 
         this.setMediaType('image')
-        this.parseMediaImage(rawMedia)
+        this.parseMediaImage(raw)
     }
 
-    private parseMediaImage(rawMedia: string | IRawMedia) {
+    private parseMediaImage(raw: string | IRawMedia) {
         const mediaData: IMediaData = {}
 
-        switch (typeof rawMedia) {
+        switch (typeof raw) {
 
             case "string":
                 // shortened image import
-                mediaData.file = this.parseMediaFileName(rawMedia)
+                mediaData.file = this.parseMediaFileName(raw)
                 break;
 
             case "object":
-                if (rawMedia.file && rawMedia.file instanceof File) {
+                if (raw.file && raw.file instanceof File) {
                     // regular image import from: new image / indexeddb restore
-                    mediaData.file = this.parseMediaFileBlob(rawMedia.file)
+                    mediaData.file = this.parseMediaFileBlob(raw.file)
                 } else {
                     // regular image import from: config.json
-                    mediaData.file = this.parseMediaFileName(rawMedia.name)
+                    mediaData.file = this.parseMediaFileName(raw.name)
                 }
                 break;
 

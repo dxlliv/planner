@@ -2,49 +2,49 @@ import Media from "./media.class";
 import MediaImage from "./mediaImage.class";
 import User from "../user/user.class";
 
-export default class MediaVideo extends Media {
+export default class MediaVideo extends Media implements IMediaVideo {
     constructor(
-        rawMedia: string | IRawMedia,
+        raw: string | IRawMedia,
         user: User
     ) {
-        super(rawMedia, user)
+        super(raw, user)
 
         this.setMediaType('video')
-        this.parseMediaVideo(rawMedia)
+        this.parseMediaVideo(raw)
     }
 
-    private parseMediaVideo(rawMedia: string | IRawMedia) {
+    private parseMediaVideo(raw: string | IRawMedia) {
         const mediaData: IMediaData = {}
 
-        switch (typeof rawMedia) {
+        switch (typeof raw) {
 
             case "string":
                 // shortened image import
-                mediaData.file = this.parseMediaFileName(rawMedia)
+                mediaData.file = this.parseMediaFileName(raw)
                 mediaData.coverTime = 0
                 break;
 
             case "object":
-                if (rawMedia.file && rawMedia.file instanceof File) {
+                if (raw.file && raw.file instanceof File) {
                     // regular image import from: new image / indexeddb restore
-                    mediaData.file = this.parseMediaFileBlob(rawMedia.file)
-                } else if (rawMedia.name) {
-                    mediaData.file = this.parseMediaFileName(rawMedia.name)
+                    mediaData.file = this.parseMediaFileBlob(raw.file)
+                } else if (raw.name) {
+                    mediaData.file = this.parseMediaFileName(raw.name)
                     mediaData.coverTime = 0
                 }
 
-                if (typeof rawMedia.reel !== 'undefined') {
-                    mediaData.reel = Boolean(rawMedia.reel)
+                if (typeof raw.reel !== 'undefined') {
+                    mediaData.reel = Boolean(raw.reel)
                     mediaData.coverTime = 0
                 }
 
-                switch (typeof rawMedia.cover) {
+                switch (typeof raw.cover) {
                     case "number":
-                        mediaData.coverTime = Number(rawMedia.cover)
+                        mediaData.coverTime = Number(raw.cover)
                         break;
                     case "string":
                     case "object":
-                        mediaData.cover = new MediaImage(rawMedia.cover, this.user)
+                        mediaData.cover = new MediaImage(raw.cover, this.user)
                         break;
                 }
                 break;

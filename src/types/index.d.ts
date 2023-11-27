@@ -95,27 +95,26 @@ type IUserProfileWebsite = null | {
 }
 
 interface IUserMedia {
-  posts: MediaPost[];
-  reels: MediaPost[];
-  stories: MediaPost[];
-  highlights: MediaPost[];
+  posts: IMedia[];
+  reels: IMedia[];
+  stories: IMedia[];
+  highlights: IMedia[];
 }
 
 interface IUserOptions {}
 
-interface Media {
+interface IMedia {
+  user: IUser
+  raw: string | IRawMedia
+  id: string
   type: string
   data: IMediaData
-  exportMedia: () => any
 }
 
-interface MediaPost extends Media {
-}
-
-interface MediaReel extends Media {
-}
-
-type IAvatar = File
+interface IMediaImage extends IMedia {}
+interface IMediaVideo extends IMedia {}
+interface IMediaAlbum extends IMedia {}
+interface IMediaIframe extends IMedia {}
 
 type IMediaType = 'image' | 'video' | 'album' | 'iframe'
 
@@ -127,9 +126,9 @@ interface IMediaFile {
 
 interface IMediaData {
   file?: IMediaFile
-  cover?: MediaPost
+  cover?: IMedia
   coverTime?: number
-  list?: MediaPost[]
+  list?: IMedia[]
   reel?: boolean
   href?: string
   blob?: Promise<File>
@@ -148,38 +147,3 @@ interface IMediaExport {
     file?: File
   }[]
 }
-
-/*
-interface IMediaImage {
-  type: 'image'
-  data: {
-    file: IMediaFile
-    path: string
-  }
-}
-
-interface IMediaVideo {
-  type: 'video'
-  data: {
-    file: IMediaFile
-    path: string
-    cover: IMediaImage | number
-  }
-}
-
-interface IMediaAlbum {
-  type: 'album'
-  data: {
-    list: (IMediaImage|IMediaVideo|IMediaIframe)[]
-  }
-}
-
-interface IMediaIframe {
-  type: string
-  data: {
-    file: IMediaFile
-    path: string
-    cover: IMediaImage
-  }
-}
- */

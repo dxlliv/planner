@@ -1,7 +1,7 @@
 <template>
   <MediaContainer type="video" :class="{'ig-media--reel': reel}">
 
-    <template v-if="!media.data.cover || typeof media.data.cover === 'number'">
+    <template v-if="!media.data.cover || media.data.coverTime">
       <video
           ref="videoElement"
           :src="media.data.file?.path"
@@ -12,6 +12,7 @@
       <MediaVideoCoverSelector
         v-if="coverSelector"
         :media="media"
+        :max-length="videoMaxLength"
         @updateCoverTime="onUpdateCoverTime"
       />
     </template>
@@ -28,7 +29,7 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  media: MediaPost
+  media: IMediaVideo
   coverSelector?: boolean
   playable?: boolean
   reel?: boolean
@@ -37,7 +38,7 @@ const props = defineProps<{
 const isPlaying: Ref<boolean> = ref(false)
 
 const videoElement: Ref<HTMLVideoElement|null> = ref(null);
-const sliderElement: Ref<any> = ref({});
+const videoMaxLength: Ref<number> = ref(0);
 
 function onUpdateCoverTime(value: number) {
   if (!videoElement.value) return
@@ -53,9 +54,9 @@ onMounted(() => {
     () => {
       if (!videoElement.value || typeof props.media.data.cover === 'object') return
 
-      if (typeof props.media.data.cover === 'number') {
-        videoElement.value.currentTime = props.media.data.cover
-        sliderElement.value.max = videoElement.value.duration
+      if (props.media.data.coverTime) {
+        videoElement.value.currentTime = props.media.data.coverTime
+        videoMaxLength.value = videoElement.value.duration
       }
     },
     false,

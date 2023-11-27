@@ -149,6 +149,7 @@
     "mediaVideoClass": true,
     "getMediaFilePath": true,
     "mediaAlbumClass": true,
-    "mediaIframeClass": true
+    "mediaIframeClass": true,
+    "userProfileClass": true
   }
 }

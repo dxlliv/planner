@@ -2,32 +2,32 @@ import Media from "./media.class";
 import MediaManager from "./mediaManager.class";
 import User from "../user/user.class";
 
-export default class MediaAlbum extends Media {
+export default class MediaAlbum extends Media implements IMediaAlbum {
     constructor(
-        rawMedia: IRawMedia,
+        raw: IRawMedia,
         user: User
     ) {
-        super(rawMedia, user)
+        super(raw, user)
 
         this.setMediaType('album')
 
         // shortened album imports may be an array of strings
         // so this will convert to a regular object
-        if (Array.isArray(rawMedia)) {
+        if (Array.isArray(raw)) {
             // @ts-ignore
-            rawMedia = { list: rawMedia }
+            raw = { list: raw }
         }
 
-        this.parseMediaAlbum(rawMedia)
+        this.parseMediaAlbum(raw)
     }
 
-    private parseMediaAlbum(rawMedia: IRawMedia) {
+    private parseMediaAlbum(raw: IRawMedia) {
         const mediaData: IMediaData = {}
         const mediaAlbumList: Media[] = []
 
 
-        if (rawMedia.list && Array.isArray(rawMedia.list)) {
-            for (let rawAlbumMedia of rawMedia.list) {
+        if (raw.list && Array.isArray(raw.list)) {
+            for (let rawAlbumMedia of raw.list) {
                 mediaAlbumList.push(
                     MediaManager.newMedia(rawAlbumMedia, this.user)
                 )

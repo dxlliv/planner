@@ -2,20 +2,20 @@ import {fetchFileFromUrl, getMediaFilePath, getFileName} from "../../utils/utils
 import {generateUuidv4} from "../../utils/utilsString";
 import User from "../user/user.class";
 
-export default class Media {
-    public user: User
+export default class Media implements IMedia {
+    public user
 
-    public rawMedia: string | IRawMedia
+    public raw
 
-    public id: string = ''
-    public type: string = ''
+    public id = ''
+    public type = ''
     public data = {} as IMediaData
 
     constructor(
-        rawMedia: string | IRawMedia,
+        raw: string | IRawMedia,
         user: User
     ) {
-        this.rawMedia = rawMedia
+        this.raw = raw
         this.user = user
 
         this.setUniqueId()
@@ -98,6 +98,13 @@ export default class Media {
                     list: listExport
                 }
             case 'iframe':
+                console.log('IFRAME', {
+                    type: this.type,
+                    reel: this.data.reel,
+                    href: this.data.href,
+                    cover
+                })
+
                 return {
                     type: this.type,
                     reel: this.data.reel,

@@ -2,11 +2,12 @@
 const emit = defineEmits(['updateCoverTime'])
 
 const props = defineProps<{
-  media: IMediaVideo;
+  media: IMediaVideo
+  maxLength: number
 }>()
 
 const mediaCover: Ref<number> = ref(
-    typeof props.media.data.cover === 'number' ? props.media.data.cover : 0
+    typeof props.media.data.coverTime === 'number' ? props.media.data.coverTime : 0
 )
 
 function updateMediaCover() {
@@ -18,6 +19,7 @@ function updateMediaCover() {
   <input
       ref="sliderElement"
       v-model="mediaCover"
+      :max="maxLength"
       type="range"
       class="ig-media--video-slider"
       @change="updateMediaCover"

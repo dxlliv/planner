@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  media: MediaReel;
+  media: IMedia;
 }>()
 </script>
 

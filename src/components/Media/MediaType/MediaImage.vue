@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  media: MediaPost;
+  media: IMediaImage;
 }>();
 
 const src = await handleMediaForSrc(props.media)

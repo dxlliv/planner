@@ -2,23 +2,23 @@ import Media from "./media.class";
 import MediaImage from "./mediaImage.class";
 import User from "../user/user.class";
 
-export default class MediaIframe extends Media {
+export default class MediaIframe extends Media implements IMediaIframe {
     constructor(
-        rawMedia: IRawMedia,
+        raw: IRawMedia,
         user: User
     ) {
-        super(rawMedia, user)
+        super(raw, user)
 
         this.setMediaType('iframe')
-        this.parseMediaIframe(rawMedia)
+        this.parseMediaIframe(raw)
     }
 
-    private parseMediaIframe(rawMedia: IRawMedia) {
+    private parseMediaIframe(raw: IRawMedia) {
         const mediaData: IMediaData = {}
 
         // set max quality to youtube embed videos
-        if (rawMedia.href) {
-            let href = rawMedia.href
+        if (raw.href) {
+            let href = raw.href
 
             if (href.startsWith('https://youtube.com/embed/')) {
                 href = href + '?autoplay=1&version=3&vq=hd1080'
@@ -27,12 +27,12 @@ export default class MediaIframe extends Media {
             mediaData.href = href
         }
 
-        if (rawMedia.reel) {
-            mediaData.reel = rawMedia.reel
+        if (raw.reel) {
+            mediaData.reel = raw.reel
         }
 
-        if (typeof rawMedia.cover === 'string') {
-            mediaData.cover = new MediaImage(rawMedia.cover, this.user)
+        if (raw.cover && typeof raw.cover !== 'number') {
+            mediaData.cover = new MediaImage(raw.cover, this.user)
         }
 
         return this.setMediaData(mediaData)

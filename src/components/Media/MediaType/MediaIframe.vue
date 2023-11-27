@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  media: MediaPost;
+  media: IMediaIframe;
   reel?: boolean
 }>();
 

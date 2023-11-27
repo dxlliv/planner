@@ -18,7 +18,7 @@
 import { Carousel, Slide } from "vue3-carousel";
 
 const props = defineProps<{
-  media: MediaPost;
+  media: IMediaAlbum;
   slideable?: boolean
 }>();
 
