@@ -31,7 +31,7 @@ type IRawAvatar = File | string
 
 interface IRawMedia {
   type: IMediaType;
-  name: string;
+  name?: string;
   reel?: boolean
   cover?: number | string | IRawMedia;
   list?: string[] | IRawMedia[]
