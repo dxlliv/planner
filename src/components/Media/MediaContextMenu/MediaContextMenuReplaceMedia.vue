@@ -16,8 +16,8 @@ onChange((files: null | File[]) => {
   const file = files[0]
 
   props.media.setMediaImage(file)
-  props.media.save()
   props.media.refresh()
+  props.media.save()
 
   emit('close')
 })

@@ -33,6 +33,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
             }
 
             mediaData.list = mediaAlbumList
+            mediaData.listIndex = 0
         }
 
         return this.setMediaData(mediaData)
@@ -42,5 +43,13 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
         const newAlbumMedia = MediaManager.newMedia({ file }, this.user)
 
         this.data.list?.push(newAlbumMedia)
+    }
+
+    public removeFromAlbum() {
+        this.data.list?.splice(this.data.listIndex, 1)
+    }
+
+    public setListIndex(index: number) {
+        this.data.listIndex = index
     }
 }

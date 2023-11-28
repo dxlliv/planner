@@ -128,15 +128,25 @@ interface IMedia {
 interface IMediaImage extends IMedia {
   setMediaImage(file: File): void
 }
+
 interface IMediaVideo extends IMedia {
   setCoverTime(value: number): void
   setCoverImage(file: File): void
   removeCoverImage(): void
 }
+
 interface IMediaAlbum extends IMedia {
   addToAlbum(file: File): void
+  setListIndex(index: number): void
+  removeFromAlbum(): void
 }
-interface IMediaIframe extends IMedia {}
+
+interface IMediaIframe extends IMedia {
+  data: {
+    href: string
+    reel?: boolean
+  }
+}
 
 type IMediaType = 'image' | 'video' | 'album' | 'iframe'
 type IMediaCollection = 'posts' | 'reels'
@@ -152,9 +162,9 @@ interface IMediaData {
   cover?: IMedia
   coverTime?: number
   list?: IMedia[]
+  listIndex?: number
   reel?: boolean
   href?: string
-  blob?: Promise<File>
 }
 
 interface IMediaExport {

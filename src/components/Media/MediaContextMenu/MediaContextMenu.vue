@@ -36,6 +36,11 @@ function onCloseContextMenu() {
           :media="media"
           @close="onCloseContextMenu"
       />
+      <MediaContextMenuRemoveFromAlbum
+          v-if="media.type === 'album'"
+          :media="media"
+          @close="onCloseContextMenu"
+      />
       <MediaContextMenuConvertToAlbum
           v-if="media.type === 'image' || media.type === 'video'"
           :media="media"
