@@ -166,6 +166,10 @@ const userExport = ref(false)
         svg {
           margin-left: 3px;
         }
+
+        .v-icon {
+          opacity: 1;
+        }
       }
     }
 
