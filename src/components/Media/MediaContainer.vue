@@ -1,11 +1,23 @@
 <script setup lang="ts">
 defineProps<{
+  media: IMedia
   type: string
 }>()
+
+const contextMenu: Ref<boolean> = ref(false)
+
+function onMediaContextMenu(e) {
+  e.preventDefault()
+
+  contextMenu.value = !contextMenu.value
+}
 </script>
 
 <template>
-  <div :class="['ig-media', `ig-media--${type}`]">
+  <div
+      :class="['ig-media', `ig-media--${type}`]"
+      @contextmenu="onMediaContextMenu"
+  >
     <suspense>
       <slot />
     </suspense>
@@ -14,6 +26,11 @@ defineProps<{
       <v-icon v-if="type === 'album'">mdi-folder-multiple-image</v-icon>
       <v-icon v-if="type === 'video'">mdi-play</v-icon>
     </div>
+
+    <MediaContextMenu
+        v-model="contextMenu"
+        :media="media"
+    />
   </div>
 </template>
 

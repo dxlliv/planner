@@ -30,7 +30,7 @@ interface IRawUserMedia {
 type IRawAvatar = File | string
 
 interface IRawMedia {
-  type: IMediaType;
+  type?: IMediaType;
   name?: string;
   reel?: boolean
   cover?: number | string | IRawMedia;
@@ -109,10 +109,15 @@ interface IMedia {
   id: string
   type: string
   data: IMediaData
+
+  save(): void
+  remove(collection: string): void
 }
 
 interface IMediaImage extends IMedia {}
-interface IMediaVideo extends IMedia {}
+interface IMediaVideo extends IMedia {
+  setCoverTime(value: number): void
+}
 interface IMediaAlbum extends IMedia {}
 interface IMediaIframe extends IMedia {}
 

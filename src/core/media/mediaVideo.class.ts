@@ -14,14 +14,15 @@ export default class MediaVideo extends Media implements IMediaVideo {
     }
 
     private parseMediaVideo(raw: string | IRawMedia) {
-        const mediaData: IMediaData = {}
+        const mediaData: IMediaData = {
+            coverTime: 0
+        }
 
         switch (typeof raw) {
 
             case "string":
                 // shortened image import
                 mediaData.file = this.parseMediaFileName(raw)
-                mediaData.coverTime = 0
                 break;
 
             case "object":
@@ -30,12 +31,10 @@ export default class MediaVideo extends Media implements IMediaVideo {
                     mediaData.file = this.parseMediaFileBlob(raw.file)
                 } else if (raw.name) {
                     mediaData.file = this.parseMediaFileName(raw.name)
-                    mediaData.coverTime = 0
                 }
 
                 if (typeof raw.reel !== 'undefined') {
                     mediaData.reel = Boolean(raw.reel)
-                    mediaData.coverTime = 0
                 }
 
                 switch (typeof raw.cover) {
@@ -45,11 +44,16 @@ export default class MediaVideo extends Media implements IMediaVideo {
                     case "string":
                     case "object":
                         mediaData.cover = new MediaImage(raw.cover, this.user)
+                        delete mediaData.coverTime
                         break;
                 }
                 break;
         }
 
         return this.setMediaData(mediaData)
+    }
+
+    public setCoverTime(value: number) {
+        this.data.coverTime = value
     }
 }

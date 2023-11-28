@@ -1,5 +1,9 @@
 <template>
-  <MediaContainer type="video" :class="{'ig-media--reel': reel}">
+  <MediaContainer
+      type="video"
+      :media="media"
+      :class="{'ig-media--reel': reel}"
+  >
 
     <template v-if="!media.data.cover || media.data.coverTime">
       <video
@@ -46,6 +50,10 @@ function onUpdateCoverTime(value: number) {
   if (!videoElement.value) return
 
   videoElement.value.currentTime = value
+
+  // update media coverTime & save changes
+  props.media.setCoverTime(value)
+  props.media.save()
 }
 
 onMounted(() => {
@@ -56,7 +64,7 @@ onMounted(() => {
     () => {
       if (!videoElement.value || typeof props.media.data.cover === 'object') return
 
-      if (props.media.data.coverTime) {
+      if (!props.media.data.cover) {
         videoElement.value.currentTime = props.media.data.coverTime
         videoMaxLength.value = videoElement.value.duration
       }

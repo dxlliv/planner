@@ -43,7 +43,7 @@ export default class User {
         return this.status.changed
     }
 
-    public async saveChanges() {
+    public async save() {
         await this.storage.save()
     }
 }

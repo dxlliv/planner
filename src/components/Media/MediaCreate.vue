@@ -5,8 +5,8 @@ const emit = defineEmits(['update:modelValue'])
 const user = computed(() => userStore.user);
 
 function onMediaCreate(blob: File) {
-  user.value.media.addMedia({ type: 'image', file: blob }, 'posts', 'unshift')
-  user.value.saveChanges()
+  user.value.media.addMedia({ file: blob }, 'posts', 'unshift')
+  user.value.save()
 
   emit('update:modelValue', false)
 }

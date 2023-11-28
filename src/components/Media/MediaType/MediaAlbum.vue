@@ -1,6 +1,7 @@
 <template>
   <MediaContainer
       type="album"
+      :media="media"
       @click="nextSlide"
   >
     <Carousel

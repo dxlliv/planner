@@ -1,5 +1,8 @@
 <template>
-  <MediaContainer type="image">
+  <MediaContainer
+      type="image"
+      :media="media"
+  >
     <v-img cover height="100%" :src="src" />
   </MediaContainer>
 </template>

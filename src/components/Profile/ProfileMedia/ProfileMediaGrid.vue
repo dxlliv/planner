@@ -9,17 +9,11 @@ const props = defineProps<{
 const gridListElement: Ref<HTMLElement | undefined> = ref()
 
 function onListUpdated() {
-  props.user.saveChanges()
+  props.user.save()
 }
 </script>
 
 <template>
-  <!--
-    <ProfileMediaDropzone
-      @add="onFileAdded"
-  />
-
-  -->
   <div
       class="ig-profile-page__media-grid"
       ref="gridListElement"

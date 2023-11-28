@@ -4,7 +4,7 @@ export async function fulfillMediaPostsForMediaExport(posts?: MediaPost[]): Prom
     const result = []
 
     for await (const media of posts) {
-        result.push(await media.exportMedia())
+        result.push(await media.export())
     }
 
     return result

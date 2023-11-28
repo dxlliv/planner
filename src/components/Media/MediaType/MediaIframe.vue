@@ -1,5 +1,9 @@
 <template>
-  <MediaContainer :type="media.data.reel && !iframeEnabled ? 'video' : 'iframe'" :class="{'ig-media--reel': reel}">
+  <MediaContainer
+      :type="media.data.reel && !iframeEnabled ? 'video' : 'iframe'"
+      :media="media"
+      :class="{'ig-media--reel': reel}"
+  >
     <template v-if="!iframeEnabled">
       <MediaImage :media="media.data.cover" @click="iframeEnabled = true" />
     </template>

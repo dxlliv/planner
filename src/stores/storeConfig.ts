@@ -22,7 +22,7 @@ export const useConfigStore = defineStore("config", () => {
     }
 
     // initialize users
-    configUserStore.loadUsers()
+    // configUserStore.loadUsers()
 
     return true;
   }
