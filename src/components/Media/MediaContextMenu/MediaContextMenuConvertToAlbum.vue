@@ -6,7 +6,7 @@ const props = defineProps<{
 const emit = defineEmits(['close'])
 
 function convertToAlbum() {
-  props.media.convertToAlbum('posts')
+  props.media.convertToAlbum()
   props.media.user.save()
 }
 </script>

@@ -9,17 +9,20 @@ export default class Media implements IMedia {
     public raw: string | IRawMedia
 
     public id: string = ''
-    public type: string = ''
+    public type: IMediaType = '' as IMediaType
+    public collection: IMediaCollection = '' as IMediaCollection
+
     public data: IMediaData = {} as IMediaData
 
     constructor(
         raw: string | IRawMedia,
         user: User
     ) {
-        this.raw = raw
+        this.raw = typeof raw === 'string' ? raw : Object.create(raw)
         this.user = user
 
         this.setUniqueId()
+        this.setMediaCollection()
     }
 
     public setUniqueId() {
@@ -28,6 +31,16 @@ export default class Media implements IMedia {
 
     public setMediaType(mediaType: IMediaType) {
         this.type = mediaType
+    }
+
+    public setMediaCollection() {
+        let collection: IMediaCollection = 'posts'
+
+        if (typeof this.raw !== 'string' && this.raw.collection) {
+            collection = this.raw.collection
+        }
+
+        this.collection = collection
     }
 
     public setMediaData(mediaData: IMediaData) {
@@ -63,12 +76,12 @@ export default class Media implements IMedia {
         this.setUniqueId()
     }
 
-    public convertToAlbum(collection: 'posts' | 'reels') {
+    public convertToAlbum() {
         if (!this.data.file) return
-        
-        const index = this.remove(collection)
 
-        this.user.media[collection].splice(
+        const index = this.remove()
+
+        this.user.media[this.collection].splice(
             index, 0,
             MediaManager.newMedia({
                 type: 'album',
@@ -81,13 +94,11 @@ export default class Media implements IMedia {
         await this.user.save()
     }
 
-    public remove(
-        collection: 'posts' | 'reels',
-    ) {
-        const index = this.user.media[collection].findIndex(item => item === this)
+    public remove() {
+        const index = this.user.media[this.collection].findIndex(item => item === this)
 
         if (index > -1) {
-            this.user.media[collection].splice(index, 1)
+            this.user.media[this.collection].splice(index, 1)
         }
 
         return index

@@ -31,6 +31,7 @@ type IRawAvatar = File | string
 
 interface IRawMedia {
   type?: IMediaType;
+  collection?: IMediaCollection
   name?: string;
   reel?: boolean
   cover?: number | string | IRawMedia;
@@ -107,7 +108,8 @@ interface IMedia {
   user: any
   raw: string | IRawMedia
   id: string
-  type: string
+  type: IMediaType
+  collection: IMediaCollection
   data: IMediaData
 
   setUniqueId(): void
@@ -118,8 +120,8 @@ interface IMedia {
 
   refresh(): void
   save(): void
-  convertToAlbum(collection: string): void
-  remove(collection: string): void
+  convertToAlbum(): void
+  remove(): void
   export(): Promise<IMediaExport | IMediaExport[] | undefined>
 }
 
@@ -135,6 +137,7 @@ interface IMediaAlbum extends IMedia {}
 interface IMediaIframe extends IMedia {}
 
 type IMediaType = 'image' | 'video' | 'album' | 'iframe'
+type IMediaCollection = 'posts' | 'reels'
 
 interface IMediaFile {
   name: string;

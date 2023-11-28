@@ -6,7 +6,7 @@ const props = defineProps<{
 const emit = defineEmits(['update:modelValue'])
 
 function onMediaRemove() {
-  props.media.remove('posts')
+  props.media.remove()
   props.media.user.save()
 }
 

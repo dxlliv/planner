@@ -26,30 +26,37 @@ export default class MediaManager {
 
     private parseRawUserMediaPosts() {
         for (let rawMedia of this.user.raw.media.posts) {
-            this.addMedia(rawMedia, 'posts')
+            if (typeof rawMedia !== 'string') rawMedia.collection = 'posts'
+
+            this.addMedia(rawMedia)
         }
     }
 
     private parseRawUserMediaReels() {
         for (let rawMedia of this.user.raw.media.posts) {
+            if (typeof rawMedia !== 'string') rawMedia.collection = 'reels'
+
             if (typeof rawMedia !== 'string' && rawMedia.reel) {
-                this.addMedia(rawMedia, 'reels')
+                rawMedia.collection = 'reels'
+
+                this.addMedia(rawMedia)
             }
         }
 
         for (let rawMedia of this.user.raw.media.reels) {
-            this.addMedia(rawMedia, 'reels')
+            if (typeof rawMedia !== 'string') rawMedia.collection = 'reels'
+
+            this.addMedia(rawMedia)
         }
     }
 
     public addMedia(
         rawMedia: string | IRawMedia,
-        collection: 'posts' | 'reels',
         addMethod: 'push' | 'unshift' = 'push'
     ) {
         const media = MediaManager.newMedia(rawMedia, this.user)
 
-        this[collection][addMethod](media)
+        this[media.collection][addMethod](media)
     }
 
     public async export() {
