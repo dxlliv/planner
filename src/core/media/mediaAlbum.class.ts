@@ -25,7 +25,6 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
         const mediaData: IMediaData = {}
         const mediaAlbumList: Media[] = []
 
-
         if (raw.list && Array.isArray(raw.list)) {
             for (let rawAlbumMedia of raw.list) {
                 mediaAlbumList.push(
@@ -37,5 +36,11 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
         }
 
         return this.setMediaData(mediaData)
+    }
+
+    public addToAlbum(file: File) {
+        const newAlbumMedia = MediaManager.newMedia({ file }, this.user)
+
+        this.data.list?.push(newAlbumMedia)
     }
 }

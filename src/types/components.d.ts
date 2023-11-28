@@ -19,6 +19,7 @@ declare module 'vue' {
     MediaContainer: typeof import('./../components/Media/MediaContainer.vue')['default']
     MediaContextMenu: typeof import('./../components/Media/MediaContextMenu/MediaContextMenu.vue')['default']
     MediaContextMenuAddCover: typeof import('./../components/Media/MediaContextMenu/MediaContextMenuAddCover.vue')['default']
+    MediaContextMenuAddToAlbum: typeof import('./../components/Media/MediaContextMenu/MediaContextMenuAddToAlbum.vue')['default']
     MediaContextMenuConvertToAlbum: typeof import('./../components/Media/MediaContextMenu/MediaContextMenuConvertToAlbum.vue')['default']
     MediaContextMenuRemoveCover: typeof import('./../components/Media/MediaContextMenu/MediaContextMenuRemoveCover.vue')['default']
     MediaContextMenuReplaceCover: typeof import('./../components/Media/MediaContextMenu/MediaContextMenuReplaceCover.vue')['default']

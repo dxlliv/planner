@@ -133,7 +133,9 @@ interface IMediaVideo extends IMedia {
   setCoverImage(file: File): void
   removeCoverImage(): void
 }
-interface IMediaAlbum extends IMedia {}
+interface IMediaAlbum extends IMedia {
+  addToAlbum(file: File): void
+}
 interface IMediaIframe extends IMedia {}
 
 type IMediaType = 'image' | 'video' | 'album' | 'iframe'

@@ -54,7 +54,7 @@ declare global {
   const md5: typeof import('../utils/utilsString')['md5']
   const mediaAlbumClass: typeof import('../core/media/mediaAlbum.class')['default']
   const mediaAvatarClass: typeof import('../core/media/mediaAvatar.class')['default']
-  const mediaClass: typeof import('../core/media/media.class.ts~')['default']
+  const mediaClass: typeof import('../core/media/media.class')['default']
   const mediaIframeClass: typeof import('../core/media/mediaIframe.class')['default']
   const mediaImageClass: typeof import('../core/media/mediaImage.class')['default']
   const mediaManagerClass: typeof import('../core/media/mediaManager.class')['default']
