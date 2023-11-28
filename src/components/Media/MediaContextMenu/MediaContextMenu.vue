@@ -23,12 +23,10 @@ function onCloseContextMenu() {
 <template>
   <v-menu
       content-class="ig-media__context-menu"
-      transition="slide-y-transition"
-      attach
+      transition="slide-y-transition" attach
       :close-on-content-click="false"
-      width="100%"
   >
-    <v-list density="compact" class="mx-3 mt-3 py-0">
+    <v-list density="compact" class="ma-3 py-0">
 
       <MediaContextMenuReplaceMedia
           v-if="media.type === 'image' || media.type === 'video'"
@@ -84,7 +82,7 @@ function onCloseContextMenu() {
     min-height: 32px;
 
     &-title {
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 }

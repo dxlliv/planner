@@ -58,5 +58,10 @@ function onMediaContextMenu(e) {
       margin-right: -8px;
     }
   }
+
+  :deep(.ig-media__context-menu) {
+    bottom: 0;
+    right: 0;
+  }
 }
 </style>
