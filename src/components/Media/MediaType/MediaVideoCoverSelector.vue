@@ -7,37 +7,35 @@ const props = defineProps<{
 }>()
 
 const mediaCover: Ref<number> = ref(
-    typeof props.media.data.coverTime === 'number' ? props.media.data.coverTime*10 : 0
+    typeof props.media.data.coverTime === 'number' ? props.media.data.coverTime : 0
 )
 
 function updateMediaCover() {
-  emit('updateCoverTime', mediaCover.value/10)
+  emit('updateCoverTime', mediaCover.value)
 }
 </script>
 
 <template>
-  <input
+  <v-slider
       v-if="props.maxLength > 0"
       v-model="mediaCover"
-      :max="maxLength*10"
-      type="range"
+      color="white"
+      :max="maxLength"
       class="ig-media--video-slider"
-      @change="updateMediaCover"
+      @end="updateMediaCover"
+      thumb-label="always"
   />
-  <div class="ig-media--video-slider__value">
-    {{ mediaCover/10 }}s
-  </div>
 </template>
 
 <style scoped lang="scss">
 .ig-media--video-slider {
   position: absolute;
-  bottom: 15px;
-  left: 15px;
-  right: 15px;
-  width: calc(100% - 30px);
+  bottom: -17px;
+  left: 36px;
+  width: calc(100% - 64px);
   opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in;
+  transition-delay: 1s;
 
   &__value {
     position: absolute;
@@ -51,7 +49,8 @@ function updateMediaCover() {
     font-size: 15px;
     opacity: 0;
     cursor: default;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in;
+    transition-delay: 1s;
   }
 }
 </style>
