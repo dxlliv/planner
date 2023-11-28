@@ -6,7 +6,7 @@ const props = defineProps<{
   mode: string
 }>();
 
-const gridListElement: Ref<HTMLElement | undefined> = ref()
+const gridListRef: Ref<HTMLElement | undefined> = ref()
 
 function onListUpdated() {
   props.user.save()
@@ -16,7 +16,7 @@ function onListUpdated() {
 <template>
   <div
       class="ig-profile-page__media-grid"
-      ref="gridListElement"
+      ref="gridListRef"
   >
       <SlickList
           v-if="props.user.media[props.mode].length > 0"

@@ -18,7 +18,6 @@ function updateMediaCover() {
 <template>
   <input
       v-if="props.maxLength > 0"
-      ref="sliderElement"
       v-model="mediaCover"
       :max="maxLength*10"
       type="range"

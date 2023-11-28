@@ -7,7 +7,7 @@
 
     <template v-if="!media.data.cover || media.data.coverTime">
       <video
-          ref="videoElement"
+          ref="videoRef"
           :src="src"
           :autoplay="isPlaying"
           @click="isPlaying = !isPlaying"
@@ -43,13 +43,13 @@ const isPlaying: Ref<boolean> = ref(false)
 
 const src = await handleMediaForSrc(props.media)
 
-const videoElement: Ref<HTMLVideoElement|null> = ref(null);
+const videoRef: Ref<HTMLVideoElement|null> = ref(null);
 const videoMaxLength: Ref<number> = ref(0);
 
 function onUpdateCoverTime(value: number) {
-  if (!videoElement.value) return
+  if (!videoRef.value) return
 
-  videoElement.value.currentTime = value
+  videoRef.value.currentTime = value
 
   // update media coverTime & save changes
   props.media.setCoverTime(value)
@@ -57,16 +57,16 @@ function onUpdateCoverTime(value: number) {
 }
 
 onMounted(() => {
-  if (!videoElement.value) return
+  if (!videoRef.value) return
 
-  videoElement.value.addEventListener(
+  videoRef.value.addEventListener(
     "loadedmetadata",
     () => {
-      if (!videoElement.value || typeof props.media.data.cover === 'object') return
+      if (!videoRef.value || typeof props.media.data.cover === 'object') return
 
       if (!props.media.data.cover) {
-        videoElement.value.currentTime = props.media.data.coverTime
-        videoMaxLength.value = videoElement.value.duration
+        videoRef.value.currentTime = props.media.data.coverTime
+        videoMaxLength.value = videoRef.value.duration
       }
     },
     false,
@@ -74,14 +74,14 @@ onMounted(() => {
 });
 
 watch(() => isPlaying.value, (isPlaying) => {
-  if (!videoElement.value || !props.playable) {
+  if (!videoRef.value || !props.playable) {
     return false
   }
 
   if (isPlaying) {
-    videoElement.value.play()
+    videoRef.value.play()
   } else {
-    videoElement.value.pause()
+    videoRef.value.pause()
   }
 })
 </script>

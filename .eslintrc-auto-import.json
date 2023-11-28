@@ -150,6 +150,8 @@
     "getMediaFilePath": true,
     "mediaAlbumClass": true,
     "mediaIframeClass": true,
-    "userProfileClass": true
+    "userProfileClass": true,
+    "useDropZone": true,
+    "useFileDialog": true
   }
 }
