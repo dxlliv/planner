@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SlickList, SlickItem } from 'vue-slicksort';
+import { SlickList, SlickItem, DragHandle } from 'vue-slicksort';
 
 const props = defineProps<{
   user: any;
@@ -7,15 +7,24 @@ const props = defineProps<{
 }>();
 
 const gridListRef: Ref<HTMLElement | undefined> = ref()
+const dragging = ref<boolean>(false)
 
 function onListUpdated() {
   props.user.save()
+}
+
+function onSortStart() {
+  dragging.value = true
+}
+
+function onSortEnd() {
+  dragging.value = false
 }
 </script>
 
 <template>
   <div
-      class="ig-profile-page__media-grid"
+      :class="['ig-profile-page__media-grid', {'ig-profile-page__media-grid--dragging': dragging}]"
       ref="gridListRef"
   >
       <SlickList
@@ -23,14 +32,22 @@ function onListUpdated() {
           v-model:list="props.user.media[props.mode]"
           axis="xy"
           class="v-row"
-          :pressDelay="100"
+          use-drag-handle
+          :press-delay="100"
+          :press-threshold="100"
+          @sortStart="onSortStart"
+          @sortEnd="onSortEnd"
           @update:list="onListUpdated"
       >
         <SlickItem
             v-for="(media, i) of props.user.media[props.mode]"
             :key="media.id" :index="i"
-            class="v-col v-col-4"
+            class="ig-profile-page__media-grid__item v-col v-col-4"
         >
+          <DragHandle class="ig-profile-page__media-grid__drag-handle">
+            <v-icon icon="mdi-drag" />
+          </DragHandle>
+
           <MediaPost
               v-if="mode === 'posts'"
               :media="media"
@@ -46,8 +63,34 @@ function onListUpdated() {
   </div>
 </template>
 
-<style scoped lang="scss">
-.v-col {
+<style lang="scss">
+body > .ig-profile-page__media-grid__item {
   z-index: 999;
+}
+
+.ig-profile-page__media-grid {
+  &__drag-handle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px 8px;
+    display: none;
+    z-index: 5;
+    cursor: grab;
+  }
+
+  &--dragging * {
+    cursor: grabbing !important;
+  }
+
+  .v-col {
+    position: relative;
+
+    &:hover {
+      .ig-profile-page__media-grid__drag-handle {
+        display: block;
+      }
+    }
+  }
 }
 </style>
