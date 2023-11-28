@@ -26,9 +26,10 @@ function onCloseContextMenu() {
   >
     <v-list density="compact" class="mx-3">
 
-      <MediaContextMenuAddCover
+      <MediaContextMenuReplaceMedia
+          v-if="media.type === 'image' || media.type === 'video'"
           :media="media"
-          @close="emit('update:modelValue', false)"
+          @close="onCloseContextMenu"
       />
       <MediaContextMenuAddCover
           v-if="media.type === 'video' && !media.data.cover"

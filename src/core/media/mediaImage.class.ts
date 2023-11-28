@@ -36,4 +36,10 @@ export default class MediaImage extends Media implements IMediaImage {
 
         return this.setMediaData(mediaData)
     }
+
+    public setMediaImage(file: File) {
+        if (!this.data.file) return
+
+        this.data.file = this.parseMediaFileBlob(file)
+    }
 }
