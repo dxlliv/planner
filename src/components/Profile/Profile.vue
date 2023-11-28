@@ -9,9 +9,9 @@
         @select="(value: string) => (tab = value)"
       />
 
-      <ProfileMediaGridContainer
+      <ProfileMediaGrid
           :user="user"
-          :tab="tab"
+          :mode="tab"
       />
     </v-container>
   </v-sheet>

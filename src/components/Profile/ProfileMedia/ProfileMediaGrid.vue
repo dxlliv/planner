@@ -23,10 +23,11 @@ function onSortEnd() {
 </script>
 
 <template>
-  <div
-      :class="['ig-profile-page__media-grid', {'ig-profile-page__media-grid--dragging': dragging}]"
-      ref="gridListRef"
-  >
+  <v-container class="ig-profile-page__media-grid-container pt-1 px-0">
+    <div
+        :class="['ig-profile-page__media-grid', {'ig-profile-page__media-grid--dragging': dragging}]"
+        ref="gridListRef"
+    >
       <SlickList
           v-if="props.user.media[props.mode].length > 0"
           v-model:list="props.user.media[props.mode]"
@@ -60,12 +61,24 @@ function onSortEnd() {
           />
         </SlickItem>
       </SlickList>
-  </div>
+    </div>
+  </v-container>
 </template>
 
 <style lang="scss">
 body > .ig-profile-page__media-grid__item {
   z-index: 999;
+}
+
+// override grid spacing
+.ig-profile-page__media-grid-container .v-row {
+  margin: -1.5px;
+  @media(max-width: 600px) { margin: -1px; }
+
+  & > .v-col {
+    padding: 1.5px;
+    @media(max-width: 600px) { padding: 1px; }
+  }
 }
 
 .ig-profile-page__media-grid {
