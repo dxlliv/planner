@@ -26,37 +26,25 @@ export default class MediaManager {
 
     private parseRawUserMediaPosts() {
         for (let rawMedia of this.user.raw.media.posts) {
-            if (typeof rawMedia !== 'string') rawMedia.collection = 'posts'
-
-            this.addMedia(rawMedia)
+            this.addMedia(rawMedia, 'posts')
         }
     }
 
     private parseRawUserMediaReels() {
-        for (let rawMedia of this.user.raw.media.posts) {
-            if (typeof rawMedia !== 'string') rawMedia.collection = 'reels'
-
-            if (typeof rawMedia !== 'string' && rawMedia.reel) {
-                rawMedia.collection = 'reels'
-
-                this.addMedia(rawMedia)
-            }
-        }
-
         for (let rawMedia of this.user.raw.media.reels) {
-            if (typeof rawMedia !== 'string') rawMedia.collection = 'reels'
-
-            this.addMedia(rawMedia)
+            this.addMedia(rawMedia, 'reels')
         }
     }
 
     public addMedia(
         rawMedia: string | IRawMedia,
+        collection: IMediaCollection = 'posts',
         addMethod: 'push' | 'unshift' = 'push'
     ) {
         const media = MediaManager.newMedia(rawMedia, this.user)
+        media.setMediaCollection(collection)
 
-        this[media.collection][addMethod](media)
+        this[collection][addMethod](media)
     }
 
     public async export() {

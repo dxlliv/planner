@@ -5,7 +5,7 @@ const emit = defineEmits(['close'])
 const user = computed(() => userStore.user);
 
 function onMediaCreate(blob: File) {
-  user.value.media.addMedia({ file: blob }, 'unshift')
+  user.value.media.addMedia({ file: blob }, 'posts', 'unshift')
   user.value.save()
 
   emit('close')

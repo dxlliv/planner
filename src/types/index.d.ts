@@ -124,6 +124,7 @@ interface IMedia {
   save(): void
   convertToAlbum(): void
   convertToIframe(href: string): Promise<void>
+  setMediaImage(file: File): void
   setCover(file: File): void
   removeCover(): void
   cloneToReel(): void

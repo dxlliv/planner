@@ -23,7 +23,6 @@ export default class Media implements IMedia {
         this.user = user
 
         this.setUniqueId()
-        this.setMediaCollection()
     }
 
     public setUniqueId() {
@@ -34,13 +33,7 @@ export default class Media implements IMedia {
         this.type = mediaType
     }
 
-    public setMediaCollection() {
-        let collection: IMediaCollection = 'posts'
-
-        if (typeof this.raw !== 'string' && this.raw.collection) {
-            collection = this.raw.collection
-        }
-
+    public setMediaCollection(collection: IMediaCollection) {
         this.collection = collection
     }
 
@@ -134,11 +127,10 @@ export default class Media implements IMedia {
         const mediaToBeCloned = await this.export()
 
         if (mediaToBeCloned && !Array.isArray(mediaToBeCloned)) {
-            mediaToBeCloned.collection = 'reels'
             mediaToBeCloned.reel = true
 
             //const media = MediaManager.newMedia(mediaToBeCloned, this.user)
-            this.user.media.addMedia(mediaToBeCloned)
+            this.user.media.addMedia(mediaToBeCloned, 'reels')
             await this.user.save()
         }
     }

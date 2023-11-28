@@ -110,9 +110,7 @@ watch(() => isPlaying.value, (isPlaying) => {
   }
 
   &--reel {
-    video {
-      aspect-ratio: 9 / 16;
-    }
+    aspect-ratio: 9 / 16;
   }
 }
 </style>
