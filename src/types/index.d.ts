@@ -112,6 +112,8 @@ interface IMedia {
   collection: IMediaCollection
   data: IMediaData
 
+  get isReel(): boolean
+
   setUniqueId(): void
   setMediaType(mediaType: IMediaType): void
   setMediaData(mediaData: IMediaData): void
@@ -124,6 +126,7 @@ interface IMedia {
   convertToIframe(href: string): Promise<void>
   setCover(file: File): void
   removeCover(): void
+  cloneToReel(): void
   remove(): void
   export(): Promise<IMediaExport | IMediaExport[] | undefined>
 }

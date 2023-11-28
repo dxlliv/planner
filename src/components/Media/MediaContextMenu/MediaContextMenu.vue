@@ -28,8 +28,13 @@ function onCloseContextMenu() {
   >
     <v-list density="compact" class="ma-3 py-0">
 
+      <MediaContextMenuCloneToReel
+          v-if="['video', 'iframe'].includes(media.type) && !media.isReel"
+          :media="media"
+          @close="onCloseContextMenu"
+      />
       <MediaContextMenuReplaceMedia
-          v-if="media.type === 'image' || media.type === 'video'"
+          v-if="['image', 'video'].includes(media.type)"
           :media="media"
           @close="onCloseContextMenu"
       />

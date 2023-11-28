@@ -19,7 +19,7 @@ export default class Media implements IMedia {
         raw: string | IRawMedia,
         user: User
     ) {
-        this.raw = typeof raw === 'string' ? raw : Object.create(raw)
+        this.raw = typeof raw === 'string' ? raw : Object.assign({}, raw)
         this.user = user
 
         this.setUniqueId()
@@ -46,6 +46,10 @@ export default class Media implements IMedia {
 
     public setMediaData(mediaData: IMediaData) {
         this.data = mediaData
+    }
+
+    get isReel(): boolean {
+        return !!this.data.reel
     }
 
     public parseMediaFileName(fileName: string): IMediaFile {
@@ -116,6 +120,27 @@ export default class Media implements IMedia {
     public removeCover() {
         this.data.cover = undefined
         this.data.coverTime = 0
+    }
+
+    public async cloneToReel() {
+        if (this.data.reel) {
+            throw Error('Media is already defined as reel')
+        }
+
+        if (typeof this.raw === 'string') {
+            throw Error('Cannot clone a media if its raw is a string')
+        }
+
+        const mediaToBeCloned = await this.export()
+
+        if (mediaToBeCloned && !Array.isArray(mediaToBeCloned)) {
+            mediaToBeCloned.collection = 'reels'
+            mediaToBeCloned.reel = true
+
+            //const media = MediaManager.newMedia(mediaToBeCloned, this.user)
+            this.user.media.addMedia(mediaToBeCloned)
+            await this.user.save()
+        }
     }
 
     public async save() {

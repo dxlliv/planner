@@ -5,7 +5,7 @@ const props = defineProps<{
 
 const emit = defineEmits(['close'])
 
-function convertToAlbum() {
+function convertToIframe() {
   const href: null | string = window.prompt('URL of the iframe', 'https://')
 
   if (href) {
@@ -16,7 +16,7 @@ function convertToAlbum() {
 </script>
 
 <template>
-  <v-list-item @click="convertToAlbum">
+  <v-list-item @click="convertToIframe">
     <v-list-item-title>Convert to iframe</v-list-item-title>
   </v-list-item>
 </template>
