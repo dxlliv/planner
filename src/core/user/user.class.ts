@@ -27,15 +27,22 @@ export default class User {
                 await this.storage.restore()
             }
 
-            this.parseUser()
+            this.parseUserOptions()
+            this.parseUserProfile()
 
             this.ready.value = true
         })
     }
 
-    public parseUser() {
+    public parseUserOptions() {
         this.options = this.raw.options
+    }
+
+    public parseUserProfile() {
         this.profile = new UserProfile(this)
+    }
+
+    public parseUserMedia() {
         this.media = new MediaManager(this);
     }
 

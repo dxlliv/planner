@@ -33,9 +33,9 @@ export const useUserStore = defineStore("user", () => {
    * @param username
    */
   function loadUserPage(username: string): boolean {
-    const config = useConfigUserStore().getUserConfig(username)
+    const user = users.value[username]
 
-    loadUserConfig(config)
+    user.parseUserMedia()
     setUserActive(username)
 
     return true;
