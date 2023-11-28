@@ -56,17 +56,4 @@ export default class MediaVideo extends Media implements IMediaVideo {
     public setCoverTime(value: number) {
         this.data.coverTime = value
     }
-
-    public setCoverImage(file: File) {
-        if (!this.data.file) return
-
-        this.data.cover = new MediaImage({ file }, this.user)
-    }
-
-    public removeCoverImage() {
-        if (!this.data.file) return
-
-        this.data.cover = undefined
-        this.data.coverTime = 0
-    }
 }

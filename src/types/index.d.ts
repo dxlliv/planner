@@ -121,6 +121,9 @@ interface IMedia {
   refresh(): void
   save(): void
   convertToAlbum(): void
+  convertToIframe(href: string): Promise<void>
+  setCover(file: File): void
+  removeCover(): void
   remove(): void
   export(): Promise<IMediaExport | IMediaExport[] | undefined>
 }
@@ -131,8 +134,6 @@ interface IMediaImage extends IMedia {
 
 interface IMediaVideo extends IMedia {
   setCoverTime(value: number): void
-  setCoverImage(file: File): void
-  removeCoverImage(): void
 }
 
 interface IMediaAlbum extends IMedia {
@@ -142,10 +143,6 @@ interface IMediaAlbum extends IMedia {
 }
 
 interface IMediaIframe extends IMedia {
-  data: {
-    href: string
-    reel?: boolean
-  }
 }
 
 type IMediaType = 'image' | 'video' | 'album' | 'iframe'

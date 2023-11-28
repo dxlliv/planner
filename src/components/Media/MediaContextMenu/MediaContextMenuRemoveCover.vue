@@ -6,7 +6,8 @@ const props = defineProps<{
 const emit = defineEmits(['close'])
 
 function onMediaCoverRemove() {
-  props.media.removeCoverImage()
+  props.media.removeCover()
+  props.media.refresh()
   props.media.save()
 
   emit('close')

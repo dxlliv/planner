@@ -2,6 +2,7 @@ import {fetchFileFromUrl, getMediaFilePath, getFileName} from "../../utils/utils
 import {generateUuidv4} from "../../utils/utilsString";
 import User from "../user/user.class";
 import MediaManager from "./mediaManager.class";
+import MediaImage from "./mediaImage.class";
 
 export default class Media implements IMedia {
     public user: User
@@ -106,6 +107,15 @@ export default class Media implements IMedia {
                 href,
             }, this.user)
         )
+    }
+
+    public setCover(file: File) {
+        this.data.cover = new MediaImage({ file }, this.user)
+    }
+
+    public removeCover() {
+        this.data.cover = undefined
+        this.data.coverTime = 0
     }
 
     public async save() {

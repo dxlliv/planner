@@ -26,7 +26,7 @@ export default class MediaImage extends Media implements IMediaImage {
                 if (raw.file && raw.file instanceof File) {
                     // regular image import from: new image / indexeddb restore
                     mediaData.file = this.parseMediaFileBlob(raw.file)
-                } else {
+                } else if (typeof raw.name === 'string') {
                     // regular image import from: config.json
                     mediaData.file = this.parseMediaFileName(raw.name)
                 }

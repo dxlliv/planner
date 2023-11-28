@@ -44,7 +44,7 @@ function onCloseContextMenu() {
           @close="onCloseContextMenu"
       />
       <MediaContextMenuConvertToAlbum
-          v-if="media.type === 'image' || media.type === 'video'"
+          v-if="['image', 'video'].includes(media.type)"
           :media="media"
           @close="onCloseContextMenu"
       />
@@ -54,17 +54,17 @@ function onCloseContextMenu() {
           @close="onCloseContextMenu"
       />
       <MediaContextMenuAddCover
-          v-if="media.type === 'video' && !media.data.cover"
+          v-if="['video', 'iframe'].includes(media.type) && !media.data.cover"
           :media="media"
           @close="onCloseContextMenu"
       />
       <MediaContextMenuReplaceCover
-          v-if="media.type === 'video' && media.data.cover"
+          v-if="['video', 'iframe'].includes(media.type) && media.data.cover"
           :media="media"
           @close="onCloseContextMenu"
       />
       <MediaContextMenuRemoveCover
-          v-if="media.type === 'video' && media.data.cover"
+          v-if="['video', 'iframe'].includes(media.type) && media.data.cover"
           :media="media"
           @close="onCloseContextMenu"
       />
