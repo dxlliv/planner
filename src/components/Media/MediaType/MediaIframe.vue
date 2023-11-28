@@ -1,6 +1,6 @@
 <template>
   <MediaContainer
-      :type="media.data.reel && !iframeEnabled ? 'video' : 'iframe'"
+      :type="!iframeEnabled ? 'video' : 'iframe'"
       :media="media"
       :class="{'ig-media--reel': reel}"
   >
@@ -18,7 +18,7 @@ const props = defineProps<{
   reel?: boolean
 }>();
 
-const iframeEnabled = ref(typeof props.media.data.cover !== 'object' || !props.media.data.reel)
+const iframeEnabled = ref(typeof props.media.data.cover !== 'object')
 </script>
 
 <style scoped lang="scss">

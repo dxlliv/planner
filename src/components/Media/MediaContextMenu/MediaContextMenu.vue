@@ -48,6 +48,11 @@ function onCloseContextMenu() {
           :media="media"
           @close="onCloseContextMenu"
       />
+      <MediaContextMenuConvertToIframe
+          v-if="media.type === 'image'"
+          :media="media"
+          @close="onCloseContextMenu"
+      />
       <MediaContextMenuAddCover
           v-if="media.type === 'video' && !media.data.cover"
           :media="media"

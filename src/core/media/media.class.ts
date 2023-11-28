@@ -90,6 +90,24 @@ export default class Media implements IMedia {
         )
     }
 
+    public async convertToIframe(href: string) {
+        if (!this.data.file) return
+
+        const index = this.remove()
+
+        this.user.media[this.collection].splice(
+            index, 0,
+            MediaManager.newMedia({
+                type: 'iframe',
+                cover: {
+                    type: 'image',
+                    file: await this.data.file.blob
+                },
+                href,
+            }, this.user)
+        )
+    }
+
     public async save() {
         await this.user.save()
     }
