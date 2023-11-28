@@ -58,7 +58,21 @@ export default class Media implements IMedia {
         }
     }
 
-    public async exportMedia(): Promise<IMediaExport | IMediaExport[] | undefined> {
+    public async save() {
+        await this.user.save()
+    }
+
+    public remove(
+        collection: 'posts' | 'reels',
+    ) {
+        const index = this.user.media[collection].findIndex(item => item === this)
+
+        if (index > -1) {
+            this.user.media[collection].splice(index, 1)
+        }
+    }
+
+    public async export(): Promise<IMediaExport | IMediaExport[] | undefined> {
         let exportedData: IMediaExport = {
             type: this.type
         }
