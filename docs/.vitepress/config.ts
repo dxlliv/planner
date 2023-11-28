@@ -6,7 +6,7 @@ module.exports = {
   themeConfig: {
     repo: "dxlliv/ig-planner",
     docsRepo: "dxlliv/ig-planner",
-    logo: "https://dxlliv.github.io/ig-planner/favicon.webp",
+    logo: "https://dxlliv.github.io/ig-planner/favicon.ico",
     docsDir: "docs",
     docsBranch: "master",
     editLinks: true,
