@@ -111,12 +111,15 @@ interface IMedia {
   data: IMediaData
 
   save(): void
+  refresh(): void
   remove(collection: string): void
 }
 
 interface IMediaImage extends IMedia {}
 interface IMediaVideo extends IMedia {
   setCoverTime(value: number): void
+  setCoverImage(file: File): void
+  removeCoverImage(): void
 }
 interface IMediaAlbum extends IMedia {}
 interface IMediaIframe extends IMedia {}

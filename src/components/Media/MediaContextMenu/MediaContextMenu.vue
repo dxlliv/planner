@@ -3,6 +3,8 @@ const props = defineProps<{
   media: IMedia;
 }>()
 
+const emit = defineEmits(['update:modelValue'])
+
 function onMediaRemove() {
   props.media.remove('posts')
   props.media.user.save()
@@ -15,17 +17,37 @@ function onMediaRemove() {
       transition="slide-y-transition"
       location="bottom"
       location-strategy="connected"
-      target="parent" :offset="[-60, 0]"
+      target="parent" :offset="[0, 0]"
+      :close-on-content-click="false"
   >
     <v-list density="compact" class="mx-3">
-      <v-list-item @click="onMediaRemove()" class="text-red">
+
+      <MediaContextMenuAddCover
+          :media="media"
+          @close="emit('update:modelValue', false)"
+      />
+      <MediaContextMenuReplaceCover
+          :media="media"
+          @close="emit('update:modelValue', false)"
+      />
+      <MediaContextMenuRemoveCover
+          :media="media"
+          @close="emit('update:modelValue', false)"
+      />
+
+      <v-divider />
+
+      <v-list-item
+          @click="onMediaRemove()" class="text-red"
+      >
         <v-list-item-title>Remove</v-list-item-title>
       </v-list-item>
+
     </v-list>
   </v-menu>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 .ig-media__context-menu {
   .v-list-item {
     min-height: 32px;

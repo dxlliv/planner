@@ -58,6 +58,10 @@ export default class Media implements IMedia {
         }
     }
 
+    public async refresh() {
+        this.setUniqueId()
+    }
+
     public async save() {
         await this.user.save()
     }
