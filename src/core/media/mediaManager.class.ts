@@ -8,10 +8,10 @@ import {fulfillMediaPostsForMediaExport} from "../../utils/utilsUserExport";
 export default class MediaManager {
     private readonly user: User
 
-    public posts: MediaPost[] = []
-    public reels: MediaPost[] = []
-    public stories: MediaPost[] = []
-    public highlights: MediaPost[] = []
+    public posts: IMedia[] = []
+    public reels: IMedia[] = []
+    public stories: IMedia[] = []
+    public highlights: IMedia[] = []
 
     constructor(user: User) {
         this.user = user
@@ -112,7 +112,9 @@ export default class MediaManager {
                 if (rawMedia.file && rawMedia.file) {
                     filename = rawMedia.file.name
                 } else {
-                    filename = rawMedia.name
+                    if (typeof rawMedia.name === 'string') {
+                        filename = rawMedia.name
+                    }
                 }
         }
 

@@ -14,10 +14,7 @@ function onMediaCoverRemove() {
 </script>
 
 <template>
-  <v-list-item
-      v-if="media.type === 'video' && media.data.cover"
-      @click="onMediaCoverRemove"
-  >
+  <v-list-item @click="onMediaCoverRemove">
     <v-list-item-title>Remove cover</v-list-item-title>
   </v-list-item>
 </template>

@@ -110,12 +110,21 @@ interface IMedia {
   type: string
   data: IMediaData
 
-  save(): void
+  setUniqueId(): void
+  setMediaType(mediaType: IMediaType): void
+  setMediaData(mediaData: IMediaData): void
+  parseMediaFileName(fileName: string): IMediaFile
+  parseMediaFileBlob(fileBlob: File): IMediaFile
+
   refresh(): void
+  save(): void
   remove(collection: string): void
+  export(): Promise<IMediaExport | IMediaExport[] | undefined>
 }
 
-interface IMediaImage extends IMedia {}
+interface IMediaImage extends IMedia {
+  setMediaImage(file: File): void
+}
 interface IMediaVideo extends IMedia {
   setCoverTime(value: number): void
   setCoverImage(file: File): void

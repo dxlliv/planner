@@ -9,6 +9,10 @@ function onMediaRemove() {
   props.media.remove('posts')
   props.media.user.save()
 }
+
+function onCloseContextMenu() {
+  emit('update:modelValue', false)
+}
 </script>
 
 <template>
@@ -26,13 +30,20 @@ function onMediaRemove() {
           :media="media"
           @close="emit('update:modelValue', false)"
       />
-      <MediaContextMenuReplaceCover
+      <MediaContextMenuAddCover
+          v-if="media.type === 'video' && !media.data.cover"
           :media="media"
-          @close="emit('update:modelValue', false)"
+          @close="onCloseContextMenu"
+      />
+      <MediaContextMenuReplaceCover
+          v-if="media.type === 'video' && media.data.cover"
+          :media="media"
+          @close="onCloseContextMenu"
       />
       <MediaContextMenuRemoveCover
+          v-if="media.type === 'video' && media.data.cover"
           :media="media"
-          @close="emit('update:modelValue', false)"
+          @close="onCloseContextMenu"
       />
 
       <v-divider />
