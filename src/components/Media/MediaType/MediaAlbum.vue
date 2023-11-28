@@ -31,7 +31,9 @@ function nextSlide() {
   } else {
     slideIndex.value++
   }
-
-  props.media.setListIndex(slideIndex.value)
 }
+
+watch(() => slideIndex.value, value => {
+  props.media.setListIndex(value)
+})
 </script>
