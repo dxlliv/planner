@@ -68,7 +68,7 @@ const mediaCreate = ref(false)
       <v-list-item title="Create" @click="mediaCreate = true">
         <template #prepend>
           <IconNewPost />
-          <MediaCreate v-model="mediaCreate" />
+          <MediaCreate v-model="mediaCreate" @close="mediaCreate = false" />
         </template>
       </v-list-item>
 
