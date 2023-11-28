@@ -31,6 +31,11 @@ function onCloseContextMenu() {
           :media="media"
           @close="onCloseContextMenu"
       />
+      <MediaContextMenuConvertToAlbum
+          v-if="media.type === 'image' || media.type === 'video'"
+          :media="media"
+          @close="onCloseContextMenu"
+      />
       <MediaContextMenuAddCover
           v-if="media.type === 'video' && !media.data.cover"
           :media="media"

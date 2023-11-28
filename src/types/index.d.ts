@@ -118,6 +118,7 @@ interface IMedia {
 
   refresh(): void
   save(): void
+  convertToAlbum(collection: string): void
   remove(collection: string): void
   export(): Promise<IMediaExport | IMediaExport[] | undefined>
 }

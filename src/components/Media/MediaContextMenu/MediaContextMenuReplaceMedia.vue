@@ -24,10 +24,7 @@ onChange((files: null | File[]) => {
 </script>
 
 <template>
-  <v-list-item
-      v-if="media.type === 'image'"
-      @click="open"
-  >
+  <v-list-item @click="open">
     <v-list-item-title>Replace media</v-list-item-title>
   </v-list-item>
 </template>

@@ -1,6 +1,7 @@
 import {fetchFileFromUrl, getMediaFilePath, getFileName} from "../../utils/utilsFile";
 import {generateUuidv4} from "../../utils/utilsString";
 import User from "../user/user.class";
+import MediaManager from "./mediaManager.class";
 
 export default class Media implements IMedia {
     public user: User
@@ -62,6 +63,20 @@ export default class Media implements IMedia {
         this.setUniqueId()
     }
 
+    public convertToAlbum(collection: 'posts' | 'reels') {
+        if (!this.data.file) return
+        
+        const index = this.remove(collection)
+
+        this.user.media[collection].splice(
+            index, 0,
+            MediaManager.newMedia({
+                type: 'album',
+                list: [this.data.file]
+            }, this.user)
+        )
+    }
+
     public async save() {
         await this.user.save()
     }
@@ -74,6 +89,8 @@ export default class Media implements IMedia {
         if (index > -1) {
             this.user.media[collection].splice(index, 1)
         }
+
+        return index
     }
 
     public async export(): Promise<IMediaExport | IMediaExport[] | undefined> {
