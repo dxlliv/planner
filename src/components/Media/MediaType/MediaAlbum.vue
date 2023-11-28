@@ -8,7 +8,7 @@
         :model-value="slideIndex"
     >
       <Slide v-for="(item, i) of media.data.list" :key="i">
-        <MediaPost :media="item" />
+        <MediaPost :context-menu="false" :media="item" />
       </Slide>
     </Carousel>
   </MediaContainer>

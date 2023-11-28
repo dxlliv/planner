@@ -2,14 +2,15 @@
 defineProps<{
   media: IMedia
   type: string
+  contextMenu?: boolean
 }>()
 
-const contextMenu: Ref<boolean> = ref(false)
+const contextMenuValue: Ref<boolean> = ref(false)
 
 function onMediaContextMenu(e) {
   e.preventDefault()
 
-  contextMenu.value = !contextMenu.value
+  contextMenuValue.value = !contextMenuValue.value
 }
 </script>
 
@@ -28,7 +29,8 @@ function onMediaContextMenu(e) {
     </div>
 
     <MediaContextMenu
-        v-model="contextMenu"
+        v-if="contextMenu"
+        v-model="contextMenuValue"
         :media="media"
     />
   </div>

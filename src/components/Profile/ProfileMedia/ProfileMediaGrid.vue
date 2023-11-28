@@ -31,8 +31,16 @@ function onListUpdated() {
             :key="media.id" :index="i"
             class="v-col v-col-4"
         >
-          <MediaPost v-if="mode === 'posts'" :media="media" />
-          <MediaReel v-if="mode === 'reels'" :media="media" />
+          <MediaPost
+              v-if="mode === 'posts'"
+              :media="media"
+              context-menu
+          />
+          <MediaReel
+              v-if="mode === 'reels'"
+              :media="media"
+              context-menu
+          />
         </SlickItem>
       </SlickList>
   </div>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   media: IMedia;
+  contextMenu?: boolean
 }>()
 </script>
 
@@ -9,6 +10,7 @@ defineProps<{
     <MediaVideo
         v-if="media.type === 'video'"
         :media="media"
+        :context-menu="contextMenu"
         cover-selector
         reel
     />
