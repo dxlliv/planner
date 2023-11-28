@@ -6,7 +6,6 @@
   >
     <Carousel
         :model-value="slideIndex"
-        :class="{'no-pointer-events': !scrollable}"
     >
       <Slide v-for="(item, i) of media.data.list" :key="i">
         <MediaPost :media="item" />
@@ -20,7 +19,6 @@ import { Carousel, Slide } from "vue3-carousel";
 
 const props = defineProps<{
   media: IMediaAlbum;
-  scrollable?: boolean
 }>();
 
 const slideIndex = ref(0)

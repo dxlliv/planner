@@ -3,6 +3,11 @@ const props = defineProps<{
   media: IMedia;
 }>()
 
+const position = reactive({
+  x: 0,
+  y: 0
+})
+
 const emit = defineEmits(['update:modelValue'])
 
 function onMediaRemove() {
@@ -19,12 +24,11 @@ function onCloseContextMenu() {
   <v-menu
       content-class="ig-media__context-menu"
       transition="slide-y-transition"
-      location="bottom"
-      location-strategy="connected"
-      target="parent" :offset="[0, 0]"
+      attach
       :close-on-content-click="false"
+      width="100%"
   >
-    <v-list density="compact" class="mx-3">
+    <v-list density="compact" class="mx-3 mt-3 py-0">
 
       <MediaContextMenuReplaceMedia
           v-if="media.type === 'image' || media.type === 'video'"
@@ -37,7 +41,7 @@ function onCloseContextMenu() {
           @close="onCloseContextMenu"
       />
       <MediaContextMenuRemoveFromAlbum
-          v-if="media.type === 'album'"
+          v-if="media.type === 'album' && media.data.list.length > 1"
           :media="media"
           @close="onCloseContextMenu"
       />
