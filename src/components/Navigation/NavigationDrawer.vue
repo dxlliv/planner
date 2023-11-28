@@ -29,6 +29,7 @@ const nav = [
 ]
 
 const mediaCreate = ref(false)
+const userExport = ref(false)
 </script>
 
 <template>
@@ -93,11 +94,12 @@ const mediaCreate = ref(false)
     >
       <v-list-item
           v-if="user.isChanged"
-          title="Save" base-color="primary"
-          @click="user.writeUserChanges()"
+          title="Export" base-color="primary"
+          @click="userExport = true"
       >
         <template #prepend>
-          <v-icon icon="mdi-content-save-outline" />
+          <v-icon icon="mdi-pencil-ruler-outline" />
+          <ProfileExport v-model="userExport" />
         </template>
       </v-list-item>
     </v-list>

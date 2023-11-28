@@ -43,6 +43,10 @@ export default class User {
         return this.status.changed
     }
 
+    public setChanged(value: boolean) {
+        this.status.changed = value
+    }
+
     public async save() {
         await this.storage.save()
     }

@@ -24,12 +24,16 @@ export default class UserStorage {
         if (storedUser) {
             this.user.raw.profile = storedUser.profile
             this.user.raw.media = storedUser.media
+
+            this.user.setChanged(true)
         }
     }
 
     public async save() {
         const exportedProfile = await this.user.profile.export()
         const exportedMedia = await this.user.media.export()
+
+        this.user.setChanged(true)
 
         this.database.setItem('user', {
             profile: exportedProfile,
