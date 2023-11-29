@@ -1,0 +1,1 @@
+import{_ as s,o as i,c as a,R as n}from"./chunks/framework.78FZeauV.js";const u=JSON.parse('{"title":"Iframes","description":"","frontmatter":{},"headers":[],"relativePath":"media-iframe.md","filePath":"media-iframe.md"}'),t={name:"media-iframe.md"},e=n("",3),l=[e];function p(h,k,o,r,E,d){return i(),a("div",null,l)}const g=s(t,[["render",p]]);export{u as __pageData,g as default};

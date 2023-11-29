@@ -1,0 +1,1 @@
+import{_ as s,o as i,c as a,R as n}from"./chunks/framework.78FZeauV.js";const g=JSON.parse('{"title":"Videos","description":"","frontmatter":{},"headers":[],"relativePath":"media-video.md","filePath":"media-video.md"}'),t={name:"media-video.md"},e=n("",12),l=[e];function p(h,k,o,r,E,d){return i(),a("div",null,l)}const u=s(t,[["render",p]]);export{g as __pageData,u as default};
