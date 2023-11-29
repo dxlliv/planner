@@ -66,6 +66,7 @@ Read the [documentation](https://dxlliv.github.io/ig-planner/docs/) for further 
 I'd like to make this tool accessible to all the people with an intuitive interface directly from the browser, without installing any software or changing a single line of code. Said so, feel free to support the project.
 
 ## Roadmap
+- [ ] Profile create
 - [ ] Profile viewer
   - [x] Posts
     - [x] Image support
@@ -81,12 +82,18 @@ I'd like to make this tool accessible to all the people with an intuitive interf
   - [ ] Highlights
 - [ ] Profile editor
   - [ ] Basic
-    - [ ] Add media
-    - [ ] Remove media
-    - [ ] Sort media
+    - [x] Add media
+    - [x] Remove media
+    - [x] Sort media
+    - [x] Add cover
+    - [x] Replace cover
+    - [x] Remove cover
+    - [x] Convert to album
+    - [x] Convert to iframe
+    - [x] Clone to reel
   - [ ] Advanced
-  - [ ] Temporary storage
+  - [x] Storage
 - [ ] Profile export
-  - [ ] Node.js helper
+- [ ] Calendar view
 - [x] Implement Storybook
 - [ ] Implement i18n
