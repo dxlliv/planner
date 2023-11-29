@@ -4,7 +4,7 @@
     <template v-for="(user, i) of users" :key="i">
       <UserSelector
           v-if="user.ready"
-          :profile="user.profile"
+          :user="user"
       />
     </template>
 

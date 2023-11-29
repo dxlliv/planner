@@ -1,20 +1,22 @@
 <template>
   <div :class="['ig-profile-selector', {'ig-profile-selector--add': add}]">
-    <template v-if="profile">
+    <template v-if="user">
       <router-link
           :to="{
-            name: 'profile',
+            name: 'user',
             params: {
-              username: profile.username,
+              username: user.profile.username,
             },
           }"
           @contextmenu="showProfileContextMenu"
       >
         <suspense>
-          <UserAvatar :avatar="profile.avatar" />
+          <UserAvatar :avatar="user.profile.avatar">
+            <UserBadgeChanges v-if="user.hasChanges" />
+          </UserAvatar>
         </suspense>
 
-        <h3 class="mt-4" v-text="profile.username" />
+        <h3 class="mt-4" v-text="user.profile.username" />
 
         <!--
         <UserSelectorMenu
@@ -27,7 +29,7 @@
 
       <a
           class="text-blue-grey-lighten-4"
-          :href="profile.public_profile" target="_blank"
+          :href="user.profile.public_profile" target="_blank"
       >🡥</a>
     </template>
     <slot />
@@ -35,8 +37,8 @@
 </template>
 
 <script setup lang="ts">
-const { profile } = defineProps<{
-  profile?: IUserProfile;
+const { user } = defineProps<{
+  user?: IUser;
   add?: boolean
 }>();
 

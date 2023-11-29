@@ -28,7 +28,7 @@ export const useUserStore = defineStore("user", () => {
 
   /**
    * Initialize user from username
-   * (called in PageProfile.vue)
+   * (called in PageUser.vue)
    *
    * @param username
    */

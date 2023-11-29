@@ -68,6 +68,8 @@ interface IUser {
   options: IUserOptions;
   profile: IUserProfile;
   media: IUserMedia;
+
+  get hasChanges(): boolean
 }
 
 interface IUserProfile {

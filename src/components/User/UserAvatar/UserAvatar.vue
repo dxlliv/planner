@@ -1,11 +1,13 @@
 <template>
-  <v-avatar :size="size" class="ig-profile-avatar">
-    <v-img
-        v-if="avatar"
-        :src="avatar"
-    />
+  <div class="ig-profile-avatar__container">
+    <v-avatar :size="size" class="ig-profile-avatar">
+      <v-img
+          v-if="avatar"
+          :src="avatar"
+      />
+    </v-avatar>
     <slot />
-  </v-avatar>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -23,5 +25,13 @@ const avatar = URL.createObjectURL(await props.avatar.file)
 .ig-profile-avatar {
   user-select: none;
   border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+
+  &__container {
+    :deep(.v-badge) {
+      position: absolute;
+      top: 28px;
+      right: 8px;
+    }
+  }
 }
 </style>

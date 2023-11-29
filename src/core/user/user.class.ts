@@ -46,7 +46,7 @@ export default class User {
         this.media = new MediaManager(this);
     }
 
-    get isChanged() {
+    get hasChanges() {
         return this.status.changed
     }
 

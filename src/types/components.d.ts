@@ -44,6 +44,7 @@ declare module 'vue' {
     ToolGuides: typeof import('./../components/Tool/ToolGuides.vue')['default']
     User: typeof import('./../components/User/User.vue')['default']
     UserAvatar: typeof import('./../components/User/UserAvatar/UserAvatar.vue')['default']
+    UserBadgeChanges: typeof import('./../components/User/UserBadgeChanges.vue')['default']
     UserExport: typeof import('./../components/User/UserExport.vue')['default']
     UserMediaGrid: typeof import('./../components/User/UserMedia/UserMediaGrid.vue')['default']
     UserProfile: typeof import('./../components/User/UserProfile.vue')['default']
