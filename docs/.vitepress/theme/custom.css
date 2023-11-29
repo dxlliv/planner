@@ -1,7 +1,12 @@
 :root {
-    --c-brand: #000;
-    --c-brand-light: #000;
-    --c-text-light-1: #222;
-    --c-text-light-2: #555;
-    --c-text-light-3: #888;
+    --vp-c-brand-1: #2ba179;
+    --vp-c-brand-2: #038c6e;
+    --vp-c-brand-3: #2ba179;
+    --vp-c-brand-light: #000;
+    --vp-custom-block-tip-bg: rgb(88 88 88 / 10%);
+    --vp-code-color: #888;
+}
+
+.dark {
+    --vp-c-gutter: #ffffff07;
 }
