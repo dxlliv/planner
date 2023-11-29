@@ -149,6 +149,9 @@ interface IMediaAlbum extends IMedia {
   list: (IMediaImage | IMediaVideo)[]
   listIndex: number
 
+  get currentIndex(): number
+  get itemsCount(): number
+
   addToAlbum(file: File): Promise<void>
   removeFromAlbum(): Promise<void>
 

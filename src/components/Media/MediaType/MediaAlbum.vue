@@ -11,6 +11,10 @@
         <MediaPost :context-menu="false" :media="item" />
       </Slide>
     </Carousel>
+    <MediaAlbumCurrentIndex
+      :index="media.currentIndex"
+      :max="media.itemsCount"
+    />
   </MediaContainer>
 </template>
 
@@ -25,3 +29,13 @@ function nextSlide() {
   props.media.slideToNextListItem()
 }
 </script>
+
+<style scoped lang="scss">
+.ig-media--album {
+  :deep(.ig-media__badge-index) {
+    position: absolute;
+    top: 21px;
+    left: 24px;
+  }
+}
+</style>

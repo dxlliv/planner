@@ -38,6 +38,14 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
         }
     }
 
+    get currentIndex() {
+        return this.listIndex + 1
+    }
+
+    get itemsCount() {
+        return this.list.length
+    }
+
     public async addToAlbum(file: File) {
         const newAlbumMedia = MediaManager.newMedia({ file }, this.user)
 
