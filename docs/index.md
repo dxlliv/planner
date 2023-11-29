@@ -15,7 +15,7 @@ hero:
       text: View on GitHub
       link: https://github.com/dxlliv/ig-planner
   image:
-    src: /planner.svg
+    src: https://dxlliv.github.io/ig-planner/logo.svg
     alt: dxlliv/ig-planner
 
 features:
