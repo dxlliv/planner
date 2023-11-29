@@ -6,7 +6,7 @@ const nav = [
   {
     item: {
       title: "Readme",
-      href: "https://dxlliv.github.io/ig-planner/docs",
+      href: "https://dxlliv.github.io/ig-planner/docs/",
       target: "_blank",
     },
     icon: "IconReadme"
@@ -19,13 +19,15 @@ const nav = [
     },
     icon: "IconSupport"
   },
+  /*
   {
     item: {
       title: "Donors",
-      to: "/ig-planner/donors",
+      to: "https://patreon.com/dxlliv",
     },
     icon: "IconDonors"
   },
+   */
 ]
 
 const mediaCreate = ref(false)

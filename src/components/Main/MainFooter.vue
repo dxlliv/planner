@@ -11,7 +11,7 @@ import {GithubIcon} from 'vue3-simple-icons'
 
     &middot;
 
-    <a href="https://dxlliv.github.io/ig-planner/docs">
+    <a href="https://dxlliv.github.io/ig-planner/docs/">
       Docs
     </a>
   </footer>
