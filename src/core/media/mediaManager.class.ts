@@ -56,7 +56,7 @@ export default class MediaManager {
         }
     }
 
-    public static newMedia(rawMedia: string | IRawMedia, user: User) {
+    public static newMedia(rawMedia: string | IRawMedia, user: User): any {
         const mediaType = MediaManager.detectMediaType(rawMedia)
 
         switch (mediaType) {

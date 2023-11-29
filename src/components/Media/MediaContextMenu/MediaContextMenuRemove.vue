@@ -1,20 +1,20 @@
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMediaAlbum;
+  media: IMedia;
 }>()
 
 const emit = defineEmits(['close'])
 
-function onRemoveFromAlbum() {
-  props.media.removeFromAlbum()
+async function onMediaRemove() {
+  await props.media.remove()
 
   emit('close')
 }
 </script>
 
 <template>
-  <v-list-item @click="onRemoveFromAlbum">
-    <v-list-item-title>Remove from album</v-list-item-title>
+  <v-list-item @click="onMediaRemove" class="text-red">
+    <v-list-item-title>Remove</v-list-item-title>
   </v-list-item>
 </template>
 

@@ -110,43 +110,57 @@ interface IMedia {
   id: string
   type: IMediaType
   collection: IMediaCollection
-  data: IMediaData
-
-  get isReel(): boolean
 
   setUniqueId(): void
   setMediaType(mediaType: IMediaType): void
-  setMediaData(mediaData: IMediaData): void
   parseMediaFileName(fileName: string): IMediaFile
   parseMediaFileBlob(fileBlob: File): IMediaFile
 
   refresh(): void
   save(): void
-  convertToAlbum(): void
-  convertToIframe(href: string): Promise<void>
-  setMediaImage(file: File): void
-  setCover(file: File): void
-  removeCover(): void
-  cloneToReel(): void
-  remove(): void
+
+  remove(): Promise<number>
   export(): Promise<IMediaExport | IMediaExport[] | undefined>
 }
 
 interface IMediaImage extends IMedia {
-  setMediaImage(file: File): void
+  file: IMediaFile
+
+  setMediaImage(blob: File): Promise<void>
+
+  convertToAlbum(): Promise<void>
+  convertToIframe(href: string): Promise<void>
 }
 
 interface IMediaVideo extends IMedia {
-  setCoverTime(value: number): void
+  file: IMediaFile
+  reel: boolean
+  cover: undefined | IMediaImage
+  coverTime: number
+
+  setCover(file: File): Promise<void>
+  setCoverTime(value: number): Promise<void>
+  removeCover(): Promise<void>
+
+  convertToAlbum(): Promise<void>
 }
 
 interface IMediaAlbum extends IMedia {
-  addToAlbum(file: File): void
+  list: (IMediaImage | IMediaVideo)[]
+  listIndex: number
+
+  addToAlbum(file: File): Promise<void>
+  removeFromAlbum(): Promise<void>
+
   setListIndex(index: number): void
-  removeFromAlbum(): void
+  slideToPrevListItem(): void
+  slideToNextListItem(): void
 }
 
 interface IMediaIframe extends IMedia {
+  reel: boolean
+  href: string
+  cover: undefined | IMediaImage
 }
 
 type IMediaType = 'image' | 'video' | 'album' | 'iframe'
@@ -162,14 +176,16 @@ interface IMediaData {
   file?: IMediaFile
   cover?: IMedia
   coverTime?: number
-  list?: IMedia[]
-  listIndex?: number
-  reel?: boolean
-  href?: string
+}
+
+interface IMediaCoverExport {
+  type: string
+  file: File
 }
 
 interface IMediaExport {
   type: string
+  /*
   file?: File
   reel?: boolean
   href?: string
@@ -180,4 +196,27 @@ interface IMediaExport {
   list?: {
     file?: File
   }[]
+   */
+}
+
+interface IMediaImageExport extends IMediaExport {
+  file: File
+}
+
+interface IMediaVideoExport extends IMediaExport {
+  file: File
+  reel: boolean
+  cover: undefined | number | IMediaCoverExport
+}
+
+interface IMediaAlbumExport extends IMediaExport {
+  list?: {
+    file?: File
+  }[]
+}
+
+interface IMediaIframeExport extends IMediaExport {
+  reel: boolean
+  href: string
+  cover: undefined | number | IMediaCoverExport
 }

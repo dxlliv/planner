@@ -5,9 +5,9 @@
       @click="nextSlide"
   >
     <Carousel
-        :model-value="slideIndex"
+        v-model="media.listIndex"
     >
-      <Slide v-for="(item, i) of media.data.list" :key="i">
+      <Slide v-for="(item, i) of media.list" :key="i">
         <MediaPost :context-menu="false" :media="item" />
       </Slide>
     </Carousel>
@@ -21,19 +21,7 @@ const props = defineProps<{
   media: IMediaAlbum;
 }>();
 
-const slideIndex = ref(0)
-
 function nextSlide() {
-  if (!props.media.data.list) return
-
-  if (slideIndex.value === (props.media.data.list.length - 1)) {
-    slideIndex.value = 0
-  } else {
-    slideIndex.value++
-  }
+  props.media.slideToNextListItem()
 }
-
-watch(() => slideIndex.value, value => {
-  props.media.setListIndex(value)
-})
 </script>

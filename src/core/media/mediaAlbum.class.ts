@@ -3,6 +3,9 @@ import MediaManager from "./mediaManager.class";
 import User from "../user/user.class";
 
 export default class MediaAlbum extends Media implements IMediaAlbum {
+    public list: (IMediaImage | IMediaVideo)[] = []
+    public listIndex: number = 0
+
     constructor(
         raw: IRawMedia,
         user: User
@@ -22,8 +25,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     }
 
     private parseMediaAlbum(raw: IRawMedia) {
-        const mediaData: IMediaData = {}
-        const mediaAlbumList: Media[] = []
+        const mediaAlbumList: (IMediaImage | IMediaVideo)[] = []
 
         if (raw.list && Array.isArray(raw.list)) {
             for (let rawAlbumMedia of raw.list) {
@@ -32,24 +34,64 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
                 )
             }
 
-            mediaData.list = mediaAlbumList
-            mediaData.listIndex = 0
+            this.list = mediaAlbumList
         }
-
-        return this.setMediaData(mediaData)
     }
 
-    public addToAlbum(file: File) {
+    public async addToAlbum(file: File) {
         const newAlbumMedia = MediaManager.newMedia({ file }, this.user)
 
-        this.data.list?.push(newAlbumMedia)
+        this.list?.splice(this.listIndex + 1, 0, newAlbumMedia)
+        this.slideToNextListItem()
+        this.refresh()
+
+        await this.save()
     }
 
-    public removeFromAlbum() {
-        this.data.list?.splice(this.data.listIndex, 1)
+    public async removeFromAlbum() {
+        const mediaIndexToRemove = this.listIndex
+
+        this.list?.splice(mediaIndexToRemove, 1)
+        this.slideToPrevListItem()
+        this.refresh()
+
+        await this.save()
     }
 
     public setListIndex(index: number) {
-        this.data.listIndex = index
+        this.listIndex = index
+    }
+
+    public slideToPrevListItem() {
+        this.listIndex--
+
+        if (this.listIndex < 0) {
+            this.listIndex = this.list.length - 1
+        }
+    }
+
+    public slideToNextListItem() {
+        this.listIndex++
+
+        if (this.listIndex === this.list.length) {
+            this.listIndex = 0
+        }
+    }
+
+    public async export(): Promise<IMediaAlbumExport> {
+        let exportedList = []
+
+        if (this.list) {
+            for await (const media of this.list) {
+                exportedList.push({
+                    file: (await media.file?.blob)
+                })
+            }
+        }
+
+        return {
+            type: this.type,
+            list: exportedList
+        }
     }
 }

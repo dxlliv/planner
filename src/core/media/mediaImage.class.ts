@@ -1,7 +1,10 @@
 import Media from "./media.class";
 import User from "../user/user.class";
+import MediaManager from "./mediaManager.class";
 
 export default class MediaImage extends Media implements IMediaImage {
+    public file: IMediaFile = {} as IMediaFile
+
     constructor(
         raw: string | IRawMedia,
         user: User
@@ -13,33 +16,75 @@ export default class MediaImage extends Media implements IMediaImage {
     }
 
     private parseMediaImage(raw: string | IRawMedia) {
-        const mediaData: IMediaData = {}
-
         switch (typeof raw) {
 
             case "string":
                 // shortened image import
-                mediaData.file = this.parseMediaFileName(raw)
+                this.file = this.parseMediaFileName(raw)
                 break;
 
             case "object":
                 if (raw.file && raw.file instanceof File) {
+
                     // regular image import from: new image / indexeddb restore
-                    mediaData.file = this.parseMediaFileBlob(raw.file)
+                    this.file = this.parseMediaFileBlob(raw.file)
+
                 } else if (typeof raw.name === 'string') {
+
                     // regular image import from: config.json
-                    mediaData.file = this.parseMediaFileName(raw.name)
+                    this.file = this.parseMediaFileName(raw.name)
+
                 }
                 break;
 
         }
-
-        return this.setMediaData(mediaData)
     }
 
-    public setMediaImage(file: File) {
-        if (!this.data.file) return
+    public async convertToAlbum() {
+        const mediaAlbum = MediaManager.newMedia({
+            type: 'album',
+            list: [
+                {
+                    type: 'image',
+                    file: await this.file.blob
+                }
+            ]
+        }, this.user)
 
-        this.data.file = this.parseMediaFileBlob(file)
+        const index = await this.remove()
+
+        this.user.media[this.collection].splice(index, 0, mediaAlbum)
+
+        await this.save()
+    }
+
+    public async convertToIframe(href: string) {
+        const index = await this.remove()
+
+        const media = MediaManager.newMedia({
+            type: 'iframe',
+            cover: {
+                type: 'image',
+                file: await this.file.blob
+            },
+            href,
+        }, this.user)
+
+        this.user.media[this.collection].splice(index, 0, media)
+
+        await this.save()
+    }
+
+    public async setMediaImage(blob: File) {
+        this.file = this.parseMediaFileBlob(blob)
+
+        await this.save()
+    }
+
+    public async export(): Promise<IMediaImageExport> {
+        return {
+            type: this.type,
+            file: await this.file?.blob
+        }
     }
 }

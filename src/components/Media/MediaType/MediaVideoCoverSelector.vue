@@ -7,7 +7,7 @@ const props = defineProps<{
 }>()
 
 const mediaCover: Ref<number> = ref(
-    typeof props.media.data.coverTime === 'number' ? props.media.data.coverTime : 0
+    typeof props.media.coverTime === 'number' ? props.media.coverTime : 0
 )
 
 function updateMediaCover() {

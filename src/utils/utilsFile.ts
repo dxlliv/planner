@@ -32,20 +32,20 @@ export async function fetchFileFromUrl(url: string): Promise<File> {
     });
 }
 
-export async function handleMediaForSrc(media: MediaPost) {
-    if (!media.data.file) {
+export async function handleMediaForSrc(media: IMedia) {
+    if (!media.file) {
         throw Error ('File object is not defined')
     }
 
-    if (!media.data.file.blob) {
+    if (!media.file.blob) {
         throw Error ('File blob is not defined')
     }
 
-    if (!isPromise(media.data.file.blob)) {
+    if (!isPromise(media.file.blob)) {
         throw Error ('File blob is not a promise')
     }
 
-    return URL.createObjectURL(await media.data.file.blob)
+    return URL.createObjectURL(await media.file.blob)
 }
 
 export function isPromise(p: any) {

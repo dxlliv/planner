@@ -5,7 +5,7 @@
       :class="{'ig-media--reel': reel}"
   >
 
-    <template v-if="!media.data.cover || media.data.coverTime">
+    <template v-if="!media.cover || media.coverTime">
       <video
           ref="videoRef"
           :src="src"
@@ -21,9 +21,9 @@
       />
     </template>
 
-    <template v-else-if="typeof media.data.cover === 'object'">
+    <template v-else-if="typeof media.cover === 'object'">
       <MediaImage
-          :media="media.data.cover"
+          :media="media.cover"
           @click="isPlaying = true"
       />
     </template>
@@ -62,10 +62,10 @@ onMounted(() => {
   videoRef.value.addEventListener(
     "loadedmetadata",
     () => {
-      if (!videoRef.value || typeof props.media.data.cover === 'object') return
+      if (!videoRef.value || typeof props.media.cover === 'object') return
 
-      if (!props.media.data.cover) {
-        videoRef.value.currentTime = props.media.data.coverTime
+      if (!props.media.cover) {
+        videoRef.value.currentTime = props.media.coverTime
         videoMaxLength.value = videoRef.value.duration
       }
     },

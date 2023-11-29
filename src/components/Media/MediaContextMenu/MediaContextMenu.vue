@@ -5,11 +5,6 @@ const props = defineProps<{
 
 const emit = defineEmits(['update:modelValue'])
 
-function onMediaRemove() {
-  props.media.remove()
-  props.media.user.save()
-}
-
 function onCloseContextMenu() {
   emit('update:modelValue', false)
 }
@@ -20,6 +15,7 @@ function onCloseContextMenu() {
       content-class="ig-media__context-menu"
       transition="slide-y-transition" attach
       :close-on-content-click="false"
+      @click.stop
   >
     <v-list density="compact" class="ma-3 py-2">
 
@@ -45,7 +41,7 @@ function onCloseContextMenu() {
             @close="onCloseContextMenu"
         />
         <MediaContextMenuRemoveFromAlbum
-            v-if="media.data.list.length > 1"
+            v-if="media.list.length > 1"
             :media="media"
             @close="onCloseContextMenu"
         />
@@ -56,17 +52,17 @@ function onCloseContextMenu() {
           title="Cover"
       >
         <MediaContextMenuAddCover
-            v-if="!media.data.cover"
+            v-if="!media.cover"
             :media="media"
             @close="onCloseContextMenu"
         />
         <MediaContextMenuReplaceCover
-            v-if="media.data.cover"
+            v-if="media.cover"
             :media="media"
             @close="onCloseContextMenu"
         />
         <MediaContextMenuRemoveCover
-            v-if="media.data.cover"
+            v-if="media.cover"
             :media="media"
             @close="onCloseContextMenu"
         />
@@ -94,11 +90,10 @@ function onCloseContextMenu() {
 
       <v-divider class="my-2" />
 
-      <v-list-item
-          @click="onMediaRemove()" class="text-red"
-      >
-        <v-list-item-title>Remove</v-list-item-title>
-      </v-list-item>
+      <MediaContextMenuRemove
+          :media="media"
+          @close="onCloseContextMenu"
+      />
 
     </v-list>
   </v-menu>

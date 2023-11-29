@@ -16,7 +16,6 @@ onChange((files: null | File[]) => {
   const file = files[0]
 
   props.media.addToAlbum(file)
-  props.media.save()
 
   emit('close')
 })

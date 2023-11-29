@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMedia;
+  media: IMediaImage|IMediaVideo;
 }>()
 
 const emit = defineEmits(['close'])
