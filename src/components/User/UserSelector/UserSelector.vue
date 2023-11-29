@@ -20,6 +20,7 @@
         <h3 class="mt-4" v-text="user.profile.username" />
 
         <UserSelectorMenu
+            v-if="contextMenu.enabled"
             v-model="contextMenu.enabled"
             :user="user"
         />
