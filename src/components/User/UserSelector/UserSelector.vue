@@ -13,7 +13,7 @@
 
         <suspense>
           <UserAvatar :avatar="user.profile.avatar">
-            <UserBadgeChanges v-if="user.hasChanges" />
+            <UserEditorBadgeChanges v-if="user.hasChanges" />
           </UserAvatar>
         </suspense>
 
