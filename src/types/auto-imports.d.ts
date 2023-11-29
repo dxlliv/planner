@@ -90,7 +90,7 @@ declare global {
   const provide: typeof import('vue')['provide']
   const reactive: typeof import('vue')['reactive']
   const readFile: typeof import('../utils/utilsProfile')['readFile']
-  const readProfileDirectoryConfig: typeof import('../utils/utilsProfile')['readProfileDirectoryConfig']
+  const readUserDirectoryConfig: typeof import('../utils/utilsProfile')['readUserDirectoryConfig']
   const readonly: typeof import('vue')['readonly']
   const ref: typeof import('vue')['ref']
   const removeUndefinedFromObject: typeof import('../utils/utilsObject')['removeUndefinedFromObject']

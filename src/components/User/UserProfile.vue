@@ -5,11 +5,11 @@ defineProps<{
 </script>
 
 <template>
-  <ProfileHeaderDesktop
+  <UserProfileDesktop
       v-if="$vuetify.display.smAndUp"
       :profile="profile"
   />
-  <ProfileHeaderMobile
+  <UserProfileMobile
       v-else
       :profile="profile"
   />

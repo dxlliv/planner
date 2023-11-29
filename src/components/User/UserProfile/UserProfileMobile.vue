@@ -10,7 +10,7 @@ defineProps<{
         class="ig-profile-page__header__top py-4"
     >
       <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px;" />
-      <ProfileHeaderUsername :profile="profile" class="mb-5" />
+      <UserProfileUsername :profile="profile" class="mb-5" />
     </div>
 
     <v-divider class="mx-n4" />
@@ -19,7 +19,7 @@ defineProps<{
       <v-row>
         <v-col cols="3" class="ig-profile-page__header__avatar text-left">
           <suspense>
-            <ProfileAvatar :size="120" :avatar="profile?.avatar" />
+            <UserAvatar :size="120" :avatar="profile?.avatar" />
           </suspense>
         </v-col>
         <v-col cols="9" />
@@ -27,10 +27,10 @@ defineProps<{
     </div>
 
     <div class="my-4 mt-n6">
-      <ProfileHeaderInner :profile="profile" />
+      <UserProfileInner :profile="profile" />
     </div>
 
-    <ProfileHeaderStats
+    <UserProfileStats
         mobile
         :profile="profile"
     />

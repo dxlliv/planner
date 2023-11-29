@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 import Profile from './Profile.vue';
-import {mockupProfile} from "~/stories/mockup/profile.mockup";
+import {mockupUser} from "~/stories/mockup/user.mockup";
 
 const meta = {
     component: Profile,
     args: {
-        profile: mockupProfile,
+        profile: mockupUser,
     },
 } satisfies Meta<typeof Profile>;
 

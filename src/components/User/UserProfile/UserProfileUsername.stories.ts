@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import ProfileHeaderUsername from './ProfileHeaderUsername.vue';
-import {mockupProfile} from "~/stories/mockup/profile.mockup";
+import UserProfileUsername from './UserProfileUsername.vue';
+import {mockupUser} from "~/stories/mockup/user.mockup";
 
 const meta = {
-    component: ProfileHeaderUsername,
+    component: UserProfileUsername,
     args: {
-        profile: mockupProfile,
+        profile: mockupUser,
     },
-} satisfies Meta<typeof ProfileHeaderUsername>;
+} satisfies Meta<typeof UserProfileUsername>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -18,7 +18,7 @@ export const Default: Story = {};
 export const Verified: Story = {
     args: {
         profile: {
-            ...mockupProfile,
+            ...mockupUser,
             verified: true
         }
     }

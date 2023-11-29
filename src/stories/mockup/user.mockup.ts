@@ -1,4 +1,4 @@
-export const mockupProfile = {
+export const mockupUser = {
     "username": "dxvfpv",
     "name": "",
     "verified": false,

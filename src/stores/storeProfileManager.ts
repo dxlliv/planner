@@ -1,4 +1,4 @@
-import {openProfileDirectory, readProfileDirectoryConfig} from "../utils/utilsProfile";
+import {openProfileDirectory, readUserDirectoryConfig} from "../utils/utilsProfile";
 
 export const useProfileManagerStore = defineStore("profile/manager", () => {
   const configUserStore = useConfigUserStore()
@@ -7,7 +7,7 @@ export const useProfileManagerStore = defineStore("profile/manager", () => {
   async function importProfile() {
     directory.value = await openProfileDirectory()
 
-    const config = await readProfileDirectoryConfig(fileConfig.value)
+    const config = await readUserDirectoryConfig(fileConfig.value)
 
     configUserStore.setUserConfig(config)
     configUserStore.loadUsers()

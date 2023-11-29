@@ -1,4 +1,4 @@
-export async function readProfileDirectoryConfig(file: FileSystemFileEntry) {
+export async function readUserDirectoryConfig(file: FileSystemFileEntry) {
     return new Promise((resolve, reject) => {
         let reader = new FileReader();
 

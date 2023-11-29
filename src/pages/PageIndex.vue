@@ -2,14 +2,14 @@
   <v-container class="text-center pt-16">
 
     <template v-for="(user, i) of users" :key="i">
-      <ProfileSelector
+      <UserSelector
           v-if="user.ready"
           :profile="user.profile"
       />
     </template>
 
     <!--
-    <ProfileSelectorAdd />
+    <UserSelectorAdd />
     -->
 
     <v-divider class="mt-15 mb-10" />

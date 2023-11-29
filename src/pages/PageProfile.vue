@@ -1,16 +1,16 @@
 <template>
-  <LayoutProfile>
-    <Profile
+  <LayoutUser>
+    <User
         v-if="user.ready"
         :user="user"
     />
-  </LayoutProfile>
+  </LayoutUser>
 
   <ToolGuides v-if="extraOptions.guides" />
 </template>
 
 <script setup lang="ts">
-import LayoutProfile from "../layouts/LayoutProfile.vue";
+import LayoutUser from "../layouts/LayoutUser.vue";
 
 const route = useRoute();
 const userStore = useUserStore();

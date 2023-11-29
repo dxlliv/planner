@@ -7,7 +7,6 @@ const nav = [
     item: {
       title: "Readme",
       href: "https://dxlliv.github.io/ig-planner/docs/",
-      target: "_blank",
     },
     icon: "IconReadme"
   },
@@ -82,7 +81,7 @@ const userExport = ref(false)
       >
         <template #prepend>
           <suspense>
-            <ProfileAvatar
+            <UserAvatar
                 :avatar="user.profile.avatar" size="26px"
             />
           </suspense>
@@ -101,7 +100,7 @@ const userExport = ref(false)
       >
         <template #prepend>
           <v-icon icon="mdi-pencil-ruler-outline" />
-          <ProfileExport v-model="userExport" />
+          <UserExport v-model="userExport" />
         </template>
       </v-list-item>
     </v-list>

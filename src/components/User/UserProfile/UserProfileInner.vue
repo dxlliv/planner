@@ -13,7 +13,7 @@ const biography = computed(() => {
 
 <template>
   <div class="ig-profile-page__header__inner">
-    <ProfileHeaderName
+    <UserProfileName
         :profile="profile"
     />
 
@@ -22,7 +22,7 @@ const biography = computed(() => {
         v-html="biography"
     />
 
-    <ProfileHeaderWebsite
+    <UserProfileWebsite
         :profile="profile"
     />
   </div>
