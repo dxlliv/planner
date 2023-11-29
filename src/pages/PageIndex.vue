@@ -8,9 +8,7 @@
       />
     </template>
 
-    <!--
     <UserSelectorAdd />
-    -->
 
     <v-divider class="mt-15 mb-10" />
 

@@ -5,6 +5,7 @@
           v-if="avatar"
           :src="avatar"
       />
+      <slot name="inner" />
     </v-avatar>
     <slot />
   </div>
@@ -12,13 +13,17 @@
 
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
-  avatar: any;
+  avatar?: any;
   size?: string
 }>(), {
   size: '120px'
 });
 
-const avatar = URL.createObjectURL(await props.avatar.file)
+let avatar: any
+
+if (props.avatar) {
+  avatar = URL.createObjectURL(await props.avatar.file)
+}
 </script>
 
 <style scoped lang="scss">

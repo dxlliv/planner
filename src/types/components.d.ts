@@ -57,6 +57,7 @@ declare module 'vue' {
     UserProfileWebsite: typeof import('./../components/User/UserProfile/UserProfileWebsite.vue')['default']
     UserSelector: typeof import('./../components/User/UserSelector/UserSelector.vue')['default']
     UserSelectorAdd: typeof import('./../components/User/UserSelector/UserSelectorAdd.vue')['default']
+    UserSelectorAddMenu: typeof import('./../components/User/UserSelector/UserSelectorAddMenu.vue')['default']
     UserSelectorMenu: typeof import('./../components/User/UserSelector/UserSelectorMenu.vue')['default']
     UserTabs: typeof import('./../components/User/UserTabs.vue')['default']
   }
