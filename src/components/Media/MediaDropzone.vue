@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import vueFilePond from "vue-filepond";
 
-const emit = defineEmits(['add'])
-
+const userStore = useUserStore()
 const FilePond = vueFilePond();
+
+const user = computed(() => userStore.user)
+const emit = defineEmits(['add'])
 
 const myFiles = ref([])
 
@@ -12,6 +14,9 @@ const labelIdle = '<svg class="mb-3" height="77" role="img" viewBox="0 0 97.6 77
 
 function onFileAdded(file: any) {
   emit('add', file.source)
+
+  user.value.media.addMedia({ file: file.source }, 'posts', 'unshift')
+  user.value.save()
 }
 </script>
 

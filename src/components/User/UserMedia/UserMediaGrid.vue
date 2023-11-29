@@ -61,6 +61,10 @@ function onSortEnd() {
           />
         </SlickItem>
       </SlickList>
+
+      <v-card v-else :height="500">
+        <MediaDropzone />
+      </v-card>
     </div>
   </v-container>
 </template>

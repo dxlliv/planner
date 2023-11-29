@@ -29,13 +29,11 @@ const props = defineProps<{
 
 const tabs: { name: string; label: string; icon: string }[] = [];
 
-if (props.media.posts.length > 0) {
-  tabs.push({
-    name: "posts",
-    label: "Posts",
-    icon: "mdi-grid",
-  });
-}
+tabs.push({
+  name: "posts",
+  label: "Posts",
+  icon: "mdi-grid",
+});
 
 if (props.media.reels.length > 0) {
   tabs.push({
