@@ -8,11 +8,11 @@
       :offset="[7, 0]"
   >
     <v-list>
-      <v-list-item :href="profile.public_profile" target="_blank">
+      <v-list-item :href="user.profile.public_profile" target="_blank">
         <v-list-item-title>Open on Instagram</v-list-item-title>
       </v-list-item>
       <v-divider />
-      <v-list-item @click="onProfileRemove()" style="color: red;">
+      <v-list-item @click="onProfileRemove()" class="text-red">
         <v-list-item-title>Remove</v-list-item-title>
       </v-list-item>
     </v-list>
@@ -20,13 +20,13 @@
 </template>
 
 <script setup lang="ts">
-const { profile } = defineProps<{
-  profile: IUserProfile;
+const { user } = defineProps<{
+  user: IUser;
 }>();
 
 function onProfileRemove() {
-  useConfigUserStore().unsetUserConfig(profile.username)
-  useUserStore().unloadUserConfig(profile.username)
+  useConfigUserStore().unsetUserConfig(user.profile.username)
+  useUserStore().unloadUserConfig(user.profile.username)
 }
 </script>
 

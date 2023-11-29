@@ -10,6 +10,7 @@
           }"
           @contextmenu="showProfileContextMenu"
       >
+
         <suspense>
           <UserAvatar :avatar="user.profile.avatar">
             <UserBadgeChanges v-if="user.hasChanges" />
@@ -18,12 +19,10 @@
 
         <h3 class="mt-4" v-text="user.profile.username" />
 
-        <!--
         <UserSelectorMenu
             v-model="contextMenu.enabled"
-            :profile="profile"
+            :user="user"
         />
-        -->
 
       </router-link>
 
