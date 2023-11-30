@@ -24,8 +24,14 @@ const { user } = defineProps<{
   user: IUser;
 }>();
 
+const cannotBeRemoved = ref(false)
+
 function onProfileRemove() {
-  useUserStore().unloadUser(user.profile.username)
+  if (!user.isRemovable) {
+    cannotBeRemoved.value = true
+  }
+
+  user.remove()
 }
 </script>
 

@@ -21,7 +21,7 @@ export const useConfigStore = defineStore("config", () => {
       const remoteUserConfig = await fetchRemoteUserConfig(`${userPath}/config.json`)
 
       // load users
-      userStore.loadUser(remoteUserConfig)
+      userStore.loadUser(remoteUserConfig, 'config')
     }
 
     return true;

@@ -23,7 +23,7 @@ export const useUserImportStore = defineStore("user/import", () => {
     if (rawUserConfig.value.media.reels) importRawMediaFilesByCollection("reels")
 
     // initialize user
-    userStore.loadUser(rawUserConfig.value, true)
+    userStore.loadUser(rawUserConfig.value, 'storage', true)
     userStorageStore.addUserToStorageIndex(rawUserConfig.value.profile.username)
   }
 

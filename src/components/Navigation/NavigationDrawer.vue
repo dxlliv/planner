@@ -94,7 +94,7 @@ const userExport = ref(false)
         class="ig-navigation-drawer__list-bottom"
     >
       <v-list-item
-          v-if="user.hasChanges"
+          v-if="user.hasLocalChanges"
           title="Export" base-color="primary"
           @click="userExport = true"
       >

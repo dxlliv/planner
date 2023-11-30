@@ -14,7 +14,7 @@
         <suspense>
           <UserAvatar :avatar="user.profile.avatar">
             <template #inner>
-              <UserEditorBadgeChanges v-if="user.hasChanges" />
+              <UserEditorBadgeChanges v-if="user.hasLocalChanges" />
             </template>
           </UserAvatar>
         </suspense>

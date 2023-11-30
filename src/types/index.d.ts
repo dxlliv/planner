@@ -3,7 +3,7 @@ interface IRawConfig {
 }
 
 interface IRawUser {
-  order: number
+  origin: string
   profile: IRawUserProfile;
   media: IRawUserMedia;
   options: any;
@@ -64,12 +64,14 @@ interface IRawMediaIframe extends IRawMedia {
 type IUsers = { [username: string]: IUser };
 
 interface IUser {
-  order: number
+  origin: string
   options: IUserOptions;
   profile: IUserProfile;
   media: IUserMedia;
 
-  get hasChanges(): boolean
+  get hasLocalChanges(): boolean
+  get isRemovable(): boolean
+  remove(): Promise<boolean>
 }
 
 interface IUserProfile {

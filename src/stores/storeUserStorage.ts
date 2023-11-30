@@ -58,10 +58,11 @@ export const useUserStorageStore = defineStore("user/storage", () => {
       storeName: username
     })
 
-    const rawUser = await userStorage.getItem('user')
+    // @ts-ignore
+    const rawUser: IRawUser = await userStorage.getItem('user')
 
     if (rawUser) {
-      userStore.loadUser(rawUser)
+      userStore.loadUser(rawUser, 'storage')
     } else {
       // something happened,
       // it no longer exists

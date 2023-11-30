@@ -2,6 +2,8 @@ import localforage from 'localforage';
 import User from "./user.class";
 
 export default class UserStorage {
+    private readonly storageKey = 'user'
+
     private user: User
     private database
 
@@ -15,11 +17,11 @@ export default class UserStorage {
     }
 
     public async isAvailable() {
-        return !!(await this.database.getItem('user'))
+        return !!(await this.database.getItem(this.storageKey))
     }
 
     public async restore() {
-        const storedUser: null | IRawUser = await this.database.getItem('user')
+        const storedUser: null | IRawUser = await this.database.getItem(this.storageKey)
 
         if (storedUser) {
             this.user.raw.profile = storedUser.profile
@@ -35,9 +37,13 @@ export default class UserStorage {
 
         this.user.setChanged(true)
 
-        this.database.setItem('user', {
+        this.database.setItem(this.storageKey, {
             profile: exportedProfile,
             media: exportedMedia,
         })
+    }
+
+    public async remove() {
+        this.database.removeItem(this.storageKey)
     }
 }

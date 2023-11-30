@@ -10,10 +10,11 @@ export const useUserStore = defineStore("user", () => {
    * Load user
    *
    * @param rawUser
+   * @param origin
    * @param storeImmediately
    */
-  function loadUser(rawUser: IRawUser, storeImmediately: boolean = false): IUser {
-    const user = new User(toRaw(rawUser), storeImmediately)
+  function loadUser(rawUser: IRawUser, origin: string, storeImmediately: boolean = false) {
+    const user = new User(toRaw(rawUser), origin, storeImmediately)
     const username = rawUser.profile.username
 
     // store initialized user
@@ -21,8 +22,6 @@ export const useUserStore = defineStore("user", () => {
 
     // store user to selector list
     userSelectorStore.addUserToSelectorList(username)
-
-    return user;
   }
 
   /**

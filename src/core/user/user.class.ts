@@ -4,8 +4,8 @@ import MediaManager from "../media/mediaManager.class";
 
 export default class User {
     public readonly raw: IRawUser
+    public readonly origin: string = ''
 
-    public order: number = 0
     public options: IUserOptions = {}
 
     public profile: UserProfile = {} as UserProfile
@@ -18,8 +18,9 @@ export default class User {
         changed: false
     })
 
-    constructor(raw: IRawUser, storeImmediately: boolean = false) {
+    constructor(raw: IRawUser, origin: string, storeImmediately: boolean = false) {
         this.raw = raw
+        this.origin = origin
         this.storage = new UserStorage(this)
 
         this.storage.isAvailable().then(async available => {
@@ -53,8 +54,12 @@ export default class User {
         this.media = new MediaManager(this);
     }
 
-    get hasChanges() {
+    get hasLocalChanges() {
         return this.status.changed
+    }
+
+    get isRemovable() {
+        return this.origin !== 'config'
     }
 
     public setChanged(value: boolean) {
@@ -63,5 +68,18 @@ export default class User {
 
     public async save() {
         await this.storage.save()
+    }
+
+    public async remove() {
+        useUserStore().unloadUser(this.profile.username)
+
+        useUserSelectorStore().removeUserFromSelectorList(this.profile.username)
+        useUserStorageStore().removeUserFromStorageIndex(this.profile.username)
+
+        if (this.isRemovable || this.hasLocalChanges) {
+            await this.storage.remove()
+        }
+
+        return true
     }
 }
