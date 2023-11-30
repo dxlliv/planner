@@ -9,7 +9,7 @@
       :offset="[7, 0]"
   >
     <v-list>
-      <v-list-item>
+      <v-list-item @click="onProfileCreate">
         <v-list-item-title>Create profile</v-list-item-title>
       </v-list-item>
       <v-divider />
@@ -29,6 +29,10 @@ const menu = ref(false)
 watch(() => menu.value, value => {
   emit('toggle', value)
 })
+
+function onProfileCreate() {
+  window.alert('Not implemented yet,\nedit the configuration.\n\nRead the docs for further info\ndxlliv.github.io/ig-planner/docs/')
+}
 
 function onProfileImportFromFolder() {
   userImportStore.importFromDirectory()
