@@ -3,14 +3,21 @@ import localforage from 'localforage';
 export const useUserStorageStore = defineStore("user/storage", () => {
   const userStore = useUserStore()
 
-  const storage: Ref<IRawConfig> = ref([])
+  const users: Ref<userPath[]> = ref([])
+
+  async function initialize() {
+    localforage.config({
+      driver: localforage.INDEXEDDB,
+      name: 'planner',
+    })
+  }
 
   /**
    * Load users from local forage
    * (usernames are stored in local storage)
    */
   async function loadUsersFromStorage() {
-    for await (const username of storage.value) {
+    for await (const username of users.value) {
       await restoreUserFromStorage(username)
     }
   }
@@ -22,9 +29,9 @@ export const useUserStorageStore = defineStore("user/storage", () => {
    *
    * @param username
    */
-  function addUserToStorage(username: string) {
-    if (!storage.value.includes(username)) {
-      storage.value.push(username)
+  function addUserToStorageIndex(username: string) {
+    if (!users.value.includes(username)) {
+      users.value.push(username)
     }
   }
 
@@ -34,9 +41,9 @@ export const useUserStorageStore = defineStore("user/storage", () => {
    *
    * @param username
    */
-  function removeUserFromStorage(username: string) {
-    if (storage.value.includes(username)) {
-      storage.value = storage.value.filter(u => u !== username)
+  function removeUserFromStorageIndex(username: string) {
+    if (users.value.includes(username)) {
+      users.value = users.value.filter(u => u !== username)
     }
   }
 
@@ -58,14 +65,15 @@ export const useUserStorageStore = defineStore("user/storage", () => {
     } else {
       // something happened,
       // it no longer exists
-      removeUserFromStorage(username)
+      removeUserFromStorageIndex(username)
     }
   }
 
   return {
-    storage,
-    addUserToStorage,
-    removeUserFromStorage,
+    users,
+    initialize,
+    addUserToStorageIndex,
+    removeUserFromStorageIndex,
     loadUsersFromStorage,
   };
 }, {

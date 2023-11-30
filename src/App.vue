@@ -1,6 +1,10 @@
 <template>
   <v-app>
-    <router-view />
+    <suspense>
+      <AppLoader>
+        <router-view />
+      </AppLoader>
+    </suspense>
   </v-app>
 </template>
 
@@ -8,10 +12,6 @@
 const extraStore = useExtraStore();
 const themeStore = useThemeStore();
 const theme = useTheme()
-
-// app initialize
-useConfigStore().loadConfig()
-useUserStorageStore().loadUsersFromStorage()
 
 // restore previous dark theme state
 themeStore.restorePreviousState(theme)

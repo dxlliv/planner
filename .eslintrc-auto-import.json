@@ -117,6 +117,8 @@
     "openUserDirectory": true,
     "isValidJson": true,
     "getUserStored": true,
-    "useUserStorageStore": true
+    "useUserStorageStore": true,
+    "useUserSelectorStore": true,
+    "useUserImportStore": true
   }
 }

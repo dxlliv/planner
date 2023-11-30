@@ -1,14 +1,14 @@
 import {openUserDirectory, readUserDirectoryConfig} from "../utils/utilsProfile";
 import MediaManager from "../core/media/mediaManager.class";
 
-export const useProfileManagerStore = defineStore("profile/manager", () => {
+export const useUserImportStore = defineStore("user/import", () => {
   const userStore = useUserStore()
   const userStorageStore = useUserStorageStore()
 
   const directory: Ref<any> = ref(null);
   const rawUserConfig: Ref<IRawUser> = ref({} as IRawUser)
 
-  async function importUserFromDirectory() {
+  async function importFromDirectory() {
     directory.value = await openUserDirectory()
 
     // convert config.json file to raw user object
@@ -24,7 +24,7 @@ export const useProfileManagerStore = defineStore("profile/manager", () => {
 
     // initialize user
     userStore.loadUser(rawUserConfig.value, true)
-    userStorageStore.addUserToStorage(rawUserConfig.value.profile.username)
+    userStorageStore.addUserToStorageIndex(rawUserConfig.value.profile.username)
   }
 
   const configFile: ComputedRef<IRawUserProfile> = computed(() => {
@@ -111,6 +111,6 @@ export const useProfileManagerStore = defineStore("profile/manager", () => {
   }
 
   return {
-    importUserFromDirectory,
+    importFromDirectory,
   };
 });

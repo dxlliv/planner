@@ -13,7 +13,9 @@
 
         <suspense>
           <UserAvatar :avatar="user.profile.avatar">
-            <UserEditorBadgeChanges v-if="user.hasChanges" />
+            <template #inner>
+              <UserEditorBadgeChanges v-if="user.hasChanges" />
+            </template>
           </UserAvatar>
         </suspense>
 

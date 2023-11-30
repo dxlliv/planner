@@ -32,10 +32,18 @@ if (props.avatar) {
   border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
 
   &__container {
-    :deep(.v-badge) {
-      position: absolute;
-      top: 28px;
-      right: 8px;
+    :deep(.v-avatar) {
+      overflow: inherit;
+
+      .v-img {
+        border-radius: 50%;
+      }
+
+      .v-badge {
+        position: absolute;
+        top: 22px;
+        right: 10px;
+      }
     }
   }
 }

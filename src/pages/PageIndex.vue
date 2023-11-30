@@ -1,14 +1,29 @@
 <template>
   <v-container class="text-center pt-16">
 
-    <template v-for="(user, i) of users" :key="i">
-      <UserSelector
-          v-if="user.ready"
-          :user="user"
-      />
-    </template>
+    <div class="d-inline-flex text-center">
+      <SlickList
+          class="v-row"
+          v-model:list="listOfUsernames"
+          @update:list="onListUpdated"
+          axis="x"
+      >
+        <SlickItem
+            class="v-col flex-grow-0"
+            v-for="(user, i) of listOfUsers"
+            :key="user.profile.username" :index="i"
+        >
+          <UserSelector
+              v-if="user && user.ready"
+              :user="user"
+          />
+        </SlickItem>
 
-    <UserSelectorAdd />
+        <div class="v-col flex-grow-0">
+          <UserSelectorAdd />
+        </div>
+      </SlickList>
+    </div>
 
     <v-divider class="mt-15 mb-10" />
 
@@ -18,9 +33,15 @@
 </template>
 
 <script setup lang="ts">
-const userStore = useUserStore()
+import { SlickList, SlickItem } from 'vue-slicksort';
+const userSelectorStore = useUserSelectorStore()
 
-const users = computed(() => userStore.userList);
+const listOfUsernames = ref(userSelectorStore.listOfUsernames);
+const listOfUsers = computed(() => userSelectorStore.listOfUsers);
+
+function onListUpdated(usernames: string[]) {
+  userSelectorStore.setUsersOrder(usernames)
+}
 </script>
 
 <style scoped lang="scss">

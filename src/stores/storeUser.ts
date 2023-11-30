@@ -1,6 +1,8 @@
 import User from "../core/user/user.class";
 
 export const useUserStore = defineStore("user", () => {
+  const userSelectorStore = useUserSelectorStore()
+
   const users: Ref<{[username: string]: User}> = ref({});
   const userActive: Ref<string> = ref('')
 
@@ -12,8 +14,13 @@ export const useUserStore = defineStore("user", () => {
    */
   function loadUser(rawUser: IRawUser, storeImmediately: boolean = false): IUser {
     const user = new User(toRaw(rawUser), storeImmediately)
+    const username = rawUser.profile.username
 
-    users.value[rawUser.profile.username] = user
+    // store initialized user
+    users.value[username] = user
+
+    // store user to selector list
+    userSelectorStore.addUserToSelectorList(username)
 
     return user;
   }
@@ -44,6 +51,10 @@ export const useUserStore = defineStore("user", () => {
     return true;
   }
 
+  function getUser(username: string) {
+    return users.value[username]
+  }
+
   /**
    * Set active user
    *
@@ -53,24 +64,17 @@ export const useUserStore = defineStore("user", () => {
     userActive.value = username
   }
 
-  /**
-   * Return users sorted by order
-   */
-  const userList: ComputedRef<User[]> = computed(() => {
-    return Object.values(users.value).sort((a: any, b: any) => a.order - b.order)
-  })
-
   const user = computed(() => {
     return users.value[userActive.value]
   })
 
   return {
     users,
-    userList,
-    userActive,
     user,
+    userActive,
     loadUser,
     unloadUser,
     loadUserPage,
+    getUser,
   };
 });

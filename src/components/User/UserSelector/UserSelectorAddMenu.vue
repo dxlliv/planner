@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-const userStore = useProfileManagerStore()
+const userImportStore = useUserImportStore()
 const emit = defineEmits(['toggle'])
 
 const menu = ref(false)
@@ -31,7 +31,7 @@ watch(() => menu.value, value => {
 })
 
 function onProfileImportFromFolder() {
-  userStore.importUserFromDirectory()
+  userImportStore.importFromDirectory()
 }
 </script>
 
