@@ -6,7 +6,7 @@ titleTemplate: Plan your Instagram profile like a pro
 
 hero:
   text: Plan your Instagram profile like a pro
-  tagline: Simple, versatile, and fast. Relieve the OCD<br />and build your definitive Instagram profile.
+  tagline: Simple, fast, and versatile. Relieve the OCD<br />and build your definitive Instagram profile.
   actions:
     - theme: brand
       text: Get Started
@@ -36,7 +36,7 @@ features:
 
 <style>
 :root {
-  --vp-home-hero-image-background-image: linear-gradient(-25deg, #0a90a188 25%, #3fb78b88 50%);
+  --vp-home-hero-image-background-image: linear-gradient(-25deg, #55555522 25%, #66666622 50%);
   --vp-home-hero-image-filter: blur(44px);
 }
 
@@ -52,7 +52,15 @@ features:
   }
 }
 
+.VPFeature {
+    border: 1px solid #e9e9e9 !important;
+}
+
 html.dark img.image-src {
     filter: invert(1);
+}
+
+html.dark .VPFeature {
+    border: 1px solid transparent !important;
 }
 </style>
