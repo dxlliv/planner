@@ -18,7 +18,7 @@ export default class User {
         changed: false
     })
 
-    constructor(raw: IRawUser) {
+    constructor(raw: IRawUser, storeImmediately: boolean = false) {
         this.raw = raw
         this.storage = new UserStorage(this)
 
@@ -29,6 +29,13 @@ export default class User {
 
             this.parseUserOptions()
             this.parseUserProfile()
+
+            // when you import users from directory/zip,
+            // you may want to save the profile immediately
+            if (storeImmediately) {
+                this.parseUserMedia()
+                await this.save()
+            }
 
             this.ready.value = true
         })

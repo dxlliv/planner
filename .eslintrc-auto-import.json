@@ -112,6 +112,10 @@
     "watchEffect": true,
     "watchPostEffect": true,
     "watchSyncEffect": true,
-    "readUserDirectoryConfig": true
+    "readUserDirectoryConfig": true,
+    "openProfileDirectory": true,
+    "openUserDirectory": true,
+    "isValidJson": true,
+    "getUserStored": true
   }
 }

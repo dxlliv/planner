@@ -4,3 +4,12 @@ export function generateUuidv4() {
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
     );
 }
+
+export function isValidJson(string: string) {
+    try {
+        JSON.parse(string);
+        return true
+    } catch {
+        return false
+    }
+}

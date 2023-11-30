@@ -13,7 +13,7 @@
         <v-list-item-title>Create profile</v-list-item-title>
       </v-list-item>
       <v-divider />
-      <v-list-item>
+      <v-list-item @click="onProfileImportFromFolder">
         <v-list-item-title>Import from folder</v-list-item-title>
       </v-list-item>
     </v-list>
@@ -21,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+const userStore = useProfileManagerStore()
 const emit = defineEmits(['toggle'])
 
 const menu = ref(false)
@@ -29,8 +30,8 @@ watch(() => menu.value, value => {
   emit('toggle', value)
 })
 
-function onProfileRemove() {
-
+function onProfileImportFromFolder() {
+  userStore.importUserFromDirectory()
 }
 </script>
 

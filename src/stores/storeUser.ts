@@ -8,11 +8,14 @@ export const useUserStore = defineStore("user", () => {
    * Load user
    *
    * @param rawUser
+   * @param storeImmediately
    */
-  function loadUserConfig(rawUser: IRawUser): boolean {
-    users.value[rawUser.profile.username] = new User(toRaw(rawUser))
+  function loadUser(rawUser: IRawUser, storeImmediately: boolean = false): IUser {
+    const user = new User(toRaw(rawUser), storeImmediately)
 
-    return true;
+    users.value[rawUser.profile.username] = user
+
+    return user;
   }
 
   /**
@@ -20,7 +23,7 @@ export const useUserStore = defineStore("user", () => {
    *
    * @param username
    */
-  function unloadUserConfig(username: string): boolean {
+  function unloadUser(username: string): boolean {
     delete users.value[username]
 
     return true;
@@ -66,8 +69,9 @@ export const useUserStore = defineStore("user", () => {
     userList,
     userActive,
     user,
-    loadUserConfig,
-    unloadUserConfig,
+    loadUser,
+    unloadUser,
     loadUserPage,
+    importUserFromDirectory,
   };
 });

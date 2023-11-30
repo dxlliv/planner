@@ -8,7 +8,7 @@ export const useConfigUserStore = defineStore("config/user", () => {
    */
   function loadUsers() {
     Object.values(config.value).map(rawUser => {
-      userStore.loadUserConfig(rawUser)
+      userStore.loadUser(rawUser)
     })
   }
 
@@ -57,6 +57,4 @@ export const useConfigUserStore = defineStore("config/user", () => {
     getUserConfig,
     loadUsers,
   };
-}, {
-  persist: true
 });

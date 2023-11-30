@@ -26,7 +26,7 @@ const { user } = defineProps<{
 
 function onProfileRemove() {
   useConfigUserStore().unsetUserConfig(user.profile.username)
-  useUserStore().unloadUserConfig(user.profile.username)
+  useUserStore().unloadUser(user.profile.username)
 }
 </script>
 
