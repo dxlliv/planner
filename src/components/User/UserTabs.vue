@@ -53,6 +53,7 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> = compu
   display: block;
   text-align: center;
   padding: 0;
+  margin-bottom: 2px;
 
   &__tab {
     display: inline-block;

@@ -1,34 +1,38 @@
 <template>
-  <v-container class="text-center pt-16">
+  <v-container class="ig-index text-center py-16 align-content-center">
 
-    <div class="d-inline-flex text-center">
-      <SlickList
-          class="v-row"
-          v-model:list="listOfUsernames"
-          @update:list="onListUpdated"
-          axis="x"
-      >
-        <SlickItem
-            class="v-col flex-grow-0"
-            v-for="(user, i) of listOfUsers"
-            :key="user.profile.username" :index="i"
+    <div>
+      <div class="d-inline-flex text-center">
+        <SlickList
+            class="v-row"
+            v-model:list="listOfUsernames"
+            @update:list="onListUpdated"
+            axis="x"
+            :press-delay="100"
         >
-          <UserSelector
-              v-if="user && user.ready"
-              :user="user"
-          />
-        </SlickItem>
+          <SlickItem
+              class="v-col flex-grow-0"
+              v-for="(user, i) of listOfUsers"
+              :key="user.profile.username" :index="i"
+          >
+            <UserSelector
+                v-if="user && user.ready"
+                :user="user"
+            />
+          </SlickItem>
 
-        <div class="v-col flex-grow-0">
-          <UserSelectorAdd />
-        </div>
-      </SlickList>
+          <div class="v-col flex-grow-0">
+            <UserSelectorAdd />
+          </div>
+        </SlickList>
+      </div>
+
+      <v-divider class="mt-15 mb-10" />
+
+      <MainIntro />
+      <MainFooter />
     </div>
 
-    <v-divider class="mt-15 mb-10" />
-
-    <MainIntro />
-    <MainFooter />
   </v-container>
 </template>
 
@@ -45,7 +49,8 @@ function onListUpdated(usernames: string[]) {
 </script>
 
 <style scoped lang="scss">
-footer {
-  user-select: none;
+.ig-index {
+  display: grid;
+  height: 100%;
 }
 </style>

@@ -23,7 +23,7 @@ function onSortEnd() {
 </script>
 
 <template>
-  <v-container class="ig-profile-page__media-grid-container pt-1 px-0">
+  <v-container class="ig-profile-page__media-grid-container px-0">
     <div
         :class="['ig-profile-page__media-grid', {'ig-profile-page__media-grid--dragging': dragging}]"
         ref="gridListRef"
