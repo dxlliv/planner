@@ -46,7 +46,7 @@ function onSortEnd() {
             class="ig-profile-page__media-grid__item v-col v-col-4"
         >
           <DragHandle class="ig-profile-page__media-grid__drag-handle">
-            <v-icon icon="mdi-drag" />
+            <v-icon icon="mdi-drag" color="white" />
           </DragHandle>
 
           <MediaPost
