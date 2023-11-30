@@ -6,6 +6,7 @@
     "name": "Diego Villa",
     "url": "https://github.com/dxlliv"
   },
+  "homepage": "https://dxlliv.github.io/ig-planner/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
