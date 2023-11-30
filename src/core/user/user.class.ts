@@ -8,6 +8,7 @@ export default class User {
 
     public options: IUserOptions = {}
 
+    public username: string = ''
     public profile: UserProfile = {} as UserProfile
     public storage: UserStorage = {} as UserStorage
     public media: MediaManager = {} as MediaManager
@@ -20,6 +21,8 @@ export default class User {
 
     constructor(raw: IRawUser, origin: string, storeImmediately: boolean = false) {
         this.raw = raw
+        this.username = raw.username
+
         this.origin = origin
         this.storage = new UserStorage(this)
 
@@ -71,10 +74,10 @@ export default class User {
     }
 
     public async remove() {
-        useUserStore().unloadUser(this.profile.username)
+        useUserStore().unloadUser(this.username)
 
-        useUserSelectorStore().removeUserFromSelectorList(this.profile.username)
-        useUserStorageStore().removeUserFromStorageIndex(this.profile.username)
+        useUserSelectorStore().removeUserFromSelectorList(this.username)
+        useUserStorageStore().removeUserFromStorageIndex(this.username)
 
         if (this.isRemovable || this.hasLocalChanges) {
             await this.storage.remove()

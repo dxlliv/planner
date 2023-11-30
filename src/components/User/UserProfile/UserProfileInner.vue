@@ -1,22 +1,22 @@
 <script setup lang="ts">
 const props = defineProps<{
-  profile: IUserProfile;
+  user: IUser;
 }>();
 </script>
 
 <template>
   <div class="ig-profile-page__header__inner">
     <UserProfileName
-        :profile="profile"
+        :user="user"
     />
 
     <UserProfileBiography
-      :biography="profile.biography"
-      @update="(biography) => profile.updateBiography(biography)"
+      :biography="user.profile.biography"
+      @update="(biography) => user.profile.updateBiography(biography)"
     />
 
     <UserProfileWebsite
-        :profile="profile"
+        :user="user"
     />
   </div>
 

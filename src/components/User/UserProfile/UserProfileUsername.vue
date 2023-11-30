@@ -1,13 +1,13 @@
 <script setup lang="ts">
 defineProps<{
-  profile: IUserProfile
+  user: IUser
 }>();
 </script>
 
 <template>
   <div class="ig-profile-page__header__username">
-    <span v-text="profile.username" />
-    <v-icon v-if="profile.verified" icon="mdi-check-decagram" />
+    <span v-text="user.username" />
+    <v-icon v-if="user.profile.verified" icon="mdi-check-decagram" />
   </div>
 </template>
 

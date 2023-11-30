@@ -24,7 +24,7 @@ export const useUserImportStore = defineStore("user/import", () => {
 
     // initialize user
     userStore.loadUser(rawUserConfig.value, 'storage', true)
-    userStorageStore.addUserToStorageIndex(rawUserConfig.value.profile.username)
+    userStorageStore.addUserToStorageIndex(rawUserConfig.value.username)
   }
 
   const configFile: ComputedRef<IRawUserProfile> = computed(() => {

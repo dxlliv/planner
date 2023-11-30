@@ -5,6 +5,7 @@ or maybe just to define a YouTube Short or posts from other platforms as reel.
 
 ```json
 {
+  "username": "...",
   "profile": { ... },
   "media": {
     "posts": [

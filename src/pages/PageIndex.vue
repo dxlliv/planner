@@ -13,7 +13,7 @@
           <SlickItem
               class="v-col flex-grow-0"
               v-for="(user, i) of listOfUsers"
-              :key="user.profile.username" :index="i"
+              :key="user.username" :index="i"
           >
             <UserSelector
                 v-if="user && user.ready"

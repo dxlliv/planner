@@ -4,6 +4,7 @@ If you want to define an album as post, just provide an array with each filename
 
 ```json
 {
+  "username": "...",
   "profile": { ... },
   "media": {
     "posts": [

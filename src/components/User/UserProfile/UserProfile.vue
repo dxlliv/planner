@@ -1,17 +1,17 @@
 <script setup lang="ts">
 defineProps<{
-  profile: IUserProfile
+  user: IUser
 }>();
 </script>
 
 <template>
   <UserProfileDesktop
       v-if="$vuetify.display.smAndUp"
-      :profile="profile"
+      :user="user"
   />
   <UserProfileMobile
       v-else
-      :profile="profile"
+      :user="user"
   />
 </template>
 

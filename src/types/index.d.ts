@@ -4,6 +4,7 @@ interface IRawConfig {
 
 interface IRawUser {
   origin: string
+  username: string;
   profile: IRawUserProfile;
   media: IRawUserMedia;
   options: any;
@@ -66,6 +67,7 @@ type IUsers = { [username: string]: IUser };
 interface IUser {
   origin: string
   options: IUserOptions;
+  username: string;
   profile: IUserProfile;
   media: IUserMedia;
 
@@ -76,7 +78,6 @@ interface IUser {
 
 interface IUserProfile {
   name: string;
-  username: string;
   website: null | {
     href: string;
     label: string;
@@ -90,7 +91,6 @@ interface IUserProfile {
   public_profile: string
 
   setName(name: string): void
-  setUsername(username: string): void
 
   setBiography(biography: string): void
   updateBiography(biography: string): Promise<void>

@@ -12,7 +12,7 @@ export default class UserStorage {
 
         this.database = localforage.createInstance({
             name: 'planner',
-            storeName: user.raw.profile.username
+            storeName: user.username
         })
     }
 

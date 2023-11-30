@@ -5,6 +5,7 @@ Place your images in the `public/user/{username}/media/` folder.
 
 ```json
 {
+  "username": "...",
   "profile": { ... },
   "media": {
     "posts": [

@@ -6,7 +6,6 @@ export default class UserProfile {
     private readonly user: User
 
     public name: string = ''
-    public username: string = ''
     public website: IUserProfileWebsite = null
     public verified: boolean = false
     public biography: string = ''
@@ -22,15 +21,11 @@ export default class UserProfile {
     }
 
     get public_profile() {
-        return `https://instagram.com/${this.username}`
+        return `https://instagram.com/${this.user.username}`
     }
 
     public setName(name: string) {
         this.name = name
-    }
-
-    public setUsername(username: string) {
-        this.username = username;
     }
 
     public setBiography(biography: string) {
@@ -76,10 +71,6 @@ export default class UserProfile {
             this.setName(rawProfile.name)
         }
 
-        if (rawProfile.username) {
-            this.setUsername(rawProfile.username)
-        }
-
         if (rawProfile.biography) {
             this.setBiography(rawProfile.biography)
         }
@@ -101,7 +92,7 @@ export default class UserProfile {
         }
 
         if (rawProfile.avatar) {
-            const avatar = new UserAvatar(rawProfile.avatar, this.username)
+            const avatar = new UserAvatar(rawProfile.avatar, this.user.username)
 
             this.setAvatar(avatar)
         }
@@ -110,7 +101,6 @@ export default class UserProfile {
     public async export(): Promise<IRawUserProfile> {
         return removeUndefinedFromObject({
             name: this.name,
-            username: this.username,
             verified: this.verified,
             followers_count: this.followers_count,
             follows_count: this.follows_count,

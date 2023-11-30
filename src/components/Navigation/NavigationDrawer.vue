@@ -77,7 +77,7 @@ const userExport = ref(false)
       <v-list-item
           v-if="user.ready"
           title="Profile"
-          :to="`/ig-planner/${user.profile.username}`"
+          :to="`/ig-planner/${user.username}`"
       >
         <template #prepend>
           <suspense>

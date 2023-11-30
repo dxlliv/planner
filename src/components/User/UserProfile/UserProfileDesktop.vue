@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  profile: IUserProfile;
+  user: IUser;
 }>();
 </script>
 
@@ -9,14 +9,14 @@ defineProps<{
     <v-row>
       <v-col cols="4" class="ig-profile-page__header__avatar text-center">
         <suspense>
-          <UserAvatar :avatar="profile?.avatar" />
+          <UserAvatar :avatar="user.profile.avatar" />
         </suspense>
       </v-col>
 
       <v-col cols="8">
-        <UserProfileUsername :profile="profile" class="mb-5" />
-        <UserProfileStats :profile="profile" class="mb-5" />
-        <UserProfileInner :profile="profile" />
+        <UserProfileUsername :user="user" class="mb-5" />
+        <UserProfileStats :user="user" class="mb-5" />
+        <UserProfileInner :user="user" />
       </v-col>
     </v-row>
   </div>

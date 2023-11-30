@@ -5,7 +5,7 @@
           :to="{
             name: 'user',
             params: {
-              username: user.profile.username,
+              username: user.username,
             },
           }"
           @contextmenu="showProfileContextMenu"
@@ -19,7 +19,7 @@
           </UserAvatar>
         </suspense>
 
-        <h3 class="mt-4" v-text="user.profile.username" />
+        <h3 class="mt-4" v-text="user.username" />
 
         <UserSelectorMenu
             v-if="contextMenu.enabled"

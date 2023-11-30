@@ -1,18 +1,18 @@
 <script setup lang="ts">
 defineProps<{
-  profile: IUserProfile;
+  user: IUser;
 }>();
 </script>
 
 <template>
   <a
-      v-if="profile.website"
+      v-if="user.profile.website"
       class="ig-profile-page__header__website"
-      :href="profile.website.href"
+      :href="user.profile.website.href"
       target="_blank"
   >
     <v-icon icon="mdi-link-variant" :size="16" />
-    {{profile.website.label}}
+    {{user.profile.website.label}}
   </a>
 </template>
 

@@ -15,7 +15,7 @@ export const useUserStore = defineStore("user", () => {
    */
   function loadUser(rawUser: IRawUser, origin: string, storeImmediately: boolean = false) {
     const user = new User(toRaw(rawUser), origin, storeImmediately)
-    const username = rawUser.profile.username
+    const username = rawUser.username
 
     // store initialized user
     users.value[username] = user

@@ -1,7 +1,7 @@
 <template>
   <v-sheet color="transparent" class="ig-profile-page">
     <v-container class="py-0">
-      <UserProfile :profile="user.profile" />
+      <UserProfile :user="user" />
 
       <UserTabs
         :media="user.media"

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 defineProps<{
-  profile: IUserProfile
+  user: IUser
 }>();
 </script>
 
 <template>
   <p
-      v-if="profile.name"
+      v-if="user.profile.name"
       class="ig-profile-page__header__name"
-      v-text="profile.name"
+      v-text="user.profile.name"
   />
 </template>
 
