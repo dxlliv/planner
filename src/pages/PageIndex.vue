@@ -20,7 +20,7 @@
 <script setup lang="ts">
 const userStore = useUserStore()
 
-const users = computed(() => Object.values(userStore.users));
+const users = computed(() => userStore.userList);
 </script>
 
 <style scoped lang="scss">

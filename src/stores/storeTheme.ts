@@ -1,6 +1,6 @@
 import {ThemeInstance} from "vuetify";
 
-export const useThemeStore = defineStore("themex", () => {
+export const useThemeStore = defineStore("theme", () => {
   const dark: Ref<any> = ref(false);
 
   function restorePreviousState(theme: ThemeInstance) {

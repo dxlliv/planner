@@ -18,7 +18,7 @@
 .ig-intro {
   a {
     color: inherit;
-    opacity: 0.75;
+    opacity: 0.65;
     text-decoration: none;
   }
 }

@@ -116,6 +116,7 @@
     "openProfileDirectory": true,
     "openUserDirectory": true,
     "isValidJson": true,
-    "getUserStored": true
+    "getUserStored": true,
+    "useUserStorageStore": true
   }
 }

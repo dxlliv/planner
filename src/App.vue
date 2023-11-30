@@ -10,8 +10,8 @@ const themeStore = useThemeStore();
 const theme = useTheme()
 
 // app initialize
-useConfigStore().loadLocalConfig()
-useConfigStore().loadStorageConfig()
+useConfigStore().loadConfig()
+useUserStorageStore().loadUsersFromStorage()
 
 // restore previous dark theme state
 themeStore.restorePreviousState(theme)

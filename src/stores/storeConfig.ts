@@ -1,43 +1,33 @@
 import plannerConfig from "../../config.json";
 
 export const useConfigStore = defineStore("config", () => {
-  const configUserStore = useConfigUserStore()
-
-  const config: Ref<IRawConfig> = ref({
-    users: []
-  })
+  const userStore = useUserStore()
 
   /**
    * Load ig-planner local configuration
    * from /ig-planner/config.json
    */
-  async function loadLocalConfig(): Promise<boolean> {
+  async function loadConfig() {
+    await loadUsersFromLocalConfig()
+  }
+
+  /**
+   * Load users from local config
+   */
+  async function loadUsersFromLocalConfig(): Promise<boolean> {
     // for each user defined in the root config.json
-    for await (const userConfigPath of plannerConfig.users) {
+    for await (const userPath of plannerConfig.users) {
       // fetch user config from its local/remote path
-      const remoteUserConfig = await fetchRemoteUserConfig(`${userConfigPath}/config.json`)
+      const remoteUserConfig = await fetchRemoteUserConfig(`${userPath}/config.json`)
 
-      // set user config in configUserStore
-      configUserStore.setUserConfig(remoteUserConfig)
-
-      // store loaded users
-      config.value.users.push(userConfigPath)
+      // load users
+      userStore.loadUser(remoteUserConfig)
     }
-
-    // initialize users
-    configUserStore.loadUsers()
 
     return true;
   }
 
-  async function loadStorageConfig() {
-
-  }
-
   return {
-    loadLocalConfig,
-    loadStorageConfig,
+    loadConfig,
   };
-}, {
-  persist: true
-});
+})

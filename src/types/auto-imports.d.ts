@@ -126,6 +126,7 @@ declare global {
   const useSlots: typeof import('vue')['useSlots']
   const useTheme: typeof import('vuetify')['useTheme']
   const useThemeStore: typeof import('../stores/storeTheme')['useThemeStore']
+  const useUserStorageStore: typeof import('../stores/storeUserStorage')['useUserStorageStore']
   const useUserStore: typeof import('../stores/storeUser')['useUserStore']
   const userAvatarClass: typeof import('../core/user/userAvatar.class')['default']
   const userClass: typeof import('../core/user/user.class')['default']

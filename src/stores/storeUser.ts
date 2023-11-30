@@ -72,6 +72,5 @@ export const useUserStore = defineStore("user", () => {
     loadUser,
     unloadUser,
     loadUserPage,
-    importUserFromDirectory,
   };
 });

@@ -2,8 +2,8 @@ import {openUserDirectory, readUserDirectoryConfig} from "../utils/utilsProfile"
 import MediaManager from "../core/media/mediaManager.class";
 
 export const useProfileManagerStore = defineStore("profile/manager", () => {
-  const configUserStore = useConfigUserStore()
   const userStore = useUserStore()
+  const userStorageStore = useUserStorageStore()
 
   const directory: Ref<any> = ref(null);
   const rawUserConfig: Ref<IRawUser> = ref({} as IRawUser)
@@ -22,11 +22,9 @@ export const useProfileManagerStore = defineStore("profile/manager", () => {
     if (rawUserConfig.value.media.posts) importRawMediaFilesByCollection("posts")
     if (rawUserConfig.value.media.reels) importRawMediaFilesByCollection("reels")
 
-    // define user config in configUserStore
-    configUserStore.setUserConfig(rawUserConfig.value)
-
     // initialize user
     userStore.loadUser(rawUserConfig.value, true)
+    userStorageStore.addUserToStorage(rawUserConfig.value.profile.username)
   }
 
   const configFile: ComputedRef<IRawUserProfile> = computed(() => {
