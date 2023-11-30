@@ -2,13 +2,6 @@
 const props = defineProps<{
   profile: IUserProfile;
 }>();
-
-const biography = computed(() => {
-  return props.profile.biography?.replace(
-      /(?:\r\n|\r|\n)/g,
-      "<br>",
-  )
-})
 </script>
 
 <template>
@@ -17,9 +10,9 @@ const biography = computed(() => {
         :profile="profile"
     />
 
-    <p
-        class="ig-profile-page__header__biography"
-        v-html="biography"
+    <UserProfileBiography
+      :biography="profile.biography"
+      @update="(biography) => profile.updateBiography(biography)"
     />
 
     <UserProfileWebsite

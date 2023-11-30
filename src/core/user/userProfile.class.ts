@@ -37,6 +37,11 @@ export default class UserProfile {
         this.biography = biography;
     }
 
+    public async updateBiography(biography: string) {
+        this.setBiography(biography)
+        await this.user.save()
+    }
+
     public setVerified(verified: boolean) {
         this.verified = Boolean(verified);
     }

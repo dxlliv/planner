@@ -49,6 +49,7 @@ declare module 'vue' {
     UserExport: typeof import('./../components/User/UserExport/UserExport.vue')['default']
     UserMediaGrid: typeof import('./../components/User/UserMedia/UserMediaGrid.vue')['default']
     UserProfile: typeof import('./../components/User/UserProfile/UserProfile.vue')['default']
+    UserProfileBiography: typeof import('./../components/User/UserProfile/UserProfileBiography.vue')['default']
     UserProfileDesktop: typeof import('./../components/User/UserProfile/UserProfileDesktop.vue')['default']
     UserProfileInner: typeof import('./../components/User/UserProfile/UserProfileInner.vue')['default']
     UserProfileMobile: typeof import('./../components/User/UserProfile/UserProfileMobile.vue')['default']

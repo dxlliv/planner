@@ -91,7 +91,10 @@ interface IUserProfile {
 
   setName(name: string): void
   setUsername(username: string): void
+
   setBiography(biography: string): void
+  updateBiography(biography: string): Promise<void>
+
   setVerified(verified: boolean): void
   setPostsCount(count: number): void
   setFollowersCount(count: number): void

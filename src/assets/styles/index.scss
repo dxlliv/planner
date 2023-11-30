@@ -28,3 +28,7 @@ h2 {
 .no-pointer-events {
   pointer-events: none;
 }
+
+p[contenteditable] {
+  outline: none;
+}
