@@ -88,6 +88,16 @@ interface IUserProfile {
   follows_count: number;
   posts_count: ComputedRef<number>;
   public_profile: string
+
+  setName(name: string): void
+  setUsername(username: string): void
+  setBiography(biography: string): void
+  setVerified(verified: boolean): void
+  setPostsCount(count: number): void
+  setFollowersCount(count: number): void
+  setFollowsCount(count: number): void
+  setWebsite(website: any): void
+  setAvatar(avatar: UserAvatar): void
 }
 
 interface UserAvatar {
