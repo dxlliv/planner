@@ -30,7 +30,7 @@
       <v-divider class="mt-15 mb-10" />
 
       <MainIntro />
-      <MainFooter />
+      <MainFooter class="pb-0" />
     </div>
 
   </v-container>

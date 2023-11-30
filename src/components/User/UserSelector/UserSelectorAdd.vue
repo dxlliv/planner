@@ -8,7 +8,10 @@
 
         <UserSelectorAddMenu @toggle="onMenuToggle" />
 
-        <h3 class="mt-4" v-text="randomUsername.value" />
+        <h3
+            class="text-truncate mt-4 mx-auto text-center"
+            v-text="randomUsername.value"
+        />
       </UserAvatar>
     </suspense>
   </UserSelector>
@@ -49,6 +52,8 @@ async function onProfileAdd() {
 
 <style scoped lang="scss">
 h3 {
+  max-width: 240px;
+  height: 28px;
   opacity: 0.1;
 }
 </style>
