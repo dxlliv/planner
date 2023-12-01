@@ -1,12 +1,12 @@
 import User from "../user/user.class";
-import MediaImage from "./mediaImage.class";
-import MediaVideo from "./mediaVideo.class";
-import MediaAlbum from "./mediaAlbum.class";
-import MediaIframe from "./mediaIframe.class";
+import MediaImage from "../media/mediaImage.class";
+import MediaVideo from "../media/mediaVideo.class";
+import MediaAlbum from "../media/mediaAlbum.class";
+import MediaIframe from "../media/mediaIframe.class";
 import {fulfillMediaPostsForMediaExport} from "../../utils/utilsUserExport";
 
-export default class MediaManager {
-    private readonly user: User
+export default class UserMedia implements IUserMedia {
+    public readonly user: User
 
     public posts: IMedia[] = []
     public reels: IMedia[] = []
@@ -41,7 +41,7 @@ export default class MediaManager {
         collection: IMediaCollection = 'posts',
         addMethod: 'push' | 'unshift' = 'push'
     ) {
-        const media = MediaManager.newMedia(rawMedia, this.user)
+        const media = UserMedia.newMedia(rawMedia, this.user)
         media.setMediaCollection(collection)
 
         this[collection][addMethod](media)
@@ -57,7 +57,7 @@ export default class MediaManager {
     }
 
     public static newMedia(rawMedia: string | IRawMedia, user: User): any {
-        const mediaType = MediaManager.detectMediaType(rawMedia)
+        const mediaType = UserMedia.detectMediaType(rawMedia)
 
         switch (mediaType) {
 

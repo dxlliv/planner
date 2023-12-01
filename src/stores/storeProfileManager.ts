@@ -1,5 +1,4 @@
 import {openUserDirectory, readUserDirectoryConfig} from "../utils/utilsProfile";
-import MediaManager from "../core/media/mediaManager.class";
 
 export const useUserImportStore = defineStore("user/import", () => {
   const userStore = useUserStore()
@@ -42,7 +41,7 @@ export const useUserImportStore = defineStore("user/import", () => {
       rawMediaForImport = {}
 
       if (typeof media === 'string') {
-        rawMediaForImport.type = MediaManager.detectMediaType(media)
+        rawMediaForImport.type = UserMedia.detectMediaType(media)
 
         if (!media.startsWith('http')) {
           rawMediaForImport.file = getMediaFile(media)
@@ -72,7 +71,7 @@ export const useUserImportStore = defineStore("user/import", () => {
               for (const mediaAlbumItem of media.list) {
                 rawMediaAlbumItem = {}
                 if (typeof mediaAlbumItem === 'string') {
-                  rawMediaAlbumItem.type = MediaManager.detectMediaType(mediaAlbumItem)
+                  rawMediaAlbumItem.type = UserMedia.detectMediaType(mediaAlbumItem)
                   rawMediaAlbumItem.file = getMediaFile(mediaAlbumItem)
                 } else if (mediaAlbumItem.name) {
                   rawMediaAlbumItem.type = mediaAlbumItem.type

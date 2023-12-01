@@ -119,6 +119,16 @@
     "getUserStored": true,
     "useUserStorageStore": true,
     "useUserSelectorStore": true,
-    "useUserImportStore": true
+    "useUserImportStore": true,
+    "instagramClass": true,
+    "instagramUserClass": true,
+    "instagramMediaClass": true,
+    "instagramUserMediaClass": true,
+    "instagramUserProfileClass": true,
+    "instagramPlatformClass": true,
+    "instagramInstanceClass": true,
+    "instagramPlatformProfileClass": true,
+    "instagramPlatformMediaClass": true,
+    "userMediaClass": true
   }
 }

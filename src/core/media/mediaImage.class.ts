@@ -1,6 +1,6 @@
 import Media from "./media.class";
 import User from "../user/user.class";
-import MediaManager from "./mediaManager.class";
+import UserMedia from "../user/userMedia.class";
 
 export default class MediaImage extends Media implements IMediaImage {
     public file: IMediaFile = {} as IMediaFile
@@ -41,7 +41,7 @@ export default class MediaImage extends Media implements IMediaImage {
     }
 
     public async convertToAlbum() {
-        const mediaAlbum = MediaManager.newMedia({
+        const mediaAlbum = UserMedia.newMedia({
             type: 'album',
             list: [
                 {

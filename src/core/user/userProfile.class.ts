@@ -1,9 +1,7 @@
-import {removeUndefinedFromObject} from "../../utils/utilsObject";
-import User from "../user/user.class";
 import UserAvatar from "../user/userAvatar.class";
 
-export default class UserProfile {
-    private readonly user: User
+export default class UserProfile implements IUserProfile {
+    public readonly user: IUser
 
     public name: string = ''
     public website: IUserProfileWebsite = null
@@ -14,14 +12,8 @@ export default class UserProfile {
     public follows_count: number = 0
     public posts_count: number = 0
 
-    constructor(user: User) {
+    constructor(user: IUser) {
         this.user = user
-
-        this.import(this.user.raw.profile)
-    }
-
-    get public_profile() {
-        return `https://instagram.com/${this.user.username}`
     }
 
     public setName(name: string) {
@@ -62,51 +54,7 @@ export default class UserProfile {
             };
     }
 
-    public setAvatar(avatar: UserAvatar) {
-        this.avatar = avatar
-    }
-
-    public import(rawProfile: IRawUserProfile) {
-        if (rawProfile.name) {
-            this.setName(rawProfile.name)
-        }
-
-        if (rawProfile.biography) {
-            this.setBiography(rawProfile.biography)
-        }
-
-        if (rawProfile.verified) {
-            this.setVerified(rawProfile.verified)
-        }
-
-        if (rawProfile.followers_count) {
-            this.setFollowersCount(rawProfile.followers_count)
-        }
-
-        if (rawProfile.follows_count) {
-            this.setFollowsCount(rawProfile.follows_count)
-        }
-
-        if (rawProfile.website) {
-            this.setWebsite(rawProfile.website)
-        }
-
-        if (rawProfile.avatar) {
-            const avatar = new UserAvatar(rawProfile.avatar, this.user.username)
-
-            this.setAvatar(avatar)
-        }
-    }
-
-    public async export(): Promise<IRawUserProfile> {
-        return removeUndefinedFromObject({
-            name: this.name,
-            verified: this.verified,
-            followers_count: this.followers_count,
-            follows_count: this.follows_count,
-            website: this.website?.href,
-            biography: this.biography,
-            avatar: await this.avatar?.file
-        })
+    public setAvatar(avatar: string) {
+        this.avatar = new UserAvatar(avatar, this.user.username)
     }
 }

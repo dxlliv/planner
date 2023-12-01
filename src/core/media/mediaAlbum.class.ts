@@ -1,6 +1,6 @@
 import Media from "./media.class";
-import MediaManager from "./mediaManager.class";
 import User from "../user/user.class";
+import UserMedia from "../user/userMedia.class";
 
 export default class MediaAlbum extends Media implements IMediaAlbum {
     public list: (IMediaImage | IMediaVideo)[] = []
@@ -30,7 +30,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
         if (raw.list && Array.isArray(raw.list)) {
             for (let rawAlbumMedia of raw.list) {
                 mediaAlbumList.push(
-                    MediaManager.newMedia(rawAlbumMedia, this.user)
+                    UserMedia.newMedia(rawAlbumMedia, this.user)
                 )
             }
 

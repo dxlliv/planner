@@ -65,15 +65,34 @@ interface IRawMediaIframe extends IRawMedia {
 type IUsers = { [username: string]: IUser };
 
 interface IUser {
-  origin: string
-  options: IUserOptions;
+  raw: IRawUser
   username: string;
+  origin: string
+
+  options: IUserOptions;
   profile: IUserProfile;
   media: IUserMedia;
+  storage: any
+
+  ready: Ref<boolean>
+
+  status: Ref<{
+    changed: boolean
+  }>
 
   get hasLocalChanges(): boolean
   get isRemovable(): boolean
-  remove(): Promise<boolean>
+
+  initialize(storeImmediately: boolean): void
+  parseUserProfile(): void
+  parseUserMedia(): void
+
+  save(): Promise<void>
+  remove(): Promise<void>
+}
+
+interface IInstagramUser extends IUser {
+
 }
 
 interface IUserProfile {
@@ -84,11 +103,10 @@ interface IUserProfile {
   };
   verified?: boolean
   biography?: string;
-  avatar: UserAvatar;
+  avatar: UserAvatar | undefined;
   followers_count: number;
   follows_count: number;
-  posts_count: ComputedRef<number>;
-  public_profile: string
+  posts_count: number;
 
   setName(name: string): void
 
@@ -101,6 +119,13 @@ interface IUserProfile {
   setFollowsCount(count: number): void
   setWebsite(website: any): void
   setAvatar(avatar: UserAvatar): void
+
+  import(): void
+  export(): Promise<void>
+}
+
+interface IInstagramUserProfile extends IUserProfile {
+  public_profile: string
 }
 
 interface UserAvatar {
@@ -239,4 +264,12 @@ interface IMediaIframeExport extends IMediaExport {
   reel: boolean
   href: string
   cover: undefined | number | IMediaCoverExport
+}
+
+interface IUserStorage {
+
+}
+
+interface IPlatform {
+
 }

@@ -1,29 +1,32 @@
-import UserProfile from "./userProfile.class";
 import UserStorage from "./userStorage.class";
-import MediaManager from "../media/mediaManager.class";
 
-export default class User {
+export default class User implements IUser {
     public readonly raw: IRawUser
+    public readonly username: string = ''
     public readonly origin: string = ''
 
     public options: IUserOptions = {}
-
-    public username: string = ''
-    public profile: UserProfile = {} as UserProfile
-    public storage: UserStorage = {} as UserStorage
-    public media: MediaManager = {} as MediaManager
+    public profile: IUserProfile = {} as IUserProfile
+    public media: IUserMedia = {} as IUserMedia
+    public storage: IUserStorage = {} as IUserStorage
 
     public ready: Ref<boolean> = ref(false)
 
-    public status = reactive({
+    public status: Ref<{
+        changed: boolean
+    }> = reactive({
         changed: false
     })
 
-    constructor(raw: IRawUser, origin: string, storeImmediately: boolean = false) {
+    constructor(
+        raw: IRawUser,
+        origin: string,
+        storeImmediately: boolean = false
+    ) {
         this.raw = raw
         this.username = raw.username
-
         this.origin = origin
+
         this.storage = new UserStorage(this)
 
         this.storage.isAvailable().then(async available => {
@@ -31,8 +34,7 @@ export default class User {
                 await this.storage.restore()
             }
 
-            this.parseUserOptions()
-            this.parseUserProfile()
+            this.initialize()
 
             // when you import users from directory/zip,
             // you may want to save the profile immediately
@@ -43,18 +45,6 @@ export default class User {
 
             this.ready.value = true
         })
-    }
-
-    public parseUserOptions() {
-        this.options = this.raw.options
-    }
-
-    public parseUserProfile() {
-        this.profile = new UserProfile(this)
-    }
-
-    public parseUserMedia() {
-        this.media = new MediaManager(this);
     }
 
     get hasLocalChanges() {
@@ -82,7 +72,5 @@ export default class User {
         if (this.isRemovable || this.hasLocalChanges) {
             await this.storage.remove()
         }
-
-        return true
     }
 }

@@ -1,4 +1,5 @@
 import User from "../core/user/user.class";
+import InstagramUser from "../core/platform/instagramUser.class";
 
 export const useUserStore = defineStore("user", () => {
   const userSelectorStore = useUserSelectorStore()
@@ -14,8 +15,16 @@ export const useUserStore = defineStore("user", () => {
    * @param storeImmediately
    */
   function loadUser(rawUser: IRawUser, origin: string, storeImmediately: boolean = false) {
-    const user = new User(toRaw(rawUser), origin, storeImmediately)
     const username = rawUser.username
+    const platform = 'instagram'
+
+    let user
+
+    switch (platform) {
+      case 'instagram':
+        user = new InstagramUser(toRaw(rawUser), origin, storeImmediately)
+        break
+    }
 
     // store initialized user
     users.value[username] = user
