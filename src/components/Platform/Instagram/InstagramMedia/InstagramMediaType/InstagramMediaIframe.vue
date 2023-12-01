@@ -1,15 +1,15 @@
 <template>
-  <MediaContainer
+  <InstagramMediaContainer
       :type="!iframeEnabled ? 'video' : 'iframe'"
       :media="media"
       :class="{'ig-media--reel': reel}"
   >
     <template v-if="!iframeEnabled">
-      <MediaImage :media="media.cover" @click="iframeEnabled = true" />
+      <InstagramMediaImage :media="media.cover" @click="iframeEnabled = true" />
     </template>
 
     <iframe v-else :src="media.href" />
-  </MediaContainer>
+  </InstagramMediaContainer>
 </template>
 
 <script setup lang="ts">

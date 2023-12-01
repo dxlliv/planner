@@ -9,7 +9,7 @@ defineProps<{
     <v-row class="ma-0">
       <v-col class="ig-media-detail__media flex-grow-0 pa-0">
 
-        <MediaPost :media="media" />
+        <InstagramMediaPost :media="media" />
 
       </v-col>
       <v-col class="flex-grow-1">

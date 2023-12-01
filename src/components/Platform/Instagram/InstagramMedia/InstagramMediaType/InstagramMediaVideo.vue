@@ -1,5 +1,5 @@
 <template>
-  <MediaContainer
+  <InstagramMediaContainer
       type="video"
       :media="media"
       :class="{'ig-media--reel': reel}"
@@ -13,7 +13,7 @@
           @click="isPlaying = !isPlaying"
       />
 
-      <MediaVideoCoverSelector
+      <InstagramMediaVideoCoverSelector
         v-if="coverSelector"
         :media="media"
         :max-length="videoMaxLength"
@@ -22,13 +22,13 @@
     </template>
 
     <template v-else-if="typeof media.cover === 'object'">
-      <MediaImage
+      <InstagramMediaImage
           :media="media.cover"
           @click="isPlaying = true"
       />
     </template>
 
-  </MediaContainer>
+  </InstagramMediaContainer>
 </template>
 
 <script setup lang="ts">

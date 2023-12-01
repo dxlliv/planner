@@ -52,7 +52,7 @@ const userExport = ref(false)
       @export="userExport = true"
   />
 
-  <MediaCreate v-model="userMediaCreate" @close="userMediaCreate = false" />
+  <InstagramMediaCreate v-model="userMediaCreate" @close="userMediaCreate = false" />
   <InstagramUserExport v-model="userExport" />
 </template>
 

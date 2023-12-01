@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
   <suspense>
-    <MediaVideo
+    <InstagramMediaVideo
         v-if="media.type === 'video'"
         :media="media"
         :context-menu="contextMenu"
@@ -16,7 +16,7 @@ defineProps<{
     />
   </suspense>
 
-  <MediaIframe
+  <InstagramMediaIframe
       v-if="media.type === 'iframe'"
       :media="media"
       reel

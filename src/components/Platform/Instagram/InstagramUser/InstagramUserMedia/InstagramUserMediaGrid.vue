@@ -49,12 +49,12 @@ function onSortEnd() {
             <v-icon icon="mdi-drag" color="white" />
           </DragHandle>
 
-          <MediaPost
+          <InstagramMediaPost
               v-if="mode === 'posts'"
               :media="media"
               context-menu
           />
-          <MediaReel
+          <InstagramMediaReel
               v-if="mode === 'reels'"
               :media="media"
               context-menu
@@ -63,7 +63,7 @@ function onSortEnd() {
       </SlickList>
 
       <v-card v-else :height="500">
-        <MediaDropzone />
+        <InstagramMediaDropzone />
       </v-card>
     </div>
   </v-container>

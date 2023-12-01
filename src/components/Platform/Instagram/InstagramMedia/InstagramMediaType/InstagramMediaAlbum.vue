@@ -1,5 +1,5 @@
 <template>
-  <MediaContainer
+  <InstagramMediaContainer
       type="album"
       :media="media"
       @click="nextSlide"
@@ -8,14 +8,14 @@
         v-model="media.listIndex"
     >
       <Slide v-for="(item, i) of media.list" :key="i">
-        <MediaPost :context-menu="false" :media="item" />
+        <InstagramMediaPost :context-menu="false" :media="item" />
       </Slide>
     </Carousel>
-    <MediaAlbumCurrentIndex
+    <InstagramMediaAlbumCurrentIndex
       :index="media.currentIndex"
       :max="media.itemsCount"
     />
-  </MediaContainer>
+  </InstagramMediaContainer>
 </template>
 
 <script setup lang="ts">

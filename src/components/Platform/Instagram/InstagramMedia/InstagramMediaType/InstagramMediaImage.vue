@@ -1,10 +1,10 @@
 <template>
-  <MediaContainer
+  <InstagramMediaContainer
       type="image"
       :media="media"
   >
     <v-img cover height="100%" :src="src" />
-  </MediaContainer>
+  </InstagramMediaContainer>
 </template>
 
 <script setup lang="ts">

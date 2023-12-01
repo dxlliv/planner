@@ -1,16 +1,16 @@
 <template>
-  <LayoutUser>
+  <LayoutInstagram>
     <InstagramUser
         v-if="user.ready"
         :user="user"
     />
-  </LayoutUser>
+  </LayoutInstagram>
 
   <ToolGuides v-if="extraOptions.guides" />
 </template>
 
 <script setup lang="ts">
-import LayoutUser from "../layouts/LayoutUser.vue";
+import LayoutInstagram from "../layouts/LayoutInstagram.vue";
 
 const route = useRoute();
 const userStore = useUserStore();

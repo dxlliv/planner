@@ -14,9 +14,8 @@ function onMediaCreate(blob: File) {
   >
     <v-card height="70vh">
       <v-card-title v-text="`Create new post`" />
-      <MediaDropzone
+      <InstagramMediaDropzone
           class="mx-4"
-          :user="user"
           @add="onMediaCreate"
       />
     </v-card>

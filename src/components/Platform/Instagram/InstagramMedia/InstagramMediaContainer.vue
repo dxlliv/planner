@@ -28,7 +28,7 @@ function onMediaContextMenu(e) {
       <v-icon v-if="type === 'video'">mdi-play</v-icon>
     </div>
 
-    <MediaContextMenu
+    <InstagramMediaContextMenu
         v-if="contextMenu"
         v-model="contextMenuValue"
         :media="media"
