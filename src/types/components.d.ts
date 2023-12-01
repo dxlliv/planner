@@ -42,7 +42,7 @@ declare module 'vue' {
     InstagramNavigationDrawerVertical: typeof import('./../components/Platform/Instagram/InstagramNavigation/InstagramNavigationDrawerVertical.vue')['default']
     InstagramUser: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUser.vue')['default']
     InstagramUserAvatar: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserAvatar/InstagramUserAvatar.vue')['default']
-    InstagramUserEditorBadgeChanges: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserEditor/InstagramUserEditorBadgeChanges.vue')['default']
+    InstagramUserEditorBadgeChanges: typeof import('./../components/UserSelector/InstagramUserEditorBadgeChanges.vue')['default']
     InstagramUserExport: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserExport/InstagramUserExport.vue')['default']
     InstagramUserMediaGrid: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserMedia/InstagramUserMediaGrid.vue')['default']
     InstagramUserProfile: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserProfile/InstagramUserProfile.vue')['default']
@@ -64,6 +64,7 @@ declare module 'vue' {
     UserSelectorAdd: typeof import('./../components/UserSelector/UserSelectorAdd.vue')['default']
     UserSelectorAddMenu: typeof import('./../components/UserSelector/UserSelectorAddMenu.vue')['default']
     UserSelectorAvatar: typeof import('./../components/UserSelector/UserSelectorAvatar.vue')['default']
+    UserSelectorBadgeChanges: typeof import('./../components/UserSelector/UserSelectorBadgeChanges.vue')['default']
     UserSelectorMenu: typeof import('./../components/UserSelector/UserSelectorMenu.vue')['default']
   }
 }

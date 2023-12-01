@@ -1,19 +1,22 @@
 <template>
   <UserSelector add @click="onProfileAdd">
-    <suspense>
-      <UserSelectorAvatar>
-        <template #inner>
-          <v-icon size="48px" icon="mdi-plus" color="grey-lighten-1" />
-        </template>
+    <UserSelectorAvatar
+        @click="contextMenu = !contextMenu"
+        @contextmenu="(e) => { e.preventDefault(); contextMenu = !contextMenu }"
+    >
+      <template #inner>
+        <v-icon size="48px" icon="mdi-plus" color="grey-lighten-1" />
+      </template>
 
-        <UserSelectorAddMenu @toggle="onMenuToggle" />
+      <UserSelectorAddMenu
+          v-model="contextMenu"
+      />
 
-        <h3
-            class="text-truncate mt-4 mx-auto text-center"
-            v-text="randomUsername.value"
-        />
-      </UserSelectorAvatar>
-    </suspense>
+      <h3
+          class="text-truncate mt-4 mx-auto text-center"
+          v-text="randomUsername.value"
+      />
+    </UserSelectorAvatar>
   </UserSelector>
 </template>
 
@@ -23,13 +26,15 @@ const randomUsername: any = reactive({
   generatorInterval: 0
 })
 
-function onMenuToggle(opened: boolean) {
+const contextMenu = ref(false)
+
+watch(() => contextMenu.value, opened => {
   if (opened) {
     startRandomUsernameGenerator()
   } else {
     stopRandomUsernameGenerator()
   }
-}
+})
 
 function startRandomUsernameGenerator() {
   randomUsername.generatorInterval = setInterval(() => {

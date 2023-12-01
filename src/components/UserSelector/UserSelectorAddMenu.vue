@@ -1,10 +1,9 @@
 <template>
   <v-menu
-      v-model="menu"
       content-class="ig-profile-selector__context-menu"
       activator="parent"
       transition="slide-y-transition"
-      close-on-back
+      :open-on-click="false"
       :open-delay="5000"
       :offset="[7, 0]"
   >
@@ -22,13 +21,6 @@
 
 <script setup lang="ts">
 const userImportStore = useUserImportStore()
-const emit = defineEmits(['toggle'])
-
-const menu = ref(false)
-
-watch(() => menu.value, value => {
-  emit('toggle', value)
-})
 
 function onProfileCreate() {
   window.alert('Not implemented yet,\nedit the configuration.\n\nRead the docs for further info\ndxlliv.github.io/ig-planner/docs/')

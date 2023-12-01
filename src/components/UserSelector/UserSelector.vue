@@ -8,15 +8,15 @@
               username: user.username,
             },
           }"
-          @contextmenu="showProfileContextMenu"
+          @contextmenu="onShowProfileContextMenu"
       >
 
         <suspense>
-          <InstagramUserAvatar :avatar="user.profile.avatar">
+          <UserSelectorAvatar :avatar="user.profile.avatar">
             <template #inner>
-              <InstagramUserEditorBadgeChanges v-if="user.hasLocalChanges" />
+              <UserSelectorBadgeChanges v-if="user.hasLocalChanges" />
             </template>
-          </InstagramUserAvatar>
+          </UserSelectorAvatar>
         </suspense>
 
         <h3 class="mt-4" v-text="user.username" />
@@ -50,7 +50,7 @@ const contextMenu = reactive({
   y: 0
 })
 
-function showProfileContextMenu(e) {
+function onShowProfileContextMenu(e) {
   e.preventDefault()
 
   contextMenu.enabled = false
