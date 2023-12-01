@@ -12,11 +12,11 @@
       >
 
         <suspense>
-          <UserAvatar :avatar="user.profile.avatar">
+          <InstagramUserAvatar :avatar="user.profile.avatar">
             <template #inner>
-              <UserEditorBadgeChanges v-if="user.hasLocalChanges" />
+              <InstagramUserEditorBadgeChanges v-if="user.hasLocalChanges" />
             </template>
-          </UserAvatar>
+          </InstagramUserAvatar>
         </suspense>
 
         <h3 class="mt-4" v-text="user.username" />

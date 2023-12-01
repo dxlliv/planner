@@ -51,7 +51,7 @@ const userExport = ref(false)
 
       <v-list-item title="Home" to="/ig-planner/">
         <template #prepend>
-          <IconHome />
+          <InstagramIconHome />
         </template>
       </v-list-item>
 
@@ -61,15 +61,15 @@ const userExport = ref(false)
       >
         <template #prepend>
           <!--<component :is="navItem.icon" />-->
-          <IconSupport v-if="navItem.icon === 'IconSupport'" />
-          <IconReadme v-if="navItem.icon === 'IconReadme'" />
-          <IconDonors v-if="navItem.icon === 'IconDonors'" />
+          <InstagramIconSupport v-if="navItem.icon === 'IconSupport'" />
+          <InstagramIconReadme v-if="navItem.icon === 'IconReadme'" />
+          <InstagramIconDonors v-if="navItem.icon === 'IconDonors'" />
         </template>
       </v-list-item>
 
       <v-list-item title="Create" @click="mediaCreate = true">
         <template #prepend>
-          <IconNewPost />
+          <InstagramIconNewPost />
           <MediaCreate v-model="mediaCreate" @close="mediaCreate = false" />
         </template>
       </v-list-item>
@@ -81,7 +81,7 @@ const userExport = ref(false)
       >
         <template #prepend>
           <suspense>
-            <UserAvatar
+            <InstagramUserAvatar
                 :avatar="user.profile.avatar" size="26px"
             />
           </suspense>
@@ -100,7 +100,7 @@ const userExport = ref(false)
       >
         <template #prepend>
           <v-icon icon="mdi-pencil-ruler-outline" />
-          <UserExport v-model="userExport" />
+          <InstagramUserExport v-model="userExport" />
         </template>
       </v-list-item>
     </v-list>

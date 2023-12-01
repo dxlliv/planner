@@ -6,16 +6,16 @@ const props = defineProps<{
 
 <template>
   <div class="ig-profile-page__header__inner">
-    <UserProfileName
+    <InstagramUserProfileName
         :user="user"
     />
 
-    <UserProfileBiography
+    <InstagramUserProfileBiography
       :biography="user.profile.biography"
       @update="(biography) => user.profile.updateBiography(biography)"
     />
 
-    <UserProfileWebsite
+    <InstagramUserProfileWebsite
         :user="user"
     />
   </div>

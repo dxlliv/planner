@@ -5,11 +5,11 @@ defineProps<{
 </script>
 
 <template>
-  <UserProfileDesktop
+  <InstagramUserProfileDesktop
       v-if="$vuetify.display.smAndUp"
       :user="user"
   />
-  <UserProfileMobile
+  <InstagramUserProfileMobile
       v-else
       :user="user"
   />

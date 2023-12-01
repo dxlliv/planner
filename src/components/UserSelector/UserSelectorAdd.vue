@@ -1,7 +1,7 @@
 <template>
   <UserSelector add @click="onProfileAdd">
     <suspense>
-      <UserAvatar>
+      <UserSelectorAvatar>
         <template #inner>
           <v-icon size="48px" icon="mdi-plus" color="grey-lighten-1" />
         </template>
@@ -12,7 +12,7 @@
             class="text-truncate mt-4 mx-auto text-center"
             v-text="randomUsername.value"
         />
-      </UserAvatar>
+      </UserSelectorAvatar>
     </suspense>
   </UserSelector>
 </template>

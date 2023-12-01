@@ -1,15 +1,15 @@
 <template>
   <v-sheet color="transparent" class="ig-profile-page">
     <v-container class="py-0">
-      <UserProfile :user="user" />
+      <InstagramUserProfile :user="user" />
 
-      <UserTabs
+      <InstagramUserTabs
         :media="user.media"
         :active="tab"
         @select="(value: string) => (tab = value)"
       />
 
-      <UserMediaGrid
+      <InstagramUserMediaGrid
           :user="user"
           :mode="tab"
       />

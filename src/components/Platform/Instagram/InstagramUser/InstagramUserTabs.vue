@@ -13,6 +13,7 @@
         <v-icon size="15">
           {{ tab.icon }}
         </v-icon>
+
         {{ tab.label }}
       </div>
     </template>

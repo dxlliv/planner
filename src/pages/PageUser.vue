@@ -1,6 +1,6 @@
 <template>
   <LayoutUser>
-    <User
+    <InstagramUser
         v-if="user.ready"
         :user="user"
     />

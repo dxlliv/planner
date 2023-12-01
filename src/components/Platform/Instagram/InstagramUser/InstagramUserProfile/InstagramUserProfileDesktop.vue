@@ -9,14 +9,14 @@ defineProps<{
     <v-row>
       <v-col cols="4" class="ig-profile-page__header__avatar text-center">
         <suspense>
-          <UserAvatar :avatar="user.profile.avatar" />
+          <InstagramUserAvatar :avatar="user.profile.avatar" />
         </suspense>
       </v-col>
 
       <v-col cols="8">
-        <UserProfileUsername :user="user" class="mb-5" />
-        <UserProfileStats :user="user" class="mb-5" />
-        <UserProfileInner :user="user" />
+        <InstagramUserProfileUsername :user="user" class="mb-5" />
+        <InstagramUserProfileStats :user="user" class="mb-5" />
+        <InstagramUserProfileInner :user="user" />
       </v-col>
     </v-row>
   </div>
