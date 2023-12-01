@@ -1,0 +1,1 @@
+import{_ as s,o as i,c as a,R as n}from"./chunks/framework.78FZeauV.js";const u=JSON.parse('{"title":"Albums","description":"","frontmatter":{},"headers":[],"relativePath":"media-album.md","filePath":"media-album.md"}'),t={name:"media-album.md"},l=n("",5),p=[l];function h(e,k,E,r,o,d){return i(),a("div",null,p)}const c=s(t,[["render",h]]);export{u as __pageData,c as default};
