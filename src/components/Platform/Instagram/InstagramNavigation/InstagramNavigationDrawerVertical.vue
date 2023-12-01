@@ -1,36 +1,10 @@
 <script setup lang="ts">
-const userStore = useUserStore()
+defineProps<{
+  user: IUser
+  nav: any
+}>()
 
-const user = computed(() => userStore.user);
-const nav = [
-  {
-    item: {
-      title: "Readme",
-      href: "https://dxlliv.github.io/ig-planner/docs/",
-    },
-    icon: "IconReadme"
-  },
-  {
-    item: {
-      title: "Support",
-      href: "https://patreon.com/dxlliv",
-      target: "_blank",
-    },
-    icon: "IconSupport"
-  },
-  /*
-  {
-    item: {
-      title: "Donors",
-      to: "https://patreon.com/dxlliv",
-    },
-    icon: "IconDonors"
-  },
-   */
-]
-
-const mediaCreate = ref(false)
-const userExport = ref(false)
+const emit = defineEmits(['create', 'export'])
 </script>
 
 <template>
@@ -49,7 +23,7 @@ const userExport = ref(false)
 
     <v-list density="compact" nav class="mt-2 mt-lg-0">
 
-      <v-list-item title="Home" to="/ig-planner/">
+      <v-list-item title="Home" :to="{ name: 'index' }">
         <template #prepend>
           <InstagramIconHome />
         </template>
@@ -60,24 +34,22 @@ const userExport = ref(false)
           v-bind="navItem.item"
       >
         <template #prepend>
-          <!--<component :is="navItem.icon" />-->
           <InstagramIconSupport v-if="navItem.icon === 'IconSupport'" />
           <InstagramIconReadme v-if="navItem.icon === 'IconReadme'" />
           <InstagramIconDonors v-if="navItem.icon === 'IconDonors'" />
         </template>
       </v-list-item>
 
-      <v-list-item title="Create" @click="mediaCreate = true">
+      <v-list-item title="Create" @click="emit('create')">
         <template #prepend>
           <InstagramIconNewPost />
-          <MediaCreate v-model="mediaCreate" @close="mediaCreate = false" />
         </template>
       </v-list-item>
 
       <v-list-item
           v-if="user.ready"
           title="Profile"
-          :to="`/ig-planner/${user.username}`"
+          :to="{ name: 'user', params: { username: user.username } }"
       >
         <template #prepend>
           <suspense>
@@ -96,11 +68,10 @@ const userExport = ref(false)
       <v-list-item
           v-if="user.hasLocalChanges"
           title="Export" base-color="primary"
-          @click="userExport = true"
+          @click="emit('export')"
       >
         <template #prepend>
           <v-icon icon="mdi-pencil-ruler-outline" />
-          <InstagramUserExport v-model="userExport" />
         </template>
       </v-list-item>
     </v-list>

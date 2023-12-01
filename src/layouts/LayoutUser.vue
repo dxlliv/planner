@@ -5,7 +5,7 @@
 <template>
   <v-layout>
 
-    <InstagramNavigationDrawerVertical />
+    <InstagramNavigationDrawer />
 
     <v-main>
       <slot />

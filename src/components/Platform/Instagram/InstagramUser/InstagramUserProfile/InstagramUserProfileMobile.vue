@@ -9,7 +9,9 @@ defineProps<{
     <div
         class="ig-profile-page__header__top py-4"
     >
-      <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px;" />
+      <router-link :to="{ name: 'index' }">
+        <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px;" />
+      </router-link>
       <InstagramUserProfileUsername :user="user" class="mb-5" />
     </div>
 

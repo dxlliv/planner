@@ -82,7 +82,7 @@ function showProfileContextMenu(e) {
   position: relative;
   display: inline-block;
   text-align: center;
-  margin: 0 32px;
+  margin: 0 16px;
   vertical-align: top;
 
   a {

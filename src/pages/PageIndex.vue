@@ -21,7 +21,7 @@
             />
           </SlickItem>
 
-          <div class="v-col flex-grow-0">
+          <div class="v-col flex-grow-0 hidden-sm-and-down">
             <UserSelectorAdd />
           </div>
         </SlickList>
