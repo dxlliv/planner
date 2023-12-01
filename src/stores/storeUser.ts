@@ -12,9 +12,8 @@ export const useUserStore = defineStore("user", () => {
    *
    * @param rawUser
    * @param origin
-   * @param storeImmediately
    */
-  function loadUser(rawUser: IRawUser, origin: string, storeImmediately: boolean = false) {
+  function loadUser(rawUser: IRawUser, origin: string) {
     const username = rawUser.username
     const platform = 'instagram'
 
@@ -22,7 +21,7 @@ export const useUserStore = defineStore("user", () => {
 
     switch (platform) {
       case 'instagram':
-        user = new InstagramUser(toRaw(rawUser), origin, storeImmediately)
+        user = new InstagramUser(toRaw(rawUser), origin)
         break
     }
 

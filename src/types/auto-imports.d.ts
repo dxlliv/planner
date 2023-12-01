@@ -134,7 +134,7 @@ declare global {
   const useSlots: typeof import('vue')['useSlots']
   const useTheme: typeof import('vuetify')['useTheme']
   const useThemeStore: typeof import('../stores/storeTheme')['useThemeStore']
-  const useUserImportStore: typeof import('../stores/storeProfileManager')['useUserImportStore']
+  const useUserImportStore: typeof import('../stores/storeUserImport')['useUserImportStore']
   const useUserSelectorStore: typeof import('../stores/storeUserSelector')['useUserSelectorStore']
   const useUserStorageStore: typeof import('../stores/storeUserStorage')['useUserStorageStore']
   const useUserStore: typeof import('../stores/storeUser')['useUserStore']

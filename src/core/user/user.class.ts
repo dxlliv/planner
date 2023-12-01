@@ -21,26 +21,28 @@ export default class User implements IUser {
     constructor(
         raw: IRawUser,
         origin: string,
-        storeImmediately: boolean = false
     ) {
         this.raw = raw
         this.username = raw.username
         this.origin = origin
 
         this.storage = new UserStorage(this)
+    }
 
-        this.storage.isAvailable().then(async available => {
-            if (available) {
+    public initialize() {
+        this.storage.isContentAvailable().then(async (availability) => {
+            if (availability) {
                 await this.storage.restore()
             }
 
-            this.initialize()
+            this.parseUserProfile()
+            this.parseUserMedia()
 
             // when you import users from directory/zip,
             // you may want to save the profile immediately
-            if (storeImmediately) {
+            if (this.origin === 'storage') {
                 this.parseUserMedia()
-                await this.save()
+                await this.storage.save()
             }
 
             this.ready.value = true

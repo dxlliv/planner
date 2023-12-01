@@ -1,3 +1,5 @@
+type IPlatforms = 'instagram'
+
 interface IRawConfig {
   users: string[]
 }
@@ -65,6 +67,8 @@ interface IRawMediaIframe extends IRawMedia {
 type IUsers = { [username: string]: IUser };
 
 interface IUser {
+  platform: IPlatforms
+
   raw: IRawUser
   username: string;
   origin: string
@@ -83,16 +87,18 @@ interface IUser {
   get hasLocalChanges(): boolean
   get isRemovable(): boolean
 
-  initialize(storeImmediately: boolean): void
+  initialize(): void
   parseUserProfile(): void
   parseUserMedia(): void
+  setChanged(value: boolean): void
 
   save(): Promise<void>
   remove(): Promise<void>
 }
 
 interface IInstagramUser extends IUser {
-
+  profile: IInstagramUserProfile
+  media: IInstagramUserMedia
 }
 
 interface IUserProfile {
@@ -121,7 +127,7 @@ interface IUserProfile {
   setAvatar(avatar: UserAvatar): void
 
   import(): void
-  export(): Promise<void>
+  export(): Promise<IRawUserProfile>
 }
 
 interface IInstagramUserProfile extends IUserProfile {
@@ -142,6 +148,12 @@ interface IUserMedia {
   reels: IMedia[];
   stories: IMedia[];
   highlights: IMedia[];
+
+  export(): Promise<void>
+}
+
+interface IInstagramUserMedia extends IUserMedia {
+
 }
 
 interface IUserOptions {}
@@ -267,7 +279,10 @@ interface IMediaIframeExport extends IMediaExport {
 }
 
 interface IUserStorage {
-
+  isContentAvailable(): Promise<boolean>
+  restore(): Promise<void>
+  save(): Promise<void>
+  remove(): Promise<void>
 }
 
 interface IPlatform {

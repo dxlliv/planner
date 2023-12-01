@@ -2,12 +2,10 @@ import localforage from 'localforage';
 import User from "./user.class";
 
 export default class UserStorage {
-    private readonly storageKey = 'user'
-
-    private user: User
+    private user: IUser
     private database
 
-    constructor(user: User) {
+    constructor(user: IUser) {
         this.user = user
 
         this.database = localforage.createInstance({
@@ -16,14 +14,15 @@ export default class UserStorage {
         })
     }
 
-    public async isAvailable() {
-        return !!(await this.database.getItem(this.storageKey))
+    public async isContentAvailable() {
+        return !!(await this.database.getItem(this.user.platform))
     }
 
     public async restore() {
-        const storedUser: null | IRawUser = await this.database.getItem(this.storageKey)
+        const storedUser: null | IRawUser = await this.database.getItem(this.user.platform)
 
         if (storedUser) {
+            this.user.raw.username = storedUser.username
             this.user.raw.profile = storedUser.profile
             this.user.raw.media = storedUser.media
 
@@ -37,13 +36,14 @@ export default class UserStorage {
 
         this.user.setChanged(true)
 
-        this.database.setItem(this.storageKey, {
+        this.database.setItem(this.user.platform, {
+            username: this.user.username,
             profile: exportedProfile,
             media: exportedMedia,
         })
     }
 
     public async remove() {
-        this.database.removeItem(this.storageKey)
+        this.database.removeItem(this.user.platform)
     }
 }

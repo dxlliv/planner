@@ -83,7 +83,7 @@ export default class UserMedia implements IUserMedia {
         }
     }
 
-    private static detectMediaType(rawMedia: string | IRawMedia) {
+    public static detectMediaType(rawMedia: string | IRawMedia) {
         let filename = ''
 
         switch (typeof rawMedia) {

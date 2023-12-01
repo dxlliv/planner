@@ -1,4 +1,5 @@
 import {openUserDirectory, readUserDirectoryConfig} from "../utils/utilsProfile";
+import UserMedia from "../core/user/userMedia.class";
 
 export const useUserImportStore = defineStore("user/import", () => {
   const userStore = useUserStore()

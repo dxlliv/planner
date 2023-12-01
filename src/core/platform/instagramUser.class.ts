@@ -1,18 +1,15 @@
 import User from "../user/user.class";
-import InstagramPlatform from "./instagramPlatform.class";
 import InstagramUserProfile from "./instagramUserProfile.class";
 import InstagramUserMedia from "./instagramUserMedia.class";
 
 export default class InstagramUser extends User implements IInstagramUser {
-    public readonly platform = new InstagramPlatform()
+    public readonly platform: IPlatforms = 'instagram'
 
     constructor(
         raw: IRawUser,
         origin: string,
-        storeImmediately: boolean = false
     ) {
-        // pass all the data to User class
-        super(raw, origin, storeImmediately)
+        super(raw, origin)
 
         /*
         this.structure.user = {
@@ -20,11 +17,8 @@ export default class InstagramUser extends User implements IInstagramUser {
             //media: new InstagramUserMedia(this)
         }
          */
-    }
 
-    public initialize(storeImmediately: boolean = false) {
-        this.parseUserProfile()
-        this.parseUserMedia()
+        this.initialize()
     }
 
     public parseUserProfile() {

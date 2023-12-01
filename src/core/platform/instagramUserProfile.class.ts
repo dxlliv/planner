@@ -1,7 +1,7 @@
 import UserProfile from "../user/userProfile.class";
 import {removeUndefinedFromObject} from "../../utils/utilsObject";
 
-export default class InstagramUserProfile extends UserProfile implements IUserProfile {
+export default class InstagramUserProfile extends UserProfile implements IInstagramUserProfile {
     public user: IInstagramUser
 
     private structure: {
