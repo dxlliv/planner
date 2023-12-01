@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <a class="ig-logo" href="https://github.com/dxlliv/ig-planner" target="_blank">
+  <router-link class="ig-logo" :to="{ name: 'index' }">
     Planner
-  </a>
+  </router-link>
 </template>
 
 <style scoped lang="scss">
