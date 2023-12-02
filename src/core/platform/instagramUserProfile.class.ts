@@ -1,70 +1,13 @@
 import UserProfile from "../user/userProfile.class";
 import {removeUndefinedFromObject} from "../../utils/utilsObject";
+import {platformStructure} from "../structure";
 
 export default class InstagramUserProfile extends UserProfile implements IInstagramUserProfile {
     public user: IInstagramUser
 
-    private structure: {
+    private structure: IPlatformStructureUserProfile = {
         fields: {
-            [fieldKey: string]: {
-                type: string
-                methods?: {
-                    set: string
-                }
-            }
-        }
-    } = {
-        fields: {
-            name: {
-                type: 'string',
-                methods: {
-                    set: 'setName',
-                }
-            },
-            website: {
-                type: 'url',
-                methods: {
-                    set: 'setWebsite',
-                }
-            },
-            verified: {
-                type: 'boolean',
-                methods: {
-                    set: 'setVerified',
-                }
-            },
-            biography: {
-                type: 'text',
-                methods: {
-                    set: 'setBiography',
-                }
-            },
-            avatar: {
-                type: 'file',
-                methods: {
-                    set: 'setAvatar',
-                }
-            },
-            followers_count: {
-                type: 'number',
-                methods: {
-                    set: 'setFollowersCount',
-                }
-            },
-            follows_count: {
-                type: 'number',
-                methods: {
-                    set: 'setFollowsCount',
-                }
-            },
-            posts_count: {
-                type: 'function',
-                /*
-                callback: function(user: any) {
-                    return user.media.posts.length + user.media.reels.length
-                }
-                 */
-            }
+            ...platformStructure.instagram.user.profile.fields
         }
     }
 
