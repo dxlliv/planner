@@ -224,15 +224,9 @@ type IMediaType = 'image' | 'video' | 'album' | 'iframe'
 type IMediaCollection = 'posts' | 'reels'
 
 interface IMediaFile {
-  name: string;
-  path: string;
-  blob: Promise<File>
-}
-
-interface IMediaData {
-  file?: IMediaFile
-  cover?: IMedia
-  coverTime?: number
+  name?: string;
+  path?: string;
+  blob?: Promise<File>
 }
 
 interface IMediaCoverExport {
@@ -286,5 +280,27 @@ interface IUserStorage {
 }
 
 interface IPlatform {
+  user: IPlatformStructureUser
+}
+
+interface IPlatformStructureUser {
+  profile: IPlatformStructureUserProfile
+  collections: {
+    [fieldKey: string]: IPlatformStructureCollectionOptions
+  }
+}
+
+interface IPlatformStructureUserProfile {
+  fields: {
+    [fieldKey: string]: {
+      type: string
+      methods?: {
+        set: string
+      }
+    }
+  }
+}
+
+interface IPlatformStructureCollectionOptions {
 
 }

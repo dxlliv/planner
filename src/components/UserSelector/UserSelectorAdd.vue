@@ -10,6 +10,7 @@
 
       <UserSelectorAddMenu
           v-model="contextMenu"
+          @openCreateProfileDialog="createProfileDialog = true"
       />
 
       <h3
@@ -17,6 +18,16 @@
           v-text="randomUsername.value"
       />
     </UserSelectorAvatar>
+
+    <UserEditorDialog
+        title="Create profile"
+        v-model="createProfileDialog"
+    >
+      <InstagramUserEditorForm
+          @close="createProfileDialog = false"
+      />
+    </UserEditorDialog>
+
   </UserSelector>
 </template>
 
@@ -26,6 +37,7 @@ const randomUsername: any = reactive({
   generatorInterval: 0
 })
 
+const createProfileDialog = ref(false)
 const contextMenu = ref(false)
 
 watch(() => contextMenu.value, opened => {

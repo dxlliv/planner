@@ -1,4 +1,4 @@
-import {openUserDirectory, readUserDirectoryConfig} from "../utils/utilsProfile";
+import {openUserDirectory, readUserDirectoryConfig} from "../utils/utilsUserProfile";
 import UserMedia from "../core/user/userMedia.class";
 
 export const useUserImportStore = defineStore("user/import", () => {
@@ -23,7 +23,7 @@ export const useUserImportStore = defineStore("user/import", () => {
     if (rawUserConfig.value.media.reels) importRawMediaFilesByCollection("reels")
 
     // initialize user
-    userStore.loadUser(rawUserConfig.value, 'storage', true)
+    userStore.loadUser(rawUserConfig.value, 'storage')
     userStorageStore.addUserToStorageIndex(rawUserConfig.value.username)
   }
 

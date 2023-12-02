@@ -20,10 +20,6 @@ export default class MediaVideo extends Media implements IMediaVideo {
     }
 
     private parseMediaVideo(raw: string | IRawMedia) {
-        const mediaData: IMediaData = {
-            coverTime: 0
-        }
-
         switch (typeof raw) {
 
             case "string":

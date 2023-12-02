@@ -129,6 +129,10 @@
     "instagramInstanceClass": true,
     "instagramPlatformProfileClass": true,
     "instagramPlatformMediaClass": true,
-    "userMediaClass": true
+    "userMediaClass": true,
+    "useUserEditorStore": true,
+    "platformStructure": true,
+    "getPlatformStructure": true,
+    "getPlatformStructureUser": true
   }
 }

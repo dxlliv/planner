@@ -32,7 +32,7 @@ export async function fetchFileFromUrl(url: string): Promise<File> {
     });
 }
 
-export async function handleMediaForSrc(media: IMedia) {
+export async function handleMediaForSrc(media: { file: IMediaFile }) {
     if (!media.file) {
         throw Error ('File object is not defined')
     }

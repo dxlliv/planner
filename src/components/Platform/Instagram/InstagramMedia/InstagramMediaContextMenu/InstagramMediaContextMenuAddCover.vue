@@ -5,7 +5,7 @@ const props = defineProps<{
 
 const emit = defineEmits(['close'])
 
-const { files, open, reset, onChange } = useFileDialog({
+const { open, onChange } = useFileDialog({
   accept: 'image/jpg, image/jpeg, image/png',
   multiple: false
 })
