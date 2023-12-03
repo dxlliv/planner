@@ -59,9 +59,14 @@ export default class UserProfile implements IUserProfile {
             };
     }
 
-    public setAvatar(avatar: string) {
+    public async setAvatar(avatar: string | File) {
         if (avatar) {
             this.avatar = new UserAvatar(avatar, this.user.username)
         }
+    }
+
+    public async updateAvatar(avatar: File) {
+        await this.setAvatar(avatar)
+        await this.user.save()
     }
 }

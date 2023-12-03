@@ -46,6 +46,7 @@ declare module 'vue' {
     InstagramUserExport: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserExport/InstagramUserExport.vue')['default']
     InstagramUserMediaGrid: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserMedia/InstagramUserMediaGrid.vue')['default']
     InstagramUserProfile: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserProfile/InstagramUserProfile.vue')['default']
+    InstagramUserProfileAvatarEditor: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserProfile/InstagramUserProfileAvatarEditor.vue')['default']
     InstagramUserProfileBiography: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserProfile/InstagramUserProfileBiography.vue')['default']
     InstagramUserProfileDesktop: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserProfile/InstagramUserProfileDesktop.vue')['default']
     InstagramUserProfileInner: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserProfile/InstagramUserProfileInner.vue')['default']

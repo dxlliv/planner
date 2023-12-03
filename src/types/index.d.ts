@@ -124,7 +124,9 @@ interface IUserProfile {
   setFollowersCount(count: number): void
   setFollowsCount(count: number): void
   setWebsite(website: any): void
-  setAvatar(avatar: UserAvatar): void
+
+  setAvatar(avatar: UserAvatar): Promise<void>
+  updateAvatar(avatar: UserAvatar): Promise<void>
 
   import(): void
   export(): Promise<IRawUserProfile>
