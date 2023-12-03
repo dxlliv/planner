@@ -3,6 +3,19 @@ export const platformStructure = {
         user: {
             profile: {
                 fields: {
+                    username: {
+                        name: 'Username',
+                        placeholder: 'Username',
+                        type: 'string',
+                        validation: {
+                            required: true,
+                            minLength: 3,
+                            maxLength: 30,
+                        },
+                        methods: {
+                            set: 'setUsername',
+                        },
+                    },
                     name: {
                         name: 'Name',
                         placeholder: 'Name',

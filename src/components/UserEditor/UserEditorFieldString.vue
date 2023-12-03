@@ -6,7 +6,6 @@ defineProps<{
 
 <template>
   <v-text-field
-      name="name"
       :placeholder="data.placeholder"
       hide-details
   />

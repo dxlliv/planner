@@ -3,6 +3,7 @@ import UserAvatar from "../user/userAvatar.class";
 export default class UserProfile implements IUserProfile {
     public readonly user: IUser
 
+    public username: string = ''
     public name: string = ''
     public website: IUserProfileWebsite = null
     public verified: boolean = false
@@ -14,6 +15,10 @@ export default class UserProfile implements IUserProfile {
 
     constructor(user: IUser) {
         this.user = user
+    }
+
+    public setUsername(username: string) {
+        this.username = username
     }
 
     public setName(name: string) {
@@ -55,6 +60,8 @@ export default class UserProfile implements IUserProfile {
     }
 
     public setAvatar(avatar: string) {
-        this.avatar = new UserAvatar(avatar, this.user.username)
+        if (avatar) {
+            this.avatar = new UserAvatar(avatar, this.user.username)
+        }
     }
 }

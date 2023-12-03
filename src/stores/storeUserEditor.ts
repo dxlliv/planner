@@ -6,10 +6,9 @@ import {useUserStore} from "./storeUser";
 export const useUserEditorStore = defineStore("user/editor", () => {
     const platform = ref('')
 
-    const username = ref('')
-    const fields = {}
-    const fieldsData = {}
-    const rules = {}
+    const fields: any = {}
+    const fieldsData: any = {}
+    const rules: any = {}
 
     let $v = ref()
 
@@ -38,8 +37,6 @@ export const useUserEditorStore = defineStore("user/editor", () => {
     }
 
     function reset() {
-        username.value = ''
-
         for (const [fieldKey, field] of Object.entries(platformStructureUser.value.profile.fields)) {
             fields[fieldKey].value = ''
         }
@@ -47,7 +44,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
 
     function send() {
         const rawUserConfig: any = {
-            username: username.value,
+            username: fields.username.value,
             profile: {},
             media: {}
         }
@@ -60,8 +57,10 @@ export const useUserEditorStore = defineStore("user/editor", () => {
             rawUserConfig.media[fieldKey] = []
         }
 
+        delete rawUserConfig.profile['username']
+
         useUserStore().loadUser(rawUserConfig, 'storage')
-        useUserStorageStore().addUserToStorageIndex(username.value)
+        useUserStorageStore().addUserToStorageIndex(fields.username.value)
 
         setTimeout(() => reset(), 1000)
 
@@ -70,7 +69,6 @@ export const useUserEditorStore = defineStore("user/editor", () => {
 
     return {
         $v,
-        username,
         fields,
         fieldsData,
         rules,
