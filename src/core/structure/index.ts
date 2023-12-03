@@ -20,6 +20,9 @@ export const platformStructure = {
                         name: 'Name',
                         placeholder: 'Name',
                         type: 'string',
+                        validation: {
+                            maxLength: 30,
+                        },
                         methods: {
                             set: 'setName',
                         },

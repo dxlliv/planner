@@ -14,7 +14,7 @@ function onAvatarUpdate(avatar: File) {
 async function onFormSend(e) {
   e.preventDefault()
 
-  if ($v.value.$validate()) {
+  if (await $v.value.$validate()) {
     if (userEditorStore.send()) {
       emit('close')
     }
@@ -38,11 +38,11 @@ async function onFormSend(e) {
         <v-row>
           <v-col>
 
-            <v-text-field
-                v-model="userEditorStore.username"
+            <UserEditorFieldString
                 name="username"
-                placeholder="Username"
-                hide-details
+                v-model="userEditorStore.fields.username"
+                :data="userEditorStore.fieldsData.username"
+                :error="$v.username.$invalid"
                 variant="outlined"
             />
 
@@ -101,14 +101,23 @@ async function onFormSend(e) {
 <style lang="scss">
 .ig-user-editor-form {
   .v-row {
+    & + .v-row {
+      margin-top: 8px;
+    }
+
     .v-col {
       padding-left: 8px;
       padding-right: 8px;
     }
   }
   .v-field__input {
-    padding: 5px 12px;
+    padding-left: 12px;
+    padding-right: 12px;
     min-height: 10px;
+  }
+  input.v-field__input {
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }
 </style>

@@ -294,6 +294,11 @@ interface IPlatformStructureUserProfile {
   fields: {
     [fieldKey: string]: {
       type: string
+      validation?: {
+        required?: boolean
+        minLength?: number
+        maxLength?: number
+      }
       methods?: {
         set: string
       }

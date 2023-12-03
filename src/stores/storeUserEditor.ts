@@ -1,4 +1,4 @@
-import {required, url} from "@vuelidate/validators";
+import {required, minLength, maxLength, url} from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
 import {getPlatformStructureUser} from "../utils/utilsPlatformStructure";
 import {useUserStore} from "./storeUser";
@@ -22,8 +22,18 @@ export const useUserEditorStore = defineStore("user/editor", () => {
         for (const [fieldKey, field] of Object.entries(platformStructureUser.value.profile.fields)) {
             fields[fieldKey] = ref('')
             fieldsData[fieldKey] = field
-            rules[fieldKey] = {
-                required
+            rules[fieldKey] = {}
+
+            if (field.validation) {
+                if (field.validation.required) {
+                    rules[fieldKey].required = required
+                }
+                if (field.validation.minLength) {
+                    rules[fieldKey].minLength = minLength(field.validation.minLength)
+                }
+                if (field.validation.maxLength) {
+                    rules[fieldKey].maxLength = maxLength(field.validation.maxLength)
+                }
             }
         }
 
