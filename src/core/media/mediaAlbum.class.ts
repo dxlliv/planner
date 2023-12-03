@@ -47,7 +47,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     }
 
     public async addToAlbum(file: File) {
-        const newAlbumMedia = MediaManager.newMedia({ file }, this.user)
+        const newAlbumMedia = UserMedia.newMedia({ file }, this.user)
 
         this.list?.splice(this.listIndex + 1, 0, newAlbumMedia)
         this.slideToNextListItem()

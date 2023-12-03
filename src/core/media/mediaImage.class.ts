@@ -61,7 +61,7 @@ export default class MediaImage extends Media implements IMediaImage {
     public async convertToIframe(href: string) {
         const index = await this.remove()
 
-        const media = MediaManager.newMedia({
+        const media = UserMedia.newMedia({
             type: 'iframe',
             cover: {
                 type: 'image',
