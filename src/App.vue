@@ -19,6 +19,10 @@ themeStore.restorePreviousState(theme)
 // kbd shortcuts
 onMounted(() => {
   window.addEventListener("keydown", (e) => {
+    if (document.activeElement !== document.body) {
+      return false
+    }
+
     if (String.fromCharCode(e.keyCode) === "R") {
       extraStore.toggleGuides();
     }
