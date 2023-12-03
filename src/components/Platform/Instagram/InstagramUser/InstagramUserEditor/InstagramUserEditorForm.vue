@@ -20,6 +20,10 @@ async function onFormSend(e) {
     }
   }
 }
+
+onMounted(() => {
+  document.querySelector('.ig-user-editor-form [name="username"]')?.focus()
+})
 </script>
 
 <template>
