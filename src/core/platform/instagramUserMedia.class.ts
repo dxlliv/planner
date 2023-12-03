@@ -18,5 +18,8 @@ export default class InstagramUserMedia extends UserMedia {
         super(user)
 
         this.user = user
+
+        // set instagram posts count
+        this.user.profile.setPostsCount(this.user.raw.media.posts.length)
     }
 }

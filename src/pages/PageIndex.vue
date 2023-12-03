@@ -8,7 +8,7 @@
             v-model:list="listOfUsernames"
             @update:list="onListUpdated"
             axis="x"
-            :press-delay="100"
+            :press-delay="200"
         >
           <SlickItem
               class="v-col flex-grow-0"
