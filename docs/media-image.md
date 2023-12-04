@@ -1,7 +1,7 @@
 # Images
 
 You can declare images simply defining them in the media property list.  
-Place your images in the `public/user/{username}/media/` folder.
+Place your images in the `public/user/instagram/{username}/media/` folder.
 
 ```json
 {

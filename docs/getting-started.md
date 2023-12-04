@@ -27,7 +27,7 @@ Define your profile using your favorite editor and create a `config.json` file.
 
 ## Set up a new user
 
-After creating the profile configuration, create a new folder in `public/user/{username}`
+After creating the profile configuration, create the user folder in `public/user/instagram/`
 and place the `config.json` you just created, making sure to provide a valid JSON.
 
 If you have not defined a direct link, place an image called `avatar.jpg` in your folder.
@@ -45,9 +45,9 @@ Add your new profile path in the root `config.json` like the example.
 ```json
 {
   "users": [
-    "user/dxlliv",
-    "user/dxvfpv",
-    "user/{username}"
+    "instagram/dxlliv",
+    "instagram/dxvfpv",
+    "instagram/{username}"
   ]
 }
 ```
@@ -56,4 +56,4 @@ Add your new profile path in the root `config.json` like the example.
 
 This planner supports different media types: images, videos, albums and iframes.
 
-Place your media in the `public/user/{username}/media/` and define your content in the user configuration. Create a `media` folder in your profile, if you are setting a new user.
+Place your media in `public/user/instagram/{username}/media/` and define the content in the user configuration. Create a `media` folder in your profile, if you are setting a new user.

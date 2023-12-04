@@ -43,7 +43,7 @@ You can add users directly from the browser, but if you want to host an instance
 └─ package.json
 ```
 
-The files you have to modify are the `config.json`. One is located in the root folder and contains a list of paths, the others are located in each `public/user/{username}/` folder.
+The files you have to modify are the `config.json`. One is located in the root folder and contains a list of paths, the others are located in each `public/user/instagram/{username}/` folder.
 
 ## Configuration
 
