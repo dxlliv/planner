@@ -21,5 +21,5 @@ const username: string = route.params.username.toString();
 const extraOptions = computed(() => extraStore.options);
 const user = computed(() => userStore.user);
 
-userStore.loadUserPage(username);
+userStore.loadUserPage(`instagram/${username}`);
 </script>

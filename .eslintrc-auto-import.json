@@ -133,6 +133,9 @@
     "useUserEditorStore": true,
     "platformStructure": true,
     "getPlatformStructure": true,
-    "getPlatformStructureUser": true
+    "getPlatformStructureUser": true,
+    "getUsernameFromPlatformUser": true,
+    "getPlatformromPlatformUser": true,
+    "getPlatformFromPlatformUser": true
   }
 }

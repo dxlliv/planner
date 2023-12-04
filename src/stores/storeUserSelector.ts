@@ -1,32 +1,34 @@
+import {getUsernameFromPlatformUser} from "../utils/utilsPlatform";
+
 export const useUserSelectorStore = defineStore("user/selector", () => {
   const userStore = useUserStore()
 
-  const users: Ref<string[]> = ref([])
+  const platformUsers: Ref<string[]> = ref([])
 
-  function addUserToSelectorList(username: string) {
-    if (!users.value.includes(username)) {
-      users.value.push(username)
+  function addUserToSelectorList(userPath: string) {
+    if (!platformUsers.value.includes(userPath)) {
+      platformUsers.value.push(userPath)
     }
   }
 
-  function removeUserFromSelectorList(username: string) {
-    if (users.value.includes(username)) {
-      users.value = users.value.filter(u => u !== username)
+  function removeUserFromSelectorList(userPath: string) {
+    if (platformUsers.value.includes(userPath)) {
+      platformUsers.value = platformUsers.value.filter(uP => uP !== userPath)
     }
   }
 
   function setUsersOrder(usernames: string[]) {
-    users.value = usernames
+    platformUsers.value = usernames
   }
 
   const listOfUsers = computed(() => {
     const usersTemp = []
 
-    for (const username of users.value) {
-      const user = userStore.getUser(username)
+    for (const platformUser of platformUsers.value) {
+      const user = userStore.getUser(platformUser)
 
       if (user && user.ready) {
-        usersTemp.push(userStore.getUser(username))
+        usersTemp.push(user)
       }
     }
 
@@ -36,7 +38,8 @@ export const useUserSelectorStore = defineStore("user/selector", () => {
   const listOfUsernames = computed(() => {
     const usernamesTemp = []
 
-    for (const username of users.value) {
+    for (const platformUser of platformUsers.value) {
+      const username = getUsernameFromPlatformUser(platformUser)
       const user = userStore.getUser(username)
 
       if (user && user.ready) {
@@ -48,7 +51,7 @@ export const useUserSelectorStore = defineStore("user/selector", () => {
   })
 
   return {
-    users,
+    platformUsers,
     listOfUsernames,
     listOfUsers,
     addUserToSelectorList,

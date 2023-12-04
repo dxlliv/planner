@@ -4,18 +4,19 @@ import InstagramUser from "../core/platform/instagramUser.class";
 export const useUserStore = defineStore("user", () => {
   const userSelectorStore = useUserSelectorStore()
 
-  const users: Ref<{[username: string]: User}> = ref({});
+  const platformUsers: Ref<{[username: string]: User}> = ref({});
   const userActive: Ref<string> = ref('')
 
   /**
    * Load user
    *
    * @param rawUser
+   * @param platform
    * @param origin
    */
-  function loadUser(rawUser: IRawUser, origin: string) {
+  function loadUser(rawUser: IRawUser, platform: string, origin: string) {
     const username = rawUser.username
-    const platform = 'instagram'
+    const userPath = `${platform}/${username}`
 
     let user
 
@@ -26,10 +27,10 @@ export const useUserStore = defineStore("user", () => {
     }
 
     // store initialized user
-    users.value[username] = user
+    platformUsers.value[userPath] = user
 
     // store user to selector list
-    userSelectorStore.addUserToSelectorList(username)
+    userSelectorStore.addUserToSelectorList(userPath)
   }
 
   /**
@@ -38,7 +39,7 @@ export const useUserStore = defineStore("user", () => {
    * @param username
    */
   function unloadUser(username: string): boolean {
-    delete users.value[username]
+    delete platformUsers.value[username]
 
     return true;
   }
@@ -50,7 +51,7 @@ export const useUserStore = defineStore("user", () => {
    * @param username
    */
   function loadUserPage(username: string): boolean {
-    const user = users.value[username]
+    const user = platformUsers.value[username]
 
     user.parseUserMedia()
     setUserActive(username)
@@ -59,7 +60,7 @@ export const useUserStore = defineStore("user", () => {
   }
 
   function getUser(username: string) {
-    return users.value[username]
+    return platformUsers.value[username]
   }
 
   /**
@@ -72,11 +73,11 @@ export const useUserStore = defineStore("user", () => {
   }
 
   const user = computed(() => {
-    return users.value[userActive.value]
+    return platformUsers.value[userActive.value]
   })
 
   return {
-    users,
+    platformUsers,
     user,
     userActive,
     loadUser,

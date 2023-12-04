@@ -8,7 +8,7 @@ export const useUserImportStore = defineStore("user/import", () => {
   const directory: Ref<any> = ref(null);
   const rawUserConfig: Ref<IRawUser> = ref({} as IRawUser)
 
-  async function importFromDirectory() {
+  async function importFromDirectory(platform: string) {
     directory.value = await openUserDirectory()
 
     // convert config.json file to raw user object
@@ -23,7 +23,7 @@ export const useUserImportStore = defineStore("user/import", () => {
     if (rawUserConfig.value.media.reels) importRawMediaFilesByCollection("reels")
 
     // initialize user
-    userStore.loadUser(rawUserConfig.value, 'storage')
+    userStore.loadUser(rawUserConfig.value, platform, 'storage')
     userStorageStore.addUserToStorageIndex(rawUserConfig.value.username)
   }
 

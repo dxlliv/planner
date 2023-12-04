@@ -13,7 +13,7 @@ export default {
           },
           {
             name: "user",
-            path: "/ig-planner/:username",
+            path: "/ig-planner/:platform/:username",
             component: () => import("~/pages/PageUser.vue"),
           },
         ],

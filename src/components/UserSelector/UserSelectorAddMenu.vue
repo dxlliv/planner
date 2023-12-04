@@ -25,7 +25,7 @@ const userImportStore = useUserImportStore()
 const emit = defineEmits(['openCreateProfileDialog'])
 
 function onProfileImportFromFolder() {
-  userImportStore.importFromDirectory()
+  userImportStore.importFromDirectory('instagram')
 }
 </script>
 

@@ -5,6 +5,7 @@
           :to="{
             name: 'user',
             params: {
+              platform: user.platform,
               username: user.username,
             },
           }"

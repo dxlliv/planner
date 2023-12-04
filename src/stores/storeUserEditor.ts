@@ -1,6 +1,5 @@
 import {required, minLength, maxLength, url} from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
-import {getPlatformStructureUser} from "../utils/utilsPlatformStructure";
 import {useUserStore} from "./storeUser";
 
 export const useUserEditorStore = defineStore("user/editor", () => {
@@ -69,7 +68,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
 
         delete rawUserConfig.profile['username']
 
-        useUserStore().loadUser(rawUserConfig, 'storage')
+        useUserStore().loadUser(rawUserConfig, 'instagram', 'storage')
         useUserStorageStore().addUserToStorageIndex(fields.username.value)
 
         setTimeout(() => reset(), 1000)
