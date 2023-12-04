@@ -1,17 +1,17 @@
 module.exports = {
-  base: "/ig-planner/docs/",
-  title: "dxlliv/ig-planner",
+  base: "/planner/docs/",
+  title: "dxlliv/planner",
   description: "Plan your social profiles grid like a pro",
 
   themeConfig: {
-    repo: "dxlliv/ig-planner",
-    docsRepo: "dxlliv/ig-planner",
+    repo: "dxlliv/planner",
+    docsRepo: "dxlliv/planner",
     docsDir: "docs",
     docsBranch: "master",
     editLinks: true,
 
     nav: [
-      { text: "Demo", link: "https://dxlliv.github.io/ig-planner/" },
+      { text: "Demo", link: "https://dxlliv.github.io/planner/" },
       { text: "Support", link: "https://patreon.com/dxlliv" },
     ],
     sidebar: {
@@ -47,11 +47,11 @@ module.exports = {
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/dxlliv/ig-planner' }
+      { icon: 'github', link: 'https://github.com/dxlliv/planner' }
     ],
 
     footer: {
-      copyright: 'dxlliv/ig-planner'
+      copyright: 'dxlliv/planner'
     },
   },
 }

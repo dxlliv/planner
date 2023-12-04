@@ -5,11 +5,11 @@
     </h2>
     <h2 class="hidden-sm-and-down">Plan your Instagram grid like a pro</h2>
     <p class="mt-5 text-grey-darken-1">
-      <a href="https://github.com/dxlliv/ig-planner">dxlliv/ig-planner</a>
+      <a href="https://github.com/dxlliv/planner">dxlliv/planner</a>
       let you preview what your profile grid will look like.<br
         class="hidden-xs"
       />
-      Clone the repository and build your Instagram grid with a text editor.
+      Bring your grid to the next level with a simple and open-source tool.
     </p>
   </div>
 </template>

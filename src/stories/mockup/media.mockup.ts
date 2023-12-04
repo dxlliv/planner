@@ -4,7 +4,7 @@ export const mockupMediaImage = {
     "data": {
         "file": {
             "name": "6.jpg",
-            "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/6.jpg"
+            "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/6.jpg"
         }
     }
 }
@@ -31,7 +31,7 @@ export const mockupMediaAlbum = {
                 "data": {
                     "file": {
                         "name": "4.jpg",
-                        "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/4.jpg"
+                        "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/4.jpg"
                     }
                 }
             },
@@ -41,7 +41,7 @@ export const mockupMediaAlbum = {
                 "data": {
                     "file": {
                         "name": "4x1.jpg",
-                        "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/4x1.jpg"
+                        "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/4x1.jpg"
                     }
                 }
             }
@@ -61,7 +61,7 @@ export const mockupMediaIframe = {
             "data": {
                 "file": {
                     "name": "5.jpg",
-                    "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/5.jpg"
+                    "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/5.jpg"
                 }
             }
         }

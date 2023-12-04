@@ -1,7 +1,7 @@
 ---
 layout: home
 
-title: dxlliv/ig-planner
+title: dxlliv/planner
 titleTemplate: Plan your Instagram profile like a pro
 
 hero:
@@ -13,10 +13,10 @@ hero:
       link: /getting-started
     - theme: alt
       text: View on GitHub
-      link: https://github.com/dxlliv/ig-planner
+      link: https://github.com/dxlliv/planner
   image:
-    src: https://dxlliv.github.io/ig-planner/logo.svg
-    alt: dxlliv/ig-planner
+    src: https://dxlliv.github.io/planner/logo.svg
+    alt: dxlliv/planner
 
 features:
   - title: 🖼️ &nbsp; Organize your grid

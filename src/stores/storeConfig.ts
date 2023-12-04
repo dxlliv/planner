@@ -5,8 +5,8 @@ export const useConfigStore = defineStore("config", () => {
   const userStore = useUserStore()
 
   /**
-   * Load ig-planner local configuration
-   * from /ig-planner/config.json
+   * Load planner local configuration
+   * from /planner/config.json
    */
   async function loadConfig() {
     await loadUsersFromLocalConfig()

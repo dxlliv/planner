@@ -4,10 +4,10 @@
 
 ## About
 
-**dxlliv/ig-planner** let you preview what your profile grid will look like.  
+**dxlliv/planner** let you preview what your profile grid will look like.  
 Plan the grid with a text editor and build your definitive Instagram profile.
 
-**[Demo](https://dxlliv.github.io/ig-planner/) · [Documentation](https://dxlliv.github.io/ig-planner/docs/) · [Support](https://patreon.com/dxlliv)**
+**[Demo](https://dxlliv.github.io/planner/) · [Documentation](https://dxlliv.github.io/planner/docs/) · [Support](https://patreon.com/dxlliv)**
 
 ## Features
 - **Organize your grid**  
@@ -44,7 +44,7 @@ Be sure you have Node.js and NPM installed.
 Clone the repository and move to the project directory:
 
 ```bash
-git clone https://github.com/dxlliv/ig-planner.git && cd ig-planner
+git clone https://github.com/dxlliv/planner.git && cd planner
 ```
 
 Install dependencies and run the project with `yarn` or `npm`:
@@ -59,7 +59,7 @@ npm install && npm run dev
 ### Configuration
 
 If you know how to properly edit a .json file, it will be simple.  
-Read the [documentation](https://dxlliv.github.io/ig-planner/docs/) for further information.
+Read the [documentation](https://dxlliv.github.io/planner/docs/) for further information.
 
 ## Development
 

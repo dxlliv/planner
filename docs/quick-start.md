@@ -2,7 +2,7 @@
 
 ## Try it online
 
-You can try **dxlliv/ig-planner** directly in your browser on [GitHub](https://dxlliv.github.io/ig-planner/).  
+You can try **dxlliv/planner** directly in your browser on [GitHub](https://dxlliv.github.io/planner/).  
 If you prefer to run your planner or host it somewhere, keep reading. 
 
 ## Installation
@@ -11,7 +11,7 @@ Be sure you have Node.js and NPM installed.
 Clone the repository and move to the project directory:
 
 ```bash
-git clone https://github.com/dxlliv/ig-planner.git && cd ig-planner
+git clone https://github.com/dxlliv/planner.git && cd planner
 ```
 
 Install dependencies and run the project:

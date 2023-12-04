@@ -4,8 +4,8 @@
 
 <template>
   <p class="mt-3">
-    <a href="https://github.com/dxlliv/ig-planner" target="_blank">
-      <strong>ig-planner</strong>
+    <a href="https://github.com/dxlliv/planner" target="_blank">
+      <strong>planner</strong>
     </a>
     is currently under development.<br />
     Get support and ask for new features!

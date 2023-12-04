@@ -17,7 +17,7 @@ export const mockupUser = {
             "type": "image",
             "file": {
                 "name": "avatar.jpg",
-                "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/avatar.jpg"
+                "path": "https://dxlliv.github.io/planner/user/dxvfpv/avatar.jpg"
             }
         }
     },
@@ -30,7 +30,7 @@ export const mockupUser = {
                 "data": {
                     "file": {
                         "name": "6.jpg",
-                        "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/6.jpg"
+                        "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/6.jpg"
                     }
                 }
             },
@@ -46,7 +46,7 @@ export const mockupUser = {
                         "data": {
                             "file": {
                                 "name": "5.jpg",
-                                "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/5.jpg"
+                                "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/5.jpg"
                             }
                         }
                     }
@@ -63,7 +63,7 @@ export const mockupUser = {
                             "data": {
                                 "file": {
                                     "name": "4.jpg",
-                                    "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/4.jpg"
+                                    "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/4.jpg"
                                 }
                             }
                         },
@@ -73,7 +73,7 @@ export const mockupUser = {
                             "data": {
                                 "file": {
                                     "name": "4x1.jpg",
-                                    "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/4x1.jpg"
+                                    "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/4x1.jpg"
                                 }
                             }
                         }
@@ -86,7 +86,7 @@ export const mockupUser = {
                 "data": {
                     "file": {
                         "name": "3.jpg",
-                        "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/3.jpg"
+                        "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/3.jpg"
                     }
                 }
             },
@@ -96,7 +96,7 @@ export const mockupUser = {
                 "data": {
                     "file": {
                         "name": "2.jpg",
-                        "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/2.jpg"
+                        "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/2.jpg"
                     }
                 }
             },
@@ -106,7 +106,7 @@ export const mockupUser = {
                 "data": {
                     "file": {
                         "name": "1.jpg",
-                        "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/1.jpg"
+                        "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/1.jpg"
                     }
                 }
             }
@@ -125,7 +125,7 @@ export const mockupUser = {
                         "data": {
                             "file": {
                                 "name": "5.jpg",
-                                "path": "https://dxlliv.github.io/ig-planner/user/dxvfpv/media/5.jpg"
+                                "path": "https://dxlliv.github.io/planner/user/dxvfpv/media/5.jpg"
                             }
                         }
                     }
