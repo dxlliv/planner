@@ -1,22 +1,19 @@
 import {fetchFileFromUrl, getMediaFilePath, isPromise} from "../../utils/utilsFile";
 
 export default class UserAvatar {
+    public readonly user: IUser
     readonly #defaultAvatarFilename: string = 'avatar.jpg'
 
-    private username: string
     public file: Promise<File>
 
-    constructor(
-        rawAvatar: IRawAvatar,
-        username: string,
-    ) {
-        this.username = username
+    constructor(user: IUser) {
+        this.user = user
 
-        if (typeof rawAvatar === 'string') {
-            this.file = this.parseAvatar(rawAvatar)
+        if (typeof this.user.raw.profile.avatar === 'string') {
+            this.file = this.parseAvatar(this.user.raw.profile.avatar)
         } else {
             // @ts-ignore
-            this.file = Promise.resolve(rawAvatar)
+            this.file = Promise.resolve(this.user.raw.profile.avatar)
         }
     }
 
@@ -30,7 +27,7 @@ export default class UserAvatar {
         if (rawAvatar.startsWith("http")) {
             filePath = rawAvatar
         } else {
-            filePath = getMediaFilePath(rawAvatar, this.username)
+            filePath = getMediaFilePath(rawAvatar, `${this.user.platform}/${this.user.username}`)
         }
 
         return fetchFileFromUrl(filePath)

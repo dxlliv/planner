@@ -61,7 +61,7 @@ export default class UserProfile implements IUserProfile {
 
     public async setAvatar(avatar: string | File) {
         if (avatar) {
-            this.avatar = new UserAvatar(avatar, this.user.username)
+            this.avatar = new UserAvatar(this.user)
         }
     }
 

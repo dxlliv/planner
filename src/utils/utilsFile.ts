@@ -6,12 +6,12 @@ export function getFileExtension(filename: string) {
     return filename.split('.').pop()
 }
 
-export function getMediaFilePath(filename: string, username: string, folder: string = '') {
+export function getMediaFilePath(filename: string, folder: string = '') {
     if (filename.startsWith("http")) {
         return "";
     }
 
-    return `${import.meta.env.BASE_URL}user/${username}${folder}/${filename}`;
+    return `${import.meta.env.BASE_URL}user/${folder}/${filename}`;
 }
 
 export function createJsonFileFromObject(json: any) {
