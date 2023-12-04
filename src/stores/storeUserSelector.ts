@@ -17,8 +17,8 @@ export const useUserSelectorStore = defineStore("user/selector", () => {
     }
   }
 
-  function setUsersOrder(usernames: string[]) {
-    platformUsers.value = usernames
+  function setUsersOrder(platformUsersReordered: string[]) {
+    platformUsers.value = platformUsersReordered
   }
 
   const listOfUsers = computed(() => {
@@ -40,10 +40,10 @@ export const useUserSelectorStore = defineStore("user/selector", () => {
 
     for (const platformUser of platformUsers.value) {
       const username = getUsernameFromPlatformUser(platformUser)
-      const user = userStore.getUser(username)
+      const user = userStore.getUser(platformUser)
 
       if (user && user.ready) {
-        usernamesTemp.push(username)
+        usernamesTemp.push(platformUser)
       }
     }
 
