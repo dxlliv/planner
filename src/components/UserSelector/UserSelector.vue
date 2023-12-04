@@ -20,7 +20,7 @@
           </UserSelectorAvatar>
         </suspense>
 
-        <h3 class="mt-4" v-text="user.username" />
+        <h3 class="mt-4 text-truncate" v-text="user.username" />
 
         <UserSelectorMenu
             v-if="contextMenu.enabled"
@@ -85,6 +85,10 @@ function onShowProfileContextMenu(e) {
   text-align: center;
   margin: 0 16px;
   vertical-align: top;
+
+  h3 {
+    max-width: 150px;
+  }
 
   a {
     color: inherit;
