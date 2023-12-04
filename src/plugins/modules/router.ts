@@ -1,21 +1,21 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {createRouter, createWebHashHistory} from "vue-router";
 
 export default {
   install: (app: App) => {
     app.use(
       createRouter({
-        history: createWebHistory(),
+        history: createWebHashHistory(),
         routes: [
           {
             name: "index",
-            path: "/ig-planner/",
+            path: "/",
             component: () => import("~/pages/PageIndex.vue"),
           },
           {
             name: "user",
-            path: "/ig-planner/:platform/:username",
+            path: "/:platform/:username",
             component: () => import("~/pages/PageUser.vue"),
-          },
+          }
         ],
       }),
     );
