@@ -33,7 +33,7 @@ export default class InstagramUserProfile extends UserProfile implements IInstag
     }
 
     public async export(): Promise<IRawUserProfile> {
-        return {
+        return removeUndefinedFromObject({
             name: this.name,
             verified: this.verified,
             followers_count: this.followers_count,
@@ -41,6 +41,6 @@ export default class InstagramUserProfile extends UserProfile implements IInstag
             website: this.website?.href,
             biography: this.biography,
             avatar: await this.avatar?.file
-        }
+        })
     }
 }
