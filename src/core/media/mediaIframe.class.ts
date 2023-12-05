@@ -38,6 +38,18 @@ export default class MediaIframe extends Media implements IMediaIframe {
         }
     }
 
+    public async setCover(file: File) {
+        this.cover = new MediaImage({ file }, this.user)
+
+        await this.save()
+    }
+
+    public async removeCover() {
+        this.cover = undefined
+
+        await this.save()
+    }
+
     public async export(): Promise<IMediaIframeExport> {
         let cover = undefined
 
