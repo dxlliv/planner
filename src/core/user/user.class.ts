@@ -65,11 +65,15 @@ export default class User implements IUser {
         await this.storage.save()
     }
 
+    get platformUser() {
+        return `${this.platform}/${this.username}`
+    }
+
     public async remove() {
         useUserStore().unloadUser(this.username)
 
-        useUserSelectorStore().removeUserFromSelectorList(this.username)
-        useUserStorageStore().removeUserFromStorageIndex(this.username)
+        useUserSelectorStore().removeUserFromSelectorList(this.platformUser)
+        useUserStorageStore().removeUserFromStorageIndex(this.platformUser)
 
         if (this.isRemovable || this.hasLocalChanges) {
             await this.storage.remove()
