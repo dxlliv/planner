@@ -15,13 +15,19 @@ export const useUserEditorStore = defineStore("user/editor", () => {
         return getPlatformStructureUser(platform.value)
     })
 
-    function generateFields(platformKey: string) {
+    function generateFields(platformKey: string, user?: any) {
         platform.value = platformKey
 
         for (const [fieldKey, field] of Object.entries(platformStructureUser.value.profile.fields)) {
-            fields[fieldKey] = ref('')
+            const fieldInitialValue = user && user.profile.hasOwnProperty(fieldKey) ? user.profile[fieldKey] : ''
+
+            fields[fieldKey] = ref(fieldInitialValue)
             fieldsData[fieldKey] = field
             rules[fieldKey] = {}
+
+            if (user && fieldKey === 'username') {
+                fields[fieldKey] = user.username
+            }
 
             if (field.validation) {
                 if (field.validation.required) {
@@ -51,7 +57,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
         }
     }
 
-    function send() {
+    function create() {
         const rawUserConfig: any = {
             username: fields.username.value,
             profile: {},
@@ -68,7 +74,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
 
         delete rawUserConfig.profile['username']
 
-        useUserStore().loadUser(rawUserConfig, 'instagram', 'storage')
+        useUserStore().loadUser(rawUserConfig, platform.value, 'storage')
         useUserStorageStore().addUserToStorageIndex(fields.username.value)
 
         setTimeout(() => reset(), 1000)
@@ -76,12 +82,26 @@ export const useUserEditorStore = defineStore("user/editor", () => {
         return true
     }
 
+    async function update(user: IUser) {
+        const rawUserProfile: any = {}
+
+        for (const [fieldKey, field] of Object.entries(platformStructureUser.value.profile.fields)) {
+            rawUserProfile[fieldKey] = fields[fieldKey].value
+        }
+
+        delete rawUserProfile['username']
+
+        user.profile.update(rawUserProfile)
+        await user.save()
+    }
+
     return {
         $v,
         fields,
         fieldsData,
         rules,
-        send,
+        create,
+        update,
         generateFields,
     }
 })

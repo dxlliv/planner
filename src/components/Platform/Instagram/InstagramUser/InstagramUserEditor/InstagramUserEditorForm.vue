@@ -1,9 +1,13 @@
 <script setup lang="ts">
+const props = defineProps<{
+  user?: IUser
+}>()
+
 const emit = defineEmits(['close'])
 
 const userEditorStore = useUserEditorStore()
 
-userEditorStore.generateFields('instagram')
+userEditorStore.generateFields('instagram', props.user)
 
 const $v = userEditorStore.$v
 
@@ -15,9 +19,13 @@ async function onFormSend(e) {
   e.preventDefault()
 
   if (await $v.value.$validate()) {
-    if (userEditorStore.send()) {
-      emit('close')
+    if (!props.user) {
+      userEditorStore.create()
+    } else {
+      await userEditorStore.update(props.user)
     }
+
+    emit('close')
   }
 }
 
@@ -93,7 +101,7 @@ onMounted(() => {
 
         <v-row>
           <v-col>
-            <v-btn type="submit" text="Create" variant="outlined" />
+            <v-btn type="submit" :text="!props.user ? 'Create' : 'Edit'" variant="outlined" />
           </v-col>
         </v-row>
 
@@ -114,11 +122,13 @@ onMounted(() => {
       padding-right: 8px;
     }
   }
+
   .v-field__input {
     padding-left: 12px;
     padding-right: 12px;
     min-height: 10px;
   }
+
   input.v-field__input {
     padding-top: 5px;
     padding-bottom: 5px;

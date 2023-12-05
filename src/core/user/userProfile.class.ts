@@ -5,7 +5,7 @@ export default class UserProfile implements IUserProfile {
 
     public username: string = ''
     public name: string = ''
-    public website: IUserProfileWebsite = null
+    public website: string = ''
     public verified: boolean = false
     public biography: string = ''
     public avatar: UserAvatar | undefined
@@ -51,12 +51,7 @@ export default class UserProfile implements IUserProfile {
     }
 
     public setWebsite(website: any) {
-        this.website = !website
-            ? null
-            : {
-                href: website,
-                label: new URL(website).hostname,
-            };
+        this.website = website;
     }
 
     public async setAvatar(avatar: string | File) {
@@ -68,5 +63,18 @@ export default class UserProfile implements IUserProfile {
     public async updateAvatar(avatar: File) {
         await this.setAvatar(avatar)
         await this.user.save()
+    }
+
+    public import() {
+        this.update(this.user.raw.profile)
+    }
+
+    public update(data: any) {
+        for (const [fieldKey, field] of Object.entries(this.structure.fields)) {
+            if (!field.methods || !field.methods.set) continue
+
+            // @ts-ignore
+            this[field.methods.set](data[fieldKey])
+        }
     }
 }

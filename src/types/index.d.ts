@@ -103,10 +103,7 @@ interface IInstagramUser extends IUser {
 
 interface IUserProfile {
   name: string;
-  website: null | {
-    href: string;
-    label: string;
-  };
+  website: string;
   verified?: boolean
   biography?: string;
   avatar: UserAvatar | undefined;
@@ -129,11 +126,14 @@ interface IUserProfile {
   updateAvatar(avatar: UserAvatar): Promise<void>
 
   import(): void
-  export(): Promise<IRawUserProfile>
+  update(data: any): void
 }
 
 interface IInstagramUserProfile extends IUserProfile {
+  structure: IPlatformStructureUserProfile
+
   public_profile: string
+  export(): Promise<IRawUserProfile>
 }
 
 interface UserAvatar {

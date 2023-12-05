@@ -8,8 +8,13 @@
       :offset="[7, 0]"
   >
     <v-list>
+      <!--
       <v-list-item :href="user.profile.public_profile" target="_blank">
         <v-list-item-title>Open on Instagram</v-list-item-title>
+      </v-list-item>
+      -->
+      <v-list-item @click="emit('edit')">
+        <v-list-item-title>Edit profile</v-list-item-title>
       </v-list-item>
       <v-divider />
       <v-list-item @click="onProfileRemove()" class="text-red">
@@ -23,6 +28,8 @@
 const { user } = defineProps<{
   user: IUser;
 }>();
+
+const emit = defineEmits(['edit'])
 
 const cannotBeRemoved = ref(false)
 

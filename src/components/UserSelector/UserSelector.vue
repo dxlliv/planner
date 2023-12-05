@@ -25,6 +25,7 @@
         <UserSelectorMenu
             v-if="contextMenu.enabled"
             v-model="contextMenu.enabled"
+            @edit="onUserEdit"
             :user="user"
         />
 
@@ -36,6 +37,16 @@
       >🡥</a>
     </template>
     <slot />
+
+    <UserEditorDialog
+        title="Edit profile"
+        v-model="editProfileDialog"
+    >
+      <InstagramUserEditorForm
+          :user="user"
+          @close="editProfileDialog = false"
+      />
+    </UserEditorDialog>
   </div>
 </template>
 
@@ -50,6 +61,12 @@ const contextMenu = reactive({
   x: 0,
   y: 0
 })
+
+const editProfileDialog = ref(false)
+
+function onUserEdit() {
+  editProfileDialog.value = true
+}
 
 function onShowProfileContextMenu(e) {
   e.preventDefault()

@@ -4,6 +4,8 @@ export function getPlatformStructureUser(platform: string): IPlatformStructureUs
     switch(platform) {
         case 'instagram':
             return platformStructure[platform].user
+        default:
+            throw Error('No platform provided')
     }
 }
 
