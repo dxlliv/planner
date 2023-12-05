@@ -9,7 +9,7 @@
       let you preview what your profile grid will look like.<br
         class="hidden-xs"
       />
-      Bring your grid to the next level with a simple and open-source tool.
+      Bring your grid to the next level with a text editor or interactively.
     </p>
   </div>
 </template>
