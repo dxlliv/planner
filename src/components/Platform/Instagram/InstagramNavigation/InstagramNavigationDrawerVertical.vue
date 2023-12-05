@@ -54,7 +54,8 @@ const emit = defineEmits(['create', 'export'])
         <template #prepend>
           <suspense>
             <InstagramUserAvatar
-                :avatar="user.profile.avatar" size="26px"
+                :avatar="user.profile.avatar"
+                :size="26"
             />
           </suspense>
         </template>

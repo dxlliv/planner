@@ -39,7 +39,7 @@ const emit = defineEmits(['create', 'export'])
       <InstagramUserAvatar
           v-if="user.ready"
           :avatar="user.profile.avatar"
-          size="26px"
+          :size="26"
       />
     </v-btn>
 
