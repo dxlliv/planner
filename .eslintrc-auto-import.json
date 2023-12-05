@@ -136,6 +136,9 @@
     "getPlatformStructureUser": true,
     "getUsernameFromPlatformUser": true,
     "getPlatformromPlatformUser": true,
-    "getPlatformFromPlatformUser": true
+    "getPlatformFromPlatformUser": true,
+    "getPlatformFromUserPath": true,
+    "getUsernameFromUserPath": true,
+    "extractUsernameFromUserId": true
   }
 }

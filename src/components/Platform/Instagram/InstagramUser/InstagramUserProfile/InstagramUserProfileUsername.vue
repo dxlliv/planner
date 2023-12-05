@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <div class="ig-profile-page__header__username">
-    <span v-text="user.username" />
+    <span v-text="user.profile.username" />
     <v-icon v-if="user.profile.verified" icon="mdi-check-decagram" />
   </div>
 </template>

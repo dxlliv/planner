@@ -20,11 +20,12 @@ export default class InstagramUserProfile extends UserProfile implements IInstag
     }
 
     get public_profile() {
-        return `https://instagram.com/${this.user.username}`
+        return `https://instagram.com/${this.user.profile.username}`
     }
 
     public async export(): Promise<IRawUserProfile> {
         return removeUndefinedFromObject({
+            username: this.username,
             name: this.name,
             verified: this.verified,
             followers_count: this.followers_count,

@@ -13,7 +13,7 @@
           <SlickItem
               class="v-col flex-grow-0"
               v-for="(user, i) of listOfUsers"
-              :key="user.username" :index="i"
+              :key="user.id" :index="i"
           >
             <UserSelector
                 v-if="user && user.ready"
@@ -44,6 +44,8 @@ const listOfUsernames = ref(userSelectorStore.listOfUsernames);
 const listOfUsers = computed(() => userSelectorStore.listOfUsers);
 
 function onListUpdated(platformUsersReordered: string[]) {
+  console.log(platformUsersReordered)
+
   userSelectorStore.setUsersOrder(platformUsersReordered)
 }
 </script>

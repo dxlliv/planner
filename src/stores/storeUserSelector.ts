@@ -1,30 +1,28 @@
-import {getUsernameFromPlatformUser} from "../utils/utilsPlatform";
-
 export const useUserSelectorStore = defineStore("user/selector", () => {
   const userStore = useUserStore()
 
-  const platformUsers: Ref<string[]> = ref([])
+  const users: Ref<string[]> = ref([])
 
-  function addUserToSelectorList(userPath: string) {
-    if (!platformUsers.value.includes(userPath)) {
-      platformUsers.value.push(userPath)
+  function addUserToSelectorList(id: string) {
+    if (!users.value.includes(id)) {
+      users.value.push(id)
     }
   }
 
-  function removeUserFromSelectorList(userPath: string) {
-    if (platformUsers.value.includes(userPath)) {
-      platformUsers.value = platformUsers.value.filter(uP => uP !== userPath)
+  function removeUserFromSelectorList(id: string) {
+    if (users.value.includes(id)) {
+      users.value = users.value.filter(userId => userId !== id)
     }
   }
 
-  function setUsersOrder(platformUsersReordered: string[]) {
-    platformUsers.value = platformUsersReordered
+  function setUsersOrder(idsReordered: string[]) {
+    users.value = idsReordered
   }
 
   const listOfUsers = computed(() => {
     const usersTemp = []
 
-    for (const platformUser of platformUsers.value) {
+    for (const platformUser of users.value) {
       const user = userStore.getUser(platformUser)
 
       if (user && user.ready) {
@@ -38,12 +36,11 @@ export const useUserSelectorStore = defineStore("user/selector", () => {
   const listOfUsernames = computed(() => {
     const usernamesTemp = []
 
-    for (const platformUser of platformUsers.value) {
-      const username = getUsernameFromPlatformUser(platformUser)
-      const user = userStore.getUser(platformUser)
+    for (const id of users.value) {
+      const user = userStore.getUser(id)
 
       if (user && user.ready) {
-        usernamesTemp.push(platformUser)
+        usernamesTemp.push(id)
       }
     }
 
@@ -51,7 +48,7 @@ export const useUserSelectorStore = defineStore("user/selector", () => {
   })
 
   return {
-    platformUsers,
+    users,
     listOfUsernames,
     listOfUsers,
     addUserToSelectorList,

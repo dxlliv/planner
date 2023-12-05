@@ -5,8 +5,7 @@ interface IRawConfig {
 }
 
 interface IRawUser {
-  origin: string
-  username: string;
+  id?: string;
   profile: IRawUserProfile;
   media: IRawUserMedia;
   options: any;
@@ -68,9 +67,9 @@ type IUsers = { [username: string]: IUser };
 
 interface IUser {
   platform: IPlatforms
+  id: string
 
   raw: IRawUser
-  username: string;
   origin: string
 
   options: IUserOptions;
@@ -102,6 +101,7 @@ interface IInstagramUser extends IUser {
 }
 
 interface IUserProfile {
+  username: string;
   name: string;
   website: string;
   verified?: boolean

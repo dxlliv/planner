@@ -9,10 +9,18 @@ export function getPlatformStructureUser(platform: string): IPlatformStructureUs
     }
 }
 
-export function getUsernameFromPlatformUser(platformUser: string) {
-    return platformUser.split('/').pop()
+export function extractUsernameFromUserId(id: string) {
+    return id.split('/').pop()
 }
 
-export function getPlatformFromPlatformUser(platformUser: string) {
-    return platformUser.split('/').shift()
+export function getPlatformFromUserPath(userPath: string): string {
+    const explodedUserPath: string[] = userPath.split('/')
+
+    const platform = explodedUserPath.shift()
+
+    if (!platform) {
+        throw Error('Unable to get the platform from user path')
+    }
+
+    return platform
 }

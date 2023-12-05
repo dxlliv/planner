@@ -1,5 +1,5 @@
 import plannerConfig from "../../config.json";
-import {getPlatformFromPlatformUser} from "../utils/utilsPlatform";
+import {getPlatformFromUserPath} from "../utils/utilsPlatform";
 
 export const useConfigStore = defineStore("config", () => {
   const userStore = useUserStore()
@@ -17,14 +17,15 @@ export const useConfigStore = defineStore("config", () => {
    */
   async function loadUsersFromLocalConfig(): Promise<boolean> {
     // for each user defined in the root config.json
-    for await (const platformUser of plannerConfig.users) {
-      // fetch user config from its local/remote path
-      const remoteUserConfig = await fetchRemoteUserConfig(`user/${platformUser}/config.json`)
+    for await (const userPath of plannerConfig.users) {
 
-      const platform = getPlatformFromPlatformUser(platformUser)
+      // fetch user config from its local/remote path
+      const rawUserConfig = await fetchRemoteUserConfig(`user/${userPath}/config.json`)
+      const platform: string = getPlatformFromUserPath(userPath)
 
       // load users
-      userStore.loadUser(remoteUserConfig, platform, 'config')
+      userStore.loadUser(rawUserConfig, platform, 'config')
+
     }
 
     return true;

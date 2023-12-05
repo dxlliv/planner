@@ -27,7 +27,7 @@ export default class UserAvatar {
         if (rawAvatar.startsWith("http")) {
             filePath = rawAvatar
         } else {
-            filePath = getMediaFilePath(rawAvatar, `${this.user.platform}/${this.user.username}`)
+            filePath = getMediaFilePath(rawAvatar, `${this.user.platform}/${this.user.raw.profile.username}`)
         }
 
         return fetchFileFromUrl(filePath)

@@ -10,7 +10,7 @@ export default class UserStorage {
 
         this.database = localforage.createInstance({
             name: 'planner',
-            storeName: user.username
+            storeName: user.raw.profile.username
         })
     }
 
@@ -22,7 +22,7 @@ export default class UserStorage {
         const storedUser: null | IRawUser = await this.database.getItem(this.user.platform)
 
         if (storedUser) {
-            this.user.raw.username = storedUser.username
+            this.user.id = storedUser.id
             this.user.raw.profile = storedUser.profile
             this.user.raw.media = storedUser.media
 
@@ -37,7 +37,7 @@ export default class UserStorage {
         this.user.setChanged(true)
 
         this.database.setItem(this.user.platform, {
-            username: this.user.username,
+            id: this.user.id,
             profile: exportedProfile,
             media: exportedMedia,
         })

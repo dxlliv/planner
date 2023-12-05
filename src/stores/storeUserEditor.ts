@@ -25,10 +25,6 @@ export const useUserEditorStore = defineStore("user/editor", () => {
             fieldsData[fieldKey] = field
             rules[fieldKey] = {}
 
-            if (user && fieldKey === 'username') {
-                fields[fieldKey] = user.username
-            }
-
             if (field.validation) {
                 if (field.validation.required) {
                     rules[fieldKey].required = required
@@ -59,7 +55,6 @@ export const useUserEditorStore = defineStore("user/editor", () => {
 
     function create() {
         const rawUserConfig: any = {
-            username: fields.username.value,
             profile: {},
             media: {}
         }
@@ -72,10 +67,8 @@ export const useUserEditorStore = defineStore("user/editor", () => {
             rawUserConfig.media[fieldKey] = []
         }
 
-        delete rawUserConfig.profile['username']
-
-        useUserStore().loadUser(rawUserConfig, platform.value, 'storage')
-        useUserStorageStore().addUserToStorageIndex(fields.username.value)
+        const id = useUserStore().loadUser(rawUserConfig, platform.value, 'storage')
+        useUserStorageStore().addUserToStorageIndex(id)
 
         setTimeout(() => reset(), 1000)
 
@@ -88,8 +81,6 @@ export const useUserEditorStore = defineStore("user/editor", () => {
         for (const [fieldKey, field] of Object.entries(platformStructureUser.value.profile.fields)) {
             rawUserProfile[fieldKey] = fields[fieldKey].value
         }
-
-        delete rawUserProfile['username']
 
         user.profile.update(rawUserProfile)
         await user.save()

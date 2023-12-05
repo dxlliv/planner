@@ -40,7 +40,7 @@ export default class Media {
             filePath = fileName
             fileName = getFileName(filePath)
         } else {
-            filePath = getMediaFilePath(fileName, `${this.user.platform}/${this.user.username}/media`)
+            filePath = getMediaFilePath(fileName, `${this.user.platform}/${this.user.profile.username}/media`)
         }
 
         return {

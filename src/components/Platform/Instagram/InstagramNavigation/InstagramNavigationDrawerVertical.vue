@@ -49,7 +49,7 @@ const emit = defineEmits(['create', 'export'])
       <v-list-item
           v-if="user.ready"
           title="Profile"
-          :to="{ name: 'user', params: { username: user.username } }"
+          :to="{ name: 'user', params: { platform: user.platform, username: user.profile.username } }"
       >
         <template #prepend>
           <suspense>

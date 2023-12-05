@@ -4,7 +4,7 @@ import InstagramUser from "../core/platform/instagramUser.class";
 export const useUserStore = defineStore("user", () => {
   const userSelectorStore = useUserSelectorStore()
 
-  const platformUsers: Ref<{[username: string]: User}> = ref({});
+  const users: Ref<{[id: string]: User}> = ref({});
   const userActive: Ref<string> = ref('')
 
   /**
@@ -14,32 +14,35 @@ export const useUserStore = defineStore("user", () => {
    * @param platform
    * @param origin
    */
-  function loadUser(rawUser: IRawUser, platform: string, origin: string) {
-    const username = rawUser.username
-    const userPath = `${platform}/${username}`
-
+  function loadUser(rawUser: IRawUser, platform: string, origin: string): string {
     let user
 
     switch (platform) {
       case 'instagram':
         user = new InstagramUser(toRaw(rawUser), origin)
         break
+      default:
+        throw Error('Platform not recognized on user load')
     }
 
+    const id = user.id
+
     // store initialized user
-    platformUsers.value[userPath] = user
+    users.value[id] = user
 
     // store user to selector list
-    userSelectorStore.addUserToSelectorList(userPath)
+    userSelectorStore.addUserToSelectorList(id)
+
+    return id
   }
 
   /**
    * Unload user
    *
-   * @param username
+   * @param id
    */
-  function unloadUser(username: string): boolean {
-    delete platformUsers.value[username]
+  function unloadUser(id: string): boolean {
+    delete users.value[id]
 
     return true;
   }
@@ -48,36 +51,36 @@ export const useUserStore = defineStore("user", () => {
    * Initialize user from username
    * (called in PageUser.vue)
    *
-   * @param username
+   * @param id
    */
-  function loadUserPage(username: string): boolean {
-    const user = platformUsers.value[username]
+  function loadUserPage(id: string): boolean {
+    const user = users.value[id]
 
     user.parseUserMedia()
-    setUserActive(username)
+    setUserActive(id)
 
     return true;
   }
 
-  function getUser(username: string) {
-    return platformUsers.value[username]
+  function getUser(id: string) {
+    return users.value[id]
   }
 
   /**
    * Set active user
    *
-   * @param username
+   * @param id
    */
-  function setUserActive(username: string) {
-    userActive.value = username
+  function setUserActive(id: string) {
+    userActive.value = id
   }
 
   const user = computed(() => {
-    return platformUsers.value[userActive.value]
+    return users.value[userActive.value]
   })
 
   return {
-    platformUsers,
+    users,
     user,
     userActive,
     loadUser,

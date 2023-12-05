@@ -6,12 +6,11 @@
             name: 'user',
             params: {
               platform: user.platform,
-              username: user.username,
+              username: extractUsernameFromUserId(user.id),
             },
           }"
           @contextmenu="onShowProfileContextMenu"
       >
-
         <suspense>
           <UserSelectorAvatar :avatar="user.profile.avatar">
             <template #inner>
@@ -20,7 +19,7 @@
           </UserSelectorAvatar>
         </suspense>
 
-        <h3 class="mt-4 text-truncate" v-text="user.username" />
+        <h3 class="mt-4 text-truncate" v-text="user.profile.username" />
 
         <UserSelectorMenu
             v-if="contextMenu.enabled"
@@ -51,6 +50,8 @@
 </template>
 
 <script setup lang="ts">
+import {extractUsernameFromUserId} from "../../utils/utilsPlatform";
+
 const { user } = defineProps<{
   user?: IUser;
   add?: boolean

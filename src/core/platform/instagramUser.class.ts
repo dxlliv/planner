@@ -4,12 +4,15 @@ import InstagramUserMedia from "./instagramUserMedia.class";
 
 export default class InstagramUser extends User implements IInstagramUser {
     public readonly platform: IPlatforms = 'instagram'
+    public id: string = ''
 
     constructor(
         raw: IRawUser,
         origin: string,
     ) {
         super(raw, origin)
+
+        this.id = `${this.platform}/${this.raw.profile.username}`
 
         /*
         this.structure.user = {
@@ -26,6 +29,6 @@ export default class InstagramUser extends User implements IInstagramUser {
     }
 
     public parseUserMedia() {
-        this.media = new InstagramUserMedia(this);
+        this.media = new InstagramUserMedia(this)
     }
 }

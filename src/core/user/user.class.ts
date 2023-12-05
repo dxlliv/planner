@@ -2,7 +2,6 @@ import UserStorage from "./userStorage.class";
 
 export default class User implements IUser {
     public readonly raw: IRawUser
-    public readonly username: string = ''
     public readonly origin: string = ''
 
     public options: IUserOptions = {}
@@ -23,7 +22,6 @@ export default class User implements IUser {
         origin: string,
     ) {
         this.raw = raw
-        this.username = raw.username
         this.origin = origin
 
         this.storage = new UserStorage(this)
@@ -65,15 +63,11 @@ export default class User implements IUser {
         await this.storage.save()
     }
 
-    get platformUser() {
-        return `${this.platform}/${this.username}`
-    }
-
     public async remove() {
-        useUserStore().unloadUser(this.username)
+        useUserStore().unloadUser(this.id)
 
-        useUserSelectorStore().removeUserFromSelectorList(this.platformUser)
-        useUserStorageStore().removeUserFromStorageIndex(this.platformUser)
+        useUserSelectorStore().removeUserFromSelectorList(this.id)
+        useUserStorageStore().removeUserFromStorageIndex(this.id)
 
         if (this.isRemovable || this.hasLocalChanges) {
             await this.storage.remove()

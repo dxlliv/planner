@@ -16,10 +16,10 @@ const route = useRoute();
 const userStore = useUserStore();
 const extraStore = useExtraStore();
 
-const username: string = route.params.username.toString();
+const id: string = route.params.platform.toString() + '/' + route.params.username.toString();
 
 const extraOptions = computed(() => extraStore.options);
 const user = computed(() => userStore.user);
 
-userStore.loadUserPage(`instagram/${username}`);
+userStore.loadUserPage(id);
 </script>
