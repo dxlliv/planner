@@ -1,18 +1,22 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   user: IUser;
 }>();
+
+const label = computed(() => {
+  return new URL(props.user.profile.website).host
+})
 </script>
 
 <template>
   <a
       v-if="user.profile.website"
       class="ig-profile-page__header__website"
-      :href="user.profile.website.href"
+      :href="props.user.profile.website"
       target="_blank"
   >
     <v-icon icon="mdi-link-variant" :size="16" />
-    {{user.profile.website.label}}
+    {{label}}
   </a>
 </template>
 
