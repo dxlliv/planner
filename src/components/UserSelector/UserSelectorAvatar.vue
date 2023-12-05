@@ -4,6 +4,8 @@
       <v-img
           v-if="avatar"
           :src="avatar"
+          :key="avatarChangedTime"
+          cover
       />
       <slot name="inner" />
     </v-avatar>
@@ -14,16 +16,24 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
   avatar?: any;
-  size?: string
+  size?: number
 }>(), {
-  size: '120px'
+  size: 120
 });
 
 let avatar: any
+let avatarChangedTime: Ref<number> = ref(0)
 
 if (props.avatar) {
   avatar = URL.createObjectURL(await props.avatar.file)
 }
+
+watch(() => props.avatar, async value => {
+  avatar = URL.createObjectURL(await props.avatar.file)
+
+  // force refresh
+  avatarChangedTime.value = +new Date()
+}, { deep: true })
 </script>
 
 <style scoped lang="scss">

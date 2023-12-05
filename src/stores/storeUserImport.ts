@@ -71,6 +71,7 @@ export const useUserImportStore = defineStore("user/import", () => {
             if (Array.isArray(media.list)) {
               for (const mediaAlbumItem of media.list) {
                 rawMediaAlbumItem = {}
+
                 if (typeof mediaAlbumItem === 'string') {
                   rawMediaAlbumItem.type = UserMedia.detectMediaType(mediaAlbumItem)
                   rawMediaAlbumItem.file = getMediaFile(mediaAlbumItem)

@@ -126,7 +126,7 @@ interface IUserProfile {
   updateAvatar(avatar: UserAvatar): Promise<void>
 
   import(): void
-  update(data: any): void
+  update(data: any): Promise<void>
 }
 
 interface IInstagramUserProfile extends IUserProfile {

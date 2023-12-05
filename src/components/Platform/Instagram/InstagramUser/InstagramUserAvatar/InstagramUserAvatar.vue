@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
   avatar?: any;
-  size?: string,
+  size?: number,
 }>(), {
-  size: '120px'
+  size: 120
 });
 
 let avatar: any
@@ -27,6 +27,7 @@ watch(() => props.avatar, async value => {
         v-if="avatar"
         :src="avatar"
         :key="avatarChangedTime"
+        cover
     />
   </v-avatar>
 </template>

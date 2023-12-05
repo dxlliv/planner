@@ -41,6 +41,7 @@ onMounted(() => {
       <v-col :cols="12" :md="4" class="text-center pb-14">
 
         <UserEditorFieldAvatar
+          :user="user"
           @update="onAvatarUpdate"
         />
 

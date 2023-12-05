@@ -82,7 +82,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
             rawUserProfile[fieldKey] = fields[fieldKey].value
         }
 
-        user.profile.update(rawUserProfile)
+        await user.profile.update(rawUserProfile)
         await user.save()
     }
 

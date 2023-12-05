@@ -56,7 +56,7 @@ export default class UserProfile implements IUserProfile {
 
     public async setAvatar(avatar: string | File) {
         if (avatar) {
-            this.avatar = new UserAvatar(this.user)
+            this.avatar = new UserAvatar(this.user, avatar)
         }
     }
 
@@ -65,16 +65,16 @@ export default class UserProfile implements IUserProfile {
         await this.user.save()
     }
 
-    public import() {
-        this.update(this.user.raw.profile)
+    public async import() {
+        await this.update(this.user.raw.profile)
     }
 
-    public update(data: any) {
+    public async update(data: any) {
         for (const [fieldKey, field] of Object.entries(this.structure.fields)) {
             if (!field.methods || !field.methods.set) continue
 
             // @ts-ignore
-            this[field.methods.set](data[fieldKey])
+            await this[field.methods.set](data[fieldKey])
         }
     }
 }

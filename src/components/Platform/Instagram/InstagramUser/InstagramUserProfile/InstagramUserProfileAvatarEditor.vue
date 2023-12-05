@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
   user: IUser,
-  size?: string,
+  size?: number,
 }>(), {
-  size: '120px'
+  size: 120
 });
 
 const { files, open, reset, onChange } = useFileDialog({

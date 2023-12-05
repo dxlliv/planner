@@ -6,18 +6,18 @@ export default class UserAvatar {
 
     public file: Promise<File>
 
-    constructor(user: IUser) {
+    constructor(user: IUser, avatar: File | string) {
         this.user = user
 
-        if (typeof this.user.raw.profile.avatar === 'string') {
-            this.file = this.parseAvatar(this.user.raw.profile.avatar)
+        if (typeof avatar === 'string') {
+            this.file = this.parseRawAvatar(avatar)
         } else {
             // @ts-ignore
-            this.file = Promise.resolve(this.user.raw.profile.avatar)
+            this.file = Promise.resolve(avatar)
         }
     }
 
-    public parseAvatar(rawAvatar: string): Promise<File> {
+    public parseRawAvatar(rawAvatar: string): Promise<File> {
         let filePath = ''
 
         if (!rawAvatar) {
