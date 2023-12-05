@@ -64,6 +64,8 @@ declare module 'vue' {
     UserEditorDialog: typeof import('./../components/UserEditor/UserEditorDialog.vue')['default']
     UserEditorFieldAvatar: typeof import('./../components/UserEditor/UserEditorFieldAvatar.vue')['default']
     UserEditorFieldString: typeof import('./../components/UserEditor/UserEditorFieldString.vue')['default']
+    UserEditorFieldTextarea: typeof import('./../components/UserEditor/UserEditorFieldTextarea.vue')['default']
+    UserEditorFieldUrl: typeof import('./../components/UserEditor/UserEditorFieldUrl.vue')['default']
     UserSelector: typeof import('./../components/UserSelector/UserSelector.vue')['default']
     UserSelectorAdd: typeof import('./../components/UserSelector/UserSelectorAdd.vue')['default']
     UserSelectorAddMenu: typeof import('./../components/UserSelector/UserSelectorAddMenu.vue')['default']

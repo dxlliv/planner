@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <v-text-field
-      :placeholder="data.placeholder"
+      :placeholder="data.placeholder" type="url"
       hide-details spellcheck="false"
   />
 </template>

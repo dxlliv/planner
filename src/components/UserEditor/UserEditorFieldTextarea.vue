@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <v-text-field
+  <v-textarea
       :placeholder="data.placeholder"
       hide-details spellcheck="false"
   />

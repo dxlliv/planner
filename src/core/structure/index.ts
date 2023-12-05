@@ -62,7 +62,7 @@ export const platformStructure = {
                     },
                     followers_count: {
                         name: 'Followers count',
-                        placeholder: 'Followers count',
+                        placeholder: 'Followers',
                         type: 'number',
                         methods: {
                             set: 'setFollowersCount',
@@ -70,7 +70,7 @@ export const platformStructure = {
                     },
                     follows_count: {
                         name: 'Follows count',
-                        placeholder: 'Follows count',
+                        placeholder: 'Follows',
                         type: 'number',
                         methods: {
                             set: 'setFollowsCount',

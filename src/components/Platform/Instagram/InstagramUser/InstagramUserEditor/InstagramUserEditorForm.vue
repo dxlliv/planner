@@ -59,7 +59,9 @@ onMounted(() => {
             />
 
           </v-col>
-          <v-col>
+        </v-row>
+        <v-row>
+          <v-col :cols="6">
 
             <UserEditorFieldString
                 v-model="userEditorStore.fields.name"
@@ -69,15 +71,33 @@ onMounted(() => {
             />
 
           </v-col>
+          <v-col :cols="3">
+
+            <UserEditorFieldString
+                v-model="userEditorStore.fields.followers_count"
+                :data="userEditorStore.fieldsData.followers_count"
+                :error="$v.followers_count.$invalid"
+                variant="outlined"
+            />
+
+          </v-col>
+          <v-col :cols="3">
+
+            <UserEditorFieldString
+                v-model="userEditorStore.fields.follows_count"
+                :data="userEditorStore.fieldsData.follows_count"
+                :error="$v.follows_count.$invalid"
+                variant="outlined"
+            />
+
+          </v-col>
         </v-row>
         <v-row>
           <v-col>
 
-            <v-text-field
+            <UserEditorFieldUrl
                 v-model="userEditorStore.fields.website"
-                name="website"
-                placeholder="Website" type="url"
-                hide-details
+                :data="userEditorStore.fieldsData.website"
                 :error="$v.website.$invalid"
                 variant="outlined"
             />
@@ -87,11 +107,9 @@ onMounted(() => {
         <v-row>
           <v-col>
 
-            <v-textarea
+            <UserEditorFieldTextarea
                 v-model="userEditorStore.fields.biography"
-                name="biography"
-                placeholder="Biography"
-                hide-details
+                :data="userEditorStore.fieldsData.biography"
                 :error="$v.biography.$invalid"
                 variant="outlined"
             />
@@ -114,19 +132,20 @@ onMounted(() => {
 .ig-user-editor-form {
   .v-row {
     & + .v-row {
-      margin-top: 8px;
+      margin-top: 4px;
     }
 
     .v-col {
-      padding-left: 8px;
-      padding-right: 8px;
+      padding-left: 6px;
+      padding-right: 6px;
     }
   }
 
   .v-field__input {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
     min-height: 10px;
+    font-size: 14px;
   }
 
   input.v-field__input {
