@@ -1,11 +1,27 @@
+/**
+ * Get file name
+ *
+ * @param path
+ */
 export function getFileName(path: string) {
     return path.replace(/^.*[\\/]/, '')
 }
 
+/**
+ * Get file extension
+ *
+ * @param filename
+ */
 export function getFileExtension(filename: string) {
     return filename.split('.').pop()
 }
 
+/**
+ * Resolve media file path
+ *
+ * @param filename
+ * @param folder
+ */
 export function getMediaFilePath(filename: string, folder: string = '') {
     if (filename.startsWith("http")) {
         return "";
@@ -14,6 +30,11 @@ export function getMediaFilePath(filename: string, folder: string = '') {
     return `${import.meta.env.BASE_URL}user/${folder}/${filename}`;
 }
 
+/**
+ * Create json blob file from object
+ *
+ * @param json
+ */
 export function createJsonFileFromObject(json: any) {
     return new Blob(
         [JSON.stringify(json)],
@@ -21,6 +42,10 @@ export function createJsonFileFromObject(json: any) {
     )
 }
 
+/**
+ * Fetch media and transform it into blob file
+ * @param url
+ */
 export async function fetchFileFromUrl(url: string): Promise<File> {
     const name = getFileName(url)
 
@@ -32,6 +57,11 @@ export async function fetchFileFromUrl(url: string): Promise<File> {
     });
 }
 
+/**
+ * Transform blob file into image for src property
+ *
+ * @param media
+ */
 export async function handleMediaForSrc(media: { file: IMediaFile }) {
     if (!media.file) {
         throw Error ('File object is not defined')
@@ -48,10 +78,11 @@ export async function handleMediaForSrc(media: { file: IMediaFile }) {
     return URL.createObjectURL(await media.file.blob)
 }
 
+/**
+ * Check if arg is a promise
+ *
+ * @param p
+ */
 export function isPromise(p: any) {
-    if (typeof p === 'object' && typeof p.then === 'function') {
-        return true;
-    }
-
-    return false;
+    return typeof p === 'object' && typeof p.then === 'function';
 }

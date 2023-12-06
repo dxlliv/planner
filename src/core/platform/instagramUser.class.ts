@@ -6,21 +6,20 @@ export default class InstagramUser extends User implements IInstagramUser {
     public readonly platform: IPlatforms = 'instagram'
     public id: string = ''
 
+    public profile: IInstagramUserProfile = {} as IInstagramUserProfile
+    public media: IInstagramUserMedia = {} as IInstagramUserMedia
+
     constructor(
         raw: IRawUser,
         origin: string,
     ) {
         super(raw, origin)
 
+        // define instagram user id (platform + username)
         this.id = `${this.platform}/${this.raw.profile.username}`
 
-        /*
-        this.structure.user = {
-            //profile: new InstagramUserProfile(this),
-            //media: new InstagramUserMedia(this)
-        }
-         */
-
+        // first check if storage contains local data
+        // then restore or directly parse profile & media
         this.initialize()
     }
 

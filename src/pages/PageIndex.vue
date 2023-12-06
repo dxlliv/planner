@@ -44,7 +44,7 @@ const listOfUsernames = ref(userSelectorStore.listOfUsernames);
 const listOfUsers = computed(() => userSelectorStore.listOfUsers);
 
 function onListUpdated(platformUsersReordered: string[]) {
-  userSelectorStore.setUsersOrder(platformUsersReordered)
+  userSelectorStore.setUsersSelectorOrder(platformUsersReordered)
 }
 </script>
 

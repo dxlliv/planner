@@ -1,4 +1,4 @@
-import {openUserDirectory, readUserDirectoryConfig} from "../utils/utilsUserProfile";
+import {openUserDirectory, parseUserProfileConfigFromFileDirectory} from "../utils/utilsUserProfile";
 import UserMedia from "../core/user/userMedia.class";
 
 export const useUserImportStore = defineStore("user/import", () => {
@@ -6,39 +6,52 @@ export const useUserImportStore = defineStore("user/import", () => {
   const userStorageStore = useUserStorageStore()
 
   const directory: Ref<any> = ref(null);
-  const rawUserConfig: Ref<IRawUser> = ref({} as IRawUser)
+  const rawUser: Ref<IRawUser> = ref({} as IRawUser)
 
+  /**
+   * Import user from directory
+   *
+   * @param platform
+   */
   async function importFromDirectory(platform: string) {
     directory.value = await openUserDirectory()
 
     // convert config.json file to raw user object
     // @ts-ignore
-    rawUserConfig.value = await readUserDirectoryConfig(configFile.value)
+    rawUser.value = await parseUserProfileConfigFromFileDirectory(configFile.value)
 
     // assign avatar File to avatar raw config
-    rawUserConfig.value.profile.avatar = getAvatarFile()
+    rawUser.value.profile.avatar = getAvatarFile()
 
     // assign each media file to each string
-    if (rawUserConfig.value.media.posts) importRawMediaFilesByCollection("posts")
-    if (rawUserConfig.value.media.reels) importRawMediaFilesByCollection("reels")
+    if (rawUser.value.media.posts) importRawMediaFilesByCollection("posts")
+    if (rawUser.value.media.reels) importRawMediaFilesByCollection("reels")
 
     // initialize user
-    const id = userStore.loadUser(rawUserConfig.value, platform, 'storage')
+    const id = userStore.loadUser(rawUser.value, platform, 'storage')
     userStorageStore.addUserToStorageIndex(id)
   }
 
+  /**
+   * Get user config from directory files
+   */
   const configFile: ComputedRef<IRawUserProfile> = computed(() => {
     return directory.value.find(
         (file: FileSystemFileEntry) => file.name === 'config.json'
     )
   })
 
+  /**
+   * Generate raw user from directory files
+   *
+   * @param collection
+   */
   function importRawMediaFilesByCollection(collection: IMediaCollection) {
     let i = 0
     let rawMediaForImport: IRawMedia = {}
     let rawMediaAlbumItem: IRawMedia = {}
 
-    for (const media of rawUserConfig.value.media[collection]) {
+    for (const media of rawUser.value.media[collection]) {
       rawMediaForImport = {}
 
       if (typeof media === 'string') {
@@ -93,18 +106,24 @@ export const useUserImportStore = defineStore("user/import", () => {
       }
 
       // @ts-ignore
-      rawUserConfig.value.media.posts[i] = rawMediaForImport
+      rawUser.value.media.posts[i] = rawMediaForImport
 
       i++
     }
   }
 
+  /**
+   * Get avatar file from imported user files
+   */
   function getAvatarFile() {
     return directory.value.find(
-        (file: FileSystemFileEntry) => file.name === rawUserConfig.value.profile.avatar
+        (file: FileSystemFileEntry) => file.name === rawUser.value.profile.avatar
     )
   }
 
+  /**
+   * Get media file from imported user files
+   */
   function getMediaFile(filename: string) {
     return directory.value.find(
         (file: FileSystemFileEntry) => file.name === filename

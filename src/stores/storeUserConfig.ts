@@ -12,11 +12,11 @@ export const useUserConfigStore = defineStore("user/config", () => {
     for await (const userPath of plannerConfig.users) {
 
       // fetch user config from its local/remote path
-      const rawUserConfig = await fetchRemoteUserConfig(`user/${userPath}/config.json`)
+      const rawUser = await fetchRemoteUserConfig(`user/${userPath}/config.json`)
       const platform: string = getPlatformFromUserPath(userPath)
 
       // load users
-      userStore.loadUser(rawUserConfig, platform, 'config')
+      userStore.loadUser(rawUser, platform, 'config')
 
     }
 

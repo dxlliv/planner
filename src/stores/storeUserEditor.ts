@@ -15,6 +15,12 @@ export const useUserEditorStore = defineStore("user/editor", () => {
         return getPlatformStructureUser(platform.value)
     })
 
+    /**
+     * Prepare fields for user editor form
+     *
+     * @param platformKey
+     * @param user
+     */
     function generateFields(platformKey: string, user?: any) {
         platform.value = platformKey
 
@@ -47,27 +53,33 @@ export const useUserEditorStore = defineStore("user/editor", () => {
         )
     }
 
+    /**
+     * Reset form user fields
+     */
     function reset() {
         for (const [fieldKey, field] of Object.entries(platformStructureUser.value.profile.fields)) {
             fields[fieldKey].value = ''
         }
     }
 
+    /**
+     * Create raw user from user fields
+     */
     function create() {
-        const rawUserConfig: any = {
+        const rawUser: any = {
             profile: {},
             media: {}
         }
 
         for (const [fieldKey, field] of Object.entries(platformStructureUser.value.profile.fields)) {
-            rawUserConfig.profile[fieldKey] = fields[fieldKey].value
+            rawUser.profile[fieldKey] = fields[fieldKey].value
         }
 
         for (const [fieldKey, field] of Object.entries(platformStructureUser.value.collections)) {
-            rawUserConfig.media[fieldKey] = []
+            rawUser.media[fieldKey] = []
         }
 
-        const id = useUserStore().loadUser(rawUserConfig, platform.value, 'storage')
+        const id = useUserStore().loadUser(rawUser, platform.value, 'storage')
         useUserStorageStore().addUserToStorageIndex(id)
 
         setTimeout(() => reset(), 1000)
@@ -75,6 +87,11 @@ export const useUserEditorStore = defineStore("user/editor", () => {
         return true
     }
 
+    /**
+     * Update user profile from user fields
+     *
+     * @param user
+     */
     async function update(user: IUser) {
         const rawUserProfile: any = {}
 

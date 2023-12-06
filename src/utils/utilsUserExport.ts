@@ -1,9 +1,12 @@
-import MediaPost from "../core/media/mediaPost.class";
-
-export async function fulfillMediaPostsForMediaExport(posts?: MediaPost[]): Promise<any> {
+/**
+ * Resolve file media promises for media export into indexed db
+ *
+ * @param mediaList
+ */
+export async function fulfillMediaPostsForMediaExport(mediaList: IMedia[]): Promise<any> {
     const result = []
 
-    for await (const media of posts) {
+    for await (const media of mediaList) {
         result.push(await media.export())
     }
 

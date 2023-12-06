@@ -3,22 +3,40 @@ export const useUserSelectorStore = defineStore("user/selector", () => {
 
   const users: Ref<string[]> = ref([])
 
+  /**
+   * Add user id to selector list
+   *
+   * @param id
+   */
   function addUserToSelectorList(id: string) {
     if (!users.value.includes(id)) {
       users.value.push(id)
     }
   }
 
+  /**
+   * Remove user id from selector list
+   *
+   * @param id
+   */
   function removeUserFromSelectorList(id: string) {
     if (users.value.includes(id)) {
       users.value = users.value.filter(userId => userId !== id)
     }
   }
 
-  function setUsersOrder(idsReordered: string[]) {
+  /**
+   * Reorder user selector list
+   *
+   * @param idsReordered
+   */
+  function setUsersSelectorOrder(idsReordered: string[]) {
     users.value = idsReordered
   }
 
+  /**
+   * List of ready users
+   */
   const listOfUsers = computed(() => {
     const usersTemp = []
 
@@ -33,6 +51,9 @@ export const useUserSelectorStore = defineStore("user/selector", () => {
     return usersTemp
   })
 
+  /**
+   * List of usernames
+   */
   const listOfUsernames = computed(() => {
     const usernamesTemp = []
 
@@ -53,7 +74,7 @@ export const useUserSelectorStore = defineStore("user/selector", () => {
     listOfUsers,
     addUserToSelectorList,
     removeUserFromSelectorList,
-    setUsersOrder,
+    setUsersSelectorOrder,
   };
 }, {
   persist: true

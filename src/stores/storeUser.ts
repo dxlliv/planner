@@ -8,7 +8,7 @@ export const useUserStore = defineStore("user", () => {
   const userActive: Ref<string> = ref('')
 
   /**
-   * Load user
+   * Load provided raw user config
    *
    * @param rawUser
    * @param platform
@@ -48,8 +48,7 @@ export const useUserStore = defineStore("user", () => {
   }
 
   /**
-   * Initialize user from username
-   * (called in PageUser.vue)
+   * Fully initialize user from PageUser.vue
    *
    * @param id
    */
@@ -62,12 +61,17 @@ export const useUserStore = defineStore("user", () => {
     return true;
   }
 
+  /**
+   * Get user by id
+   *
+   * @param id
+   */
   function getUser(id: string) {
     return users.value[id]
   }
 
   /**
-   * Set active user
+   * Set active user id
    *
    * @param id
    */
@@ -75,6 +79,9 @@ export const useUserStore = defineStore("user", () => {
     userActive.value = id
   }
 
+  /**
+   * Get active user
+   */
   const user = computed(() => {
     return users.value[userActive.value]
   })

@@ -19,6 +19,7 @@ themeStore.restorePreviousState(theme)
 // kbd shortcuts
 onMounted(() => {
   window.addEventListener("keydown", (e) => {
+    // prevent if focus isn't on the body
     if (document.activeElement !== document.body) {
       return false
     }

@@ -3,6 +3,9 @@ export const useExtraStore = defineStore("extra", () => {
     guides: false,
   });
 
+  /**
+   * Toggle ruler/guides tor media alignment
+   */
   function toggleGuides() {
     options.value.guides = !options.value.guides
 

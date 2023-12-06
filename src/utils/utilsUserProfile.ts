@@ -3,6 +3,9 @@ import {
     fileSave,
 } from 'browser-fs-access'
 
+/**
+ * Open user directory
+ */
 export async function openUserDirectory() {
     const options: any = {
         // Set to `true` to recursively open files in all subdirectories, defaults to `false`.
@@ -20,7 +23,12 @@ export async function openUserDirectory() {
     return directoryOpen(options)
 }
 
-export async function readUserDirectoryConfig(file: FileSystemFileEntry) {
+/**
+ * Parse user profile config in json format
+ *
+ * @param file
+ */
+export async function parseUserProfileConfigFromFileDirectory(file: Blob) {
     return new Promise((resolve, reject) => {
         let reader = new FileReader();
 
@@ -29,9 +37,9 @@ export async function readUserDirectoryConfig(file: FileSystemFileEntry) {
         reader.onload = function() {
             if (typeof reader.result !== 'string') {
                 reject('Directory does not contain a valid config.json')
+            } else {
+                resolve(JSON.parse(reader.result))
             }
-
-            resolve(JSON.parse(reader.result));
         };
 
         reader.onerror = reject;

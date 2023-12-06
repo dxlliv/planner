@@ -3,7 +3,7 @@ import localforage from 'localforage';
 export const useUserStorageStore = defineStore("user/storage", () => {
   const userStore = useUserStore()
 
-  const users: Ref<userPath[]> = ref([])
+  const users: Ref<string[]> = ref([])
 
   async function initialize() {
     localforage.config({
@@ -57,7 +57,6 @@ export const useUserStorageStore = defineStore("user/storage", () => {
       name: 'planner',
       storeName: username
     })
-
 
     const platforms = await userStorage.keys()
 

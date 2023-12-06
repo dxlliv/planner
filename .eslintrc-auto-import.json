@@ -140,6 +140,8 @@
     "getPlatformFromUserPath": true,
     "getUsernameFromUserPath": true,
     "extractUsernameFromUserId": true,
-    "useUserConfigStore": true
+    "useUserConfigStore": true,
+    "parseUserProfileConfigFromFileDirectory": true,
+    "generateUuid4": true
   }
 }

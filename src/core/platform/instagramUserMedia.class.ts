@@ -5,12 +5,8 @@ export default class InstagramUserMedia extends UserMedia {
 
     private structure = {
         collections: {
-            posts: {
-
-            },
-            reels: {
-
-            },
+            posts: {},
+            reels: {},
         }
     }
 

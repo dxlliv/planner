@@ -1,5 +1,5 @@
 /**
- * Fetch user configuration from the provided url
+ * Fetch user configuration from the provided remote/local url
  *
  * @param url
  */

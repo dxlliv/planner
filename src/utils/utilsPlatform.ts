@@ -1,5 +1,10 @@
 import {platformStructure} from "../core/structure";
 
+/**
+ * Return platform structure by platform
+ *
+ * @param platform
+ */
 export function getPlatformStructureUser(platform: string): IPlatformStructureUser {
     switch(platform) {
         case 'instagram':
@@ -9,10 +14,20 @@ export function getPlatformStructureUser(platform: string): IPlatformStructureUs
     }
 }
 
+/**
+ * Extract username from id
+ *
+ * @param id
+ */
 export function extractUsernameFromUserId(id: string) {
     return id.split('/').pop()
 }
 
+/**
+ * Return platform from user path
+ *
+ * @param userPath
+ */
 export function getPlatformFromUserPath(userPath: string): string {
     const explodedUserPath: string[] = userPath.split('/')
 

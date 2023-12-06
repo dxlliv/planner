@@ -4,6 +4,9 @@ export default class User implements IUser {
     public readonly raw: IRawUser
     public readonly origin: string = ''
 
+    public platform: IPlatforms = ''
+    public id: string = ''
+
     public options: IUserOptions = {}
     public profile: IUserProfile = {} as IUserProfile
     public media: IUserMedia = {} as IUserMedia
@@ -11,9 +14,9 @@ export default class User implements IUser {
 
     public ready: Ref<boolean> = ref(false)
 
-    public status: Ref<{
+    public status: {
         changed: boolean
-    }> = reactive({
+    } = reactive({
         changed: false
     })
 
@@ -28,11 +31,14 @@ export default class User implements IUser {
     }
 
     public initialize() {
+        // check for storage user data availability
         this.storage.isContentAvailable().then(async (availability) => {
             if (availability) {
+                // override raw user data
                 await this.storage.restore()
             }
 
+            // parse profile
             this.parseUserProfile()
             this.parseUserMedia()
 
@@ -43,9 +49,13 @@ export default class User implements IUser {
                 await this.storage.save()
             }
 
+            // set user as ready
             this.ready.value = true
         })
     }
+
+    public parseUserProfile() {}
+    public parseUserMedia() {}
 
     get hasLocalChanges() {
         return this.status.changed
@@ -59,10 +69,19 @@ export default class User implements IUser {
         this.status.changed = value
     }
 
+    /**
+     * Save user to indexed db
+     */
     public async save() {
         await this.storage.save()
     }
 
+    /**
+     * Remove user.
+     *
+     * This only work for local users,
+     * those are defined in config cannot be removed
+     */
     public async remove() {
         useUserStore().unloadUser(this.id)
 

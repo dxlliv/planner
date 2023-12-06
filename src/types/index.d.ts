@@ -1,4 +1,4 @@
-type IPlatforms = 'instagram'
+type IPlatforms = '' | 'instagram'
 
 interface IRawConfig {
   users: string[]
@@ -79,9 +79,9 @@ interface IUser {
 
   ready: Ref<boolean>
 
-  status: Ref<{
+  status: {
     changed: boolean
-  }>
+  }
 
   get hasLocalChanges(): boolean
   get isRemovable(): boolean
@@ -96,6 +96,9 @@ interface IUser {
 }
 
 interface IInstagramUser extends IUser {
+  platform: IPlatforms
+  id: string
+
   profile: IInstagramUserProfile
   media: IInstagramUserMedia
 }
@@ -130,9 +133,10 @@ interface IUserProfile {
 }
 
 interface IInstagramUserProfile extends IUserProfile {
+  user: IInstagramUser
   structure: IPlatformStructureUserProfile
 
-  public_profile: string
+  get public_profile(): string
   export(): Promise<IRawUserProfile>
 }
 
@@ -150,8 +154,6 @@ interface IUserMedia {
   reels: IMedia[];
   stories: IMedia[];
   highlights: IMedia[];
-
-  export(): Promise<void>
 }
 
 interface IInstagramUserMedia extends IUserMedia {
