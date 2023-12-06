@@ -6,9 +6,9 @@ Define your profile using your favorite editor and create a `config.json` file.
 
 ```json
 {
-  "username": "dxlliv",
   "profile": {
     "fields": {
+      "username": "dxlliv",
       "avatar": "avatar.jpg",
       "biography": "",
       "website": "",

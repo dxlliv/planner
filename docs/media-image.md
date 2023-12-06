@@ -5,7 +5,6 @@ Place your images in the `public/user/instagram/{username}/media/` folder.
 
 ```json
 {
-  "username": "...",
   "profile": { ... },
   "media": {
     "posts": [

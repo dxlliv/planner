@@ -5,7 +5,6 @@ You could use a custom cover by setting a string.
 
 ```json
 {
-  "username": "...",
   "profile": { ... },
   "media": {
     "posts": [
@@ -32,7 +31,6 @@ You can set direct links also for the cover, like this:
 
 ```json
 {
-  "username": "...",
   "profile": { ... },
   "media": {
     "posts": [
@@ -64,7 +62,6 @@ To avoid any problem during sorting they were implemented like this instead of a
 
 ```json
 {
-  "username": "...",
   "profile": { ... },
   "media": {
     "posts": [
