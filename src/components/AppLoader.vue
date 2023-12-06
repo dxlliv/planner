@@ -2,7 +2,7 @@
 const userStorageStore = useUserStorageStore();
 
 await userStorageStore.initialize().then(async () => {
-  await useConfigStore().loadConfig()
+  await useUserConfigStore().loadUsersFromConfig()
   await useUserStorageStore().loadUsersFromStorage()
 })
 </script>

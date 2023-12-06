@@ -1,21 +1,13 @@
 import plannerConfig from "../../config.json";
 import {getPlatformFromUserPath} from "../utils/utilsPlatform";
 
-export const useConfigStore = defineStore("config", () => {
+export const useUserConfigStore = defineStore("user/config", () => {
   const userStore = useUserStore()
-
-  /**
-   * Load planner local configuration
-   * from /planner/config.json
-   */
-  async function loadConfig() {
-    await loadUsersFromLocalConfig()
-  }
 
   /**
    * Load users from local config
    */
-  async function loadUsersFromLocalConfig(): Promise<boolean> {
+  async function loadUsersFromConfig(): Promise<boolean> {
     // for each user defined in the root config.json
     for await (const userPath of plannerConfig.users) {
 
@@ -32,6 +24,6 @@ export const useConfigStore = defineStore("config", () => {
   }
 
   return {
-    loadConfig,
+    loadUsersFromConfig,
   };
 })

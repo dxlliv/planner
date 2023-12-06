@@ -139,6 +139,7 @@
     "getPlatformFromPlatformUser": true,
     "getPlatformFromUserPath": true,
     "getUsernameFromUserPath": true,
-    "extractUsernameFromUserId": true
+    "extractUsernameFromUserId": true,
+    "useUserConfigStore": true
   }
 }
