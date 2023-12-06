@@ -25,7 +25,12 @@ export const useUserEditorStore = defineStore("user/editor", () => {
         platform.value = platformKey
 
         for (const [fieldKey, field] of Object.entries(platformStructureUser.value.profile.fields)) {
-            const fieldInitialValue = user && user.profile.hasOwnProperty(fieldKey) ? user.profile[fieldKey] : ''
+            let fieldInitialValue = user && user.profile.hasOwnProperty(fieldKey) ? user.profile[fieldKey] : ''
+
+            // prevent avatar issues
+            if (field.type === 'file') {
+                fieldInitialValue = undefined
+            }
 
             fields[fieldKey] = ref(fieldInitialValue)
             fieldsData[fieldKey] = field
@@ -99,7 +104,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
             rawUserProfile[fieldKey] = fields[fieldKey].value
         }
 
-        await user.profile.update(rawUserProfile)
+        await user.profile.update(removeUndefinedFromObject(rawUserProfile))
         await user.save()
     }
 
