@@ -40,13 +40,14 @@ export default class User implements IUser {
 
             // parse profile
             this.parseUserProfile()
-            this.parseUserMedia()
 
             // when you import users from directory/zip,
             // you may want to save the profile immediately
             if (this.origin === 'storage') {
                 this.parseUserMedia()
-                await this.storage.save()
+
+                // all this sh1t should be refactored again
+                setTimeout(() => this.storage.save(), 1000)
             }
 
             // set user as ready
