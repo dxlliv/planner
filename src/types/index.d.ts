@@ -114,7 +114,11 @@ interface IUserProfile {
   follows_count: number;
   posts_count: number;
 
+  setUsername(username: string): void
+  updateUsername(username: string): Promise<void>
+
   setName(name: string): void
+  updateName(name: string): Promise<void>
 
   setBiography(biography: string): void
   updateBiography(biography: string): Promise<void>

@@ -20,7 +20,6 @@ function onFieldBlur() {
       contenteditable spellcheck="false"
       v-model="biographyEditable" :no-html="true"
       @blur="onFieldBlur"
-      @keydown.stop
 
   />
 </template>

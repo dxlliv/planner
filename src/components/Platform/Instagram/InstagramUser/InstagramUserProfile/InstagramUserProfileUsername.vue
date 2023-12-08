@@ -1,12 +1,27 @@
 <script setup lang="ts">
-defineProps<{
+import contenteditable from 'vue-contenteditable'
+
+const props = defineProps<{
   user: IUser
 }>();
+
+const emit = defineEmits(['update'])
+
+const usernameEditable = ref(props.user.profile.username ?? '')
+
+function onFieldBlur() {
+  props.user.profile.updateUsername(usernameEditable.value)
+}
 </script>
 
 <template>
   <div class="ig-profile-page__header__username">
-    <span v-text="user.profile.username" />
+    <contenteditable
+        tag="span"
+        contenteditable spellcheck="false"
+        v-model="usernameEditable" no-html no-nl
+        @blur="onFieldBlur"
+    />
     <v-icon v-if="user.profile.verified" icon="mdi-check-decagram" />
   </div>
 </template>

@@ -21,8 +21,18 @@ export default class UserProfile implements IUserProfile {
         this.username = username
     }
 
+    public async updateUsername(username: string) {
+        this.setUsername(username)
+        await this.user.save()
+    }
+
     public setName(name: string) {
         this.name = name
+    }
+
+    public async updateName(name: string) {
+        this.setName(name)
+        await this.user.save()
     }
 
     public setBiography(biography: string) {
