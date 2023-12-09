@@ -1,4 +1,5 @@
 import UserAvatar from "../user/userAvatar.class";
+import slugify from 'slugify'
 
 export default class UserProfile implements IUserProfile {
     public readonly user: IUser
@@ -18,6 +19,8 @@ export default class UserProfile implements IUserProfile {
     }
 
     public setUsername(username: string) {
+        username = slugify(username, '_')
+
         this.username = username
     }
 
