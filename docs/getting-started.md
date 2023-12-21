@@ -28,17 +28,15 @@ Define your profile using your favorite editor and create a `config.json` file.
 ## Set up a new user
 
 After creating the profile configuration, create the user folder in `public/user/instagram/`
-and place the `config.json` you just created, making sure to provide a valid JSON.
-
-If you have not defined a direct link, place an image called `avatar.jpg` in your folder.
+and place the `config.json` you just prepared, making sure to provide a valid JSON.
 
 ::: tip NOTE
 
-The username you put in the configuration must be the same as the folder name.
+The username you put in the configuration must be the same of the folder name.
 
 :::
 
-### Define it in the main config
+### Define your profile in the main config
 
 Add your new profile path in the root `config.json` like the example.
 

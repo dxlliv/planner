@@ -1,4 +1,17 @@
+<script setup lang="ts">
+import { SlickList, SlickItem } from 'vue-slicksort';
+const userSelectorStore = useUserSelectorStore()
+
+const listOfUsernames = ref(userSelectorStore.listOfUsernames);
+const listOfUsers = computed(() => userSelectorStore.listOfUsers);
+
+function onListUpdated(platformUsersReordered: string[]) {
+  userSelectorStore.setUsersSelectorOrder(platformUsersReordered)
+}
+</script>
+
 <template>
+
   <v-container class="ig-index text-center py-16 align-content-center">
 
     <div>
@@ -35,18 +48,6 @@
 
   </v-container>
 </template>
-
-<script setup lang="ts">
-import { SlickList, SlickItem } from 'vue-slicksort';
-const userSelectorStore = useUserSelectorStore()
-
-const listOfUsernames = ref(userSelectorStore.listOfUsernames);
-const listOfUsers = computed(() => userSelectorStore.listOfUsers);
-
-function onListUpdated(platformUsersReordered: string[]) {
-  userSelectorStore.setUsersSelectorOrder(platformUsersReordered)
-}
-</script>
 
 <style scoped lang="scss">
 .ig-index {

@@ -40,7 +40,7 @@ Plan the grid with a text editor and build your definitive Instagram profile.
 
 ## Getting started
 
-Be sure you have Node.js and NPM installed.  
+Make sure you have Node.js and NPM installed.  
 Clone the repository and move to the project directory:
 
 ```bash

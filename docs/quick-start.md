@@ -7,7 +7,7 @@ If you prefer to run your planner or host it somewhere, keep reading.
 
 ## Installation
 
-Be sure you have Node.js and NPM installed.  
+Make sure you have Node.js and NPM installed.  
 Clone the repository and move to the project directory:
 
 ```bash
@@ -31,19 +31,20 @@ You can add users directly from the browser, but if you want to host an instance
 .
 ├─ public
 │  └─ user
-│     └─ {username}
-│        ├─ media
-│        │  ├─ 1.jpg
-│        │  ├─ 2.jpg
-│        │  └─ 3.jpg
-│        ├─ avatar.jpg
-│        └─ config.json
+│     └─ instagram
+│        └─ {username}
+│           ├─ media
+│           │  ├─ 1.jpg
+│           │  ├─ 2.jpg
+│           │  └─ 3.jpg
+│           ├─ avatar.jpg
+│           └─ config.json
 ├─ src
 ├─ config.json
 └─ package.json
 ```
 
-The files you have to modify are the `config.json`. One is located in the root folder and contains a list of paths, the others are located in each `public/user/instagram/{username}/` folder.
+The files you have to modify are the `config.json`. The main configuration is located in the root folder and contains a list of profile paths. Other configurations live in the public folder and are related to each profile, like `public/user/instagram/dxlliv/config.json`.
 
 ## Configuration
 
