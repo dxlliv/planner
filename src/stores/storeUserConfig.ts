@@ -1,5 +1,4 @@
 import plannerConfig from "../../config.json";
-import {getPlatformFromUserPath} from "../utils/utilsPlatform";
 
 export const useUserConfigStore = defineStore("user/config", () => {
   const userStore = useUserStore()
@@ -22,7 +21,7 @@ export const useUserConfigStore = defineStore("user/config", () => {
 
       // fetch user config from its local/remote path
       const rawUser = await fetchRemoteUserConfig(userConfigFullPath)
-      const platform: string = getPlatformFromUserPath(userPath)
+      const platform: string = rawUser.platform ?? plannerConfig.platform.default ?? "instagram"
 
       // load users
       userStore.loadUser(rawUser, platform, 'config')

@@ -25,8 +25,13 @@ export default class UserAvatar {
         }
 
         if (rawAvatar.startsWith("http")) {
+            // fetch remote avatar defined from the profile config.json
             filePath = rawAvatar
+        } else if (this.user.raw.path.startsWith("http")) {
+            // fetch remote avatar using user.raw.path as basePath
+            filePath = `${this.user.raw.path}/${rawAvatar}`
         } else {
+            // fetch local avatar resolving path automatically
             filePath = getMediaFilePath(rawAvatar, `${this.user.platform}/${this.user.raw.profile.username}`)
         }
 

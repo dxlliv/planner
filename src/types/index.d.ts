@@ -2,12 +2,17 @@ type IPlatforms = '' | 'instagram'
 
 interface IRawConfig {
   users: string[]
+  platform: {
+    default?: string
+  }
 }
 
 interface IRawUser {
   id?: string;
+  path: string;
   profile: IRawUserProfile;
   media: IRawUserMedia;
+  platform?: string;
   options: any;
 }
 

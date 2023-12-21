@@ -30,7 +30,6 @@ declare global {
   const getFileName: typeof import('../utils/utilsFile')['getFileName']
   const getMediaFilePath: typeof import('../utils/utilsFile')['getMediaFilePath']
   const getPlatformFromPlatformUser: typeof import('../utils/utilsPlatform')['getPlatformFromPlatformUser']
-  const getPlatformFromUserPath: typeof import('../utils/utilsPlatform')['getPlatformFromUserPath']
   const getPlatformStructureUser: typeof import('../utils/utilsPlatform')['getPlatformStructureUser']
   const getUsernameFromUserPath: typeof import('../utils/utilsPlatform')['getUsernameFromUserPath']
   const h: typeof import('vue')['h']

@@ -2,5 +2,8 @@
   "users": [
     "instagram/dxlliv",
     "instagram/dxvfpv"
-  ]
+  ],
+  "platform": {
+    "default": "instagram"
+  }
 }
