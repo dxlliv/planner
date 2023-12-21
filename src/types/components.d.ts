@@ -7,7 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AppLoader: typeof import('./../components/AppLoader.vue')['default']
+    AppLoader: typeof import('./../components/App/AppLoader.vue')['default']
+    AppTools: typeof import('./../components/App/AppTools.vue')['default']
     InstagramIconDonors: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconDonors.vue')['default']
     InstagramIconHome: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconHome.vue')['default']
     InstagramIconNewPost: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconNewPost.vue')['default']
