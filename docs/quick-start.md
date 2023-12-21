@@ -3,11 +3,11 @@
 ## Try it online
 
 You can try **dxlliv/planner** directly in your browser on [GitHub](https://dxlliv.github.io/planner/).  
-If you prefer to run your planner or host it somewhere, keep reading. 
+If you prefer to run your planner locally or host it somewhere, keep reading. 
 
 ## Installation
 
-Make sure you have Node.js and NPM installed.  
+Make sure you have [Node.js](https://nodejs.org/en/download) and NPM installed.  
 Clone the repository and move to the project directory:
 
 ```bash

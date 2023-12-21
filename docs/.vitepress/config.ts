@@ -26,6 +26,17 @@ module.exports = {
             ]
           },
           {
+            text: 'Planner in depth',
+            collapsed: false,
+            items: [
+              { text: "Installation", link: "/installation" },
+              { text: "Overview", link: "/profiles-overview" },
+              { text: "Importing", link: "/profile-importing" },
+              { text: "Configuration", link: "/profile-configuration" },
+              { text: "Exporting", link: "/profile-exporting" },
+            ]
+          },
+          {
             text: 'Supported media',
             collapsed: false,
             items: [
@@ -36,10 +47,10 @@ module.exports = {
             ]
           },
           {
-            text: 'Extra',
+            text: 'Extra features',
             collapsed: false,
             items: [
-              { text: "Tools", link: "/tools" }
+              { text: "Shortcuts", link: "/shortcuts" }
             ]
           },
         ]
