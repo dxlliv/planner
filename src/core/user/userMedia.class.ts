@@ -15,11 +15,9 @@ export default class UserMedia implements IUserMedia {
 
     constructor(user: User) {
         this.user = user
-
-        this.parseRawUserMedia()
     }
 
-    private parseRawUserMedia() {
+    public fetch() {
         this.parseRawUserMediaPosts()
         this.parseRawUserMediaReels()
     }

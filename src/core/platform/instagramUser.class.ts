@@ -23,11 +23,11 @@ export default class InstagramUser extends User implements IInstagramUser {
         this.initialize()
     }
 
-    public parseUserProfile() {
+    public initializeUserProfile() {
         this.profile = new InstagramUserProfile(this)
     }
 
-    public parseUserMedia() {
+    public initializeUserMedia() {
         this.media = new InstagramUserMedia(this)
     }
 }

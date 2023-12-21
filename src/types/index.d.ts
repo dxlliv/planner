@@ -92,8 +92,9 @@ interface IUser {
   get isRemovable(): boolean
 
   initialize(): void
-  parseUserProfile(): void
-  parseUserMedia(): void
+  initializeUserStorage(): void
+  initializeUserProfile(): void
+  initializeUserMedia(): void
   setChanged(value: boolean): void
 
   save(): Promise<void>
@@ -163,6 +164,8 @@ interface IUserMedia {
   reels: IMedia[];
   stories: IMedia[];
   highlights: IMedia[];
+
+  fetch(): void
 }
 
 interface IInstagramUserMedia extends IUserMedia {

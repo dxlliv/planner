@@ -30,33 +30,40 @@ export default class User implements IUser {
         this.storage = new UserStorage(this)
     }
 
-    public initialize() {
+    public async initialize() {
+        await this.initializeUserStorage()
+
+        // parse profile
+        this.initializeUserProfile()
+        this.initializeUserMedia()
+
+        // when you import users from directory/zip,
+        // you may want to save the profile immediately
+        if (this.origin === 'storage') {
+            this.media.fetch()
+
+            // all this sh1t should be refactored again
+            setTimeout(() => this.storage.save(), 1000)
+        }
+
+        // set user as ready
+        this.ready.value = true
+    }
+
+    public async initializeUserStorage() {
         // check for storage user data availability
-        this.storage.isContentAvailable().then(async (availability) => {
+        await this.storage.isContentAvailable().then(async (availability) => {
             if (availability) {
                 // override raw user data
                 await this.storage.restore()
             }
-
-            // parse profile
-            this.parseUserProfile()
-
-            // when you import users from directory/zip,
-            // you may want to save the profile immediately
-            if (this.origin === 'storage') {
-                this.parseUserMedia()
-
-                // all this sh1t should be refactored again
-                setTimeout(() => this.storage.save(), 1000)
-            }
-
-            // set user as ready
-            this.ready.value = true
         })
     }
 
-    public parseUserProfile() {}
-    public parseUserMedia() {}
+    // these functions are overridden
+    // by specific platform methods
+    public initializeUserProfile() {}
+    public initializeUserMedia() {}
 
     get hasLocalChanges() {
         return this.status.changed

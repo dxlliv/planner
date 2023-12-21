@@ -55,7 +55,7 @@ export const useUserStore = defineStore("user", () => {
   function loadUserPage(id: string): boolean {
     const user = users.value[id]
 
-    user.parseUserMedia()
+    user.media.fetch()
     setUserActive(id)
 
     return true;
