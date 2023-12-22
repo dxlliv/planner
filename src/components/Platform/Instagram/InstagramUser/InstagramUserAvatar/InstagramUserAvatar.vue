@@ -13,7 +13,7 @@ if (props.avatar) {
   avatar = URL.createObjectURL(await props.avatar.file)
 }
 
-watch(() => props.avatar, async value => {
+watch(() => props.avatar.file, async value => {
   avatar = URL.createObjectURL(await props.avatar.file)
 
   // force refresh
