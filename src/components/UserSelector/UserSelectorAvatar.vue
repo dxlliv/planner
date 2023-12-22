@@ -47,6 +47,7 @@ watch(() => props.avatar, async value => {
 
       .v-img {
         border-radius: 50%;
+        pointer-events: none;
       }
 
       .v-badge {

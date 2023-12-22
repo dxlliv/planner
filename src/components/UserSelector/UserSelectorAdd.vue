@@ -71,6 +71,6 @@ async function onProfileAdd() {
 h3 {
   max-width: 240px;
   height: 28px;
-  opacity: 0.1;
+  opacity: 0.33;
 }
 </style>
