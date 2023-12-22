@@ -77,6 +77,9 @@ export default class Media {
 
         await this.user.save()
 
+        // refresh posts count
+        this.user.profile.setPostsCount(this.user.media.posts.length)
+
         return index
     }
 }

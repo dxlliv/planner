@@ -52,11 +52,7 @@ export default class UserProfile implements IUserProfile {
     }
 
     public setPostsCount(count: number) {
-        // todo check why this fn is called two times
-        // and the second times the arg is undefined
-        if (count) {
-            this.posts_count = Number(count);
-        }
+        this.posts_count = Number(count);
     }
 
     public setFollowersCount(count: number) {

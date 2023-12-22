@@ -43,6 +43,9 @@ export default class UserMedia implements IUserMedia {
         media.setMediaCollection(collection)
 
         this[collection][addMethod](media)
+
+        // refresh posts count
+        this.user.profile.setPostsCount(this.posts.length)
     }
 
     public async export() {
