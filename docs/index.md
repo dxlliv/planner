@@ -6,7 +6,7 @@ titleTemplate: Plan your Instagram profile like a pro
 
 hero:
   text: Plan your social profiles like a pro
-  tagline: Simple, fast, and versatile. Geek your grid<br />and build your definitive Instagram profile.
+  tagline: Simple, fast, and versatile. Geek your grid <br />and build your definitive Instagram profile.
   actions:
     - theme: brand
       text: Get Started
@@ -20,17 +20,17 @@ hero:
 
 features:
   - title: 🖼️ &nbsp; Organize your grid
-    details: "Plan your Instagram posts and preview<br />what your profile grid will look like"
+    details: "Plan your Instagram posts and preview <br />what your profile grid will look like"
   - title: 🎬 &nbsp; A wide range of media
-    details: "It supports both local and remote<br />images, videos, albums and iframes"
+    details: "It supports both local and remote <br />images, videos, albums and iframes"
   - title: ✏️ &nbsp; Limitless changes
-    details: "Edit your media as much as you want<br />just like you would with your website"
+    details: "Edit your media as much as you want <br />just like you would with your website"
   - title: 💾 &nbsp; Backup your account
-    details: "It can serve as a planner but also<br />as a backup for all of your content"
+    details: "It can serve as a planner but also <br />as a backup for all of your content"
   - title: 🗃️ &nbsp; Host it anywhere
-    details: "Take ownership and own your media,<br />put your files in a repository and deploy"
+    details: "Take ownership and own your media, <br />put your files in a repository and deploy"
   - title: 📐 &nbsp; Extra tools
-    details: "These will help you with consistency,<br />color adjustment and media alignment"
+    details: "These will help you with consistency, <br />color adjustment and media alignment"
 
     description: Plan your Instagram posts to preview what your profile grid will look like
     meta:
@@ -55,6 +55,18 @@ features:
 @media (min-width: 960px) {
   :root {
     --vp-home-hero-image-filter: blur(68px);
+  }
+}
+
+@media (max-width: 479px) {
+  .tagline br {
+    display: none;
+  }
+}
+
+@media (max-width: 1219px) {
+  .items .details br {
+    display: none;
   }
 }
 
