@@ -5,8 +5,8 @@ title: dxlliv/planner
 titleTemplate: Plan your Instagram profile like a pro
 
 hero:
-  text: Plan your social profiles like a pro
-  tagline: Simple, fast, and versatile. Geek your grid <br />and build your definitive Instagram profile.
+  text: Plan your social <br />profiles like a pro
+  tagline: Simple, fast, and versatile. <br class="sm" />Geek your grid <br />and build your <br class="sm" />definitive Instagram profile.
   actions:
     - theme: brand
       text: Get Started
@@ -58,9 +58,17 @@ features:
   }
 }
 
+.tagline br.sm {
+display: none;
+}
+
 @media (max-width: 479px) {
   .tagline br {
     display: none;
+  }
+
+  .tagline br.sm {
+    display: block;
   }
 }
 
