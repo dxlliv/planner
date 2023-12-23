@@ -142,6 +142,7 @@
     "extractUsernameFromUserId": true,
     "useUserConfigStore": true,
     "parseUserProfileConfigFromFileDirectory": true,
-    "generateUuid4": true
+    "generateUuid4": true,
+    "useConfig": true
   }
 }
