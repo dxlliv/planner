@@ -17,7 +17,8 @@ export const useUserStorageStore = defineStore("user/storage", () => {
    * (usernames are stored in local storage)
    */
   async function loadUsersFromStorage() {
-    for await (const username of users.value) {
+    for await (const id of users.value) {
+      const username = extractUsernameFromUserId(id)
       await restoreUserFromStorage(username)
     }
   }
