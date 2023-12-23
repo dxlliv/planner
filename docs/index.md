@@ -26,7 +26,7 @@ features:
   - title: ✏️ &nbsp; Limitless changes
     details: "Edit your media as much as you want <br />just like you would with your website"
   - title: 💾 &nbsp; Backup your account
-    details: "It can serve as a planner but also <br />as a backup for all of your content"
+    details: "It can serve as a planner but also <br />as a backup for all of your best images"
   - title: 🗃️ &nbsp; Host it anywhere
     details: "Take ownership and own your media, <br />put your files in a repository and deploy"
   - title: 📐 &nbsp; Extra tools
