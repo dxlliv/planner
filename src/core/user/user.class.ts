@@ -1,4 +1,5 @@
 import UserStorage from "./userStorage.class";
+import {extractUsernameFromUserId} from "../../utils/utilsPlatform";
 
 export default class User implements IUser {
     public readonly raw: IRawUser
@@ -75,6 +76,19 @@ export default class User implements IUser {
 
     public setChanged(value: boolean) {
         this.status.changed = value
+    }
+
+    get route() {
+        const config = useConfig()
+
+        return {
+            name: 'user',
+            params: {
+                platform: config.platform.default === this.platform ? undefined : this.platform,
+                // todo improve and find a standard for usernames
+                username: extractUsernameFromUserId(this.id),
+            },
+        }
     }
 
     /**

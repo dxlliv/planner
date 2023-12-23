@@ -13,7 +13,7 @@ export default {
           },
           {
             name: "user",
-            path: "/:platform/:username",
+            path: "/:platform?/:username",
             component: () => import("~/pages/PageUser.vue"),
           }
         ],

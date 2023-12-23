@@ -35,7 +35,7 @@ const emit = defineEmits(['create', 'export'])
       <InstagramIconNewPost />
     </v-btn>
 
-    <v-btn :to="{ name: 'user', params: { username: 'asd' } }">
+    <v-btn :to="user.route">
       <InstagramUserAvatar
           v-if="user.ready"
           :avatar="user.profile.avatar"

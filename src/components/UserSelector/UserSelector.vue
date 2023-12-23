@@ -1,14 +1,39 @@
+<script setup lang="ts">
+const { user } = defineProps<{
+  user?: IUser;
+  add?: boolean
+}>();
+
+const contextMenu = reactive({
+  enabled: false,
+  x: 0,
+  y: 0
+})
+
+const editProfileDialog = ref(false)
+
+function onUserEdit() {
+  editProfileDialog.value = true
+}
+
+function onShowProfileContextMenu(e) {
+  e.preventDefault()
+
+  contextMenu.enabled = false
+  contextMenu.x = e.clientX
+  contextMenu.y = e.clientY
+
+  nextTick(() => {
+    contextMenu.enabled = true
+  })
+}
+</script>
+
 <template>
   <div :class="['ig-profile-selector', {'ig-profile-selector--add': add}]">
     <template v-if="user">
       <router-link
-          :to="{
-            name: 'user',
-            params: {
-              platform: user.platform,
-              username: extractUsernameFromUserId(user.id),
-            },
-          }"
+          :to="user.route"
           @contextmenu="onShowProfileContextMenu"
       >
         <suspense>
@@ -48,39 +73,6 @@
     </UserEditorDialog>
   </div>
 </template>
-
-<script setup lang="ts">
-import {extractUsernameFromUserId} from "../../utils/utilsPlatform";
-
-const { user } = defineProps<{
-  user?: IUser;
-  add?: boolean
-}>();
-
-const contextMenu = reactive({
-  enabled: false,
-  x: 0,
-  y: 0
-})
-
-const editProfileDialog = ref(false)
-
-function onUserEdit() {
-  editProfileDialog.value = true
-}
-
-function onShowProfileContextMenu(e) {
-  e.preventDefault()
-
-  contextMenu.enabled = false
-  contextMenu.x = e.clientX
-  contextMenu.y = e.clientY
-
-  nextTick(() => {
-    contextMenu.enabled = true
-  })
-}
-</script>
 
 <style lang="scss">
 .ig-profile-selector__context-menu {

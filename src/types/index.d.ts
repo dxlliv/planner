@@ -1,3 +1,5 @@
+import {RouteRecord} from "vue-router";
+
 type IPlatforms = '' | 'instagram'
 
 interface IRawConfig {
@@ -88,6 +90,7 @@ interface IUser {
     changed: boolean
   }
 
+  get route(): RouteRecord
   get hasLocalChanges(): boolean
   get isRemovable(): boolean
 
