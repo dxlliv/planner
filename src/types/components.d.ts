@@ -72,6 +72,7 @@ declare module 'vue' {
     UserSelectorAddMenu: typeof import('./../components/UserSelector/UserSelectorAddMenu.vue')['default']
     UserSelectorAvatar: typeof import('./../components/UserSelector/UserSelectorAvatar.vue')['default']
     UserSelectorBadgeChanges: typeof import('./../components/UserSelector/UserSelectorBadgeChanges.vue')['default']
+    UserSelectorList: typeof import('./../components/UserSelector/UserSelectorList.vue')['default']
     UserSelectorMenu: typeof import('./../components/UserSelector/UserSelectorMenu.vue')['default']
   }
 }

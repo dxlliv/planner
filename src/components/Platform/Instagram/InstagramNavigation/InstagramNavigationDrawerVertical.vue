@@ -103,7 +103,7 @@ const emit = defineEmits(['create', 'export'])
     right: 0;
   }
 
-  .ig-logo {
+  .planner-logo {
     margin-left: 10px;
   }
 

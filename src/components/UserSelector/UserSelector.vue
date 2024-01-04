@@ -75,26 +75,25 @@ function onShowProfileContextMenu(e) {
 </template>
 
 <style lang="scss">
-.ig-profile-selector__context-menu {
-  .v-list {
-    padding: 0;
-
-    &-item {
-      min-height: 0;
-    }
-
-    &-item-title {
-      font-size: 13px;
-    }
-  }
-}
-
 .ig-profile-selector {
   position: relative;
-  display: inline-block;
+  display: block;
   text-align: center;
-  margin: 0 16px;
   vertical-align: top;
+
+  &__context-menu {
+    .v-list {
+      padding: 0;
+
+      &-item {
+        min-height: 0;
+      }
+
+      &-item-title {
+        font-size: 13px;
+      }
+    }
+  }
 
   h3 {
     max-width: 150px;

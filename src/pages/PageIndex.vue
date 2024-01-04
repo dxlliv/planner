@@ -1,50 +1,30 @@
 <script setup lang="ts">
-import { SlickList, SlickItem } from 'vue-slicksort';
-const userSelectorStore = useUserSelectorStore()
 
-const listOfUsernames = ref(userSelectorStore.listOfUsernames);
-const listOfUsers = computed(() => userSelectorStore.listOfUsers);
-
-function onListUpdated(platformUsersReordered: string[]) {
-  userSelectorStore.setUsersSelectorOrder(platformUsersReordered)
-}
 </script>
 
 <template>
 
   <v-container class="ig-index text-center py-16 align-content-center">
 
-    <div>
-      <div class="d-inline-flex text-center">
-        <SlickList
-            class="v-row"
-            v-model:list="listOfUsernames"
-            @update:list="onListUpdated"
-            axis="x"
-            :press-delay="200"
+    <v-row>
+      <v-col :cols="12" :md="7" align-self="center">
+
+        <div
+          class="d-inline-block mx-auto"
+          style="max-width: 100%; overflow-x: auto;"
         >
-          <SlickItem
-              class="v-col flex-grow-0"
-              v-for="(user, i) of listOfUsers"
-              :key="user.id" :index="i"
-          >
-            <UserSelector
-                v-if="user && user.ready"
-                :user="user"
-            />
-          </SlickItem>
+          <UserSelectorList />
+        </div>
 
-          <div class="v-col flex-grow-0 hidden-sm-and-down">
-            <UserSelectorAdd />
-          </div>
-        </SlickList>
-      </div>
+      </v-col>
+      <v-col :cols="12" :md="5" class="mt-10 mt-md-0">
 
-      <v-divider class="mt-15 mb-10" />
+        <MainIntro />
+        <img class="mx-1 mt-5" src="https://img.shields.io/github/stars/dxlliv/planner?style=social" />
 
-      <MainIntro />
-      <MainFooter class="pb-0" />
-    </div>
+      </v-col>
+
+    </v-row>
 
   </v-container>
 </template>

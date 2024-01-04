@@ -80,7 +80,7 @@ const userExport = ref(false)
     right: 0;
   }
 
-  .ig-logo {
+  .planner-logo {
     margin-left: 10px;
   }
 
