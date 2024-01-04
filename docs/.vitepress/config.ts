@@ -21,12 +21,11 @@ module.exports = {
             text: 'Introduction',
             collapsed: false,
             items: [
-              { text: "Quick Start", link: "/quick-start" },
               { text: "Getting Started", link: "/getting-started" },
             ]
           },
           {
-            text: 'Planner in depth',
+            text: 'Planner',
             collapsed: false,
             items: [
               { text: "Installation", link: "/installation" },
@@ -37,7 +36,7 @@ module.exports = {
             ]
           },
           {
-            text: 'Supported media',
+            text: 'Media',
             collapsed: false,
             items: [
               { text: "Images", link: "/media-image" },
@@ -47,7 +46,7 @@ module.exports = {
             ]
           },
           {
-            text: 'Extra features',
+            text: 'Extra',
             collapsed: false,
             items: [
               { text: "Shortcuts", link: "/shortcuts" }

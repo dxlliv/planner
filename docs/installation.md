@@ -7,10 +7,12 @@ You can learn more about Vue.js on [their website](https://vuejs.org/), it's rea
 
 ### Try it online
 
-You can use **dxlliv/planner** directly in your browser on [GitHub](https://dxlliv.github.io/planner/).  
+You can use **dxlliv/planner** directly in your browser on the [GitHub Demo](https://dxlliv.github.io/planner/).  
+
+---
 
 Installation is not mandatory, you can create new profiles with an intuitive interface
-or import a profile selecting a pre-configured folder (or a .zip file, soon) from your computer. 
+or import a profile selecting a pre-configured folder (or a .zip file, soon) using the demo. 
 
 Changes will be saved in your browser using a client-side storage called [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).  
 If you prefer to run the planner locally and host it somewhere once done, keep reading.
