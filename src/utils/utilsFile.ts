@@ -31,18 +31,6 @@ export function getMediaFilePath(filename: string, folder: string = '') {
 }
 
 /**
- * Create json blob file from object
- *
- * @param json
- */
-export function createJsonFileFromObject(json: any) {
-    return new Blob(
-        [JSON.stringify(json)],
-        {type: "application/json"}
-    )
-}
-
-/**
  * Fetch media and transform it into blob file
  * @param url
  */

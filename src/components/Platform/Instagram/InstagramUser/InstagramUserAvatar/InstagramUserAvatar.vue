@@ -6,6 +6,13 @@ const props = withDefaults(defineProps<{
   size: 120
 });
 
+let src
+
+if (props.avatar) {
+  src = await handleMediaForSrc(props.avatar)
+}
+
+/*
 let avatar: any
 let avatarChangedTime: Ref<number> = ref(0)
 
@@ -19,14 +26,14 @@ watch(() => props.avatar.file, async value => {
   // force refresh
   avatarChangedTime.value = +new Date()
 }, { deep: true })
+ */
 </script>
 
 <template>
   <v-avatar :size="size" class="ig-profile-avatar">
     <v-img
-        v-if="avatar"
-        :src="avatar"
-        :key="avatarChangedTime"
+        v-if="src"
+        :src="src"
         cover
     />
   </v-avatar>

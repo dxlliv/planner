@@ -10,10 +10,14 @@ export default class UserAvatar {
         this.user = user
 
         if (typeof avatar === 'string') {
-            this.file = this.parseRawAvatar(avatar)
+            this.file = {
+                blob: this.parseRawAvatar(avatar)
+            }
         } else {
             // @ts-ignore
-            this.file = Promise.resolve(avatar)
+            this.file = {
+                blob: Promise.resolve(avatar)
+            }
         }
     }
 
@@ -36,5 +40,9 @@ export default class UserAvatar {
         }
 
         return fetchFileFromUrl(filePath)
+    }
+
+    public export() {
+        return this.file.blob
     }
 }
