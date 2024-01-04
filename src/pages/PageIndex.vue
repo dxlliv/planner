@@ -10,8 +10,6 @@
       <v-col :cols="12" :md="7" align-self="center">
 
         <div
-          class="d-inline-block mx-auto"
-          style="max-width: 100%; overflow-x: auto;"
         >
           <UserSelectorList />
         </div>
@@ -20,7 +18,10 @@
       <v-col :cols="12" :md="5" class="mt-10 mt-md-0">
 
         <MainIntro />
+        <MainFooter />
+        <!--
         <img class="mx-1 mt-5" src="https://img.shields.io/github/stars/dxlliv/planner?style=social" />
+        -->
 
       </v-col>
 
@@ -33,5 +34,6 @@
 .ig-index {
   display: grid;
   height: 100%;
+  max-width: 900px;
 }
 </style>
