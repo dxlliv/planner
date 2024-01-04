@@ -96,7 +96,7 @@ interface IUser {
 
   initialize(): void
   initializeUserStorage(): void
-  initializeUserProfile(): void
+  initializeUserProfile(): Promise<void>
   initializeUserMedia(): void
   setChanged(value: boolean): void
 

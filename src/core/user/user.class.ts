@@ -35,7 +35,7 @@ export default class User implements IUser {
         await this.initializeUserStorage()
 
         // parse profile
-        this.initializeUserProfile()
+        await this.initializeUserProfile()
         this.initializeUserMedia()
 
         // when you import users from directory/zip,
@@ -63,7 +63,7 @@ export default class User implements IUser {
 
     // these functions are overridden
     // by specific platform methods
-    public initializeUserProfile() {}
+    public async initializeUserProfile() {}
     public initializeUserMedia() {}
 
     get hasLocalChanges() {

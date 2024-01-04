@@ -15,8 +15,6 @@ export default class InstagramUserProfile extends UserProfile implements IInstag
         super(user)
 
         this.user = user
-
-        this.import()
     }
 
     get public_profile() {

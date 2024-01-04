@@ -1,4 +1,4 @@
-import {fetchFileFromUrl, getMediaFilePath, isPromise} from "../../utils/utilsFile";
+import {fetchFileFromUrl, getMediaFilePath} from "../../utils/utilsFile";
 
 export default class UserAvatar {
     public readonly user: IUser
