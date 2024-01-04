@@ -120,7 +120,7 @@ onMounted(() => {
 
         <v-row>
           <v-col>
-            <v-btn type="submit" :text="!props.user ? 'Create' : 'Edit'" variant="outlined" />
+            <v-btn type="submit" :text="!props.user ? 'Create' : 'Save'" variant="outlined" />
           </v-col>
         </v-row>
 

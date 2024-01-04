@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { user } = defineProps<{
+defineProps<{
   user?: IUser;
   add?: boolean
 }>();
@@ -56,7 +56,7 @@ function onShowProfileContextMenu(e) {
       </router-link>
 
       <a
-          class="text-blue-grey-lighten-4"
+          class="text-blue-grey-lighten-2"
           :href="user.profile.public_profile" target="_blank"
       >🡥</a>
     </template>
