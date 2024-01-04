@@ -79,6 +79,7 @@ function onShowProfileContextMenu(e) {
   position: relative;
   display: block;
   text-align: center;
+  margin: 0 12px;
   vertical-align: top;
 
   &__context-menu {
@@ -97,6 +98,7 @@ function onShowProfileContextMenu(e) {
 
   h3 {
     max-width: 150px;
+    margin: 0 auto;
   }
 
   a {

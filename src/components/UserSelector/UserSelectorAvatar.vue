@@ -59,6 +59,10 @@ watch(() => props.avatar, async value => {
         position: absolute;
         top: 22px;
         right: 10px;
+
+        &__badge {
+          padding: 0;
+        }
       }
     }
   }
