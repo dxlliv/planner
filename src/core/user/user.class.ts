@@ -107,7 +107,6 @@ export default class User implements IUser {
     public async remove() {
         useUserStore().unloadUser(this.id)
 
-        useUserSelectorStore().removeUserFromSelectorList(this.id)
         useUserStorageStore().removeUserFromStorageIndex(this.id)
 
         if (this.isRemovable || this.hasLocalChanges) {

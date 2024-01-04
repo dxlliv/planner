@@ -2,8 +2,6 @@ import User from "../core/user/user.class";
 import InstagramUser from "../core/platform/instagramUser.class";
 
 export const useUserStore = defineStore("user", () => {
-  const userSelectorStore = useUserSelectorStore()
-
   const users: Ref<{[id: string]: User}> = ref({});
   const userActive: Ref<string> = ref('')
 
@@ -29,9 +27,6 @@ export const useUserStore = defineStore("user", () => {
 
     // store initialized user
     users.value[id] = user
-
-    // store user to selector list
-    userSelectorStore.addUserToSelectorList(id)
 
     return id
   }
