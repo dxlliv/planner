@@ -14,10 +14,10 @@ const users = useUserStore().users
         400: {
           slidesPerView: 2.5
         },
-        570: {
+        550: {
           slidesPerView: 3.5
         },
-        680: {
+        700: {
           slidesPerView: 4.5
         },
         960: {

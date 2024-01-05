@@ -57,6 +57,18 @@ function onMediaContextMenu(e) {
       margin-top: -3px;
       margin-right: -8px;
     }
+
+    @media(max-width: 480px) {
+      top: 10px;
+      right: 12px;
+      font-size: 3dvw;
+
+      .mdi-play {
+        font-size: 6dvw;
+        margin-top: -3px;
+        margin-right: -8px;
+      }
+    }
   }
 
   :deep(.ig-media__context-menu) {
