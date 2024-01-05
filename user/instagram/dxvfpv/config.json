@@ -17,7 +17,12 @@
       },
       ["4.jpg", "4x1.jpg"],
       "3.jpg",
-      "2.jpg",
+      {
+        "type": "image",
+        "name": "2.jpg",
+        "caption": "\uD83C\uDFED",
+        "date": "3/13/2020"
+      },
       "1.jpg"
     ],
     "reels": [
