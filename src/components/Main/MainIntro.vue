@@ -7,7 +7,7 @@ import {GithubIcon,PatreonIcon} from 'vue3-simple-icons'
     border flat max-width="400"
     class="ig-intro mx-auto pa-8 pb-10 text-center"
   >
-    <Logo class="mb-5" />
+    <Logo size="large" class="mb-5" />
 
     <!--
     <h2 class="hidden-md-and-up">

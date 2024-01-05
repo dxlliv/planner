@@ -1,9 +1,13 @@
 <script setup lang="ts">
-
+const {size} = withDefaults(defineProps<{
+  size?: string
+}>(), {
+  size: 'medium'
+})
 </script>
 
 <template>
-  <router-link class="planner-logo" :to="{ name: 'index' }">
+  <router-link :class="['planner-logo', `planner-logo--size-${size}`]" :to="{ name: 'index' }">
     Planner
   </router-link>
 </template>
@@ -17,5 +21,9 @@
   letter-spacing: 2px;
   text-decoration: none;
   color: black !important;
+
+  &--size-large {
+    font-size: 40px;
+  }
 }
 </style>
