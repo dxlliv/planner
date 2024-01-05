@@ -76,14 +76,6 @@ export const platformStructure = {
                             set: 'setFollowsCount',
                         }
                     },
-                    posts_count: {
-                        name: 'Posts count',
-                        placeholder: 'Posts count',
-                        type: 'number',
-                        methods: {
-                            set: 'setPostsCount',
-                        }
-                    }
                 }
             },
             collections: {
