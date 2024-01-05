@@ -17,7 +17,7 @@ const emit = defineEmits(['create', 'export'])
   >
     <v-list class="pt-7 pb-3 hidden-md-and-down">
       <v-list-item>
-        <Logo :size="26" />
+        <Logo />
       </v-list-item>
     </v-list>
 

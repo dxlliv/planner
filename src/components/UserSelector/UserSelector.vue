@@ -56,9 +56,11 @@ function onShowProfileContextMenu(e) {
       </router-link>
 
       <a
-          class="text-blue-grey-lighten-2"
+          class="d-inline-block text-blue-grey-lighten-2 mt-n1"
           :href="user.profile.public_profile" target="_blank"
-      >🡥</a>
+      >
+        <v-icon icon="mdi-arrow-top-right" size="14px" />
+      </a>
     </template>
     <slot />
 
