@@ -13,13 +13,23 @@ export default class UserMedia implements IUserMedia {
     public stories: IMedia[] = []
     public highlights: IMedia[] = []
 
+    private firstFetch = true
+
     constructor(user: User) {
         this.user = user
     }
 
     public fetch() {
+        if (this.firstFetch === true) {
+            this.firstFetch = false
+        } else {
+            return false
+        }
+
         this.parseRawUserMediaPosts()
         this.parseRawUserMediaReels()
+
+        return true
     }
 
     private parseRawUserMediaPosts() {
