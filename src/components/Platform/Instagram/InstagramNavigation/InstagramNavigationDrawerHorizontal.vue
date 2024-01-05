@@ -19,20 +19,16 @@ const emit = defineEmits(['create', 'export'])
       <InstagramIconHome />
     </v-btn>
 
-    <v-btn :href="project.docs">
-      <InstagramIconSupport />
-    </v-btn>
-
     <v-btn :href="project.support" target="_blank">
       <InstagramIconReadme />
     </v-btn>
 
-    <v-btn value="favorites">
-      <InstagramIconDonors />
-    </v-btn>
-
     <v-btn @click="emit('create')">
       <InstagramIconNewPost />
+    </v-btn>
+
+    <v-btn :href="project.docs">
+      <InstagramIconSupport />
     </v-btn>
 
     <v-btn :to="user.route">
@@ -54,7 +50,7 @@ const emit = defineEmits(['create', 'export'])
   bottom: 0 !important;
 
   :deep(.v-btn) {
-    min-width: 15vw !important;
+    min-width: 20vw !important;
     padding: 0 !important;
 
     .v-btn__overlay {

@@ -15,25 +15,27 @@ defineProps<{
       <InstagramUserProfileUsername :user="user" class="mb-5" />
     </div>
 
-    <v-divider class="mx-n4" />
-
-    <div class="my-8">
+    <div class="mt-2 mb-8">
       <v-row>
         <v-col cols="3" class="ig-profile-page__header__avatar text-left">
-          <InstagramUserProfileAvatarEditor :size="120" :user="user" />
+
+          <InstagramUserProfileAvatarEditor :size="72" :user="user" />
+
         </v-col>
-        <v-col cols="9" />
+        <v-col cols="9" align-self="center">
+
+          <InstagramUserProfileStats
+            mobile
+            :user="user"
+          />
+
+        </v-col>
       </v-row>
     </div>
 
     <div class="my-4 mt-n6">
       <InstagramUserProfileInner :user="user" />
     </div>
-
-    <InstagramUserProfileStats
-        mobile
-        :user="user"
-    />
 
   </div>
 </template>

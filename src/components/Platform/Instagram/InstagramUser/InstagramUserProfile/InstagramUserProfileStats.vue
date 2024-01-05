@@ -29,10 +29,18 @@ defineProps<{
   li {
     display: inline-block;
     margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @media(max-width: 640px) {
+      margin-right: 24px;
+      font-size: 16px;
+    }
   }
 
   &--mobile {
-    border-top: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
     padding: 12px 0;
     font-size: 14px;
     text-align: center;
@@ -46,8 +54,14 @@ defineProps<{
         display: block;
       }
 
-      span:first-letter {
-        text-transform: uppercase;
+      span {
+        display: block;
+        margin-top: -1px;
+        font-size: 12px;
+
+        &:first-letter {
+          text-transform: uppercase;
+        }
       }
     }
   }

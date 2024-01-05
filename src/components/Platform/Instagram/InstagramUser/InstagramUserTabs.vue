@@ -68,6 +68,7 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> = compu
     &--active {
       color: rgb(var(--v-theme-on-background));
       border-top: 1px solid rgb(var(--v-theme-on-background));
+      margin-top: -1px;
     }
 
     .v-icon {
