@@ -14,7 +14,7 @@ const emit = defineEmits(['close'])
       <v-row class="ma-0">
         <v-col align-self="center" class="text-center">
           <p>
-            Some changes have been made to this profile<br />
+            Some changes have been made to the profile<br />
             and have now been stored in your browser.
           </p>
           <MainSupport />

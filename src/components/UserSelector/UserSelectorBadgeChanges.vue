@@ -5,7 +5,7 @@
 <template>
   <v-badge color="grey-darken-3">
     <v-tooltip content-class="text-overline" activator="parent" :offset="[16, 3]">
-      Local
+      Has changes
     </v-tooltip>
   </v-badge>
 </template>
