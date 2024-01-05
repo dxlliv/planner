@@ -20,7 +20,7 @@ async function onFormSend(e) {
 
   if (await $v.value.$validate()) {
     if (!props.user) {
-      userEditorStore.create()
+      await userEditorStore.create()
     } else {
       await userEditorStore.update(props.user)
     }

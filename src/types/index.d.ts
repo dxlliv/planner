@@ -94,10 +94,10 @@ interface IUser {
   get hasLocalChanges(): boolean
   get isRemovable(): boolean
 
-  initialize(): void
-  initializeUserStorage(): void
-  initializeUserProfile(): Promise<void>
-  initializeUserMedia(): void
+  init(): void
+  initUserStorage(): void
+  initUserProfile(): Promise<void>
+  initUserMedia(): void
   setChanged(value: boolean): void
 
   save(): Promise<void>

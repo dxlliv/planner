@@ -24,7 +24,7 @@ export const useUserConfigStore = defineStore("user/config", () => {
       const platform: string = rawUser.platform ?? config.platform.default ?? "instagram"
 
       // load users
-      userStore.loadUser(rawUser, platform, 'config')
+      await userStore.loadUser(rawUser, platform, 'config')
 
     }
 

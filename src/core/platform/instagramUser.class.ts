@@ -14,22 +14,15 @@ export default class InstagramUser extends User implements IInstagramUser {
         origin: string,
     ) {
         super(raw, origin)
-
-        // define instagram user id (platform + username)
-        this.id = `${this.platform}/${this.raw.profile.username}`
-
-        // first check if storage contains local data
-        // then restore or directly parse profile & media
-        this.initialize()
     }
 
-    public async initializeUserProfile() {
+    public async initUserProfile() {
         this.profile = new InstagramUserProfile(this)
 
         await this.profile.import()
     }
 
-    public initializeUserMedia() {
+    public initUserMedia() {
         this.media = new InstagramUserMedia(this)
     }
 }

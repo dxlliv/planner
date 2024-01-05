@@ -1,4 +1,5 @@
 import UserStorage from "./userStorage.class";
+import InstagramUser from "../platform/instagramUser.class";
 import {extractUsernameFromUserId} from "../../utils/utilsPlatform";
 
 export default class User implements IUser {
@@ -27,31 +28,38 @@ export default class User implements IUser {
     ) {
         this.raw = raw
         this.origin = origin
-
-        this.storage = new UserStorage(this)
     }
 
-    public async initialize() {
-        await this.initializeUserStorage()
+    public async init() {
+        // parse user profile
+        await this.initUserProfile()
 
-        // parse profile
-        await this.initializeUserProfile()
-        this.initializeUserMedia()
+        // parse user media
+        this.initUserMedia()
+
+        // start user indexed db
+        await this.initUserStorage()
+
+        // define user id (platform + username)
+        this.id = `${this.platform}/${this.raw.profile.username}`
 
         // when you import users from directory/zip,
         // you may want to save the profile immediately
         if (this.origin === 'storage') {
             this.media.fetch()
 
-            // all this sh1t should be refactored again
-            setTimeout(() => this.storage.save(), 1000)
+            await this.storage.save()
         }
 
         // set user as ready
         this.ready.value = true
+
+        return this
     }
 
-    public async initializeUserStorage() {
+    public async initUserStorage() {
+        this.storage = new UserStorage(this)
+
         // check for storage user data availability
         await this.storage.isContentAvailable().then(async (availability) => {
             if (availability) {
@@ -63,8 +71,8 @@ export default class User implements IUser {
 
     // these functions are overridden
     // by specific platform methods
-    public async initializeUserProfile() {}
-    public initializeUserMedia() {}
+    public async initUserProfile() {}
+    public initUserMedia() {}
 
     get hasLocalChanges() {
         return this.status.changed

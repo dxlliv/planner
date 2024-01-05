@@ -70,7 +70,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
     /**
      * Create raw user from user fields
      */
-    function create() {
+    async function create() {
         const rawUser: any = {
             profile: {},
             media: {}
@@ -84,8 +84,9 @@ export const useUserEditorStore = defineStore("user/editor", () => {
             rawUser.media[fieldKey] = []
         }
 
-        const id = useUserStore().loadUser(rawUser, platform.value, 'storage')
-        useUserStorageStore().addUserToStorageIndex(id)
+        const user = await useUserStore().loadUser(rawUser, platform.value, 'storage')
+
+        useUserStorageStore().addUserToStorageIndex(user.raw.profile.username)
 
         setTimeout(() => reset(), 1000)
 

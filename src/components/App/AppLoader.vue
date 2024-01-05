@@ -4,7 +4,7 @@ const themeStore = useThemeStore();
 const theme = useTheme()
 
 // initialize users
-await userStorageStore.initialize().then(async () => {
+await userStorageStore.init().then(async () => {
   await useUserConfigStore().loadUsersFromConfig()
   await useUserStorageStore().loadUsersFromStorage()
 })

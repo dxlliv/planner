@@ -1,6 +1,8 @@
 import User from "../core/user/user.class";
 import InstagramUser from "../core/platform/instagramUser.class";
 
+// id is :platform/:rawUser
+
 export const useUserStore = defineStore("user", () => {
   const users: Ref<{[id: string]: User}> = ref({});
   const userActive: Ref<string> = ref('')
@@ -12,23 +14,26 @@ export const useUserStore = defineStore("user", () => {
    * @param platform
    * @param origin
    */
-  function loadUser(rawUser: IRawUser, platform: string, origin: string): string {
+  async function loadUser(rawUser: IRawUser, platform: string, origin: string): User {
     let user
 
     switch (platform) {
       case 'instagram':
-        user = new InstagramUser(toRaw(rawUser), origin)
+        user = new InstagramUser(rawUser, origin)
         break
       default:
         throw Error('Platform not recognized on user load')
     }
 
-    const id = user.id
+    // initialize user
+    await user.init()
 
     // store initialized user
-    users.value[id] = user
+    users.value[user.id] = user
 
-    return id
+    console.log('[Planner] User loaded:', user.id)
+
+    return user
   }
 
   /**

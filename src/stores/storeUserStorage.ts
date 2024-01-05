@@ -5,7 +5,7 @@ export const useUserStorageStore = defineStore("user/storage", () => {
 
   const users: Ref<string[]> = ref([])
 
-  async function initialize() {
+  async function init() {
     localforage.config({
       driver: localforage.INDEXEDDB,
       name: 'planner',
@@ -18,8 +18,8 @@ export const useUserStorageStore = defineStore("user/storage", () => {
    */
   async function loadUsersFromStorage() {
     for await (const id of users.value) {
-      const username = extractUsernameFromUserId(id)
-      await restoreUserFromStorage(username)
+      const rawUsername = extractUsernameFromUserId(id)
+      await restoreUserFromStorage(rawUsername)
     }
   }
 
@@ -28,11 +28,11 @@ export const useUserStorageStore = defineStore("user/storage", () => {
    * to easily detect which users
    * are stored in local forage
    *
-   * @param username
+   * @param rawUsername
    */
-  function addUserToStorageIndex(username: string) {
-    if (!users.value.includes(username)) {
-      users.value.push(username)
+  function addUserToStorageIndex(rawUsername: string) {
+    if (!users.value.includes(rawUsername)) {
+      users.value.push(rawUsername)
     }
   }
 
@@ -42,9 +42,9 @@ export const useUserStorageStore = defineStore("user/storage", () => {
    *
    * @param username
    */
-  function removeUserFromStorageIndex(username: string) {
-    if (users.value.includes(username)) {
-      users.value = users.value.filter(u => u !== username)
+  function removeUserFromStorageIndex(rawUsername: string) {
+    if (users.value.includes(rawUsername)) {
+      users.value = users.value.filter(u => u !== rawUsername)
     }
   }
 
@@ -53,31 +53,31 @@ export const useUserStorageStore = defineStore("user/storage", () => {
    *
    * @param username
    */
-  async function restoreUserFromStorage(username: string) {
+  async function restoreUserFromStorage(rawUsername: string) {
     const userStorage = localforage.createInstance({
       name: 'planner',
-      storeName: username
+      storeName: rawUsername
     })
 
-    const platforms = await userStorage.keys()
+    const rawUsernames = await userStorage.keys()
 
-    for await (const platform of platforms) {
+    for await (const platform of rawUsernames) {
       // @ts-ignore
       const rawUser: IRawUser = await userStorage.getItem(platform)
 
       if (rawUser) {
-        userStore.loadUser(rawUser, platform, 'storage')
+        await userStore.loadUser(rawUser, platform, 'storage')
       } else {
         // something happened,
         // it no longer exists
-        removeUserFromStorageIndex(username)
+        removeUserFromStorageIndex(rawUsername)
       }
     }
   }
 
   return {
     users,
-    initialize,
+    init,
     addUserToStorageIndex,
     removeUserFromStorageIndex,
     loadUsersFromStorage,
