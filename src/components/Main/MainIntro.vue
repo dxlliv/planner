@@ -17,10 +17,10 @@ import {GithubIcon,PatreonIcon} from 'vue3-simple-icons'
     -->
     <p class="mt-5 text-grey-darken-1">
       <a href="https://github.com/dxlliv/planner">dxlliv/planner</a>
-      let you preview<br />what your profiles will look like.
+      let you preview<br class="hidden-xs" />what your profiles will look like.
     </p>
     <p class="mt-3 text-grey-darken-1">
-      Bring your grid to the next level<br />with a text editor or interactively.
+      Bring your grid to the next level<br class="hidden-xs" />with a text editor or interactively.
     </p>
 
     <br />
