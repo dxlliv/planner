@@ -9,7 +9,12 @@ const users = useUserStore().users
   <div class="ig-user-selector-list">
     <Swiper
       :key="users.length"
-      :slides-per-view="3.5"
+      :slides-per-view="2.5"
+      :breakpoints=" {
+        600: {
+          slidesPerView: 3.5
+        }
+      }"
     >
       <SwiperSlide v-for="(user, i) of users">
         <UserSelector
@@ -23,3 +28,9 @@ const users = useUserStore().users
     </Swiper>
   </div>
 </template>
+
+<style scoped lang="scss">
+.ig-user-selector-list {
+  max-width: calc(100vw - 48px);
+}
+</style>
