@@ -1,13 +1,15 @@
 <script setup lang="ts">
 defineProps<{
   data: any
+  variant: string
 }>()
 </script>
 
 <template>
   <v-text-field
-      :placeholder="data.placeholder"
-      hide-details spellcheck="false"
+    v-bind="$props"
+    :placeholder="data.placeholder"
+    hide-details spellcheck="false"
   />
 </template>
 

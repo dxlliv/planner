@@ -20,7 +20,6 @@ const {size} = withDefaults(defineProps<{
   font-weight: 600;
   letter-spacing: 2px;
   text-decoration: none;
-  color: black !important;
 
   &--size-large {
     font-size: 40px;

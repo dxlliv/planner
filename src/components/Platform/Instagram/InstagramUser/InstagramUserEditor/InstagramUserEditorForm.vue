@@ -52,7 +52,6 @@ onMounted(() => {
           <v-col>
 
             <UserEditorFieldString
-                name="username"
                 v-model="userEditorStore.fields.username"
                 :data="userEditorStore.fieldsData.username"
                 :error="$v.username.$invalid"
@@ -120,7 +119,7 @@ onMounted(() => {
 
         <v-row>
           <v-col>
-            <v-btn type="submit" :text="!props.user ? 'Create' : 'Save'" variant="outlined" />
+            <v-btn type="submit" :text="!props.user ? 'Create' : 'Submit'" variant="outlined" />
           </v-col>
         </v-row>
 
@@ -142,16 +141,19 @@ onMounted(() => {
     }
   }
 
-  .v-field__input {
-    padding-left: 10px;
-    padding-right: 10px;
-    min-height: 10px;
-    font-size: 14px;
+  .v-field {
+    border-radius: 16px;
+    margin-bottom: -2px;
+
+    &__input {
+      padding: 10px 12px;
+      min-height: 10px;
+      font-size: 14px;
+    }
   }
 
-  input.v-field__input {
-    padding-top: 5px;
-    padding-bottom: 5px;
+  .v-btn {
+    min-height: 46px;
   }
 }
 </style>

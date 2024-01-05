@@ -48,6 +48,10 @@ import {GithubIcon,PatreonIcon} from 'vue3-simple-icons'
 
 <style scoped lang="scss">
 .ig-intro {
+  .planner-logo {
+    color: black;
+  }
+
   p a {
     color: inherit;
     opacity: 0.65;
@@ -56,6 +60,16 @@ import {GithubIcon,PatreonIcon} from 'vue3-simple-icons'
 
   .v-btn svg {
     pointer-events: none;
+  }
+
+  &.v-theme--dark {
+    .planner-logo {
+      color: white;
+    }
+
+    .v-btn svg {
+      fill: white;
+    }
   }
 }
 </style>
