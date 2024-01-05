@@ -34,9 +34,9 @@ const emit = defineEmits(['create', 'export'])
           v-bind="navItem.item"
       >
         <template #prepend>
-          <InstagramIconExplore v-if="navItem.icon === 'IconSupport'" />
-          <InstagramIconReadme v-if="navItem.icon === 'IconReadme'" />
-          <InstagramIconHeart v-if="navItem.icon === 'IconDonors'" />
+          <InstagramIconExplore v-if="navItem.icon === 'IconExplore'" />
+          <InstagramIconMagnify v-if="navItem.icon === 'IconMagnify'" />
+          <InstagramIconHeart v-if="navItem.icon === 'IconHeart'" />
         </template>
       </v-list-item>
 
@@ -148,12 +148,20 @@ const emit = defineEmits(['create', 'export'])
   }
 
   &.v-theme--light {
+    svg {
+      fill: black;
+    }
+
     .ig-profile-avatar {
       border-color: black;
     }
   }
 
   &.v-theme--dark {
+    svg {
+      fill: white;
+    }
+
     .planner-logo {
       color: white;
     }

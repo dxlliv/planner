@@ -7,10 +7,18 @@ const user = computed(() => userStore.user);
 const nav = [
   {
     item: {
+      title: "Source",
+      href: project.source,
+      target: "_blank",
+    },
+    icon: "IconMagnify"
+  },
+  {
+    item: {
       title: "Readme",
       href: project.docs,
     },
-    icon: "IconReadme"
+    icon: "IconExplore"
   },
   {
     item: {
@@ -18,7 +26,7 @@ const nav = [
       href: project.support,
       target: "_blank",
     },
-    icon: "IconSupport"
+    icon: "IconHeart"
   },
   /*
   {
@@ -26,7 +34,7 @@ const nav = [
       title: "Donors",
       to: "https://patreon.com/dxlliv",
     },
-    icon: "IconDonors"
+    icon: "IconHeart"
   },
    */
 ]
@@ -47,7 +55,6 @@ const userExport = ref(false)
   <InstagramNavigationDrawerHorizontal
       class="hidden-sm-and-up"
       :user="user"
-      :nav="nav"
       @create="userMediaCreate = true"
       @export="userExport = true"
   />

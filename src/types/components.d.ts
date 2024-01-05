@@ -16,6 +16,7 @@ declare module 'vue' {
     InstagramIconExplore: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconExplore.vue')['default']
     InstagramIconHeart: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconHeart.vue')['default']
     InstagramIconHome: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconHome.vue')['default']
+    InstagramIconMagnify: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconMagnify.vue')['default']
     InstagramIconNewPost: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconNewPost.vue')['default']
     InstagramIconReadme: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconReadme.vue')['default']
     InstagramIconShare: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconShare.vue')['default']

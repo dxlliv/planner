@@ -3,7 +3,6 @@ import {project} from "~/project/project";
 
 defineProps<{
   user: IUser
-  nav: any
 }>()
 
 const emit = defineEmits(['create', 'export'])
@@ -20,7 +19,7 @@ const emit = defineEmits(['create', 'export'])
     </v-btn>
 
     <v-btn :href="project.support" target="_blank">
-      <InstagramIconReadme />
+      <InstagramIconHeart />
     </v-btn>
 
     <v-btn @click="emit('create')">

@@ -26,7 +26,7 @@ defineProps<{
 
           <InstagramUserProfileStats
             mobile
-            :user="user"
+            :profile="user.profile"
           />
 
         </v-col>
