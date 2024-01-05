@@ -84,18 +84,6 @@ const emit = defineEmits(['create', 'export'])
   position: fixed !important;
   background: none !important;
 
-  &.v-theme--light {
-    .ig-profile-avatar {
-      border-color: black;
-    }
-  }
-
-  &.v-theme--dark {
-    .ig-profile-avatar {
-      border-color: white;
-    }
-  }
-
   .ig-navigation-drawer__list-bottom {
     position: absolute !important;
     bottom: 0;
@@ -105,6 +93,7 @@ const emit = defineEmits(['create', 'export'])
 
   .planner-logo {
     margin-left: 10px;
+    color: black;
   }
 
   .ig-profile-avatar {
@@ -155,6 +144,22 @@ const emit = defineEmits(['create', 'export'])
         zoom: 1.08;
         margin-left: 1px;
       }
+    }
+  }
+
+  &.v-theme--light {
+    .ig-profile-avatar {
+      border-color: black;
+    }
+  }
+
+  &.v-theme--dark {
+    .planner-logo {
+      color: white;
+    }
+
+    .ig-profile-avatar {
+      border-color: white;
     }
   }
 }
