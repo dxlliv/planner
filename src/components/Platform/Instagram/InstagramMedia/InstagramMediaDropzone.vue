@@ -65,7 +65,6 @@ function onFileAdded(file: any) {
       font-size: 14px;
       font-weight: 600;
       letter-spacing: 0;
-      pointer-events: none;
     }
   }
   .filepond--panel-root {
