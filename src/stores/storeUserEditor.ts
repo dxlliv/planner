@@ -1,8 +1,8 @@
 import {required, minLength, maxLength, url} from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
-import {useUserStore} from "./storeUser";
 
 export const useUserEditorStore = defineStore("user/editor", () => {
+    const userStore = useUserStore()
     const platform = ref('')
 
     const fields: any = {}
@@ -84,9 +84,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
             rawUser.media[fieldKey] = []
         }
 
-        const user = await useUserStore().loadUser(rawUser, platform.value, 'storage')
-
-        useUserStorageStore().addUserToStorageIndex(user.raw.profile.username)
+        await userStore.createUser(rawUser, platform.value)
 
         setTimeout(() => reset(), 1000)
 
@@ -105,8 +103,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
             rawUserProfile[fieldKey] = fields[fieldKey].value
         }
 
-        await user.profile.update(removeUndefinedFromObject(rawUserProfile))
-        await user.save()
+        await userStore.updateUser(user, rawUserProfile)
     }
 
     return {

@@ -1,11 +1,39 @@
 import User from "../core/user/user.class";
 import InstagramUser from "../core/platform/instagramUser.class";
+import { IRawUserProfile } from "../types";
 
 // id is :platform/:rawUser
 
 export const useUserStore = defineStore("user", () => {
   const users: Ref<{[id: string]: User}> = ref({});
   const userActive: Ref<string> = ref('')
+
+  /**
+   * Create user
+   *
+   * @param rawUser
+   * @param platform
+   */
+  async function createUser(rawUser: IRawUser, platform: string): boolean {
+    const user = await loadUser(rawUser, platform, 'storage')
+
+    useUserStorageStore().addUserToStorageIndex(user.raw.profile.username)
+
+    return true;
+  }
+
+  /**
+   * Update user
+   *
+   * @param user
+   * @param platform
+   */
+  async function updateUser(user: User, profile: IRawUserProfile): boolean {
+    await user.profile.update(removeUndefinedFromObject(rawUserProfile))
+    await user.save()
+
+    return true;
+  }
 
   /**
    * Load provided raw user config
@@ -90,6 +118,8 @@ export const useUserStore = defineStore("user", () => {
     users,
     user,
     userActive,
+    createUser,
+    updateUser,
     loadUser,
     unloadUser,
     loadUserPage,

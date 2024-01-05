@@ -1,7 +1,7 @@
 <template>
   <div class="tool-guides">
-    <Guides type="horizontal" />
-    <Guides type="vertical" />
+    <Guides type="horizontal" oncontextmenu="return false" />
+    <Guides type="vertical" oncontextmenu="return false" />
   </div>
 </template>
 
