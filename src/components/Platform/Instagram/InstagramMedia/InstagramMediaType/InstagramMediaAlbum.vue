@@ -2,7 +2,6 @@
   <InstagramMediaContainer
       type="album"
       :media="media"
-      @click="nextSlide"
   >
     <Carousel
         v-model="media.listIndex"
