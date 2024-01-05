@@ -34,9 +34,9 @@ const emit = defineEmits(['create', 'export'])
           v-bind="navItem.item"
       >
         <template #prepend>
-          <InstagramIconSupport v-if="navItem.icon === 'IconSupport'" />
+          <InstagramIconExplore v-if="navItem.icon === 'IconSupport'" />
           <InstagramIconReadme v-if="navItem.icon === 'IconReadme'" />
-          <InstagramIconDonors v-if="navItem.icon === 'IconDonors'" />
+          <InstagramIconHeart v-if="navItem.icon === 'IconDonors'" />
         </template>
       </v-list-item>
 

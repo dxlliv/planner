@@ -11,6 +11,9 @@ export default class Media {
     public type: IMediaType = '' as IMediaType
     public collection: IMediaCollection = '' as IMediaCollection
 
+    public caption: string = ''
+    public date: string = ''
+
     constructor(
         raw: string | IRawMedia,
         user: User
@@ -19,6 +22,7 @@ export default class Media {
         this.user = user
 
         this.setUniqueId()
+        this.parseMediaDetail()
     }
 
     public setUniqueId() {
@@ -31,6 +35,24 @@ export default class Media {
 
     public setMediaCollection(collection: IMediaCollection) {
         this.collection = collection
+    }
+
+    private parseMediaDetail() {
+        switch (typeof this.raw) {
+            case "string":
+                this.caption = ''
+                this.date = ''
+                break;
+
+            case "object":
+                if (this.raw.caption) {
+                    this.caption = this.raw.caption
+                }
+                if (this.raw.date) {
+                    this.date = this.raw.date
+                }
+                break;
+        }
     }
 
     public parseMediaFileName(fileName: string): IMediaFile {

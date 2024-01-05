@@ -12,8 +12,8 @@ defineProps<{
       </v-col>
 
       <v-col cols="8">
-        <InstagramUserProfileUsername :user="user" class="mb-5" />
-        <InstagramUserProfileStats :user="user" class="mb-5" />
+        <InstagramUserProfileUsername editable :profile="user.profile" size="large" class="mb-5" />
+        <InstagramUserProfileStats :profile="user.profile" class="mb-5" />
         <InstagramUserProfileInner :user="user" />
       </v-col>
     </v-row>
@@ -25,7 +25,7 @@ defineProps<{
   text-align: left;
   border-bottom: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
 
-  :deep(.ig-profile-page__header__username) {
+  :deep(.ig-profile__header__username) {
     display: block;
     font-weight: 300;
     font-size: 20px;

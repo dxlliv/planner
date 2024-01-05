@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { Carousel, Slide } from "vue3-carousel";
+
+const props = defineProps<{
+  media: IMediaAlbum;
+  profile: IUserProfile;
+}>();
+
+function nextSlide() {
+  props.media.slideToNextListItem()
+}
+</script>
+
 <template>
   <InstagramMediaContainer
       type="album"
@@ -7,7 +20,11 @@
         v-model="media.listIndex"
     >
       <Slide v-for="(item, i) of media.list" :key="i">
-        <InstagramMediaPost :context-menu="false" :media="item" />
+        <InstagramPost
+          :context-menu="false"
+          :media="item"
+          :profile="profile"
+        />
       </Slide>
     </Carousel>
     <InstagramMediaAlbumCurrentIndex
@@ -16,18 +33,6 @@
     />
   </InstagramMediaContainer>
 </template>
-
-<script setup lang="ts">
-import { Carousel, Slide } from "vue3-carousel";
-
-const props = defineProps<{
-  media: IMediaAlbum;
-}>();
-
-function nextSlide() {
-  props.media.slideToNextListItem()
-}
-</script>
 
 <style scoped lang="scss">
 .ig-media--album {

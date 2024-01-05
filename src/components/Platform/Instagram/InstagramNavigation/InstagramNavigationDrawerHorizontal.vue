@@ -28,7 +28,7 @@ const emit = defineEmits(['create', 'export'])
     </v-btn>
 
     <v-btn :href="project.docs">
-      <InstagramIconSupport />
+      <InstagramIconExplore />
     </v-btn>
 
     <v-btn :to="user.route">

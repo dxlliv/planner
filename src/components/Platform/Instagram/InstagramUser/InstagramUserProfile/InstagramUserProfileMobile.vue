@@ -12,7 +12,7 @@ defineProps<{
       <router-link :to="{ name: 'index' }">
         <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px;" />
       </router-link>
-      <InstagramUserProfileUsername :user="user" class="mb-5" />
+      <InstagramUserProfileUsername editable :profile="user.profile" size="large" class="mb-5" />
     </div>
 
     <div class="mt-2 mb-8">
@@ -45,7 +45,7 @@ defineProps<{
   text-align: left;
   border-bottom: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
 
-  &__username {
+  .ig-profile__header__username {
     display: inline;
     font-weight: 800;
   }

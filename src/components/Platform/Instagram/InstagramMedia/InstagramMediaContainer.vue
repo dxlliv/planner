@@ -2,6 +2,7 @@
 defineProps<{
   media: IMedia
   type: string
+  detailOnClick?: boolean
   contextMenu?: boolean
 }>()
 
@@ -16,7 +17,7 @@ function onMediaContextMenu(e) {
 
 <template>
   <div
-      :class="['ig-media', `ig-media--${type}`]"
+      :class="['ig-media', `ig-media--${type}`, {'cursor-pointer': detailOnClick}]"
       @contextmenu="onMediaContextMenu"
   >
     <suspense>

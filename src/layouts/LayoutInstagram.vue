@@ -10,7 +10,7 @@
     <v-main>
       <slot />
 
-      <MainFooter />
+      <MainFooter class="mt-1" />
     </v-main>
 
   </v-layout>

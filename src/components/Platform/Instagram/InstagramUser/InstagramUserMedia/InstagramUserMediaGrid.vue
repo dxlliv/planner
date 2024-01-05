@@ -49,13 +49,16 @@ function onSortEnd() {
             <v-icon icon="mdi-drag" color="white" />
           </DragHandle>
 
-          <InstagramMediaPost
+          <InstagramPost
               v-if="mode === 'posts'"
+              :profile="user.profile"
               :media="media"
               context-menu
+              detail-on-click
           />
-          <InstagramMediaReel
+          <InstagramPostReel
               v-if="mode === 'reels'"
+              :profile="user.profile"
               :media="media"
               context-menu
           />
