@@ -22,6 +22,12 @@ export default class InstagramUserProfile extends UserProfile implements IInstag
     }
 
     public async export(): Promise<IRawUserProfile> {
+        let avatar = undefined
+
+        if (this.avatar) {
+            avatar = await this.avatar.export()
+        }
+
         return removeUndefinedFromObject({
             username: this.username,
             name: this.name,
@@ -30,7 +36,7 @@ export default class InstagramUserProfile extends UserProfile implements IInstag
             follows_count: this.follows_count,
             website: this.website,
             biography: this.biography,
-            avatar: await this.avatar.export()
+            avatar
         })
     }
 }
