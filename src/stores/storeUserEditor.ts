@@ -1,5 +1,6 @@
 import {required, minLength, maxLength, url} from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
+import slugify from "slugify";
 
 export const useUserEditorStore = defineStore("user/editor", () => {
     const userStore = useUserStore()
@@ -83,6 +84,9 @@ export const useUserEditorStore = defineStore("user/editor", () => {
         for (const [fieldKey, field] of Object.entries(platformStructureUser.value.collections)) {
             rawUser.media[fieldKey] = []
         }
+
+        // slugify username
+        rawUser.profile.username = slugify(rawUser.profile.username, '_')
 
         await userStore.createUser(rawUser, platform.value)
 
