@@ -29,7 +29,7 @@ export const useUserStore = defineStore("user", () => {
    * @param platform
    */
   async function updateUser(user: User, profile: IRawUserProfile): boolean {
-    await user.profile.update(removeUndefinedFromObject(rawUserProfile))
+    await user.profile.update(removeUndefinedFromObject(profile))
     await user.save()
 
     return true;
