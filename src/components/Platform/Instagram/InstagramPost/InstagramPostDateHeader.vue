@@ -4,7 +4,7 @@
 
 <template>
   <v-sheet>
-    <v-row no-gutters class="mt-2">
+    <v-row no-gutters class="mt-1">
       <v-col>
         <InstagramIconHeart class="mr-2" />
         <InstagramIconComment class="mr-2" />
