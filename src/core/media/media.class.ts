@@ -1,6 +1,7 @@
 import {fetchFileFromUrl, getMediaFilePath, getFileName} from "../../utils/utilsFile";
 import {generateUuidv4} from "../../utils/utilsString";
 import User from "../user/user.class";
+import { IMediaCollection } from "../../types";
 
 export default class Media {
     public user: User
@@ -15,11 +16,16 @@ export default class Media {
     public date: string = ''
 
     constructor(
+        user: User,
         raw: string | IRawMedia,
-        user: User
+        collection?: IMediaCollection
     ) {
-        this.raw = typeof raw === 'string' ? raw : Object.assign({}, raw)
         this.user = user
+        this.raw = typeof raw === 'string' ? raw : Object.assign({}, raw)
+
+        if (collection) {
+            this.collection = collection
+        }
 
         this.setUniqueId()
         this.parseMediaDetail()

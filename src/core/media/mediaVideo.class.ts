@@ -2,6 +2,7 @@ import Media from "./media.class";
 import MediaImage from "./mediaImage.class";
 import User from "../user/user.class";
 import UserMedia from "../user/userMedia.class";
+import { IMediaCollection } from "../../types";
 
 export default class MediaVideo extends Media implements IMediaVideo {
     public file: IMediaFile = {} as IMediaFile
@@ -10,10 +11,11 @@ export default class MediaVideo extends Media implements IMediaVideo {
     public coverTime: number = 0
 
     constructor(
+        user: User,
         raw: string | IRawMedia,
-        user: User
+        collection?: IMediaCollection
     ) {
-        super(raw, user)
+        super(user, raw, collection)
 
         this.setMediaType('video')
         this.parseMediaVideo(raw)
@@ -45,7 +47,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
                         break;
                     case "string":
                     case "object":
-                        this.cover = new MediaImage(raw.cover, this.user)
+                        this.cover = new MediaImage(this.user, raw.cover)
                         break;
                 }
                 break;
@@ -53,7 +55,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
     }
 
     public async setCover(file: File) {
-        this.cover = new MediaImage({ file }, this.user)
+        this.cover = new MediaImage(this.user, { file })
 
         await this.save()
     }
@@ -72,7 +74,8 @@ export default class MediaVideo extends Media implements IMediaVideo {
     }
 
     public async convertToAlbum() {
-        const mediaAlbum = UserMedia.newMedia({
+        const mediaAlbum = UserMedia.newMedia(this.user,
+          {
             type: 'album',
             list: [
                 {
@@ -80,7 +83,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
                     file: await this.file.blob
                 }
             ]
-        }, this.user)
+        }, 'posts')
 
         const index = await this.remove()
 

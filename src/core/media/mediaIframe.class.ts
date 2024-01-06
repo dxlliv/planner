@@ -1,6 +1,7 @@
 import Media from "./media.class";
 import MediaImage from "./mediaImage.class";
 import User from "../user/user.class";
+import { IMediaCollection } from "../../types";
 
 export default class MediaIframe extends Media implements IMediaIframe {
     public reel: boolean = false
@@ -8,10 +9,11 @@ export default class MediaIframe extends Media implements IMediaIframe {
     public cover: undefined | IMediaImage
 
     constructor(
+        user: User,
         raw: IRawMedia,
-        user: User
+        collection?: IMediaCollection
     ) {
-        super(raw, user)
+        super(user, raw, collection)
 
         this.setMediaType('iframe')
         this.parseMediaIframe(raw)
@@ -34,12 +36,12 @@ export default class MediaIframe extends Media implements IMediaIframe {
         }
 
         if (raw.cover && typeof raw.cover !== 'number') {
-            this.cover = new MediaImage(raw.cover, this.user)
+            this.cover = new MediaImage(this.user, raw.cover)
         }
     }
 
     public async setCover(file: File) {
-        this.cover = new MediaImage({ file }, this.user)
+        this.cover = new MediaImage(this.user, { file })
 
         await this.save()
     }

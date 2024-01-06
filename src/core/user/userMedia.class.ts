@@ -4,6 +4,7 @@ import MediaVideo from "../media/mediaVideo.class";
 import MediaAlbum from "../media/mediaAlbum.class";
 import MediaIframe from "../media/mediaIframe.class";
 import {fulfillMediaPostsForMediaExport} from "../../utils/utilsUserExport";
+import { IMediaCollection } from "../../types";
 
 export default class UserMedia implements IUserMedia {
     public readonly user: User
@@ -49,8 +50,7 @@ export default class UserMedia implements IUserMedia {
         collection: IMediaCollection = 'posts',
         addMethod: 'push' | 'unshift' = 'push'
     ) {
-        const media = UserMedia.newMedia(rawMedia, this.user)
-        media.setMediaCollection(collection)
+        const media = UserMedia.newMedia(this.user, rawMedia, collection)
 
         this[collection][addMethod](media)
 
@@ -67,30 +67,30 @@ export default class UserMedia implements IUserMedia {
         }
     }
 
-    public static newMedia(rawMedia: string | IRawMedia, user: User): any {
+    public static newMedia(user: User, rawMedia: string | IRawMedia, collection: IMediaCollection = 'posts'): any {
         const mediaType = UserMedia.detectMediaType(rawMedia)
 
         switch (mediaType) {
 
             case 'image':
-                return new MediaImage(rawMedia, user)
+                return new MediaImage(user, rawMedia, collection)
 
             case 'video':
-                return new MediaVideo(rawMedia, user)
+                return new MediaVideo(user, rawMedia, collection)
 
             case 'album':
                 if (typeof rawMedia === 'string') {
                     throw Error('Album media cannot be a string')
                 }
 
-                return new MediaAlbum(rawMedia, user)
+                return new MediaAlbum(user, rawMedia, collection)
 
             case 'iframe':
                 if (typeof rawMedia === 'string') {
                     throw Error('Album media cannot be a string')
                 }
 
-                return new MediaIframe(rawMedia, user)
+                return new MediaIframe(user, rawMedia, collection)
         }
     }
 

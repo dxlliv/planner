@@ -1,16 +1,18 @@
 import Media from "./media.class";
 import User from "../user/user.class";
 import UserMedia from "../user/userMedia.class";
+import { IMediaCollection } from "../../types";
 
 export default class MediaAlbum extends Media implements IMediaAlbum {
     public list: (IMediaImage | IMediaVideo)[] = []
     public listIndex: number = 0
 
     constructor(
+        user: User,
         raw: IRawMedia,
-        user: User
+        collection?: IMediaCollection
     ) {
-        super(raw, user)
+        super(user, raw, collection)
 
         this.setMediaType('album')
 
@@ -30,7 +32,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
         if (raw.list && Array.isArray(raw.list)) {
             for (let rawAlbumMedia of raw.list) {
                 mediaAlbumList.push(
-                    UserMedia.newMedia(rawAlbumMedia, this.user)
+                    UserMedia.newMedia(this.user, rawAlbumMedia)
                 )
             }
 
@@ -47,7 +49,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     }
 
     public async addToAlbum(file: File) {
-        const newAlbumMedia = UserMedia.newMedia({ file }, this.user)
+        const newAlbumMedia = UserMedia.newMedia(this.user, { file })
 
         this.list?.splice(this.listIndex + 1, 0, newAlbumMedia)
         this.slideToNextListItem()

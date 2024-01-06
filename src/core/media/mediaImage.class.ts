@@ -1,15 +1,17 @@
 import Media from "./media.class";
 import User from "../user/user.class";
 import UserMedia from "../user/userMedia.class";
+import { IMediaCollection } from "../../types";
 
 export default class MediaImage extends Media implements IMediaImage {
     public file: IMediaFile = {} as IMediaFile
 
     constructor(
+        user: User,
         raw: string | IRawMedia,
-        user: User
+        collection?: IMediaCollection
     ) {
-        super(raw, user)
+        super(user, raw, collection)
 
         this.setMediaType('image')
         this.parseMediaImage(raw)
@@ -41,7 +43,8 @@ export default class MediaImage extends Media implements IMediaImage {
     }
 
     public async convertToAlbum() {
-        const mediaAlbum = UserMedia.newMedia({
+        const mediaAlbum = UserMedia.newMedia(this.user,
+          {
             type: 'album',
             list: [
                 {
@@ -49,7 +52,7 @@ export default class MediaImage extends Media implements IMediaImage {
                     file: await this.file.blob
                 }
             ]
-        }, this.user)
+        }, 'posts')
 
         const index = await this.remove()
 
@@ -61,14 +64,15 @@ export default class MediaImage extends Media implements IMediaImage {
     public async convertToIframe(href: string) {
         const index = await this.remove()
 
-        const media = UserMedia.newMedia({
+        const media = UserMedia.newMedia(this.user,
+          {
             type: 'iframe',
             cover: {
                 type: 'image',
                 file: await this.file.blob
             },
             href,
-        }, this.user)
+        }, 'posts')
 
         this.user.media[this.collection].splice(index, 0, media)
 
