@@ -1,0 +1,1 @@
+import{_ as t,o as e,c as r,U as a}from"./chunks/framework.LIEMn-D5.js";const p=JSON.parse('{"title":"Shortcuts","description":"","frontmatter":{},"headers":[],"relativePath":"shortcuts.md","filePath":"shortcuts.md"}'),s={name:"shortcuts.md"},o=a("",6),n=[o];function h(c,i,l,u,d,_){return e(),r("div",null,n)}const f=t(s,[["render",h]]);export{p as __pageData,f as default};
