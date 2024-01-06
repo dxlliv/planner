@@ -9,11 +9,8 @@ const users = useUserStore().users
   <div class="ig-user-selector-list">
     <Swiper
       :key="users.length"
-      :slides-per-view="1.6"
+      :slides-per-view="1.5"
       :breakpoints=" {
-        400: {
-          slidesPerView: 2.5
-        },
         550: {
           slidesPerView: 3.5
         },
