@@ -31,14 +31,14 @@ export default class User implements IUser {
     }
 
     public async init() {
+        // start user indexed db
+        await this.initUserStorage()
+
         // parse user profile
         await this.initUserProfile()
 
         // parse user media
         this.initUserMedia()
-
-        // start user indexed db
-        await this.initUserStorage()
 
         // define user id (platform + username)
         this.id = `${this.platform}/${this.raw.profile.username}`
