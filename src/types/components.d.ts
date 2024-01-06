@@ -48,7 +48,6 @@ declare module 'vue' {
     InstagramPostComments: typeof import('./../components/Platform/Instagram/InstagramPost/InstagramPostComment/InstagramPostComments.vue')['default']
     InstagramPostDate: typeof import('./../components/Platform/Instagram/InstagramPost/InstagramPostDate.vue')['default']
     InstagramPostDateHeader: typeof import('./../components/Platform/Instagram/InstagramPost/InstagramPostDateHeader.vue')['default']
-    InstagramPostDesktop: typeof import('./../components/Platform/Instagram/InstagramPost/InstagramPostDesktop.vue')['default']
     InstagramPostDetail: typeof import('./../components/Platform/Instagram/InstagramPost/InstagramPostDetail.vue')['default']
     InstagramPostDetailDesktop: typeof import('./../components/Platform/Instagram/InstagramPost/InstagramPostDetailDesktop.vue')['default']
     InstagramPostDetailMobile: typeof import('./../components/Platform/Instagram/InstagramPost/InstagramPostDetailMobile.vue')['default']
