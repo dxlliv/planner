@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const emit = defineEmits(['close'])
+
+defineProps<{
+  user: any;
+}>();
 </script>
 
 <template>
@@ -14,10 +18,22 @@ const emit = defineEmits(['close'])
       <v-row class="ma-0">
         <v-col align-self="center" class="text-center">
           <p>
-            Some changes have been made to the profile<br />
-            and have now been stored in your browser.
+            Changes have been made to the profile<br />
+            and are now stored in your browser.
           </p>
-          <MainSupport />
+          <p class="mt-2">
+            You could export your changes as a ZIP<br />
+            and overwrite your profile configuration in<br />
+            <code>/public/user/instagram/{user}</code>
+          </p>
+          <br />
+
+          <v-btn
+            color="primary"
+            @click="user.storage.exportAsZip()"
+          >
+            Export as ZIP
+          </v-btn>
         </v-col>
       </v-row>
 
