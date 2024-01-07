@@ -72,7 +72,7 @@ const emit = defineEmits(['create', 'export'])
           @click="emit('export')"
       >
         <template #prepend>
-          <v-icon icon="mdi-pencil-ruler-outline" />
+          <v-icon icon="mdi-content-save-move-outline" />
         </template>
       </v-list-item>
     </v-list>
