@@ -31,8 +31,6 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
 
         if (raw.list && Array.isArray(raw.list)) {
             for (let rawAlbumMedia of raw.list) {
-                console.log('ZIO', rawAlbumMedia)
-
                 mediaAlbumList.push(
                     UserMedia.newMedia(this.user, rawAlbumMedia)
                 )

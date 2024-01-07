@@ -31,6 +31,10 @@ export default class Media {
         this.parseMediaDetail()
     }
 
+    public get collectionSingularized() {
+        return singularizeMediaCollectionName(this.collection)
+    }
+
     public setUniqueId() {
         this.id = generateUuidv4()
     }

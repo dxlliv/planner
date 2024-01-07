@@ -16,7 +16,7 @@ export default class UserMedia implements IUserMedia {
         this.user = user
     }
 
-    get collectionKeys() {
+    public get collectionKeys() {
         return Object.keys(this.collections)
     }
 

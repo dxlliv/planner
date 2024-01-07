@@ -148,6 +148,10 @@
     "downloadUserZip": true,
     "downloadZip": true,
     "makeUserZip": true,
-    "singularizeMediaCollectionName": true
+    "singularizeMediaCollectionName": true,
+    "rebuildUserConfigFromUserExported": true,
+    "rebuildRawUserFromExportedUser": true,
+    "rebuildRawUserFromUser": true,
+    "rebuildRawUserConfigFromUser": true
   }
 }

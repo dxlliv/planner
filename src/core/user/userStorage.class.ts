@@ -1,7 +1,5 @@
 import localforage from 'localforage';
 import User from "./user.class";
-import { downloadUserZip, makeUserZip, zipUser } from "../../utils/utilsUserExport";
-import { downloadZip } from "../../utils/utilsFile";
 
 export default class UserStorage {
     private user: IUser
@@ -48,9 +46,7 @@ export default class UserStorage {
     }
 
     public async exportAsZip() {
-        const userExported = await this.user.getDataForExport()
-
-        const userZip = await makeUserZip(userExported)
+        const userZip = await makeUserZip(this.user)
 
         // download user as zip
         downloadZip(`${this.user.profile.username}.zip`, userZip)
