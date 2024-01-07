@@ -31,6 +31,8 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
 
         if (raw.list && Array.isArray(raw.list)) {
             for (let rawAlbumMedia of raw.list) {
+                console.log('ZIO', rawAlbumMedia)
+
                 mediaAlbumList.push(
                     UserMedia.newMedia(this.user, rawAlbumMedia)
                 )
@@ -94,6 +96,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
         if (this.list) {
             for await (const media of this.list) {
                 exportedList.push({
+                    type: media.type,
                     file: (await media.file?.blob)
                 })
             }
