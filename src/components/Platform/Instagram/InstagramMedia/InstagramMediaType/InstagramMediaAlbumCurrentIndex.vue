@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
   <v-badge
-      class="ig-media__badge-index"
+      class="ig-media__badge-index hidden-xs"
       color="transparent"
       :content="`${index} / ${max}`"
   />
