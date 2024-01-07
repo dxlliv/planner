@@ -100,6 +100,20 @@ export default class User implements IUser {
     }
 
     /**
+     * Prepare user data for export
+     */
+    public async getDataForExport(): Promise<IUserExported> {
+        const exportedProfile = await this.profile.export()
+        const exportedMedia = await this.media.export()
+
+        return {
+            id: this.id,
+            profile: exportedProfile,
+            media: exportedMedia,
+        }
+    }
+
+    /**
      * Save user to indexed db
      */
     public async save() {

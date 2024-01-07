@@ -16,6 +16,8 @@ declare global {
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
   const defineStore: typeof import('pinia')['defineStore']
+  const downloadUserZip: typeof import('../utils/utilsUserExport.ts~')['downloadUserZip']
+  const downloadZip: typeof import('../utils/utilsFile')['downloadZip']
   const effectScope: typeof import('vue')['effectScope']
   const extractUsernameFromUserId: typeof import('../utils/utilsPlatform')['extractUsernameFromUserId']
   const fetchFileFromUrl: typeof import('../utils/utilsFile')['fetchFileFromUrl']
@@ -44,6 +46,7 @@ declare global {
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
   const isValidJson: typeof import('../utils/utilsString')['isValidJson']
+  const makeUserZip: typeof import('../utils/utilsUserExport')['makeUserZip']
   const mapActions: typeof import('pinia')['mapActions']
   const mapGetters: typeof import('pinia')['mapGetters']
   const mapState: typeof import('pinia')['mapState']
@@ -85,6 +88,7 @@ declare global {
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
+  const singularizeMediaCollectionName: typeof import('../utils/utilsUserMedia')['singularizeMediaCollectionName']
   const storeToRefs: typeof import('pinia')['storeToRefs']
   const toRaw: typeof import('vue')['toRaw']
   const toRef: typeof import('vue')['toRef']
@@ -119,7 +123,7 @@ declare global {
   const watchEffect: typeof import('vue')['watchEffect']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
   const watchSyncEffect: typeof import('vue')['watchSyncEffect']
-  const zipUser: typeof import('../utils/utilsUserExport')['zipUser']
+  const zipUser: typeof import('../utils/utilsUserExport.ts~')['zipUser']
 }
 // for type re-export
 declare global {

@@ -144,6 +144,10 @@
     "parseUserProfileConfigFromFileDirectory": true,
     "generateUuid4": true,
     "useConfig": true,
-    "zipUser": true
+    "zipUser": true,
+    "downloadUserZip": true,
+    "downloadZip": true,
+    "makeUserZip": true,
+    "singularizeMediaCollectionName": true
   }
 }

@@ -3,6 +3,7 @@ import MediaImage from "../media/mediaImage.class";
 import MediaVideo from "../media/mediaVideo.class";
 import MediaAlbum from "../media/mediaAlbum.class";
 import MediaIframe from "../media/mediaIframe.class";
+import { fulfillMediaFilesForExport } from "../../utils/utilsUserExport";
 
 export default class UserMedia implements IUserMedia {
     public readonly user: User

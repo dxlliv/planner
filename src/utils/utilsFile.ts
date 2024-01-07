@@ -67,6 +67,25 @@ export async function handleMediaForSrc(media: { file: IMediaFile }) {
 }
 
 /**
+ * Download a zip file
+ *
+ * @param filename
+ * @param userZip
+ */
+export function downloadZip(filename: string, userZip: any) {
+    const url = URL.createObjectURL(new Blob([userZip]));
+    const fakeLink = document.createElement('a');
+
+    fakeLink.href = url;
+    fakeLink.download = filename;
+
+    // Download the ZIP file automatically
+    fakeLink.click();
+
+    URL.revokeObjectURL(url);
+}
+
+/**
  * Check if arg is a promise
  *
  * @param p

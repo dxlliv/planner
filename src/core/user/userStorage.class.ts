@@ -1,5 +1,7 @@
 import localforage from 'localforage';
 import User from "./user.class";
+import { downloadUserZip, makeUserZip, zipUser } from "../../utils/utilsUserExport";
+import { downloadZip } from "../../utils/utilsFile";
 
 export default class UserStorage {
     private user: IUser
@@ -31,19 +33,23 @@ export default class UserStorage {
     }
 
     public async save() {
-        const exportedProfile = await this.user.profile.export()
-        const exportedMedia = await this.user.media.export()
+        const userExported = await this.user.getDataForExport()
 
         this.user.setChanged(true)
 
-        this.database.setItem(this.user.platform, {
-            id: this.user.id,
-            profile: exportedProfile,
-            media: exportedMedia,
-        })
+        this.database.setItem(this.user.platform, userExported)
     }
 
     public async remove() {
         this.database.removeItem(this.user.platform)
+    }
+
+    public async exportAsZip() {
+        const userExported = await this.user.getDataForExport()
+
+        const userZip = await makeUserZip(userExported)
+
+        // download user as zip
+        downloadZip(`${this.user.profile.username}.zip`, userZip)
     }
 }
