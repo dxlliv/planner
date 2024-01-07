@@ -53,7 +53,7 @@ declare global {
   const mapStores: typeof import('pinia')['mapStores']
   const mapWritableState: typeof import('pinia')['mapWritableState']
   const markRaw: typeof import('vue')['markRaw']
-  const mediaAlbumClass: typeof import('../core/media/mediaAlbum.class.ts~')['default']
+  const mediaAlbumClass: typeof import('../core/media/mediaAlbum.class')['default']
   const mediaClass: typeof import('../core/media/media.class')['default']
   const mediaIframeClass: typeof import('../core/media/mediaIframe.class')['default']
   const mediaImageClass: typeof import('../core/media/mediaImage.class')['default']

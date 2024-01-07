@@ -20,6 +20,10 @@ export default class UserMedia implements IUserMedia {
         return Object.keys(this.collections)
     }
 
+    public hasCollection(collectionName: string) {
+        return Object.prototype.hasOwnProperty.call(this.collections, collectionName)
+    }
+
     public fetch() {
         if (this.firstFetch === true) {
             this.firstFetch = false
@@ -52,7 +56,7 @@ export default class UserMedia implements IUserMedia {
     ) {
         const media = UserMedia.newMedia(this.user, rawMedia, collection)
 
-        if (!Object.prototype.hasOwnProperty.call(this.collections, collection)) {
+        if (!this.hasCollection(collection)) {
             this.collections[collection] = []
         }
 
