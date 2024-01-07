@@ -1,3 +1,11 @@
+<script setup lang="ts">
+defineProps<{
+  user: any;
+}>();
+
+const tab = ref("posts");
+</script>
+
 <template>
   <v-sheet color="transparent" class="ig-profile-page">
     <v-container class="py-0">
@@ -9,21 +17,13 @@
         @select="(value: string) => (tab = value)"
       />
 
-      <InstagramUserMediaGrid
+      <InstagramUserGrid
           :user="user"
-          :mode="tab"
+          :collection="tab"
       />
     </v-container>
   </v-sheet>
 </template>
-
-<script setup lang="ts">
-defineProps<{
-  user: any;
-}>();
-
-const tab = ref("posts");
-</script>
 
 <style lang="scss">
 .ig-profile-page {

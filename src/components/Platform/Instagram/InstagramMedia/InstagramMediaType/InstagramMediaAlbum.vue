@@ -5,10 +5,6 @@ const props = defineProps<{
   media: IMediaAlbum;
   profile: IUserProfile;
 }>();
-
-function nextSlide() {
-  props.media.slideToNextListItem()
-}
 </script>
 
 <template>

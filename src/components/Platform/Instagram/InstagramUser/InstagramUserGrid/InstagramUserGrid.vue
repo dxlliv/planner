@@ -3,7 +3,7 @@ import { SlickList, SlickItem, DragHandle } from 'vue-slicksort';
 
 const props = defineProps<{
   user: any;
-  mode: string
+  collection: string
 }>();
 
 const gridListRef: Ref<HTMLElement | undefined> = ref()
@@ -23,14 +23,14 @@ function onSortEnd() {
 </script>
 
 <template>
-  <v-container class="ig-profile-page__media-grid-container px-0">
+  <v-container class="ig-profile-page__grid-container px-0">
     <div
-        :class="['ig-profile-page__media-grid', {'ig-profile-page__media-grid--dragging': dragging}]"
+        :class="['ig-profile-page__grid', {'ig-profile-page__grid--dragging': dragging}]"
         ref="gridListRef"
     >
       <SlickList
-          v-if="props.user.media[props.mode].length > 0"
-          v-model:list="props.user.media[props.mode]"
+          v-if="props.user.media[collection].length > 0"
+          v-model:list="props.user.media[collection]"
           axis="xy"
           class="v-row"
           use-drag-handle
@@ -41,26 +41,20 @@ function onSortEnd() {
           @update:list="onListUpdated"
       >
         <SlickItem
-            v-for="(media, i) of props.user.media[props.mode]"
+            v-for="(media, i) of props.user.media[props.collection]"
             :key="media.id" :index="i"
-            class="ig-profile-page__media-grid__item v-col v-col-4"
+            class="ig-profile-page__grid__item v-col v-col-4"
         >
-          <DragHandle class="ig-profile-page__media-grid__drag-handle">
+          <DragHandle class="ig-profile-page__grid__drag-handle">
             <v-icon icon="mdi-drag" color="white" />
           </DragHandle>
 
           <InstagramPost
-              v-if="mode === 'posts'"
               :profile="user.profile"
               :media="media"
+              :collection="collection"
               context-menu
               detail-on-click
-          />
-          <InstagramPostReel
-              v-if="mode === 'reels'"
-              :profile="user.profile"
-              :media="media"
-              context-menu
           />
         </SlickItem>
       </SlickList>
@@ -73,12 +67,12 @@ function onSortEnd() {
 </template>
 
 <style lang="scss">
-body > .ig-profile-page__media-grid__item {
+body > .ig-profile-page__grid__item {
   z-index: 999;
 }
 
 // override grid spacing
-.ig-profile-page__media-grid-container .v-row {
+.ig-profile-page__grid-container .v-row {
   margin: -1.5px;
   @media(max-width: 600px) { margin: -1px; }
 
@@ -88,7 +82,7 @@ body > .ig-profile-page__media-grid__item {
   }
 }
 
-.ig-profile-page__media-grid {
+.ig-profile-page__grid {
   &__drag-handle {
     position: absolute;
     bottom: 0;
@@ -111,7 +105,7 @@ body > .ig-profile-page__media-grid__item {
     position: relative;
 
     &:hover {
-      .ig-profile-page__media-grid__drag-handle {
+      .ig-profile-page__grid__drag-handle {
         display: block;
       }
     }
