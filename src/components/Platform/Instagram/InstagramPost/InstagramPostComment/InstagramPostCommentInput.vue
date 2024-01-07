@@ -9,7 +9,7 @@
         <InstagramIconEmoji />
       </v-col>
       <v-col class="flex-grow-1">
-        <v-text-field placeholder="Add a comment..." variant="flat" hide-details>
+        <v-text-field placeholder="Add a comment..." variant="solo" flat hide-details>
           <template v-slot:append>
             <v-btn class="mr-2" variant="flat" text="Post" />
           </template>

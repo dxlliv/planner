@@ -22,7 +22,7 @@ defineProps<{
 
         <div class="ig-media-detail__interaction">
 
-          <InstagramUserHeader :profile="profile" />
+          <InstagramPostHeader :profile="profile" />
 
           <InstagramPostComments>
             <InstagramPostComment

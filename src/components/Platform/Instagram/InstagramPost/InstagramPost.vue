@@ -57,9 +57,15 @@ onLongPress(
 </template>
 
 <style scoped lang="scss">
+@import 'vuetify/lib/styles/settings/_variables';
+
 .v-dialog {
-  max-width: calc(100% - 64px - 64px);
+  max-width: calc(100% - 64px - 24px);
   max-height: 913px;
+
+  @media #{map-get($display-breakpoints, 'xs')} {
+    max-width: 100%;
+  }
 }
 
 .ig-post-container {
