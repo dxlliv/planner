@@ -8,15 +8,16 @@ import { fulfillMediaFilesForExport } from "../../utils/utilsUserExport";
 export default class UserMedia implements IUserMedia {
     public readonly user: User
 
-    public posts: IMedia[] = []
-    public reels: IMedia[] = []
-    public stories: IMedia[] = []
-    public highlights: IMedia[] = []
+    public collections: {[collectionName: string]: IMedia[]} = {}
 
     private firstFetch = true
 
     constructor(user: User) {
         this.user = user
+    }
+
+    get collectionKeys() {
+        return Object.keys(this.collections)
     }
 
     public fetch() {
@@ -51,19 +52,24 @@ export default class UserMedia implements IUserMedia {
     ) {
         const media = UserMedia.newMedia(this.user, rawMedia, collection)
 
-        this[collection][addMethod](media)
+        if (!Object.prototype.hasOwnProperty.call(this.collections, collection)) {
+            this.collections[collection] = []
+        }
+
+        this.collections[collection][addMethod](media)
 
         // refresh posts count
-        this.user.profile.setPostsCount(this.posts.length)
+        this.user.profile.setPostsCount(this.collections['posts'].length)
     }
 
     public async export() {
-        return {
-            posts: await fulfillMediaFilesForExport(this.posts),
-            reels: await fulfillMediaFilesForExport(this.reels),
-            stories: await fulfillMediaFilesForExport(this.stories),
-            highlights: await fulfillMediaFilesForExport(this.highlights),
+        const exportedMedia = {}
+
+        for await (const collectionKey of this.collectionKeys) {
+            exportedMedia[collectionKey] = await fulfillMediaFilesForExport(this.collections[collectionKey])
         }
+
+        return exportedMedia
     }
 
     public static newMedia(user: User, rawMedia: string | IRawMedia, collection: IMediaCollection = 'posts'): any {

@@ -29,8 +29,8 @@ function onSortEnd() {
         ref="gridListRef"
     >
       <SlickList
-          v-if="props.user.media[collection].length > 0"
-          v-model:list="props.user.media[collection]"
+          v-if="user.media.collections[collection].length > 0"
+          v-model:list="props.user.media.collections[collection]"
           axis="xy"
           class="v-row"
           use-drag-handle
@@ -41,7 +41,7 @@ function onSortEnd() {
           @update:list="onListUpdated"
       >
         <SlickItem
-            v-for="(media, i) of props.user.media[props.collection]"
+            v-for="(media, i) of user.media.collections[props.collection]"
             :key="media.id" :index="i"
             class="ig-profile-page__grid__item v-col v-col-4"
         >

@@ -37,7 +37,7 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> = compu
     }
   ]
 
-  if (props.media.reels.length > 0) {
+  if (props.media.collections.reels.length > 0) {
     items.push({
       name: "reels",
       label: "Reels",
