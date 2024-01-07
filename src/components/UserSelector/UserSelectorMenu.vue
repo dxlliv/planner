@@ -1,3 +1,19 @@
+<script setup lang="ts">
+const { user } = defineProps<{
+  user: IUser;
+}>();
+
+const emit = defineEmits(['edit'])
+
+function onProfileRemove() {
+  user.remove()
+}
+
+function onProfileReset() {
+  user.reset()
+}
+</script>
+
 <template>
   <v-menu
       content-class="ig-profile-selector__context-menu"
@@ -16,31 +32,19 @@
       <v-list-item @click="emit('edit')">
         <v-list-item-title>Edit profile</v-list-item-title>
       </v-list-item>
-      <v-divider />
-      <v-list-item @click="onProfileRemove()" class="text-red">
-        <v-list-item-title>Remove</v-list-item-title>
-      </v-list-item>
+
+      <template v-if="user.hasLocalChanges">
+        <v-divider />
+        <v-list-item v-if="user.isRemovable" @click="onProfileRemove()" class="text-red">
+          <v-list-item-title>Remove</v-list-item-title>
+        </v-list-item>
+        <v-list-item v-if="!user.isRemovable" @click="onProfileReset()" class="text-red">
+          <v-list-item-title>Reset</v-list-item-title>
+        </v-list-item>
+      </template>
     </v-list>
   </v-menu>
 </template>
-
-<script setup lang="ts">
-const { user } = defineProps<{
-  user: IUser;
-}>();
-
-const emit = defineEmits(['edit'])
-
-const cannotBeRemoved = ref(false)
-
-function onProfileRemove() {
-  if (!user.isRemovable) {
-    cannotBeRemoved.value = true
-  }
-
-  user.remove()
-}
-</script>
 
 <style scoped lang="scss">
 

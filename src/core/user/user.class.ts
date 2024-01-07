@@ -40,7 +40,7 @@ export default class User implements IUser {
         // parse user media
         this.initUserMedia()
 
-        // define user id (platform + username)
+        // generate user id (platform + username)
         this.id = `${this.platform}/${this.raw.profile.username}`
 
         // when you import users from directory/zip,
@@ -127,12 +127,26 @@ export default class User implements IUser {
      * those are defined in config cannot be removed
      */
     public async remove() {
-        useUserStore().unloadUser(this.id)
-
-        useUserStorageStore().removeUserFromStorageIndex(this.id)
-
         if (this.isRemovable || this.hasLocalChanges) {
+            useUserStorageStore().removeUserFromStorageIndex(this.id)
             await this.storage.remove()
+
+            useUserStore().unloadUser(this.id)
+        }
+    }
+
+    /**
+     * Reset user which has changes but its config is hard-coded
+     */
+    public async reset() {
+        if (!this.isRemovable || this.hasLocalChanges) {
+            const originalUserId = this.id
+
+            useUserStorageStore().removeUserFromStorageIndex(this.id)
+            await this.storage.remove()
+
+            // original raw user config is not reachable from here (refactor needed) todo
+            location.reload()
         }
     }
 }

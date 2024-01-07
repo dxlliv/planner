@@ -102,6 +102,7 @@ interface IUser {
 
   save(): Promise<void>
   remove(): Promise<void>
+  reset(): Promise<void>
 }
 
 interface IInstagramUser extends IUser {
