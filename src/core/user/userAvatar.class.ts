@@ -43,6 +43,14 @@ export default class UserAvatar {
     }
 
     public export() {
-        return this.file.blob
+        if (this.isSet) {
+            return this.file.blob
+        }
+
+        return null
+    }
+
+    get isSet() {
+        return !!this.file
     }
 }
