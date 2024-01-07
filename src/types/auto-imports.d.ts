@@ -119,6 +119,7 @@ declare global {
   const watchEffect: typeof import('vue')['watchEffect']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
   const watchSyncEffect: typeof import('vue')['watchSyncEffect']
+  const zipUser: typeof import('../utils/utilsUserExport')['zipUser']
 }
 // for type re-export
 declare global {

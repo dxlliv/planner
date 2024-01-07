@@ -26,6 +26,7 @@
     "@vuelidate/validators": "^2.0.4",
     "@vueuse/core": "^10.7.1",
     "browser-fs-access": "^0.35.0",
+    "fflate": "^0.8.1",
     "filepond": "^4.30.6",
     "localforage": "^1.10.0",
     "pinia": "^2.1.7",

@@ -143,6 +143,7 @@
     "useUserConfigStore": true,
     "parseUserProfileConfigFromFileDirectory": true,
     "generateUuid4": true,
-    "useConfig": true
+    "useConfig": true,
+    "zipUser": true
   }
 }
