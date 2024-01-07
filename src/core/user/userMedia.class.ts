@@ -3,8 +3,6 @@ import MediaImage from "../media/mediaImage.class";
 import MediaVideo from "../media/mediaVideo.class";
 import MediaAlbum from "../media/mediaAlbum.class";
 import MediaIframe from "../media/mediaIframe.class";
-import {fulfillMediaPostsForMediaExport} from "../../utils/utilsUserExport";
-import { IMediaCollection } from "../../types";
 
 export default class UserMedia implements IUserMedia {
     public readonly user: User
@@ -60,10 +58,10 @@ export default class UserMedia implements IUserMedia {
 
     public async export() {
         return {
-            posts: await fulfillMediaPostsForMediaExport(this.posts),
-            reels: await fulfillMediaPostsForMediaExport(this.reels),
-            stories: await fulfillMediaPostsForMediaExport(this.stories),
-            highlights: await fulfillMediaPostsForMediaExport(this.highlights),
+            posts: await fulfillMediaFilesForExport(this.posts),
+            reels: await fulfillMediaFilesForExport(this.reels),
+            stories: await fulfillMediaFilesForExport(this.stories),
+            highlights: await fulfillMediaFilesForExport(this.highlights),
         }
     }
 

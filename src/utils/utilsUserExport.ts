@@ -3,7 +3,7 @@
  *
  * @param mediaList
  */
-export async function fulfillMediaPostsForMediaExport(mediaList: IMedia[]): Promise<any> {
+export async function fulfillMediaFilesForExport(mediaList: IMedia[]): Promise<any> {
     const result = []
 
     for await (const media of mediaList) {

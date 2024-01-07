@@ -20,7 +20,7 @@ declare global {
   const extractUsernameFromUserId: typeof import('../utils/utilsPlatform')['extractUsernameFromUserId']
   const fetchFileFromUrl: typeof import('../utils/utilsFile')['fetchFileFromUrl']
   const fetchRemoteUserConfig: typeof import('../utils/utilsUserConfig')['fetchRemoteUserConfig']
-  const fulfillMediaPostsForMediaExport: typeof import('../utils/utilsUserExport')['fulfillMediaPostsForMediaExport']
+  const fulfillMediaFilesForExport: typeof import('../utils/utilsUserExport')['fulfillMediaFilesForExport']
   const generateUuid4: typeof import('../utils/utilsString')['generateUuid4']
   const generateUuidv4: typeof import('../utils/utilsString')['generateUuidv4']
   const getActivePinia: typeof import('pinia')['getActivePinia']
