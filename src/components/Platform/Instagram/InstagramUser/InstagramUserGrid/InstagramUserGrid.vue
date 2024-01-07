@@ -54,7 +54,6 @@ function onSortEnd() {
               :media="media"
               :collection="collection"
               context-menu
-              detail-on-click
           />
         </SlickItem>
       </SlickList>

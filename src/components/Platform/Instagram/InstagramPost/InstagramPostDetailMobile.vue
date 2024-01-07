@@ -9,7 +9,7 @@ defineProps<{
   <v-card class="ig-media-detail">
     <InstagramUserHeader :profile="profile" />
 
-    <InstagramPost
+    <InstagramMedia
       :media="media"
       :profile="profile"
     />

@@ -16,7 +16,7 @@ const props = defineProps<{
         v-model="media.listIndex"
     >
       <Slide v-for="(item, i) of media.list" :key="i">
-        <InstagramPost
+        <InstagramMedia
           :context-menu="false"
           :media="item"
           :profile="profile"

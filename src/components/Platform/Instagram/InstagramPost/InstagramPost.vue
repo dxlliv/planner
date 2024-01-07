@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useDisplay } from "vuetify";
+import { onLongPress } from '@vueuse/core'
+
 defineProps<{
   profile: IUserProfile;
   media: IMedia;
@@ -6,16 +9,44 @@ defineProps<{
   contextMenu?: boolean
   detailOnClick?: boolean
 }>()
+
+const display = useDisplay()
+const postContainerRef = ref<HTMLElement | null>(null)
+const postDetailDialog = ref(false)
+
+function onPostClick() {
+  if (display.smAndUp.value) {
+    postDetailDialog.value = true
+  }
+}
+
+onLongPress(
+  postContainerRef,
+  () => {
+    if (!display.smAndUp.value) {
+      postDetailDialog.value = true
+    }
+  },
+  {
+    modifiers: {
+      prevent: true
+    }
+  }
+)
 </script>
 
 <template>
-  <div class="ig-post-container">
+  <div
+    ref="postContainerRef"
+    class="ig-post-container cursor-pointer"
+    @click="onPostClick"
+  >
 
     <InstagramMedia
       v-bind="$props"
     />
 
-    <v-dialog v-if="detailOnClick" activator="parent">
+    <v-dialog v-model="postDetailDialog">
       <InstagramPostDetail
         :media="media"
         :profile="profile"

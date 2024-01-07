@@ -11,7 +11,7 @@ defineProps<{
       <v-col class="pa-0" align-self="center">
 
         <div class="ig-media-detail__media">
-          <InstagramPost
+          <InstagramMedia
             :media="media"
             :profile="profile"
           />
