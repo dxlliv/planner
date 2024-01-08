@@ -73,10 +73,9 @@ I'd like to make this tool accessible to all the people with an intuitive interf
     - [x] Video support
     - [x] Album support
     - [x] Iframe support
-    - [ ] Caption
+    - [x] Caption
+    - [x] Date
     - [ ] Location
-    - [ ] Sound
-    - [ ] Publication date
   - [x] Reels
   - [ ] Stories
   - [ ] Highlights
@@ -93,7 +92,7 @@ I'd like to make this tool accessible to all the people with an intuitive interf
     - [x] Clone to reel
   - [ ] Advanced
   - [x] Storage
-- [ ] Profile export
+- [x] Profile export
 - [ ] Calendar view
 - [x] Implement Storybook
 - [ ] Implement i18n
