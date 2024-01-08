@@ -119,7 +119,7 @@ declare global {
   const useUserStore: typeof import('../stores/storeUser')['useUserStore']
   const userAvatarClass: typeof import('../core/user/userAvatar.class')['default']
   const userClass: typeof import('../core/user/user.class')['default']
-  const userMediaClass: typeof import('../core/user/userMedia.class.ts~')['default']
+  const userMediaClass: typeof import('../core/user/userMedia.class')['default']
   const userProfileClass: typeof import('../core/user/userProfile.class')['default']
   const userStorageClass: typeof import('../core/user/userStorage.class')['default']
   const watch: typeof import('vue')['watch']
