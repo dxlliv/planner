@@ -41,7 +41,7 @@ function onSortEnd() {
           @update:list="onListUpdated"
       >
         <SlickItem
-            v-for="(media, i) of user.media.collections[props.collection]"
+            v-for="(media, i) of user.media.collections[collection]"
             :key="media.id" :index="i"
             class="ig-profile-page__grid__item v-col v-col-4"
         >

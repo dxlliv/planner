@@ -16,6 +16,10 @@ export default class UserMedia implements IUserMedia {
         this.user = user
     }
 
+    public get structureCollectionKeys() {
+        return Object.keys(this.user.media.structure.collections)
+    }
+
     public get collectionKeys() {
         return Object.keys(this.collections)
     }
@@ -31,21 +35,18 @@ export default class UserMedia implements IUserMedia {
             return false
         }
 
-        this.parseRawUserMediaPosts()
-        this.parseRawUserMediaReels()
+        this.parseRawUserMediaCollections()
 
         return true
     }
 
-    private parseRawUserMediaPosts() {
-        for (let rawMedia of this.user.raw.media.posts) {
-            this.addMedia(rawMedia, 'posts')
-        }
-    }
-
-    private parseRawUserMediaReels() {
-        for (let rawMedia of this.user.raw.media.reels) {
-            this.addMedia(rawMedia, 'reels')
+    private parseRawUserMediaCollections() {
+        for (const collectionName of this.structureCollectionKeys) {
+            if (Object.prototype.hasOwnProperty.call(this.user.raw.media, collectionName)) {
+                for (let rawMedia of this.user.raw.media[collectionName]) {
+                    this.addMedia(rawMedia, collectionName)
+                }
+            }
         }
     }
 
