@@ -66,7 +66,6 @@ Read the [documentation](https://dxlliv.github.io/planner/docs/) for further inf
 I'd like to make this tool accessible to all the people with an intuitive interface directly from the browser, without installing any software or changing a single line of code. Said so, feel free to support the project.
 
 ## Roadmap
-- [ ] Profile create
 - [ ] Profile viewer
   - [x] Posts
     - [x] Image support
@@ -79,8 +78,11 @@ I'd like to make this tool accessible to all the people with an intuitive interf
   - [x] Reels
   - [ ] Stories
   - [ ] Highlights
+- [x] Profile creation
+  - [x] Create new profile 
+  - [ ] Import from .zip
 - [ ] Profile editor
-  - [ ] Basic
+  - [x] Basic
     - [x] Add media
     - [x] Remove media
     - [x] Sort media
