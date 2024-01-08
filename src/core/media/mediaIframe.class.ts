@@ -1,73 +1,69 @@
-import Media from "./media.class";
-import MediaImage from "./mediaImage.class";
-import User from "../user/user.class";
-import { IMediaCollection } from "../../types";
+import Media from "./media.class"
+import MediaImage from "./mediaImage.class"
+import User from "../user/user.class"
+import { IMediaCollection } from "../../types"
 
 export default class MediaIframe extends Media implements IMediaIframe {
-    public reel: boolean = false
-    public href: string = ''
-    public cover: undefined | IMediaImage
+  public reel: boolean = false
+  public href: string = ""
+  public cover: undefined | IMediaImage
 
-    constructor(
-        user: User,
-        raw: IRawMedia,
-        collection?: IMediaCollection
-    ) {
-        super(user, raw, collection)
+  constructor(user: User, raw: IRawMedia, collection?: IMediaCollection) {
+    super(user, raw, collection)
 
-        this.setMediaType('iframe')
-        this.parseMediaIframe(raw)
+    this.setMediaType("iframe")
+    this.parseMediaIframe(raw)
+  }
+
+  private parseMediaIframe(raw: IRawMedia) {
+    // set max quality to youtube embed videos
+    if (raw.href) {
+      let href = raw.href
+
+      if (href.startsWith("https://youtube.com/embed/")) {
+        href = href + "?autoplay=1&version=3&vq=hd1080"
+      }
+
+      this.href = href
     }
 
-    private parseMediaIframe(raw: IRawMedia) {
-        // set max quality to youtube embed videos
-        if (raw.href) {
-            let href = raw.href
-
-            if (href.startsWith('https://youtube.com/embed/')) {
-                href = href + '?autoplay=1&version=3&vq=hd1080'
-            }
-
-            this.href = href
-        }
-
-        if (raw.reel) {
-            this.reel = raw.reel
-        }
-
-        if (raw.cover && typeof raw.cover !== 'number') {
-            this.cover = new MediaImage(this.user, raw.cover)
-        }
+    if (raw.reel) {
+      this.reel = raw.reel
     }
 
-    public async setCover(file: File) {
-        this.cover = new MediaImage(this.user, { file })
+    if (raw.cover && typeof raw.cover !== "number") {
+      this.cover = new MediaImage(this.user, raw.cover)
+    }
+  }
 
-        await this.save()
+  public async setCover(file: File) {
+    this.cover = new MediaImage(this.user, { file })
+
+    await this.save()
+  }
+
+  public async removeCover() {
+    this.cover = undefined
+
+    await this.save()
+  }
+
+  public async export(): Promise<IMediaIframeExport> {
+    let cover = undefined
+
+    // fulfill cover
+    if (this.cover && this.cover.file) {
+      cover = {
+        type: "image",
+        file: await this.cover.file.blob,
+      }
     }
 
-    public async removeCover() {
-        this.cover = undefined
-
-        await this.save()
+    return {
+      type: this.type,
+      reel: this.reel,
+      href: this.href,
+      cover,
     }
-
-    public async export(): Promise<IMediaIframeExport> {
-        let cover = undefined
-
-        // fulfill cover
-        if (this.cover && this.cover.file) {
-            cover = {
-                type: 'image',
-                file: await this.cover.file.blob
-            }
-        }
-
-        return {
-            type: this.type,
-            reel: this.reel,
-            href: this.href,
-            cover,
-        }
-    }
+  }
 }

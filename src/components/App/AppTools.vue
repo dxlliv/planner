@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const extraStore = useExtraStore();
-const themeStore = useThemeStore();
+const extraStore = useExtraStore()
+const themeStore = useThemeStore()
 const theme = useTheme()
 
-const extraOptions = computed(() => extraStore.options);
+const extraOptions = computed(() => extraStore.options)
 
 // restore previous dark theme state
 themeStore.restorePreviousState(theme)
@@ -17,19 +17,17 @@ onMounted(() => {
     }
 
     if (String.fromCharCode(e.keyCode) === "R") {
-      extraStore.toggleGuides();
+      extraStore.toggleGuides()
     }
     if (String.fromCharCode(e.keyCode) === "D") {
-      themeStore.toggleDarkTheme(theme);
+      themeStore.toggleDarkTheme(theme)
     }
-  });
-});
+  })
+})
 </script>
 
 <template>
   <ToolGuides v-if="extraOptions.guides" />
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

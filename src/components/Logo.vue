@@ -1,13 +1,19 @@
 <script setup lang="ts">
-const {size} = withDefaults(defineProps<{
-  size?: string
-}>(), {
-  size: 'medium'
-})
+const { size } = withDefaults(
+  defineProps<{
+    size?: string
+  }>(),
+  {
+    size: "medium",
+  },
+)
 </script>
 
 <template>
-  <router-link :class="['planner-logo', `planner-logo--size-${size}`]" :to="{ name: 'index' }">
+  <router-link
+    :class="['planner-logo', `planner-logo--size-${size}`]"
+    :to="{ name: 'index' }"
+  >
     Planner
   </router-link>
 </template>

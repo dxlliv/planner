@@ -21,32 +21,36 @@
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits(["select"]);
+const emit = defineEmits(["select"])
 
 const props = defineProps<{
-  media: IUserMedia;
-  active: string;
-}>();
+  media: IUserMedia
+  active: string
+}>()
 
-const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> = computed(() => {
-  let items = [
-    {
-      name: "posts",
-      label: "Posts",
-      icon: "mdi-grid",
+const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
+  computed(() => {
+    let items = [
+      {
+        name: "posts",
+        label: "Posts",
+        icon: "mdi-grid",
+      },
+    ]
+
+    if (
+      props.media.hasCollection("reels") &&
+      props.media.collections.reels.length > 0
+    ) {
+      items.push({
+        name: "reels",
+        label: "Reels",
+        icon: "mdi-play-box-multiple-outline",
+      })
     }
-  ]
 
-  if (props.media.hasCollection('reels') && props.media.collections.reels.length > 0) {
-    items.push({
-      name: "reels",
-      label: "Reels",
-      icon: "mdi-play-box-multiple-outline",
-    });
-  }
-
-  return items
-});
+    return items
+  })
 </script>
 
 <style scoped lang="scss">

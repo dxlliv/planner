@@ -1,16 +1,15 @@
 <template>
   <InstagramMediaContainer
-      type="video"
-      :media="media"
-      :class="{'ig-media--reel': reel}"
+    type="video"
+    :media="media"
+    :class="{ 'ig-media--reel': reel }"
   >
-
     <template v-if="!media.cover || media.coverTime">
       <video
-          ref="videoRef"
-          :src="src"
-          :autoplay="isPlaying"
-          @click="isPlaying = !isPlaying"
+        ref="videoRef"
+        :src="src"
+        :autoplay="isPlaying"
+        @click="isPlaying = !isPlaying"
       />
 
       <InstagramMediaVideoCoverSelector
@@ -22,12 +21,8 @@
     </template>
 
     <template v-else-if="typeof media.cover === 'object'">
-      <InstagramMediaImage
-          :media="media.cover"
-          @click="isPlaying = true"
-      />
+      <InstagramMediaImage :media="media.cover" @click="isPlaying = true" />
     </template>
-
   </InstagramMediaContainer>
 </template>
 
@@ -43,8 +38,8 @@ const isPlaying: Ref<boolean> = ref(false)
 
 const src = await handleMediaForSrc(props.media)
 
-const videoRef: Ref<HTMLVideoElement|null> = ref(null);
-const videoMaxLength: Ref<number> = ref(0);
+const videoRef: Ref<HTMLVideoElement | null> = ref(null)
+const videoMaxLength: Ref<number> = ref(0)
 
 function onUpdateCoverTime(value: number) {
   if (!videoRef.value) return
@@ -62,7 +57,7 @@ onMounted(() => {
   videoRef.value.addEventListener(
     "loadedmetadata",
     () => {
-      if (!videoRef.value || typeof props.media.cover === 'object') return
+      if (!videoRef.value || typeof props.media.cover === "object") return
 
       if (!props.media.cover) {
         videoRef.value.currentTime = props.media.coverTime
@@ -70,20 +65,23 @@ onMounted(() => {
       }
     },
     false,
-  );
-});
-
-watch(() => isPlaying.value, (isPlaying) => {
-  if (!videoRef.value || !props.playable) {
-    return false
-  }
-
-  if (isPlaying) {
-    videoRef.value.play()
-  } else {
-    videoRef.value.pause()
-  }
+  )
 })
+
+watch(
+  () => isPlaying.value,
+  (isPlaying) => {
+    if (!videoRef.value || !props.playable) {
+      return false
+    }
+
+    if (isPlaying) {
+      videoRef.value.play()
+    } else {
+      videoRef.value.pause()
+    }
+  },
+)
 </script>
 
 <style scoped lang="scss">

@@ -1,12 +1,7 @@
 <template>
   <div class="ig-profile-avatar__container">
     <v-avatar :size="size" class="ig-profile-avatar">
-      <v-img
-          v-if="src"
-          :src="src"
-          :key="avatarChangedTime"
-          cover
-      />
+      <v-img v-if="src" :src="src" :key="avatarChangedTime" cover />
       <slot name="inner" />
     </v-avatar>
     <slot />
@@ -14,12 +9,15 @@
 </template>
 
 <script setup lang="ts">
-const props = withDefaults(defineProps<{
-  avatar?: any;
-  size?: number
-}>(), {
-  size: 120
-});
+const props = withDefaults(
+  defineProps<{
+    avatar?: any
+    size?: number
+  }>(),
+  {
+    size: 120,
+  },
+)
 
 let avatar: any
 let avatarChangedTime: Ref<number> = ref(0)
@@ -33,12 +31,16 @@ if (props.avatar) {
   avatarChangedTime.value = +new Date()
 }
 
-watch(() => props.avatar, async value => {
-  src = await handleMediaForSrc(props.avatar)
+watch(
+  () => props.avatar,
+  async (value) => {
+    src = await handleMediaForSrc(props.avatar)
 
-  // force refresh
-  avatarChangedTime.value = +new Date()
-}, { deep: true })
+    // force refresh
+    avatarChangedTime.value = +new Date()
+  },
+  { deep: true },
+)
 </script>
 
 <style scoped lang="scss">

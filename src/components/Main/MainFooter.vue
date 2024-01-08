@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {GithubIcon} from 'vue3-simple-icons'
+import { GithubIcon } from "vue3-simple-icons"
 
 defineProps<{
   docs?: boolean
@@ -16,9 +16,7 @@ defineProps<{
     <template v-if="docs">
       &middot;
 
-      <a href="https://dxlliv.github.io/planner/docs/">
-        Docs
-      </a>
+      <a href="https://dxlliv.github.io/planner/docs/"> Docs </a>
     </template>
   </footer>
 </template>

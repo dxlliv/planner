@@ -9,10 +9,9 @@ defineProps<{
   <v-textarea
     v-bind="$props"
     :placeholder="data.placeholder"
-    hide-details spellcheck="false"
+    hide-details
+    spellcheck="false"
   />
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

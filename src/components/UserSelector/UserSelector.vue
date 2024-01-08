@@ -1,13 +1,13 @@
 <script setup lang="ts">
 defineProps<{
-  user?: IUser;
+  user?: IUser
   add?: boolean
-}>();
+}>()
 
 const contextMenu = reactive({
   enabled: false,
   x: 0,
-  y: 0
+  y: 0,
 })
 
 const editProfileDialog = ref(false)
@@ -30,12 +30,9 @@ function onShowProfileContextMenu(e) {
 </script>
 
 <template>
-  <div :class="['ig-profile-selector', {'ig-profile-selector--add': add}]">
+  <div :class="['ig-profile-selector', { 'ig-profile-selector--add': add }]">
     <template v-if="user">
-      <router-link
-          :to="user.route"
-          @contextmenu="onShowProfileContextMenu"
-      >
+      <router-link :to="user.route" @contextmenu="onShowProfileContextMenu">
         <suspense>
           <UserSelectorAvatar :avatar="user.profile.avatar">
             <template #inner>
@@ -47,30 +44,27 @@ function onShowProfileContextMenu(e) {
         <h3 class="mt-4 text-truncate" v-text="user.profile.username" />
 
         <UserSelectorMenu
-            v-if="contextMenu.enabled"
-            v-model="contextMenu.enabled"
-            @edit="onUserEdit"
-            :user="user"
+          v-if="contextMenu.enabled"
+          v-model="contextMenu.enabled"
+          @edit="onUserEdit"
+          :user="user"
         />
-
       </router-link>
 
       <a
-          class="d-inline-block text-blue-grey-lighten-2 mt-n1"
-          :href="user.profile.public_profile" target="_blank"
+        class="d-inline-block text-blue-grey-lighten-2 mt-n1"
+        :href="user.profile.public_profile"
+        target="_blank"
       >
         <v-icon icon="mdi-arrow-top-right" size="14px" />
       </a>
     </template>
     <slot />
 
-    <UserEditorDialog
-        title="Edit profile"
-        v-model="editProfileDialog"
-    >
+    <UserEditorDialog title="Edit profile" v-model="editProfileDialog">
       <InstagramUserEditorForm
-          :user="user"
-          @close="editProfileDialog = false"
+        :user="user"
+        @close="editProfileDialog = false"
       />
     </UserEditorDialog>
   </div>

@@ -1,5 +1,5 @@
-import { createVuetify } from "vuetify";
-import { VuetifyDateAdapter } from 'vuetify/lib/composables/date/adapters/vuetify'
+import { createVuetify } from "vuetify"
+import { VuetifyDateAdapter } from "vuetify/lib/composables/date/adapters/vuetify"
 
 export default {
   install: (app: App) => {
@@ -12,6 +12,6 @@ export default {
           adapter: VuetifyDateAdapter,
         },
       }),
-    );
+    )
   },
-};
+}

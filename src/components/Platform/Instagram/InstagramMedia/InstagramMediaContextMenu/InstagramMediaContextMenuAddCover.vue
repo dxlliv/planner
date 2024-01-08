@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMediaVideo;
+  media: IMediaVideo
 }>()
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(["close"])
 
 const { open, onChange } = useFileDialog({
-  accept: 'image/jpg, image/jpeg, image/png',
-  multiple: false
+  accept: "image/jpg, image/jpeg, image/png",
+  multiple: false,
 })
 
 onChange((files: null | File[]) => {
@@ -18,7 +18,7 @@ onChange((files: null | File[]) => {
   props.media.setCover(file)
   props.media.save()
 
-  emit('close')
+  emit("close")
 })
 </script>
 
@@ -28,6 +28,4 @@ onChange((files: null | File[]) => {
   </v-list-item>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

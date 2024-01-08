@@ -1,20 +1,15 @@
 <script setup lang="ts">
-import { Carousel, Slide } from "vue3-carousel";
+import { Carousel, Slide } from "vue3-carousel"
 
 const props = defineProps<{
-  media: IMediaAlbum;
-  profile: IUserProfile;
-}>();
+  media: IMediaAlbum
+  profile: IUserProfile
+}>()
 </script>
 
 <template>
-  <InstagramMediaContainer
-      type="album"
-      :media="media"
-  >
-    <Carousel
-        v-model="media.listIndex"
-    >
+  <InstagramMediaContainer type="album" :media="media">
+    <Carousel v-model="media.listIndex">
       <Slide v-for="(item, i) of media.list" :key="i">
         <InstagramMedia
           :context-menu="false"

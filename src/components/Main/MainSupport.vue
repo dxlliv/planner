@@ -1,6 +1,4 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <p class="mt-3">
@@ -11,7 +9,9 @@
     Star the project and ask for new features!
   </p>
   <div class="mt-5">
-    <v-btn border href="https://patreon.com/dxlliv" target="_blank">Become a Patron</v-btn>
+    <v-btn border href="https://patreon.com/dxlliv" target="_blank"
+      >Become a Patron
+    </v-btn>
   </div>
 </template>
 

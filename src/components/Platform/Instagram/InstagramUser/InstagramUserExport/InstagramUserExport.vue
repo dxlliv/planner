@@ -1,16 +1,16 @@
 <script setup lang="ts">
-const emit = defineEmits(['close'])
+const emit = defineEmits(["close"])
 
 defineProps<{
-  user: any;
-}>();
+  user: any
+}>()
 </script>
 
 <template>
   <v-dialog
-      content-class="ig-user-export"
-      :max-width="700"
-      @close="emit('close')"
+    content-class="ig-user-export"
+    :max-width="700"
+    @close="emit('close')"
   >
     <v-card height="70vh">
       <v-card-title v-text="`Profile export`" />
@@ -28,19 +28,13 @@ defineProps<{
           </p>
           <br />
 
-          <v-btn
-            color="primary"
-            @click="user.storage.exportAsZip()"
-          >
+          <v-btn color="primary" @click="user.storage.exportAsZip()">
             Export as ZIP
           </v-btn>
         </v-col>
       </v-row>
-
     </v-card>
   </v-dialog>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

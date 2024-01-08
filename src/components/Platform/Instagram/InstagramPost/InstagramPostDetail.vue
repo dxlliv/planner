@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  media: IMedia;
-  profile: IUserProfile;
+  media: IMedia
+  profile: IUserProfile
 }>()
 </script>
 
@@ -11,13 +11,7 @@ defineProps<{
     :media="media"
     :profile="profile"
   />
-  <InstagramPostDetailMobile
-    v-else
-    :media="media"
-    :profile="profile"
-  />
+  <InstagramPostDetailMobile v-else :media="media" :profile="profile" />
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

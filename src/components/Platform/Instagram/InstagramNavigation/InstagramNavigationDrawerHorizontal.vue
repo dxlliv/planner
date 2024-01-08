@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import {project} from "~/project/project";
+import { project } from "~/project/project"
 
 defineProps<{
   user: IUser
 }>()
 
-const emit = defineEmits(['create', 'export'])
+const emit = defineEmits(["create", "export"])
 </script>
 
 <template>
   <v-bottom-navigation
-      class="ig-navigation-drawer ig-navigation-drawer--horizontal"
-      height="50"
+    class="ig-navigation-drawer ig-navigation-drawer--horizontal"
+    height="50"
   >
-
     <v-btn :to="{ name: 'index' }">
       <InstagramIconHome />
     </v-btn>
@@ -32,12 +31,11 @@ const emit = defineEmits(['create', 'export'])
 
     <v-btn :to="user.route">
       <InstagramUserAvatar
-          v-if="user.ready"
-          :avatar="user.profile.avatar"
-          :size="26"
+        v-if="user.ready"
+        :avatar="user.profile.avatar"
+        :size="26"
       />
     </v-btn>
-
   </v-bottom-navigation>
 </template>
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMedia;
+  media: IMedia
 }>()
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(["close"])
 
 function onCloneMediaToReel() {
   props.media.cloneToReel()
@@ -17,6 +17,4 @@ function onCloneMediaToReel() {
   </v-list-item>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

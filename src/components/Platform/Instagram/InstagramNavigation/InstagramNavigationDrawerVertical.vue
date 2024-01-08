@@ -4,16 +4,16 @@ defineProps<{
   nav: any
 }>()
 
-const emit = defineEmits(['create', 'export'])
+const emit = defineEmits(["create", "export"])
 </script>
 
 <template>
   <v-navigation-drawer
-      class="ig-navigation-drawer"
-      :permanent="$vuetify.display.smAndUp"
-      :rail="$vuetify.display.mdAndDown"
-      :width="244"
-      :rail-width="72"
+    class="ig-navigation-drawer"
+    :permanent="$vuetify.display.smAndUp"
+    :rail="$vuetify.display.mdAndDown"
+    :width="244"
+    :rail-width="72"
   >
     <v-list class="pt-7 pb-3 hidden-md-and-down">
       <v-list-item>
@@ -22,17 +22,13 @@ const emit = defineEmits(['create', 'export'])
     </v-list>
 
     <v-list density="compact" nav class="mt-2 mt-lg-0">
-
       <v-list-item title="Home" :to="{ name: 'index' }">
         <template #prepend>
           <InstagramIconHome />
         </template>
       </v-list-item>
 
-      <v-list-item
-          v-for="navItem of nav"
-          v-bind="navItem.item"
-      >
+      <v-list-item v-for="navItem of nav" v-bind="navItem.item">
         <template #prepend>
           <InstagramIconExplore v-if="navItem.icon === 'IconExplore'" />
           <InstagramIconMagnify v-if="navItem.icon === 'IconMagnify'" />
@@ -46,30 +42,21 @@ const emit = defineEmits(['create', 'export'])
         </template>
       </v-list-item>
 
-      <v-list-item
-          v-if="user.ready"
-          title="Profile"
-          :to="user.route"
-      >
+      <v-list-item v-if="user.ready" title="Profile" :to="user.route">
         <template #prepend>
           <suspense>
-            <InstagramUserAvatar
-                :avatar="user.profile.avatar"
-                :size="26"
-            />
+            <InstagramUserAvatar :avatar="user.profile.avatar" :size="26" />
           </suspense>
         </template>
       </v-list-item>
     </v-list>
 
-    <v-list
-        density="compact" nav
-        class="ig-navigation-drawer__list-bottom"
-    >
+    <v-list density="compact" nav class="ig-navigation-drawer__list-bottom">
       <v-list-item
-          v-if="user.hasLocalChanges"
-          title="Export" base-color="primary"
-          @click="emit('export')"
+        v-if="user.hasLocalChanges"
+        title="Export"
+        base-color="primary"
+        @click="emit('export')"
       >
         <template #prepend>
           <v-icon icon="mdi-content-save-move-outline" />

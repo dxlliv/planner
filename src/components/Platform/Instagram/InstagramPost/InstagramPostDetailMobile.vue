@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  media: IMedia;
-  profile: IUserProfile;
+  media: IMedia
+  profile: IUserProfile
 }>()
 </script>
 
@@ -9,20 +9,15 @@ defineProps<{
   <v-card class="ig-media-detail">
     <InstagramPostHeader :profile="profile" />
 
-    <InstagramMedia
-      :media="media"
-      :profile="profile"
-    />
+    <InstagramMedia :media="media" :profile="profile" />
 
     <div class="ig-media-detail__interaction">
-      <InstagramPostDate
-        :date="media.date"
-      >
+      <InstagramPostDate :date="media.date">
         <template v-slot:prepend>
           <InstagramPostDateHeader />
         </template>
         <template v-slot:append>
-          <v-divider class="ma-0"/>
+          <v-divider class="ma-0" />
         </template>
       </InstagramPostDate>
     </div>

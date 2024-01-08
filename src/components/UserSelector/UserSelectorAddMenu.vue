@@ -1,11 +1,11 @@
 <template>
   <v-menu
-      content-class="ig-profile-selector__context-menu"
-      activator="parent"
-      transition="slide-y-transition"
-      :open-on-click="false"
-      :open-delay="5000"
-      :offset="[7, 0]"
+    content-class="ig-profile-selector__context-menu"
+    activator="parent"
+    transition="slide-y-transition"
+    :open-on-click="false"
+    :open-delay="5000"
+    :offset="[7, 0]"
   >
     <v-list>
       <v-list-item @click="emit('openCreateProfileDialog')">
@@ -22,13 +22,11 @@
 <script setup lang="ts">
 const userImportStore = useUserImportStore()
 
-const emit = defineEmits(['openCreateProfileDialog'])
+const emit = defineEmits(["openCreateProfileDialog"])
 
 function onProfileImportFromFolder() {
-  userImportStore.importFromDirectory('instagram')
+  userImportStore.importFromDirectory("instagram")
 }
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

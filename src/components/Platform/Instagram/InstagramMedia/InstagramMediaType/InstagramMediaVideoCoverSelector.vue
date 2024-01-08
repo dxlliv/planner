@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const emit = defineEmits(['updateCoverTime'])
+const emit = defineEmits(["updateCoverTime"])
 
 const props = defineProps<{
   media: IMediaVideo
@@ -7,23 +7,23 @@ const props = defineProps<{
 }>()
 
 const mediaCover: Ref<number> = ref(
-    typeof props.media.coverTime === 'number' ? props.media.coverTime : 0
+  typeof props.media.coverTime === "number" ? props.media.coverTime : 0,
 )
 
 function updateMediaCover() {
-  emit('updateCoverTime', mediaCover.value)
+  emit("updateCoverTime", mediaCover.value)
 }
 </script>
 
 <template>
   <v-slider
-      v-if="props.maxLength > 0"
-      v-model="mediaCover"
-      color="white"
-      :max="maxLength"
-      class="ig-media--video-slider"
-      @end="updateMediaCover"
-      thumb-label="always"
+    v-if="props.maxLength > 0"
+    v-model="mediaCover"
+    color="white"
+    :max="maxLength"
+    class="ig-media--video-slider"
+    @end="updateMediaCover"
+    thumb-label="always"
   />
 </template>
 

@@ -1,10 +1,13 @@
 <script setup lang="ts">
-const props = withDefaults(defineProps<{
-  avatar?: any;
-  size?: number,
-}>(), {
-  size: 120
-});
+const props = withDefaults(
+  defineProps<{
+    avatar?: any
+    size?: number
+  }>(),
+  {
+    size: 120,
+  },
+)
 
 let src
 
@@ -31,11 +34,7 @@ watch(() => props.avatar.file, async value => {
 
 <template>
   <v-avatar :size="size" class="ig-profile-avatar">
-    <v-img
-        v-if="src"
-        :src="src"
-        cover
-    />
+    <v-img v-if="src" :src="src" cover />
   </v-avatar>
 </template>
 

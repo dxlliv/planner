@@ -1,14 +1,14 @@
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMediaAlbum;
+  media: IMediaAlbum
 }>()
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(["close"])
 
 function onRemoveFromAlbum() {
   props.media.removeFromAlbum()
 
-  emit('close')
+  emit("close")
 }
 </script>
 
@@ -18,6 +18,4 @@ function onRemoveFromAlbum() {
   </v-list-item>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

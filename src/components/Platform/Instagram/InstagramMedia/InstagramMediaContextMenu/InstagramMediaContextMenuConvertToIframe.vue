@@ -1,12 +1,12 @@
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMedia;
+  media: IMedia
 }>()
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(["close"])
 
 function convertToIframe() {
-  const href: null | string = window.prompt('URL of the iframe', 'https://')
+  const href: null | string = window.prompt("URL of the iframe", "https://")
 
   if (href) {
     props.media.convertToIframe(href)
@@ -21,6 +21,4 @@ function convertToIframe() {
   </v-list-item>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

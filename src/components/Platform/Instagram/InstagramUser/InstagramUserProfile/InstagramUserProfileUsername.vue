@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import contenteditable from 'vue-contenteditable'
+import contenteditable from "vue-contenteditable"
 
-const props = withDefaults(defineProps<{
-  profile: IUserProfile
-  editable?: boolean
-  size?: string
-}>(), {
-  size: 'medium'
-});
+const props = withDefaults(
+  defineProps<{
+    profile: IUserProfile
+    editable?: boolean
+    size?: string
+  }>(),
+  {
+    size: "medium",
+  },
+)
 
-const emit = defineEmits(['update'])
+const emit = defineEmits(["update"])
 
-const usernameEditable = ref(props.profile.username ?? '')
+const usernameEditable = ref(props.profile.username ?? "")
 
 function onFieldBlur() {
   props.profile.updateUsername(usernameEditable.value)
@@ -19,15 +22,20 @@ function onFieldBlur() {
 </script>
 
 <template>
-  <div :class="[
-    'ig-profile__header__username',
-    {'font-weight-bold text-subtitle-2': size === 'medium'}
-  ]">
+  <div
+    :class="[
+      'ig-profile__header__username',
+      { 'font-weight-bold text-subtitle-2': size === 'medium' },
+    ]"
+  >
     <contenteditable
-        tag="span"
-        :contenteditable="editable" spellcheck="false"
-        v-model="usernameEditable" no-html no-nl
-        @blur="onFieldBlur"
+      tag="span"
+      :contenteditable="editable"
+      spellcheck="false"
+      v-model="usernameEditable"
+      no-html
+      no-nl
+      @blur="onFieldBlur"
     />
     <v-icon v-if="profile.verified" icon="mdi-check-decagram" />
   </div>

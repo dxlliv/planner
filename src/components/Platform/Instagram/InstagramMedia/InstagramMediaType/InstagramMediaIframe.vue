@@ -1,8 +1,8 @@
 <template>
   <InstagramMediaContainer
-      :type="!iframeEnabled ? 'video' : 'iframe'"
-      :media="media"
-      :class="{'ig-media--reel': reel}"
+    :type="!iframeEnabled ? 'video' : 'iframe'"
+    :media="media"
+    :class="{ 'ig-media--reel': reel }"
   >
     <template v-if="!iframeEnabled">
       <InstagramMediaImage :media="media.cover" @click="iframeEnabled = true" />
@@ -14,11 +14,11 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMediaIframe;
+  media: IMediaIframe
   reel?: boolean
-}>();
+}>()
 
-const iframeEnabled = ref(typeof props.media.cover !== 'object')
+const iframeEnabled = ref(typeof props.media.cover !== "object")
 </script>
 
 <style scoped lang="scss">

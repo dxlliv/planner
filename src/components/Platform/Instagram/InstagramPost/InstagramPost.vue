@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useDisplay } from "vuetify";
-import { onLongPress } from '@vueuse/core'
+import { useDisplay } from "vuetify"
+import { onLongPress } from "@vueuse/core"
 
 defineProps<{
-  profile: IUserProfile;
-  media: IMedia;
-  collection?: IMediaCollection;
+  profile: IUserProfile
+  media: IMedia
+  collection?: IMediaCollection
   contextMenu?: boolean
   detailOnClick?: boolean
 }>()
@@ -29,9 +29,9 @@ onLongPress(
   },
   {
     modifiers: {
-      prevent: true
-    }
-  }
+      prevent: true,
+    },
+  },
 )
 </script>
 
@@ -41,23 +41,16 @@ onLongPress(
     class="ig-post-container cursor-pointer"
     @click="onPostClick"
   >
-
-    <InstagramMedia
-      v-bind="$props"
-    />
+    <InstagramMedia v-bind="$props" />
 
     <v-dialog v-model="postDetailDialog">
-      <InstagramPostDetail
-        :media="media"
-        :profile="profile"
-      />
+      <InstagramPostDetail :media="media" :profile="profile" />
     </v-dialog>
-
   </div>
 </template>
 
 <style scoped lang="scss">
-@import 'vuetify/lib/styles/settings/_variables';
+@import "vuetify/lib/styles/settings/_variables";
 
 .v-dialog {
   max-width: calc(100% - 64px - 24px);

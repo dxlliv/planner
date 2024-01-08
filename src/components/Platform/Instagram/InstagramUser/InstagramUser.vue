@@ -1,9 +1,9 @@
 <script setup lang="ts">
 defineProps<{
-  user: any;
-}>();
+  user: any
+}>()
 
-const tab = ref("posts");
+const tab = ref("posts")
 </script>
 
 <template>
@@ -17,10 +17,7 @@ const tab = ref("posts");
         @select="(value: string) => (tab = value)"
       />
 
-      <InstagramUserGrid
-          :user="user"
-          :collection="tab"
-      />
+      <InstagramUserGrid :user="user" :collection="tab" />
     </v-container>
   </v-sheet>
 </template>

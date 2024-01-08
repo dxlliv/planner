@@ -1,34 +1,30 @@
 <script setup lang="ts">
 defineProps<{
-  user: IUser;
-}>();
+  user: IUser
+}>()
 </script>
 
 <template>
   <div class="ig-profile-page__header">
-    <div
-        class="ig-profile-page__header__top py-4"
-    >
+    <div class="ig-profile-page__header__top py-4">
       <router-link :to="{ name: 'index' }">
-        <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px;" />
+        <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px" />
       </router-link>
-      <InstagramUserProfileUsername editable :profile="user.profile" size="large" class="mb-5" />
+      <InstagramUserProfileUsername
+        editable
+        :profile="user.profile"
+        size="large"
+        class="mb-5"
+      />
     </div>
 
     <div class="mt-2 mb-8">
       <v-row>
         <v-col cols="3" class="ig-profile-page__header__avatar text-left">
-
           <InstagramUserProfileAvatarEditor :size="72" :user="user" />
-
         </v-col>
         <v-col cols="9" align-self="center">
-
-          <InstagramUserProfileStats
-            mobile
-            :profile="user.profile"
-          />
-
+          <InstagramUserProfileStats mobile :profile="user.profile" />
         </v-col>
       </v-row>
     </div>
@@ -36,7 +32,6 @@ defineProps<{
     <div class="my-4 mt-n6">
       <InstagramUserProfileInner :user="user" />
     </div>
-
   </div>
 </template>
 

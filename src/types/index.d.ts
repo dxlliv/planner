@@ -1,6 +1,6 @@
-import {RouteRecord} from "vue-router";
+import { RouteRecord } from "vue-router"
 
-type IPlatforms = '' | 'instagram'
+type IPlatforms = "" | "instagram"
 
 interface IRawConfig {
   users: string[]
@@ -10,40 +10,40 @@ interface IRawConfig {
 }
 
 interface IRawUser {
-  id?: string;
-  path: string;
-  profile: IRawUserProfile;
-  media: IRawUserMedia;
-  platform?: string;
-  options: any;
+  id?: string
+  path: string
+  profile: IRawUserProfile
+  media: IRawUserMedia
+  platform?: string
+  options: any
 }
 
 interface IRawUserProfile {
-  name: string;
-  username: string;
-  website?: string;
-  biography?: string;
-  avatar: string | File;
+  name: string
+  username: string
+  website?: string
+  biography?: string
+  avatar: string | File
   verified?: boolean
-  followers_count: number;
-  follows_count: number;
+  followers_count: number
+  follows_count: number
 }
 
 interface IRawUserMedia {
-  posts: string | IRawMedia[];
-  reels: string | IRawMedia[];
-  stories: string | IRawMedia[];
-  highlights: string | IRawMedia[];
+  posts: string | IRawMedia[]
+  reels: string | IRawMedia[]
+  stories: string | IRawMedia[]
+  highlights: string | IRawMedia[]
 }
 
 type IRawAvatar = File | string
 
 interface IRawMedia {
-  type?: IMediaType;
+  type?: IMediaType
   collection?: IMediaCollection
-  name?: string;
+  name?: string
   reel?: boolean
-  cover?: number | string | IRawMedia;
+  cover?: number | string | IRawMedia
   list?: string[] | IRawMedia[]
   href?: string
   file?: File
@@ -54,7 +54,7 @@ interface IRawMediaImage extends IRawMedia {
 }
 
 interface IRawMediaVideo extends IRawMedia {
-  cover?: IRawMedia | number;
+  cover?: IRawMedia | number
   reel?: boolean
 }
 
@@ -63,14 +63,14 @@ interface IRawMediaAlbum extends IRawMedia {
 }
 
 interface IRawMediaIframe extends IRawMedia {
-  href: string;
-  cover?: IRawMedia;
+  href: string
+  cover?: IRawMedia
   reel?: boolean
 }
 
 // parsed config
 
-type IUsers = { [username: string]: IUser };
+type IUsers = { [username: string]: IUser }
 
 interface IUser {
   platform: IPlatforms
@@ -79,9 +79,9 @@ interface IUser {
   raw: IRawUser
   origin: string
 
-  options: IUserOptions;
-  profile: IUserProfile;
-  media: IUserMedia;
+  options: IUserOptions
+  profile: IUserProfile
+  media: IUserMedia
   storage: any
 
   ready: Ref<boolean>
@@ -114,15 +114,15 @@ interface IInstagramUser extends IUser {
 }
 
 interface IUserProfile {
-  username: string;
-  name: string;
-  website: string;
+  username: string
+  name: string
+  website: string
   verified?: boolean
-  biography?: string;
-  avatar: UserAvatar | undefined;
-  followers_count: number;
-  follows_count: number;
-  posts_count: number;
+  biography?: string
+  avatar: UserAvatar | undefined
+  followers_count: number
+  follows_count: number
+  posts_count: number
 
   setUsername(username: string): void
   updateUsername(username: string): Promise<void>
@@ -154,27 +154,23 @@ interface IInstagramUserProfile extends IUserProfile {
   export(): Promise<IRawUserProfile>
 }
 
-interface UserAvatar {
-
-}
+interface UserAvatar {}
 
 type IUserProfileWebsite = null | {
-  href: string;
-  label: string;
+  href: string
+  label: string
 }
 
 interface IUserMedia {
-  posts: IMedia[];
-  reels: IMedia[];
-  stories: IMedia[];
-  highlights: IMedia[];
+  posts: IMedia[]
+  reels: IMedia[]
+  stories: IMedia[]
+  highlights: IMedia[]
 
   fetch(): void
 }
 
-interface IInstagramUserMedia extends IUserMedia {
-
-}
+interface IInstagramUserMedia extends IUserMedia {}
 
 interface IUserOptions {}
 
@@ -240,12 +236,12 @@ interface IMediaIframe extends IMedia {
   cover: undefined | IMediaImage
 }
 
-type IMediaType = 'image' | 'video' | 'album' | 'iframe'
-type IMediaCollection = 'posts' | 'reels'
+type IMediaType = "image" | "video" | "album" | "iframe"
+type IMediaCollection = "posts" | "reels"
 
 interface IMediaFile {
-  name?: string;
-  path?: string;
+  name?: string
+  path?: string
   blob?: Promise<File>
 }
 
@@ -326,6 +322,4 @@ interface IPlatformStructureUserProfile {
   }
 }
 
-interface IPlatformStructureCollectionOptions {
-
-}
+interface IPlatformStructureCollectionOptions {}

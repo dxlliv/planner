@@ -1,16 +1,16 @@
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMediaVideo;
+  media: IMediaVideo
 }>()
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(["close"])
 
 function onMediaCoverRemove() {
   props.media.removeCover()
   props.media.refresh()
   props.media.save()
 
-  emit('close')
+  emit("close")
 }
 </script>
 
@@ -20,6 +20,4 @@ function onMediaCoverRemove() {
   </v-list-item>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

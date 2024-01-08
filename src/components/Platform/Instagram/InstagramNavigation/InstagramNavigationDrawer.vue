@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import {project} from "~/project/project";
+import { project } from "~/project/project"
 
 const userStore = useUserStore()
 
-const user = computed(() => userStore.user);
+const user = computed(() => userStore.user)
 const nav = [
   {
     item: {
@@ -11,14 +11,14 @@ const nav = [
       href: project.source,
       target: "_blank",
     },
-    icon: "IconMagnify"
+    icon: "IconMagnify",
   },
   {
     item: {
       title: "Readme",
       href: project.docs,
     },
-    icon: "IconExplore"
+    icon: "IconExplore",
   },
   {
     item: {
@@ -26,7 +26,7 @@ const nav = [
       href: project.support,
       target: "_blank",
     },
-    icon: "IconHeart"
+    icon: "IconHeart",
   },
   /*
   {
@@ -45,28 +45,25 @@ const userExport = ref(false)
 
 <template>
   <InstagramNavigationDrawerVertical
-      class="hidden-xs"
-      :user="user"
-      :nav="nav"
-      @create="userMediaCreate = true"
-      @export="userExport = true"
+    class="hidden-xs"
+    :user="user"
+    :nav="nav"
+    @create="userMediaCreate = true"
+    @export="userExport = true"
   />
 
   <InstagramNavigationDrawerHorizontal
-      class="hidden-sm-and-up"
-      :user="user"
-      @create="userMediaCreate = true"
-      @export="userExport = true"
+    class="hidden-sm-and-up"
+    :user="user"
+    @create="userMediaCreate = true"
+    @export="userExport = true"
   />
 
   <InstagramMediaCreate
     v-model="userMediaCreate"
     @close="userMediaCreate = false"
   />
-  <InstagramUserExport
-    v-model="userExport"
-    :user="user"
-  />
+  <InstagramUserExport v-model="userExport" :user="user" />
 </template>
 
 <style scoped lang="scss">

@@ -1,7 +1,5 @@
-import {plugins} from "./plugins";
-import App from "./App.vue";
+import { plugins } from "./plugins"
+import App from "./App.vue"
 
 // initialize app
-createApp(App)
-    .use(plugins)
-    .mount("#app");
+createApp(App).use(plugins).mount("#app")

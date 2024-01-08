@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMediaImage|IMediaVideo;
+  media: IMediaImage | IMediaVideo
 }>()
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(["close"])
 
 function convertToAlbum() {
   props.media.convertToAlbum()
@@ -17,6 +17,4 @@ function convertToAlbum() {
   </v-list-item>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

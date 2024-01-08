@@ -17,8 +17,12 @@ function onMediaContextMenu(e) {
 
 <template>
   <div
-      :class="['ig-media', `ig-media--${type}`, {'cursor-pointer': detailOnClick}]"
-      @contextmenu="onMediaContextMenu"
+    :class="[
+      'ig-media',
+      `ig-media--${type}`,
+      { 'cursor-pointer': detailOnClick },
+    ]"
+    @contextmenu="onMediaContextMenu"
   >
     <suspense>
       <slot />
@@ -30,9 +34,9 @@ function onMediaContextMenu(e) {
     </div>
 
     <InstagramMediaContextMenu
-        v-if="contextMenu"
-        v-model="contextMenuValue"
-        :media="media"
+      v-if="contextMenu"
+      v-model="contextMenuValue"
+      :media="media"
     />
   </div>
 </template>
@@ -59,7 +63,7 @@ function onMediaContextMenu(e) {
       margin-right: -8px;
     }
 
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       top: 10px;
       right: 12px;
       font-size: 3dvw;

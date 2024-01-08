@@ -1,14 +1,17 @@
 <script setup lang="ts">
-const props = withDefaults(defineProps<{
-  user: IUser,
-  size?: number,
-}>(), {
-  size: 120
-});
+const props = withDefaults(
+  defineProps<{
+    user: IUser
+    size?: number
+  }>(),
+  {
+    size: 120,
+  },
+)
 
 const { files, open, reset, onChange } = useFileDialog({
-  accept: 'image/jpg, image/jpeg, image/png',
-  multiple: false
+  accept: "image/jpg, image/jpeg, image/png",
+  multiple: false,
 })
 
 onChange(async (files: null | File[]) => {
@@ -22,10 +25,12 @@ onChange(async (files: null | File[]) => {
 
 <template>
   <suspense>
-    <InstagramUserAvatar @dblclick="open" :avatar="user.profile.avatar" :size="size" />
+    <InstagramUserAvatar
+      @dblclick="open"
+      :avatar="user.profile.avatar"
+      :size="size"
+    />
   </suspense>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

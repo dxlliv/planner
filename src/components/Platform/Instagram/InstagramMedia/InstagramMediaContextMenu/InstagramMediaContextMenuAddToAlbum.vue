@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMediaAlbum;
+  media: IMediaAlbum
 }>()
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(["close"])
 
 const { files, open, reset, onChange } = useFileDialog({
-  accept: 'image/jpg, image/jpeg, image/png',
-  multiple: false
+  accept: "image/jpg, image/jpeg, image/png",
+  multiple: false,
 })
 
 onChange((files: null | File[]) => {
@@ -17,7 +17,7 @@ onChange((files: null | File[]) => {
 
   props.media.addToAlbum(file)
 
-  emit('close')
+  emit("close")
 })
 </script>
 
@@ -27,6 +27,4 @@ onChange((files: null | File[]) => {
   </v-list-item>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

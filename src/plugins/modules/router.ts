@@ -1,4 +1,4 @@
-import {createRouter, createWebHashHistory} from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router"
 
 export default {
   install: (app: App) => {
@@ -15,9 +15,9 @@ export default {
             name: "user",
             path: "/:platform?/:username",
             component: () => import("~/pages/PageUser.vue"),
-          }
+          },
         ],
       }),
-    );
+    )
   },
-};
+}

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMedia;
+  media: IMedia
 }>()
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(["close"])
 
 async function onMediaRemove() {
   await props.media.remove()
 
-  emit('close')
+  emit("close")
 }
 </script>
 
@@ -18,6 +18,4 @@ async function onMediaRemove() {
   </v-list-item>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

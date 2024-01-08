@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  media: IMedia;
-  profile: IUserProfile;
+  media: IMedia
+  profile: IUserProfile
 }>()
 </script>
 
@@ -9,19 +9,12 @@ defineProps<{
   <v-card class="ig-media-detail">
     <v-row class="ma-0">
       <v-col class="pa-0" align-self="center">
-
         <div class="ig-media-detail__media">
-          <InstagramMedia
-            :media="media"
-            :profile="profile"
-          />
+          <InstagramMedia :media="media" :profile="profile" />
         </div>
-
       </v-col>
-      <v-col class="pa-0" style="max-width: 405px;">
-
+      <v-col class="pa-0" style="max-width: 405px">
         <div class="ig-media-detail__interaction">
-
           <InstagramPostHeader :profile="profile" />
 
           <InstagramPostComments>
@@ -32,20 +25,17 @@ defineProps<{
             />
           </InstagramPostComments>
 
-          <InstagramPostDate
-            :date="media.date"
-          >
+          <InstagramPostDate :date="media.date">
             <template v-slot:prepend>
               <InstagramPostDateHeader />
             </template>
             <template v-slot:append>
-              <v-divider class="ma-0"/>
+              <v-divider class="ma-0" />
             </template>
           </InstagramPostDate>
 
           <InstagramPostCommentInput />
         </div>
-
       </v-col>
     </v-row>
   </v-card>

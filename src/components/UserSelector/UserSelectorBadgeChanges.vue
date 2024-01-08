@@ -1,15 +1,15 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <v-badge color="grey-darken-3">
-    <v-tooltip content-class="text-overline" activator="parent" :offset="[16, 3]">
+    <v-tooltip
+      content-class="text-overline"
+      activator="parent"
+      :offset="[16, 3]"
+    >
       Has changes
     </v-tooltip>
   </v-badge>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

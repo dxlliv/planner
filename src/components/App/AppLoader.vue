@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const userStorageStore = useUserStorageStore();
-const themeStore = useThemeStore();
+const userStorageStore = useUserStorageStore()
+const themeStore = useThemeStore()
 const theme = useTheme()
 
 // initialize users
@@ -19,6 +19,4 @@ themeStore.restorePreviousState(theme)
   <AppTools />
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

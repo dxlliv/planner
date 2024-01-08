@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/vue"
+import "swiper/css"
 
 const users = useUserStore().users
 </script>
@@ -10,23 +10,20 @@ const users = useUserStore().users
     <Swiper
       :key="users.length"
       :slides-per-view="1.5"
-      :breakpoints=" {
+      :breakpoints="{
         550: {
-          slidesPerView: 3.5
+          slidesPerView: 3.5,
         },
         700: {
-          slidesPerView: 4.5
+          slidesPerView: 4.5,
         },
         960: {
-          slidesPerView: 3.5
-        }
+          slidesPerView: 3.5,
+        },
       }"
     >
       <SwiperSlide v-for="(user, i) of users">
-        <UserSelector
-          v-if="user && user.ready"
-          :user="user"
-        />
+        <UserSelector v-if="user && user.ready" :user="user" />
       </SwiperSlide>
       <SwiperSlide>
         <UserSelectorAdd />

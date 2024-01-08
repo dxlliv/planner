@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import {GithubIcon,PatreonIcon} from 'vue3-simple-icons'
+import { GithubIcon, PatreonIcon } from "vue3-simple-icons"
 </script>
 
 <template>
   <v-card
-    border flat max-width="400"
+    border
+    flat
+    max-width="400"
     class="ig-intro mx-auto pa-8 pb-10 text-center"
   >
     <Logo size="large" class="mb-5" />
@@ -27,24 +29,28 @@ import {GithubIcon,PatreonIcon} from 'vue3-simple-icons'
 
     <br />
 
-    <v-btn class="pr-7" color="black" flat href="https://dxlliv.github.io/planner/docs/">
+    <v-btn
+      class="pr-7"
+      color="black"
+      flat
+      href="https://dxlliv.github.io/planner/docs/"
+    >
       Documentation
     </v-btn>
 
     <v-btn
-      border icon class="ml-n4"
-      href="https://www.patreon.com/dxlliv" target="_blank"
+      border
+      icon
+      class="ml-n4"
+      href="https://www.patreon.com/dxlliv"
+      target="_blank"
     >
       <PatreonIcon width="18px" />
 
-      <v-tooltip
-        location="right"
-        activator="parent"
-      >
+      <v-tooltip location="right" activator="parent">
         Support the project on Patreon
       </v-tooltip>
     </v-btn>
-
   </v-card>
 </template>
 
@@ -62,7 +68,7 @@ import {GithubIcon,PatreonIcon} from 'vue3-simple-icons'
     }
 
     br {
-      @media(max-width: 350px) {
+      @media (max-width: 350px) {
         display: none;
       }
     }

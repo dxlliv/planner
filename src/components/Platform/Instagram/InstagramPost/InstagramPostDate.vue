@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDate } from 'vuetify'
+import { useDate } from "vuetify"
 
 const props = defineProps<{
   date?: string
@@ -7,8 +7,11 @@ const props = defineProps<{
 
 const date = useDate()
 
-const formatted = date.format(props.date, 'fullDateWithWeekday')
-  .split(',').splice(1).join(',')
+const formatted = date
+  .format(props.date, "fullDateWithWeekday")
+  .split(",")
+  .splice(1)
+  .join(",")
 </script>
 
 <template>
@@ -17,7 +20,7 @@ const formatted = date.format(props.date, 'fullDateWithWeekday')
       <slot name="prepend" />
       <div>
         <small class="text-grey">
-          {{formatted}}
+          {{ formatted }}
         </small>
       </div>
     </div>
@@ -25,6 +28,4 @@ const formatted = date.format(props.date, 'fullDateWithWeekday')
   </div>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

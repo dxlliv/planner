@@ -2,23 +2,19 @@
 defineProps<{
   profile: IUserProfile
   mobile?: boolean
-}>();
-
+}>()
 </script>
 
 <template>
   <ul
-      :class="['ig-profile-page__header__stats', {'ig-profile-page__header__stats--mobile': mobile}]"
+    :class="[
+      'ig-profile-page__header__stats',
+      { 'ig-profile-page__header__stats--mobile': mobile },
+    ]"
   >
-    <li>
-      <b v-text="profile.posts_count" /> <span>posts</span>
-    </li>
-    <li>
-      <b v-text="profile.followers_count" /> <span>followers</span>
-    </li>
-    <li>
-      <b v-text="profile.follows_count" /> <span>following</span>
-    </li>
+    <li><b v-text="profile.posts_count" /> <span>posts</span></li>
+    <li><b v-text="profile.followers_count" /> <span>followers</span></li>
+    <li><b v-text="profile.follows_count" /> <span>following</span></li>
   </ul>
 </template>
 
@@ -34,7 +30,7 @@ defineProps<{
       margin-right: 0;
     }
 
-    @media(max-width: 640px) {
+    @media (max-width: 640px) {
       margin-right: 24px;
       font-size: 16px;
     }

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { SlickList, SlickItem, DragHandle } from 'vue-slicksort';
+import { SlickList, SlickItem, DragHandle } from "vue-slicksort"
 
 const props = defineProps<{
-  user: any;
+  user: any
   collection: string
-}>();
+}>()
 
 const gridListRef: Ref<HTMLElement | undefined> = ref()
 const dragging = ref<boolean>(false)
@@ -25,35 +25,39 @@ function onSortEnd() {
 <template>
   <v-container class="ig-profile-page__grid-container px-0">
     <div
-        :class="['ig-profile-page__grid', {'ig-profile-page__grid--dragging': dragging}]"
-        ref="gridListRef"
+      :class="[
+        'ig-profile-page__grid',
+        { 'ig-profile-page__grid--dragging': dragging },
+      ]"
+      ref="gridListRef"
     >
       <SlickList
-          v-if="user.media.collections[collection].length > 0"
-          v-model:list="props.user.media.collections[collection]"
-          axis="xy"
-          class="v-row"
-          use-drag-handle
-          :press-delay="100"
-          :press-threshold="100"
-          @sortStart="onSortStart"
-          @sortEnd="onSortEnd"
-          @update:list="onListUpdated"
+        v-if="user.media.collections[collection].length > 0"
+        v-model:list="props.user.media.collections[collection]"
+        axis="xy"
+        class="v-row"
+        use-drag-handle
+        :press-delay="100"
+        :press-threshold="100"
+        @sortStart="onSortStart"
+        @sortEnd="onSortEnd"
+        @update:list="onListUpdated"
       >
         <SlickItem
-            v-for="(media, i) of user.media.collections[collection]"
-            :key="media.id" :index="i"
-            class="ig-profile-page__grid__item v-col v-col-4"
+          v-for="(media, i) of user.media.collections[collection]"
+          :key="media.id"
+          :index="i"
+          class="ig-profile-page__grid__item v-col v-col-4"
         >
           <DragHandle class="ig-profile-page__grid__drag-handle">
             <v-icon icon="mdi-drag" color="white" />
           </DragHandle>
 
           <InstagramPost
-              :profile="user.profile"
-              :media="media"
-              :collection="collection"
-              context-menu
+            :profile="user.profile"
+            :media="media"
+            :collection="collection"
+            context-menu
           />
         </SlickItem>
       </SlickList>
@@ -73,11 +77,15 @@ body > .ig-profile-page__grid__item {
 // override grid spacing
 .ig-profile-page__grid-container .v-row {
   margin: -1.5px;
-  @media(max-width: 600px) { margin: -1px; }
+  @media (max-width: 600px) {
+    margin: -1px;
+  }
 
   & > .v-col {
     padding: 1.5px;
-    @media(max-width: 600px) { padding: 1px; }
+    @media (max-width: 600px) {
+      padding: 1px;
+    }
   }
 }
 

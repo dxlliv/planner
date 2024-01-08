@@ -6,10 +6,10 @@
 </template>
 
 <script setup lang="ts">
-import Guides from "vue3-guides";
+import Guides from "vue3-guides"
 
 // add body class for extra v-application padding
-document.body.classList.add('tool-guides--enabled')
+document.body.classList.add("tool-guides--enabled")
 </script>
 
 <style lang="scss">
@@ -33,7 +33,7 @@ body.tool-guides--enabled {
     width: 36px;
     height: 36px;
     background: #333;
-    content: '';
+    content: "";
   }
 
   .scena-guides-manager {

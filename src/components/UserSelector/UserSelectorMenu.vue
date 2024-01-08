@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const { user } = defineProps<{
-  user: IUser;
-}>();
+  user: IUser
+}>()
 
-const emit = defineEmits(['edit'])
+const emit = defineEmits(["edit"])
 
 function onProfileRemove() {
   user.remove()
@@ -16,12 +16,12 @@ function onProfileReset() {
 
 <template>
   <v-menu
-      content-class="ig-profile-selector__context-menu"
-      activator="parent"
-      transition="slide-y-transition"
-      close-on-back
-      :open-delay="5000"
-      :offset="[7, 0]"
+    content-class="ig-profile-selector__context-menu"
+    activator="parent"
+    transition="slide-y-transition"
+    close-on-back
+    :open-delay="5000"
+    :offset="[7, 0]"
   >
     <v-list>
       <!--
@@ -35,10 +35,18 @@ function onProfileReset() {
 
       <template v-if="user.hasLocalChanges">
         <v-divider />
-        <v-list-item v-if="user.isRemovable" @click="onProfileRemove()" class="text-red">
+        <v-list-item
+          v-if="user.isRemovable"
+          @click="onProfileRemove()"
+          class="text-red"
+        >
           <v-list-item-title>Remove</v-list-item-title>
         </v-list-item>
-        <v-list-item v-if="!user.isRemovable" @click="onProfileReset()" class="text-red">
+        <v-list-item
+          v-if="!user.isRemovable"
+          @click="onProfileReset()"
+          class="text-red"
+        >
           <v-list-item-title>Reset</v-list-item-title>
         </v-list-item>
       </template>
@@ -46,6 +54,4 @@ function onProfileReset() {
   </v-menu>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

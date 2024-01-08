@@ -4,7 +4,7 @@
  * @param path
  */
 export function getFileName(path: string) {
-    return path.replace(/^.*[\\/]/, '')
+  return path.replace(/^.*[\\/]/, "")
 }
 
 /**
@@ -13,7 +13,7 @@ export function getFileName(path: string) {
  * @param filename
  */
 export function getFileExtension(filename: string) {
-    return filename.split('.').pop()
+  return filename.split(".").pop()
 }
 
 /**
@@ -22,12 +22,12 @@ export function getFileExtension(filename: string) {
  * @param filename
  * @param folder
  */
-export function getMediaFilePath(filename: string, folder: string = '') {
-    if (filename.startsWith("http")) {
-        return "";
-    }
+export function getMediaFilePath(filename: string, folder: string = "") {
+  if (filename.startsWith("http")) {
+    return ""
+  }
 
-    return `${import.meta.env.BASE_URL}user/${folder}/${filename}`;
+  return `${import.meta.env.BASE_URL}user/${folder}/${filename}`
 }
 
 /**
@@ -35,14 +35,14 @@ export function getMediaFilePath(filename: string, folder: string = '') {
  * @param url
  */
 export async function fetchFileFromUrl(url: string): Promise<File> {
-    const name = getFileName(url)
+  const name = getFileName(url)
 
-    const response = await fetch(url);
-    const data = await response.blob();
+  const response = await fetch(url)
+  const data = await response.blob()
 
-    return new File([data], name, {
-        type: data.type,
-    });
+  return new File([data], name, {
+    type: data.type,
+  })
 }
 
 /**
@@ -51,19 +51,19 @@ export async function fetchFileFromUrl(url: string): Promise<File> {
  * @param media
  */
 export async function handleMediaForSrc(media: { file: IMediaFile }) {
-    if (!media.file) {
-        throw Error ('File object is not defined')
-    }
+  if (!media.file) {
+    throw Error("File object is not defined")
+  }
 
-    if (!media.file.blob) {
-        throw Error ('File blob is not defined')
-    }
+  if (!media.file.blob) {
+    throw Error("File blob is not defined")
+  }
 
-    if (!isPromise(media.file.blob)) {
-        throw Error ('File blob is not a promise')
-    }
+  if (!isPromise(media.file.blob)) {
+    throw Error("File blob is not a promise")
+  }
 
-    return URL.createObjectURL(await media.file.blob)
+  return URL.createObjectURL(await media.file.blob)
 }
 
 /**
@@ -73,16 +73,16 @@ export async function handleMediaForSrc(media: { file: IMediaFile }) {
  * @param userZip
  */
 export function downloadZip(filename: string, userZip: any) {
-    const url = URL.createObjectURL(new Blob([userZip]));
-    const fakeLink = document.createElement('a');
+  const url = URL.createObjectURL(new Blob([userZip]))
+  const fakeLink = document.createElement("a")
 
-    fakeLink.href = url;
-    fakeLink.download = filename;
+  fakeLink.href = url
+  fakeLink.download = filename
 
-    // Download the ZIP file automatically
-    fakeLink.click();
+  // Download the ZIP file automatically
+  fakeLink.click()
 
-    URL.revokeObjectURL(url);
+  URL.revokeObjectURL(url)
 }
 
 /**
@@ -91,5 +91,5 @@ export function downloadZip(filename: string, userZip: any) {
  * @param p
  */
 export function isPromise(p: any) {
-    return typeof p === 'object' && typeof p.then === 'function';
+  return typeof p === "object" && typeof p.then === "function"
 }

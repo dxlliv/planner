@@ -1,8 +1,8 @@
 <script setup lang="ts">
 defineProps<{
-  profile: IUserProfile;
-  media: IMedia;
-  collection?: IMediaCollection;
+  profile: IUserProfile
+  media: IMedia
+  collection?: IMediaCollection
   contextMenu?: boolean
   detailOnClick?: boolean
 }>()
@@ -42,6 +42,4 @@ defineProps<{
   />
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
