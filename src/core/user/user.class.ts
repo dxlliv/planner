@@ -30,6 +30,9 @@ export default class User implements IUser {
         this.origin = origin
     }
 
+    /**
+     * Initialize user
+     */
     public async init() {
         // start user indexed db
         await this.initUserStorage()
@@ -57,6 +60,9 @@ export default class User implements IUser {
         return this
     }
 
+    /**
+     * Initialize user storage
+     */
     public async initUserStorage() {
         this.storage = new UserStorage(this)
 
@@ -74,18 +80,32 @@ export default class User implements IUser {
     public async initUserProfile() {}
     public initUserMedia() {}
 
+    /**
+     * Check if user has changes
+     */
     get hasLocalChanges() {
         return this.status.changed
     }
 
-    get isRemovable() {
-        return this.origin !== 'config'
-    }
-
+    /**
+     * Update changed status
+     *
+     * @param value
+     */
     public setChanged(value: boolean) {
         this.status.changed = value
     }
 
+    /**
+     * Is user removable?
+     */
+    get isRemovable() {
+        return this.origin !== 'config'
+    }
+
+    /**
+     * Get user route
+     */
     get route() {
         const config = useConfig()
 

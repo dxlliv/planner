@@ -16,18 +16,32 @@ export default class UserMedia implements IUserMedia {
         this.user = user
     }
 
+    /**
+     * Return available collections from current platform structure
+     */
     public get structureCollectionKeys() {
         return Object.keys(this.user.media.structure.collections)
     }
 
+    /**
+     * Get user active media collections
+     */
     public get collectionKeys() {
         return Object.keys(this.collections)
     }
 
+    /**
+     * Check if this user has an active collection
+     *
+     * @param collectionName
+     */
     public hasCollection(collectionName: string) {
         return Object.prototype.hasOwnProperty.call(this.collections, collectionName)
     }
 
+    /**
+     * Parse raw media configuration and load all the media
+     */
     public fetch() {
         if (this.firstFetch === true) {
             this.firstFetch = false
@@ -40,6 +54,12 @@ export default class UserMedia implements IUserMedia {
         return true
     }
 
+    /**
+     * Effectively run the media parsing
+     * for each available collection
+     *
+     * @private
+     */
     private parseRawUserMediaCollections() {
         for (const collectionName of this.structureCollectionKeys) {
             if (Object.prototype.hasOwnProperty.call(this.user.raw.media, collectionName)) {
@@ -50,6 +70,13 @@ export default class UserMedia implements IUserMedia {
         }
     }
 
+    /**
+     * Add a media to specific collection
+     *
+     * @param rawMedia
+     * @param collection
+     * @param addMethod
+     */
     public addMedia(
         rawMedia: string | IRawMedia,
         collection: IMediaCollection = 'posts',
@@ -67,6 +94,9 @@ export default class UserMedia implements IUserMedia {
         this.user.profile.setPostsCount(this.collections['posts'].length)
     }
 
+    /**
+     * Export media
+     */
     public async export() {
         const exportedMedia = {}
 
@@ -77,6 +107,13 @@ export default class UserMedia implements IUserMedia {
         return exportedMedia
     }
 
+    /**
+     * Static method that create media instance based on its type
+     *
+     * @param user
+     * @param rawMedia
+     * @param collection
+     */
     public static newMedia(user: User, rawMedia: string | IRawMedia, collection: IMediaCollection = 'posts'): any {
         const mediaType = UserMedia.detectMediaType(rawMedia)
 
@@ -104,6 +141,11 @@ export default class UserMedia implements IUserMedia {
         }
     }
 
+    /**
+     * Detect media type
+     *
+     * @param rawMedia
+     */
     public static detectMediaType(rawMedia: string | IRawMedia) {
         let filename = ''
 
