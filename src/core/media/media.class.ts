@@ -106,18 +106,18 @@ export default class Media {
   }
 
   public async remove() {
-    const index = this.user.media[this.collection].findIndex((item) => {
+    const index = this.user.media.collections[this.collection].findIndex((item) => {
       return item.id === this.id
     })
 
     if (index > -1) {
-      this.user.media[this.collection].splice(index, 1)
+      this.user.media.collections[this.collection].splice(index, 1)
     }
 
     await this.user.save()
 
     // refresh posts count
-    this.user.profile.setPostsCount(this.user.media.posts.length)
+    this.user.profile.setPostsCount(this.user.media.collections.posts.length)
 
     return index
   }
