@@ -1,6 +1,6 @@
-import UserProfile from "../user/userProfile.class"
-import { removeUndefinedFromObject } from "../../utils/utilsObject"
-import { usePlatformStructure } from "../../composables/composablePlatformStructure";
+import UserProfile from "../../user/userProfile.class"
+import { removeUndefinedFromObject } from "../../../utils/utilsObject"
+import { usePlatformStructure } from "../../../composables/composablePlatformStructure";
 
 export default class InstagramUserProfile
   extends UserProfile

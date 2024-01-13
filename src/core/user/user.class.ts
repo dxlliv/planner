@@ -1,5 +1,4 @@
 import UserStorage from "./userStorage.class"
-import InstagramUser from "../platform/instagramUser.class"
 import { extractUsernameFromUserId } from "../../utils/utilsPlatform"
 
 export default class User implements IUser {

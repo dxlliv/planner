@@ -1,4 +1,4 @@
-import UserMedia from "../user/userMedia.class"
+import UserMedia from "../../user/userMedia.class"
 
 export default class InstagramUserMedia extends UserMedia {
   public user: IInstagramUser

@@ -1,4 +1,4 @@
-import User from "../user/user.class"
+import User from "../../user/user.class"
 import InstagramUserProfile from "./instagramUserProfile.class"
 import InstagramUserMedia from "./instagramUserMedia.class"
 
