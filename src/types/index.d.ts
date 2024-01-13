@@ -1,4 +1,4 @@
-type IPlatforms = "" | "instagram"
+type IPlatforms = "instagram"
 
 interface IRawConfig {
   users: string[]

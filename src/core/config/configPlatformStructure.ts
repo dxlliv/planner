@@ -1,4 +1,4 @@
-export const platformStructure = {
+export const configPlatformStructure = {
   instagram: {
     user: {
       profile: {

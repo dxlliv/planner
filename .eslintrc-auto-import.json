@@ -152,6 +152,8 @@
     "rebuildUserConfigFromUserExported": true,
     "rebuildRawUserFromExportedUser": true,
     "rebuildRawUserFromUser": true,
-    "rebuildRawUserConfigFromUser": true
+    "rebuildRawUserConfigFromUser": true,
+    "configPlatformStructure": true,
+    "usePlatformStructure": true
   }
 }

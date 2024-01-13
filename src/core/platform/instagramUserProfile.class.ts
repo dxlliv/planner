@@ -1,23 +1,23 @@
 import UserProfile from "../user/userProfile.class"
 import { removeUndefinedFromObject } from "../../utils/utilsObject"
-import { platformStructure } from "../structure"
+import { usePlatformStructure } from "../../composables/composablePlatformStructure";
 
 export default class InstagramUserProfile
   extends UserProfile
   implements IInstagramUserProfile
 {
   public user: IInstagramUser
-
-  public structure: IPlatformStructureUserProfile = {
-    fields: {
-      ...platformStructure.instagram.user.profile.fields,
-    },
-  }
+  public structure: IPlatformStructureUserProfile
 
   constructor(user: IInstagramUser) {
     super(user)
 
     this.user = user
+    this.structure = {
+      fields: {
+        ...usePlatformStructure(this.user.platform).user.profile.fields
+      },
+    }
   }
 
   get public_profile() {

@@ -1,10 +1,11 @@
 import { required, minLength, maxLength, url } from "@vuelidate/validators"
 import useVuelidate from "@vuelidate/core"
 import slugify from "slugify"
+import { usePlatformStructure } from "../composables/composablePlatformStructure";
 
 export const useUserEditorStore = defineStore("user/editor", () => {
   const userStore = useUserStore()
-  const platform = ref("")
+  const platform: Ref<IPlatforms> = ref("" as IPlatforms)
 
   const fields: any = {}
   const fieldsData: any = {}
@@ -13,7 +14,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
   let $v = ref()
 
   const platformStructureUser = computed(() => {
-    return getPlatformStructureUser(platform.value)
+    return usePlatformStructure(platform.value).user
   })
 
   /**
@@ -22,7 +23,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
    * @param platformKey
    * @param user
    */
-  function generateFields(platformKey: string, user?: any) {
+  function generateFields(platformKey: IPlatforms, user?: any) {
     platform.value = platformKey
 
     for (const [fieldKey, field] of Object.entries(
