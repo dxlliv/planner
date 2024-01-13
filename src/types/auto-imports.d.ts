@@ -6,6 +6,7 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
+  const Planner: typeof import('../core/planner/planner.class')['Planner']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
   const axios: typeof import('axios')['default']
   const computed: typeof import('vue')['computed']
@@ -78,6 +79,7 @@ declare global {
   const onUpdated: typeof import('vue')['onUpdated']
   const openUserDirectory: typeof import('../utils/utilsUserProfile')['openUserDirectory']
   const parseUserProfileConfigFromFileDirectory: typeof import('../utils/utilsUserProfile')['parseUserProfileConfigFromFileDirectory']
+  const plannerClass: typeof import('../core/planner/planner.class')['default']
   const platformStructure: typeof import('../core/structure/index')['platformStructure']
   const provide: typeof import('vue')['provide']
   const reactive: typeof import('vue')['reactive']
@@ -108,6 +110,7 @@ declare global {
   const useExtraStore: typeof import('../stores/storeExtra')['useExtraStore']
   const useFileDialog: typeof import('@vueuse/core')['useFileDialog']
   const useLink: typeof import('vue-router')['useLink']
+  const usePlannerConfig: typeof import('../composables/composableConfig')['usePlannerConfig']
   const usePlatformStructure: typeof import('../composables/composablePlatformStructure')['usePlatformStructure']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
@@ -121,7 +124,8 @@ declare global {
   const useUserStorageStore: typeof import('../stores/storeUserStorage')['useUserStorageStore']
   const useUserStore: typeof import('../stores/storeUser')['useUserStore']
   const userAvatarClass: typeof import('../core/user/userAvatar.class')['default']
-  const userClass: typeof import('../core/user/user.class.ts~')['default']
+  const userClass: typeof import('../core/user/user.class')['default']
+  const userConfigClass: typeof import('../core/user/userConfig.class')['default']
   const userMediaClass: typeof import('../core/user/userMedia.class')['default']
   const userProfileClass: typeof import('../core/user/userProfile.class')['default']
   const userStorageClass: typeof import('../core/user/userStorage.class')['default']

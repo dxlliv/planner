@@ -154,6 +154,10 @@
     "rebuildRawUserFromUser": true,
     "rebuildRawUserConfigFromUser": true,
     "configPlatformStructure": true,
-    "usePlatformStructure": true
+    "usePlatformStructure": true,
+    "Planner": true,
+    "usePlannerConfig": true,
+    "plannerClass": true,
+    "userConfigClass": true
   }
 }

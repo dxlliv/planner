@@ -1,5 +1,4 @@
 import localforage from "localforage"
-import User from "./user.class"
 
 export default class UserStorage {
   private user: IUser

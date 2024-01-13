@@ -14,8 +14,8 @@ export const useUserStore = defineStore("user", () => {
    * @param rawUser
    * @param platform
    */
-  async function createUser(rawUser: IRawUser, platform: string): boolean {
-    const user = await loadUser(rawUser, platform, "storage")
+  function createUser(rawUser: IRawUser): boolean {
+    const user = loadUser(rawUser, "storage")
 
     useUserStorageStore().addUserToStorageIndex(user.raw.profile.username)
 
@@ -39,17 +39,15 @@ export const useUserStore = defineStore("user", () => {
    * Load provided raw user config
    *
    * @param rawUser
-   * @param platform
    * @param origin
    */
   async function loadUser(
     rawUser: IRawUser,
-    platform: string,
     origin: string,
   ): User {
     let user
 
-    switch (platform) {
+    switch (rawUser.platform) {
       case "instagram":
         user = new InstagramUser(rawUser, origin)
         break
