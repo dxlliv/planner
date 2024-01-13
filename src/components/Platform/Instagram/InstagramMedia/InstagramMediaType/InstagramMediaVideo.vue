@@ -2,7 +2,6 @@
   <InstagramMediaContainer
     type="video"
     :media="media"
-    :class="{ 'ig-media--reel': reel }"
   >
     <template v-if="!media.cover || media.coverTime">
       <video
@@ -31,10 +30,10 @@ const props = defineProps<{
   media: IMediaVideo
   coverSelector?: boolean
   playable?: boolean
-  reel?: boolean
 }>()
 
 const isPlaying: Ref<boolean> = ref(false)
+const isReel = computed(() => props.media.collection === 'reels')
 
 const src = await handleMediaForSrc(props.media)
 

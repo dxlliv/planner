@@ -5,9 +5,7 @@ import { onLongPress } from "@vueuse/core"
 defineProps<{
   profile: IUserProfile
   media: IMedia
-  collection?: IMediaCollection
   contextMenu?: boolean
-  detailOnClick?: boolean
 }>()
 
 const display = useDisplay()
@@ -41,10 +39,15 @@ onLongPress(
     class="ig-post-container cursor-pointer"
     @click="onPostClick"
   >
-    <InstagramMedia v-bind="$props" />
+    <div class="no-pointer-events">
+      <InstagramMedia v-bind="$props" />
+    </div>
 
     <v-dialog v-model="postDetailDialog">
-      <InstagramPostDetail :media="media" :profile="profile" />
+      <InstagramPostDetail
+        :media="media"
+        :profile="profile"
+      />
     </v-dialog>
   </div>
 </template>

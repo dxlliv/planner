@@ -2,9 +2,7 @@
 defineProps<{
   profile: IUserProfile
   media: IMedia
-  collection?: IMediaCollection
   contextMenu?: boolean
-  detailOnClick?: boolean
 }>()
 </script>
 
@@ -23,7 +21,6 @@ defineProps<{
       :context-menu="contextMenu"
       :media="media"
       cover-selector
-      :reel="collection === 'reels'"
     />
   </suspense>
 
@@ -38,7 +35,6 @@ defineProps<{
     v-if="media.type === 'iframe'"
     :context-menu="contextMenu"
     :media="media"
-    :reel="collection === 'reels'"
   />
 </template>
 

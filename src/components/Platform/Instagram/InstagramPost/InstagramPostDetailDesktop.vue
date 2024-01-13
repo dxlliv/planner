@@ -6,14 +6,18 @@ defineProps<{
 </script>
 
 <template>
-  <v-card class="ig-media-detail">
+  <v-card class="ig-media-detail ig-media-detail--desktop">
     <v-row class="ma-0">
-      <v-col class="pa-0" align-self="center">
-        <div class="ig-media-detail__media">
-          <InstagramMedia :media="media" :profile="profile" />
-        </div>
+      <v-col
+        :class="[
+          'pa-0 ig-media-detail__media',
+          { 'ig-media-detail__media--reel': media.collection === 'reels' },
+        ]"
+        align-self="center"
+      >
+        <InstagramMedia :media="media" :profile="profile" />
       </v-col>
-      <v-col class="pa-0" style="max-width: 405px">
+      <v-col class="pa-0">
         <div class="ig-media-detail__interaction">
           <InstagramPostHeader :profile="profile" />
 
@@ -47,7 +51,12 @@ defineProps<{
   min-height: 450px;
 
   &__media {
-    aspect-ratio: 1 / 1;
+    //aspect-ratio: 1 / 1;
+
+    &--reel {
+      max-width: 50vh;
+      //aspect-ratio: 9 / 16;
+    }
 
     :deep(.ig-media) {
       width: 100%;

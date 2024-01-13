@@ -56,7 +56,6 @@ function onSortEnd() {
           <InstagramPost
             :profile="user.profile"
             :media="media"
-            :collection="collection"
             context-menu
           />
         </SlickItem>
