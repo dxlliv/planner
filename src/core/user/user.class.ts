@@ -103,13 +103,13 @@ export default class User implements IUser {
    * Get user route
    */
   get route() {
-    const config = useConfig()
+    const plannerConfig = usePlannerConfig()
 
     return {
       name: "user",
       params: {
         platform:
-          config.platform.default === this.platform ? undefined : this.platform,
+          plannerConfig.platform.default === this.platform ? undefined : this.platform,
         // todo improve and find a standard for usernames
         username: extractUsernameFromUserId(this.id),
       },

@@ -1,3 +1,5 @@
+import { usePlannerConfig } from "../composables/composableConfig";
+
 export const useUserConfigStore = defineStore("user/config", () => {
   const userStore = useUserStore()
 
@@ -5,10 +7,10 @@ export const useUserConfigStore = defineStore("user/config", () => {
    * Load users from local config
    */
   async function loadUsersFromConfig(): Promise<boolean> {
-    const config = useConfig()
+    const plannerConfig = usePlannerConfig()
 
     // for each user defined in the root config.json
-    for await (const userPath of config.users) {
+    for await (const userPath of plannerConfig.users) {
       let userConfigFullPath = ""
 
       // is local or remote config?
@@ -21,7 +23,7 @@ export const useUserConfigStore = defineStore("user/config", () => {
       // fetch user config from its local/remote path
       const rawUser = await fetchRemoteUserConfig(userConfigFullPath)
       const platform: string =
-        rawUser.platform ?? config.platform.default ?? "instagram"
+        rawUser.platform ?? plannerConfig.platform.default ?? "instagram"
 
       // load users
       await userStore.loadUser(rawUser, platform, "config")

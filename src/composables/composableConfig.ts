@@ -1,5 +1,5 @@
 import plannerConfig from "../../config.json"
 
-export function useConfig(): IRawConfig {
+export function usePlannerConfig(): IRawConfig {
   return plannerConfig
 }
