@@ -39,8 +39,8 @@ export default class User implements IUser {
     // parse user media
     this.initUserMedia()
 
-    // generate user id (platform + username)
-    this.id = `${this.platform}/${this.raw.profile.username}`
+    // set user id (provided, or getted from profile username)
+    this.id = this.raw.id ?? this.raw.profile.username
 
     // when you import users from directory/zip,
     // you may want to save the profile immediately

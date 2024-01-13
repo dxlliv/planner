@@ -39,9 +39,7 @@ onLongPress(
     class="ig-post-container cursor-pointer"
     @click="onPostClick"
   >
-    <div class="no-pointer-events">
-      <InstagramMedia v-bind="$props" />
-    </div>
+    <InstagramMedia v-bind="$props" />
 
     <v-dialog v-model="postDetailDialog">
       <InstagramPostDetail

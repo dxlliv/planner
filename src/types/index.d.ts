@@ -3,7 +3,7 @@ type IPlatforms = "instagram"
 interface IRawConfig {
   users: string[]
   platform: {
-    default?: string
+    default: string
   }
 }
 

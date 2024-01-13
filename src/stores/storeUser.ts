@@ -5,8 +5,11 @@ import { IRawUserProfile } from "../types"
 // id is :platform/:rawUser
 
 export const useUserStore = defineStore("user", () => {
-  const users: Ref<{ [id: string]: User }> = ref({})
-  const userActive: Ref<string> = ref("")
+  const users: Ref<{
+    [id: string]: {
+      [platform: string]: User
+    }
+  }> = ref({})
 
   /**
    * Create user
@@ -58,8 +61,12 @@ export const useUserStore = defineStore("user", () => {
     // initialize user
     await user.init()
 
+    if (!users.value[user.id]) {
+      users.value[user.id] = {}
+    }
+
     // store initialized user
-    users.value[user.id] = user
+    users.value[user.id][rawUser.platform] = user
 
     console.log("[Planner] User loaded:", user.id)
 
@@ -69,24 +76,10 @@ export const useUserStore = defineStore("user", () => {
   /**
    * Unload user
    *
-   * @param id
+   * @param user
    */
-  function unloadUser(id: string): boolean {
-    delete users.value[id]
-
-    return true
-  }
-
-  /**
-   * Fully initialize user from PageUser.vue
-   *
-   * @param id
-   */
-  function loadUserPage(id: string): boolean {
-    const user = users.value[id]
-
-    user.media.fetch()
-    setUserActive(id)
+  function unloadUser(user: IUser): boolean {
+    delete users.value[user.id][user.platform]
 
     return true
   }
@@ -95,36 +88,34 @@ export const useUserStore = defineStore("user", () => {
    * Get user by id
    *
    * @param id
+   * @param platform
    */
-  function getUser(id: string) {
-    return users.value[id]
-  }
-
-  /**
-   * Set active user id
-   *
-   * @param id
-   */
-  function setUserActive(id: string) {
-    userActive.value = id
+  function getUser(id: string, platform: string) {
+    return users.value[id][platform]
   }
 
   /**
    * Get active user
    */
-  const user = computed(() => {
-    return users.value[userActive.value]
+  const userList = computed(() => {
+    const list = []
+
+    for (const userPlatforms of Object.values(users.value)) {
+      for (const user of Object.values(userPlatforms)) {
+        list.push(user)
+      }
+    }
+
+    return list
   })
 
   return {
-    users,
-    user,
-    userActive,
+    //users,
+    userList,
     createUser,
     updateUser,
     loadUser,
     unloadUser,
-    loadUserPage,
     getUser,
   }
 })

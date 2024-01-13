@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineProps<{user: IUser}>()
+
 const emit = defineEmits(["close"])
 
 function onMediaCreate(blob: File) {
@@ -14,7 +16,11 @@ function onMediaCreate(blob: File) {
   >
     <v-card height="70vh">
       <v-card-title v-text="`Create new post`" />
-      <InstagramMediaDropzone class="mx-4" @add="onMediaCreate" />
+      <InstagramMediaDropzone
+        class="mx-4"
+        :user="user"
+        @add="onMediaCreate"
+      />
     </v-card>
   </v-dialog>
 </template>

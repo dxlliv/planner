@@ -1,8 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps<{user: IUser}>()
+</script>
 
 <template>
   <v-layout>
-    <InstagramNavigationDrawer />
+    <InstagramNavigationDrawer :user="user" />
 
     <v-main>
       <slot />

@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { project } from "~/project/project"
 
-const userStore = useUserStore()
+defineProps<{user: IUser}>()
 
-const user = computed(() => userStore.user)
 const nav = [
   {
     item: {
@@ -60,6 +59,7 @@ const userExport = ref(false)
   />
 
   <InstagramMediaCreate
+    :user="user"
     v-model="userMediaCreate"
     @close="userMediaCreate = false"
   />

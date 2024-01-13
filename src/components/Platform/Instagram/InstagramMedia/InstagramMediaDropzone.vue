@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import vueFilePond from "vue-filepond"
 
+const props = defineProps<{user: IUser}>()
+
 const userStore = useUserStore()
 const FilePond = vueFilePond()
 
-const user = computed(() => userStore.user)
 const emit = defineEmits(["add"])
 
 const myFiles = ref([])
@@ -16,8 +17,8 @@ const labelIdle =
 function onFileAdded(file: any) {
   emit("add", file.source)
 
-  user.value.media.addMedia({ file: file.source }, "posts", "unshift")
-  user.value.save()
+  props.user.media.addMedia({ file: file.source }, "posts", "unshift")
+  props.user.save()
 }
 </script>
 

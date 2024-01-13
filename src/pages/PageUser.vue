@@ -1,6 +1,6 @@
 <template>
-  <LayoutInstagram>
-    <InstagramUser v-if="user.ready" :user="user" />
+  <LayoutInstagram :user="user">
+    <InstagramUser :user="user" />
   </LayoutInstagram>
 </template>
 
@@ -11,15 +11,15 @@ const plannerConfig = usePlannerConfig()
 const route = useRoute()
 const userStore = useUserStore()
 
-const routePlatform = route.params.platform
-
 // get platform from route.params or from config (route platform param can be omitted)
-const platform = routePlatform
-  ? routePlatform.toString()
+const platform: string = route.params.platform
+  ? route.params.platform.toString()
   : plannerConfig.platform.default
 
-const id: string = platform + "/" + route.params.username.toString()
-const user = computed(() => userStore.user)
+const id: string = route.params.username.toString()
+const user = userStore.getUser(id, platform)
 
-userStore.loadUserPage(id)
+if (user) {
+  user.media.fetch()
+}
 </script>
