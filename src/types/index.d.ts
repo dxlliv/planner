@@ -1,5 +1,3 @@
-import { RouteRecord } from "vue-router"
-
 type IPlatforms = "" | "instagram"
 
 interface IRawConfig {
