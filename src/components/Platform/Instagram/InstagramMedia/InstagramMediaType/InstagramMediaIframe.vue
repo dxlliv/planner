@@ -7,7 +7,7 @@
     <template v-if="!iframeEnabled">
       <InstagramMediaImage
         :media="media.cover"
-        @click="iframeEnabled = true"
+        @click="onMediaClick"
       />
     </template>
 
@@ -22,6 +22,12 @@ const props = defineProps<{
 
 const iframeEnabled = ref(typeof props.media.cover !== "object")
 const isReel = computed(() => props.media.collection === 'reels')
+
+function onMediaClick(e) {
+  if (e.target.closest('.ig-media-detail')) {
+    iframeEnabled.value = true
+  }
+}
 </script>
 
 <style scoped lang="scss">
