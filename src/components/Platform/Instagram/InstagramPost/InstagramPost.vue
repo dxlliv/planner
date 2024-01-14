@@ -54,7 +54,8 @@ onLongPress(
 @import "vuetify/lib/styles/settings/_variables";
 
 .v-dialog {
-  max-width: calc(100% - 64px - 24px);
+  width: calc(100% - 64px - 24px);
+  max-width: 960px;
   max-height: 913px;
 
   @media #{map-get($display-breakpoints, 'xs')} {
