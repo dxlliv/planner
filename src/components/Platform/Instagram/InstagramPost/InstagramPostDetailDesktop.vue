@@ -19,7 +19,9 @@ defineProps<{
       </v-col>
       <v-col class="pa-0">
         <div class="ig-media-detail__interaction">
-          <InstagramPostHeader :profile="profile" />
+          <InstagramPostHeader :profile="profile">
+            <slot name="context-menu" />
+          </InstagramPostHeader>
 
           <InstagramPostComments>
             <InstagramPostComment

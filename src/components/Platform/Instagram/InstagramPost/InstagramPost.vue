@@ -45,7 +45,22 @@ onLongPress(
       <InstagramPostDetail
         :media="media"
         :profile="profile"
-      />
+      >
+        <template v-slot:context-menu>
+          <v-btn icon>
+            <v-icon
+              icon="mdi-dots-vertical"
+            />
+            <InstagramMediaContextMenu
+              activator="parent"
+              :media="media"
+              :width="240"
+              :offset="[8, 0]"
+              location="bottom right"
+            />
+          </v-btn>
+        </template>
+      </InstagramPostDetail>
     </v-dialog>
   </div>
 </template>

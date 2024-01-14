@@ -12,7 +12,7 @@ function onCloseContextMenu() {
 
 <template>
   <v-menu
-    content-class="ig-media__context-menu"
+    content-class="ig-media__context-menu text-left"
     transition="slide-y-transition"
     attach
     :close-on-content-click="false"
