@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/vue"
 import "swiper/css"
 
-const users = useUserStore().userList
+const users = computed(() => useUserStore().userList)
 </script>
 
 <template>
