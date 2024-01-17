@@ -52,6 +52,7 @@ const emit = defineEmits(["create", "export"])
     </v-list>
 
     <v-list density="compact" nav class="ig-navigation-drawer__list-bottom">
+
       <v-list-item
         title="Premium"
       >
@@ -63,6 +64,7 @@ const emit = defineEmits(["create", "export"])
           <MainPremium />
         </v-dialog>
       </v-list-item>
+
       <v-list-item
         v-if="user.hasLocalChanges"
         title="Export"
@@ -72,7 +74,12 @@ const emit = defineEmits(["create", "export"])
         <template #prepend>
           <v-icon icon="mdi-content-save-move-outline" />
         </template>
+
+        <v-dialog :max-width="700" activator="parent">
+          <InstagramUserExport :user="user" />
+        </v-dialog>
       </v-list-item>
+
     </v-list>
   </v-navigation-drawer>
 </template>

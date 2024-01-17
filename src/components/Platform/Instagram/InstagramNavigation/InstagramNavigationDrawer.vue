@@ -39,7 +39,6 @@ const nav = [
 ]
 
 const userMediaCreate = ref(false)
-const userExport = ref(false)
 </script>
 
 <template>
@@ -48,14 +47,12 @@ const userExport = ref(false)
     :user="user"
     :nav="nav"
     @create="userMediaCreate = true"
-    @export="userExport = true"
   />
 
   <InstagramNavigationDrawerHorizontal
     class="hidden-sm-and-up"
     :user="user"
     @create="userMediaCreate = true"
-    @export="userExport = true"
   />
 
   <InstagramMediaCreate
@@ -63,7 +60,6 @@ const userExport = ref(false)
     v-model="userMediaCreate"
     @close="userMediaCreate = false"
   />
-  <InstagramUserExport v-model="userExport" :user="user" />
 </template>
 
 <style scoped lang="scss">

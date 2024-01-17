@@ -8,7 +8,6 @@ const emit = defineEmits(["close"])
 
 <template>
   <v-dialog
-    content-class="ig-user-export"
     :max-width="700"
     @close="emit('close')"
   >
