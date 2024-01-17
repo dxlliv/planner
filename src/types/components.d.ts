@@ -29,8 +29,6 @@ declare module 'vue' {
     InstagramMediaContextMenuCloneToReel: typeof import('./../components/Platform/Instagram/InstagramMedia/InstagramMediaContextMenu/InstagramMediaContextMenuCloneToReel.vue')['default']
     InstagramMediaContextMenuConvertToAlbum: typeof import('./../components/Platform/Instagram/InstagramMedia/InstagramMediaContextMenu/InstagramMediaContextMenuConvertToAlbum.vue')['default']
     InstagramMediaContextMenuConvertToIframe: typeof import('./../components/Platform/Instagram/InstagramMedia/InstagramMediaContextMenu/InstagramMediaContextMenuConvertToIframe.vue')['default']
-    InstagramMediaContextMenuEdit: typeof import('./../components/Platform/Instagram/InstagramMedia/InstagramMediaContextMenu/InstagramMediaContextMenuEdit.vue')['default']
-    InstagramMediaContextMenuEDit: typeof import('./../components/Platform/Instagram/InstagramMedia/InstagramMediaContextMenu/InstagramMediaContextMenuEDit.vue')['default']
     InstagramMediaContextMenuGroup: typeof import('./../components/Platform/Instagram/InstagramMedia/InstagramMediaContextMenu/InstagramMediaContextMenuGroup.vue')['default']
     InstagramMediaContextMenuRemove: typeof import('./../components/Platform/Instagram/InstagramMedia/InstagramMediaContextMenu/InstagramMediaContextMenuRemove.vue')['default']
     InstagramMediaContextMenuRemoveCover: typeof import('./../components/Platform/Instagram/InstagramMedia/InstagramMediaContextMenu/InstagramMediaContextMenuRemoveCover.vue')['default']
