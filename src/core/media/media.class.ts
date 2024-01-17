@@ -5,7 +5,6 @@ import {
 } from "../../utils/utilsFile"
 import { generateUuidv4 } from "../../utils/utilsString"
 import User from "../user/user.class"
-import { IMediaCollection } from "../../types"
 
 export default class Media {
   public user: User
@@ -18,6 +17,11 @@ export default class Media {
 
   public caption: string = ""
   public date: string = ""
+
+  public states: any = {
+    editing: false,
+    detailView: false,
+  }
 
   constructor(
     user: User,
@@ -33,6 +37,25 @@ export default class Media {
 
     this.setUniqueId()
     this.parseMediaDetail()
+  }
+
+  public get isDetailView() {
+    return this.states.detailView
+  }
+
+  public get isEditing() {
+    return this.states.editing
+  }
+
+  public setEditing(toggle: boolean) {
+    this.states.editing = toggle
+
+    // todo fix for media albums (refactor and implement media parent)
+    this.setDetailView(false)
+  }
+
+  public setDetailView(toggle: boolean) {
+    this.states.detailView = toggle
   }
 
   public get collectionSingularized() {

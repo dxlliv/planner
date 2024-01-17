@@ -4,14 +4,36 @@ import { Carousel, Slide } from "vue3-carousel"
 const props = defineProps<{
   media: IMediaAlbum
   profile: IUserProfile
+  isFromDetail?: boolean
 }>()
+
+const albumEditing = ref(false)
+
+watch(() => props.media.list, () => {
+  let isSubMediaEditingInProgress = false
+
+  for (const subMedia of props.media.list) {
+    if (subMedia.isEditing) {
+      isSubMediaEditingInProgress = true
+    }
+  }
+
+  albumEditing.value = isSubMediaEditingInProgress
+}, {
+  deep: true
+})
 </script>
 
 <template>
   <InstagramMediaContainer type="album" :media="media">
-    <Carousel v-model="media.listIndex">
+    <Carousel
+      :mouse-drag="!albumEditing"
+      :touch-drag="!albumEditing"
+      v-model="media.listIndex"
+    >
       <Slide v-for="(item, i) of media.list" :key="i">
         <InstagramMedia
+          :key="item.id"
           :context-menu="false"
           :media="item"
           :profile="profile"
@@ -19,6 +41,7 @@ const props = defineProps<{
       </Slide>
     </Carousel>
     <InstagramMediaAlbumCurrentIndex
+      v-if="!albumEditing"
       :index="media.currentIndex"
       :max="media.itemsCount"
     />

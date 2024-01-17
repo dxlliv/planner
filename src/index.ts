@@ -1,6 +1,9 @@
-import { plugins } from "./plugins"
 import App from "./App.vue"
+
+import "./assets/styles/index.scss";
+
 import { createApp } from "vue"
+import { plugins } from "./plugins"
 
 class Planner {
   readonly app

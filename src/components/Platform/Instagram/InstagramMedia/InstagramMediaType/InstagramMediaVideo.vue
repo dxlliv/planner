@@ -1,33 +1,7 @@
-<template>
-  <InstagramMediaContainer
-    type="video"
-    :media="media"
-  >
-    <template v-if="!media.cover || media.coverTime">
-      <video
-        ref="videoRef"
-        :src="src"
-        :autoplay="isPlaying"
-        @click="isPlaying = !isPlaying"
-      />
-
-      <InstagramMediaVideoCoverSelector
-        v-if="coverSelector"
-        :media="media"
-        :max-length="videoMaxLength"
-        @updateCoverTime="onUpdateCoverTime"
-      />
-    </template>
-
-    <template v-else-if="typeof media.cover === 'object'">
-      <InstagramMediaImage :media="media.cover" @click="isPlaying = true" />
-    </template>
-  </InstagramMediaContainer>
-</template>
-
 <script setup lang="ts">
 const props = defineProps<{
   media: IMediaVideo
+  isFromDetail?: boolean
   coverSelector?: boolean
   playable?: boolean
 }>()
@@ -82,6 +56,36 @@ watch(
   },
 )
 </script>
+
+<template>
+  <InstagramMediaContainer
+    type="video"
+    :media="media"
+  >
+    <template v-if="!media.cover || media.coverTime">
+      <video
+        ref="videoRef"
+        :src="src"
+        :autoplay="isPlaying"
+        @click="isPlaying = !isPlaying"
+      />
+
+      <InstagramMediaVideoCoverSelector
+        v-if="coverSelector"
+        :media="media"
+        :max-length="videoMaxLength"
+        @updateCoverTime="onUpdateCoverTime"
+      />
+    </template>
+
+    <template v-else-if="typeof media.cover === 'object'">
+      <InstagramMediaImage :media="media.cover" @click="isPlaying = true" />
+    </template>
+
+    <InstagramMediaEditor v-if="media.isEditing" :media="media" />
+
+  </InstagramMediaContainer>
+</template>
 
 <style scoped lang="scss">
 .ig-media {

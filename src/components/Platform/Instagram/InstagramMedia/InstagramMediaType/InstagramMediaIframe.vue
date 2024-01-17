@@ -1,23 +1,7 @@
-<template>
-  <InstagramMediaContainer
-    :type="!iframeEnabled ? 'video' : 'iframe'"
-    :media="media"
-    :class="{ 'ig-media--reel': isReel }"
-  >
-    <template v-if="!iframeEnabled">
-      <InstagramMediaImage
-        :media="media.cover"
-        @click="onMediaClick"
-      />
-    </template>
-
-    <iframe v-else :src="media.href" />
-  </InstagramMediaContainer>
-</template>
-
 <script setup lang="ts">
 const props = defineProps<{
   media: IMediaIframe
+  isFromDetail?: boolean
 }>()
 
 const iframeEnabled = ref(typeof props.media.cover !== "object")
@@ -29,6 +13,24 @@ function onMediaClick(e) {
   }
 }
 </script>
+
+<template>
+  <InstagramMediaContainer
+    :type="!iframeEnabled ? 'video' : 'iframe'"
+    :media="media"
+    :class="{ 'ig-media--reel': isReel }"
+  >
+    <template v-if="!iframeEnabled">
+      <InstagramMediaImage
+        :key="media.cover.id"
+        :media="media.cover"
+        @click="onMediaClick"
+      />
+    </template>
+
+    <iframe v-else :src="media.href" />
+  </InstagramMediaContainer>
+</template>
 
 <style scoped lang="scss">
 .ig-media {

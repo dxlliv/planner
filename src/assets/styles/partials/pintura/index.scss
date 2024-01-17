@@ -1,0 +1,21 @@
+.pintura-editor {
+  --color-primary: black !important;
+  --color-primary-text: white !important;
+  --color-primary-dark: black !important;
+}
+
+#drawer-editor {
+  .v-navigation-drawer.v-theme--dark {
+    .pintura-editor {
+      --color-background: 0, 0, 0;
+      --color-foreground: 255, 255, 255;
+      --color-primary: white !important;
+      --color-primary-dark: white !important;
+      --color-primary-text: black !important;
+
+      .PinturaButton[disabled] {
+        filter: inherit;
+      }
+    }
+  }
+}

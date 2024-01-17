@@ -180,6 +180,8 @@ interface IMedia {
   collection: IMediaCollection
 
   setUniqueId(): void
+  setEditing(toggle: boolean): void
+  setDetailView(toggle: boolean): void
   setMediaType(mediaType: IMediaType): void
   parseMediaFileName(fileName: string): IMediaFile
   parseMediaFileBlob(fileBlob: File): IMediaFile

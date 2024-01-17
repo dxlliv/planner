@@ -6,6 +6,8 @@ defineProps<{user: IUser}>()
   <v-layout>
     <InstagramNavigationDrawer :user="user" />
 
+    <div id="drawer-editor" />
+
     <v-main>
       <slot />
 

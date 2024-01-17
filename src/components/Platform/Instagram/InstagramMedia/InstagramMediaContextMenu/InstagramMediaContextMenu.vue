@@ -86,7 +86,7 @@ function onCloseContextMenu() {
         />
       </InstagramMediaContextMenuGroup>
 
-      <v-divider class="my-2" />
+      <v-divider class="my-1" />
 
       <InstagramMediaContextMenuRemove
         :media="media"

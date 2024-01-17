@@ -15,7 +15,11 @@ defineProps<{
         ]"
         align-self="center"
       >
-        <InstagramMedia :media="media" :profile="profile" />
+        <InstagramMedia
+          :media="media"
+          :profile="profile"
+          is-from-detail
+        />
       </v-col>
       <v-col class="pa-0">
         <div class="ig-media-detail__interaction">

@@ -2,7 +2,7 @@
 import { useDisplay } from "vuetify"
 import { onLongPress } from "@vueuse/core"
 
-defineProps<{
+const props = defineProps<{
   profile: IUserProfile
   media: IMedia
   contextMenu?: boolean
@@ -13,7 +13,7 @@ const postContainerRef = ref<HTMLElement | null>(null)
 const postDetailDialog = ref(false)
 
 function onPostClick() {
-  if (display.smAndUp.value) {
+    if (display.smAndUp.value && !props.media.isEditing) {
     postDetailDialog.value = true
   }
 }
@@ -31,6 +31,16 @@ onLongPress(
     },
   },
 )
+
+// keep postDetailDialog synced with media.isDetailView
+watch(() => postDetailDialog.value, value => {
+  props.media.setDetailView(value)
+})
+
+// keep media.isDetailView synced with postDetailDialog
+watch(() => props.media.isDetailView, value => {
+  postDetailDialog.value = value
+})
 </script>
 
 <template>

@@ -11,7 +11,11 @@ defineProps<{
       <slot name="context-menu" />
     </InstagramPostHeader>
 
-    <InstagramMedia :media="media" :profile="profile" />
+    <InstagramMedia
+      :media="media"
+      :profile="profile"
+      is-from-detail
+    />
 
     <div class="ig-media-detail__interaction">
       <InstagramPostDate :date="media.date">

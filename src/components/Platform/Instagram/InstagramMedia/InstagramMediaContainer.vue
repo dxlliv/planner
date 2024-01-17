@@ -40,12 +40,27 @@ function onMediaContextMenu(e) {
 </template>
 
 <style scoped lang="scss">
+:global(.ig-media__icon-edit) {
+  position: absolute;
+  top: inherit;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  opacity: 0;
+}
+
 .ig-media {
   position: relative;
   max-width: 320px;
   aspect-ratio: 1;
   width: 100%;
   height: 100%;
+
+  &:hover {
+    :deep(.ig-media__icon-edit) {
+      opacity: 1;
+    }
+  }
 
   &__icon {
     position: absolute;
