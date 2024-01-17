@@ -12,7 +12,7 @@ defineProps<{
     :max-width="700"
     @close="emit('close')"
   >
-    <v-card height="70vh">
+    <v-card height="60vh">
       <v-card-title v-text="`Profile export`" />
 
       <v-row class="ma-0">
@@ -21,7 +21,7 @@ defineProps<{
             Changes have been made to the profile<br />
             and are now stored in your browser.
           </p>
-          <p class="mt-2">
+          <p class="mt-4">
             You could export your changes as a ZIP<br />
             and overwrite your profile configuration in<br />
             <code>/public/user/instagram/{user}</code>

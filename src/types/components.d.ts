@@ -76,6 +76,7 @@ declare module 'vue' {
     Logo: typeof import('./../components/Logo.vue')['default']
     MainFooter: typeof import('./../components/Main/MainFooter.vue')['default']
     MainIntro: typeof import('./../components/Main/MainIntro.vue')['default']
+    MainPremium: typeof import('./../components/Main/MainPremium.vue')['default']
     MainSupport: typeof import('./../components/Main/MainSupport.vue')['default']
     ToolGuides: typeof import('./../components/Tool/ToolGuides.vue')['default']
     UserEditorDialog: typeof import('./../components/UserEditor/UserEditorDialog.vue')['default']

@@ -53,6 +53,17 @@ const emit = defineEmits(["create", "export"])
 
     <v-list density="compact" nav class="ig-navigation-drawer__list-bottom">
       <v-list-item
+        title="Premium"
+      >
+        <template #prepend>
+          <v-icon icon="mdi-shimmer" />
+        </template>
+
+        <v-dialog :max-width="700" activator="parent">
+          <MainPremium />
+        </v-dialog>
+      </v-list-item>
+      <v-list-item
         v-if="user.hasLocalChanges"
         title="Export"
         base-color="primary"
@@ -71,7 +82,7 @@ const emit = defineEmits(["create", "export"])
   position: fixed !important;
   background: none !important;
 
-  .ig-navigation-drawer__list-bottom {
+  &__list-bottom {
     position: absolute !important;
     bottom: 0;
     left: 0;
