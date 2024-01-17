@@ -9,11 +9,11 @@ hero:
   tagline: Simple, fast, and versatile. <br class="sm" />Geek your grid <br />and build your <br class="sm" />definitive Instagram profile.
   actions:
     - theme: brand
-      text: Get Started
-      link: /getting-started
+      text: Try Planner
+      link: https://dxlliv.github.io/planner
     - theme: alt
-      text: View on GitHub
-      link: https://github.com/dxlliv/planner
+      text: Host your Planner
+      link: /getting-started
   image:
     src: https://dxlliv.github.io/planner/logo.svg
     alt: dxlliv/planner

@@ -2,7 +2,7 @@
 
 ## Try it online
 
-You can try **dxlliv/planner** directly in your browser on the [GitHub Demo](https://dxlliv.github.io/planner/).  
+You can try **dxlliv/planner** directly in your browser using the [GitHub Demo](https://dxlliv.github.io/planner/).  
 If you prefer to run your planner locally or host it somewhere, keep reading. 
 
 ## Installation
