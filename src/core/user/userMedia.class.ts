@@ -64,15 +64,19 @@ export default class UserMedia implements IUserMedia {
    * @private
    */
   private parseRawUserMediaCollections() {
-    for (const collectionName of this.structureCollectionKeys) {
+    for (const collection of this.structureCollectionKeys) {
+      if (!this.hasCollection(collection)) {
+        this.collections[collection] = []
+      }
+
       if (
         Object.prototype.hasOwnProperty.call(
           this.user.raw.media,
-          collectionName,
+          collection,
         )
       ) {
-        for (let rawMedia of this.user.raw.media[collectionName]) {
-          this.addMedia(rawMedia, collectionName)
+        for (let rawMedia of this.user.raw.media[collection]) {
+          this.addMedia(rawMedia, collection)
         }
       }
     }
@@ -91,10 +95,6 @@ export default class UserMedia implements IUserMedia {
     addMethod: "push" | "unshift" = "push",
   ) {
     const media = UserMedia.newMedia(this.user, rawMedia, collection)
-
-    if (!this.hasCollection(collection)) {
-      this.collections[collection] = []
-    }
 
     this.collections[collection][addMethod](media)
 

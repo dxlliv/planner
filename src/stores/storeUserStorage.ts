@@ -67,6 +67,9 @@ export const useUserStorageStore = defineStore(
         // @ts-ignore
         const rawUser: IRawUser = await userStorage.getItem(platform)
 
+        // define platform in raw user config
+        rawUser.platform = platform
+
         if (rawUser) {
           await userStore.loadUser(rawUser, "storage")
         } else {
