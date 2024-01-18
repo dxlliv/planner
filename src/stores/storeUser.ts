@@ -17,8 +17,8 @@ export const useUserStore = defineStore("user", () => {
    * @param rawUser
    * @param platform
    */
-  function createUser(rawUser: IRawUser): boolean {
-    const user = loadUser(rawUser, "storage")
+  async function createUser(rawUser: IRawUser): Promise<boolean> {
+    const user = await loadUser(rawUser, "storage")
 
     useUserStorageStore().addUserToStorageIndex(user.raw.profile.username)
 
@@ -47,7 +47,7 @@ export const useUserStore = defineStore("user", () => {
   async function loadUser(
     rawUser: IRawUser,
     origin: string,
-  ): User {
+  ): Promise<User> {
     let user
 
     switch (rawUser.platform) {

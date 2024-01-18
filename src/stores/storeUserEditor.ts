@@ -96,6 +96,8 @@ export const useUserEditorStore = defineStore("user/editor", () => {
     // slugify username
     rawUser.profile.username = slugify(rawUser.profile.username, "_")
 
+    rawUser.platform = platform.value
+
     await userStore.createUser(rawUser, platform.value)
 
     setTimeout(() => reset(), 1000)

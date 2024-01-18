@@ -68,7 +68,7 @@ export const useUserStorageStore = defineStore(
         const rawUser: IRawUser = await userStorage.getItem(platform)
 
         if (rawUser) {
-          await userStore.loadUser(rawUser, platform, "storage")
+          await userStore.loadUser(rawUser, "storage")
         } else {
           // something happened,
           // it no longer exists
