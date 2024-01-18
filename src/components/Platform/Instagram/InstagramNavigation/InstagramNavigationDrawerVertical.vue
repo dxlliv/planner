@@ -55,6 +55,7 @@ const emit = defineEmits(["create", "export"])
 
       <v-list-item
         title="Premium"
+        href="javascript:void('premium')"
       >
         <template #prepend>
           <v-icon icon="mdi-shimmer" />

@@ -5,10 +5,8 @@ defineProps<{
 </script>
 
 <template>
-  <v-card height="60vh">
-    <v-card-title v-text="`Profile export`" />
-
-    <v-row class="ma-0">
+  <DialogContent title="Profile export">
+    <v-row class="ma-0 fill-height">
       <v-col align-self="center" class="text-center">
         <p>
           Changes have been made to the profile<br />
@@ -26,7 +24,7 @@ defineProps<{
         </v-btn>
       </v-col>
     </v-row>
-  </v-card>
+  </DialogContent>
 </template>
 
 <style scoped lang="scss"></style>

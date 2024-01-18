@@ -9,6 +9,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppLoader: typeof import('./../components/App/AppLoader.vue')['default']
     AppTools: typeof import('./../components/App/AppTools.vue')['default']
+    Dialog: typeof import('./../components/Dialog/Dialog.vue')['default']
+    DialogContent: typeof import('./../components/Dialog/DialogContent.vue')['default']
     InstagramIconBookmark: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconBookmark.vue')['default']
     InstagramIconComment: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconComment.vue')['default']
     InstagramIconEmoji: typeof import('./../components/Platform/Instagram/InstagramIcon/InstagramIconEmoji.vue')['default']
