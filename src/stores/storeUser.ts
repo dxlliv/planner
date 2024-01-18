@@ -76,10 +76,10 @@ export const useUserStore = defineStore("user", () => {
   /**
    * Unload user
    *
-   * @param user
+   * @param userId
    */
-  function unloadUser(user: IUser): boolean {
-    delete users.value[user.id][user.platform]
+  function unloadUser(userId: string): boolean {
+    delete users.value[userId]
 
     return true
   }
