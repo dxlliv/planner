@@ -30,7 +30,9 @@ function onProfileReset() {
       </v-list-item>
       -->
       <v-list-item @click="emit('edit')">
-        <v-list-item-title>Edit profile</v-list-item-title>
+        <v-list-item-title
+          v-text="$t('common.actions.editProfile')"
+        />
       </v-list-item>
 
       <template v-if="user.hasLocalChanges">
@@ -40,14 +42,18 @@ function onProfileReset() {
           @click="onProfileRemove()"
           class="text-red"
         >
-          <v-list-item-title>Remove</v-list-item-title>
+          <v-list-item-title
+            v-text="$t('common.actions.remove')"
+          />
         </v-list-item>
         <v-list-item
           v-if="!user.isRemovable"
           @click="onProfileReset()"
           class="text-red"
         >
-          <v-list-item-title>Reset</v-list-item-title>
+          <v-list-item-title
+            v-text="$t('common.actions.reset')"
+          />
         </v-list-item>
       </template>
     </v-list>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GithubIcon, PatreonIcon } from "vue3-simple-icons"
+import { PatreonIcon } from "vue3-simple-icons"
 </script>
 
 <template>
@@ -18,14 +18,14 @@ import { GithubIcon, PatreonIcon } from "vue3-simple-icons"
     <h2 class="hidden-sm-and-down">Plan your Instagram grid like a pro</h2>
     -->
     <p class="mt-5 text-grey-darken-1">
-      <a href="https://github.com/dxlliv/planner">dxlliv/planner</a>
-      let you preview <br />
-      what your profiles will look like.
+      <a href="https://github.com/dxlliv/planner">
+        dxlliv/planner
+      </a> <span v-html="$t('intro.intro.p1')" />
     </p>
-    <p class="mt-3 text-grey-darken-1">
-      Bring your grid to the next level <br />
-      with a text editor or interactively.
-    </p>
+    <p
+      class="mt-3 text-grey-darken-1"
+      v-html="$t('intro.intro.p2')"
+    />
 
     <br />
 
@@ -34,9 +34,8 @@ import { GithubIcon, PatreonIcon } from "vue3-simple-icons"
       color="black"
       flat
       href="https://dxlliv.github.io/planner/docs/"
-    >
-      Documentation
-    </v-btn>
+      :text="$t('common.documentation')"
+    />
 
     <v-btn
       border
@@ -47,9 +46,11 @@ import { GithubIcon, PatreonIcon } from "vue3-simple-icons"
     >
       <PatreonIcon width="18px" />
 
-      <v-tooltip location="right" activator="parent">
-        Support the project on Patreon
-      </v-tooltip>
+      <v-tooltip
+        location="right"
+        activator="parent"
+        :text="$t('common.support')"
+      />
     </v-btn>
   </v-card>
 </template>

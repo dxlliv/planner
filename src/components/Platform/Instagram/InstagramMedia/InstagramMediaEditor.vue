@@ -34,7 +34,7 @@ function onDrawerModelValueChange(value) {
       :model-value="true"
       :disable-resize-watcher="true"
       :elevation="0"
-      class="ig-navigation-drawer-editor py-2"
+      class="ig-navigation-drawer-editor"
       @update:modelValue="onDrawerModelValueChange"
     >
       <PinturaEditor
@@ -69,6 +69,8 @@ function onDrawerModelValueChange(value) {
 }
 
 .PinturaRootWrapper {
+
+
   /*
   position: absolute;
   top: 0;

@@ -5,6 +5,7 @@ interface IRawConfig {
   platform: {
     default: string
   }
+  locale: string
 }
 
 interface IRawUser {

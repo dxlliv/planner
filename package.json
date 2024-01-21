@@ -41,6 +41,7 @@
     "vue": "^3.4.14",
     "vue-contenteditable": "^4.1.0",
     "vue-filepond": "^7.0.4",
+    "vue-i18n": "9",
     "vue-router": "^4.2.5",
     "vue-slicksort": "^2.0.5",
     "vue3-carousel": "^0.3.1",
