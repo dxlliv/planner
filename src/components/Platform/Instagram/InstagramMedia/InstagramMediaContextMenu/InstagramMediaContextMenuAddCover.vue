@@ -24,7 +24,9 @@ onChange((files: null | File[]) => {
 
 <template>
   <v-list-item @click="open">
-    <v-list-item-title>Add cover</v-list-item-title>
+    <v-list-item-title
+      v-text="$t('instagram.profile.menu.addCover')"
+    />
   </v-list-item>
 </template>
 

@@ -19,9 +19,11 @@ defineProps<{
         </p>
         <br />
 
-        <v-btn color="primary" @click="user.storage.exportAsZip()">
-          Export as ZIP
-        </v-btn>
+        <v-btn
+          color="primary"
+          :text="$t('instagram.profile.export.asZip')"
+          @click="user.storage.exportAsZip()"
+        />
       </v-col>
     </v-row>
   </DialogContent>

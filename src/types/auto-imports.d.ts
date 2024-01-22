@@ -109,6 +109,7 @@ declare global {
   const useCssVars: typeof import('vue')['useCssVars']
   const useExtraStore: typeof import('../stores/storeExtra')['useExtraStore']
   const useFileDialog: typeof import('@vueuse/core')['useFileDialog']
+  const useI18n: typeof import('vue-i18n')['useI18n']
   const useLink: typeof import('vue-router')['useLink']
   const usePlannerConfig: typeof import('../composables/composableConfig')['usePlannerConfig']
   const usePlatformStructure: typeof import('../composables/composablePlatformStructure')['usePlatformStructure']

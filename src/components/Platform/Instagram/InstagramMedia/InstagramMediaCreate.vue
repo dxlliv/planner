@@ -14,7 +14,7 @@ function onMediaCreate(blob: File) {
     :max-width="700"
     @close="emit('close')"
   >
-    <DialogContent title="Create new post">
+    <DialogContent :title="$t('instagram.profile.media.add.title')">
       <InstagramMediaDropzone
         class="mx-4"
         :user="user"

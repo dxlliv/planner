@@ -12,9 +12,9 @@ defineProps<{
       { 'ig-profile-page__header__stats--mobile': mobile },
     ]"
   >
-    <li><b v-text="profile.posts_count" /> <span>posts</span></li>
-    <li><b v-text="profile.followers_count" /> <span>followers</span></li>
-    <li><b v-text="profile.follows_count" /> <span>following</span></li>
+    <li><b v-text="profile.posts_count" /> <span v-text="$t('instagram.profile.header.posts')" /></li>
+    <li><b v-text="profile.followers_count" /> <span v-text="$t('instagram.profile.header.followers')" /></li>
+    <li><b v-text="profile.follows_count" /> <span v-text="$t('instagram.profile.header.following')" /></li>
   </ul>
 </template>
 

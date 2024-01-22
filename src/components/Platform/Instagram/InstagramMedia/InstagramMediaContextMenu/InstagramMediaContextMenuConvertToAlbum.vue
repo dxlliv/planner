@@ -13,7 +13,9 @@ function convertToAlbum() {
 
 <template>
   <v-list-item @click="convertToAlbum">
-    <v-list-item-title>Convert to album</v-list-item-title>
+    <v-list-item-title
+      v-text="$t('instagram.profile.menu.convertToAlbum')"
+    />
   </v-list-item>
 </template>
 

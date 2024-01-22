@@ -13,7 +13,9 @@ function onCloneMediaToReel() {
 
 <template>
   <v-list-item @click="onCloneMediaToReel">
-    <v-list-item-title>Clone to reel</v-list-item-title>
+    <v-list-item-title
+      v-text="$t('instagram.profile.menu.cloneToReel')"
+    />
   </v-list-item>
 </template>
 

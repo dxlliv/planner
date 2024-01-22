@@ -14,7 +14,9 @@ function onRemoveFromAlbum() {
 
 <template>
   <v-list-item @click="onRemoveFromAlbum">
-    <v-list-item-title>Remove from album</v-list-item-title>
+    <v-list-item-title
+      v-text="$t('instagram.profile.menu.removeFromAlbum')"
+    />
   </v-list-item>
 </template>
 

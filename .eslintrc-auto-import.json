@@ -158,6 +158,7 @@
     "Planner": true,
     "usePlannerConfig": true,
     "plannerClass": true,
-    "userConfigClass": true
+    "userConfigClass": true,
+    "useI18n": true
   }
 }

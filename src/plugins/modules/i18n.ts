@@ -9,6 +9,7 @@ export default {
       locale: plannerConfig.locale ?? 'en',
       fallbackLocale: 'en',
       messages,
+      legacy: false,
       formatFallbackMessages: true,
       warnHtmlMessage: false,
     })

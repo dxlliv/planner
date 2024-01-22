@@ -6,12 +6,51 @@ export default {
       editProfile: 'Edit profile',
       remove: 'Remove',
       reset: 'Reset',
-    }
+      create: 'Create',
+      submit: 'Submit',
+      post: 'Post',
+    },
   },
   intro: {
     intro: {
       p1: 'let you preview <br />what your profiles will look like.',
       p2: 'Bring your grid to the next level <br />with a text editor or interactively.',
+    }
+  },
+  profile: {
+    header: {
+      posts: 'posts',
+      followers: 'followers',
+      following: 'following',
+    },
+    post: {
+      comment: {
+        add: "Add a comment...",
+        empty: "No comments here."
+      }
+    },
+    media: {
+      add: {
+        title: "Create new post",
+        subtitle: "Drag photos and videos here",
+        action: "Select from computer"
+      }
+    },
+    export: {
+      asZip: "Export as ZIP"
+    },
+    menu: {
+      addCover: "Add cover",
+      addToAlbum: "Add to album",
+      cloneToReel: "Clone to reel",
+      cloneToReel: "Convert to album",
+      convertToAlbum: "Convert to album",
+      convertToIframe: "Convert to iframe",
+      remove: "Remove",
+      removeCover: "Remove cover",
+      removeFromAlbum: "Remove from album",
+      replaceCover: "Replace cover",
+      replaceMedia: "Replace media",
     }
   }
 }

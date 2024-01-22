@@ -8,13 +8,16 @@
       </v-col>
       <v-col class="flex-grow-1">
         <v-text-field
-          placeholder="Add a comment..."
+          :placeholder="$t('instagram.profile.post.comment.add')"
           variant="solo"
           flat
           hide-details
         >
           <template v-slot:append>
-            <v-btn class="mr-2" variant="flat" text="Post" />
+            <v-btn
+              class="mr-2" variant="flat"
+              :text="$t('common.actions.post')"
+            />
           </template>
         </v-text-field>
       </v-col>
