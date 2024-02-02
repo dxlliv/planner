@@ -1,0 +1,1 @@
+import{_ as s,o as i,c as a,V as n}from"./chunks/framework.7X0oGKLA.js";const c=JSON.parse('{"title":"Images","description":"","frontmatter":{},"headers":[],"relativePath":"media-image.md","filePath":"media-image.md"}'),e={name:"media-image.md"},t=n("",6),l=[t];function p(h,k,r,o,d,E){return i(),a("div",null,l)}const m=s(e,[["render",p]]);export{c as __pageData,m as default};
