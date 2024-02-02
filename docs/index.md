@@ -28,7 +28,7 @@ features:
   - title: 💾 &nbsp; Backup your account
     details: "It can serve as a planner but also <br />as a backup for all of your best images"
   - title: 🗃️ &nbsp; Host it anywhere
-    details: "Take ownership and own your media, <br />put your files in a repository and deploy"
+    details: "Take ownership and own your media, <br />put your files in a repo and deploy"
   - title: 📐 &nbsp; Extra tools
     details: "These will help you with consistency, <br />color adjustment and media alignment"
 
