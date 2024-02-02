@@ -6,15 +6,7 @@ defineProps<{user: IUser}>()
 const nav = [
   {
     item: {
-      title: "Source",
-      href: project.source,
-      target: "_blank",
-    },
-    icon: "IconMagnify",
-  },
-  {
-    item: {
-      title: "Readme",
+      title: "Explore",
       href: project.docs,
     },
     icon: "IconExplore",
