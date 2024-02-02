@@ -73,6 +73,7 @@ declare module 'vue' {
     InstagramUserProfileWebsite: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserProfile/InstagramUserProfileWebsite.vue')['default']
     InstagramUserTabs: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserTabs.vue')['default']
     Logo: typeof import('./../components/Logo.vue')['default']
+    MainDeluxe: typeof import('./../components/Main/MainDeluxe.vue')['default']
     MainFooter: typeof import('./../components/Main/MainFooter.vue')['default']
     MainIntro: typeof import('./../components/Main/MainIntro.vue')['default']
     MainPremium: typeof import('./../components/Main/MainPremium.vue')['default']

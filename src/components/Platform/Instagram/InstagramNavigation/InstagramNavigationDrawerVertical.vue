@@ -54,15 +54,15 @@ const emit = defineEmits(["create", "export"])
     <v-list density="compact" nav class="ig-navigation-drawer__list-bottom">
 
       <v-list-item
-        title="Premium"
-        href="javascript:void('premium')"
+        title="Deluxe"
+        href="javascript:void('deluxe')"
       >
         <template #prepend>
           <v-icon icon="mdi-shimmer" />
         </template>
 
         <v-dialog :max-width="700" activator="parent">
-          <MainPremium />
+          <MainDeluxe />
         </v-dialog>
       </v-list-item>
 
