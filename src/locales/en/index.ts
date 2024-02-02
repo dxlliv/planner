@@ -13,7 +13,7 @@ export default {
   },
   intro: {
     intro: {
-      p1: 'let you preview <br />what your profiles will look like.',
+      p1: 'let you preview <br />what your profile will look like.',
       p2: 'Bring your grid to the next level <br />with a text editor or interactively.',
     }
   },
@@ -44,7 +44,6 @@ export default {
         addCover: "Add cover",
         addToAlbum: "Add to album",
         cloneToReel: "Clone to reel",
-        cloneToReel: "Convert to album",
         convertToAlbum: "Convert to album",
         convertToIframe: "Convert to iframe",
         remove: "Remove",
