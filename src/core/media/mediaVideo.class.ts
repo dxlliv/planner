@@ -89,7 +89,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
 
     const index = await this.remove()
 
-    this.user.media[this.collection].splice(index, 0, mediaAlbum)
+    this.user.media.collections[this.collection].splice(index, 0, mediaAlbum)
 
     await this.save()
   }

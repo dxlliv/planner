@@ -53,7 +53,7 @@ export default class MediaImage extends Media implements IMediaImage {
 
     const index = await this.remove()
 
-    this.user.media[this.collection].splice(index, 0, mediaAlbum)
+    this.user.media.collections[this.collection].splice(index, 0, mediaAlbum)
 
     await this.save()
   }
