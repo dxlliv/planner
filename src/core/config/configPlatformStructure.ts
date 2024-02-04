@@ -5,7 +5,7 @@ export const configPlatformStructure = {
         fields: {
           username: {
             name: "Username",
-            placeholder: "Username",
+            placeholder: "username",
             type: "string",
             validation: {
               required: true,

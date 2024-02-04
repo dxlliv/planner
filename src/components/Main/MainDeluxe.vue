@@ -8,12 +8,12 @@ import { project } from "~/project/project"
       <v-col align-self="center" class="text-center">
         <p>
           Enjoy the free to use open-source version!<br />
-          <a class="font-weight-black" :href="project.docs">Host yours</a>
-          or <router-link class="font-weight-black" to="/">play with this instance</router-link>.
+          <router-link class="font-weight-black" to="/">Play with this Instance</router-link>
+          or <a class="font-weight-black" :href="project.docs">Host Yours</a>.
         </p>
         <v-divider class="my-8" />
         <p class="mt-4">
-          Request a special planner crafted by <a :href="project.deluxe">dxlliv</a>.<br />
+          Request a Deluxe Planner crafted by <a :href="project.deluxe">dxlliv</a>.<br />
           Ask for features or extra customizations.
         </p>
         <br />

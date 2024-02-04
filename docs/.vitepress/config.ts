@@ -1,7 +1,7 @@
 module.exports = {
   base: "/planner/docs/",
   title: "dxlliv/planner",
-  description: "Plan your social profiles grid like a pro",
+  description: "Plan your social profile grid like a pro",
 
   themeConfig: {
     repo: "dxlliv/planner",
