@@ -8,22 +8,26 @@ defineProps<{
   <DialogContent>
     <v-row class="ma-0 fill-height">
       <v-col align-self="center" class="text-center">
-        <p>
-          Changes have been made to the profile<br />
-          and are now stored in your browser.
-        </p>
-        <p class="mt-4">
-          You could export your changes as a ZIP<br />
-          and overwrite your profile configuration in<br />
-          <code>/public/user/instagram/{user}</code>
-        </p>
-        <br />
+
+        <div class="pb-8">
+          <p>
+            You could export your changes as a ZIP<br />
+            and overwrite your profile configuration in<br />
+            <code>/public/user/instagram/{user}</code>
+          </p>
+        </div>
 
         <v-btn
-          color="primary"
+          color="primary" class="mx-1"
+          :text="$t('common.actions.reset')"
+          @click="user.reset()"
+        />
+        <v-btn
+          color="primary" class="mx-1"
           :text="$t('instagram.profile.export.asZip')"
           @click="user.storage.exportAsZip()"
         />
+
       </v-col>
     </v-row>
   </DialogContent>
