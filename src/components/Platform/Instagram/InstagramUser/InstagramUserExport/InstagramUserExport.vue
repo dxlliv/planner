@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <DialogContent title="Profile export">
+  <DialogContent>
     <v-row class="ma-0 fill-height">
       <v-col align-self="center" class="text-center">
         <p>

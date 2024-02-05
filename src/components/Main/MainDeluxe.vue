@@ -3,7 +3,7 @@ import { project } from "~/project/project"
 </script>
 
 <template>
-  <DialogContent title="Deluxe Planner">
+  <DialogContent>
     <v-row no-gutters class="ma-0 fill-height">
       <v-col align-self="center" class="text-center">
         <p>

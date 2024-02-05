@@ -1,6 +1,6 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
-  title: string
+  title?: string
   height: string
 }>(), {
   height: '60vh'
@@ -9,7 +9,7 @@ withDefaults(defineProps<{
 
 <template>
   <v-card :height="height">
-    <v-card-title v-text="title" />
+    <v-card-title v-if="title" v-text="title" />
     <v-card-text>
       <slot />
     </v-card-text>
