@@ -13,7 +13,7 @@ import { project } from "~/project/project"
         </p>
         <v-divider class="my-8" />
         <p class="mt-4">
-          Request a Deluxe Planner crafted by <a :href="project.deluxe">dxlliv</a>.<br />
+          Request a Deluxe Planner crafted by <a class="font-italic" :href="project.deluxe">dxlliv</a>.<br />
           Ask for features or extra customizations.
         </p>
         <br />
