@@ -1,13 +1,13 @@
 <script setup lang="ts"></script>
 
 <template>
-  <v-badge color="grey-darken-3">
+  <v-badge color="primary">
     <v-tooltip
       content-class="text-overline"
       activator="parent"
       :offset="[16, 3]"
     >
-      Has changes
+      {{$t('common.hasChanges')}}
     </v-tooltip>
   </v-badge>
 </template>

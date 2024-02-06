@@ -2,6 +2,7 @@ export default {
   common: {
     documentation: 'Documentazione',
     support: 'Supporta il progetto su Patreon',
+    hasChanges: 'modificato',
     actions: {
       editProfile: 'Modifica profilo',
       remove: 'Rimuovi',
