@@ -1,4 +1,4 @@
-import plannerConfig from "../../config.json"
+import plannerConfig from "../../planner.config"
 
 export function usePlannerConfig(): IRawConfig {
   return plannerConfig
