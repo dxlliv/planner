@@ -97,4 +97,4 @@ I'd like to make this tool accessible to all the people with an intuitive interf
 - [x] Profile export
 - [ ] Calendar view
 - [x] Implement Storybook
-- [ ] Implement i18n
+- [x] Implement i18n

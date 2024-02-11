@@ -1,0 +1,28 @@
+@use "vuetify/settings" with (
+  $dialog-border-radius: 16px,
+  $button-border-radius: 8px,
+  $list-item-rounded-border-radius: 8px,
+  $button-elevation: (
+    "default": 0,
+    "hover": 0,
+    "active": 0,
+  ),
+  $tooltip-padding: 4px 8px,
+  $tooltip-line-height: 16px,
+  $tooltip-font-size: 12px
+);
+
+.v-btn {
+  box-shadow: none !important;
+  border-radius: 8px !important;
+}
+
+.v-list-item--rounded {
+  border-radius: 8px !important;
+}
+
+.v-tooltip {
+  padding: 4px 8px !important;
+  line-height: 16px !important;
+  font-size: 12px !important;
+}
