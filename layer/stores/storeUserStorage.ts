@@ -1,29 +1,7 @@
-import localforage from "localforage"
-
 export const useUserStorageStore = defineStore(
   "user/storage",
   () => {
-    const userStore = useUserStore()
-
     const users: Ref<string[]> = ref([])
-
-    async function init() {
-      localforage.config({
-        driver: localforage.INDEXEDDB,
-        name: "planner",
-      })
-    }
-
-    /**
-     * Load users from local forage
-     * (usernames are stored in local storage)
-     */
-    async function loadUsersFromStorage() {
-      for await (const id of users.value) {
-        const rawUsername = extractUsernameFromUserId(id)
-        await restoreUserFromStorage(rawUsername)
-      }
-    }
 
     /**
      * Add username to local storage
@@ -50,42 +28,10 @@ export const useUserStorageStore = defineStore(
       }
     }
 
-    /**
-     * Restore user from local forage
-     *
-     * @param username
-     */
-    async function restoreUserFromStorage(rawUsername: string) {
-      const userStorage = localforage.createInstance({
-        name: "planner",
-        storeName: rawUsername,
-      })
-
-      const rawUsernames = await userStorage.keys()
-
-      for await (const platform of rawUsernames) {
-        // @ts-ignore
-        const rawUser: IRawUser = await userStorage.getItem(platform)
-
-        // define platform in raw user config
-        rawUser.platform = platform
-
-        if (rawUser) {
-          await userStore.loadUser(rawUser, "storage")
-        } else {
-          // something happened,
-          // it no longer exists
-          removeUserFromStorageIndex(rawUsername)
-        }
-      }
-    }
-
     return {
       users,
-      init,
       addUserToStorageIndex,
       removeUserFromStorageIndex,
-      loadUsersFromStorage,
     }
   },
   {

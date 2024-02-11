@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import { useTheme } from "vuetify";
+import Storage from "../../core/storage/storage.class";
+import UserLoader from "../../core/user/userLoader.class";
 
-const userStorageStore = useUserStorageStore()
 const themeStore = useThemeStore()
 const theme = useTheme()
 
+Storage.initialize()
+
 // initialize users
-await userStorageStore.init().then(async () => {
-  await useUserConfigStore().loadUsersFromConfig()
-  await useUserStorageStore().loadUsersFromStorage()
-})
+await UserLoader.loadUsersFromConfig()
+await UserLoader.loadUsersFromStorage()
 
 // restore previous dark theme state
 themeStore.restorePreviousState(theme)
