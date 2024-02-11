@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const plannerConfig = usePlannerConfig()
+
 const props = defineProps<{
   media: IMediaImage
   isFromDetail?: boolean
@@ -11,10 +13,11 @@ const src = await handleMediaForSrc(props.media)
   <InstagramMediaContainer type="image" :media="media">
     <v-img cover height="100%" :src="src" />
 
-    <InstagramMediaActionEdit
+    <MediaActionEdit
+      v-if="plannerConfig.features.editor"
       @click.stop="media.setEditing(true)"
     />
 
-    <InstagramMediaEditor v-if="media.isEditing" :media="media" />
+    <MediaImageEditor v-if="media.isEditing" :media="media" />
   </InstagramMediaContainer>
 </template>

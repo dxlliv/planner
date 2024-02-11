@@ -5,6 +5,9 @@ interface IRawConfig {
   platform: {
     default: string
   }
+  features: {
+    editor: boolean
+  }
   locale: string
 }
 

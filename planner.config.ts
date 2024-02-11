@@ -6,5 +6,8 @@ export default {
   platform: {
     default: "instagram"
   },
-  locale: "en"
+  locale: "en",
+  features: {
+    editor: false
+  }
 }
