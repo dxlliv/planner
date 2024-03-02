@@ -24,12 +24,16 @@ function onUserEdit() {
   editProfileDialog.value = true
 }
 
-function onShowProfileContextMenu(e) {
+function onProfileClick(e) {
   if (display.mdAndUp.value) {
     router.push(props.user.route)
     return
   }
 
+  contextMenu.enabled = true
+}
+
+function onProfileContextMenu(e) {
   e.preventDefault()
 
   contextMenu.enabled = false
@@ -50,8 +54,8 @@ function onShowProfileContextMenu(e) {
       -->
       <a
         class="cursor-pointer"
-        @click="onShowProfileContextMenu"
-        @contextmenu="onShowProfileContextMenu"
+        @click="onProfileClick"
+        @contextmenu="onProfileContextMenu"
       >
         <suspense>
           <UserSelectorAvatar :avatar="user.profile.avatar">

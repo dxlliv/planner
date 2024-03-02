@@ -11,11 +11,11 @@ function onProfileImportFromFolder() {
 <template>
   <v-list border :elevation="0">
     <v-list-item @click="emit('openCreateProfileDialog')">
-      <v-list-item-title>Create profile</v-list-item-title>
+      <v-list-item-title v-text="$t('common.actions.createProfile')" />
     </v-list-item>
     <v-divider />
     <v-list-item @click="onProfileImportFromFolder">
-      <v-list-item-title>Import from folder</v-list-item-title>
+      <v-list-item-title v-text="$t('common.actions.importProfile')" />
     </v-list-item>
   </v-list>
 </template>
