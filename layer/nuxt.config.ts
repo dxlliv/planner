@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n"
   ],
   css: [
+    "swiper/css",
     "~/layer/styles/index.scss",
   ],
   components: {

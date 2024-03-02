@@ -13,10 +13,11 @@
         <v-icon size="48px" icon="mdi-plus" color="grey-lighten-1" />
       </template>
 
-      <UserSelectorAddMenu
-        v-model="contextMenu"
-        @openCreateProfileDialog="createProfileDialog = true"
-      />
+      <UserSelectorMenu v-model="contextMenu">
+        <UserSelectorAddMenuOptions
+          @openCreateProfileDialog="createProfileDialog = true"
+        />
+      </UserSelectorMenu>
 
       <h3
         class="text-truncate mt-4 mx-auto text-center"

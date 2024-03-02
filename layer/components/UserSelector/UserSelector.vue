@@ -1,9 +1,13 @@
 <script setup lang="ts">
-defineProps<{
+import { useDisplay } from "vuetify";
+
+const props = defineProps<{
   user?: IUser
   add?: boolean
 }>()
 
+const display = useDisplay()
+const router = useRouter()
 const contextMenu = reactive({
   enabled: false,
   x: 0,
@@ -12,11 +16,20 @@ const contextMenu = reactive({
 
 const editProfileDialog = ref(false)
 
+function onUserOpen() {
+  router.push(props.user.route)
+}
+
 function onUserEdit() {
   editProfileDialog.value = true
 }
 
 function onShowProfileContextMenu(e) {
+  if (display.mdAndUp.value) {
+    router.push(props.user.route)
+    return
+  }
+
   e.preventDefault()
 
   contextMenu.enabled = false
@@ -32,7 +45,14 @@ function onShowProfileContextMenu(e) {
 <template>
   <div :class="['ig-profile-selector', { 'ig-profile-selector--add': add }]">
     <template v-if="user">
+      <!--
       <router-link :to="user.route" @contextmenu="onShowProfileContextMenu">
+      -->
+      <a
+        class="cursor-pointer"
+        @click="onShowProfileContextMenu"
+        @contextmenu="onShowProfileContextMenu"
+      >
         <suspense>
           <UserSelectorAvatar :avatar="user.profile.avatar">
             <template #inner>
@@ -43,13 +63,14 @@ function onShowProfileContextMenu(e) {
 
         <h3 class="mt-4 text-truncate" v-text="user.profile.username" />
 
-        <UserSelectorMenu
-          v-if="contextMenu.enabled"
-          v-model="contextMenu.enabled"
-          @edit="onUserEdit"
-          :user="user"
-        />
-      </router-link>
+        <UserSelectorMenu v-model="contextMenu.enabled">
+          <UserSelectorMenuOptions
+            @open="onUserOpen"
+            @edit="onUserEdit"
+            :user="user"
+          />
+        </UserSelectorMenu>
+      </a>
 
       <a
         class="d-inline-block text-blue-grey-lighten-2 mt-n1"

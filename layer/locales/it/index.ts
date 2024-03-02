@@ -4,6 +4,7 @@ export default {
     support: 'Supporta il progetto su Patreon',
     hasChanges: 'modificato',
     actions: {
+      openProfile: 'Visualizza profilo',
       editProfile: 'Modifica profilo',
       remove: 'Rimuovi',
       reset: 'Resetta',

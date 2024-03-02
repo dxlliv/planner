@@ -4,12 +4,12 @@ import { PatreonIcon } from "vue3-simple-icons"
 
 <template>
   <v-card
-    border
-    flat
+    flat color="transparent"
     max-width="400"
     class="ig-intro mx-auto pa-8 pb-10 text-center"
   >
-    <Logo size="large" class="mb-5" />
+
+    <Logo size="large" class="mt-n3" />
 
     <!--
     <h2 class="hidden-md-and-up">
@@ -17,11 +17,13 @@ import { PatreonIcon } from "vue3-simple-icons"
     </h2>
     <h2 class="hidden-sm-and-down">Plan your Instagram grid like a pro</h2>
     -->
-    <p class="mt-5 text-grey-darken-1">
+
+    <p class="mt-3 text-grey-darken-1">
       <a href="https://github.com/dxlliv/planner">
         dxlliv/planner
       </a> <span v-html="$t('intro.intro.p1')" />
     </p>
+
     <p
       class="mt-3 text-grey-darken-1"
       v-html="$t('intro.intro.p2')"
@@ -30,9 +32,8 @@ import { PatreonIcon } from "vue3-simple-icons"
     <br />
 
     <v-btn
-      class="pr-7"
-      color="black"
-      flat
+      class="pr-12"
+      flat :theme="$vuetify.theme.name === 'dark' ? 'light' : 'dark'"
       href="https://dxlliv.github.io/planner/docs/"
       :text="$t('common.documentation')"
     />
@@ -40,18 +41,21 @@ import { PatreonIcon } from "vue3-simple-icons"
     <v-btn
       border
       icon
-      class="ml-n4"
+      class="ml-n9"
       href="https://www.patreon.com/dxlliv"
       target="_blank"
     >
       <PatreonIcon width="18px" />
 
+      <!--
       <v-tooltip
         location="right"
         activator="parent"
         :text="$t('common.support')"
       />
+      -->
     </v-btn>
+
   </v-card>
 </template>
 
@@ -75,8 +79,12 @@ import { PatreonIcon } from "vue3-simple-icons"
     }
   }
 
-  .v-btn svg {
-    pointer-events: none;
+  .v-btn {
+    border-radius: 32px !important;
+
+    svg {
+      pointer-events: none;
+    }
   }
 
   &.v-theme--dark {
