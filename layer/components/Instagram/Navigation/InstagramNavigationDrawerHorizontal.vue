@@ -49,6 +49,7 @@ const emit = defineEmits(["create", "export"])
   :deep(.v-btn) {
     min-width: 20vw !important;
     padding: 0 !important;
+    margin-top: -1px;
 
     .v-btn__overlay {
       background: transparent !important;
