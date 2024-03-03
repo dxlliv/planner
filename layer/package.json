@@ -68,7 +68,6 @@
     "nuxt-swiper": "^1.2.2",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
-    "slugify": "^1.6.6",
     "vue-contenteditable": "^4.1.0",
     "vue-filepond": "^7.0.4",
     "vue-slicksort": "^2.0.5",

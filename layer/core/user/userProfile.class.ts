@@ -1,5 +1,4 @@
 import UserAvatar from "../user/userAvatar.class"
-import slugify from "slugify"
 
 export default class UserProfile implements IUserProfile {
   public readonly user: IUser

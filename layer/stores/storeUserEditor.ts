@@ -1,6 +1,5 @@
 import { required, minLength, maxLength, url } from "@vuelidate/validators"
 import useVuelidate from "@vuelidate/core"
-import slugify from "slugify"
 import { usePlatformStructure } from "../composables/composablePlatformStructure";
 
 export const useUserEditorStore = defineStore("user/editor", () => {
