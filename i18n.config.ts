@@ -11,6 +11,6 @@ export default defineI18nConfig(() => {
           "it"
         ],
         messages,
-        warnHtmlInMessage: false,
+        warnHtmlMessage: false
     }
 })
