@@ -26,6 +26,7 @@
     "@mdi/font": "^7.4.47",
     "@nuxtjs/i18n": "^8.0.2",
     "@pinia/nuxt": "^0.5.1",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "@pqina/pintura": "^8.71.2",
     "@pqina/vue-pintura": "^9.0.1",
     "@vuelidate/core": "^2.0.3",
