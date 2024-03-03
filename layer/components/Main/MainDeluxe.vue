@@ -21,7 +21,8 @@ import { project } from "../../project/project";
         </p>
         <p class="mt-5">
           Request a Deluxe Planner crafted by <a class="font-weight-bold" :href="project.deluxe">dxlliv</a>.<br />
-          Ask additional features or customizations.
+          Ask for new features or extra customizations.<br />
+          Make your profile unique and memorable!
         </p>
         <br />
         <v-btn
