@@ -2,6 +2,15 @@
   "name": "plxnner",
   "type": "module",
   "version": "0.0.1",
+  "author": {
+    "name": "Diego Villa",
+    "url": "https://github.com/dxlliv"
+  },
+  "homepage": "https://dxlliv.github.io/planner/docs/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dxlliv/planner.git"
+  },
   "main": "./nuxt.config.ts",
   "scripts": {
     "dev": "nuxi dev .playground",
@@ -76,5 +85,15 @@
     "sass": "^1.69.7",
     "vue3-simple-icons": "^10.4.0",
     "vuetify": "^3.5.3"
-  }
+  },
+  "keywords": [
+    "instagram",
+    "social",
+    "social-media",
+    "organizer",
+    "planner",
+    "self-hosted",
+    "profile",
+    "backup"
+  ]
 }
