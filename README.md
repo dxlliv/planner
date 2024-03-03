@@ -1,17 +1,17 @@
 # Instagram Planner
 
-> An open-source planner for your Instagram profile
+> An elegant open-source planner for your Instagram profile
 
 ## About
 
-**dxlliv/planner** let you preview what your profile grid will look like.  
-Plan the grid with a text editor and build your definitive Instagram profile.
+**dxlliv/planner** lets you preview what your profile grid will look like.  
+Plan the grid with no hassle and build your definitive Instagram profile.
 
 **[Demo](https://dxlliv.github.io/planner/) · [Documentation](https://dxlliv.github.io/planner/docs/) · [Support](https://patreon.com/dxlliv)**
 
 ## Features
 - **Organize your grid**  
-  Place your media in the user folder and define it in the configuration.
+  Drag and drop your media or configure it in the old fashioned way.
 
 
 - **A wide range of media**  
@@ -31,11 +31,15 @@ Plan the grid with a text editor and build your definitive Instagram profile.
 
 
 - **High quality media**  
-  Avoid compression and deliver your profile without annoying stuff.
+  Avoid compression and deliver your work without annoying limits.
 
 
 - **Host it anywhere**  
   Take ownership of your data, put your files in a repository and deploy.
+
+
+- **Infinite possibilities**  
+  Make your profile memorable and more indexable by search engines.
 
 
 ## Getting started
@@ -58,14 +62,19 @@ npm install && npm run dev
 
 ### Configuration
 
-If you know how to properly edit a .json file, it will be simple.  
+You could make changes to your profile by editing a simple .json file.  
 Read the [documentation](https://dxlliv.github.io/planner/docs/) for further information.
 
-## Development
+## Plan interactively
 
-I'd like to make this tool accessible to all the people with an intuitive interface directly from the browser, without installing any software or changing a single line of code. Said so, feel free to support the project.
+You might also like to directly edit your profile using a really simple UI.  
+In that case, just upload the media and rearrange your grid as desired.
+
+Export your changes in zip format and overwrite your profile configuration.  
+I may release a Node.js helper in the future, to speed up this process.
 
 ## Roadmap
+
 - [ ] Profile viewer
   - [x] Posts
     - [x] Image support
@@ -79,7 +88,7 @@ I'd like to make this tool accessible to all the people with an intuitive interf
   - [ ] Stories
   - [ ] Highlights
 - [x] Profile creation
-  - [x] Create new profile 
+  - [x] Create new profile
   - [ ] Import from .zip
 - [ ] Profile editor
   - [x] Basic
@@ -98,3 +107,9 @@ I'd like to make this tool accessible to all the people with an intuitive interf
 - [ ] Calendar view
 - [x] Implement Storybook
 - [x] Implement i18n
+
+## Deluxe Planner
+
+If you're interested in featuring a self-hosted profile on your website to showcase your best media in a memorable way, or you if you're looking for a personalized planner with extra features to enhance your creativity and seamlessy publish your work on Instagram, request a tailor made planner today.
+
+**[Request a Deluxe Planner](https://dxlliv.dev)**

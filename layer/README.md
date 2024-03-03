@@ -1,73 +1,66 @@
-# Cheats Nuxt Layer
+# Instagram Planner
 
-Create Nuxt extendable layer with this GitHub template.
+> An elegant open-source planner for your Instagram profile
 
-## Setup
+## About
 
-Make sure to install the dependencies:
+**dxlliv/planner** lets you preview what your profile grid will look like.  
+Plan the grid with no hassle and build your definitive Instagram profile.
 
-```bash
-pnpm install
-```
+**[Demo](https://dxlliv.github.io/planner/) · [Documentation](https://dxlliv.github.io/planner/docs/) · [Support](https://patreon.com/dxlliv)**
 
-## Working on your theme
+## Features
+- **Organize your grid**  
+  Drag and drop your media or configure it in the old fashioned way.
 
-Your theme is at the root of this repository, it is exactly like a regular Nuxt project, except you can publish it on NPM.
 
-The `.playground` directory should help you on trying your theme during development.
+- **A wide range of media**  
+  It supports both local and remote images, videos, albums and iframes.
 
-Running `pnpm dev` will prepare and boot `.playground` directory, which imports your theme itself.
 
-## Distributing your theme
+- **Plan your everything**  
+  You will be able to plan posts, reels, stories and highlights in a while.
 
-Your Nuxt layer is shaped exactly the same as any other Nuxt project, except you can publish it on NPM.
 
-To do so, you only have to check if `files` in `package.json` are valid, then run:
+- **Limitless changes**  
+  Edit your media as much as you want and build your definitive profile.
 
-```bash
-npm publish --access public
-```
 
-Once done, your users will only have to run:
+- **Backup your account**  
+  It can serve as a planner but also as a backup for all of your content.
 
-```bash
-npm install --save your-theme
-```
 
-Then add the dependency to their `extends` in `nuxt.config`:
+- **High quality media**  
+  Avoid compression and deliver your work without annoying limits.
 
-```ts
-defineNuxtConfig({
-  extends: 'your-theme'
-})
-```
 
-## Development Server
+- **Host it anywhere**  
+  Take ownership of your data, put your files in a repository and deploy.
 
-Start the development server on http://localhost:3000
 
-```bash
-pnpm dev
-```
+- **Infinite possibilities**  
+  Make your profile memorable and more indexable by search engines.
 
-## Production
 
-Build the application for production:
+## Getting started
+
+This package is a Nuxt Layer for the **dxlliv/planner** starter template.  
+Make sure you have Node.js and clone the template with this command:
 
 ```bash
-pnpm build
+git clone https://github.com/dxlliv/instagram.git && cd instagram
 ```
 
-Or statically generate it with:
+Install dependencies and run the project with `yarn` or `npm`:
 
 ```bash
-pnpm generate
+yarn install && yarn dev
+
+# or use npm
+npm install && npm run dev
 ```
 
-Locally preview production build:
+## Configuration
 
-```bash
-pnpm preview
-```
-
-Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Make changes to your profile by editing `src/public/user/instagram/{username}/config.json`.  
+Update your `planner.config.ts` accordingly. Read the [documentation](https://dxlliv.github.io/planner/docs/) for additional details.
