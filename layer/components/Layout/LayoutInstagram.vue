@@ -11,7 +11,7 @@ defineProps<{user: IUser}>()
     <v-main>
       <slot />
 
-      <MainFooter class="mt-1" />
+      <MainFooter v-if="$vuetify.display.smAndUp" class="mt-1" />
     </v-main>
   </v-layout>
 </template>
