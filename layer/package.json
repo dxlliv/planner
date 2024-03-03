@@ -1,7 +1,7 @@
 {
   "name": "plxnner",
   "type": "module",
-  "version": "0.0.10",
+  "version": "0.0.1-alpha.0",
   "author": {
     "name": "Diego Villa",
     "url": "https://github.com/dxlliv"
@@ -76,9 +76,9 @@
   "keywords": [
     "instagram",
     "social",
+    "profile",
     "planner",
     "self-hosted",
-    "profile",
     "organizer",
     "backup"
   ]
