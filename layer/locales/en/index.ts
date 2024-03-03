@@ -17,7 +17,7 @@ export default {
   },
   intro: {
     intro: {
-      p1: 'let you preview <br />what your profile will look like.',
+      p1: 'lets you preview <br />what your profile will look like.',
       p2: 'Bring your grid to the next level <br />with a text editor or interactively.',
     }
   },
