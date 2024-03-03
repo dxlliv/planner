@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 </script>
 
 <template>
-  <PagePlannerIndexBackground />
+  <AppBackground />
 
   <Swiper direction="vertical">
     <SwiperSlide>

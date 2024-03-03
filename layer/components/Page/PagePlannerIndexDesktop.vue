@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <PagePlannerIndexBackground />
+  <AppBackground />
 
   <v-container class="ig-index text-center py-16 align-content-center">
     <v-row>

@@ -4,6 +4,8 @@ import { project } from "../../project/project";
 
 <template>
   <DialogContent>
+    <AppBackground />
+
     <v-row no-gutters class="ma-0 fill-height">
       <v-col align-self="center" class="text-center">
         <p>
@@ -12,9 +14,14 @@ import { project } from "../../project/project";
           or <a class="font-weight-black" :href="project.docs">Host Yours</a>.
         </p>
         <v-divider class="my-8" />
-        <p class="mt-4">
-          Request a Deluxe Planner crafted by <a class="font-italic" :href="project.deluxe">dxlliv</a>.<br />
-          Ask for features or extra customizations.
+        <p>
+          Do you like this project and want to have<br />
+          a backup of your Instagram profile enriched<br />
+          with a special edition of this planner?
+        </p>
+        <p class="mt-5">
+          Request a Deluxe Planner crafted by <a class="font-weight-bold" :href="project.deluxe">dxlliv</a>.<br />
+          Ask additional features or customizations.
         </p>
         <br />
         <v-btn
