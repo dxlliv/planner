@@ -33,8 +33,16 @@ export default class User implements IUser {
     // start user indexed db
     await this.initUserStorage()
 
-    // parse user profile
+    // parse user profile from raw config
     await this.initUserProfile()
+
+    // check for index db user changes
+    await this.storage.isContentAvailable().then(async (availability) => {
+      if (availability) {
+        // override raw user data
+        await this.storage.restore()
+      }
+    })
 
     // parse user media
     this.initUserMedia()
@@ -63,14 +71,6 @@ export default class User implements IUser {
     this.storage = new UserStorage(this)
 
     await this.storage.init()
-
-    // check for storage user data availability
-    await this.storage.isContentAvailable().then(async (availability) => {
-      if (availability) {
-        // override raw user data
-        await this.storage.restore()
-      }
-    })
   }
 
   // these functions are overridden

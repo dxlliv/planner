@@ -45,6 +45,8 @@ export default class UserLoader {
       tempUserReference.username
     )
 
+    rawUser.platform = tempUserReference.platform
+
     if (rawUser) {
       await userStore.loadUser(rawUser, "storage")
     } else {

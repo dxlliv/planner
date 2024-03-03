@@ -21,10 +21,6 @@ export default class UserProfile implements IUserProfile {
     username = slugify(username, "_")
 
     this.username = username
-
-    // overwrite the raw username too
-    // a little bit dangerous but needed for on-the-fly user creation
-    this.user.raw.profile.username = username
   }
 
   public async updateUsername(username: string) {

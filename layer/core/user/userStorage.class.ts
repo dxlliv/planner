@@ -11,7 +11,7 @@ export default class UserStorage {
   public async init() {
     this.database = await openDB("planner", 1, {
       upgrade(db) {
-        db.createObjectStore('instagram');
+        db.createObjectStore(this.user.platform);
       },
     })
   }
@@ -24,18 +24,20 @@ export default class UserStorage {
   }
 
   public async restore() {
-    const storedUser: null | IRawUser = await this.database.get(
+    const userChanges: null | IRawUser = await this.database.get(
       this.user.platform,
       this.user.raw.profile.username
     )
 
-    if (storedUser) {
+    if (userChanges) {
       // restore original user id (platform + username)
-      this.user.id = storedUser.id
+      this.user.id = userChanges.id
 
-      // restore user
-      this.user.raw.profile = storedUser.profile
-      this.user.raw.media = storedUser.media
+      // restore user profile changes
+      await this.user.profile.update(userChanges.profile)
+
+      // overwrite user raw media
+      this.user.raw.media = userChanges.media
 
       this.user.setChanged(true)
     }
@@ -46,7 +48,11 @@ export default class UserStorage {
 
     this.user.setChanged(true)
 
-    await this.database.put(this.user.platform, userExported, this.user.raw.profile.username)
+    await this.database.put(
+      this.user.platform,
+      userExported,
+      this.user.raw.profile.username
+    )
   }
 
   public async remove() {

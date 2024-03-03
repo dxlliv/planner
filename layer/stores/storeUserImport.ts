@@ -16,7 +16,7 @@ export const useUserImportStore = defineStore("user/import", () => {
    *
    * @param platform
    */
-  async function importFromDirectory(platform: string) {
+  async function importFromDirectory(platform: IPlatforms) {
     directory.value = await openUserDirectory()
 
     // convert config.json file to raw user object
@@ -35,7 +35,10 @@ export const useUserImportStore = defineStore("user/import", () => {
     // initialize user
     const user = await userStore.loadUser(rawUser.value, "storage")
 
-    userStorageStore.addUserToStorageIndex(user.raw.profile.username)
+    userStorageStore.addUserToStorageIndex({
+      username: user.raw.profile.username,
+      platform
+    })
   }
 
   /**

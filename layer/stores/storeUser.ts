@@ -20,7 +20,10 @@ export const useUserStore = defineStore("user", () => {
   async function createUser(rawUser: IRawUser): Promise<boolean> {
     const user = await loadUser(rawUser, "storage")
 
-    useUserStorageStore().addUserToStorageIndex(user.raw.profile.username)
+    useUserStorageStore().addUserToStorageIndex({
+      platform: user.platform,
+      username: user.raw.profile.username,
+    })
 
     return true
   }
