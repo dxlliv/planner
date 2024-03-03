@@ -62,6 +62,8 @@ export default class User implements IUser {
   public async initUserStorage() {
     this.storage = new UserStorage(this)
 
+    await this.storage.init()
+
     // check for storage user data availability
     await this.storage.isContentAvailable().then(async (availability) => {
       if (availability) {

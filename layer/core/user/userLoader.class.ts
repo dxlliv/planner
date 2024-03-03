@@ -1,4 +1,4 @@
-import localforage from "localforage"
+import { openDB } from 'idb';
 import UserConfig from "./userConfig.class";
 
 export default class UserLoader {
@@ -39,27 +39,17 @@ export default class UserLoader {
     const userStore = useUserStore()
     const userStorageStore = useUserStorageStore()
 
-    const userStorage = localforage.createInstance({
-      name: "planner",
-      storeName: rawUsername,
-    })
+    const userStorage = await openDB("planner", 1)
 
-    const rawUsernames = await userStorage.keys()
+    const rawUser = await userStorage.get("instagram", rawUsername)
+    rawUser.platform = 'instagram'
 
-    for await (const platform of rawUsernames) {
-      // @ts-ignore
-      const rawUser: IRawUser = await userStorage.getItem(platform)
-
-      // define platform in raw user config
-      rawUser.platform = platform
-
-      if (rawUser) {
-        await userStore.loadUser(rawUser, "storage")
-      } else {
-        // something happened,
-        // it no longer exists
-        userStorageStore.removeUserFromStorageIndex(rawUsername)
-      }
+    if (rawUser) {
+      await userStore.loadUser(rawUser, "storage")
+    } else {
+      // something happened,
+      // it no longer exists
+      userStorageStore.removeUserFromStorageIndex(rawUsername)
     }
   }
 }

@@ -293,6 +293,7 @@ interface IMediaIframeExport extends IMediaExport {
 }
 
 interface IUserStorage {
+  init(): Promise<void>
   isContentAvailable(): Promise<boolean>
   restore(): Promise<void>
   save(): Promise<void>

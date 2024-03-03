@@ -1,4 +1,4 @@
-import localforage from "localforage"
+import { openDB } from 'idb';
 
 export default class UserStorage {
   private user: IUser
@@ -6,20 +6,27 @@ export default class UserStorage {
 
   constructor(user: IUser) {
     this.user = user
+  }
 
-    this.database = localforage.createInstance({
-      name: "planner",
-      storeName: user.raw.profile.username,
+  public async init() {
+    this.database = await openDB("planner", 1, {
+      upgrade(db) {
+        db.createObjectStore('instagram');
+      },
     })
   }
 
   public async isContentAvailable() {
-    return !!(await this.database.getItem(this.user.platform))
+    return !!(await this.database.get(
+      this.user.platform,
+      this.user.raw.profile.username
+    ))
   }
 
   public async restore() {
-    const storedUser: null | IRawUser = await this.database.getItem(
+    const storedUser: null | IRawUser = await this.database.get(
       this.user.platform,
+      this.user.raw.profile.username
     )
 
     if (storedUser) {
@@ -39,11 +46,11 @@ export default class UserStorage {
 
     this.user.setChanged(true)
 
-    this.database.setItem(this.user.platform, userExported)
+    await this.database.put(this.user.platform, userExported, this.user.raw.profile.username)
   }
 
   public async remove() {
-    this.database.removeItem(this.user.platform)
+    await this.database.delete(this.user.platform, this.user.raw.profile.username)
   }
 
   public async exportAsZip() {

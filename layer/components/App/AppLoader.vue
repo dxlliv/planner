@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { useTheme } from "vuetify";
-import Storage from "../../core/storage/storage.class";
 import UserLoader from "../../core/user/userLoader.class";
 
 const themeStore = useThemeStore()
 const theme = useTheme()
-
-Storage.initialize()
 
 // initialize users
 await UserLoader.loadUsersFromConfig()
