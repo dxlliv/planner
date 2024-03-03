@@ -61,6 +61,8 @@ import { PatreonIcon } from "vue3-simple-icons"
 
 <style scoped lang="scss">
 .ig-intro {
+  backdrop-filter: blur(0.75px);
+
   .planner-logo {
     color: black;
   }
