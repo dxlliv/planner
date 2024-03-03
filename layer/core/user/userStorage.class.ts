@@ -9,9 +9,11 @@ export default class UserStorage {
   }
 
   public async init() {
+    const self = this
+
     this.database = await openDB("planner", 1, {
       upgrade(db) {
-        db.createObjectStore(this.user.platform);
+        db.createObjectStore(self.user.platform);
       },
     })
   }
