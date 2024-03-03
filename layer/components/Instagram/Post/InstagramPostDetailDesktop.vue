@@ -27,13 +27,13 @@ defineProps<{
             <slot name="context-menu" />
           </InstagramPostHeader>
 
-          <InstagramPostComments>
+          <InstagramPostCommentList>
             <InstagramPostComment
               v-if="media.caption"
               :profile="profile"
               :media="media"
             />
-          </InstagramPostComments>
+          </InstagramPostCommentList>
 
           <InstagramPostDate :date="media.date">
             <template v-slot:prepend>
