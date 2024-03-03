@@ -70,6 +70,11 @@ interface IRawMediaIframe extends IRawMedia {
   reel?: boolean
 }
 
+interface ITempUserReference {
+  username: string
+  platform: IPlatforms
+}
+
 // parsed config
 
 type IUsers = { [username: string]: IUser }

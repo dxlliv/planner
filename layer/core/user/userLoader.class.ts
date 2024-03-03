@@ -24,32 +24,33 @@ export default class UserLoader {
   static async loadUsersFromStorage() {
     const userStorageStore = useUserStorageStore()
 
-    for await (const id of userStorageStore.users) {
-      const rawUsername = extractUsernameFromUserId(id)
-      await UserLoader.restoreUserFromStorage(rawUsername)
+    for await (const tempUserReference of userStorageStore.users) {
+      await UserLoader.restoreUserFromStorage(tempUserReference)
     }
   }
 
   /**
    * Restore user from local forage
    *
-   * @param username
+   * @param tempUserReference
    */
-  static async restoreUserFromStorage(rawUsername: string) {
+  static async restoreUserFromStorage(tempUserReference: ITempUserReference) {
     const userStore = useUserStore()
     const userStorageStore = useUserStorageStore()
 
     const userStorage = await openDB("planner", 1)
 
-    const rawUser = await userStorage.get("instagram", rawUsername)
-    rawUser.platform = 'instagram'
+    const rawUser = await userStorage.get(
+      tempUserReference.platform,
+      tempUserReference.username
+    )
 
     if (rawUser) {
       await userStore.loadUser(rawUser, "storage")
     } else {
       // something happened,
       // it no longer exists
-      userStorageStore.removeUserFromStorageIndex(rawUsername)
+      userStorageStore.removeUserFromStorageIndex(tempUserReference)
     }
   }
 }

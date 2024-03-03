@@ -1,18 +1,18 @@
 export const useUserStorageStore = defineStore(
   "user/storage",
   () => {
-    const users: Ref<string[]> = ref([])
+    const users: Ref<ITempUserReference[]> = ref([])
 
     /**
      * Add username to local storage
      * to easily detect which users
      * are stored in local forage
      *
-     * @param rawUsername
+     * @param tempUserReference
      */
-    function addUserToStorageIndex(rawUsername: string) {
-      if (!users.value.includes(rawUsername)) {
-        users.value.push(rawUsername)
+    function addUserToStorageIndex(tempUserReference: ITempUserReference) {
+      if (!users.value.includes(tempUserReference)) {
+        users.value.push(tempUserReference)
       }
     }
 
@@ -20,11 +20,11 @@ export const useUserStorageStore = defineStore(
      * Remove username from local storage
      * if user is removed from local forage
      *
-     * @param username
+     * @param tempUserReference
      */
-    function removeUserFromStorageIndex(rawUsername: string) {
-      if (users.value.includes(rawUsername)) {
-        users.value = users.value.filter((u) => u !== rawUsername)
+    function removeUserFromStorageIndex(tempUserReference: ITempUserReference) {
+      if (users.value.includes(tempUserReference)) {
+        users.value = users.value.filter((uTR) => uTR !== tempUserReference)
       }
     }
 
