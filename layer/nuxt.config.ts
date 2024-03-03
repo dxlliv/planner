@@ -6,6 +6,9 @@ const { resolve } = createResolver(import.meta.url);
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  alias: {
+    "£": resolve(__dirname, ".")
+  },
   modules: [
     "nuxt-swiper",
     "@vueuse/nuxt",
@@ -19,7 +22,7 @@ export default defineNuxtConfig({
   ],
   css: [
     "swiper/css",
-    "~/layer/styles/index.scss",
+    "£/styles/index.scss",
   ],
   components: {
     global: true,
