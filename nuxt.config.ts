@@ -20,11 +20,6 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
     }
   },
-  modules: [
-  ],
-  i18n: {
-    locales: []
-  },
   build: {
     transpile: ["vuetify"]
   },
