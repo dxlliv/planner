@@ -48,7 +48,5 @@ function onProfileReset() {
 </template>
 
 <style scoped lang="scss">
-.v-list {
-  user-select: none;
-}
+
 </style>

@@ -17,7 +17,4 @@ withDefaults(defineProps<{
 </template>
 
 <style scoped lang="scss">
-.v-card-title {
-  user-select: none;
-}
 </style>
