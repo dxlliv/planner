@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { project } from "../../../project/project";
+import { project } from "../../../project/project"
 
 defineProps<{
   user: IUser
@@ -29,12 +29,14 @@ const emit = defineEmits(["create", "export"])
       <InstagramIconExplore />
     </v-btn>
 
-    <v-btn :to="user.route">
-      <InstagramUserAvatar
-        v-if="user.ready"
-        :avatar="user.profile.avatar"
-        :size="26"
-      />
+    <v-btn>
+      <nuxt-link :to="user.route">
+        <InstagramUserAvatar
+          v-if="user.ready"
+          :avatar="user.profile.avatar"
+          :size="26"
+        />
+      </nuxt-link>
     </v-btn>
   </v-bottom-navigation>
 </template>
