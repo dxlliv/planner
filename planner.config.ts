@@ -8,6 +8,6 @@ export default {
   },
   locale: "en",
   features: {
-    editor: false
+    mediaEditor: true
   }
 }
