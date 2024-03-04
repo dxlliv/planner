@@ -1,24 +1,60 @@
 {
   "name": "plxnner",
-  "type": "module",
   "version": "0.0.1-alpha.0",
-  "author": {
-    "name": "Diego Villa",
-    "url": "https://github.com/dxlliv"
-  },
+  "keywords": [
+    "instagram",
+    "social",
+    "profile",
+    "planner",
+    "self-hosted",
+    "organizer",
+    "backup"
+  ],
   "homepage": "https://dxlliv.github.io/planner/docs/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dxlliv/planner.git"
   },
+  "author": {
+    "name": "Diego Villa",
+    "url": "https://github.com/dxlliv"
+  },
+  "type": "module",
   "main": "./nuxt.config.ts",
   "scripts": {
-    "dev": "nuxi dev .playground",
     "build": "nuxt build .playground",
+    "dev": "nuxi dev .playground",
     "generate": "nuxt generate .playground",
-    "preview": "nuxt preview .playground",
+    "postinstall": "nuxt prepare .playground",
     "lint": "eslint .",
-    "postinstall": "nuxt prepare .playground"
+    "preview": "nuxt preview .playground"
+  },
+  "dependencies": {
+    "@fontsource/cookie": "^5.0.18",
+    "@mdi/font": "^7.4.47",
+    "@nuxtjs/i18n": "^8.0.2",
+    "@pinia/nuxt": "^0.5.1",
+    "@pqina/pintura": "^8.71.2",
+    "@pqina/vue-pintura": "^9.0.1",
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.4",
+    "@vueuse/core": "^10.7.2",
+    "@vueuse/nuxt": "^10.7.2",
+    "browser-fs-access": "^0.35.0",
+    "fflate": "^0.8.1",
+    "filepond": "^4.30.6",
+    "idb": "^8.0.0",
+    "nuxt-swiper": "^1.2.2",
+    "pinia": "^2.1.7",
+    "sass": "^1.69.7",
+    "vite-plugin-vuetify": "^2.0.1",
+    "vue-contenteditable": "^4.1.0",
+    "vue-filepond": "^7.0.4",
+    "vue-slicksort": "^2.0.5",
+    "vue3-carousel": "^0.3.1",
+    "vue3-guides": "^0.12.2",
+    "vue3-simple-icons": "^10.4.0",
+    "vuetify": "^3.5.3"
   },
   "devDependencies": {
     "@babel/types": "^7.23.6",
@@ -45,41 +81,5 @@
     "vite-plugin-eslint": "^1.8.1",
     "vitepress": "^1.0.0-rc.39",
     "vue-tsc": "^1.8.27"
-  },
-  "dependencies": {
-    "@fontsource/cookie": "^5.0.18",
-    "@mdi/font": "^7.4.47",
-    "@nuxtjs/i18n": "^8.0.2",
-    "@pinia/nuxt": "^0.5.1",
-    "@pqina/pintura": "^8.71.2",
-    "@pqina/vue-pintura": "^9.0.1",
-    "@vuelidate/core": "^2.0.3",
-    "@vuelidate/validators": "^2.0.4",
-    "@vueuse/core": "^10.7.2",
-    "@vueuse/nuxt": "^10.7.2",
-    "browser-fs-access": "^0.35.0",
-    "fflate": "^0.8.1",
-    "filepond": "^4.30.6",
-    "idb": "^8.0.0",
-    "nuxt-swiper": "^1.2.2",
-    "pinia": "^2.1.7",
-    "vue-contenteditable": "^4.1.0",
-    "vue-filepond": "^7.0.4",
-    "vue-slicksort": "^2.0.5",
-    "vue3-carousel": "^0.3.1",
-    "vite-plugin-vuetify": "^2.0.1",
-    "vue3-guides": "^0.12.2",
-    "sass": "^1.69.7",
-    "vue3-simple-icons": "^10.4.0",
-    "vuetify": "^3.5.3"
-  },
-  "keywords": [
-    "instagram",
-    "social",
-    "profile",
-    "planner",
-    "self-hosted",
-    "organizer",
-    "backup"
-  ]
+  }
 }
