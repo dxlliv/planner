@@ -2,5 +2,6 @@ node_modules
 .DS_Store
 .idea
 .nuxt
+.output
 *.local
 docs/.vitepress/cache
