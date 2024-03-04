@@ -62,8 +62,8 @@ npm install && npm run dev
 
 ### Configuration
 
-You could make changes to your profile by editing a simple .json file.  
-Read the [documentation](https://dxlliv.github.io/planner/docs/) for further information.
+Make changes to your profile by editing `src/public/user/instagram/{username}`.  
+Update `planner.config.ts` accordingly. Read the [documentation](https://dxlliv.github.io/planner/docs/) for further information.
 
 ## Plan interactively
 
