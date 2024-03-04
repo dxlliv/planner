@@ -21,7 +21,7 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/chunk-reload.client").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-if-layout-used").default> &
   InjectionType<typeof import("../../node_modules/@pinia-plugin-persistedstate/nuxt/dist/runtime/plugin").default> &
-  InjectionType<typeof import("../../layer/plugins/vuetify").default>
+  InjectionType<typeof import("../../core/plugins/vuetify").default>
 
 declare module '#app' {
   interface NuxtApp extends NuxtAppInjections { }

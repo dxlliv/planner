@@ -1,4 +1,4 @@
-import messages from '~/layer/locales'
+import messages from '~/core/locales'
 
 export default defineI18nConfig(() => {
     const plannerConfig = usePlannerConfig()

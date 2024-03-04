@@ -56,10 +56,10 @@
         "../src/public/*"
       ],
       "£": [
-        "../layer"
+        "../core"
       ],
       "£/*": [
-        "../layer/*"
+        "../core/*"
       ],
       "#app": [
         "../node_modules/nuxt/dist/app"

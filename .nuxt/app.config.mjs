@@ -15,6 +15,6 @@ if (import.meta.hot) {
   })
 }
 
-import cfg0 from "/home/dxlliv/Development/Personal/planner/layer/app.config.ts"
+import cfg0 from "/home/dxlliv/Development/Personal/planner/core/app.config.ts"
 
 export default /*@__PURE__*/ defuFn(cfg0, inlineConfig)

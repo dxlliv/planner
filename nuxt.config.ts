@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     "@": resolve(__dirname, "./src")
   },
   srcDir: "./src",
-  extends: ["./layer"],
+  extends: ["./core"],
   app: {
     head: {
       title: "Planner",

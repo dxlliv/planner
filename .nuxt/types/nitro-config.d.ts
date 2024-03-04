@@ -3,7 +3,7 @@
 // App Config
 import type { Defu } from 'defu'
 
-import type { default as appConfig0 } from "/home/dxlliv/Development/Personal/planner/layer/app.config";
+import type { default as appConfig0 } from "/home/dxlliv/Development/Personal/planner/core/app.config";
 
 type UserAppConfig = Defu<{}, [typeof appConfig0]>
 

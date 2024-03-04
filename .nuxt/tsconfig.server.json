@@ -52,10 +52,10 @@
         "../src/public/*"
       ],
       "£": [
-        "../layer"
+        "../core"
       ],
       "£/*": [
-        "../layer/*"
+        "../core/*"
       ],
       "pinia": [
         "../node_modules/pinia/dist/pinia"
