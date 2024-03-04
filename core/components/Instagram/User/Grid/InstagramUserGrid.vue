@@ -49,9 +49,11 @@ function onSortEnd() {
           :index="i"
           class="ig-profile-page__grid__item v-col v-col-4"
         >
-          <DragHandle class="ig-profile-page__grid__drag-handle">
-            <v-icon icon="mdi-drag" color="white" />
-          </DragHandle>
+          <template v-if="isPlannerFeatureEnabled('mediaSort')">
+            <DragHandle class="ig-profile-page__grid__drag-handle">
+              <v-icon icon="mdi-drag" color="white" />
+            </DragHandle>
+          </template>
 
           <InstagramPost
             :profile="user.profile"
