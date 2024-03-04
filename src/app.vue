@@ -9,7 +9,3 @@
     </suspense>
   </v-app>
 </template>
-
-<style lang="scss">
-
-</style>
