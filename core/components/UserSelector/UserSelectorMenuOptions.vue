@@ -19,7 +19,11 @@ function onProfileReset() {
     <v-list-item @click="emit('open')" target="_blank">
       <v-list-item-title v-text="$t('common.actions.openProfile')" />
     </v-list-item>
-    <v-list-item @click="emit('edit')">
+
+    <v-list-item
+      v-if="isPlannerFeatureEnabled('profileEditor')"
+      @click="emit('edit')"
+    >
       <v-list-item-title v-text="$t('common.actions.editProfile')" />
     </v-list-item>
 

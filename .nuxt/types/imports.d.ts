@@ -96,6 +96,7 @@ declare global {
   const injectLocal: typeof import('../../node_modules/@vueuse/core')['injectLocal']
   const isDefined: typeof import('../../node_modules/@vueuse/core')['isDefined']
   const isNuxtError: typeof import('../../node_modules/nuxt/dist/app/composables/error')['isNuxtError']
+  const isPlannerFeatureEnabled: typeof import('../../core/utils/utilsPlanner')['isPlannerFeatureEnabled']
   const isPrerendered: typeof import('../../node_modules/nuxt/dist/app/composables/payload')['isPrerendered']
   const isPromise: typeof import('../../core/utils/utilsFile')['isPromise']
   const isProxy: typeof import('../../node_modules/vue')['isProxy']
@@ -531,6 +532,7 @@ declare module 'vue' {
     readonly injectLocal: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['injectLocal']>
     readonly isDefined: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['isDefined']>
     readonly isNuxtError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/error')['isNuxtError']>
+    readonly isPlannerFeatureEnabled: UnwrapRef<typeof import('../../core/utils/utilsPlanner')['isPlannerFeatureEnabled']>
     readonly isPrerendered: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['isPrerendered']>
     readonly isPromise: UnwrapRef<typeof import('../../core/utils/utilsFile')['isPromise']>
     readonly isProxy: UnwrapRef<typeof import('../../node_modules/vue')['isProxy']>
@@ -959,6 +961,7 @@ declare module '@vue/runtime-core' {
     readonly injectLocal: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['injectLocal']>
     readonly isDefined: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['isDefined']>
     readonly isNuxtError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/error')['isNuxtError']>
+    readonly isPlannerFeatureEnabled: UnwrapRef<typeof import('../../core/utils/utilsPlanner')['isPlannerFeatureEnabled']>
     readonly isPrerendered: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['isPrerendered']>
     readonly isPromise: UnwrapRef<typeof import('../../core/utils/utilsFile')['isPromise']>
     readonly isProxy: UnwrapRef<typeof import('../../node_modules/vue')['isProxy']>

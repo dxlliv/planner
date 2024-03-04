@@ -19,7 +19,7 @@ export default class UserStorage {
   }
 
   public async isContentAvailable() {
-    return !!(await this.database.get(
+    return isPlannerFeatureEnabled('profileEditor') && !!(await this.database.get(
       this.user.platform,
       this.user.raw.profile.username
     ))

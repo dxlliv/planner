@@ -30,6 +30,7 @@ export { usePlannerConfig } from '../core/composables/composableConfig';
 export { usePlatformStructure } from '../core/composables/composablePlatformStructure';
 export { getFileName, getFileExtension, getMediaFilePath, fetchFileFromUrl, handleMediaForSrc, downloadZip, isPromise } from '../core/utils/utilsFile';
 export { removeUndefinedFromObject } from '../core/utils/utilsObject';
+export { isPlannerFeatureEnabled } from '../core/utils/utilsPlanner';
 export { extractUsernameFromUserId } from '../core/utils/utilsPlatform';
 export { generateUuidv4, isValidJson, slugify } from '../core/utils/utilsString';
 export { fulfillMediaFilesForExport } from '../core/utils/utilsUserExport';

@@ -30,7 +30,7 @@ function onFieldBlur() {
   >
     <contenteditable
       tag="span"
-      :contenteditable="editable"
+      :contenteditable="editable && isPlannerFeatureEnabled('profileEditor')"
       spellcheck="false"
       v-model="usernameEditable"
       no-html
