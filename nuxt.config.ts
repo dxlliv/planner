@@ -12,6 +12,7 @@ export default defineNuxtConfig({
   srcDir: "./src",
   extends: ["./core"],
   app: {
+    baseURL: '/planner/',
     head: {
       title: "Planner",
       meta: [

@@ -23,11 +23,13 @@ export function getFileExtension(filename: string) {
  * @param folder
  */
 export function getMediaFilePath(filename: string, folder: string = "") {
+  const baseURL = useNuxtApp().$config.app.baseURL
+
   if (filename.startsWith("http")) {
     return ""
   }
 
-  return `${import.meta.env.BASE_URL}user/${folder}/${filename}`
+  return `${baseURL}user/${folder}/${filename}`
 }
 
 /**

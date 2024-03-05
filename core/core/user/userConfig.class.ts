@@ -23,6 +23,8 @@ export default class UserConfig {
    * @param userPath
    */
   public static async getUserConfig(userPath: string) {
+    const baseURL = useNuxtApp().$config.app.baseURL
+
     let userConfigFullPath = ""
 
     if (userPath.startsWith("http")) {
@@ -30,7 +32,7 @@ export default class UserConfig {
       userConfigFullPath = userPath
     } else {
       // is local config
-      userConfigFullPath = `/user/${userPath}/config.json`
+      userConfigFullPath = `${baseURL}user/${userPath}/config.json`
     }
 
     // fetch user config from its local/remote path
