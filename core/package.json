@@ -68,7 +68,6 @@
     "vite": "^5.0.11",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-vuetify": "^2.0.1",
-    "vitepress": "^1.0.0-rc.39",
     "vue-contenteditable": "^4.1.0",
     "vue-filepond": "^7.0.4",
     "vue-slicksort": "^2.0.5",
