@@ -8,7 +8,7 @@
     "url": "https://github.com/dxlliv"
   },
   "scripts": {
-    "build": "nuxt build",
+    "build": "nuxt generate",
     "build-storybook": "storybook build",
     "dev": "nuxt dev",
     "docs:build": "vitepress build docs",
