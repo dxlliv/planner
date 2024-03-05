@@ -1,1 +1,0 @@
-import{_ as e,y as o}from"./entry.DJsJfks3.js";import{a4 as c,a5 as n,D as t}from"./swiper-vue.Dnu8qG6n.js";const r={},s={class:"cursor-pointer media__icon-edit"};function _(a,i){return c(),n("div",s,[t(o,{icon:"mdi-pencil",size:"20px"})])}const p=e(r,[["render",_]]);export{p as default};
