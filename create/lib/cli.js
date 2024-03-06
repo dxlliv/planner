@@ -34,13 +34,12 @@ function execShellCommand(cmd) {
 async function main() {
   try {
     console.log()
-    console.log(chalk`{cyan create-plxnner}`)
 
     if (fs.existsSync(outDir) && fs.readdirSync(outDir).length) {
       return console.log(`The folder ${projectName} already exists in the current directory, please chose another name.\n`);
     }
 
-    console.log(chalk`✨  Generating plxnner in ${projectName}`)
+    console.log(chalk.whiteBright(`✨ Generating plxnner in ./${projectName}`))
     console.log()
 
     let spinner
@@ -71,18 +70,18 @@ async function main() {
       spinner.fail(e.stderr)
     }
 
-    spinner = ora(`Installing dependencies`).start();
+    spinner = ora(`Installing packages`).start();
     try {
-      await execShellCommand(`npm install`);
+      await execShellCommand(`yarn install`);
       spinner.succeed()
     } catch (e) {
       spinner.fail(e.stderr)
     }
 
     console.log()
-    console.log(`You just spawned a plxnner instance.\nNow you can start it by running these commands:\n`)
-    console.log(chalk`{white cd ${projectName}}`);
-    console.log(chalk`{white npm run dev}`);
+    console.log(`You just spawned a fresh ` + chalk.bold('dxlliv/planner') + ` instance.\nNow you can start it by running these commands:\n`)
+    console.log(chalk.grey(`cd ${projectName}`));
+    console.log(chalk.grey(`yarn dev`));
     console.log()
   } catch (error) {
     console.log(error);
