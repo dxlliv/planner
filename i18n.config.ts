@@ -1,16 +1,5 @@
-import messages from '~/core/locales'
-
 export default defineI18nConfig(() => {
-    const plannerConfig = usePlannerConfig()
+    const appConfig = useAppConfig()
 
-    return {
-        locale: plannerConfig.locale,
-        fallbackLocale: plannerConfig.locale,
-        availableLocales: [
-          "en",
-          "it"
-        ],
-        messages,
-        warnHtmlMessage: false
-    }
+    return appConfig.i18n
 })
