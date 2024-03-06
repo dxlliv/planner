@@ -42,10 +42,10 @@ import { PatreonIcon } from "vue3-simple-icons"
       border
       icon
       class="ml-n9"
-      href="https://www.patreon.com/dxlliv"
-      target="_blank"
+      to="/instagram"
+      title="Instagram Planner"
     >
-      <PatreonIcon width="18px" />
+      <v-icon icon="mdi-shimmer" />
 
       <!--
       <v-tooltip
