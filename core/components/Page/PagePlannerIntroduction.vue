@@ -136,7 +136,7 @@ useSeoMeta({
       <v-col :cols="12" :md="5" class="mt-12 mt-md-0">
 
         <AppIntroPhone>
-          <iframe src="http://localhost:3000/planner/instagram/dxlliv" />
+          <iframe src="https://dxlliv.github.io/planner/instagram/dxlliv" />
         </AppIntroPhone>
 
       </v-col>
