@@ -3,4 +3,18 @@ body {
     padding-top: 0;
     padding-bottom: 0;
   }
+
+  .v-theme--light {
+    ::selection {
+      background: black;
+      color: white;
+    }
+  }
+
+  .v-theme--dark {
+    ::selection {
+      background: white;
+      color: black;
+    }
+  }
 }
