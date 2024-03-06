@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a2 as n}from"./chunks/framework.CCnkm19Z.js";const c=JSON.parse('{"title":"Images","description":"","frontmatter":{},"headers":[],"relativePath":"media-image.md","filePath":"media-image.md"}'),e={name:"media-image.md"},t=n("",6),l=[t];function p(h,k,r,o,d,E){return a(),i("div",null,l)}const m=s(e,[["render",p]]);export{c as __pageData,m as default};
