@@ -25,7 +25,8 @@ svg {
   bottom: 0;
   left: 0;
   right: 0;
-  opacity: 0.25;
+  opacity: 0.165;
   filter: grayscale(1);
+  pointer-events: none;
 }
 </style>
