@@ -68,10 +68,7 @@ const emit = defineEmits(["create", "export"])
         </v-dialog>
       </v-list-item>
 
-      <v-list-item
-        title="Deluxe"
-        href="javascript:void('deluxe')"
-      >
+      <v-list-item title="Deluxe">
         <template #prepend>
           <v-icon icon="mdi-shimmer" />
         </template>

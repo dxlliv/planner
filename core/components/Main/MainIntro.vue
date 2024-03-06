@@ -87,6 +87,11 @@ import { PatreonIcon } from "vue3-simple-icons"
     svg {
       pointer-events: none;
     }
+
+    i {
+      margin-top: -2px;
+      margin-right: -1px;
+    }
   }
 
   &.v-theme--dark {

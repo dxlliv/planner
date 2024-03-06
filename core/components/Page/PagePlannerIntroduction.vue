@@ -113,13 +113,13 @@ useSeoMeta({
           <h6 class="text-h6">Dive into dxlliv/planner</h6>
         </p>
 
-        <p class="mb-9">
+        <p class="mb-6">
           For nerds, enthusiasts, and those who take their Instagram game seriously. <br class="hidden-md-and-down" />
           Bootstrap a planner in seconds with a command and start planning your grid.
         </p>
 
         <code>
-          npx create-plxnner planner<AppIntroCmdButton>
+          <span>npx create-plxnner planner</span><AppIntroCmdButton>
             <v-icon
               icon="mdi-content-copy"
               @click="onCopyCreatePlannerCode"
@@ -132,7 +132,7 @@ useSeoMeta({
           It's also safe to use our demo; just create a new profile and start organizing.
         </p>
 
-        <v-btn color="primary" size="large">Try Plxnner</v-btn>
+        <v-btn color="primary" size="large" to="/">Try Plxnner</v-btn>
 
       </v-col>
       <v-col :cols="12" :md="5" class="mt-12 mt-md-0">
@@ -178,5 +178,13 @@ code {
   padding: 13px 0 16px 16px;
   border-radius: 8px;
   user-select: text;
+
+  span {
+    margin-top: 2px;
+  }
+
+  button {
+    margin-top: 1px;
+  }
 }
 </style>
