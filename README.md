@@ -11,7 +11,7 @@ Plan the grid with no hassle and build your definitive Instagram profile.
 
 ## Features
 - **Organize your grid**  
-  Drag and drop your media or configure it in the old fashioned way.
+  Drag and drop your media or configure it in the old-fashioned way.
 
 
 - **A wide range of media**  
@@ -44,20 +44,11 @@ Plan the grid with no hassle and build your definitive Instagram profile.
 
 ## Getting started
 
-Make sure you have Node.js and NPM installed.  
-Clone the repository and move to the project directory:
+Make sure you have Node.js and Yarn installed, then open your terminal.  
+Run this command to generate a **dxlliv/planner** instance from scratch:
 
 ```bash
-git clone https://github.com/dxlliv/planner.git && cd planner
-```
-
-Install dependencies and run the project with `yarn` or `npm`:
-
-```bash
-yarn install && yarn dev
-
-# or use npm
-npm install && npm run dev
+npx create-plxnner planner
 ```
 
 ### Configuration
@@ -72,6 +63,26 @@ In that case, just upload the media and rearrange your grid as desired.
 
 Export your changes in zip format and overwrite your profile configuration.  
 I may release a Node.js helper in the future, to speed up this process.
+
+## Development
+
+I'd like to make this tool accessible to all the people with an intuitive interface directly from the browser, without installing any software or changing a single line of code. Some changes have already been made.
+
+If you want to contribute and improve **dxlliv/planner**,  
+clone the repository and move to the project directory:
+
+```bash
+git clone https://github.com/dxlliv/planner.git && cd planner
+```
+
+Install dependencies and run the project in development mode:
+
+```bash
+yarn install && yarn dev
+
+# or use npm
+npm install && npm run dev
+```
 
 ## Roadmap
 

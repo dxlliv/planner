@@ -45,7 +45,6 @@ Plan the grid with no hassle and build your definitive Instagram profile.
 ## Getting started
 
 This package will generate a new **dxlliv/planner** instance from scratch.  
-Make sure you have Node.js and yarn installed, then run this command:
 
 ```bash
 npx create-plxnner planner

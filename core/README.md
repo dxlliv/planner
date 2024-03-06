@@ -11,7 +11,7 @@ Plan the grid with no hassle and build your definitive Instagram profile.
 
 ## Features
 - **Organize your grid**  
-  Drag and drop your media or configure it in the old fashioned way.
+  Drag and drop your media or configure it in the old-fashioned way.
 
 
 - **A wide range of media**  
@@ -44,23 +44,14 @@ Plan the grid with no hassle and build your definitive Instagram profile.
 
 ## Getting started
 
-This package is a Nuxt Layer for the **dxlliv/planner** starter template.  
-Make sure you have Node.js and clone the template with this command:
+This package is a Nuxt Layer for the **dxlliv/planner** project.    
+Generate a new instance from scratch running this command:
 
 ```bash
-git clone https://github.com/dxlliv/instagram.git && cd instagram
-```
-
-Install dependencies and run the project with `yarn` or `npm`:
-
-```bash
-yarn install && yarn dev
-
-# or use npm
-npm install && npm run dev
+npx create-plxnner planner
 ```
 
 ## Configuration
 
-Make changes to your profile by editing `src/public/user/instagram/{username}`.  
-Update `planner.config.ts` accordingly. Read the [documentation](https://dxlliv.github.io/planner/docs/) for further information.
+Make changes to your profile by editing `public/user/instagram/{username}`.  
+Update `planner.config.ts` accordingly. Read the [documentation](https://dxlliv.github.io/planner/docs/) for more details.
