@@ -32,6 +32,7 @@
   "dependencies": {
     "@babel/types": "^7.23.6",
     "@fontsource/cookie": "^5.0.18",
+    "@fontsource/quicksand": "^5.0.16",
     "@mdi/font": "^7.4.47",
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxtjs/i18n": "^8.0.2",
