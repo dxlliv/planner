@@ -36,6 +36,6 @@ const users = computed(() => useUserStore().userList)
 
 <style scoped lang="scss">
 .ig-user-selector-list {
-  max-width: calc(100vw - 48px);
+  max-width: 100vw;
 }
 </style>

@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 <template>
   <AppBackground />
 
-  <Swiper direction="vertical">
+  <Swiper class="ig-index" direction="vertical">
     <SwiperSlide>
       <MainIntro />
     </SwiperSlide>
@@ -17,13 +17,11 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 
 <style scoped lang="scss">
 .ig-index {
-  display: grid;
-  height: 100%;
-  max-width: 960px;
-}
+  cursor: grab;
 
-.ig-user-selector-list {
-  max-width: 100vw;
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 .swiper {

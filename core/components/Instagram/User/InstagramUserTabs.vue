@@ -79,6 +79,10 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
       margin-right: 2px;
       vertical-align: -1px;
     }
+
+    @media(max-width: 599px) {
+      padding: 12px 25px;
+    }
   }
 }
 </style>

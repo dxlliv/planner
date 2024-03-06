@@ -26,5 +26,9 @@
   display: grid;
   height: 100%;
   max-width: 960px;
+
+  :deep(.ig-user-selector-list) {
+    max-width: calc(100vw - 48px);
+  }
 }
 </style>

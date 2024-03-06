@@ -8,7 +8,7 @@ const tab = ref("posts")
 
 <template>
   <v-sheet color="transparent" class="ig-profile-page">
-    <v-container class="py-0">
+    <v-container class="px-1 py-sm-auto py-0">
       <InstagramUserProfile :user="user" />
 
       <InstagramUserTabs

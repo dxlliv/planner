@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="ig-profile-page__header">
+  <div class="ig-profile-page__header px-2 px-sm-0">
     <div class="ig-profile-page__header__top py-4">
       <router-link to="/">
         <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px" />
@@ -18,7 +18,7 @@ defineProps<{
       />
     </div>
 
-    <div class="mt-2 mb-8">
+    <div class="mb-8">
       <v-row>
         <v-col cols="3" class="ig-profile-page__header__avatar text-left">
           <InstagramUserProfileAvatarEditor :size="72" :user="user" />
