@@ -119,10 +119,12 @@ useSeoMeta({
         </p>
 
         <code>
-          npx create-plxnner planner<v-icon
-          icon="mdi-content-copy" class="ml-3"
-          @click="onCopyCreatePlannerCode"
-        />
+          npx create-plxnner planner<AppIntroCmdButton>
+            <v-icon
+              icon="mdi-content-copy"
+              @click="onCopyCreatePlannerCode"
+            />
+          </AppIntroCmdButton>
         </code>
 
         <p class="mt-12 mb-6">
@@ -173,7 +175,7 @@ p {
 
 code {
   border: 1px solid rgba(88, 88, 88, 0.25);
-  padding: 16px 16px 16px 18px;
+  padding: 13px 0 16px 16px;
   border-radius: 8px;
   user-select: text;
 }
