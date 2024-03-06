@@ -24,6 +24,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  @media(max-width: 320px) {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
 body {
   user-select: none;
 }
