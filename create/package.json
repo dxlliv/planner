@@ -2,8 +2,20 @@
   "name": "create-plxnner",
   "version": "0.0.1-alpha.0",
   "description": "Create a plxnner in seconds",
-  "type": "module",
-  "homepage": "https://dxlliv.github.io/planner/",
+  "keywords": [
+    "instagram",
+    "social",
+    "profile",
+    "planner",
+    "self-hosted",
+    "organizer",
+    "backup"
+  ],
+  "homepage": "https://dxlliv.github.io/planner/docs/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dxlliv/planner.git"
+  },
   "author": {
     "name": "Diego Villa",
     "url": "https://github.com/dxlliv"
