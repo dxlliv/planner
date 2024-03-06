@@ -9,10 +9,10 @@ hero:
   tagline: Simple, fast, and versatile. <br class="sm" />Geek your grid <br />and build your <br class="sm" />definitive Instagram profile.
   actions:
     - theme: brand
-      text: Try Planner
+      text: Try Plxnner
       link: https://dxlliv.github.io/planner
     - theme: alt
-      text: Host Your Planner
+      text: Host Your Plxnner
       link: /getting-started
   image:
     src: https://dxlliv.github.io/planner/logo.svg
@@ -20,7 +20,7 @@ hero:
 
 features:
   - title: 🖼️ &nbsp; Organize your grid
-    details: "Plan your Instagram posts and preview <br />what your profile grid will look like"
+    details: "Plan your social media and preview <br />what your profile grid will look like"
   - title: 🎬 &nbsp; A wide range of media
     details: "It supports both local and remote <br />images, videos, albums and iframes"
   - title: ✏️ &nbsp; Limitless changes
