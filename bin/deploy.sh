@@ -4,7 +4,7 @@
 yarn generate
 
 # delete symbolic link
-rm -rf dist
+rm dist
 
 # move real dist folder to /dist
 mv .output/public/ dist
@@ -20,6 +20,7 @@ touch dist/.nojekyll
 
 # place dist files manually in gh-pages
 # since git subtree seems unusable now
+rm -rf ../dist
 mv dist ../dist
 git checkout gh-pages
 git rm -r .
