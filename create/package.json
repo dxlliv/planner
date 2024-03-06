@@ -20,6 +20,7 @@
     "name": "Diego Villa",
     "url": "https://github.com/dxlliv"
   },
+  "type": "module",
   "bin": "lib/cli.js",
   "files": [
     "lib"
