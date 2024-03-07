@@ -1,1 +1,0 @@
-import{W as a}from"./entry.CXpGAcRA.js";import{d as r,a4 as o,a6 as p,L as s}from"./swiper-vue.Dnu8qG6n.js";const c=r({__name:"UserEditorFieldString",props:{data:{},variant:{}},setup(l){return(e,t)=>(o(),p(a,s(e.$props,{placeholder:e.data.placeholder,"hide-details":"",spellcheck:"false"}),null,16,["placeholder"]))}});export{c as _};
