@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   },
   modules: [
     "nuxt-swiper",
+    "vuetify-nuxt-module",
     '@pinia-plugin-persistedstate/nuxt',
     "@vueuse/nuxt",
     [
@@ -29,19 +30,23 @@ export default defineNuxtConfig({
     global: true,
     dirs: ["./components"],
   },
-  hooks: {
-    "vite:extendConfig": (config) => {
-      config.plugins.push(
-        vuetify({
-          styles: { configFile: resolve("./styles/settings.scss") }
-        })
-      );
-    }
-  },
   pinia: {
     storesDirs: [
       '../base/stores/**'
     ]
+  },
+  vuetify: {
+    moduleOptions: {
+      /* other module options */
+      styles: { configFile: resolve("./styles/settings.scss") }
+    },
+    vuetifyOptions: {
+      /* vuetify options */
+    }
+  },
+  /* For Nuxt 3.9.0+ */
+  features: {
+    inlineStyles: false
   },
   imports: {
     dirs: ['config', 'composables', 'core', 'stores', 'utils']
