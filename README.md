@@ -2,6 +2,11 @@
 
 > An elegant open-source planner for your Instagram profile
 
+<a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?color=black" /></a>
+<a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/dm/plxnner.svg?color=black" /></a>
+<a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/planner-demo-blue" /></a>
+<a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/stars/dxlliv/planner?style=social" /></a>
+
 ## About
 
 **dxlliv/planner** lets you preview what your profile grid will look like.  

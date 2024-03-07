@@ -44,7 +44,7 @@ Plan the grid with no hassle and build your definitive Instagram profile.
 
 ## Getting started
 
-This package will generate a new **dxlliv/planner** instance from scratch.  
+Generate a new instance from scratch running this command:
 
 ```bash
 npx create-plxnner planner
@@ -53,4 +53,4 @@ npx create-plxnner planner
 ## Configuration
 
 Make changes to your profile by editing `public/user/instagram/{username}`.  
-Update `planner.config.ts` accordingly. Read the [documentation](https://dxlliv.github.io/planner/docs/) for further information.
+Update `planner.config.ts` accordingly. Read the [documentation](https://dxlliv.github.io/planner/docs/) for more details.

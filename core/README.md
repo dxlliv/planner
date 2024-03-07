@@ -44,7 +44,6 @@ Plan the grid with no hassle and build your definitive Instagram profile.
 
 ## Getting started
 
-This package is a Nuxt Layer for the **dxlliv/planner** project.    
 Generate a new instance from scratch running this command:
 
 ```bash
