@@ -18,17 +18,17 @@ mv docs/.vitepress/dist/ dist/docs
 # disable jekyll to avoid any _problems
 touch dist/.nojekyll
 
+# create .gitignore
+echo -e ".nuxt\n.output\nnode_modules" >> dist/.gitignore
+
 # place dist files manually in gh-pages
 # since git subtree seems unusable now
 rm -rf ../dist
 mv dist ../dist
 git checkout gh-pages
-git rm -r .
+rm -r *
 mv ../dist/* .
 
 # commit to gh-pages
 git add .
 git commit -m "Update gh-pages"
-
-# switch back to main branch
-git checkout main
