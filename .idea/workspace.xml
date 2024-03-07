@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="626aa096-ebf8-4336-abe2-7f66e3801f61" name="Changes" comment="Update deploy script">
+      <change beforePath="$PROJECT_DIR$/200.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/twitterImage.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/app.BtAbBFGZ.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/chunks/framework.CCnkm19Z.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/chunks/theme.BOyP_0p7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/getting-started.md.C7r8hOvK.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/getting-started.md.C7r8hOvK.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/index.md.DCrHbmlR.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/index.md.DCrHbmlR.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/installation.md.B31wUasy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/installation.md.B31wUasy.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-italic-cyrillic-ext.5XJwZIOp.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-italic-cyrillic.D6csxwjC.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-italic-greek-ext.CHOfFY1k.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-italic-greek.9J96vYpw.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-italic-latin-ext.BGcWXLrn.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-italic-latin.DbsTr1gm.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-italic-vietnamese.DHNAd7Wr.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-roman-cyrillic-ext.DxP3Awbn.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-roman-cyrillic.CMhn1ESj.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-roman-greek-ext.D0mI3NpI.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-roman-greek.JvnBZ4YD.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-roman-latin-ext.ZlYT4o7i.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-roman-latin.Bu8hRsVA.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/inter-roman-vietnamese.ClpjcLMQ.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/media-album.md.D3AmimEx.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/media-album.md.D3AmimEx.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/media-iframe.md.BTEcF58S.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/media-iframe.md.BTEcF58S.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/media-image.md.CmvMc9-P.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/media-image.md.CmvMc9-P.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/media-video.md.DmbmyGTK.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/media-video.md.DmbmyGTK.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/profile-configuration.md.qXDqDoSL.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/profile-configuration.md.qXDqDoSL.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/profile-creation.md.DaA6jP9Z.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/profile-creation.md.DaA6jP9Z.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/profile-exporting.md.Cu5QtQgg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/profile-exporting.md.Cu5QtQgg.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/profile-importing.md.CvCMbhuT.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/profile-importing.md.CvCMbhuT.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/profiles-overview.md.Ce8L0rDs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/profiles-overview.md.Ce8L0rDs.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/shortcuts.md.Cqga04LL.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/shortcuts.md.Cqga04LL.lean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/style.CwAsJOM0.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/getting-started.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/hashmap.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/installation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/media-album.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/media-iframe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/media-image.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/media-video.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/profile-configuration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/profile-creation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/profile-exporting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/profile-importing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/profiles-overview.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/shortcuts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logo.svg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="Vue Composition API Component" />
+        <option value="Vue Options API Component" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2aUncVB6QhxMZj4JjGyB5wcYBqS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gh-pages&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dxlliv/Development/Personal/planner/src/public/app&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/dxlliv/Development/Personal/planner/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/dxlliv/Development/Personal/planner/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;,
+      &quot;Vue Options API Component&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/public/app" />
+      <recent name="$PROJECT_DIR$/create" />
+      <recent name="$PROJECT_DIR$/template" />
+      <recent name="$PROJECT_DIR$/layer/components/UserSelector" />
+      <recent name="$PROJECT_DIR$/layer/components/Page" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/server/api/user/[platform]/[username]" />
+      <recent name="$PROJECT_DIR$/src/server/api" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/server" />
+      <recent name="$PROJECT_DIR$/planner" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-985749b364ce-JavaScript-WS-233.14475.40" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="626aa096-ebf8-4336-abe2-7f66e3801f61" name="Changes" comment="" />
+      <created>1704382104978</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704382104978</updated>
+      <workItem from="1704382106044" duration="43408000" />
+      <workItem from="1704495665913" duration="7949000" />
+      <workItem from="1704549586035" duration="7000" />
+      <workItem from="1704563525429" duration="22615000" />
+      <workItem from="1704651335199" duration="17958000" />
+      <workItem from="1704678397815" duration="520000" />
+      <workItem from="1704848552759" duration="1667000" />
+      <workItem from="1704920816976" duration="710000" />
+      <workItem from="1705009027137" duration="2365000" />
+      <workItem from="1705036236502" duration="2631000" />
+      <workItem from="1705095951577" duration="7308000" />
+      <workItem from="1705151480801" duration="19538000" />
+      <workItem from="1705374081731" duration="5854000" />
+      <workItem from="1705432551029" duration="653000" />
+      <workItem from="1705459221593" duration="30285000" />
+      <workItem from="1705598359360" duration="3000" />
+      <workItem from="1705700590555" duration="610000" />
+      <workItem from="1705818652924" duration="3715000" />
+      <workItem from="1705893324863" duration="4975000" />
+      <workItem from="1706074584246" duration="151000" />
+      <workItem from="1706533625374" duration="117000" />
+      <workItem from="1706710986420" duration="69000" />
+      <workItem from="1706821254130" duration="3234000" />
+      <workItem from="1706879640545" duration="9824000" />
+      <workItem from="1707012017759" duration="1732000" />
+      <workItem from="1707069240325" duration="7856000" />
+      <workItem from="1707233261611" duration="2878000" />
+      <workItem from="1707300427118" duration="24000" />
+      <workItem from="1707310443652" duration="1398000" />
+      <workItem from="1707318280015" duration="588000" />
+      <workItem from="1707319942957" duration="22000" />
+      <workItem from="1707520054850" duration="1024000" />
+      <workItem from="1707604613722" duration="26262000" />
+      <workItem from="1707886895823" duration="876000" />
+      <workItem from="1709309318709" duration="57455000" />
+      <workItem from="1709511089806" duration="4717000" />
+      <workItem from="1709517412054" duration="19290000" />
+      <workItem from="1709610016611" duration="35495000" />
+      <workItem from="1709751574454" duration="660000" />
+      <workItem from="1709752245096" duration="490000" />
+      <workItem from="1709752742923" duration="2301000" />
+      <workItem from="1709759784516" duration="4493000" />
+      <workItem from="1709764828758" duration="5874000" />
+      <workItem from="1709807570935" duration="29000" />
+    </task>
+    <task id="LOCAL-00134" summary="Move package.json to core and sort properties">
+      <option name="closed" value="true" />
+      <created>1709518808028</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1709518808028</updated>
+    </task>
+    <task id="LOCAL-00135" summary="Add isPlannerFeatureEnabled util">
+      <option name="closed" value="true" />
+      <created>1709519307669</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1709519307669</updated>
+    </task>
+    <task id="LOCAL-00136" summary="Add grid sort planner-feature option">
+      <option name="closed" value="true" />
+      <created>1709519626044</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1709519626044</updated>
+    </task>
+    <task id="LOCAL-00137" summary="Improve text in MainDeluxe.vue">
+      <option name="closed" value="true" />
+      <created>1709519645474</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1709519645474</updated>
+    </task>
+    <task id="LOCAL-00138" summary="Add profile editable planner-feature option">
+      <option name="closed" value="true" />
+      <created>1709520161363</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1709520161363</updated>
+    </task>
+    <task id="LOCAL-00139" summary="Add template files">
+      <option name="closed" value="true" />
+      <created>1709595278515</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1709595278515</updated>
+    </task>
+    <task id="LOCAL-00140" summary="Add script for planner creation">
+      <option name="closed" value="true" />
+      <created>1709595330526</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1709595330527</updated>
+    </task>
+    <task id="LOCAL-00141" summary="Move storybook mockups">
+      <option name="closed" value="true" />
+      <created>1709595359840</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1709595359840</updated>
+    </task>
+    <task id="LOCAL-00142" summary="Improve text in MainDeluxe.vue">
+      <option name="closed" value="true" />
+      <created>1709595622963</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1709595622963</updated>
+    </task>
+    <task id="LOCAL-00143" summary="Update .gitignore">
+      <option name="closed" value="true" />
+      <created>1709595685959</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1709595685959</updated>
+    </task>
+    <task id="LOCAL-00144" summary="Move vitepress package outside core">
+      <option name="closed" value="true" />
+      <created>1709599626757</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1709599626757</updated>
+    </task>
+    <task id="LOCAL-00145" summary="Adapt deploy script for nuxt">
+      <option name="closed" value="true" />
+      <created>1709607517304</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1709607517304</updated>
+    </task>
+    <task id="LOCAL-00146" summary="Update app build script command">
+      <option name="closed" value="true" />
+      <created>1709607547998</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1709607547998</updated>
+    </task>
+    <task id="LOCAL-00147" summary="Update planner default baseURL">
+      <option name="closed" value="true" />
+      <created>1709607569014</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1709607569014</updated>
+    </task>
+    <task id="LOCAL-00148" summary="Update planner default baseURL">
+      <option name="closed" value="true" />
+      <created>1709607589428</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1709607589428</updated>
+    </task>
+    <task id="LOCAL-00149" summary="Remove symbolic link and re-add dist folder">
+      <option name="closed" value="true" />
+      <created>1709608796999</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1709608796999</updated>
+    </task>
+    <task id="LOCAL-00150" summary="Update gh-pages">
+      <option name="closed" value="true" />
+      <created>1709609937255</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1709609937255</updated>
+    </task>
+    <task id="LOCAL-00151" summary="Remove dist folder">
+      <option name="closed" value="true" />
+      <created>1709610038264</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1709610038264</updated>
+    </task>
+    <task id="LOCAL-00152" summary="Update deploy script since git subtree seems unusable now">
+      <option name="closed" value="true" />
+      <created>1709610584888</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1709610584888</updated>
+    </task>
+    <task id="LOCAL-00153" summary="Update deploy script">
+      <option name="closed" value="true" />
+      <created>1709610752407</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1709610752407</updated>
+    </task>
+    <task id="LOCAL-00154" summary="Update dependencies to avoid multiple packages installation">
+      <option name="closed" value="true" />
+      <created>1709611328147</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1709611328147</updated>
+    </task>
+    <task id="LOCAL-00155" summary="Add missing dependencies">
+      <option name="closed" value="true" />
+      <created>1709611359694</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1709611359694</updated>
+    </task>
+    <task id="LOCAL-00156" summary="Add text selection css">
+      <option name="closed" value="true" />
+      <created>1709728805419</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1709728805419</updated>
+    </task>
+    <task id="LOCAL-00157" summary="Update create-plxnner script">
+      <option name="closed" value="true" />
+      <created>1709729321275</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729321275</updated>
+    </task>
+    <task id="LOCAL-00158" summary="Update create-plxnner script">
+      <option name="closed" value="true" />
+      <created>1709729400145</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729400145</updated>
+    </task>
+    <task id="LOCAL-00159" summary="Add README.md to create-plxnner">
+      <option name="closed" value="true" />
+      <created>1709729409818</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729409818</updated>
+    </task>
+    <task id="LOCAL-00160" summary="Remove [username] page with no [platform]/ prefix">
+      <option name="closed" value="true" />
+      <created>1709729454437</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729454437</updated>
+    </task>
+    <task id="LOCAL-00161" summary="Refactor i18n.config.ts using core app.config.ts">
+      <option name="closed" value="true" />
+      <created>1709729500555</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729500555</updated>
+    </task>
+    <task id="LOCAL-00162" summary="Improve AppBackground.vue">
+      <option name="closed" value="true" />
+      <created>1709729512532</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729512532</updated>
+    </task>
+    <task id="LOCAL-00163" summary="Update index.md in documentation">
+      <option name="closed" value="true" />
+      <created>1709729567718</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729567718</updated>
+    </task>
+    <task id="LOCAL-00164" summary="Improve documentation index.md">
+      <option name="closed" value="true" />
+      <created>1709729583082</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729583082</updated>
+    </task>
+    <task id="LOCAL-00165" summary="Add @fontsource/quicksand">
+      <option name="closed" value="true" />
+      <created>1709729621080</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729621080</updated>
+    </task>
+    <task id="LOCAL-00166" summary="Hide scrollbar with width &lt; 320px">
+      <option name="closed" value="true" />
+      <created>1709729641363</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729641363</updated>
+    </task>
+    <task id="LOCAL-00167" summary="Improve planner responsive">
+      <option name="closed" value="true" />
+      <created>1709729716087</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729716087</updated>
+    </task>
+    <task id="LOCAL-00168" summary="Add PagePlannerIntroductio.vue">
+      <option name="closed" value="true" />
+      <created>1709729768792</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729768792</updated>
+    </task>
+    <task id="LOCAL-00169" summary="Remove srcDir from nuxt.config.ts template">
+      <option name="closed" value="true" />
+      <created>1709729787327</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729787327</updated>
+    </task>
+    <task id="LOCAL-00170" summary="Remove .gitignore from create-plxnner">
+      <option name="closed" value="true" />
+      <created>1709729925142</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729925142</updated>
+    </task>
+    <task id="LOCAL-00171" summary="Update README.md in create-plxnner">
+      <option name="closed" value="true" />
+      <created>1709729952207</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1709729952207</updated>
+    </task>
+    <task id="LOCAL-00172" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1709731413805</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1709731413805</updated>
+    </task>
+    <task id="LOCAL-00173" summary="Update demo link in PagePlannerIntroduction.vue">
+      <option name="closed" value="true" />
+      <created>1709751145938</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1709751145938</updated>
+    </task>
+    <task id="LOCAL-00174" summary="Add animation on planner cmd button">
+      <option name="closed" value="true" />
+      <created>1709751180781</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1709751180781</updated>
+    </task>
+    <task id="LOCAL-00175" summary="Bump core version">
+      <option name="closed" value="true" />
+      <created>1709751226957</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1709751226957</updated>
+    </task>
+    <task id="LOCAL-00176" summary="Update deploy.sh">
+      <option name="closed" value="true" />
+      <created>1709752447713</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1709752447713</updated>
+    </task>
+    <task id="LOCAL-00177" summary="Minor improvements">
+      <option name="closed" value="true" />
+      <created>1709760765167</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1709760765167</updated>
+    </task>
+    <task id="LOCAL-00178" summary="Set &quot;type: module&quot; in create-plxnner package.json">
+      <option name="closed" value="true" />
+      <created>1709760873845</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1709760873845</updated>
+    </task>
+    <task id="LOCAL-00179" summary="Bump create-plxnner version">
+      <option name="closed" value="true" />
+      <created>1709760888850</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1709760888850</updated>
+    </task>
+    <task id="LOCAL-00180" summary="Improve seo in PagePlannerIntroduction.vue">
+      <option name="closed" value="true" />
+      <created>1709762504501</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1709762504501</updated>
+    </task>
+    <task id="LOCAL-00181" summary="Bump core version">
+      <option name="closed" value="true" />
+      <created>1709807222257</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1709807222257</updated>
+    </task>
+    <task id="LOCAL-00182" summary="Update deploy script">
+      <option name="closed" value="true" />
+      <created>1709807336636</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1709807336636</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Add text selection css" />
+    <MESSAGE value="Update create-plxnner script" />
+    <MESSAGE value="Add README.md to create-plxnner" />
+    <MESSAGE value="Remove [username] page with no [platform]/ prefix" />
+    <MESSAGE value="Refactor i18n.config.ts using core app.config.ts" />
+    <MESSAGE value="Improve AppBackground.vue" />
+    <MESSAGE value="Update index.md in documentation" />
+    <MESSAGE value="Improve documentation index.md" />
+    <MESSAGE value="Add @fontsource/quicksand" />
+    <MESSAGE value="Hide scrollbar with width &lt; 320px" />
+    <MESSAGE value="Improve planner responsive" />
+    <MESSAGE value="Add PagePlannerIntroductio.vue" />
+    <MESSAGE value="Remove srcDir from nuxt.config.ts template" />
+    <MESSAGE value="Remove .gitignore from create-plxnner" />
+    <MESSAGE value="Update README.md in create-plxnner" />
+    <MESSAGE value="Update README.md" />
+    <MESSAGE value="Update demo link in PagePlannerIntroduction.vue" />
+    <MESSAGE value="Add animation on planner cmd button" />
+    <MESSAGE value="Update deploy.sh" />
+    <MESSAGE value="Minor improvements" />
+    <MESSAGE value="Set &quot;type: module&quot; in create-plxnner package.json" />
+    <MESSAGE value="Bump create-plxnner version" />
+    <MESSAGE value="Improve seo in PagePlannerIntroduction.vue" />
+    <MESSAGE value="Bump core version" />
+    <MESSAGE value="Update deploy script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update deploy script" />
+  </component>
+</project>

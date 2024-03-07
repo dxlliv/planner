@@ -1,0 +1,1 @@
+import{s as n}from"./entry.Dlrc_O8N.js";import{j as o,k as r}from"./swiper-vue.CEq_1mxI.js";const u=n({elevation:{type:[Number,String],validator(e){const t=parseInt(e);return!isNaN(t)&&t>=0&&t<=24}}},"elevation");function v(e){return{elevationClasses:o(()=>{const s=r(e)?e.value:e.elevation,a=[];return s==null||a.push(`elevation-${s}`),a})}}export{u as m,v as u};

@@ -1,0 +1,1 @@
+import r from"./PagePlannerIndexDesktop.BNORqIcb.js";import a from"./PagePlannerIndexMobile.BmTU5wRC.js";import{d as p,O as e,Q as n}from"./swiper-vue.CEq_1mxI.js";const _=p({__name:"PagePlannerIndex",setup(t){return(o,m)=>o.$vuetify.display.mdAndUp?(e(),n(r,{key:0})):(e(),n(a,{key:1}))}});export{_};
