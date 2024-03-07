@@ -31,7 +31,6 @@
     "@pinia/nuxt": "^0.5.1",
     "@pqina/pintura": "^8.74.0",
     "@pqina/vue-pintura": "^9.0.1",
-    "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/compiler-sfc": "^3.4.21",
     "@vuelidate/core": "^2.0.3",
@@ -84,5 +83,8 @@
     "react-dom": "^18.2.0",
     "storybook": "^7.6.17",
     "vitepress": "^1.0.0-rc.45"
+  },
+  "overrides": {
+    "vue": "3"
   }
 }
