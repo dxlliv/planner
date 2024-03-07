@@ -55,6 +55,7 @@ Run this command to generate a **dxlliv/planner** instance from scratch:
 ```bash
 npx create-plxnner planner
 ```
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/dxlliv/planner?file=src%2Fpublic%2Fuser%2Finstagram%2Fdxlliv%2Fconfig.json)
 
 ### Configuration
 
