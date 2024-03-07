@@ -5,3 +5,5 @@ node_modules
 .output
 *.local
 docs/.vitepress/cache
+yarn.lock
+package-lock.json
