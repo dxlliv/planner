@@ -5,15 +5,21 @@ const props = defineProps<{
 }>()
 
 const userStore = useUserStore()
-const user = userStore.getUser(props.username, props.platform)
+const user = ref()
 
-if (user) {
-  user.media.fetch()
-}
+onMounted(() => {
+  setTimeout(() => {
+    user.value = userStore.getUser(props.username, props.platform)
+
+    if (user) {
+      user.value.media.fetch()
+    }
+  }, 100)
+})
 </script>
 
 <template>
-  <LayoutInstagram :user="user">
+  <LayoutInstagram v-if="user" :user="user">
     <InstagramUser :user="user" />
   </LayoutInstagram>
 </template>

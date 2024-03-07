@@ -5,9 +5,11 @@ import UserLoader from "../../core/user/userLoader.class";
 const themeStore = useThemeStore()
 const theme = useTheme()
 
-// initialize users
-await UserLoader.loadUsersFromConfig()
-await UserLoader.loadUsersFromStorage()
+onBeforeMount(async () => {
+  // initialize users
+  await UserLoader.loadUsersFromConfig()
+  await UserLoader.loadUsersFromStorage()
+})
 
 // restore previous dark theme state
 themeStore.restorePreviousState(theme)

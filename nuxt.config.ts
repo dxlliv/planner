@@ -4,7 +4,7 @@ const { resolve } = createResolver(import.meta.url);
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  ssr: false,
+  ssr: true,
   alias: {
     "~": resolve(__dirname, "."),
     "@": resolve(__dirname, "./src")
@@ -20,9 +20,6 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
     }
-  },
-  build: {
-    transpile: ["vuetify"]
   },
   vite: {
     define: {

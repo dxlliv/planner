@@ -6,8 +6,10 @@ const platform: string = route.params.platform.toString()
 </script>
 
 <template>
-  <PagePlannerProfile
-    :username="username"
-    :platform="platform"
-  />
+  <client-only>
+    <PagePlannerProfile
+        :username="username"
+        :platform="platform"
+    />
+  </client-only>
 </template>
