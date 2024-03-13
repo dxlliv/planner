@@ -45,7 +45,7 @@ async function rebuildRawMedia(
 
   switch (media.type) {
     case "album":
-      let iAlbumItem = 0
+      let iAlbumItem = 1
       let rawAlbum = []
 
       let rawAlbumItemMedia
@@ -113,16 +113,18 @@ export async function rebuildRawUserConfigFromUser(user: IUser) {
     )}`
   }
 
-  let i = 0
+  let i = 1
 
   // for each media collection
   for (const collectionKey of user.media.collectionKeys) {
-    i = 0
+    i = 1
 
     rawUser.media[collectionKey] = []
 
+    const mediaCollectionItems = [...user.media.collections[collectionKey]].reverse()
+
     // for each media in this collection
-    for (const media of user.media.collections[collectionKey]) {
+    for (const media of mediaCollectionItems) {
       rawUser.media[collectionKey].push(await rebuildRawMedia(media, i))
 
       i++

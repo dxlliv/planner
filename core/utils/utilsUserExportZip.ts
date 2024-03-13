@@ -23,7 +23,7 @@ async function asdasd(
 
   switch (media.type) {
     case "album":
-      let iAlbumItem = 0
+      let iAlbumItem = 1
 
       let rawAlbumItemMedia
 
@@ -107,16 +107,18 @@ async function prepareUserZipConfig(user: IUser) {
     ]
   }
 
-  let i = 0
+  let i = 1
 
   let mediaFiles = {}
 
   // for each media collection
   for (const collectionKey of user.media.collectionKeys) {
-    i = 0
+    i = 1
+
+    const mediaCollectionItems = [...user.media.collections[collectionKey]].reverse()
 
     // for each media in this collection
-    for (const media of user.media.collections[collectionKey]) {
+    for (const media of mediaCollectionItems) {
       const partialMediaFiles = await asdasd(media, i)
 
       mediaFiles = {
