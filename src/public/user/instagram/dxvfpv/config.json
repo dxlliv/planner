@@ -9,27 +9,27 @@
   },
   "media": {
     "posts": [
-      "6.jpg",
+      "post-6.jpg",
       {
         "type": "iframe",
         "href": "https://youtube.com/embed/j9oLm2FLBNI",
-        "cover": "5.jpg"
+        "cover": "post-5.jpg"
       },
-      ["4.jpg", "4x1.jpg"],
-      "3.jpg",
+      ["post-4x1.jpg", "post-4x2.jpg"],
+      "post-3.jpg",
       {
         "type": "image",
-        "name": "2.jpg",
+        "name": "post-2.jpg",
         "caption": "\uD83C\uDFED",
         "date": "3/13/2020"
       },
-      "1.jpg"
+      "post-1.jpg"
     ],
     "reels": [
       {
         "type": "iframe",
         "href": "https://youtube.com/embed/j9oLm2FLBNI",
-        "cover": "5.jpg"
+        "cover": "reel-5.jpg"
       }
     ],
     "stories": []
