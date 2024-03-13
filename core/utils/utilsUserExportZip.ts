@@ -8,7 +8,7 @@ async function fileToArrayBuffer(file) {
   return new Uint8Array(await file.arrayBuffer())
 }
 
-async function asdasd(
+async function exportMediaFinal(
   media: IMedia,
   mediaIndex: number,
   isAlbumIndex: number = -1,
@@ -29,7 +29,7 @@ async function asdasd(
 
       // run rebuildRawMedia for each album item
       for await (const albumItemMedia of media.list) {
-        const albumMediaFiles = await asdasd(
+        const albumMediaFiles = await exportMediaFinal(
           albumItemMedia,
           mediaIndex,
           iAlbumItem,
@@ -119,7 +119,7 @@ async function prepareUserZipConfig(user: IUser) {
 
     // for each media in this collection
     for (const media of mediaCollectionItems) {
-      const partialMediaFiles = await asdasd(media, i)
+      const partialMediaFiles = await exportMediaFinal(media, i)
 
       mediaFiles = {
         ...mediaFiles,
