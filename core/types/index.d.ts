@@ -232,6 +232,7 @@ interface IMediaAlbum extends IMedia {
   get itemsCount(): number
 
   addToAlbum(file: File): Promise<void>
+  setMediaAlbumImage(file: File): Promise<void>
   removeFromAlbum(): Promise<void>
 
   setListIndex(index: number): void

@@ -62,6 +62,14 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     await this.save()
   }
 
+  public async setMediaAlbumImage(blob: File) {
+    this.list[this.listIndex].file = this.parseMediaFileBlob(blob)
+
+    this.refresh()
+
+    await this.save()
+  }
+
   public setListIndex(index: number) {
     this.listIndex = index
   }

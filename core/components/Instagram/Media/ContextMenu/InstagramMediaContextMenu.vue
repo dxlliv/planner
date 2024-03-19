@@ -30,20 +30,25 @@ function onCloseContextMenu() {
         />
       </InstagramMediaContextMenuGroup>
 
-      <InstagramMediaContextMenuGroup
-        v-if="['album'].includes(media.type)"
-        title="Album"
-      >
-        <InstagramMediaContextMenuAddToAlbum
-          :media="media"
-          @close="onCloseContextMenu"
-        />
-        <InstagramMediaContextMenuRemoveFromAlbum
-          v-if="media.list.length > 1"
-          :media="media"
-          @close="onCloseContextMenu"
-        />
-      </InstagramMediaContextMenuGroup>
+      <template v-if="['album'].includes(media.type)">
+
+        <InstagramMediaContextMenuGroup title="Album">
+          <InstagramMediaContextMenuReplaceMediaAlbum
+            :media="media"
+            @close="onCloseContextMenu"
+          />
+          <InstagramMediaContextMenuAddToAlbum
+            :media="media"
+            @close="onCloseContextMenu"
+          />
+          <InstagramMediaContextMenuRemoveFromAlbum
+            v-if="media.list.length > 1"
+            :media="media"
+            @close="onCloseContextMenu"
+          />
+        </InstagramMediaContextMenuGroup>
+
+      </template>
 
       <InstagramMediaContextMenuGroup
         v-if="['video', 'iframe'].includes(media.type)"
