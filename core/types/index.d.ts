@@ -188,6 +188,9 @@ interface IMedia {
   type: IMediaType
   collection: IMediaCollection
 
+  reel: boolean
+  get isReel(): boolean
+
   setUniqueId(): void
   setEditing(toggle: boolean): void
   setDetailView(toggle: boolean): void
@@ -209,11 +212,12 @@ interface IMediaImage extends IMedia {
 
   convertToAlbum(): Promise<void>
   convertToIframe(href: string): Promise<void>
+
+  cloneToReel(): Promise<void>
 }
 
 interface IMediaVideo extends IMedia {
   file: IMediaFile
-  reel: boolean
   cover: undefined | IMediaImage
   coverTime: number
 
@@ -222,6 +226,8 @@ interface IMediaVideo extends IMedia {
   removeCover(): Promise<void>
 
   convertToAlbum(): Promise<void>
+
+  cloneToReel(): Promise<void>
 }
 
 interface IMediaAlbum extends IMedia {
@@ -241,7 +247,6 @@ interface IMediaAlbum extends IMedia {
 }
 
 interface IMediaIframe extends IMedia {
-  reel: boolean
   href: string
   cover: undefined | IMediaImage
 }

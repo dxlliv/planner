@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const props = defineProps<{
-  media: IMedia
+defineProps<{
+  media: IMedia|IMediaAlbum|IMediaVideo|IMediaIframe
 }>()
 
 const emit = defineEmits(["update:modelValue"])
@@ -18,73 +18,76 @@ function onCloseContextMenu() {
     :close-on-content-click="false"
     @click.stop
   >
+    <!-- clone to reel -->
     <v-list density="compact" class="ma-3 py-2">
       <InstagramMediaContextMenuGroup
         v-if="['video', 'iframe'].includes(media.type) && !media.isReel"
         title="Reel"
       >
-        <InstagramMediaContextMenuCloneToReel
+        <InstagramMediaContextMenuItemCloneToReel
           v-if="['video', 'iframe'].includes(media.type) && !media.isReel"
           :media="media"
           @close="onCloseContextMenu"
         />
       </InstagramMediaContextMenuGroup>
 
-      <template v-if="['album'].includes(media.type)">
-
-        <InstagramMediaContextMenuGroup title="Album">
-          <InstagramMediaContextMenuReplaceMediaAlbum
-            :media="media"
-            @close="onCloseContextMenu"
-          />
-          <InstagramMediaContextMenuAddToAlbum
-            :media="media"
-            @close="onCloseContextMenu"
-          />
-          <InstagramMediaContextMenuRemoveFromAlbum
-            v-if="media.list.length > 1"
-            :media="media"
-            @close="onCloseContextMenu"
-          />
-        </InstagramMediaContextMenuGroup>
-
-      </template>
-
+      <!-- album actions -->
       <InstagramMediaContextMenuGroup
-        v-if="['video', 'iframe'].includes(media.type)"
+        v-if="'list' in media"
+        title="Album"
+      >
+        <InstagramMediaContextMenuItemReplaceMediaAlbum
+          :media="media"
+          @close="onCloseContextMenu"
+        />
+        <InstagramMediaContextMenuItemAddToAlbum
+          :media="media"
+          @close="onCloseContextMenu"
+        />
+        <InstagramMediaContextMenuItemRemoveFromAlbum
+          v-if="media.list.length > 1"
+          :media="media"
+          @close="onCloseContextMenu"
+        />
+      </InstagramMediaContextMenuGroup>
+
+      <!-- video/iframe actions -->
+      <InstagramMediaContextMenuGroup
+        v-if="'cover' in media"
         title="Cover"
       >
-        <InstagramMediaContextMenuAddCover
+        <InstagramMediaContextMenuItemAddCover
           v-if="!media.cover"
           :media="media"
           @close="onCloseContextMenu"
         />
-        <InstagramMediaContextMenuReplaceCover
+        <InstagramMediaContextMenuItemReplaceCover
           v-if="media.cover"
           :media="media"
           @close="onCloseContextMenu"
         />
-        <InstagramMediaContextMenuRemoveCover
+        <InstagramMediaContextMenuItemRemoveCover
           v-if="media.cover"
           :media="media"
           @close="onCloseContextMenu"
         />
       </InstagramMediaContextMenuGroup>
 
+      <!-- image/video actions -->
       <InstagramMediaContextMenuGroup
         v-if="['image', 'video'].includes(media.type)"
         title="Media"
       >
-        <InstagramMediaContextMenuReplaceMedia
+        <InstagramMediaContextMenuItemReplaceMedia
           :media="media"
           @close="onCloseContextMenu"
         />
-        <InstagramMediaContextMenuConvertToAlbum
+        <InstagramMediaContextMenuItemConvertToAlbum
           v-if="!media.isReel"
           :media="media"
           @close="onCloseContextMenu"
         />
-        <InstagramMediaContextMenuConvertToIframe
+        <InstagramMediaContextMenuItemConvertToIframe
           v-if="media.type === 'image'"
           :media="media"
           @close="onCloseContextMenu"
@@ -93,7 +96,8 @@ function onCloseContextMenu() {
 
       <v-divider class="my-1" />
 
-      <InstagramMediaContextMenuRemove
+      <!-- media delete -->
+      <InstagramMediaContextMenuItemRemove
         :media="media"
         @close="onCloseContextMenu"
       />
