@@ -44,7 +44,9 @@ defineProps<{
             </template>
           </InstagramPostDate>
 
-          <InstagramPostCommentInput />
+          <InstagramPostCommentInput
+            :media="media"
+          />
         </div>
       </v-col>
     </v-row>

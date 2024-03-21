@@ -103,7 +103,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     }
 
     return {
-      type: this.type,
+      ...this.baseExport,
       list: exportedList,
     }
   }

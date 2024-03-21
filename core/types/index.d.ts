@@ -188,15 +188,18 @@ interface IMedia {
   type: IMediaType
   collection: IMediaCollection
 
-  reel: boolean
-  get isReel(): boolean
-
   setUniqueId(): void
   setEditing(toggle: boolean): void
   setDetailView(toggle: boolean): void
   setMediaType(mediaType: IMediaType): void
   parseMediaFileName(fileName: string): IMediaFile
   parseMediaFileBlob(fileBlob: File): IMediaFile
+
+  reel: boolean
+  get isReel(): boolean
+
+  caption: string
+  setCaption(value: string) :void
 
   refresh(): void
   save(): void

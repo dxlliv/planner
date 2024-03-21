@@ -144,4 +144,17 @@ export default class Media {
 
     return index
   }
+
+  public async setCaption(caption: string) {
+    this.caption = caption
+
+    await this.user.save()
+  }
+
+  public get baseExport() {
+    return {
+      type: this.type,
+      caption: this.caption,
+    }
+  }
 }

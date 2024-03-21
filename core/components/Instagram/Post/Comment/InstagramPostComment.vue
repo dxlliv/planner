@@ -19,7 +19,7 @@ defineProps<{
             :profile="profile"
           />
 
-          <p v-text="media.caption" />
+          <p v-html="replaceLineBreaksWithBr(media.caption)" />
         </v-col>
       </v-row>
     </div>

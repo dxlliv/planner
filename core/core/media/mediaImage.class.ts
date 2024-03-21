@@ -87,7 +87,7 @@ export default class MediaImage extends Media implements IMediaImage {
 
   public async export(): Promise<IMediaImageExport> {
     return {
-      type: this.type,
+      ...this.baseExport,
       file: await this.file?.blob,
     }
   }

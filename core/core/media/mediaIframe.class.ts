@@ -60,7 +60,7 @@ export default class MediaIframe extends Media implements IMediaIframe {
     }
 
     return {
-      type: this.type,
+      ...this.baseExport,
       reel: this.reel,
       href: this.href,
       cover,

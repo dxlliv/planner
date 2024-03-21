@@ -4,7 +4,7 @@
   <div class="ig-user-comments">
     <v-divider class="ma-0" />
     <slot>
-      <v-row no-gutters="" class="text-center fill-height">
+      <v-row no-gutters class="text-center fill-height">
         <v-col align-self="center" v-text="$t('instagram.profile.post.comment.empty')" />
       </v-row>
     </slot>

@@ -132,7 +132,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
     }
 
     return {
-      type: this.type,
+      ...this.baseExport,
       file: await this.file?.blob,
       reel: this.reel,
       cover,

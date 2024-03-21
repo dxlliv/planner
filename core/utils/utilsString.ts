@@ -36,3 +36,7 @@ export function slugify(string: string, replaceSpaceWith: string = '-') {
     .replace(/\s+/g, replaceSpaceWith) // replace spaces with hyphens
     .replace(/-+/g, '-'); // remove consecutive hyphens
 }
+
+export function replaceLineBreaksWithBr(str: string) {
+  return str.replace(/(?:\r\n|\r|\n)/g, '<br>')
+}
