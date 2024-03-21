@@ -1,8 +1,12 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   media: IMedia
   profile: IUserProfile
 }>()
+
+function onCaptionUpdate(caption: string) {
+  props.media.setCaption(caption)
+}
 </script>
 
 <template>
@@ -19,7 +23,10 @@ defineProps<{
             :profile="profile"
           />
 
-          <p v-html="replaceLineBreaksWithBr(media.caption)" />
+          <InstagramPostCaptionInlineEditing
+            :caption="media.caption"
+            @update="onCaptionUpdate"
+          />
         </v-col>
       </v-row>
     </div>
@@ -27,11 +34,6 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-p {
-  display: inline;
-  font-size: 14px;
-}
-
 .ig-user-comment {
   line-height: 18px !important;
 }

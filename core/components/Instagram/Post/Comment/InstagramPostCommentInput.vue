@@ -31,6 +31,7 @@ function onPressEnter(e) {
           :placeholder="$t('instagram.profile.post.comment.add')"
           variant="solo" flat
           hide-details
+          spellcheck="false"
           v-model="caption"
           @keydown.enter="onPressEnter"
         >
@@ -61,6 +62,7 @@ svg {
 .v-input {
   :deep(textarea) {
     height: 32px;
+    resize: none;
   }
 
   :deep(.v-input__append) {
