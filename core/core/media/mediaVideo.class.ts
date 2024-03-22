@@ -2,7 +2,6 @@ import Media from "./media.class"
 import MediaImage from "./mediaImage.class"
 import User from "../user/user.class"
 import UserMedia from "../user/userMedia.class"
-import { IMediaCollection } from "../../types"
 import { getFileExtension } from "../../utils/utilsFile"
 
 export default class MediaVideo extends Media implements IMediaVideo {
@@ -99,6 +98,10 @@ export default class MediaVideo extends Media implements IMediaVideo {
     this.user.media.collections[this.collection].splice(index, 0, mediaAlbum)
 
     await this.save()
+  }
+
+  public get isReel() {
+    return this.collection === 'reels' || this.reel
   }
 
   public async cloneToReel() {

@@ -7,7 +7,6 @@ const props = defineProps<{
 }>()
 
 const isPlaying: Ref<boolean> = ref(false)
-const isReel = computed(() => props.media.collection === 'reels')
 
 const src = await handleMediaForSrc(props.media)
 
@@ -61,6 +60,7 @@ watch(
   <InstagramMediaContainer
     type="video"
     :media="media"
+    :class="{ 'ig-media--reel': media.isReel }"
   >
     <template v-if="!media.cover || media.coverTime">
       <video

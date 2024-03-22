@@ -15,6 +15,7 @@ export default class Media {
   public type: IMediaType = "" as IMediaType
   public collection: IMediaCollection = "" as IMediaCollection
 
+  public reel: boolean = false
   public caption: string = ""
   public date: string = ""
 

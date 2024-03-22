@@ -49,6 +49,9 @@ interface IRawMedia {
   list?: string[] | IRawMedia[]
   href?: string
   file?: File
+
+  date?: string
+  caption?: string
 }
 
 interface IRawMediaImage extends IRawMedia {
@@ -199,9 +202,6 @@ interface IMedia {
   parseMediaFileName(fileName: string): IMediaFile
   parseMediaFileBlob(fileBlob: File): IMediaFile
 
-  reel: boolean
-  get isReel(): boolean
-
   caption: string
   setCaption(value: string) :void
 
@@ -223,8 +223,6 @@ interface IMediaImage extends IMedia {
   convertToAlbum(): Promise<void>
   convertToIframe(href: string): Promise<void>
 
-  cloneToReel(): Promise<void>
-
   exportWithDesiredName(desiredName: string): string
 }
 
@@ -239,6 +237,8 @@ interface IMediaVideo extends IMedia {
 
   convertToAlbum(): Promise<void>
 
+  reel: boolean
+  get isReel(): boolean
   cloneToReel(): Promise<void>
 }
 
@@ -261,6 +261,10 @@ interface IMediaAlbum extends IMedia {
 interface IMediaIframe extends IMedia {
   href: string
   cover: undefined | IMediaImage
+
+  reel?: boolean
+  get isReel(): boolean
+  cloneToReel(): Promise<void>
 }
 
 type IMediaType = "image" | "video" | "album" | "iframe"

@@ -1,12 +1,11 @@
 import Media from "./media.class"
 import MediaImage from "./mediaImage.class"
 import User from "../user/user.class"
-import { IMediaCollection } from "../../types"
 
 export default class MediaIframe extends Media implements IMediaIframe {
   public reel: boolean = false
   public href: string = ""
-  public cover: undefined | IMediaImage
+  public cover: IMediaImage
 
   constructor(user: User, raw: IRawMedia, collection?: IMediaCollection) {
     super(user, raw, collection)
@@ -46,6 +45,10 @@ export default class MediaIframe extends Media implements IMediaIframe {
     this.cover = undefined
 
     await this.save()
+  }
+
+  public get isReel() {
+    return this.collection === 'reels' || this.reel
   }
 
   public async cloneToReel() {

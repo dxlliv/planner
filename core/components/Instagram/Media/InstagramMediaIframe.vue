@@ -5,7 +5,6 @@ const props = defineProps<{
 }>()
 
 const iframeEnabled = ref(typeof props.media.cover !== "object")
-const isReel = computed(() => props.media.collection === 'reels')
 
 function onMediaClick(e) {
   if (e.target.closest('.ig-media-detail')) {
@@ -18,7 +17,7 @@ function onMediaClick(e) {
   <InstagramMediaContainer
     :type="!iframeEnabled ? 'video' : 'iframe'"
     :media="media"
-    :class="{ 'ig-media--reel': isReel }"
+    :class="{ 'ig-media--reel': media.isReel }"
   >
     <template v-if="!iframeEnabled">
       <InstagramMediaImage

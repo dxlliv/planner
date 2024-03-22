@@ -1,7 +1,6 @@
 import Media from "./media.class"
 import User from "../user/user.class"
 import UserMedia from "../user/userMedia.class"
-import { IMediaCollection } from "../../types"
 
 export default class MediaAlbum extends Media implements IMediaAlbum {
   public list: (IMediaImage | IMediaVideo)[] = []
@@ -109,6 +108,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     }
 
     return {
+      ...this.exportConfig(),
       list: exportedList,
     }
   }
