@@ -48,6 +48,28 @@ export default class MediaIframe extends Media implements IMediaIframe {
     await this.save()
   }
 
+  public async cloneToReel() {
+    if (this.reel) {
+      throw Error("Media is already defined as reel")
+    }
+
+    if (typeof this.raw === "string") {
+      throw Error("Cannot clone a media if its raw is a string")
+    }
+
+    const mediaToBeCloned = await this.export()
+
+    if (mediaToBeCloned && !Array.isArray(mediaToBeCloned)) {
+      mediaToBeCloned.reel = true
+
+      // @ts-ignore
+      this.user.media.addMedia(mediaToBeCloned, "reels")
+      await this.user.save()
+    }
+
+    await this.save()
+  }
+
   public exportConfig(): IMediaIframeExportConfig {
     return {
       ...this.exportCommonConfig,
