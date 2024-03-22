@@ -79,7 +79,7 @@ export default class MediaImage extends Media implements IMediaImage {
       "posts",
     )
 
-    this.user.media[this.collection].splice(index, 0, media)
+    this.user.media.collections[this.collection].splice(index, 0, media)
 
     await this.save()
   }
