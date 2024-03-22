@@ -43,6 +43,7 @@ async function exportMediaFinal(
       }
 
       break
+
     case "iframe":
       if (media.cover) {
         exportedMediaCover = await media.cover.export()

@@ -9,7 +9,7 @@ export default {
       editProfile: 'Modifica profilo',
       importProfile: 'Importa profilo',
       remove: 'Rimuovi',
-      reset: 'Resetta',
+      reset: 'Reset',
       create: 'Crea',
       submit: 'Invia',
       post: 'Pubblica',

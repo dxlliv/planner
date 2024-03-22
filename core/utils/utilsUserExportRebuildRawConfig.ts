@@ -1,31 +1,6 @@
 import { getFileExtension } from "./utilsFile"
 
 /**
- * Rebuild media config replacing .file with .original .name
- *
- * @param filename
- * @param media
- */
-function generateOriginalRawMedia(filename: string, media: IMedia) {
-  let rawMedia = { ...media }
-
-  if (rawMedia.file) {
-    // get name from media
-    const fileNameWithExtension = `${filename}.${getFileExtension(
-      rawMedia.file.name,
-    )}`
-
-    // set name to raw media config
-    rawMedia.name = fileNameWithExtension
-
-    // delete file since it's the raw media config
-    delete rawMedia.file
-  }
-
-  return rawMedia
-}
-
-/**
  * Depending on media type,
  * rebuild original raw media
  *
@@ -33,62 +8,67 @@ function generateOriginalRawMedia(filename: string, media: IMedia) {
  * @param mediaIndex
  * @param isAlbumIndex
  */
-async function rebuildRawMedia(
-  media: IMedia,
+async function generateRawMedia(
+  media: any,
   mediaIndex: number,
   isAlbumIndex: number = -1,
 ) {
-  let rawMedia = await media.export()
+  let rawMediaConfig = { ...media.exportConfig() }
 
   let rawMediaFileName = `${media.collectionSingularized}-${mediaIndex}`
   if (isAlbumIndex > -1) rawMediaFileName += `x${isAlbumIndex}`
 
   switch (media.type) {
     case "album":
-      let iAlbumItem = 1
-      let rawAlbum = []
+      let albumMediaIndex = 1
+      let albumItems = []
 
-      let rawAlbumItemMedia
+      // run generateRawMedia for each album item
+      if (media.list) {
 
-      // run rebuildRawMedia for each album item
-      for await (const albumItemMedia of media.list) {
-        const rawAlbumItemMedia = await rebuildRawMedia(
-          albumItemMedia,
-          mediaIndex,
-          iAlbumItem,
-        )
+        for await (const albumItemMedia of media.list) {
+          const rawAlbumMedia = await generateRawMedia(
+            albumItemMedia,
+            mediaIndex,
+            albumMediaIndex,
+          )
 
-        rawAlbum.push(rawAlbumItemMedia)
+          albumItems.push(rawAlbumMedia)
 
-        iAlbumItem++
+          albumMediaIndex++
+        }
       }
 
-      return rawAlbum
+      return {
+        ...rawMediaConfig,
+        list: albumItems
+      }
 
     case "iframe":
-      if (media.cover && media.cover.file) {
-        const rawMediaCover = await media.cover.export()
-        rawMedia.cover = generateOriginalRawMedia(
-          `${rawMediaFileName}-cover`,
-          rawMediaCover,
-        )
+      if (media.cover) {
+        rawMediaConfig.cover = media.cover.exportWithDesiredName(`${mediaIndex}-cover`)
       }
 
-      return rawMedia
+      return {
+        ...rawMediaConfig,
+      }
 
     case "video":
+      rawMediaConfig.name = media.exportWithDesiredName(`${mediaIndex}`)
+
       if (media.cover) {
-        const rawMediaCover = await media.cover.export()
-        rawMedia.cover = generateOriginalRawMedia(
-          `${rawMediaFileName}-cover`,
-          rawMediaCover,
-        )
+        rawMediaConfig.cover = media.cover.exportWithDesiredName(`${mediaIndex}-cover`)
       }
 
-      return generateOriginalRawMedia(rawMediaFileName, rawMedia)
+      return {
+        ...rawMediaConfig,
+      }
 
     case "image":
-      return generateOriginalRawMedia(rawMediaFileName, rawMedia)
+      return {
+        ...rawMediaConfig,
+        name: media.exportWithDesiredName(mediaIndex),
+      }
   }
 }
 
@@ -125,7 +105,9 @@ export async function rebuildRawUserConfigFromUser(user: IUser) {
 
     // for each media in this collection
     for (const media of mediaCollectionItems) {
-      rawUser.media[collectionKey].push(await rebuildRawMedia(media, i))
+      const rawMedia = await generateRawMedia(media, i)
+
+      rawUser.media[collectionKey].push(rawMedia)
 
       i++
     }

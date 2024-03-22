@@ -90,7 +90,13 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     }
   }
 
-  public async export(): Promise<IMediaAlbumExport> {
+  public exportConfig(): IMediaAlbumExportConfig {
+    return {
+      ...this.exportCommonConfig,
+    }
+  }
+
+  public async exportFiles(): Promise<IMediaAlbumExportMedia> {
     let exportedList = []
 
     if (this.list) {
@@ -103,8 +109,14 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     }
 
     return {
-      ...this.baseExport,
       list: exportedList,
+    }
+  }
+
+  public async export() {
+    return {
+      ...this.exportConfig(),
+      ...await this.exportFiles()
     }
   }
 }

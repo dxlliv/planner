@@ -169,10 +169,12 @@ type IUserProfileWebsite = null | {
 }
 
 interface IUserMedia {
-  posts: IMedia[]
-  reels: IMedia[]
-  stories: IMedia[]
-  highlights: IMedia[]
+  collections: {
+    posts: IMedia[]
+    reels: IMedia[]
+    stories: IMedia[]
+    highlights: IMedia[]
+  }
 
   fetch(): void
 }
@@ -187,6 +189,8 @@ interface IMedia {
   id: string
   type: IMediaType
   collection: IMediaCollection
+
+  collectionSingularized: string
 
   setUniqueId(): void
   setEditing(toggle: boolean): void
@@ -205,7 +209,10 @@ interface IMedia {
   save(): void
 
   remove(): Promise<number>
-  export(): Promise<IMediaExport | IMediaExport[] | undefined>
+
+  export(): Promise<any>
+  exportConfig(): any
+  exportFiles(): Promise<any>
 }
 
 interface IMediaImage extends IMedia {
@@ -217,6 +224,8 @@ interface IMediaImage extends IMedia {
   convertToIframe(href: string): Promise<void>
 
   cloneToReel(): Promise<void>
+
+  exportWithDesiredName(desiredName: string): string
 }
 
 interface IMediaVideo extends IMedia {
@@ -268,8 +277,9 @@ interface IMediaCoverExport {
   file: File
 }
 
-interface IMediaExport {
+interface IMediaExportCommonConfig {
   type: string
+  caption: string
   /*
   file?: File
   reel?: boolean
@@ -284,26 +294,40 @@ interface IMediaExport {
    */
 }
 
-interface IMediaImageExport extends IMediaExport {
+interface IMediaImageExportConfig extends IMediaExportCommonConfig {
+
+}
+
+interface IMediaImageExportMedia {
   file: File
 }
 
-interface IMediaVideoExport extends IMediaExport {
-  file: File
+interface IMediaVideoExportConfig extends IMediaExportCommonConfig {
   reel: boolean
+}
+
+interface IMediaVideoExportMedia {
+  file: File
   cover: undefined | number | IMediaCoverExport
 }
 
-interface IMediaAlbumExport extends IMediaExport {
+interface IMediaAlbumExportConfig extends IMediaExportCommonConfig {
+
+}
+
+interface IMediaAlbumExportMedia extends IMediaExportCommonConfig {
   list?: {
     file?: File
   }[]
 }
 
-interface IMediaIframeExport extends IMediaExport {
+interface IMediaIframeExportConfig extends IMediaExportCommonConfig {
   reel: boolean
   href: string
-  cover: undefined | number | IMediaCoverExport
+}
+
+interface IMediaIframeExportMedia {
+  cover: IMediaCoverExport
 }
 
 interface IUserStorage {

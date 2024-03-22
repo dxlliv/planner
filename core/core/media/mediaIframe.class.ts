@@ -48,7 +48,15 @@ export default class MediaIframe extends Media implements IMediaIframe {
     await this.save()
   }
 
-  public async export(): Promise<IMediaIframeExport> {
+  public exportConfig(): IMediaIframeExportConfig {
+    return {
+      ...this.exportCommonConfig,
+      reel: this.reel,
+      href: this.href,
+    }
+  }
+
+  public async exportFiles(): Promise<IMediaIframeExportMedia> {
     let cover = undefined
 
     // fulfill cover
@@ -60,10 +68,14 @@ export default class MediaIframe extends Media implements IMediaIframe {
     }
 
     return {
-      ...this.baseExport,
-      reel: this.reel,
-      href: this.href,
       cover,
+    }
+  }
+
+  public async export() {
+    return {
+      ...this.exportConfig(),
+      ...await this.exportFiles()
     }
   }
 }

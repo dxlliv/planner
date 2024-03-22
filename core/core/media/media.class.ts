@@ -151,7 +151,7 @@ export default class Media {
     await this.user.save()
   }
 
-  public get baseExport() {
+  public get exportCommonConfig() {
     return {
       type: this.type,
       caption: this.caption,

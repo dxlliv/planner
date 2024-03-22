@@ -3,6 +3,7 @@ import MediaImage from "./mediaImage.class"
 import User from "../user/user.class"
 import UserMedia from "../user/userMedia.class"
 import { IMediaCollection } from "../../types"
+import { getFileExtension } from "../../utils/utilsFile"
 
 export default class MediaVideo extends Media implements IMediaVideo {
   public file: IMediaFile = {} as IMediaFile
@@ -19,6 +20,12 @@ export default class MediaVideo extends Media implements IMediaVideo {
 
     this.setMediaType("video")
     this.parseMediaVideo(raw)
+  }
+
+  private get fileNameExtension() {
+    return getFileExtension(
+      this.file.name,
+    )
   }
 
   private parseMediaVideo(raw: string | IRawMedia) {
@@ -46,7 +53,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
             break
           case "string":
           case "object":
-            this.cover = new MediaImage(this.user, raw.cover)
+            this.cover = new MediaImage(this.user, raw.cover, this.collection)
             break
         }
         break
@@ -54,7 +61,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
   }
 
   public async setCover(file: File) {
-    this.cover = new MediaImage(this.user, { file })
+    this.cover = new MediaImage(this.user, { file }, this.collection)
 
     await this.save()
   }
@@ -116,7 +123,14 @@ export default class MediaVideo extends Media implements IMediaVideo {
     await this.save()
   }
 
-  public async export(): Promise<IMediaVideoExport> {
+  public exportConfig(): IMediaVideoExportConfig {
+    return {
+      ...this.exportCommonConfig,
+      reel: this.reel,
+    }
+  }
+
+  public async exportFiles(): Promise<IMediaVideoExportMedia> {
     let cover: undefined | number | IMediaCoverExport = undefined
 
     // fulfill cover
@@ -132,10 +146,23 @@ export default class MediaVideo extends Media implements IMediaVideo {
     }
 
     return {
-      ...this.baseExport,
       file: await this.file?.blob,
-      reel: this.reel,
       cover,
+    }
+  }
+
+  public exportWithDesiredName(desiredName: string): string {
+    if (this.file && this.file.blob) {
+      return `${this.collectionSingularized}-${desiredName}.${this.fileNameExtension}`
+    }
+
+    return ''
+  }
+
+  public async export() {
+    return {
+      ...this.exportConfig(),
+      ...await this.exportFiles()
     }
   }
 }
