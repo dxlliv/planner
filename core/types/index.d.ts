@@ -1,3 +1,6 @@
+// @ts-expect-error
+declare function useNuxtApp(): NuxtApp;
+
 type IPlatforms = "instagram"
 
 interface IRawConfig {
@@ -83,6 +86,7 @@ interface ITempUserReference {
 type IUsers = { [username: string]: IUser }
 
 interface IUser {
+  user: IUser
   platform: IPlatforms
   id: string
 
@@ -153,6 +157,7 @@ interface IUserProfile {
   updateAvatar(avatar: UserAvatar): Promise<void>
 
   import(): void
+  export(): Promise<IRawUserProfile>
   update(data: any): Promise<void>
 }
 
@@ -179,6 +184,7 @@ interface IUserMedia {
     highlights: IMedia[]
   }
 
+  get collectionKeys(): string[]
   fetch(): void
 }
 
@@ -196,7 +202,10 @@ interface IMedia {
   collectionSingularized: string
 
   setUniqueId(): void
+
+  get isEditing(): boolean
   setEditing(toggle: boolean): void
+
   setDetailView(toggle: boolean): void
   setMediaType(mediaType: IMediaType): void
   parseMediaFileName(fileName: string): IMediaFile
@@ -204,6 +213,9 @@ interface IMedia {
 
   caption: string
   setCaption(value: string) :void
+
+  date: string
+  setDate(value: string) :void
 
   refresh(): void
   save(): void

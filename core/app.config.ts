@@ -15,9 +15,3 @@ export default defineAppConfig({
     warnHtmlMessage: false
   }
 })
-
-declare module '@nuxt/schema' {
-  interface AppConfigInput {
-    i18n: any
-  }
-}

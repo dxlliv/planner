@@ -4,7 +4,7 @@ export default class UserAvatar {
   public readonly user: IUser
   readonly #defaultAvatarFilename: string = "avatar.jpg"
 
-  public file: Promise<File>
+  public file: any // Promise<File>
 
   constructor(user: IUser, avatar: File | string) {
     this.user = user

@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "es2022",
+    "module": "es2022",
+    "moduleResolution": "nodenext",
+    "es2022": "node",
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,

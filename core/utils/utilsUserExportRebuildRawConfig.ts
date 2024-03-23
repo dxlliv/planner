@@ -81,7 +81,7 @@ export async function rebuildRawUserConfigFromUser(user: IUser) {
   const rawUser = {
     profile: {},
     media: {},
-  }
+  } as IRawUser
 
   // assign copy of the profile to rawUser
   rawUser.profile = await user.profile.export()

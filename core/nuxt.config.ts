@@ -1,3 +1,4 @@
+import { defineNuxtConfig } from 'nuxt/config'
 import { createResolver } from "@nuxt/kit";
 import vuetify from "vite-plugin-vuetify";
 
