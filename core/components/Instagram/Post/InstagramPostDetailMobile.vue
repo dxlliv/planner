@@ -18,14 +18,17 @@ defineProps<{
     />
 
     <div class="ig-media-detail__interaction">
-      <InstagramPostDate :date="media.date">
+      <InstagramPostFooter>
+        <template v-slot:date>
+          <slot name="date" />
+        </template>
         <template v-slot:prepend>
           <InstagramPostDateHeader />
         </template>
         <template v-slot:append>
           <v-divider class="ma-0" />
         </template>
-      </InstagramPostDate>
+      </InstagramPostFooter>
     </div>
   </v-card>
 </template>

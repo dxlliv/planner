@@ -1,30 +1,32 @@
 <script setup lang="ts">
 import { useDate } from "vuetify"
 
+const emit = defineEmits(['update'])
+
 const props = defineProps<{
-  date?: string
+  date?: Date
 }>()
 
 const date = useDate()
 
-const formatted = date
-  .format(props.date, "fullDateWithWeekday")
-  .split(",")
-  .splice(1)
-  .join(",")
+const formatted = computed(() => {
+  return date
+    .format(props.date, "fullDateWithWeekday")
+    .split(",")
+    .splice(1)
+    .join(",")
+})
 </script>
 
 <template>
-  <div class="ig-user-post__date">
-    <div class="px-4 py-3">
-      <slot name="prepend" />
-      <div>
-        <small class="text-grey">
-          {{ formatted }}
-        </small>
-      </div>
-    </div>
-    <slot name="append" />
+  <div>
+    <small class="text-grey cursor-pointer">
+      {{ formatted }}
+
+      <InstagramPostDateEditor
+        @update="value => emit('update', value)"
+      />
+    </small>
   </div>
 </template>
 

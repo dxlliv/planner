@@ -152,10 +152,17 @@ export default class Media {
     await this.user.save()
   }
 
+  public async setDate(date: string) {
+    this.date = date
+
+    await this.user.save()
+  }
+
   public get exportCommonConfig() {
     return {
       type: this.type,
       caption: this.caption,
+      date: this.date,
     }
   }
 }

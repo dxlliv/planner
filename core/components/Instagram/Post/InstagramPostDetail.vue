@@ -11,12 +11,22 @@ defineProps<{
     :media="media"
     :profile="profile"
   >
+    <template v-slot:date>
+      <slot name="date" />
+    </template>
     <template v-slot:context-menu>
       <slot name="context-menu" />
     </template>
   </InstagramPostDetailDesktop>
 
-  <InstagramPostDetailMobile v-else :media="media" :profile="profile">
+  <InstagramPostDetailMobile
+    v-else
+    :media="media"
+    :profile="profile"
+  >
+    <template v-slot:date>
+      <slot name="date" />
+    </template>
     <template v-slot:context-menu>
       <slot name="context-menu" />
     </template>
