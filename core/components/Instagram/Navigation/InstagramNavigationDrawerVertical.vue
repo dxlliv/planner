@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { isPlannerFeatureEnabled } from "../../../utils/utilsPlanner"
+
 defineProps<{
   user: IUser
   nav: any
@@ -68,7 +70,7 @@ const emit = defineEmits(["create", "export"])
         </v-dialog>
       </v-list-item>
 
-      <v-list-item title="Deluxe">
+      <v-list-item v-if="isPlannerFeatureEnabled('requestDeluxe')" title="Deluxe">
         <template #prepend>
           <v-icon icon="mdi-shimmer" />
         </template>

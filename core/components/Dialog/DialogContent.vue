@@ -1,7 +1,7 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
   title?: string
-  height: string
+  height?: string
 }>(), {
   height: '60vh'
 })

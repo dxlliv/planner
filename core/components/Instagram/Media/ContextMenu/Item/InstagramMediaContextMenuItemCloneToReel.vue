@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-  media: IMedia
+  media: IMediaVideo|IMediaIframe
 }>()
 
 const emit = defineEmits(["close"])
@@ -8,6 +8,8 @@ const emit = defineEmits(["close"])
 function onCloneMediaToReel() {
   props.media.cloneToReel()
   props.media.user.save()
+
+  emit("close")
 }
 </script>
 

@@ -15,6 +15,7 @@ export default class Media {
   public type: IMediaType = "" as IMediaType
   public collection: IMediaCollection = "" as IMediaCollection
 
+  public reel: boolean = false
   public caption: string = ""
   public date: string = ""
 
@@ -143,5 +144,25 @@ export default class Media {
     this.user.profile.setPostsCount(this.user.media.collections.posts.length)
 
     return index
+  }
+
+  public async setCaption(caption: string) {
+    this.caption = caption
+
+    await this.user.save()
+  }
+
+  public async setDate(date: string) {
+    this.date = date
+
+    await this.user.save()
+  }
+
+  public get exportCommonConfig() {
+    return {
+      type: this.type,
+      caption: this.caption,
+      date: this.date,
+    }
   }
 }

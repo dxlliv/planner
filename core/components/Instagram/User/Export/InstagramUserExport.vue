@@ -18,7 +18,7 @@ defineProps<{
         </div>
 
         <v-btn
-          color="primary" class="mx-1"
+          class="mx-1"
           :text="$t('common.actions.reset')"
           @click="user.reset()"
         />

@@ -1,7 +1,6 @@
 import Media from "./media.class"
 import User from "../user/user.class"
 import UserMedia from "../user/userMedia.class"
-import { IMediaCollection } from "../../types"
 
 export default class MediaAlbum extends Media implements IMediaAlbum {
   public list: (IMediaImage | IMediaVideo)[] = []
@@ -62,6 +61,14 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     await this.save()
   }
 
+  public async setMediaAlbumImage(blob: File) {
+    this.list[this.listIndex].file = this.parseMediaFileBlob(blob)
+
+    this.refresh()
+
+    await this.save()
+  }
+
   public setListIndex(index: number) {
     this.listIndex = index
   }
@@ -82,7 +89,13 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     }
   }
 
-  public async export(): Promise<IMediaAlbumExport> {
+  public exportConfig(): IMediaAlbumExportConfig {
+    return {
+      ...this.exportCommonConfig,
+    }
+  }
+
+  public async exportFiles(): Promise<IMediaAlbumExportMedia> {
     let exportedList = []
 
     if (this.list) {
@@ -95,8 +108,15 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     }
 
     return {
-      type: this.type,
+      ...this.exportConfig(),
       list: exportedList,
+    }
+  }
+
+  public async export() {
+    return {
+      ...this.exportConfig(),
+      ...await this.exportFiles()
     }
   }
 }

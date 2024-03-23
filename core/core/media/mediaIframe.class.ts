@@ -1,12 +1,11 @@
 import Media from "./media.class"
 import MediaImage from "./mediaImage.class"
 import User from "../user/user.class"
-import { IMediaCollection } from "../../types"
 
 export default class MediaIframe extends Media implements IMediaIframe {
   public reel: boolean = false
   public href: string = ""
-  public cover: undefined | IMediaImage
+  public cover: IMediaImage
 
   constructor(user: User, raw: IRawMedia, collection?: IMediaCollection) {
     super(user, raw, collection)
@@ -48,7 +47,41 @@ export default class MediaIframe extends Media implements IMediaIframe {
     await this.save()
   }
 
-  public async export(): Promise<IMediaIframeExport> {
+  public get isReel() {
+    return this.collection === 'reels' || this.reel
+  }
+
+  public async cloneToReel() {
+    if (this.reel) {
+      throw Error("Media is already defined as reel")
+    }
+
+    if (typeof this.raw === "string") {
+      throw Error("Cannot clone a media if its raw is a string")
+    }
+
+    const mediaToBeCloned = await this.export()
+
+    if (mediaToBeCloned && !Array.isArray(mediaToBeCloned)) {
+      mediaToBeCloned.reel = true
+
+      // @ts-ignore
+      this.user.media.addMedia(mediaToBeCloned, "reels")
+      await this.user.save()
+    }
+
+    await this.save()
+  }
+
+  public exportConfig(): IMediaIframeExportConfig {
+    return {
+      ...this.exportCommonConfig,
+      reel: this.reel,
+      href: this.href,
+    }
+  }
+
+  public async exportFiles(): Promise<IMediaIframeExportMedia> {
     let cover = undefined
 
     // fulfill cover
@@ -60,10 +93,14 @@ export default class MediaIframe extends Media implements IMediaIframe {
     }
 
     return {
-      type: this.type,
-      reel: this.reel,
-      href: this.href,
       cover,
+    }
+  }
+
+  public async export() {
+    return {
+      ...this.exportConfig(),
+      ...await this.exportFiles()
     }
   }
 }

@@ -1,3 +1,6 @@
+// @ts-expect-error
+declare function useNuxtApp(): NuxtApp;
+
 type IPlatforms = "instagram"
 
 interface IRawConfig {
@@ -49,6 +52,9 @@ interface IRawMedia {
   list?: string[] | IRawMedia[]
   href?: string
   file?: File
+
+  date?: string
+  caption?: string
 }
 
 interface IRawMediaImage extends IRawMedia {
@@ -80,6 +86,7 @@ interface ITempUserReference {
 type IUsers = { [username: string]: IUser }
 
 interface IUser {
+  user: IUser
   platform: IPlatforms
   id: string
 
@@ -150,6 +157,7 @@ interface IUserProfile {
   updateAvatar(avatar: UserAvatar): Promise<void>
 
   import(): void
+  export(): Promise<IRawUserProfile>
   update(data: any): Promise<void>
 }
 
@@ -169,11 +177,14 @@ type IUserProfileWebsite = null | {
 }
 
 interface IUserMedia {
-  posts: IMedia[]
-  reels: IMedia[]
-  stories: IMedia[]
-  highlights: IMedia[]
+  collections: {
+    posts: IMedia[]
+    reels: IMedia[]
+    stories: IMedia[]
+    highlights: IMedia[]
+  }
 
+  get collectionKeys(): string[]
   fetch(): void
 }
 
@@ -188,18 +199,32 @@ interface IMedia {
   type: IMediaType
   collection: IMediaCollection
 
+  collectionSingularized: string
+
   setUniqueId(): void
+
+  get isEditing(): boolean
   setEditing(toggle: boolean): void
+
   setDetailView(toggle: boolean): void
   setMediaType(mediaType: IMediaType): void
   parseMediaFileName(fileName: string): IMediaFile
   parseMediaFileBlob(fileBlob: File): IMediaFile
 
+  caption: string
+  setCaption(value: string) :void
+
+  date: string
+  setDate(value: string) :void
+
   refresh(): void
   save(): void
 
   remove(): Promise<number>
-  export(): Promise<IMediaExport | IMediaExport[] | undefined>
+
+  export(): Promise<any>
+  exportConfig(): any
+  exportFiles(): Promise<any>
 }
 
 interface IMediaImage extends IMedia {
@@ -209,11 +234,12 @@ interface IMediaImage extends IMedia {
 
   convertToAlbum(): Promise<void>
   convertToIframe(href: string): Promise<void>
+
+  exportWithDesiredName(desiredName: string): string
 }
 
 interface IMediaVideo extends IMedia {
   file: IMediaFile
-  reel: boolean
   cover: undefined | IMediaImage
   coverTime: number
 
@@ -222,6 +248,10 @@ interface IMediaVideo extends IMedia {
   removeCover(): Promise<void>
 
   convertToAlbum(): Promise<void>
+
+  reel: boolean
+  get isReel(): boolean
+  cloneToReel(): Promise<void>
 }
 
 interface IMediaAlbum extends IMedia {
@@ -232,6 +262,7 @@ interface IMediaAlbum extends IMedia {
   get itemsCount(): number
 
   addToAlbum(file: File): Promise<void>
+  setMediaAlbumImage(file: File): Promise<void>
   removeFromAlbum(): Promise<void>
 
   setListIndex(index: number): void
@@ -240,9 +271,12 @@ interface IMediaAlbum extends IMedia {
 }
 
 interface IMediaIframe extends IMedia {
-  reel: boolean
   href: string
   cover: undefined | IMediaImage
+
+  reel?: boolean
+  get isReel(): boolean
+  cloneToReel(): Promise<void>
 }
 
 type IMediaType = "image" | "video" | "album" | "iframe"
@@ -259,8 +293,9 @@ interface IMediaCoverExport {
   file: File
 }
 
-interface IMediaExport {
+interface IMediaExportCommonConfig {
   type: string
+  caption: string
   /*
   file?: File
   reel?: boolean
@@ -275,26 +310,40 @@ interface IMediaExport {
    */
 }
 
-interface IMediaImageExport extends IMediaExport {
+interface IMediaImageExportConfig extends IMediaExportCommonConfig {
+
+}
+
+interface IMediaImageExportMedia {
   file: File
 }
 
-interface IMediaVideoExport extends IMediaExport {
-  file: File
+interface IMediaVideoExportConfig extends IMediaExportCommonConfig {
   reel: boolean
+}
+
+interface IMediaVideoExportMedia {
+  file: File
   cover: undefined | number | IMediaCoverExport
 }
 
-interface IMediaAlbumExport extends IMediaExport {
+interface IMediaAlbumExportConfig extends IMediaExportCommonConfig {
+
+}
+
+interface IMediaAlbumExportMedia extends IMediaExportCommonConfig {
   list?: {
     file?: File
   }[]
 }
 
-interface IMediaIframeExport extends IMediaExport {
+interface IMediaIframeExportConfig extends IMediaExportCommonConfig {
   reel: boolean
   href: string
-  cover: undefined | number | IMediaCoverExport
+}
+
+interface IMediaIframeExportMedia {
+  cover: IMediaCoverExport
 }
 
 interface IUserStorage {

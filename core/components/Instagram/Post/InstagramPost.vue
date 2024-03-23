@@ -18,6 +18,10 @@ function onPostClick() {
   }
 }
 
+function onDateUpdate(value) {
+  props.media.setDate(value)
+}
+
 onLongPress(
   postContainerRef,
   () => {
@@ -56,6 +60,12 @@ watch(() => props.media.isDetailView, value => {
         :media="media"
         :profile="profile"
       >
+        <template v-slot:date>
+          <InstagramPostDate
+            :date="media.date"
+            @update="onDateUpdate"
+          />
+        </template>
         <template v-slot:context-menu>
           <v-btn icon>
             <v-icon

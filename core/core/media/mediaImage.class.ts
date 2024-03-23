@@ -1,7 +1,6 @@
 import Media from "./media.class"
 import User from "../user/user.class"
 import UserMedia from "../user/userMedia.class"
-import { IMediaCollection } from "../../types"
 
 export default class MediaImage extends Media implements IMediaImage {
   public file: IMediaFile = {} as IMediaFile
@@ -15,6 +14,12 @@ export default class MediaImage extends Media implements IMediaImage {
 
     this.setMediaType("image")
     this.parseMediaImage(raw)
+  }
+
+  private get fileNameExtension() {
+    return getFileExtension(
+      this.file.name,
+    )
   }
 
   private parseMediaImage(raw: string | IRawMedia) {
@@ -74,7 +79,7 @@ export default class MediaImage extends Media implements IMediaImage {
       "posts",
     )
 
-    this.user.media[this.collection].splice(index, 0, media)
+    this.user.media.collections[this.collection].splice(index, 0, media)
 
     await this.save()
   }
@@ -85,10 +90,30 @@ export default class MediaImage extends Media implements IMediaImage {
     await this.save()
   }
 
-  public async export(): Promise<IMediaImageExport> {
+  public exportConfig(): IMediaImageExportConfig {
     return {
-      type: this.type,
+      ...this.exportCommonConfig
+    }
+  }
+
+  public async exportFiles(): Promise<IMediaImageExportMedia> {
+    return {
       file: await this.file?.blob,
+    }
+  }
+
+  public exportWithDesiredName(desiredName: string): string {
+    if (this.file && this.file.blob) {
+      return `${this.collectionSingularized}-${desiredName}.${this.fileNameExtension}`
+    }
+
+    return ''
+  }
+
+  public async export() {
+    return {
+      ...this.exportConfig(),
+      ...await this.exportFiles()
     }
   }
 }

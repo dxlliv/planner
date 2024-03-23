@@ -8,8 +8,14 @@ export default {
   },
   locale: "en",
   features: {
+    // profile options
     profileEditor: true,
+
+    // media options
     mediaSort: true,
-    mediaEditor: true
+    mediaEditor: true,
+
+    // deluxe edition
+    requestDeluxe: true
   }
 }

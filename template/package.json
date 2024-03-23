@@ -8,28 +8,11 @@
     "url": "https://github.com/dxlliv"
   },
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate --dev"
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "@fontsource/cookie": "^5.0.18",
-    "@mdi/font": "^7.4.47",
-    "@nuxtjs/i18n": "^8.0.2",
-    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
-    "@pinia/nuxt": "^0.5.1",
-    "@pqina/pintura": "^8.71.2",
-    "@pqina/vue-pintura": "^9.0.1",
-    "@vuelidate/core": "^2.0.3",
-    "@vuelidate/validators": "^2.0.4",
-    "@vueuse/core": "^10.7.2",
-    "@vueuse/nuxt": "^10.7.2",
-    "nuxt": "^3.10.1",
-    "nuxt-swiper": "^1.2.2",
-    "plxnner": "^0.0.1-alpha.0",
-    "sass": "^1.70.0",
-    "typescript": "^5.3.3",
-    "vite-plugin-vuetify": "^2.0.1",
-    "vuetify-nuxt-module": "^0.10.3"
+    "plxnner": "^0.0.1-alpha.4",
+    "typescript": "^5.3.3"
   }
 }

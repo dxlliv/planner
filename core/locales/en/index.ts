@@ -46,7 +46,7 @@ export default {
       },
       menu: {
         addCover: "Add cover",
-        addToAlbum: "Add to album",
+        addToAlbum: "Add media to album",
         cloneToReel: "Clone to reel",
         convertToAlbum: "Convert to album",
         convertToIframe: "Convert to iframe",
