@@ -2,7 +2,7 @@ import {
   openUserDirectory,
   parseUserProfileConfigFromFileDirectory,
 } from "../utils/utilsUserProfile"
-import UserMedia from "../core/user/userMedia.class"
+import UserMedia from "../lib/user/userMedia.class"
 
 export const useUserImportStore = defineStore("user/import", () => {
   const userStore = useUserStore()
