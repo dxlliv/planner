@@ -2,7 +2,7 @@
 
 > An elegant open-source planner for your Instagram profile
 
-<a href="https://github.com/dxlliv/plxnner"><img src="https://img.shields.io/github/v/release/dxlliv/planner" /></a>
+<a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/v/release/dxlliv/planner" /></a>
 <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?color=blue" /></a>
 <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/dm/plxnner.svg?color=333333" /></a>
 <a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/planner-demo-333333" /></a>
