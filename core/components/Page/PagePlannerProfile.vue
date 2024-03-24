@@ -7,14 +7,14 @@ const props = defineProps<{
 const userStore = useUserStore()
 const user = ref()
 
-onMounted(() => {
-  setTimeout(() => {
-    user.value = userStore.getUser(props.username, props.platform)
+user.value = userStore.getUser(props.username, props.platform)
 
-    if (user) {
-      user.value.media.fetch()
-    }
-  }, 100)
+if (user) {
+  user.value.media.fetch()
+}
+
+onMounted(async () => {
+  await user.value.prepareClient()
 })
 </script>
 

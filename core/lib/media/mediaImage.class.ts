@@ -13,7 +13,10 @@ export default class MediaImage extends Media implements IMediaImage {
     super(user, raw, collection)
 
     this.setMediaType("image")
-    this.parseMediaImage(raw)
+  }
+
+  public prepareClient() {
+    this.parseMediaImage(this.raw)
   }
 
   private get fileNameExtension() {
@@ -33,9 +36,9 @@ export default class MediaImage extends Media implements IMediaImage {
         if (raw.file && raw.file instanceof File) {
           // regular image import from: new image / indexeddb restore
           this.file = this.parseMediaFileBlob(raw.file)
-        } else if (typeof raw.name === "string") {
+        } else if (typeof raw.file.name === "string") {
           // regular image import from: config.json
-          this.file = this.parseMediaFileName(raw.name)
+          this.file = this.parseMediaFileName(raw.file.name)
         }
         break
     }

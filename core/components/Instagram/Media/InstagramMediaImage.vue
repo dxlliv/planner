@@ -4,18 +4,36 @@ const props = defineProps<{
   isFromDetail?: boolean
 }>()
 
-const src = await handleMediaForSrc(props.media)
+const src = ref(props.media.rawFilePath)
+
+async function onIntersect(isIntersecting) {
+  if (isIntersecting) {
+    props.media.prepareClient()
+
+    if (props.media.user.hasLocalChanges) {
+      src.value = await handleMediaForSrc(props.media)
+    }
+  }
+}
 </script>
 
 <template>
-  <InstagramMediaContainer type="image" :media="media">
+  <InstagramMediaContainer
+    type="image"
+    :media="media"
+    v-intersect="onIntersect"
+  >
+
     <v-img cover height="100%" :src="src" />
 
-    <MediaActionEdit
-      v-if="isPlannerFeatureEnabled('mediaEditor')"
-      @click.stop="media.setEditing(true)"
-    />
+    <client-only>
+      <MediaActionEdit
+        v-if="isPlannerFeatureEnabled('mediaEditor')"
+        @click.stop="media.setEditing(true)"
+      />
 
-    <MediaImageEditor v-if="media.isEditing" :media="media" />
+      <MediaImageEditor v-if="media.isEditing" :media="media" />
+    </client-only>
+
   </InstagramMediaContainer>
 </template>

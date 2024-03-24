@@ -49,7 +49,7 @@ export default class UserMedia implements IUserMedia {
     if (this.firstFetch === true) {
       this.firstFetch = false
     } else {
-      return false
+      //return false
     }
 
     this.parseRawUserMediaCollections()
@@ -65,9 +65,9 @@ export default class UserMedia implements IUserMedia {
    */
   private parseRawUserMediaCollections() {
     for (const collection of this.structureCollectionKeys) {
-      if (!this.hasCollection(collection)) {
+      //if (!this.hasCollection(collection)) {
         this.collections[collection] = []
-      }
+      //}
 
       if (
         Object.prototype.hasOwnProperty.call(

@@ -9,6 +9,7 @@ const tab = ref("posts")
 <template>
   <v-sheet color="transparent" class="ig-profile-page">
     <v-container class="px-1 py-sm-auto py-0">
+
       <InstagramUserProfile :user="user" />
 
       <InstagramUserTabs
@@ -17,7 +18,11 @@ const tab = ref("posts")
         @select="(value: string) => (tab = value)"
       />
 
-      <InstagramUserGrid :user="user" :collection="tab" />
+      <InstagramUserGrid
+        :user="user"
+        :collection="tab"
+      />
+
     </v-container>
   </v-sheet>
 </template>

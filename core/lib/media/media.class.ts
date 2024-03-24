@@ -9,7 +9,7 @@ import User from "../user/user.class"
 export default class Media {
   public user: User
 
-  public raw: string | IRawMedia
+  public raw: IRawMedia
 
   public id: string = ""
   public type: IMediaType = "" as IMediaType
@@ -30,7 +30,13 @@ export default class Media {
     collection?: IMediaCollection,
   ) {
     this.user = user
-    this.raw = typeof raw === "string" ? raw : Object.assign({}, raw)
+    this.raw = typeof raw === "string"
+      ? {
+        file: {
+          name: raw
+        }
+      }
+      : Object.assign({}, raw)
 
     if (collection) {
       this.collection = collection
@@ -38,6 +44,10 @@ export default class Media {
 
     this.setUniqueId()
     this.parseMediaDetail()
+  }
+
+  public get rawFilePath() {
+    return getMediaFilePath(this.raw.file.name, `${this.user.platform}/${this.user.raw.profile.username}/media`)
   }
 
   public get isDetailView() {
@@ -76,20 +86,11 @@ export default class Media {
   }
 
   private parseMediaDetail() {
-    switch (typeof this.raw) {
-      case "string":
-        this.caption = ""
-        this.date = ""
-        break
-
-      case "object":
-        if (this.raw.caption) {
-          this.caption = this.raw.caption
-        }
-        if (this.raw.date) {
-          this.date = this.raw.date
-        }
-        break
+    if (this.raw.caption) {
+      this.caption = this.raw.caption
+    }
+    if (this.raw.date) {
+      this.date = this.raw.date
     }
   }
 

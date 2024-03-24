@@ -1,5 +1,5 @@
-import { openDB } from 'idb';
-import UserConfig from "./userConfig.class";
+import { openDB } from "idb"
+import UserConfig from "./userConfig.class"
 
 export default class UserLoader {
   /**

@@ -42,7 +42,7 @@ export default defineNuxtConfig({
       styles: { configFile: resolve("./styles/settings.scss") }
     },
     vuetifyOptions: {
-      /* vuetify options */
+      ssr: true
     }
   },
   features: {

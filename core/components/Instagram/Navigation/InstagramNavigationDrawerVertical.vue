@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { isPlannerFeatureEnabled } from "../../../utils/utilsPlanner"
-
 defineProps<{
   user: IUser
   nav: any

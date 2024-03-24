@@ -32,6 +32,8 @@ export default class UserStorage {
     )
 
     if (userChanges) {
+      this.user.setChanged(true)
+
       // restore original user id (platform + username)
       this.user.id = userChanges.id
 
@@ -41,7 +43,7 @@ export default class UserStorage {
       // overwrite user raw media
       this.user.raw.media = userChanges.media
 
-      this.user.setChanged(true)
+      this.user.media.fetch()
     }
   }
 

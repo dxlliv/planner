@@ -5,9 +5,10 @@ import UserLoader from "../../lib/user/userLoader.class";
 const themeStore = useThemeStore()
 const theme = useTheme()
 
+await UserLoader.loadUsersFromConfig()
+
 onBeforeMount(async () => {
-  // initialize users
-  await UserLoader.loadUsersFromConfig()
+  // initialize temporary users
   await UserLoader.loadUsersFromStorage()
 })
 

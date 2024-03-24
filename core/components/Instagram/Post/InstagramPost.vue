@@ -55,33 +55,37 @@ watch(() => props.media.isDetailView, value => {
   >
     <InstagramMedia v-bind="$props" />
 
-    <v-dialog v-model="postDetailDialog">
-      <InstagramPostDetail
-        :media="media"
-        :profile="profile"
-      >
-        <template v-slot:date>
-          <InstagramPostDate
-            :date="media.date"
-            @update="onDateUpdate"
-          />
-        </template>
-        <template v-slot:context-menu>
-          <v-btn icon>
-            <v-icon
-              icon="mdi-dots-vertical"
+    <client-only>
+
+      <v-dialog v-model="postDetailDialog">
+        <InstagramPostDetail
+          :media="media"
+          :profile="profile"
+        >
+          <template v-slot:date>
+            <InstagramPostDate
+              :date="media.date"
+              @update="onDateUpdate"
             />
-            <InstagramMediaContextMenu
-              activator="parent"
-              :media="media"
-              :width="240"
-              :offset="[8, 0]"
-              location="bottom right"
-            />
-          </v-btn>
-        </template>
-      </InstagramPostDetail>
-    </v-dialog>
+          </template>
+          <template v-slot:context-menu>
+            <v-btn icon>
+              <v-icon
+                icon="mdi-dots-vertical"
+              />
+              <InstagramMediaContextMenu
+                activator="parent"
+                :media="media"
+                :width="240"
+                :offset="[8, 0]"
+                location="bottom right"
+              />
+            </v-btn>
+          </template>
+        </InstagramPostDetail>
+      </v-dialog>
+
+    </client-only>
   </div>
 </template>
 

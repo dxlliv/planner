@@ -4,7 +4,7 @@ import { useDate } from "vuetify"
 const emit = defineEmits(['update'])
 
 const props = defineProps<{
-  date?: Date
+  date?: string | Date
 }>()
 
 const date = useDate()

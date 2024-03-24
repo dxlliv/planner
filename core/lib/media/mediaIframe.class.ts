@@ -11,7 +11,10 @@ export default class MediaIframe extends Media implements IMediaIframe {
     super(user, raw, collection)
 
     this.setMediaType("iframe")
-    this.parseMediaIframe(raw)
+  }
+
+  public prepareClient() {
+    this.parseMediaIframe(this.raw)
   }
 
   private parseMediaIframe(raw: IRawMedia) {

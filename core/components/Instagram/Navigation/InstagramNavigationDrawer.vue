@@ -34,12 +34,16 @@ const userMediaCreate = ref(false)
 </script>
 
 <template>
-  <InstagramNavigationDrawerVertical
-    class="hidden-xs"
-    :user="user"
-    :nav="nav"
-    @create="userMediaCreate = true"
-  />
+  <client-only>
+
+    <InstagramNavigationDrawerVertical
+      class="hidden-xs"
+      :user="user"
+      :nav="nav"
+      @create="userMediaCreate = true"
+    />
+
+  </client-only>
 
   <InstagramNavigationDrawerHorizontal
     class="hidden-sm-and-up"

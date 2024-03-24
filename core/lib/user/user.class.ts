@@ -30,11 +30,24 @@ export default class User implements IUser {
    * Initialize user
    */
   public async init() {
-    // start user indexed db
-    await this.initUserStorage()
-
     // parse user profile from raw config
     await this.initUserProfile()
+
+    // parse user media
+    this.initUserMedia()
+
+    // set user id (provided, or getted from profile username)
+    this.id = this.raw.id ?? this.raw.profile.username
+
+    // set user as ready
+    this.ready.value = true
+
+    return this
+  }
+
+  public async prepareClient() {
+    // start user indexed db
+    await this.initUserStorage()
 
     // check for index db user changes
     await this.storage.isContentAvailable().then(async (availability) => {
@@ -44,24 +57,16 @@ export default class User implements IUser {
       }
     })
 
-    // parse user media
-    this.initUserMedia()
-
-    // set user id (provided, or getted from profile username)
-    this.id = this.raw.id ?? this.raw.profile.username
-
     // when you import users from directory/zip,
     // you may want to save the profile immediately
     if (this.origin === "storage") {
-      this.media.fetch()
+      // this.media.fetch()
 
-      await this.storage.save()
+      //await this.storage.save()
     }
 
-    // set user as ready
-    this.ready.value = true
-
-    return this
+    // parse user media
+    // this.media.fetch()
   }
 
   /**

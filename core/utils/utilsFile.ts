@@ -54,7 +54,7 @@ export async function fetchFileFromUrl(url: string): Promise<File> {
  */
 export async function handleMediaForSrc(media: { file: IMediaFile }) {
   if (!media.file) {
-    throw Error("File object is not defined")
+    throw Error("File is not defined")
   }
 
   if (!media.file.blob) {

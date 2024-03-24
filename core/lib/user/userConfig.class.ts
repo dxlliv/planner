@@ -11,7 +11,8 @@ export default class UserConfig {
     const rawUsers = []
 
     for await (const userPath of plannerConfig.users) {
-      rawUsers.push(this.getUserConfig(userPath))
+      const rawUser = await this.getUserConfig(userPath)
+      rawUsers.push(rawUser)
     }
 
     return rawUsers
@@ -32,7 +33,7 @@ export default class UserConfig {
       userConfigFullPath = userPath
     } else {
       // is local config
-      userConfigFullPath = `${baseURL}user/${userPath}/config.json`
+      userConfigFullPath = `http://localhost:3000${baseURL}user/${userPath}/config.json`
     }
 
     // fetch user config from its local/remote path
@@ -57,9 +58,10 @@ export default class UserConfig {
    * @private
    */
   private static async fetchUserConfig(url: string): Promise<IRawUser> {
-    return fetch(url)
+    return $fetch(url)
       .then(async (response) => {
-        const rawUser: IRawUser = await response.json()
+        // await response.json(), if using fetch (and not $fetch)
+        const rawUser: IRawUser = response
 
         // sets where this config comes from
         rawUser.path = url.replace("/config.json", "")

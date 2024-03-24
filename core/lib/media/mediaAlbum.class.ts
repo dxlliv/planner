@@ -17,8 +17,10 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
       // @ts-ignore
       raw = { list: raw }
     }
+  }
 
-    this.parseMediaAlbum(raw)
+  public prepareClient() {
+    this.parseMediaAlbum(this.raw)
   }
 
   private parseMediaAlbum(raw: IRawMedia) {

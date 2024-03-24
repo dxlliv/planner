@@ -18,7 +18,10 @@ export default class MediaVideo extends Media implements IMediaVideo {
     super(user, raw, collection)
 
     this.setMediaType("video")
-    this.parseMediaVideo(raw)
+  }
+
+  public prepareClient() {
+    this.parseMediaVideo(this.raw)
   }
 
   private get fileNameExtension() {
@@ -39,7 +42,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
           // regular image import from: new image / indexeddb restore
           this.file = this.parseMediaFileBlob(raw.file)
         } else if (raw.name) {
-          this.file = this.parseMediaFileName(raw.name)
+          // this.file = this.parseMediaFileName(raw.name)
         }
 
         if (typeof raw.reel !== "undefined") {
