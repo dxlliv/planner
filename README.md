@@ -2,9 +2,10 @@
 
 > An elegant open-source planner for your Instagram profile
 
-<a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?color=333333" /></a>
+<a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/v/release/dxlliv/planner" /></a>
+<a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?color=blue" /></a>
 <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/dm/plxnner.svg?color=333333" /></a>
-<a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/planner-demo-blue" /></a>
+<a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/planner-demo-333333" /></a>
 <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/stars/dxlliv/planner?style=social" /></a>
 
 ## About
@@ -89,41 +90,6 @@ yarn install && yarn dev
 # or use npm
 npm install && npm run dev
 ```
-
-## Roadmap
-
-- [ ] Profile viewer
-  - [x] Posts
-    - [x] Image support
-    - [x] Video support
-    - [x] Album support
-    - [x] Iframe support
-    - [x] Caption
-    - [x] Date
-    - [ ] Location
-  - [x] Reels
-  - [ ] Stories
-  - [ ] Highlights
-- [x] Profile creation
-  - [x] Create new profile
-  - [ ] Import from .zip
-- [ ] Profile editor
-  - [x] Basic
-    - [x] Add media
-    - [x] Remove media
-    - [x] Sort media
-    - [x] Add cover
-    - [x] Replace cover
-    - [x] Remove cover
-    - [x] Convert to album
-    - [x] Convert to iframe
-    - [x] Clone to reel
-  - [ ] Advanced
-  - [x] Storage
-- [x] Profile export
-- [ ] Calendar view
-- [x] Implement Storybook
-- [x] Implement i18n
 
 ## Deluxe Planner
 
