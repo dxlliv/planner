@@ -99,7 +99,7 @@ async function prepareUserZipConfig(user: IUser) {
 
   userZip[username] = {}
 
-  if (user.profile.avatar.isSet) {
+  if (user.profile.avatar && user.profile.avatar.isSet) {
     const avatarFile = await user.profile.avatar.export()
 
     userZip[username][userConfigJson.profile.avatar] = [
