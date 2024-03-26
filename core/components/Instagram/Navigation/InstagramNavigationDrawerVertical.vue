@@ -53,10 +53,21 @@ const emit = defineEmits(["create", "export"])
 
     <v-list density="compact" nav class="ig-navigation-drawer__list-bottom">
 
+
+      <v-list-item
+        v-if="user.hasLocalChanges"
+        title="Save"
+        @click="user.save()"
+        base-color="primary"
+      >
+        <template #prepend>
+          <v-icon icon="mdi-content-save-outline" />
+        </template>
+      </v-list-item>
+
       <v-list-item
         v-if="user.hasLocalChanges"
         title="Export"
-        base-color="primary"
         @click="emit('export')"
       >
         <template #prepend>

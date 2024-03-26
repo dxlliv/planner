@@ -47,14 +47,14 @@ interface IRawMedia {
   type?: IMediaType
   collection?: IMediaCollection
   name?: string
+  file?: File
   reel?: boolean
   cover?: number | string | IRawMedia
   list?: string[] | IRawMedia[]
   href?: string
-  file?: File
 
-  date?: string
   caption?: string
+  date?: string
 }
 
 interface IRawMediaImage extends IRawMedia {
@@ -104,6 +104,7 @@ interface IUser {
     changed: boolean
   }
 
+  // @ts-ignore
   get route(): RouteRecord
   get hasLocalChanges(): boolean
   get isRemovable(): boolean
@@ -169,7 +170,10 @@ interface IInstagramUserProfile extends IUserProfile {
   export(): Promise<IRawUserProfile>
 }
 
-interface UserAvatar {}
+interface UserAvatar {
+  get isSet(): boolean
+  export(): Promise<File>
+}
 
 type IUserProfileWebsite = null | {
   href: string
@@ -185,7 +189,7 @@ interface IUserMedia {
   }
 
   get collectionKeys(): string[]
-  fetch(): void
+  fetch(from: IMediaFrom): void
 }
 
 interface IInstagramUserMedia extends IUserMedia {}
@@ -194,10 +198,13 @@ interface IUserOptions {}
 
 interface IMedia {
   user: any
-  raw: string | IRawMedia
+  raw: string | File | IRawMedia
   id: string
   type: IMediaType
+  from: IMediaFrom
   collection: IMediaCollection
+  cover?: IMediaImage
+  list?: any
 
   collectionSingularized: string
 
@@ -208,8 +215,8 @@ interface IMedia {
 
   setDetailView(toggle: boolean): void
   setMediaType(mediaType: IMediaType): void
-  parseMediaFileName(fileName: string): IMediaFile
-  parseMediaFileBlob(fileBlob: File): IMediaFile
+  fetchMediaFileFromString(fileName: string): Promise<IMediaFile>
+  fetchMediaFileFromBlob(fileBlob: File): Promise<IMediaFile>
 
   caption: string
   setCaption(value: string) :void
@@ -218,9 +225,10 @@ interface IMedia {
   setDate(value: string) :void
 
   refresh(): void
-  save(): void
 
   remove(): Promise<number>
+
+  fetch(): void
 
   export(): Promise<any>
   exportConfig(): any
@@ -228,18 +236,16 @@ interface IMedia {
 }
 
 interface IMediaImage extends IMedia {
-  file: IMediaFile
+  file: Promise<IMediaFile>
 
   setMediaImage(blob: File): Promise<void>
 
   convertToAlbum(): Promise<void>
   convertToIframe(href: string): Promise<void>
-
-  exportWithDesiredName(desiredName: string): string
 }
 
 interface IMediaVideo extends IMedia {
-  file: IMediaFile
+  file: Promise<IMediaFile>
   cover: undefined | IMediaImage
   coverTime: number
 
@@ -280,7 +286,9 @@ interface IMediaIframe extends IMedia {
 }
 
 type IMediaType = "image" | "video" | "album" | "iframe"
+type IMediaFrom = "config" | "client"
 type IMediaCollection = "posts" | "reels"
+type IMediaAddMethod = "push" | "unshift"
 
 interface IMediaFile {
   name?: string

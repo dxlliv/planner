@@ -1,6 +1,7 @@
 import { defineNuxtConfig } from 'nuxt/config'
 import { createResolver } from "@nuxt/kit";
 
+// @ts-ignore
 const { resolve } = createResolver(import.meta.url);
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -39,6 +40,7 @@ export default defineNuxtConfig({
     global: true,
     dirs: ["./components"],
   },
+  // @ts-ignore
   pinia: {
     storesDirs: [
       '../base/stores/**'

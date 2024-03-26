@@ -14,7 +14,7 @@ watch(() => props.media.list, () => {
 
   for (const subMedia of props.media.list) {
     if (subMedia.isEditing) {
-      isSubMediaEditingInProgress = true
+      //isSubMediaEditingInProgress = true
     }
   }
 
@@ -41,7 +41,6 @@ watch(() => props.media.list, () => {
       </Slide>
     </Carousel>
     <InstagramMediaAlbumCurrentIndex
-      v-if="!albumEditing"
       :index="media.currentIndex"
       :max="media.itemsCount"
     />

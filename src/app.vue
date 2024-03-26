@@ -1,6 +1,11 @@
 <script setup lang="ts">
 const route = useRoute()
-const platform = capitalizeFirstLetter(route.params.platform)
+
+let platform = ''
+
+if (route.params.platform) {
+  platform = capitalizeFirstLetter(route.params.platform)
+}
 
 useHead({
   titleTemplate: (titleChunk) => {

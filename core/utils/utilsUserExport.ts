@@ -1,5 +1,3 @@
-import { IMedia } from "../types"
-
 /**
  * Resolve media file promises for media export into indexed db
  *
@@ -11,6 +9,7 @@ export async function fulfillMediaFilesForExport(
   const result = []
 
   for await (const media of mediaList) {
+    media.fetch()
     result.push(await media.export())
   }
 

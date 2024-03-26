@@ -9,10 +9,11 @@ import User from "../user/user.class"
 export default class Media {
   public user: User
 
-  public raw: IRawMedia
+  public raw: string | File | IRawMedia
 
   public id: string = ""
   public type: IMediaType = "" as IMediaType
+  public from: IMediaFrom = "config"
   public collection: IMediaCollection = "" as IMediaCollection
 
   public reel: boolean = false
@@ -26,17 +27,13 @@ export default class Media {
 
   constructor(
     user: User,
-    raw: string | IRawMedia,
+    raw: string | File | IRawMedia,
     collection?: IMediaCollection,
+    from?: IMediaFrom,
   ) {
     this.user = user
-    this.raw = typeof raw === "string"
-      ? {
-        file: {
-          name: raw
-        }
-      }
-      : Object.assign({}, raw)
+    this.raw = raw
+    this.from = from
 
     if (collection) {
       this.collection = collection
@@ -47,7 +44,18 @@ export default class Media {
   }
 
   public get rawFilePath() {
-    return getMediaFilePath(this.raw.file.name, `${this.user.platform}/${this.user.raw.profile.username}/media`)
+    if (this.from === 'client') {
+      // media has just been uploaded or loaded from storage (client-side)
+      return null
+    }
+
+    // load media from /public folder
+    switch (typeof this.raw) {
+      case 'string':
+        return getMediaFilePath(this.raw, `${this.user.platform}/${this.user.raw.profile.username}/media`)
+      case 'object':
+        return getMediaFilePath(this.raw.name, `${this.user.platform}/${this.user.raw.profile.username}/media`)
+    }
   }
 
   public get isDetailView() {
@@ -86,6 +94,13 @@ export default class Media {
   }
 
   private parseMediaDetail() {
+    if (
+      typeof this.raw === 'string' ||
+      this.raw instanceof File
+    ) {
+      return
+    }
+
     if (this.raw.caption) {
       this.caption = this.raw.caption
     }
@@ -94,7 +109,7 @@ export default class Media {
     }
   }
 
-  public parseMediaFileName(fileName: string): IMediaFile {
+  public fetchMediaFileFromString(fileName: string): Promise<IMediaFile> {
     let filePath = ""
 
     if (fileName.startsWith("http")) {
@@ -107,27 +122,15 @@ export default class Media {
       )
     }
 
-    return {
-      name: fileName,
-      path: filePath,
-      blob: fetchFileFromUrl(filePath),
-    }
+    return fetchFileFromUrl(filePath)
   }
 
-  public parseMediaFileBlob(fileBlob: File): IMediaFile {
-    return {
-      name: fileBlob.name,
-      path: fileBlob.name,
-      blob: Promise.resolve(fileBlob),
-    }
+  public fetchMediaFileFromBlob(fileBlob: File): Promise<IMediaFile> {
+    return Promise.resolve(fileBlob)
   }
 
   public refresh() {
     this.setUniqueId()
-  }
-
-  public async save() {
-    await this.user.save()
   }
 
   public async remove() {
@@ -139,10 +142,10 @@ export default class Media {
       this.user.media.collections[this.collection].splice(index, 1)
     }
 
-    await this.user.save()
-
     // refresh posts count
     this.user.profile.setPostsCount(this.user.media.collections.posts.length)
+
+    this.user.setChanged(true)
 
     return index
   }
@@ -150,13 +153,13 @@ export default class Media {
   public async setCaption(caption: string) {
     this.caption = caption
 
-    await this.user.save()
+    this.user.setChanged(true)
   }
 
   public async setDate(date: string) {
     this.date = date
 
-    await this.user.save()
+    this.user.setChanged(true)
   }
 
   public get exportCommonConfig() {

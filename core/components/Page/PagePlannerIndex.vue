@@ -4,8 +4,8 @@ import PagePlannerIndexMobile from "./PagePlannerIndexMobile.vue";
 </script>
 
 <template>
-  <PagePlannerIndexDesktop v-if="$vuetify.display.mdAndUp" />
-  <PagePlannerIndexMobile v-else />
+  <PagePlannerIndexDesktop class="hidden-md-and-down" />
+  <PagePlannerIndexMobile class="hidden-sm-and-up" />
 </template>
 
 <style scoped lang="scss">

@@ -7,7 +7,6 @@ const emit = defineEmits(["close"])
 
 function onCloneMediaToReel() {
   props.media.cloneToReel()
-  props.media.user.save()
 
   emit("close")
 }

@@ -17,7 +17,6 @@ onChange((files: null | File[]) => {
 
   props.media.setMediaAlbumImage(file)
   props.media.refresh()
-  props.media.save()
 
   emit("close")
 })

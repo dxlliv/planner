@@ -19,9 +19,7 @@ onChange(async (files: null | File[]) => {
 
   // update preview
   avatar.value = {
-    file: {
-      blob: Promise.resolve(file),
-    },
+    file: Promise.resolve(file)
   }
 
   emit("update", file)

@@ -10,7 +10,6 @@ function convertToIframe() {
 
   if (href) {
     props.media.convertToIframe(href)
-    props.media.user.save()
   }
 }
 </script>

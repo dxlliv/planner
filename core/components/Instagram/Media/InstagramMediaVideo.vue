@@ -8,10 +8,25 @@ const props = defineProps<{
 
 const isPlaying: Ref<boolean> = ref(false)
 
-const src = await handleMediaForSrc(props.media)
+const src = ref(props.media.rawFilePath)
 
 const videoRef: Ref<HTMLVideoElement | null> = ref(null)
 const videoMaxLength: Ref<number> = ref(0)
+
+async function onIntersect(isIntersecting) {
+  if (isIntersecting) {
+    if (props.media.from === 'client') {
+      props.media.fetch()
+
+      src.value = await handleMediaForSrc(props.media)
+      //src.value = await handleMediaForSrc(props.media)
+    }
+
+    if (props.media.user.hasLocalChanges) {
+      //src.value = await handleMediaForSrc(props.media)
+    }
+  }
+}
 
 function onUpdateCoverTime(value: number) {
   if (!videoRef.value) return
@@ -20,7 +35,6 @@ function onUpdateCoverTime(value: number) {
 
   // update media coverTime & save changes
   props.media.setCoverTime(value)
-  props.media.save()
 }
 
 onMounted(() => {
@@ -61,13 +75,15 @@ watch(
     type="video"
     :media="media"
     :class="{ 'ig-media--reel': media.isReel }"
+    v-intersect="onIntersect"
   >
-    <template v-if="!media.cover || media.coverTime">
+    <template v-if="(!media.cover || media.coverTime) || isPlaying">
       <video
         ref="videoRef"
         :src="src"
         :autoplay="isPlaying"
         @click="isPlaying = !isPlaying"
+        @mouseleave="isPlaying = false"
       />
 
       <InstagramMediaVideoCoverSelector
@@ -79,7 +95,10 @@ watch(
     </template>
 
     <template v-else-if="typeof media.cover === 'object'">
-      <InstagramMediaImage :media="media.cover" @click="isPlaying = true" />
+      <InstagramMediaImage
+        :media="media.cover"
+        @mouseover="isPlaying = true"
+      />
     </template>
 
     <InstagramMediaEditor v-if="media.isEditing" :media="media" />

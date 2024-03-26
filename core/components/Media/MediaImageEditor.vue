@@ -10,6 +10,8 @@ const editorProps = getEditorDefaults({
   enableButtonClose: true,
 })
 
+props.media.fetch()
+
 const src = await handleMediaForSrc(props.media)
 
 function handleProcess(event) {

@@ -7,20 +7,25 @@ export default class MediaIframe extends Media implements IMediaIframe {
   public href: string = ""
   public cover: IMediaImage
 
-  constructor(user: User, raw: IRawMedia, collection?: IMediaCollection) {
-    super(user, raw, collection)
+  constructor(user: User, raw: IRawMedia, collection?: IMediaCollection, from?: IMediaFrom) {
+    super(user, raw, collection, from)
 
     this.setMediaType("iframe")
+    this.parseMediaIframe()
   }
 
-  public prepareClient() {
-    this.parseMediaIframe(this.raw)
+  public fetch() {
+    this.fetchMediaIframe()
   }
 
-  private parseMediaIframe(raw: IRawMedia) {
+  private parseMediaIframe() {
+    if (typeof this.raw === 'string' || this.raw instanceof File) {
+      return
+    }
+
     // set max quality to youtube embed videos
-    if (raw.href) {
-      let href = raw.href
+    if (this.raw.href) {
+      let href = this.raw.href
 
       if (href.startsWith("https://youtube.com/embed/")) {
         href = href + "?autoplay=1&version=3&vq=hd1080"
@@ -29,25 +34,31 @@ export default class MediaIframe extends Media implements IMediaIframe {
       this.href = href
     }
 
-    if (raw.reel) {
-      this.reel = raw.reel
+    if (this.raw.reel) {
+      this.reel = this.raw.reel
     }
 
-    if (raw.cover && typeof raw.cover !== "number") {
-      this.cover = new MediaImage(this.user, raw.cover)
+    if (this.raw.cover && typeof this.raw.cover !== "number") {
+      this.cover = new MediaImage(this.user, this.raw.cover, this.collection, this.from)
+    }
+  }
+
+  private fetchMediaIframe() {
+    if (this.cover) {
+      this.cover.fetch()
     }
   }
 
   public async setCover(file: File) {
     this.cover = new MediaImage(this.user, { file })
 
-    await this.save()
+    this.user.setChanged(true)
   }
 
   public async removeCover() {
     this.cover = undefined
 
-    await this.save()
+    this.user.setChanged(true)
   }
 
   public get isReel() {
@@ -69,11 +80,13 @@ export default class MediaIframe extends Media implements IMediaIframe {
       mediaToBeCloned.reel = true
 
       // @ts-ignore
-      this.user.media.addMedia(mediaToBeCloned, "reels")
-      await this.user.save()
+      this.user.media.addMedia(mediaToBeCloned, "reels", {
+        addMethod: 'push',
+        from: 'client'
+      })
     }
 
-    await this.save()
+    this.user.setChanged(true)
   }
 
   public exportConfig(): IMediaIframeExportConfig {
@@ -90,8 +103,7 @@ export default class MediaIframe extends Media implements IMediaIframe {
     // fulfill cover
     if (this.cover && this.cover.file) {
       cover = {
-        type: "image",
-        file: await this.cover.file.blob,
+        file: await this.cover.file,
       }
     }
 

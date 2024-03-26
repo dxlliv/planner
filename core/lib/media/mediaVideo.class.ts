@@ -5,7 +5,7 @@ import UserMedia from "../user/userMedia.class"
 import { getFileExtension } from "../../utils/utilsFile"
 
 export default class MediaVideo extends Media implements IMediaVideo {
-  public file: IMediaFile = {} as IMediaFile
+  public file: Promise<IMediaFile>
   public reel: boolean = false
   public cover: undefined | IMediaImage
   public coverTime: number = 0
@@ -14,71 +14,78 @@ export default class MediaVideo extends Media implements IMediaVideo {
     user: User,
     raw: string | IRawMedia,
     collection?: IMediaCollection,
+    from?: IMediaFrom,
   ) {
-    super(user, raw, collection)
+    super(user, raw, collection, from)
 
     this.setMediaType("video")
+    this.parseMediaVideo()
   }
 
-  public prepareClient() {
-    this.parseMediaVideo(this.raw)
+  public fetch() {
+    this.fetchMediaVideo()
   }
 
-  private get fileNameExtension() {
-    return getFileExtension(
-      this.file.name,
-    )
+  private parseMediaVideo() {
+    switch (typeof this.raw) {
+      case "object":
+        if (typeof this.raw.reel !== "undefined") {
+          this.reel = Boolean(this.raw.reel)
+        }
+
+        if (this.raw.cover && typeof this.raw.cover !== "number") {
+          this.cover = new MediaImage(this.user, this.raw.cover, this.collection, this.from)
+        }
+        break
+    }
   }
 
-  private parseMediaVideo(raw: string | IRawMedia) {
-    switch (typeof raw) {
+  private fetchMediaVideo() {
+    switch (typeof this.raw) {
       case "string":
         // shortened image import
-        this.file = this.parseMediaFileName(raw)
+        this.file = this.fetchMediaFileFromString(this.raw)
         break
 
       case "object":
-        if (raw.file && raw.file instanceof File) {
+        // direct upload
+        if (this.raw instanceof File) {
           // regular image import from: new image / indexeddb restore
-          this.file = this.parseMediaFileBlob(raw.file)
-        } else if (raw.name) {
-          // this.file = this.parseMediaFileName(raw.name)
-        }
+          this.file = this.fetchMediaFileFromBlob(this.raw)
 
-        if (typeof raw.reel !== "undefined") {
-          this.reel = Boolean(raw.reel)
-        }
+          // set raw as filename to keep memory light
+          //this.raw = this.file.name
+        } else if (this.raw.file && this.raw.file instanceof File) {
+          // image restored from indexeddb restore
+          this.file = this.fetchMediaFileFromBlob(this.raw.file)
 
-        switch (typeof raw.cover) {
-          case "number":
-            this.coverTime = Number(raw.cover)
-            break
-          case "string":
-          case "object":
-            this.cover = new MediaImage(this.user, raw.cover, this.collection)
-            break
+          // set raw as filename to keep memory light
+          //this.raw = this.file.name
+        } else if (typeof this.raw.name === "string") {
+          // regular image import from: config.json
+          this.file = this.fetchMediaFileFromString(this.raw.name)
         }
         break
     }
   }
 
   public async setCover(file: File) {
-    this.cover = new MediaImage(this.user, { file }, this.collection)
+    this.cover = new MediaImage(this.user, { file }, this.collection, this.from)
 
-    await this.save()
+    this.user.setChanged(true)
   }
 
   public async setCoverTime(value: number) {
     this.coverTime = value
 
-    await this.save()
+    this.user.setChanged(true)
   }
 
   public async removeCover() {
     this.cover = undefined
     this.coverTime = 0
 
-    await this.save()
+    this.user.setChanged(true)
   }
 
   public async convertToAlbum() {
@@ -89,7 +96,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
         list: [
           {
             type: "image",
-            file: await this.file.blob,
+            file: await this.file,
           },
         ],
       },
@@ -100,7 +107,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
 
     this.user.media.collections[this.collection].splice(index, 0, mediaAlbum)
 
-    await this.save()
+    this.user.setChanged(true)
   }
 
   public get isReel() {
@@ -122,11 +129,13 @@ export default class MediaVideo extends Media implements IMediaVideo {
       mediaToBeCloned.reel = true
 
       // @ts-ignore
-      this.user.media.addMedia(mediaToBeCloned, "reels")
-      await this.user.save()
+      this.user.media.addMedia(mediaToBeCloned, "reels", {
+        addMethod: 'push',
+        from: 'client'
+      })
     }
 
-    await this.save()
+    this.user.setChanged(true)
   }
 
   public exportConfig(): IMediaVideoExportConfig {
@@ -142,8 +151,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
     // fulfill cover
     if (this.cover && this.cover.file) {
       cover = {
-        type: "image",
-        file: await this.cover.file.blob,
+        file: await this.cover.file,
       }
     }
 
@@ -152,17 +160,9 @@ export default class MediaVideo extends Media implements IMediaVideo {
     }
 
     return {
-      file: await this.file?.blob,
+      file: await this.file,
       cover,
     }
-  }
-
-  public exportWithDesiredName(desiredName: string): string {
-    if (this.file && this.file.blob) {
-      return `${this.collectionSingularized}-${desiredName}.${this.fileNameExtension}`
-    }
-
-    return ''
   }
 
   public async export() {

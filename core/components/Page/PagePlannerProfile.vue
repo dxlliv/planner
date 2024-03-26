@@ -13,7 +13,7 @@ if (user) {
   user.value.media.fetch()
 }
 
-onMounted(async () => {
+onBeforeMount(async () => {
   await user.value.prepareClient()
 })
 </script>

@@ -9,8 +9,17 @@
   },
   "media": {
     "posts": [
+      "post-6.jpg",
+      {
+        "type": "iframe",
+        "href": "https://youtube.com/embed/j9oLm2FLBNI",
+        "cover": "post-5.jpg"
+      },
+      ["post-4x1.jpg", "post-4x2.jpg"],
+      "post-3.jpg",
       {
         "type": "image",
+        "name": "post-2.jpg",
         "file": {
           "name": "post-2.jpg"
         },
@@ -18,6 +27,13 @@
         "date": "3/13/2020"
       },
       "post-1.jpg"
+    ],
+    "reels": [
+      {
+        "type": "iframe",
+        "href": "https://youtube.com/embed/j9oLm2FLBNI",
+        "cover": "reel-5.jpg"
+      }
     ],
     "reels": [],
     "stories": []

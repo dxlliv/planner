@@ -1,14 +1,13 @@
 import * as fflate from "fflate"
 import { getFileExtension } from "./utilsFile"
 import { singularizeMediaCollectionName } from "./utilsUserMedia"
-import { rebuildRawUserConfigFromUser } from "./utilsUserExportRebuildRawConfig"
-import { IMedia } from "../types"
+import { rebuildRawUserConfig } from "./utilsUserExportRawConfig"
 
-async function fileToArrayBuffer(file) {
+async function fileToArrayBuffer(file: File) {
   return new Uint8Array(await file.arrayBuffer())
 }
 
-async function exportMediaFinal(
+async function prepareMediaForZip(
   media: IMedia,
   mediaIndex: number,
   isAlbumIndex: number = -1,
@@ -25,11 +24,9 @@ async function exportMediaFinal(
     case "album":
       let iAlbumItem = 1
 
-      let rawAlbumItemMedia
-
       // run rebuildRawMedia for each album item
       for await (const albumItemMedia of media.list) {
-        const albumMediaFiles = await exportMediaFinal(
+        const albumMediaFiles = await prepareMediaForZip(
           albumItemMedia,
           mediaIndex,
           iAlbumItem,
@@ -45,29 +42,27 @@ async function exportMediaFinal(
       break
 
     case "iframe":
-      if (media.cover) {
-        exportedMediaCover = await media.cover.export()
+      exportedMedia = await media.exportFiles()
 
+      if (media.cover) {
         mediaFiles[
           `${rawMediaFileName}-cover.${getFileExtension(
-            exportedMediaCover.file.name,
+            exportedMedia.cover.file.name,
           )}`
         ] = [await fileToArrayBuffer(exportedMediaCover.file), { level: 0 }]
       }
       break
 
     case "video":
-      if (media.cover) {
-        exportedMediaCover = await media.cover.export()
+      exportedMedia = await media.exportFiles()
 
+      if (media.cover) {
         mediaFiles[
           `${rawMediaFileName}-cover.${getFileExtension(
-            exportedMediaCover.file.name,
+            exportedMedia.cover.file.name,
           )}`
         ] = [await fileToArrayBuffer(exportedMediaCover.file), { level: 0 }]
       }
-
-      exportedMedia = await media.export()
 
       mediaFiles[
         `${rawMediaFileName}.${getFileExtension(exportedMedia.file.name)}`
@@ -75,7 +70,7 @@ async function exportMediaFinal(
       break
 
     case "image":
-      exportedMedia = await media.export()
+      exportedMedia = await media.exportFiles()
 
       mediaFiles[
         `${rawMediaFileName}.${getFileExtension(exportedMedia.file.name)}`
@@ -91,8 +86,8 @@ async function exportMediaFinal(
  *
  * @param user
  */
-async function prepareUserZipConfig(user: IUser) {
-  const userConfigJson = await rebuildRawUserConfigFromUser(user)
+async function prepareUserForZip(user: IUser) {
+  const userConfigJson = await rebuildRawUserConfig(user)
 
   const username = user.profile.username
   const userZip = {}
@@ -120,7 +115,7 @@ async function prepareUserZipConfig(user: IUser) {
 
     // for each media in this collection
     for (const media of mediaCollectionItems) {
-      const partialMediaFiles = await exportMediaFinal(media, i)
+      const partialMediaFiles = await prepareMediaForZip(media, i)
 
       mediaFiles = {
         ...mediaFiles,
@@ -149,7 +144,7 @@ async function prepareUserZipConfig(user: IUser) {
  * @param user
  */
 export async function makeUserZip(user: IUser) {
-  const userZipConfig = await prepareUserZipConfig(user)
+  const userZipConfig = await prepareUserForZip(user)
 
   const userZip = fflate.zipSync(userZipConfig)
 

@@ -3,7 +3,7 @@ defineProps<{user: IUser}>()
 
 const emit = defineEmits(["close"])
 
-function onMediaCreate(blob: File) {
+function onMediaCreate() {
   emit("close")
 }
 </script>

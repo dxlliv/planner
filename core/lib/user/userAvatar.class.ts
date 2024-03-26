@@ -10,14 +10,10 @@ export default class UserAvatar {
     this.user = user
 
     if (typeof avatar === "string") {
-      this.file = {
-        blob: this.parseRawAvatar(avatar),
-      }
+      this.file = this.parseRawAvatar(avatar)
     } else {
       // @ts-ignore
-      this.file = {
-        blob: Promise.resolve(avatar),
-      }
+      this.file = Promise.resolve(avatar)
     }
   }
 
@@ -47,7 +43,7 @@ export default class UserAvatar {
 
   public export() {
     if (this.isSet) {
-      return this.file.blob
+      return this.file
     }
 
     return null

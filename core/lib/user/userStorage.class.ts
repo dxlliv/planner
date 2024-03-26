@@ -43,12 +43,12 @@ export default class UserStorage {
       // overwrite user raw media
       this.user.raw.media = userChanges.media
 
-      this.user.media.fetch()
+      this.user.media.fetch('client')
     }
   }
 
   public async save() {
-    const userExported = await this.user.getDataForExport()
+    const userExported = await this.user.export()
 
     this.user.setChanged(true)
 

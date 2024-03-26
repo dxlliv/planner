@@ -11,9 +11,9 @@ defineProps<{
 
         <div class="pb-8">
           <p>
-            You could export your changes as a ZIP<br />
-            and overwrite your profile configuration in<br />
-            <code>/public/user/instagram/{user}</code>
+            You could export your changes as a ZIP,<br />
+            then overwrite your profile configuration in<br />
+            <code>/public/user/{{user.platform}}/{user}</code>
           </p>
         </div>
 

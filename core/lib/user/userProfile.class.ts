@@ -1,4 +1,5 @@
 import UserAvatar from "../user/userAvatar.class"
+import { getFileExtension } from "../../utils/utilsFile"
 
 export default class UserProfile implements IUserProfile {
   public readonly user: IUser
@@ -25,7 +26,6 @@ export default class UserProfile implements IUserProfile {
 
   public async updateUsername(username: string) {
     this.setUsername(username)
-    await this.user.save()
   }
 
   public setName(name: string) {
@@ -34,7 +34,6 @@ export default class UserProfile implements IUserProfile {
 
   public async updateName(name: string) {
     this.setName(name)
-    await this.user.save()
   }
 
   public setBiography(biography: string) {
@@ -43,7 +42,6 @@ export default class UserProfile implements IUserProfile {
 
   public async updateBiography(biography: string) {
     this.setBiography(biography)
-    await this.user.save()
   }
 
   public setVerified(verified: boolean) {
@@ -74,11 +72,6 @@ export default class UserProfile implements IUserProfile {
 
   public async updateAvatar(avatar: File) {
     await this.setAvatar(avatar)
-    await this.user.save()
-  }
-
-  public async import() {
-    await this.update(this.user.raw.profile)
   }
 
   public async update(data: any) {
@@ -87,6 +80,23 @@ export default class UserProfile implements IUserProfile {
 
       // @ts-ignore
       await this[field.methods.set](data[fieldKey])
+    }
+  }
+
+  public async import() {
+    await this.update(this.user.raw.profile)
+  }
+
+  public async export() {
+    return {
+      username: this.username,
+      name: this.name,
+      website: this.website,
+      verified: this.verified,
+      biography: this.biography,
+      avatar: this.avatar.export(),
+      followers_count: this.followers_count,
+      follows_count: this.follows_count,
     }
   }
 }
