@@ -4,6 +4,7 @@ const props = defineProps<{
   platform: string
 }>()
 
+const {t} = useI18n()
 const userStore = useUserStore()
 const user = ref()
 
@@ -15,6 +16,22 @@ if (user) {
 
 onBeforeMount(async () => {
   await user.value.prepareClient()
+})
+
+useServerSeoMeta({
+  title: t('pages.userSelect.meta.title')
+})
+
+const route = useRoute()
+
+let platform = ''
+
+if (route.params.platform) {
+  platform = capitalizeFirstLetter(route.params.platform)
+}
+
+useSeoMeta({
+  title: `${props.username} - ${platform} Planner`
 })
 </script>
 

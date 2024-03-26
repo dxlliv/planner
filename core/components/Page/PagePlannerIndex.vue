@@ -1,10 +1,8 @@
 <script setup lang="ts">
 const {t} = useI18n()
 
-useHead({
-  titleTemplate: () => {
-    return t('pages.userSelect.meta.title')
-  }
+useSeoMeta({
+  title: t('pages.userSelect.meta.title')
 })
 </script>
 
