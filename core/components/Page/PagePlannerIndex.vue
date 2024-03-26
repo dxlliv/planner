@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import PagePlannerIndexDesktop from "./PagePlannerIndexDesktop.vue";
-import PagePlannerIndexMobile from "./PagePlannerIndexMobile.vue";
+const {t} = useI18n()
+
+useHead({
+  titleTemplate: () => {
+    return t('pages.userSelect.meta.title')
+  }
+})
 </script>
 
 <template>
-  <PagePlannerIndexDesktop class="hidden-md-and-down" />
-  <PagePlannerIndexMobile class="hidden-sm-and-up" />
+  <AppBackground />
+  <PagePlannerIndexDesktop class="hidden-sm-and-down" />
+  <PagePlannerIndexMobile class="hidden-md-and-up" />
 </template>
 
 <style scoped lang="scss">
