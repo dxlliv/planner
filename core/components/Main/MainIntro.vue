@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { PatreonIcon } from "vue3-simple-icons"
-</script>
-
 <template>
   <v-card
     flat color="transparent"
@@ -21,12 +17,12 @@ import { PatreonIcon } from "vue3-simple-icons"
     <p class="mt-3 text-grey-darken-1">
       <a href="https://github.com/dxlliv/planner">
         dxlliv/planner
-      </a> <span v-html="$t('intro.intro.p1')" />
+      </a> <span v-html="$t('pages.userSelect.intro.p1')" />
     </p>
 
     <p
       class="mt-3 text-grey-darken-1"
-      v-html="$t('intro.intro.p2')"
+      v-html="$t('pages.userSelect.intro.p2')"
     />
 
     <br />
