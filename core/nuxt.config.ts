@@ -23,7 +23,12 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "vuetify-nuxt-module",
     '@pinia-plugin-persistedstate/nuxt',
-    "@vueuse/nuxt",
+    [
+      "@vueuse/nuxt",
+      {
+        autoImports: ["useClipboard"]
+      }
+    ],
     [
       "@pinia/nuxt",
       {

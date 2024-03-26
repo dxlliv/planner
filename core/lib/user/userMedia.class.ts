@@ -8,7 +8,7 @@ import { fulfillMediaFilesForExport } from "../../utils/utilsUserExport"
 export default class UserMedia implements IUserMedia {
   public readonly user: User
 
-  public collections: { [collectionName: string]: IMedia[] } = {}
+  public collections = {}
 
   private firstFetch = true
 
@@ -19,7 +19,8 @@ export default class UserMedia implements IUserMedia {
   /**
    * Return available collections from current platform structure
    */
-  public get structureCollectionKeys() {
+  public get structureCollectionKeys(): IMediaCollection[] {
+    // @ts-expect-error
     return Object.keys(this.user.media.structure.collections)
   }
 
@@ -35,7 +36,7 @@ export default class UserMedia implements IUserMedia {
    *
    * @param collectionName
    */
-  public hasCollection(collectionName: string) {
+  public hasCollection(collectionName: string): boolean {
     return Object.prototype.hasOwnProperty.call(
       this.collections,
       collectionName,
@@ -65,9 +66,9 @@ export default class UserMedia implements IUserMedia {
    */
   private parseRawUserMediaCollections(from: IMediaFrom = 'config') {
     for (const collection of this.structureCollectionKeys) {
-      //if (!this.hasCollection(collection)) {
+      if (!this.hasCollection(collection)) {
         this.collections[collection] = []
-      //}
+      }
 
       if (
         Object.prototype.hasOwnProperty.call(
@@ -114,7 +115,7 @@ export default class UserMedia implements IUserMedia {
   /**
    * Export media
    */
-  public async export() {
+  public async export(): Promise<any> {
     const exportedMedia = {}
 
     for await (const collectionKey of this.collectionKeys) {
@@ -138,7 +139,7 @@ export default class UserMedia implements IUserMedia {
     user: User,
     rawMedia: string | IRawMedia,
     collection: IMediaCollection = "posts",
-    from: "config" | "client" = "client"
+    from: IMediaFrom = "client"
   ): any {
     const mediaType = UserMedia.detectMediaType(rawMedia)
 

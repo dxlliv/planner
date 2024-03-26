@@ -1,8 +1,10 @@
 import UserAvatar from "../user/userAvatar.class"
-import { getFileExtension } from "../../utils/utilsFile"
+import { slugify } from "../../utils/utilsString"
 
 export default class UserProfile implements IUserProfile {
   public readonly user: IUser
+
+  public structure
 
   public username: string = ""
   public name: string = ""

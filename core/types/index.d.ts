@@ -154,8 +154,8 @@ interface IUserProfile {
   setFollowsCount(count: number): void
   setWebsite(website: any): void
 
-  setAvatar(avatar: UserAvatar): Promise<void>
-  updateAvatar(avatar: UserAvatar): Promise<void>
+  setAvatar(avatar: string | File): Promise<void>
+  updateAvatar(avatar: File): Promise<void>
 
   import(): void
   export(): Promise<IRawUserProfile>
@@ -182,17 +182,31 @@ type IUserProfileWebsite = null | {
 
 interface IUserMedia {
   collections: {
-    posts: IMedia[]
-    reels: IMedia[]
-    stories: IMedia[]
-    highlights: IMedia[]
+    [collectionName: string]: IMedia[]
   }
 
+  get structureCollectionKeys(): IMediaCollection[]
   get collectionKeys(): string[]
+  hasCollection(collectionName: string): boolean
   fetch(from: IMediaFrom): void
+  addMedia(
+    rawMedia: string | IRawMedia,
+    collection: IMediaCollection,
+    options: {
+      addMethod: IMediaAddMethod,
+      from: IMediaFrom
+    }
+  ): void
+  export(): Promise<any>
 }
 
-interface IInstagramUserMedia extends IUserMedia {}
+interface IInstagramUserMedia extends IUserMedia {
+  structure: {
+    collections: {
+      [collectionName: string]: any
+    }
+  }
+}
 
 interface IUserOptions {}
 
