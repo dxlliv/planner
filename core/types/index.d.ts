@@ -187,7 +187,9 @@ interface IUserMedia {
 
   get structureCollectionKeys(): IMediaCollection[]
   get collectionKeys(): string[]
+
   hasCollection(collectionName: string): boolean
+  reset(): void
   fetch(from: IMediaFrom): void
   addMedia(
     rawMedia: string | IRawMedia,

@@ -10,8 +10,6 @@ export default class UserMedia implements IUserMedia {
 
   public collections = {}
 
-  private firstFetch = true
-
   constructor(user: User) {
     this.user = user
   }
@@ -47,11 +45,7 @@ export default class UserMedia implements IUserMedia {
    * Parse raw media configuration and load all the media
    */
   public fetch(from: IMediaFrom = 'config') {
-    if (this.firstFetch === true) {
-      this.firstFetch = false
-    } else {
-      //return false
-    }
+    this.reset()
 
     this.parseRawUserMediaCollections(from)
 
@@ -66,10 +60,6 @@ export default class UserMedia implements IUserMedia {
    */
   private parseRawUserMediaCollections(from: IMediaFrom = 'config') {
     for (const collection of this.structureCollectionKeys) {
-      if (!this.hasCollection(collection)) {
-        this.collections[collection] = []
-      }
-
       if (
         Object.prototype.hasOwnProperty.call(
           this.user.raw.media,
@@ -83,6 +73,12 @@ export default class UserMedia implements IUserMedia {
           })
         }
       }
+    }
+  }
+
+  public reset() {
+    for (const collection of this.structureCollectionKeys) {
+      this.collections[collection] = []
     }
   }
 

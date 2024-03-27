@@ -56,17 +56,6 @@ export default class User implements IUser {
         await this.storage.restore()
       }
     })
-
-    // when you import users from directory/zip,
-    // you may want to save the profile immediately
-    if (this.origin === "storage") {
-      // this.media.fetch()
-
-      //await this.storage.save()
-    }
-
-    // parse user media
-    // this.media.fetch()
   }
 
   /**

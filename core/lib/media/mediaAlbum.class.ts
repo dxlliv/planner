@@ -20,6 +20,11 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
   }
 
   public fetch() {
+    if (this.list.length > 0) {
+      for (const media of this.list) {
+        media.fetch()
+      }
+    }
   }
 
   private parseMediaAlbum() {
