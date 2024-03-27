@@ -1,6 +1,5 @@
 import * as fflate from "fflate"
 import { getFileExtension } from "./utilsFile"
-import { singularizeMediaCollectionName } from "./utilsUserMedia"
 import { rebuildRawUserConfig } from "./utilsUserExportRawConfig"
 
 async function fileToArrayBuffer(file: File) {
@@ -49,7 +48,7 @@ async function prepareMediaForZip(
           `${rawMediaFileName}-cover.${getFileExtension(
             exportedMedia.cover.file.name,
           )}`
-        ] = [await fileToArrayBuffer(exportedMediaCover.file), { level: 0 }]
+        ] = [await fileToArrayBuffer(exportedMedia.cover.file), { level: 0 }]
       }
       break
 
@@ -61,7 +60,7 @@ async function prepareMediaForZip(
           `${rawMediaFileName}-cover.${getFileExtension(
             exportedMedia.cover.file.name,
           )}`
-        ] = [await fileToArrayBuffer(exportedMediaCover.file), { level: 0 }]
+        ] = [await fileToArrayBuffer(exportedMedia.cover.file), { level: 0 }]
       }
 
       mediaFiles[
