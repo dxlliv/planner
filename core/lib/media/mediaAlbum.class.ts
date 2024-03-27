@@ -63,7 +63,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     this.slideToNextListItem()
     this.refresh()
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public async removeFromAlbum() {
@@ -73,7 +73,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     this.slideToPrevListItem()
     this.refresh()
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public async setMediaAlbumImage(blob: File) {
@@ -81,7 +81,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
 
     this.refresh()
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public setListIndex(index: number) {

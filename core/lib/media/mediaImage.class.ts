@@ -64,7 +64,7 @@ export default class MediaImage extends Media implements IMediaImage {
 
     this.user.media.collections[this.collection].splice(index, 0, mediaAlbum)
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public async convertToIframe(href: string) {
@@ -85,7 +85,7 @@ export default class MediaImage extends Media implements IMediaImage {
 
     this.user.media.collections[this.collection].splice(index, 0, media)
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public async setMediaImage(blob: File) {
@@ -93,7 +93,7 @@ export default class MediaImage extends Media implements IMediaImage {
 
     this.refresh()
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public exportConfig(): IMediaImageExportConfig {

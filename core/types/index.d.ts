@@ -113,7 +113,8 @@ interface IUser {
   initUserStorage(): void
   initUserProfile(): Promise<void>
   initUserMedia(): void
-  setChanged(value: boolean): void
+  setUnsavedChanges(value: boolean): void
+  setLocalChanges(value: boolean): void
 
   save(): Promise<void>
   remove(): Promise<void>

@@ -145,7 +145,7 @@ export default class Media {
     // refresh posts count
     this.user.profile.setPostsCount(this.user.media.collections.posts.length)
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
 
     return index
   }
@@ -153,13 +153,13 @@ export default class Media {
   public async setCaption(caption: string) {
     this.caption = caption
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public async setDate(date: string) {
     this.date = date
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public get exportCommonConfig() {

@@ -52,13 +52,13 @@ export default class MediaIframe extends Media implements IMediaIframe {
   public async setCover(file: File) {
     this.cover = new MediaImage(this.user, { file })
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public async removeCover() {
     this.cover = undefined
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public get isReel() {
@@ -86,7 +86,7 @@ export default class MediaIframe extends Media implements IMediaIframe {
       })
     }
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public exportConfig(): IMediaIframeExportConfig {

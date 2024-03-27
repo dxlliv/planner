@@ -32,7 +32,7 @@ export default class UserStorage {
     )
 
     if (userChanges) {
-      this.user.setChanged(true)
+      this.user.setLocalChanges(true)
 
       // restore original user id (platform + username)
       this.user.id = userChanges.id
@@ -50,7 +50,8 @@ export default class UserStorage {
   public async save() {
     const userExported = await this.user.export()
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(false)
+    this.user.setLocalChanges(true)
 
     await this.database.put(
       this.user.platform,

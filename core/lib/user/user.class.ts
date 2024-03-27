@@ -16,9 +16,11 @@ export default class User implements IUser {
   public ready: Ref<boolean> = ref(false)
 
   public status: {
-    changed: boolean
+    unsavedChanges: boolean
+    localChanges: boolean
   } = reactive({
-    changed: false,
+    unsavedChanges: false,
+    localChanges: false,
   })
 
   constructor(raw: IRawUser, origin: string) {
@@ -73,10 +75,17 @@ export default class User implements IUser {
   public initUserMedia() {}
 
   /**
-   * Check if user has changes
+   * Check if user has unsaved changes
    */
   get hasLocalChanges() {
-    return this.status.changed
+    return this.status.localChanges
+  }
+
+  /**
+   * Check if user has local changes
+   */
+  get hasUnsavedChanges() {
+    return this.status.unsavedChanges
   }
 
   /**
@@ -84,8 +93,17 @@ export default class User implements IUser {
    *
    * @param value
    */
-  public setChanged(value: boolean) {
-    this.status.changed = value
+  public setUnsavedChanges(value: boolean) {
+    this.status.unsavedChanges = value
+  }
+
+  /**
+   * Update changed status
+   *
+   * @param value
+   */
+  public setLocalChanges(value: boolean) {
+    this.status.localChanges = value
   }
 
   /**

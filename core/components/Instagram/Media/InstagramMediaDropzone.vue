@@ -22,7 +22,7 @@ function onFileAdded(file: any) {
     from: 'client'
   })
 
-  props.user.setChanged(true)
+  props.user.setUnsavedChanges(true)
 }
 </script>
 

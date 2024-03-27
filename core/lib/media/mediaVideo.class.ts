@@ -72,20 +72,20 @@ export default class MediaVideo extends Media implements IMediaVideo {
   public async setCover(file: File) {
     this.cover = new MediaImage(this.user, { file }, this.collection, this.from)
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public async setCoverTime(value: number) {
     this.coverTime = value
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public async removeCover() {
     this.cover = undefined
     this.coverTime = 0
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public async convertToAlbum() {
@@ -107,7 +107,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
 
     this.user.media.collections[this.collection].splice(index, 0, mediaAlbum)
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public get isReel() {
@@ -135,7 +135,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
       })
     }
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(true)
   }
 
   public exportConfig(): IMediaVideoExportConfig {
