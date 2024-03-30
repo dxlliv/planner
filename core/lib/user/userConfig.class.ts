@@ -58,10 +58,8 @@ export default class UserConfig {
    * @private
    */
   private static async fetchUserConfig(url: string): Promise<IRawUser> {
-    return $fetch(url)
-      .then(async (response) => {
-        // await response.json(), if using fetch (and not $fetch)
-        const rawUser: IRawUser = response
+    return $fetch(url, { responseType: 'json' })
+      .then(async (rawUser: IRawUser) => {
 
         // sets where this config comes from
         rawUser.path = url.replace("/config.json", "")
