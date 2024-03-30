@@ -14,7 +14,7 @@ const { size } = withDefaults(
     :class="['planner-logo', `planner-logo--size-${size}`]"
     to="/"
   >
-    Plxnner
+    Planner
   </router-link>
 </template>
 
