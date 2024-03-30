@@ -2,6 +2,7 @@
 declare function useNuxtApp(): NuxtApp;
 
 type IPlatforms = "instagram"
+type IUserOrigin = "local" | "remote" | "storage"
 
 interface IRawConfig {
   users: string[]
@@ -19,8 +20,11 @@ interface IRawUser {
   path: string
   profile: IRawUserProfile
   media: IRawUserMedia
-  platform?: string
+  platform: IPlatforms
   options: any
+
+  origin: IUserOrigin
+  basePath: string
 }
 
 interface IRawUserProfile {
@@ -90,10 +94,10 @@ type IUsers = { [username: string]: IUser }
 interface IUser {
   user: IUser
   platform: IPlatforms
+  origin: IUserOrigin
   id: string
 
   raw: IRawUser
-  origin: string
 
   options: IUserOptions
   profile: IUserProfile

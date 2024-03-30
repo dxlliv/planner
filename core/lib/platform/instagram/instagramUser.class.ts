@@ -9,8 +9,8 @@ export default class InstagramUser extends User implements IInstagramUser {
   public profile: IInstagramUserProfile = {} as IInstagramUserProfile
   public media: IInstagramUserMedia = {} as IInstagramUserMedia
 
-  constructor(raw: IRawUser, origin: string) {
-    super(raw, origin)
+  constructor(raw: IRawUser) {
+    super(raw)
   }
 
   public async loadUserProfile() {

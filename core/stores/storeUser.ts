@@ -18,7 +18,9 @@ export const useUserStore = defineStore("user", () => {
    * @param platform
    */
   async function createUser(rawUser: IRawUser): Promise<boolean> {
-    const user = await loadUser(rawUser, "storage")
+    rawUser.origin = 'storage'
+
+    const user = await loadUser(rawUser)
 
     useUserStorageStore().addUserToStorageIndex({
       platform: user.platform,
@@ -45,17 +47,13 @@ export const useUserStore = defineStore("user", () => {
    * Load provided raw user config
    *
    * @param rawUser
-   * @param origin
    */
-  async function loadUser(
-    rawUser: IRawUser,
-    origin: string,
-  ): Promise<User> {
+  async function loadUser(rawUser: IRawUser): Promise<User> {
     let user
 
     switch (rawUser.platform) {
       case "instagram":
-        user = new InstagramUser(rawUser, origin)
+        user = new InstagramUser(rawUser)
         break
       default:
         throw Error("Platform not recognized on user load")

@@ -11,7 +11,7 @@ export default class UserLoader {
 
     // for each user defined in the root config.json
     for await (const rawUser of rawUsers) {
-      await userStore.loadUser(rawUser, "config")
+      await userStore.loadUser(rawUser)
     }
 
     return true
@@ -46,9 +46,10 @@ export default class UserLoader {
     )
 
     rawUser.platform = tempUserReference.platform
+    rawUser.origin = 'storage'
 
     if (rawUser) {
-      await userStore.loadUser(rawUser, "storage")
+      await userStore.loadUser(rawUser)
     } else {
       // something happened,
       // it no longer exists

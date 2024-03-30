@@ -29,28 +29,6 @@ export function exportWithDesiredName(
 }
 
 /**
- * Resolve media file path
- *
- * @param filename
- * @param folder
- */
-export function getMediaFilePath(filename: string, folder: string = "") {
-  const {baseURL} = useNuxtApp().$config.app
-
-  // todo resolve bug #this.raw-not-available
-  // this is needed to avoid errors when content is restored from indexed db
-  if (!filename) {
-    return ''
-  }
-
-  if (filename.startsWith("http")) {
-    return filename
-  }
-
-  return `${baseURL}user/${folder}/${filename}`
-}
-
-/**
  * Fetch media and transform it into blob file
  * @param url
  */

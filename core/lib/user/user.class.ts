@@ -23,9 +23,8 @@ export default class User implements IUser {
     localChanges: false,
   })
 
-  constructor(raw: IRawUser, origin: string) {
+  constructor(raw: IRawUser) {
     this.raw = raw
-    this.origin = origin
   }
 
   /**
@@ -115,7 +114,7 @@ export default class User implements IUser {
    * Is user removable?
    */
   get isRemovable() {
-    return this.origin !== "config"
+    return this.origin === "storage"
   }
 
   /**

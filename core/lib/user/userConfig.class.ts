@@ -27,18 +27,27 @@ export default class UserConfig {
     const {origin} = useRequestURL()
     const {baseURL} = useNuxtApp().$config.app
 
+    let userOrigin: IUserOrigin = '' as IUserOrigin
+    let userBasePath: string = ''
     let userConfigFullPath = ""
 
     if (userPath.startsWith("http")) {
       // is remote config
       userConfigFullPath = userPath
+      userBasePath = userPath.replace(`config.json`, '')
+      userOrigin = 'remote'
     } else {
       // is local config
       userConfigFullPath = `${origin}${baseURL}user/${userPath}/config.json`
+      userBasePath = userPath
+      userOrigin = 'local'
     }
 
     // fetch user config from its local/remote path
     const rawUser = await this.fetchUserConfig(userConfigFullPath)
+
+    rawUser.origin = userOrigin
+    rawUser.basePath = userBasePath
 
     const platform: string = rawUser.platform
       ?? this.config.platform.default

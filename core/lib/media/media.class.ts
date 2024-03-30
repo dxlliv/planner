@@ -1,8 +1,4 @@
-import {
-  fetchFileFromUrl,
-  getMediaFilePath,
-  getFileName,
-} from "../../utils/utilsFile"
+import { fetchFileFromUrl } from "../../utils/utilsFile"
 import { generateUuidv4 } from "../../utils/utilsString"
 import User from "../user/user.class"
 
@@ -71,9 +67,9 @@ export default class Media {
     // load media from /public folder
     switch (typeof this.raw) {
       case 'string':
-        return getMediaFilePath(this.raw, `${this.user.platform}/${this.user.raw.profile.username}/media`)
+        return this.getFilePath(this.raw)
       case 'object':
-        return getMediaFilePath(this.raw.name, `${this.user.platform}/${this.user.raw.profile.username}/media`)
+        return this.getFilePath(this.raw.name)
     }
   }
 
@@ -142,15 +138,37 @@ export default class Media {
 
     if (fileName.startsWith("http")) {
       filePath = fileName
-      fileName = getFileName(filePath)
     } else {
-      filePath = getMediaFilePath(
-        fileName,
-        `${this.user.platform}/${this.user.profile.username}/media`,
-      )
+      filePath = this.getFilePath(fileName)
     }
 
     return fetchFileFromUrl(filePath)
+  }
+
+  /**
+   * Resolve media file path
+   *
+   * @param filename
+   */
+  private getFilePath(filename: string) {
+    const plannerAppBaseURL = useNuxtApp().$config.app.baseURL
+    const basePath = `${this.user.raw.basePath}/media`
+
+    // todo resolve bug #this.raw-not-available
+    // this is needed to avoid errors when content is restored from indexed db
+    if (!filename) {
+      return ''
+    }
+
+    if (filename.startsWith("http")) {
+      return filename
+    }
+
+    if (basePath.startsWith("http")) {
+      return `${basePath}/${filename}`
+    }
+
+    return `${plannerAppBaseURL}user/${basePath}/${filename}`
   }
 
   public fetchMediaFileFromBlob(fileBlob: File): Promise<IMediaFile> {

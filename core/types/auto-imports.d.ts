@@ -31,7 +31,6 @@ declare global {
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getFileExtension: typeof import('../utils/utilsFile')['getFileExtension']
   const getFileName: typeof import('../utils/utilsFile')['getFileName']
-  const getMediaFilePath: typeof import('../utils/utilsFile')['getMediaFilePath']
   const getPlatformFromPlatformUser: (typeof import("../utils/utilsPlatform"))["getPlatformFromPlatformUser"]
   const getPlatformStructureUser: typeof import('../utils/utilsPlatform')['getPlatformStructureUser']
   const getUsernameFromUserPath: (typeof import("../utils/utilsPlatform"))["getUsernameFromUserPath"]
