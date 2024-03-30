@@ -42,7 +42,7 @@ export default class UserMedia implements IUserMedia {
   }
 
   /**
-   * Parse raw media configuration and load all the media
+   * Parse raw media configuration and fetch all the media
    */
   public fetch(from: IMediaFrom = 'config') {
     this.reset()
@@ -50,6 +50,22 @@ export default class UserMedia implements IUserMedia {
     this.parseRawUserMediaCollections(from)
 
     return true
+  }
+
+  /**
+   * Fetch single media from raw media configuration
+   *
+   * @param collection
+   * @param mediaSlug
+   */
+  public fetchSingleMedia(collection: IMediaCollection, mediaSlug: string) {
+    const rawMedia = this.user.raw.media[collection].find(rawMedia => rawMedia.slug === mediaSlug)
+
+    if (!rawMedia) {
+      return null
+    }
+
+    return UserMedia.newMedia(this.user, rawMedia, collection, 'config')
   }
 
   /**

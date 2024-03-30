@@ -1,14 +1,28 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   media: IMedia
   profile: IUserProfile
 }>()
+
+function onDateUpdate(value) {
+  props.media.setDate(value)
+}
 </script>
 
 <template>
   <v-card class="ig-media-detail">
+
     <InstagramPostHeader :profile="profile">
-      <slot name="context-menu" />
+      <v-btn icon>
+        <v-icon icon="mdi-dots-vertical" />
+        <InstagramMediaContextMenu
+          activator="parent"
+          :media="media"
+          :width="240"
+          :offset="[8, 0]"
+          location="bottom right"
+        />
+      </v-btn>
     </InstagramPostHeader>
 
     <InstagramMedia
@@ -19,16 +33,25 @@ defineProps<{
 
     <div class="ig-media-detail__interaction">
       <InstagramPostFooter>
+
+
         <template v-slot:date>
-          <slot name="date" />
+          <InstagramPostDate
+            :date="media.date"
+            @update="onDateUpdate"
+          />
         </template>
+
         <template v-slot:prepend>
           <InstagramPostDateHeader />
         </template>
+
         <template v-slot:append>
           <v-divider class="ma-0" />
         </template>
+
       </InstagramPostFooter>
+
     </div>
   </v-card>
 </template>

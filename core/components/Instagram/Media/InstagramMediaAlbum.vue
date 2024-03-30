@@ -37,13 +37,25 @@ watch(() => props.media.list, () => {
           :context-menu="false"
           :media="item"
           :profile="profile"
-        />
+        >
+          <slot name="single-post" />
+        </InstagramMedia>
       </Slide>
     </Carousel>
+
     <InstagramMediaAlbumCurrentIndex
       :index="media.currentIndex"
       :max="media.itemsCount"
     />
+
+    <template v-slot:actions>
+
+      <slot name="actions" />
+
+    </template>
+
+    <slot name="link" />
+
   </InstagramMediaContainer>
 </template>
 

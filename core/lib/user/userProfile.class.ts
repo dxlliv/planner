@@ -1,5 +1,4 @@
 import UserAvatar from "../user/userAvatar.class"
-import { slugify } from "../../utils/utilsString"
 
 export default class UserProfile implements IUserProfile {
   public readonly user: IUser
@@ -18,6 +17,12 @@ export default class UserProfile implements IUserProfile {
 
   constructor(user: IUser) {
     this.user = user
+  }
+
+  public get seoMeta() {
+    return {
+      title: `${this.username} - ${capitalizeFirstLetter(this.user.platform)} Planner`
+    }
   }
 
   public setUsername(username: string) {

@@ -17,6 +17,9 @@ export default class Media {
   public collection: IMediaCollection = "" as IMediaCollection
 
   public reel: boolean = false
+
+  public title: string = ""
+  public slug: string = ""
   public caption: string = ""
   public date: string = ""
 
@@ -41,6 +44,22 @@ export default class Media {
 
     this.setUniqueId()
     this.parseMediaDetail()
+  }
+
+  public get route() {
+    const baseRoute = `${this.user.route}/${this.collection}`
+
+    if (this.slug) {
+      return `${baseRoute}/${this.slug}`
+    }
+
+    return `${baseRoute}/${this.id}`
+  }
+
+  public get seoMeta() {
+    return {
+      title: `${this.title} - ${this.user.profile.username}`
+    }
   }
 
   public get rawFilePath() {
@@ -104,8 +123,17 @@ export default class Media {
     if (this.raw.caption) {
       this.caption = this.raw.caption
     }
+
     if (this.raw.date) {
       this.date = this.raw.date
+    }
+
+    if (this.raw.title) {
+      this.title = this.raw.title
+    }
+
+    if (this.raw.slug) {
+      this.slug = this.raw.slug
     }
   }
 
@@ -163,10 +191,15 @@ export default class Media {
   }
 
   public get exportCommonConfig() {
-    return {
+    const config: any = {
       type: this.type,
-      caption: this.caption,
-      date: this.date,
     }
+
+    if (this.title) config.title = this.title
+    if (this.slug) config.slug = this.slug
+    if (this.caption) config.caption = this.caption
+    if (this.date) config.date = this.date
+
+    return config
   }
 }

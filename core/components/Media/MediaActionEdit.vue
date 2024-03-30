@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <div class="cursor-pointer media__icon-edit">
+  <span class="cursor-pointer media__icon-edit">
     <v-icon icon="mdi-pencil" size="20px" />
-  </div>
+  </span>
 </template>
 
 <style scoped lang="scss">

@@ -101,7 +101,17 @@ watch(
       />
     </template>
 
-    <InstagramMediaEditor v-if="media.isEditing" :media="media" />
+    <template v-slot:actions>
+
+      <client-only>
+        <MediaImageEditor v-if="media.isEditing" :media="media" />
+      </client-only>
+
+      <slot name="actions" />
+
+    </template>
+
+    <slot name="link" />
 
   </InstagramMediaContainer>
 </template>

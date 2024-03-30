@@ -33,10 +33,10 @@ export default class User implements IUser {
    */
   public async init() {
     // parse user profile from raw config
-    await this.initUserProfile()
+    await this.loadUserProfile()
 
     // parse user media
-    this.initUserMedia()
+    this.loadUserMedia()
 
     // set user id (provided, or getted from profile username)
     this.id = this.raw.id ?? this.raw.profile.username
@@ -47,23 +47,28 @@ export default class User implements IUser {
     return this
   }
 
-  public async prepareClient() {
+  public async loadUserClient() {
     // start user indexed db
-    await this.initUserStorage()
+    await this.loadUserStorage()
 
     // check for index db user changes
     await this.storage.isContentAvailable().then(async (availability) => {
       if (availability) {
         // override raw user data
+        // todo resolve bug #this.raw-not-available
         await this.storage.restore()
       }
     })
   }
 
+  public async unloadUserClient() {
+    this.ready.value = false
+  }
+
   /**
    * Initialize user storage
    */
-  public async initUserStorage() {
+  public async loadUserStorage() {
     this.storage = new UserStorage(this)
 
     await this.storage.init()
@@ -71,8 +76,8 @@ export default class User implements IUser {
 
   // these functions are overridden
   // by specific platform methods
-  public async initUserProfile() {}
-  public initUserMedia() {}
+  public async loadUserProfile() {}
+  public loadUserMedia() {}
 
   /**
    * Check if user has unsaved changes
@@ -117,18 +122,6 @@ export default class User implements IUser {
    * Get user route
    */
   get route() {
-    const plannerConfig = usePlannerConfig()
-
-    /*
-    {
-      name: "user",
-      params: {
-        platform: plannerConfig.platform.default === this.platform ? undefined : this.platform,
-        // todo improve and find a standard for usernames
-        username: extractUsernameFromUserId(this.id),
-      },
-    }
-     */
     return "/" + this.platform + "/" + extractUsernameFromUserId(this.id)
   }
 

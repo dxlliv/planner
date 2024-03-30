@@ -53,6 +53,8 @@ interface IRawMedia {
   list?: string[] | IRawMedia[]
   href?: string
 
+  title?: string
+  slug?: string
   caption?: string
   date?: string
 }
@@ -107,12 +109,13 @@ interface IUser {
   // @ts-ignore
   get route(): RouteRecord
   get hasLocalChanges(): boolean
+  get hasUnsavedChanges(): boolean
   get isRemovable(): boolean
 
   init(): void
-  initUserStorage(): void
-  initUserProfile(): Promise<void>
-  initUserMedia(): void
+  loadUserStorage(): void
+  loadUserProfile(): Promise<void>
+  loadUserMedia(): void
   setUnsavedChanges(value: boolean): void
   setLocalChanges(value: boolean): void
 
@@ -217,6 +220,9 @@ interface IMedia {
   user: any
   raw: string | File | IRawMedia
   id: string
+  route: string
+  title: string
+  slug: string
   type: IMediaType
   from: IMediaFrom
   collection: IMediaCollection

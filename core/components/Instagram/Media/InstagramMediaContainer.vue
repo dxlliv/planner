@@ -26,9 +26,13 @@ function onMediaContextMenu(e) {
       <slot />
     </suspense>
 
-    <div class="ig-media__icon">
+    <div class="ig-media__type">
       <v-icon v-if="type === 'album'">mdi-folder-multiple-image</v-icon>
       <v-icon v-if="type === 'video'">mdi-play</v-icon>
+    </div>
+
+    <div class="ig-media__actions">
+      <slot name="actions" />
     </div>
 
     <InstagramMediaContextMenu
@@ -41,10 +45,7 @@ function onMediaContextMenu(e) {
 
 <style scoped lang="scss">
 :global(.media__icon-edit) {
-  position: absolute;
-  top: inherit;
-  bottom: 10px;
-  right: 10px;
+  display: inline-block;
   color: white;
   opacity: 0;
 }
@@ -62,13 +63,27 @@ function onMediaContextMenu(e) {
     }
   }
 
-  &__icon {
+  &__type {
     position: absolute;
     top: 12px;
     right: 15px;
     color: white;
     font-size: 14px;
     pointer-events: none;
+  }
+
+  &__actions {
+    position: absolute;
+    bottom: 12px;
+    right: 15px;
+    color: white;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 9999;
+
+    a {
+      color: white;
+    }
 
     .mdi-play {
       font-size: 28px;

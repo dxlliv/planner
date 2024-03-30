@@ -18,10 +18,6 @@ function onPostClick() {
   }
 }
 
-function onDateUpdate(value) {
-  props.media.setDate(value)
-}
-
 onLongPress(
   postContainerRef,
   () => {
@@ -53,7 +49,16 @@ watch(() => props.media.isDetailView, value => {
     class="ig-post-container cursor-pointer"
     @click="onPostClick"
   >
-    <InstagramMedia v-bind="$props" />
+    <InstagramMedia
+      v-bind="$props"
+    >
+      <template
+        v-if="isPlannerFeatureEnabled('mediaPage') && media.slug"
+        v-slot:link
+      >
+        <PostLink :route="media.route" />
+      </template>
+    </InstagramMedia>
 
     <client-only>
 
@@ -61,28 +66,7 @@ watch(() => props.media.isDetailView, value => {
         <InstagramPostDetail
           :media="media"
           :profile="profile"
-        >
-          <template v-slot:date>
-            <InstagramPostDate
-              :date="media.date"
-              @update="onDateUpdate"
-            />
-          </template>
-          <template v-slot:context-menu>
-            <v-btn icon>
-              <v-icon
-                icon="mdi-dots-vertical"
-              />
-              <InstagramMediaContextMenu
-                activator="parent"
-                :media="media"
-                :width="240"
-                :offset="[8, 0]"
-                location="bottom right"
-              />
-            </v-btn>
-          </template>
-        </InstagramPostDetail>
+        />
       </v-dialog>
 
     </client-only>

@@ -24,14 +24,22 @@ async function onIntersect(isIntersecting) {
 
     <v-img cover height="100%" :src="src" />
 
-    <client-only>
-      <MediaActionEdit
-        v-if="isPlannerFeatureEnabled('mediaEditor')"
-        @click.stop="media.setEditing(true)"
-      />
+    <template v-slot:actions>
 
-      <MediaImageEditor v-if="media.isEditing" :media="media" />
-    </client-only>
+      <client-only>
+        <MediaActionEdit
+          v-if="isPlannerFeatureEnabled('mediaEditor')"
+          @click.stop="media.setEditing(true)"
+        />
+
+        <MediaImageEditor v-if="media.isEditing" :media="media" />
+      </client-only>
+
+      <slot name="actions" />
+
+    </template>
+
+    <slot name="link" />
 
   </InstagramMediaContainer>
 </template>
