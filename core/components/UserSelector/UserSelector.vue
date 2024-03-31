@@ -49,9 +49,7 @@ function onProfileContextMenu(e) {
 <template>
   <div :class="['ig-profile-selector', { 'ig-profile-selector--add': add }]">
     <template v-if="user">
-      <!--
-      <router-link :to="user.route" @contextmenu="onShowProfileContextMenu">
-      -->
+      <router-link :to="user.route" />
       <a
         class="cursor-pointer"
         @click="onProfileClick"

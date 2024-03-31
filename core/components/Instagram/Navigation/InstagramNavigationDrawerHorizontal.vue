@@ -32,7 +32,6 @@ const emit = defineEmits(["create", "export"])
     <v-btn>
       <nuxt-link :to="user.route">
         <InstagramUserAvatar
-          v-if="user.ready"
           :avatar="user.profile.avatar"
           :size="26"
         />

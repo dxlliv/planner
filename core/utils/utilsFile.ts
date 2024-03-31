@@ -16,20 +16,16 @@ export function getFileExtension(filename: string) {
   return filename.split(".").pop()
 }
 
-/**
- * Resolve media file path
- *
- * @param filename
- * @param folder
- */
-export function getMediaFilePath(filename: string, folder: string = "") {
-  const baseURL = useNuxtApp().$config.app.baseURL
 
-  if (filename.startsWith("http")) {
-    return ""
+export function exportWithDesiredName(
+  file: File,
+  desiredName: string,
+): string {
+  if (file) {
+    return `${desiredName}.${getFileExtension(file.name)}`
   }
 
-  return `${baseURL}user/${folder}/${filename}`
+  return 'undefined'
 }
 
 /**
@@ -42,9 +38,9 @@ export async function fetchFileFromUrl(url: string): Promise<File> {
   const response = await fetch(url)
   const data = await response.blob()
 
-  return new File([data], name, {
+  return Promise.resolve(new File([data], name, {
     type: data.type,
-  })
+  }))
 }
 
 /**
@@ -52,20 +48,21 @@ export async function fetchFileFromUrl(url: string): Promise<File> {
  *
  * @param media
  */
-export async function handleMediaForSrc(media: { file: IMediaFile }) {
+export async function handleMediaForSrc(media: IMediaImage | IMediaVideo) {
   if (!media.file) {
-    throw Error("File object is not defined")
+    throw Error("File is not defined")
   }
 
-  if (!media.file.blob) {
+  if (!media.file) {
     throw Error("File blob is not defined")
   }
 
-  if (!isPromise(media.file.blob)) {
+  if (!isPromise(media.file)) {
     throw Error("File blob is not a promise")
   }
 
-  return URL.createObjectURL(await media.file.blob)
+  // @ts-expect-error
+  return URL.createObjectURL(await media.file)
 }
 
 /**

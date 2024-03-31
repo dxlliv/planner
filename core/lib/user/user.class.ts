@@ -13,61 +13,56 @@ export default class User implements IUser {
   public media: IUserMedia = {} as IUserMedia
   public storage: IUserStorage = {} as IUserStorage
 
-  public ready: Ref<boolean> = ref(false)
-
   public status: {
-    changed: boolean
+    unsavedChanges: boolean
+    localChanges: boolean
   } = reactive({
-    changed: false,
+    unsavedChanges: false,
+    localChanges: false,
   })
 
-  constructor(raw: IRawUser, origin: string) {
+  constructor(raw: IRawUser) {
     this.raw = raw
-    this.origin = origin
   }
 
   /**
    * Initialize user
    */
   public async init() {
-    // start user indexed db
-    await this.initUserStorage()
-
     // parse user profile from raw config
-    await this.initUserProfile()
+    await this.loadUserProfile()
+
+    // parse user media
+    this.loadUserMedia()
+
+    // set user id (provided, or getted from profile username)
+    this.id = this.raw.id ?? this.raw.profile.username
+
+    return this
+  }
+
+  public async loadUserClient() {
+    // start user indexed db
+    await this.loadUserStorage()
 
     // check for index db user changes
     await this.storage.isContentAvailable().then(async (availability) => {
       if (availability) {
         // override raw user data
+        // todo resolve bug #this.raw-not-available
         await this.storage.restore()
       }
     })
+  }
 
-    // parse user media
-    this.initUserMedia()
+  public async unloadUserClient() {
 
-    // set user id (provided, or getted from profile username)
-    this.id = this.raw.id ?? this.raw.profile.username
-
-    // when you import users from directory/zip,
-    // you may want to save the profile immediately
-    if (this.origin === "storage") {
-      this.media.fetch()
-
-      await this.storage.save()
-    }
-
-    // set user as ready
-    this.ready.value = true
-
-    return this
   }
 
   /**
    * Initialize user storage
    */
-  public async initUserStorage() {
+  public async loadUserStorage() {
     this.storage = new UserStorage(this)
 
     await this.storage.init()
@@ -75,14 +70,21 @@ export default class User implements IUser {
 
   // these functions are overridden
   // by specific platform methods
-  public async initUserProfile() {}
-  public initUserMedia() {}
+  public async loadUserProfile() {}
+  public loadUserMedia() {}
 
   /**
-   * Check if user has changes
+   * Check if user has unsaved changes
    */
   get hasLocalChanges() {
-    return this.status.changed
+    return this.status.localChanges
+  }
+
+  /**
+   * Check if user has local changes
+   */
+  get hasUnsavedChanges() {
+    return this.status.unsavedChanges
   }
 
   /**
@@ -90,40 +92,37 @@ export default class User implements IUser {
    *
    * @param value
    */
-  public setChanged(value: boolean) {
-    this.status.changed = value
+  public setUnsavedChanges(value: boolean) {
+    this.status.unsavedChanges = value
+  }
+
+  /**
+   * Update changed status
+   *
+   * @param value
+   */
+  public setLocalChanges(value: boolean) {
+    this.status.localChanges = value
   }
 
   /**
    * Is user removable?
    */
   get isRemovable() {
-    return this.origin !== "config"
+    return this.origin === "storage"
   }
 
   /**
    * Get user route
    */
   get route() {
-    const plannerConfig = usePlannerConfig()
-
-    /*
-    {
-      name: "user",
-      params: {
-        platform: plannerConfig.platform.default === this.platform ? undefined : this.platform,
-        // todo improve and find a standard for usernames
-        username: extractUsernameFromUserId(this.id),
-      },
-    }
-     */
     return "/" + this.platform + "/" + extractUsernameFromUserId(this.id)
   }
 
   /**
    * Prepare user data for export
    */
-  public async getDataForExport(): Promise<IUserExported> {
+  public async export(): Promise<IUserExported> {
     const exportedProfile = await this.profile.export()
     const exportedMedia = await this.media.export()
 

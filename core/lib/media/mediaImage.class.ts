@@ -3,40 +3,47 @@ import User from "../user/user.class"
 import UserMedia from "../user/userMedia.class"
 
 export default class MediaImage extends Media implements IMediaImage {
-  public file: IMediaFile = {} as IMediaFile
+  public file: Promise<IMediaFile>
 
   constructor(
     user: User,
-    raw: string | IRawMedia,
+    raw: string | File | IRawMedia,
     collection?: IMediaCollection,
+    from?: IMediaFrom,
   ) {
-    super(user, raw, collection)
+    super(user, raw, collection, from)
 
     this.setMediaType("image")
-    this.parseMediaImage(raw)
+
+    if (from === 'client') {
+      this.fetch()
+    }
   }
 
-  private get fileNameExtension() {
-    return getFileExtension(
-      this.file.name,
-    )
+  public fetch() {
+    this.fetchMediaImage()
   }
 
-  private parseMediaImage(raw: string | IRawMedia) {
-    switch (typeof raw) {
+  private fetchMediaImage() {
+    switch (typeof this.raw) {
       case "string":
         // shortened image import
-        this.file = this.parseMediaFileName(raw)
+        this.file = this.fetchMediaFileFromString(this.raw)
         break
 
       case "object":
-        if (raw.file && raw.file instanceof File) {
+        // direct upload
+        if (this.raw instanceof File) {
           // regular image import from: new image / indexeddb restore
-          this.file = this.parseMediaFileBlob(raw.file)
-        } else if (typeof raw.name === "string") {
+          this.file = this.fetchMediaFileFromBlob(this.raw)
+        } else if (this.raw.file && this.raw.file instanceof File) {
+          // image restored from indexeddb restore
+          this.file = this.fetchMediaFileFromBlob(this.raw.file)
+        } else if (typeof this.raw.name === "string") {
           // regular image import from: config.json
-          this.file = this.parseMediaFileName(raw.name)
+          this.file = this.fetchMediaFileFromString(this.raw.name)
         }
+
         break
     }
   }
@@ -47,10 +54,7 @@ export default class MediaImage extends Media implements IMediaImage {
       {
         type: "album",
         list: [
-          {
-            type: "image",
-            file: await this.file.blob,
-          },
+          await this.file,
         ],
       },
       "posts",
@@ -60,7 +64,7 @@ export default class MediaImage extends Media implements IMediaImage {
 
     this.user.media.collections[this.collection].splice(index, 0, mediaAlbum)
 
-    await this.save()
+    this.user.setUnsavedChanges(true)
   }
 
   public async convertToIframe(href: string) {
@@ -72,7 +76,7 @@ export default class MediaImage extends Media implements IMediaImage {
         type: "iframe",
         cover: {
           type: "image",
-          file: await this.file.blob,
+          file: await this.file,
         },
         href,
       },
@@ -81,13 +85,15 @@ export default class MediaImage extends Media implements IMediaImage {
 
     this.user.media.collections[this.collection].splice(index, 0, media)
 
-    await this.save()
+    this.user.setUnsavedChanges(true)
   }
 
   public async setMediaImage(blob: File) {
-    this.file = this.parseMediaFileBlob(blob)
+    this.file = this.fetchMediaFileFromBlob(blob)
 
-    await this.save()
+    this.refresh()
+
+    this.user.setUnsavedChanges(true)
   }
 
   public exportConfig(): IMediaImageExportConfig {
@@ -98,16 +104,8 @@ export default class MediaImage extends Media implements IMediaImage {
 
   public async exportFiles(): Promise<IMediaImageExportMedia> {
     return {
-      file: await this.file?.blob,
+      file: await this.file,
     }
-  }
-
-  public exportWithDesiredName(desiredName: string): string {
-    if (this.file && this.file.blob) {
-      return `${this.collectionSingularized}-${desiredName}.${this.fileNameExtension}`
-    }
-
-    return ''
   }
 
   public async export() {

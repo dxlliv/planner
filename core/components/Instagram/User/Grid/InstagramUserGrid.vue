@@ -10,7 +10,7 @@ const gridListRef: Ref<HTMLElement | undefined> = ref()
 const dragging = ref<boolean>(false)
 
 function onListUpdated() {
-  props.user.save()
+  props.user.setUnsavedChanges(true)
 }
 
 function onSortStart() {

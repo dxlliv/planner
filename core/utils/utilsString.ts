@@ -40,3 +40,8 @@ export function slugify(string: string, replaceSpaceWith: string = '-') {
 export function replaceLineBreaksWithBr(str: string) {
   return str.replace(/(?:\r\n|\r|\n)/g, '<br>')
 }
+
+export function capitalizeFirstLetter(word: string) {
+  return word.charAt(0).toUpperCase()
+    + word.slice(1)
+}

@@ -8,9 +8,7 @@ import { fulfillMediaFilesForExport } from "../../utils/utilsUserExport"
 export default class UserMedia implements IUserMedia {
   public readonly user: User
 
-  public collections: { [collectionName: string]: IMedia[] } = {}
-
-  private firstFetch = true
+  public collections = {}
 
   constructor(user: User) {
     this.user = user
@@ -19,7 +17,8 @@ export default class UserMedia implements IUserMedia {
   /**
    * Return available collections from current platform structure
    */
-  public get structureCollectionKeys() {
+  public get structureCollectionKeys(): IMediaCollection[] {
+    // @ts-expect-error
     return Object.keys(this.user.media.structure.collections)
   }
 
@@ -35,7 +34,7 @@ export default class UserMedia implements IUserMedia {
    *
    * @param collectionName
    */
-  public hasCollection(collectionName: string) {
+  public hasCollection(collectionName: string): boolean {
     return Object.prototype.hasOwnProperty.call(
       this.collections,
       collectionName,
@@ -43,18 +42,30 @@ export default class UserMedia implements IUserMedia {
   }
 
   /**
-   * Parse raw media configuration and load all the media
+   * Parse raw media configuration and fetch all the media
    */
-  public fetch() {
-    if (this.firstFetch === true) {
-      this.firstFetch = false
-    } else {
-      return false
-    }
+  public fetch(from: IMediaFrom = 'config') {
+    this.reset()
 
-    this.parseRawUserMediaCollections()
+    this.parseRawUserMediaCollections(from)
 
     return true
+  }
+
+  /**
+   * Fetch single media from raw media configuration
+   *
+   * @param collection
+   * @param mediaSlug
+   */
+  public fetchSingleMedia(collection: IMediaCollection, mediaSlug: string) {
+    const rawMedia = this.user.raw.media[collection].find(rawMedia => rawMedia.slug === mediaSlug)
+
+    if (!rawMedia) {
+      return null
+    }
+
+    return UserMedia.newMedia(this.user, rawMedia, collection, 'config')
   }
 
   /**
@@ -63,12 +74,8 @@ export default class UserMedia implements IUserMedia {
    *
    * @private
    */
-  private parseRawUserMediaCollections() {
+  private parseRawUserMediaCollections(from: IMediaFrom = 'config') {
     for (const collection of this.structureCollectionKeys) {
-      if (!this.hasCollection(collection)) {
-        this.collections[collection] = []
-      }
-
       if (
         Object.prototype.hasOwnProperty.call(
           this.user.raw.media,
@@ -76,9 +83,18 @@ export default class UserMedia implements IUserMedia {
         )
       ) {
         for (let rawMedia of this.user.raw.media[collection]) {
-          this.addMedia(rawMedia, collection)
+          this.addMedia(rawMedia, collection, {
+            addMethod: 'push',
+            from
+          })
         }
       }
+    }
+  }
+
+  public reset() {
+    for (const collection of this.structureCollectionKeys) {
+      this.collections[collection] = []
     }
   }
 
@@ -87,16 +103,22 @@ export default class UserMedia implements IUserMedia {
    *
    * @param rawMedia
    * @param collection
-   * @param addMethod
+   * @param options
    */
   public addMedia(
     rawMedia: string | IRawMedia,
     collection: IMediaCollection = "posts",
-    addMethod: "push" | "unshift" = "push",
+    options: {
+      addMethod: IMediaAddMethod,
+      from: IMediaFrom
+    } = {
+      addMethod: 'push',
+      from: 'config'
+    }
   ) {
-    const media = UserMedia.newMedia(this.user, rawMedia, collection)
+    const media = UserMedia.newMedia(this.user, rawMedia, collection, options.from)
 
-    this.collections[collection][addMethod](media)
+    this.collections[collection][options.addMethod](media)
 
     // refresh posts count
     this.user.profile.setPostsCount(this.collections["posts"].length)
@@ -105,7 +127,7 @@ export default class UserMedia implements IUserMedia {
   /**
    * Export media
    */
-  public async export() {
+  public async export(): Promise<any> {
     const exportedMedia = {}
 
     for await (const collectionKey of this.collectionKeys) {
@@ -123,34 +145,36 @@ export default class UserMedia implements IUserMedia {
    * @param user
    * @param rawMedia
    * @param collection
+   * @param from
    */
   public static newMedia(
     user: User,
     rawMedia: string | IRawMedia,
     collection: IMediaCollection = "posts",
+    from: IMediaFrom = "client"
   ): any {
     const mediaType = UserMedia.detectMediaType(rawMedia)
 
     switch (mediaType) {
       case "image":
-        return new MediaImage(user, rawMedia, collection)
+        return new MediaImage(user, rawMedia, collection, from)
 
       case "video":
-        return new MediaVideo(user, rawMedia, collection)
+        return new MediaVideo(user, rawMedia, collection, from)
 
       case "album":
         if (typeof rawMedia === "string") {
           throw Error("Album media cannot be a string")
         }
 
-        return new MediaAlbum(user, rawMedia, collection)
+        return new MediaAlbum(user, rawMedia, collection, from)
 
       case "iframe":
         if (typeof rawMedia === "string") {
           throw Error("Album media cannot be a string")
         }
 
-        return new MediaIframe(user, rawMedia, collection)
+        return new MediaIframe(user, rawMedia, collection, from)
     }
   }
 
@@ -172,6 +196,10 @@ export default class UserMedia implements IUserMedia {
         // shortened album import
         if (Array.isArray(rawMedia)) {
           return "album"
+        }
+
+        if (rawMedia.type && rawMedia.type.includes('/')) {
+          return rawMedia.type.split('/')[0]
         }
 
         // regular media import

@@ -2,6 +2,7 @@
 declare function useNuxtApp(): NuxtApp;
 
 type IPlatforms = "instagram"
+type IUserOrigin = "local" | "remote" | "storage"
 
 interface IRawConfig {
   users: string[]
@@ -19,8 +20,11 @@ interface IRawUser {
   path: string
   profile: IRawUserProfile
   media: IRawUserMedia
-  platform?: string
+  platform: IPlatforms
   options: any
+
+  origin: IUserOrigin
+  basePath: string
 }
 
 interface IRawUserProfile {
@@ -47,14 +51,16 @@ interface IRawMedia {
   type?: IMediaType
   collection?: IMediaCollection
   name?: string
+  file?: File
   reel?: boolean
   cover?: number | string | IRawMedia
   list?: string[] | IRawMedia[]
   href?: string
-  file?: File
 
-  date?: string
+  title?: string
+  slug?: string
   caption?: string
+  date?: string
 }
 
 interface IRawMediaImage extends IRawMedia {
@@ -88,31 +94,32 @@ type IUsers = { [username: string]: IUser }
 interface IUser {
   user: IUser
   platform: IPlatforms
+  origin: IUserOrigin
   id: string
 
   raw: IRawUser
-  origin: string
 
   options: IUserOptions
   profile: IUserProfile
   media: IUserMedia
   storage: any
 
-  ready: Ref<boolean>
-
   status: {
     changed: boolean
   }
 
+  // @ts-ignore
   get route(): RouteRecord
   get hasLocalChanges(): boolean
+  get hasUnsavedChanges(): boolean
   get isRemovable(): boolean
 
   init(): void
-  initUserStorage(): void
-  initUserProfile(): Promise<void>
-  initUserMedia(): void
-  setChanged(value: boolean): void
+  loadUserStorage(): void
+  loadUserProfile(): Promise<void>
+  loadUserMedia(): void
+  setUnsavedChanges(value: boolean): void
+  setLocalChanges(value: boolean): void
 
   save(): Promise<void>
   remove(): Promise<void>
@@ -153,8 +160,8 @@ interface IUserProfile {
   setFollowsCount(count: number): void
   setWebsite(website: any): void
 
-  setAvatar(avatar: UserAvatar): Promise<void>
-  updateAvatar(avatar: UserAvatar): Promise<void>
+  setAvatar(avatar: string | File): Promise<void>
+  updateAvatar(avatar: File): Promise<void>
 
   import(): void
   export(): Promise<IRawUserProfile>
@@ -169,7 +176,10 @@ interface IInstagramUserProfile extends IUserProfile {
   export(): Promise<IRawUserProfile>
 }
 
-interface UserAvatar {}
+interface UserAvatar {
+  get isSet(): boolean
+  export(): Promise<File>
+}
 
 type IUserProfileWebsite = null | {
   href: string
@@ -178,26 +188,48 @@ type IUserProfileWebsite = null | {
 
 interface IUserMedia {
   collections: {
-    posts: IMedia[]
-    reels: IMedia[]
-    stories: IMedia[]
-    highlights: IMedia[]
+    [collectionName: string]: IMedia[]
   }
 
+  get structureCollectionKeys(): IMediaCollection[]
   get collectionKeys(): string[]
-  fetch(): void
+
+  hasCollection(collectionName: string): boolean
+  reset(): void
+  fetch(from: IMediaFrom): void
+  addMedia(
+    rawMedia: string | IRawMedia,
+    collection: IMediaCollection,
+    options: {
+      addMethod: IMediaAddMethod,
+      from: IMediaFrom
+    }
+  ): void
+  export(): Promise<any>
 }
 
-interface IInstagramUserMedia extends IUserMedia {}
+interface IInstagramUserMedia extends IUserMedia {
+  structure: {
+    collections: {
+      [collectionName: string]: any
+    }
+  }
+}
 
 interface IUserOptions {}
 
 interface IMedia {
   user: any
-  raw: string | IRawMedia
+  raw: string | File | IRawMedia
   id: string
+  route: string
+  title: string
+  slug: string
   type: IMediaType
+  from: IMediaFrom
   collection: IMediaCollection
+  cover?: IMediaImage
+  list?: any
 
   collectionSingularized: string
 
@@ -208,8 +240,8 @@ interface IMedia {
 
   setDetailView(toggle: boolean): void
   setMediaType(mediaType: IMediaType): void
-  parseMediaFileName(fileName: string): IMediaFile
-  parseMediaFileBlob(fileBlob: File): IMediaFile
+  fetchMediaFileFromString(fileName: string): Promise<IMediaFile>
+  fetchMediaFileFromBlob(fileBlob: File): Promise<IMediaFile>
 
   caption: string
   setCaption(value: string) :void
@@ -218,9 +250,10 @@ interface IMedia {
   setDate(value: string) :void
 
   refresh(): void
-  save(): void
 
   remove(): Promise<number>
+
+  fetch(): void
 
   export(): Promise<any>
   exportConfig(): any
@@ -228,18 +261,16 @@ interface IMedia {
 }
 
 interface IMediaImage extends IMedia {
-  file: IMediaFile
+  file: Promise<IMediaFile>
 
   setMediaImage(blob: File): Promise<void>
 
   convertToAlbum(): Promise<void>
   convertToIframe(href: string): Promise<void>
-
-  exportWithDesiredName(desiredName: string): string
 }
 
 interface IMediaVideo extends IMedia {
-  file: IMediaFile
+  file: Promise<IMediaFile>
   cover: undefined | IMediaImage
   coverTime: number
 
@@ -280,7 +311,9 @@ interface IMediaIframe extends IMedia {
 }
 
 type IMediaType = "image" | "video" | "album" | "iframe"
+type IMediaFrom = "config" | "client"
 type IMediaCollection = "posts" | "reels"
+type IMediaAddMethod = "push" | "unshift"
 
 interface IMediaFile {
   name?: string

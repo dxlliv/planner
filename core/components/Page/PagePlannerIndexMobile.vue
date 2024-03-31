@@ -3,8 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 </script>
 
 <template>
-  <AppBackground />
-
   <Swiper class="ig-index" direction="vertical">
     <SwiperSlide>
       <MainIntro />

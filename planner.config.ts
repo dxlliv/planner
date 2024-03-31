@@ -1,7 +1,7 @@
 export default {
   users: [
     "instagram/dxlliv",
-    "instagram/dxvfpv"
+    "https://raw.githubusercontent.com/dxlliv/instagram/main/src/public/user/instagram/dxvfpv/config.json"
   ],
   platform: {
     default: "instagram"
@@ -14,6 +14,7 @@ export default {
     // media options
     mediaSort: true,
     mediaEditor: true,
+    mediaPage: true,
 
     // deluxe edition
     requestDeluxe: true

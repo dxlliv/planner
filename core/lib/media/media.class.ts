@@ -1,21 +1,21 @@
-import {
-  fetchFileFromUrl,
-  getMediaFilePath,
-  getFileName,
-} from "../../utils/utilsFile"
+import { fetchFileFromUrl } from "../../utils/utilsFile"
 import { generateUuidv4 } from "../../utils/utilsString"
 import User from "../user/user.class"
 
 export default class Media {
   public user: User
 
-  public raw: string | IRawMedia
+  public raw: string | File | IRawMedia
 
   public id: string = ""
   public type: IMediaType = "" as IMediaType
+  public from: IMediaFrom = "config"
   public collection: IMediaCollection = "" as IMediaCollection
 
   public reel: boolean = false
+
+  public title: string = ""
+  public slug: string = ""
   public caption: string = ""
   public date: string = ""
 
@@ -26,11 +26,13 @@ export default class Media {
 
   constructor(
     user: User,
-    raw: string | IRawMedia,
+    raw: string | File | IRawMedia,
     collection?: IMediaCollection,
+    from?: IMediaFrom,
   ) {
     this.user = user
-    this.raw = typeof raw === "string" ? raw : Object.assign({}, raw)
+    this.raw = raw
+    this.from = from
 
     if (collection) {
       this.collection = collection
@@ -38,6 +40,37 @@ export default class Media {
 
     this.setUniqueId()
     this.parseMediaDetail()
+  }
+
+  public get route() {
+    const baseRoute = `${this.user.route}/${this.collection}`
+
+    if (this.slug) {
+      return `${baseRoute}/${this.slug}`
+    }
+
+    return `${baseRoute}/${this.id}`
+  }
+
+  public get seoMeta() {
+    return {
+      title: `${this.title} - ${this.user.profile.username}`
+    }
+  }
+
+  public get rawFilePath() {
+    if (this.from === 'client') {
+      // media has just been uploaded or loaded from storage (client-side)
+      return null
+    }
+
+    // load media from /public folder
+    switch (typeof this.raw) {
+      case 'string':
+        return this.getFilePath(this.raw)
+      case 'object':
+        return this.getFilePath(this.raw.name)
+    }
   }
 
   public get isDetailView() {
@@ -76,57 +109,74 @@ export default class Media {
   }
 
   private parseMediaDetail() {
-    switch (typeof this.raw) {
-      case "string":
-        this.caption = ""
-        this.date = ""
-        break
+    if (
+      typeof this.raw === 'string' ||
+      this.raw instanceof File
+    ) {
+      return
+    }
 
-      case "object":
-        if (this.raw.caption) {
-          this.caption = this.raw.caption
-        }
-        if (this.raw.date) {
-          this.date = this.raw.date
-        }
-        break
+    if (this.raw.caption) {
+      this.caption = this.raw.caption
+    }
+
+    if (this.raw.date) {
+      this.date = this.raw.date
+    }
+
+    if (this.raw.title) {
+      this.title = this.raw.title
+    }
+
+    if (this.raw.slug) {
+      this.slug = this.raw.slug
     }
   }
 
-  public parseMediaFileName(fileName: string): IMediaFile {
+  public fetchMediaFileFromString(fileName: string): Promise<IMediaFile> {
     let filePath = ""
 
     if (fileName.startsWith("http")) {
       filePath = fileName
-      fileName = getFileName(filePath)
     } else {
-      filePath = getMediaFilePath(
-        fileName,
-        `${this.user.platform}/${this.user.profile.username}/media`,
-      )
+      filePath = this.getFilePath(fileName)
     }
 
-    return {
-      name: fileName,
-      path: filePath,
-      blob: fetchFileFromUrl(filePath),
-    }
+    return fetchFileFromUrl(filePath)
   }
 
-  public parseMediaFileBlob(fileBlob: File): IMediaFile {
-    return {
-      name: fileBlob.name,
-      path: fileBlob.name,
-      blob: Promise.resolve(fileBlob),
+  /**
+   * Resolve media file path
+   *
+   * @param filename
+   */
+  private getFilePath(filename: string) {
+    const plannerAppBaseURL = useNuxtApp().$config.app.baseURL
+    const basePath = `${this.user.raw.basePath}/media`
+
+    // todo resolve bug #this.raw-not-available
+    // this is needed to avoid errors when content is restored from indexed db
+    if (!filename) {
+      return ''
     }
+
+    if (filename.startsWith("http")) {
+      return filename
+    }
+
+    if (basePath.startsWith("http")) {
+      return `${basePath}/${filename}`
+    }
+
+    return `${plannerAppBaseURL}user/${basePath}/${filename}`
+  }
+
+  public fetchMediaFileFromBlob(fileBlob: File): Promise<IMediaFile> {
+    return Promise.resolve(fileBlob)
   }
 
   public refresh() {
     this.setUniqueId()
-  }
-
-  public async save() {
-    await this.user.save()
   }
 
   public async remove() {
@@ -138,10 +188,10 @@ export default class Media {
       this.user.media.collections[this.collection].splice(index, 1)
     }
 
-    await this.user.save()
-
     // refresh posts count
     this.user.profile.setPostsCount(this.user.media.collections.posts.length)
+
+    this.user.setUnsavedChanges(true)
 
     return index
   }
@@ -149,20 +199,25 @@ export default class Media {
   public async setCaption(caption: string) {
     this.caption = caption
 
-    await this.user.save()
+    this.user.setUnsavedChanges(true)
   }
 
   public async setDate(date: string) {
     this.date = date
 
-    await this.user.save()
+    this.user.setUnsavedChanges(true)
   }
 
   public get exportCommonConfig() {
-    return {
+    const config: any = {
       type: this.type,
-      caption: this.caption,
-      date: this.date,
     }
+
+    if (this.title) config.title = this.title
+    if (this.slug) config.slug = this.slug
+    if (this.caption) config.caption = this.caption
+    if (this.date) config.date = this.date
+
+    return config
   }
 }

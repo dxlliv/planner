@@ -3,8 +3,6 @@
 </script>
 
 <template>
-  <AppBackground />
-
   <v-container class="ig-index text-center py-16 align-content-center">
     <v-row>
       <v-col :cols="12" :md="7" align-self="center" class="pr-md-8">

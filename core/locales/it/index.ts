@@ -57,5 +57,10 @@ export default {
         replaceMedia: "Sostituisci media",
       }
     }
+  },
+  $vuetify: {
+    datePicker: {
+      title: 'Seleziona data'
+    }
   }
 }

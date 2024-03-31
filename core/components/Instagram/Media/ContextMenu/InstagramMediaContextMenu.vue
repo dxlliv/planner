@@ -36,11 +36,11 @@ function onCloseContextMenu() {
         v-if="'list' in media"
         title="Album"
       >
-        <InstagramMediaContextMenuItemReplaceMediaAlbum
+        <InstagramMediaContextMenuItemAddToAlbum
           :media="media"
           @close="onCloseContextMenu"
         />
-        <InstagramMediaContextMenuItemAddToAlbum
+        <InstagramMediaContextMenuItemReplaceMediaAlbum
           :media="media"
           @close="onCloseContextMenu"
         />

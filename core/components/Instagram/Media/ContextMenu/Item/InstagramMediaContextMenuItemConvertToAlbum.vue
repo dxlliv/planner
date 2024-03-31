@@ -7,7 +7,6 @@ const emit = defineEmits(["close"])
 
 function convertToAlbum() {
   props.media.convertToAlbum()
-  props.media.user.save()
 }
 </script>
 

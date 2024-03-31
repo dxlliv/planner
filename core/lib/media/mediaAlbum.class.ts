@@ -6,27 +6,42 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
   public list: (IMediaImage | IMediaVideo)[] = []
   public listIndex: number = 0
 
-  constructor(user: User, raw: IRawMedia, collection?: IMediaCollection) {
-    super(user, raw, collection)
+  constructor(
+    user: User,
+    raw: IRawMedia,
+    collection?: IMediaCollection,
+    from?: IMediaFrom,
+  ) {
+    super(user, raw, collection, from)
 
     this.setMediaType("album")
 
-    // shortened album imports may be an array of strings
-    // so this will convert to a regular object
-    if (Array.isArray(raw)) {
-      // @ts-ignore
-      raw = { list: raw }
-    }
-
-    this.parseMediaAlbum(raw)
+    this.parseMediaAlbum()
   }
 
-  private parseMediaAlbum(raw: IRawMedia) {
+  public fetch() {
+    if (this.list.length > 0) {
+      for (const media of this.list) {
+        media.fetch()
+      }
+    }
+  }
+
+  private parseMediaAlbum() {
     const mediaAlbumList: (IMediaImage | IMediaVideo)[] = []
 
-    if (raw.list && Array.isArray(raw.list)) {
-      for (let rawAlbumMedia of raw.list) {
-        mediaAlbumList.push(UserMedia.newMedia(this.user, rawAlbumMedia))
+    if (Array.isArray(this.raw)) {
+      this.raw = { list: this.raw }
+    }
+
+    if (typeof this.raw === 'string' || this.raw instanceof File) {
+      return
+    }
+
+    if (this.raw.list && Array.isArray(this.raw.list)) {
+
+      for (let rawAlbumMedia of this.raw.list) {
+        mediaAlbumList.push(UserMedia.newMedia(this.user, rawAlbumMedia, 'posts', this.from))
       }
 
       this.list = mediaAlbumList
@@ -48,7 +63,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     this.slideToNextListItem()
     this.refresh()
 
-    await this.save()
+    this.user.setUnsavedChanges(true)
   }
 
   public async removeFromAlbum() {
@@ -58,15 +73,15 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
     this.slideToPrevListItem()
     this.refresh()
 
-    await this.save()
+    this.user.setUnsavedChanges(true)
   }
 
   public async setMediaAlbumImage(blob: File) {
-    this.list[this.listIndex].file = this.parseMediaFileBlob(blob)
+    this.list[this.listIndex].file = this.fetchMediaFileFromBlob(blob)
 
     this.refresh()
 
-    await this.save()
+    this.user.setUnsavedChanges(true)
   }
 
   public setListIndex(index: number) {
@@ -102,7 +117,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
       for await (const media of this.list) {
         exportedList.push({
           type: media.type,
-          file: await media.file?.blob,
+          file: await media.file,
         })
       }
     }

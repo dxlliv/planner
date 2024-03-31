@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { useClipboard } from "@vueuse/core"
-import {BitcoinIcon,EthereumIcon,IotaIcon} from "vue3-simple-icons"
+import { project } from "../../project/project";
 
+import {GithubIcon,BitcoinIcon,EthereumIcon,IotaIcon} from "vue3-simple-icons"
+
+const {t} = useI18n()
 const { copy } = useClipboard()
 
 function onCopyBitcoinAddress() {
@@ -21,8 +23,8 @@ function onCopyCreatePlannerCode() {
 }
 
 useSeoMeta({
-  title: 'Planner for Instagram',
-  description: "An elegant, free and open-source planner for Instagram. Drag and drop your photos, reorder your grid and preview your profile. No registration required",
+  title: t('pages.about.meta.title'),
+  description: t('pages.about.meta.description'),
   ogImage: 'https://repository-images.githubusercontent.com/401183758/4aabbd7f-b923-4992-8b31-6f07639e6540',
   twitterCard: "summary",
   twitterImage: '/app/twitterImage.webp',
@@ -130,12 +132,17 @@ useSeoMeta({
           </AppIntroCmdButton>
         </code>
 
-        <p class="mt-10 mb-6">
+        <br />
+
+        <p class="mt-6 mb-6">
           These planners run entirely in your browser and what you upload is stored locally. <br class="hidden-md-and-down" />
           It's also safe to use our demo; just create a new profile and start organizing.
         </p>
 
         <v-btn color="primary" size="large" to="/">Try Plxnner</v-btn>
+        <v-btn size="large" :href="project.source" class="ml-2" :min-width="32">
+          <GithubIcon />
+        </v-btn>
 
       </v-col>
       <v-col :cols="12" :md="5" class="mt-12 mt-md-0">

@@ -15,10 +15,21 @@ export default {
       post: 'Post',
     },
   },
-  intro: {
-    intro: {
-      p1: 'lets you preview <br />what your profile will look like.',
-      p2: 'Bring your grid to the next level <br />with a text editor or interactively.',
+  pages: {
+    about: {
+      meta: {
+        title: 'Planner for Instagram - Organize your profiles like a pro',
+        description: "An elegant, free and open-source planner for Instagram. Drag and drop your photos, reorder your grid and preview your profile. No registration required",
+      }
+    },
+    userSelect: {
+      meta: {
+        title: 'Plxnner - Select your profile'
+      },
+      intro: {
+        p1: 'lets you preview <br />what your profile will look like.',
+        p2: 'Bring your grid to the next level <br />with a text editor or interactively.',
+      }
     }
   },
   instagram: {
@@ -46,16 +57,21 @@ export default {
       },
       menu: {
         addCover: "Add cover",
-        addToAlbum: "Add media to album",
+        addToAlbum: "Add media",
         cloneToReel: "Clone to reel",
         convertToAlbum: "Convert to album",
         convertToIframe: "Convert to iframe",
         remove: "Remove",
         removeCover: "Remove cover",
-        removeFromAlbum: "Remove from album",
+        removeFromAlbum: "Remove media",
         replaceCover: "Replace cover",
         replaceMedia: "Replace media",
       }
+    }
+  },
+  $vuetify: {
+    datePicker: {
+      title: 'Select date'
     }
   }
 }

@@ -25,7 +25,7 @@ const users = computed(() => useUserStore().userList)
       }"
     >
       <SwiperSlide v-for="(user, i) of users">
-        <UserSelector v-if="user && user.ready" :user="user" />
+        <UserSelector :user="user" />
       </SwiperSlide>
       <SwiperSlide>
         <UserSelectorAdd />

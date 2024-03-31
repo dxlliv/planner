@@ -4,7 +4,6 @@ import vueFilePond from "vue-filepond"
 const props = defineProps<{user: IUser}>()
 
 const {t} = useI18n()
-const userStore = useUserStore()
 const FilePond = vueFilePond()
 
 const emit = defineEmits(["add"])
@@ -18,8 +17,12 @@ const labelIdle =
 function onFileAdded(file: any) {
   emit("add", file.source)
 
-  props.user.media.addMedia({ file: file.source }, "posts", "unshift")
-  props.user.save()
+  props.user.media.addMedia(file.source, "posts", {
+    addMethod: 'unshift',
+    from: 'client'
+  })
+
+  props.user.setUnsavedChanges(true)
 }
 </script>
 

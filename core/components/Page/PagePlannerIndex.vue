@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import PagePlannerIndexDesktop from "./PagePlannerIndexDesktop.vue";
-import PagePlannerIndexMobile from "./PagePlannerIndexMobile.vue";
+const {t} = useI18n()
+
+useSeoMeta({
+  title: t('pages.userSelect.meta.title')
+})
 </script>
 
 <template>
-  <PagePlannerIndexDesktop v-if="$vuetify.display.mdAndUp" />
-  <PagePlannerIndexMobile v-else />
+  <AppBackground />
+  <PagePlannerIndexDesktop class="hidden-sm-and-down" />
+  <PagePlannerIndexMobile class="hidden-md-and-up" />
 </template>
 
 <style scoped lang="scss">

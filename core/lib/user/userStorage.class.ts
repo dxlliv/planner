@@ -32,6 +32,8 @@ export default class UserStorage {
     )
 
     if (userChanges) {
+      this.user.setLocalChanges(true)
+
       // restore original user id (platform + username)
       this.user.id = userChanges.id
 
@@ -39,16 +41,19 @@ export default class UserStorage {
       await this.user.profile.update(userChanges.profile)
 
       // overwrite user raw media
+      // todo resolve bug #this.raw-not-available
       this.user.raw.media = userChanges.media
 
-      this.user.setChanged(true)
+      // todo resolve bug #this.raw-not-available
+      this.user.media.fetch('client')
     }
   }
 
   public async save() {
-    const userExported = await this.user.getDataForExport()
+    const userExported = await this.user.export()
 
-    this.user.setChanged(true)
+    this.user.setUnsavedChanges(false)
+    this.user.setLocalChanges(true)
 
     await this.database.put(
       this.user.platform,

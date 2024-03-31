@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { isPlannerFeatureEnabled } from "../../../utils/utilsPlanner"
-
 defineProps<{
   user: IUser
   nav: any
@@ -44,7 +42,7 @@ const emit = defineEmits(["create", "export"])
         </template>
       </v-list-item>
 
-      <v-list-item v-if="user.ready" title="Profile" :to="user.route">
+      <v-list-item title="Profile" :to="user.route">
         <template #prepend>
           <suspense>
             <InstagramUserAvatar :avatar="user.profile.avatar" :size="26" />
@@ -56,9 +54,19 @@ const emit = defineEmits(["create", "export"])
     <v-list density="compact" nav class="ig-navigation-drawer__list-bottom">
 
       <v-list-item
-        v-if="user.hasLocalChanges"
-        title="Export"
+        v-if="user.hasUnsavedChanges"
+        title="Save"
+        @click="user.save()"
         base-color="primary"
+      >
+        <template #prepend>
+          <v-icon icon="mdi-content-save-outline" />
+        </template>
+      </v-list-item>
+
+      <v-list-item
+        v-if="!user.hasUnsavedChanges && user.hasLocalChanges"
+        title="Export"
         @click="emit('export')"
       >
         <template #prepend>

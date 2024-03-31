@@ -28,6 +28,22 @@ function onMediaClick(e) {
     </template>
 
     <iframe v-else :src="media.href" />
+
+    <template v-slot:actions>
+
+      <client-only>
+        <MediaActionEdit
+          v-if="isPlannerFeatureEnabled('mediaEditor')"
+          @click.stop="media.setEditing(true)"
+        />
+      </client-only>
+
+      <slot name="actions" />
+
+    </template>
+
+    <slot name="link" />
+
   </InstagramMediaContainer>
 </template>
 

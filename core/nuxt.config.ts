@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from 'nuxt/config'
 import { createResolver } from "@nuxt/kit";
-import vuetify from "vite-plugin-vuetify";
 
+// @ts-ignore
 const { resolve } = createResolver(import.meta.url);
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -20,8 +20,14 @@ export default defineNuxtConfig({
   },
   modules: [
     "nuxt-swiper",
+    "vuetify-nuxt-module",
     '@pinia-plugin-persistedstate/nuxt',
-    "@vueuse/nuxt",
+    [
+      "@vueuse/nuxt",
+      {
+        autoImports: ["useClipboard"]
+      }
+    ],
     [
       "@pinia/nuxt",
       {
@@ -38,19 +44,23 @@ export default defineNuxtConfig({
     global: true,
     dirs: ["./components"],
   },
-  hooks: {
-    "vite:extendConfig": (config) => {
-      config.plugins.push(
-        vuetify({
-          styles: { configFile: resolve("./styles/settings.scss") }
-        })
-      );
-    }
-  },
+  // @ts-ignore
   pinia: {
     storesDirs: [
       '../base/stores/**'
     ]
+  },
+  vuetify: {
+    moduleOptions: {
+      /* other module options */
+      styles: { configFile: resolve("./styles/settings.scss") }
+    },
+    vuetifyOptions: {
+      ssr: true
+    }
+  },
+  features: {
+    inlineStyles: false
   },
   imports: {
     dirs: ['config', 'composables', 'core', 'stores', 'utils']

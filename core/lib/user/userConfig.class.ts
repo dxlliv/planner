@@ -11,7 +11,8 @@ export default class UserConfig {
     const rawUsers = []
 
     for await (const userPath of plannerConfig.users) {
-      rawUsers.push(this.getUserConfig(userPath))
+      const rawUser = await this.getUserConfig(userPath)
+      rawUsers.push(rawUser)
     }
 
     return rawUsers
@@ -23,20 +24,31 @@ export default class UserConfig {
    * @param userPath
    */
   public static async getUserConfig(userPath: string) {
-    const baseURL = useNuxtApp().$config.app.baseURL
+    const {origin} = useRequestURL()
+    const {baseURL} = useNuxtApp().$config.app
 
+    let userOrigin: IUserOrigin = '' as IUserOrigin
+    let userBasePath: string = ''
     let userConfigFullPath = ""
 
     if (userPath.startsWith("http")) {
       // is remote config
       userConfigFullPath = userPath
+      userBasePath = userPath.replace(`config.json`, '')
+      userOrigin = 'remote'
     } else {
       // is local config
-      userConfigFullPath = `${baseURL}user/${userPath}/config.json`
+      // todo fix path to reach /public folder when running ssg
+      userConfigFullPath = `${origin}${baseURL}user/${userPath}/config.json`
+      userBasePath = userPath
+      userOrigin = 'local'
     }
 
     // fetch user config from its local/remote path
     const rawUser = await this.fetchUserConfig(userConfigFullPath)
+
+    rawUser.origin = userOrigin
+    rawUser.basePath = userBasePath
 
     const platform: string = rawUser.platform
       ?? this.config.platform.default
@@ -57,9 +69,8 @@ export default class UserConfig {
    * @private
    */
   private static async fetchUserConfig(url: string): Promise<IRawUser> {
-    return fetch(url)
-      .then(async (response) => {
-        const rawUser: IRawUser = await response.json()
+    return $fetch(url, { responseType: 'json' })
+      .then(async (rawUser: IRawUser) => {
 
         // sets where this config comes from
         rawUser.path = url.replace("/config.json", "")
