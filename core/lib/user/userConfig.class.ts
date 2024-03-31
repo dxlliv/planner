@@ -38,6 +38,7 @@ export default class UserConfig {
       userOrigin = 'remote'
     } else {
       // is local config
+      // todo fix path to reach /public folder when running ssg
       userConfigFullPath = `${origin}${baseURL}user/${userPath}/config.json`
       userBasePath = userPath
       userOrigin = 'local'
