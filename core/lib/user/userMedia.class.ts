@@ -9,6 +9,7 @@ export default class UserMedia implements IUserMedia {
   public readonly user: User
 
   public collections: IUserMediaCollections = {}
+  private collection: IMediaCollection = 'posts' as IMediaCollection
 
   constructor(user: User) {
     this.user = user
@@ -39,6 +40,17 @@ export default class UserMedia implements IUserMedia {
       this.collections,
       collectionName,
     )
+  }
+
+  public setActiveCollection(collection: IMediaCollection) {
+    this.collection = collection
+  }
+
+  /**
+   * Get active collection
+   */
+  public get activeCollection() {
+    return this.collection
   }
 
   /**

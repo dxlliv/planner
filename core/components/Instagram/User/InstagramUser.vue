@@ -1,9 +1,15 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   user: any
 }>()
 
-const tab = ref("posts")
+const tab = ref(props.user.media.activeCollection)
+
+function onCollectionChange(collectionName: string) {
+  tab.value = collectionName
+
+  props.user.media.setActiveCollection(collectionName)
+}
 </script>
 
 <template>
@@ -12,7 +18,7 @@ const tab = ref("posts")
   <InstagramUserTabs
     :media="user.media"
     :active="tab"
-    @select="(value: string) => (tab = value)"
+    @select="onCollectionChange"
   />
 
   <InstagramUserGrid

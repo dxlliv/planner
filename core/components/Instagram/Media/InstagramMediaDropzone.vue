@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import vueFilePond from "vue-filepond"
 
-const props = defineProps<{user: IUser}>()
+const props = defineProps<{
+  user: IUser
+}>()
 
 const {t} = useI18n()
 const FilePond = vueFilePond()
@@ -17,7 +19,7 @@ const labelIdle =
 function onFileAdded(file: any) {
   emit("add", file.source)
 
-  props.user.media.addMedia(file.source, "posts", {
+  props.user.media.addMedia(file.source, props.user.media.activeCollection, {
     addMethod: 'unshift',
     from: 'client'
   })

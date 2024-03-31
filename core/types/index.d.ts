@@ -210,7 +210,10 @@ interface IUserMedia {
   get structureCollectionKeys(): IMediaCollection[]
   get collectionKeys(): string[]
 
+  get activeCollection(): IMediaCollection
+  setActiveCollection(collectionName: IMediaCollection): void
   hasCollection(collectionName: string): boolean
+
   reset(): void
   fetch(from: IMediaFrom): void
   addMedia(

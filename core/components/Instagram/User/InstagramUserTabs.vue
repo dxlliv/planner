@@ -1,25 +1,3 @@
-<template>
-  <div class="ig-profile-page__tabs">
-    <template v-for="(tab, i) of tabs" :key="i">
-      <div
-        :class="[
-          'ig-profile-page__tabs__tab',
-          {
-            'ig-profile-page__tabs__tab--active': active === tab.name,
-          },
-        ]"
-        @click="emit('select', tab.name)"
-      >
-        <v-icon size="15">
-          {{ tab.icon }}
-        </v-icon>
-
-        {{ tab.label }}
-      </div>
-    </template>
-  </div>
-</template>
-
 <script setup lang="ts">
 const emit = defineEmits(["select"])
 
@@ -52,6 +30,28 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
     return items
   })
 </script>
+
+<template>
+  <div class="ig-profile-page__tabs">
+    <template v-for="(tab, i) of tabs" :key="i">
+      <div
+        :class="[
+          'ig-profile-page__tabs__tab',
+          {
+            'ig-profile-page__tabs__tab--active': active === tab.name,
+          },
+        ]"
+        @click="emit('select', tab.name)"
+      >
+        <v-icon size="15">
+          {{ tab.icon }}
+        </v-icon>
+
+        {{ tab.label }}
+      </div>
+    </template>
+  </div>
+</template>
 
 <style scoped lang="scss">
 .ig-profile-page__tabs {
