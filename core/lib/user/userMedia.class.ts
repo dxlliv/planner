@@ -8,7 +8,7 @@ import { fulfillMediaFilesForExport } from "../../utils/utilsUserExport"
 export default class UserMedia implements IUserMedia {
   public readonly user: User
 
-  public collections = {}
+  public collections: IUserMediaCollections = {}
 
   constructor(user: User) {
     this.user = user
@@ -59,6 +59,7 @@ export default class UserMedia implements IUserMedia {
    * @param mediaSlug
    */
   public fetchSingleMedia(collection: IMediaCollection, mediaSlug: string) {
+    // @ts-expect-error
     const rawMedia = this.user.raw.media[collection].find(rawMedia => rawMedia.slug === mediaSlug)
 
     if (!rawMedia) {
@@ -127,8 +128,8 @@ export default class UserMedia implements IUserMedia {
   /**
    * Export media
    */
-  public async export(): Promise<any> {
-    const exportedMedia = {}
+  public async export(): Promise<IUserExportedMedia> {
+    const exportedMedia: IUserExportedMedia = {}
 
     for await (const collectionKey of this.collectionKeys) {
       exportedMedia[collectionKey] = await fulfillMediaFilesForExport(

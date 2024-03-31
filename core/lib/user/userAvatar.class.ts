@@ -2,6 +2,7 @@ import { fetchFileFromUrl } from "../../utils/utilsFile"
 
 export default class UserAvatar {
   public readonly user: IUser
+  // @ts-ignore
   readonly #defaultAvatarFilename: string = "avatar.jpg"
 
   public file: any // Promise<File>

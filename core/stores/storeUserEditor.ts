@@ -4,7 +4,7 @@ import { usePlatformStructure } from "../composables/composablePlatformStructure
 
 export const useUserEditorStore = defineStore("user/editor", () => {
   const userStore = useUserStore()
-  const platform: Ref<IPlatforms> = ref("" as IPlatforms)
+  const platform: Ref<IUserPlatform> = ref("" as IUserPlatform)
 
   const fields: any = {}
   const fieldsData: any = {}
@@ -22,7 +22,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
    * @param platformKey
    * @param user
    */
-  function generateFields(platformKey: IPlatforms, user?: any) {
+  function generateFields(platformKey: IUserPlatform, user?: any) {
     platform.value = platformKey
 
     for (const [fieldKey, field] of Object.entries(

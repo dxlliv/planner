@@ -1,13 +1,13 @@
 // @ts-expect-error
 declare function useNuxtApp(): NuxtApp;
 
-type IPlatforms = "instagram"
+type IUserPlatform = "instagram"
 type IUserOrigin = "local" | "remote" | "storage"
 
 interface IRawConfig {
   users: string[]
   platform: {
-    default: string
+    default: IUserPlatform
   }
   features: {
     editor: boolean
@@ -20,7 +20,7 @@ interface IRawUser {
   path: string
   profile: IRawUserProfile
   media: IRawUserMedia
-  platform: IPlatforms
+  platform: IUserPlatform
   options: any
 
   origin: IUserOrigin
@@ -84,7 +84,7 @@ interface IRawMediaIframe extends IRawMedia {
 
 interface ITempUserReference {
   username: string
-  platform: IPlatforms
+  platform: IUserPlatform
 }
 
 // parsed config
@@ -92,8 +92,7 @@ interface ITempUserReference {
 type IUsers = { [username: string]: IUser }
 
 interface IUser {
-  user: IUser
-  platform: IPlatforms
+  platform: IUserPlatform
   origin: IUserOrigin
   id: string
 
@@ -104,9 +103,7 @@ interface IUser {
   media: IUserMedia
   storage: any
 
-  status: {
-    changed: boolean
-  }
+  status: IUserStatus
 
   // @ts-ignore
   get route(): RouteRecord
@@ -120,18 +117,35 @@ interface IUser {
   loadUserMedia(): void
   setUnsavedChanges(value: boolean): void
   setLocalChanges(value: boolean): void
+  setId(id: string): void
 
   save(): Promise<void>
   remove(): Promise<void>
   reset(): Promise<void>
+  export(): Promise<any>
 }
 
 interface IInstagramUser extends IUser {
-  platform: IPlatforms
+  platform: IUserPlatform
   id: string
 
   profile: IInstagramUserProfile
   media: IInstagramUserMedia
+}
+
+interface IUserStatus {
+  unsavedChanges: boolean
+  localChanges: boolean
+}
+
+interface IUserExported {
+  id: string
+  profile: any
+  media: IUserExportedMedia
+}
+
+interface IUserExportedMedia {
+  [collection: string]: any
 }
 
 interface IUserProfile {
@@ -186,10 +200,12 @@ type IUserProfileWebsite = null | {
   label: string
 }
 
+type IUserMediaCollections = {
+  [collectionName: string]: IMedia[]
+}
+
 interface IUserMedia {
-  collections: {
-    [collectionName: string]: IMedia[]
-  }
+  collections: IUserMediaCollections
 
   get structureCollectionKeys(): IMediaCollection[]
   get collectionKeys(): string[]
@@ -415,3 +431,5 @@ interface IPlatformStructureUserProfile {
 }
 
 interface IPlatformStructureCollectionOptions {}
+
+interface IDatabase extends DBSchema {}

@@ -16,7 +16,7 @@ export const useUserImportStore = defineStore("user/import", () => {
    *
    * @param platform
    */
-  async function importFromDirectory(platform: IPlatforms) {
+  async function importFromDirectory(platform: IUserPlatform) {
     directory.value = await openUserDirectory()
 
     // convert config.json file to raw user object

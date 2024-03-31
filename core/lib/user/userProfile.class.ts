@@ -3,7 +3,7 @@ import UserAvatar from "../user/userAvatar.class"
 export default class UserProfile implements IUserProfile {
   public readonly user: IUser
 
-  public structure
+  public structure: any
 
   public username: string = ""
   public name: string = ""
@@ -83,6 +83,7 @@ export default class UserProfile implements IUserProfile {
 
   public async update(data: any) {
     for (const [fieldKey, field] of Object.entries(this.structure.fields)) {
+      // @ts-ignore
       if (!field.methods || !field.methods.set) continue
 
       // @ts-ignore
@@ -101,7 +102,7 @@ export default class UserProfile implements IUserProfile {
       website: this.website,
       verified: this.verified,
       biography: this.biography,
-      avatar: this.avatar.export(),
+      avatar: this.avatar?.export(),
       followers_count: this.followers_count,
       follows_count: this.follows_count,
     }

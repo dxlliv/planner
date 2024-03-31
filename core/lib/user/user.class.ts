@@ -3,9 +3,9 @@ import { extractUsernameFromUserId } from "../../utils/utilsPlatform"
 
 export default class User implements IUser {
   public readonly raw: IRawUser
-  public readonly origin: string = ""
+  public readonly origin: IUserOrigin = "" as IUserOrigin
 
-  public platform: IPlatforms = ""
+  public platform: IUserPlatform = "" as IUserPlatform
   public id: string = ""
 
   public options: IUserOptions = {}
@@ -13,10 +13,7 @@ export default class User implements IUser {
   public media: IUserMedia = {} as IUserMedia
   public storage: IUserStorage = {} as IUserStorage
 
-  public status: {
-    unsavedChanges: boolean
-    localChanges: boolean
-  } = reactive({
+  public status: IUserStatus = reactive({
     unsavedChanges: false,
     localChanges: false,
   })
@@ -36,9 +33,13 @@ export default class User implements IUser {
     this.loadUserMedia()
 
     // set user id (provided, or getted from profile username)
-    this.id = this.raw.id ?? this.raw.profile.username
+    this.setId(this.raw.id ?? this.raw.profile.username)
 
     return this
+  }
+
+  public setId(id: string) {
+    this.id = id
   }
 
   public async loadUserClient() {
@@ -148,7 +149,11 @@ export default class User implements IUser {
    */
   public async remove() {
     if (this.isRemovable || this.hasLocalChanges) {
-      useUserStorageStore().removeUserFromStorageIndex(this.id)
+      // todo check should rename username to id?
+      useUserStorageStore().removeUserFromStorageIndex({
+        platform: this.platform,
+        username: this.id
+      })
       await this.storage.remove()
 
       useUserStore().unloadUser(this.id)
@@ -160,9 +165,11 @@ export default class User implements IUser {
    */
   public async reset() {
     if (!this.isRemovable || this.hasLocalChanges) {
-      const originalUserId = this.id
-
-      useUserStorageStore().removeUserFromStorageIndex(this.id)
+      // todo check should rename username to id?
+      useUserStorageStore().removeUserFromStorageIndex({
+        platform: this.platform,
+        username: this.id
+      })
       await this.storage.remove()
 
       // original raw user config is not reachable from here (refactor needed) todo

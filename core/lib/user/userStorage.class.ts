@@ -2,16 +2,17 @@ import { openDB } from 'idb';
 
 export default class UserStorage {
   private user: IUser
-  private database
+  private database: any
 
-  constructor(user: IUser) {
+  // @ts-ignore
+  constructor(user: User) {
     this.user = user
   }
 
   public async init() {
     const self = this
 
-    this.database = await openDB("planner", 1, {
+    this.database = await openDB<IDatabase>("planner", 1, {
       upgrade(db) {
         db.createObjectStore(self.user.platform);
       },
@@ -35,7 +36,9 @@ export default class UserStorage {
       this.user.setLocalChanges(true)
 
       // restore original user id (platform + username)
-      this.user.id = userChanges.id
+      if (userChanges.id) {
+        this.user.setId(userChanges.id)
+      }
 
       // restore user profile changes
       await this.user.profile.update(userChanges.profile)

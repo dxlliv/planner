@@ -1,5 +1,3 @@
-import { usePlannerConfig } from "../../composables/composableConfig";
-
 export default class UserConfig {
   private static readonly config = usePlannerConfig()
 
@@ -50,7 +48,7 @@ export default class UserConfig {
     rawUser.origin = userOrigin
     rawUser.basePath = userBasePath
 
-    const platform: string = rawUser.platform
+    const platform: IUserPlatform = rawUser.platform
       ?? this.config.platform.default
       ?? "instagram"
 
@@ -70,7 +68,7 @@ export default class UserConfig {
    */
   private static async fetchUserConfig(url: string): Promise<IRawUser> {
     return $fetch(url, { responseType: 'json' })
-      .then(async (rawUser: IRawUser) => {
+      .then((rawUser: any) => {
 
         // sets where this config comes from
         rawUser.path = url.replace("/config.json", "")

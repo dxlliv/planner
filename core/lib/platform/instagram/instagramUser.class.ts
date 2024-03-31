@@ -3,7 +3,7 @@ import InstagramUserProfile from "./instagramUserProfile.class"
 import InstagramUserMedia from "./instagramUserMedia.class"
 
 export default class InstagramUser extends User implements IInstagramUser {
-  public readonly platform: IPlatforms = "instagram"
+  public readonly platform: IUserPlatform = "instagram"
   public id: string = ""
 
   public profile: IInstagramUserProfile = {} as IInstagramUserProfile
