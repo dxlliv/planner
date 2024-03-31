@@ -13,8 +13,6 @@ export default class User implements IUser {
   public media: IUserMedia = {} as IUserMedia
   public storage: IUserStorage = {} as IUserStorage
 
-  public ready: Ref<boolean> = ref(false)
-
   public status: {
     unsavedChanges: boolean
     localChanges: boolean
@@ -40,9 +38,6 @@ export default class User implements IUser {
     // set user id (provided, or getted from profile username)
     this.id = this.raw.id ?? this.raw.profile.username
 
-    // set user as ready
-    this.ready.value = true
-
     return this
   }
 
@@ -61,7 +56,7 @@ export default class User implements IUser {
   }
 
   public async unloadUserClient() {
-    this.ready.value = false
+
   }
 
   /**

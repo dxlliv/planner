@@ -104,8 +104,6 @@ interface IUser {
   media: IUserMedia
   storage: any
 
-  ready: Ref<boolean>
-
   status: {
     changed: boolean
   }

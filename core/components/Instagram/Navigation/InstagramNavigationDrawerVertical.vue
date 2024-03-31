@@ -42,7 +42,7 @@ const emit = defineEmits(["create", "export"])
         </template>
       </v-list-item>
 
-      <v-list-item v-if="user.ready" title="Profile" :to="user.route">
+      <v-list-item title="Profile" :to="user.route">
         <template #prepend>
           <suspense>
             <InstagramUserAvatar :avatar="user.profile.avatar" :size="26" />
