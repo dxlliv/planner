@@ -3,7 +3,6 @@ import { usePlannerConfig } from "./composables/composableConfig"
 
 const plannerConfig = usePlannerConfig()
 
-// @ts-ignore
 export default defineAppConfig({
   i18n: {
     locale: plannerConfig.locale,

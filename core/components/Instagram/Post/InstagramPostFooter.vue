@@ -4,7 +4,7 @@
 
 <template>
   <div class="ig-post-footer ">
-    <div class="pa-3">
+    <div class="px-4 py-3">
       <slot name="prepend" />
       <slot name="date" />
     </div>
