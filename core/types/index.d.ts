@@ -64,12 +64,10 @@ interface IRawMedia {
 }
 
 interface IRawMediaImage extends IRawMedia {
-  reel?: undefined
 }
 
 interface IRawMediaVideo extends IRawMedia {
   cover?: IRawMedia | number
-  reel?: boolean
 }
 
 interface IRawMediaAlbum extends IRawMedia {
@@ -79,7 +77,6 @@ interface IRawMediaAlbum extends IRawMedia {
 interface IRawMediaIframe extends IRawMedia {
   href: string
   cover?: IRawMedia
-  reel?: boolean
 }
 
 interface ITempUserReference {
@@ -262,6 +259,9 @@ interface IMedia {
   fetchMediaFileFromString(fileName: string): Promise<IMediaFile>
   fetchMediaFileFromBlob(fileBlob: File): Promise<IMediaFile>
 
+  reel?: boolean
+  isReel(): boolean
+
   caption: string
   setCaption(value: string) :void
 
@@ -298,9 +298,6 @@ interface IMediaVideo extends IMedia {
   removeCover(): Promise<void>
 
   convertToAlbum(): Promise<void>
-
-  reel: boolean
-  get isReel(): boolean
   cloneToReel(): Promise<void>
 }
 
@@ -324,8 +321,6 @@ interface IMediaIframe extends IMedia {
   href: string
   cover: undefined | IMediaImage
 
-  reel?: boolean
-  get isReel(): boolean
   cloneToReel(): Promise<void>
 }
 

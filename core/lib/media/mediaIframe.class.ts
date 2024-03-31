@@ -61,10 +61,6 @@ export default class MediaIframe extends Media implements IMediaIframe {
     this.user.setUnsavedChanges(true)
   }
 
-  public get isReel() {
-    return this.collection === 'reels' || this.reel
-  }
-
   public async cloneToReel() {
     if (this.reel) {
       throw Error("Media is already defined as reel")

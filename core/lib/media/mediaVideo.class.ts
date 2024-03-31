@@ -110,10 +110,6 @@ export default class MediaVideo extends Media implements IMediaVideo {
     this.user.setUnsavedChanges(true)
   }
 
-  public get isReel() {
-    return this.collection === 'reels' || this.reel
-  }
-
   public async cloneToReel() {
     if (this.reel) {
       throw Error("Media is already defined as reel")

@@ -17,7 +17,6 @@ function onMediaClick(e) {
   <InstagramMediaContainer
     :type="!iframeEnabled ? 'video' : 'iframe'"
     :media="media"
-    :class="{ 'ig-media--reel': media.isReel }"
   >
     <template v-if="!iframeEnabled">
       <InstagramMediaImage
@@ -57,10 +56,6 @@ function onMediaClick(e) {
       aspect-ratio: 1;
       vertical-align: top;
     }
-  }
-
-  &--reel {
-    aspect-ratio: 9 / 16;
   }
 }
 </style>

@@ -90,7 +90,7 @@ function onDateUpdate(value) {
 
     &--reel {
       max-width: 50vh;
-      //aspect-ratio: 9 / 16;
+      aspect-ratio: 9 / 16;
     }
 
     :deep(.ig-media) {

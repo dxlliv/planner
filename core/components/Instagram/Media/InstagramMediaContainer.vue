@@ -19,6 +19,7 @@ function onMediaContextMenu(e) {
     :class="[
       'ig-media',
       `ig-media--${type}`,
+      { 'ig-media--reel': media.isReel }
     ]"
     @contextmenu="onMediaContextMenu"
   >
@@ -61,6 +62,10 @@ function onMediaContextMenu(e) {
     :deep(.media__icon-edit) {
       opacity: 1;
     }
+  }
+
+  &--reel {
+    aspect-ratio: 9 / 16;
   }
 
   &__type {

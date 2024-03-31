@@ -73,8 +73,8 @@ export default class Media {
     }
   }
 
-  public get isDetailView() {
-    return this.states.detailView
+  public get isReel() {
+    return this.collection === 'reels' || this.reel
   }
 
   public get isEditing() {
@@ -86,6 +86,10 @@ export default class Media {
 
     // todo fix for media albums (refactor and implement media parent)
     this.setDetailView(false)
+  }
+
+  public get isDetailView() {
+    return this.states.detailView
   }
 
   public setDetailView(toggle: boolean) {

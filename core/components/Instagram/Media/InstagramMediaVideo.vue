@@ -74,7 +74,6 @@ watch(
   <InstagramMediaContainer
     type="video"
     :media="media"
-    :class="{ 'ig-media--reel': media.isReel }"
     v-intersect="onIntersect"
   >
     <template v-if="(!media.cover || media.coverTime) || isPlaying">
@@ -137,10 +136,6 @@ watch(
         opacity: 1;
       }
     }
-  }
-
-  &--reel {
-    aspect-ratio: 9 / 16;
   }
 }
 </style>
