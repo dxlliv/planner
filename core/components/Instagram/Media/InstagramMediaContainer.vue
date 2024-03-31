@@ -27,6 +27,12 @@ function onMediaContextMenu(e) {
       <slot />
     </suspense>
 
+    <InstagramMediaContextMenu
+      v-if="contextMenu"
+      v-model="contextMenuValue"
+      :media="media"
+    />
+
     <div class="ig-media__type">
       <v-icon v-if="type === 'album'">mdi-folder-multiple-image</v-icon>
       <v-icon v-if="type === 'video'">mdi-play</v-icon>
@@ -35,12 +41,6 @@ function onMediaContextMenu(e) {
     <div class="ig-media__actions">
       <slot name="actions" />
     </div>
-
-    <InstagramMediaContextMenu
-      v-if="contextMenu"
-      v-model="contextMenuValue"
-      :media="media"
-    />
   </div>
 </template>
 
@@ -75,37 +75,38 @@ function onMediaContextMenu(e) {
     color: white;
     font-size: 14px;
     pointer-events: none;
+
+    .mdi {
+      &-play {
+        font-size: 24px;
+        margin-top: -3px;
+        margin-right: -8px;
+      }
+
+      &-folder-multiple-image {
+        font-size: 18px;
+        margin-top: -3px;
+        margin-right: -3px;
+      }
+    }
   }
 
   &__actions {
     position: absolute;
-    bottom: 12px;
-    right: 15px;
+    bottom: 10px;
+    right: 10px;
     color: white;
     font-size: 14px;
     pointer-events: none;
-    z-index: 9999;
 
     a {
       color: white;
-    }
-
-    .mdi-play {
-      font-size: 28px;
-      margin-top: -3px;
-      margin-right: -8px;
     }
 
     @media (max-width: 480px) {
       top: 10px;
       right: 12px;
       font-size: 3dvw;
-
-      .mdi-play {
-        font-size: 6dvw;
-        margin-top: -3px;
-        margin-right: -8px;
-      }
     }
   }
 
