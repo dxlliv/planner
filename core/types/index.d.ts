@@ -213,6 +213,7 @@ interface IUserMedia {
 
   reset(): void
   fetch(from: IMediaFrom): void
+  fetchSingleMedia(collection: IMediaCollection, media: string): void
   addMedia(
     rawMedia: string | IRawMedia,
     collection: IMediaCollection,

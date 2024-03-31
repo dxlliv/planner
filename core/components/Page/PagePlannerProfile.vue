@@ -1,27 +1,17 @@
 <script setup lang="ts">
-const props = defineProps<{
-  username: string
-  platform: string
-}>()
+const route = useRoute()
 
-const userStore = useUserStore()
-const user = ref()
-
-user.value = userStore.getUser(props.username, props.platform)
-
-if (user) {
-  user.value.media.fetch()
-}
+const user: User = route.meta.user
 
 onBeforeMount(async () => {
-  await user.value.loadUserClient()
+  await user.loadUserClient()
 })
 
-useSeoMeta(user.value.profile.seoMeta)
+useSeoMeta(user.profile.seoMeta)
 </script>
 
 <template>
-  <LayoutInstagram v-if="user" :user="user">
+  <LayoutInstagram :user="user">
     <InstagramUser :user="user" />
   </LayoutInstagram>
 </template>
