@@ -73,6 +73,17 @@ export default {
         description: "Puoi esportare le modifiche come file ZIP,<br /> quindi sovrascrivere la configurazione del profilo<br /> che trovi nel tuo planner a questo percorso.",
         action: "Esporta come ZIP"
       },
+      deluxe: {
+        freeOptions: {
+          enjoy: "Goditi questa versione gratuita di",
+          youCan: "Puoi",
+          or: "o",
+          tryPlanner: "provare questa istanza",
+          hostPlanner: "hostarne una"
+        },
+        description: "Ti piace questo progetto e vorresti distinguerti offrendo<br />una versione speciale e personalizzata del tuo Instagram<br />per mostrare sul tuo sito web il meglio che hai creato?",
+        action: "Richiedi un Deluxe Planner",
+      },
       menu: {
         addCover: "Aggiungi cover",
         addToAlbum: "Aggiungi media",

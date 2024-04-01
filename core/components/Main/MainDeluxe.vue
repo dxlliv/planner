@@ -3,31 +3,24 @@ const plannerConfig = usePlannerConfig()
 </script>
 
 <template>
-  <DialogContent>
+  <DialogContent title="Deluxe Edition">
     <AppBackground />
 
     <v-row no-gutters class="ma-0 fill-height">
       <v-col align-self="center" class="text-center">
         <p>
-          Enjoy the free to use open-source edition!<br />
-          <router-link class="font-weight-black" to="/">Play with this Instance</router-link>
-          or <a class="font-weight-black" :href="plannerConfig.project.links.source">Host Yours</a>.
+          {{$t('instagram.profile.deluxe.freeOptions.enjoy')}} <a :href="plannerConfig.project.links.source">dxlliv/planner</a>!<br />
+          {{$t('instagram.profile.deluxe.freeOptions.youCan')}} <router-link class="font-weight-black" to="/">{{$t('instagram.profile.deluxe.freeOptions.tryPlanner')}}</router-link>
+          {{$t('instagram.profile.deluxe.freeOptions.or')}} <a class="font-weight-black" :href="plannerConfig.project.links.source">{{$t('instagram.profile.deluxe.freeOptions.hostPlanner')}}</a>.
         </p>
-        <v-divider class="my-8" />
-        <p>
-          Do you like this project and want to have<br />
-          a tailor-made clone of your Instagram profile<br />
-          that highlights the best you've created?
-        </p>
-        <p class="mt-5">
-          Request a Deluxe Planner crafted by <a class="font-weight-bold" :href="plannerConfig.project.links.deluxe">dxlliv</a>.<br />
-          Ask for new features or extra customizations.
-        </p>
+        <v-divider class="my-6" />
+        <p v-html="$t('instagram.profile.deluxe.description')" />
         <br />
         <v-btn
           :href="plannerConfig.project.links.deluxe" target="_blank"
           color="primary"
-        >Request a no-label planner</v-btn>
+          :text="$t('instagram.profile.deluxe.action')"
+        />
       </v-col>
     </v-row>
   </DialogContent>

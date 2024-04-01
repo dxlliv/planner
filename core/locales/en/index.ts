@@ -67,6 +67,17 @@ export default {
         description: "You could export your changes as a ZIP file,<br /> then simply overwrite the profile configuration<br /> located in the project folder at this location.",
         action: "Export as ZIP"
       },
+      deluxe: {
+        freeOptions: {
+          enjoy: "Enjoy this free to use version of",
+          youCan: "You can",
+          or: "or",
+          tryPlanner: "play with this instance",
+          hostPlanner: "host yours"
+        },
+        description: "Do you like this project and wish to stand out by offering<br /> a special and tailor-made version of your Instagram profile<br /> that showcases on your website the best you've created?",
+        action: "Request a Deluxe Planner",
+      },
       menu: {
         addCover: "Add cover",
         addToAlbum: "Add media",
