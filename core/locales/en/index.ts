@@ -13,6 +13,7 @@ export default {
       create: 'Create',
       submit: 'Submit',
       post: 'Post',
+      unsavedChangesConfirm: 'Changes you made may not be saved.'
     },
   },
   pages: {

@@ -13,6 +13,7 @@ export default {
       create: 'Crea',
       submit: 'Invia',
       post: 'Pubblica',
+      unsavedChangesConfirm: 'Le modifiche apportate potrebbero non essere salvate.',
     }
   },
   intro: {

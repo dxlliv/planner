@@ -1,9 +1,11 @@
 <script setup lang="ts">
-defineProps<{user: IUser}>()
+defineProps<{
+  user: IUser
+}>()
 </script>
 
 <template>
-  <v-layout>
+  <Layout :user="user">
     <InstagramNavigationDrawer :user="user" />
 
     <div id="drawer-editor" />
@@ -19,7 +21,7 @@ defineProps<{user: IUser}>()
 
       <MainFooter class="hidden-sm-and-down mt-1" />
     </v-main>
-  </v-layout>
+  </Layout>
 </template>
 
 <style scoped lang="scss">
