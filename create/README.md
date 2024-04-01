@@ -1,4 +1,6 @@
-<img src="https://repository-images.githubusercontent.com/401183758/db962388-72ee-4c94-9fc0-314162c031d3" />
+<a href="https://dxlliv.github.io/planner/docs/">
+  <img src="https://raw.githubusercontent.com/dxlliv/planner/main/src/public/app/githubImage.webp" />
+</a>
 
 <h1 align="center">Instagram Planner</h1>
 
