@@ -68,6 +68,7 @@ const emit = defineEmits(["create", "export"])
         v-if="!user.hasUnsavedChanges && user.hasLocalChanges"
         :title="$t('instagram.navigation.export')"
         @click="emit('export')"
+        base-color="primary"
       >
         <template #prepend>
           <v-icon icon="mdi-content-save-move-outline" />

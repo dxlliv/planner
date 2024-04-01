@@ -63,7 +63,9 @@ export default {
         }
       },
       export: {
-        asZip: "Export as ZIP"
+        title: "Export profile",
+        description: "You could export your changes as a ZIP file,<br /> then simply overwrite the profile configuration<br /> located in the project folder at this location.",
+        action: "Export as ZIP"
       },
       menu: {
         addCover: "Add cover",
