@@ -58,7 +58,7 @@ function onProfileContextMenu(e) {
         <suspense>
           <UserSelectorAvatar :avatar="user.profile.avatar">
             <template #inner>
-              <UserSelectorBadgeChanges v-if="user.hasLocalChanges" />
+              <UserSelectorBadgeChanges v-if="user.hasLocalChanges || user.hasUnsavedChanges" />
             </template>
           </UserSelectorAvatar>
         </suspense>
