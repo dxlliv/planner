@@ -36,25 +36,27 @@ useSeoMeta({
   <AppBackground />
 
   <v-container class="text-center py-16">
-    <h1 class="text-h4 font-weight-bold">Instagram Planner</h1>
-    <p class="text-grey text-subtitle-1">
-      Plan your Instagram profile like a pro
-    </p>
+    <div class="mx-auto" style="max-width: 400px;">
+      <v-row>
+        <v-col :cols="12" sm="auto" class="flex-grow-sm-1">
 
-    <div class="mt-4">
-      <v-btn
-        size="large" icon variant="plain" rounded :min-width="32"
-        :href="plannerConfig.project.links.source"
-      >
-        <GithubIcon fill="grey" />
-      </v-btn>
+          <h1 class="text-h4 font-weight-bold">Instagram Planner</h1>
+          <p class="text-grey text-subtitle-1">
+            Plan your Instagram profile like a pro
+          </p>
 
-      <v-btn
-        size="large" icon variant="plain" rounded :min-width="32"
-        :href="plannerConfig.project.links.support"
-      >
-        <PatreonIcon fill="grey" />
-      </v-btn>
+        </v-col>
+        <v-col :cols="12" sm="auto" class="flex-grow-sm-0 mt-n4 mt-sm-0" align-self="center">
+
+          <v-btn
+            size="large" icon variant="plain" rounded :min-width="32"
+            :href="plannerConfig.project.links.source"
+          >
+            <GithubIcon fill="grey" />
+          </v-btn>
+
+        </v-col>
+      </v-row>
     </div>
 
     <p class="mt-14">
