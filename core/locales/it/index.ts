@@ -11,7 +11,7 @@ export default {
       remove: 'Rimuovi',
       reset: 'Reset',
       create: 'Crea',
-      submit: 'Invia',
+      submit: 'Conferma',
       post: 'Pubblica',
       unsavedChangesConfirm: 'Le modifiche apportate potrebbero non essere salvate.',
     }
@@ -22,7 +22,33 @@ export default {
       p2: 'Eleva la tua griglia al next level <br />con un editor o tramite la UI.',
     }
   },
+  pages: {
+    about: {
+      meta: {
+        title: "Planner per Instagram - Organizza i tuoi profili come un professionista",
+        description: "Un elegante, gratuito e open-source planner per Instagram. Trascina e rilascia le tue foto, riordina la tua griglia e visualizza l'anteprima del tuo profilo. Nessuna registrazione richiesta"
+      }
+    },
+    userSelect: {
+      meta: {
+        title: "Plxnner - Seleziona il tuo profilo"
+      },
+      intro: {
+        p1: "consente di pianificare i tuoi <br />profili social in un attimo con pochi click.",
+        p2: "Eleva la tua griglia alla massima aesthetic <br />con un editor di testo o interattivamente."
+      }
+    }
+  },
   instagram: {
+    navigation: {
+      home: "Home",
+      explore: "Esplora",
+      support: "Supporto",
+      create: "Aggiungi",
+      profile: "Profilo",
+      save: "Salva",
+      export: "Esporta"
+    },
     profile: {
       header: {
         posts: 'post',
@@ -47,13 +73,13 @@ export default {
       },
       menu: {
         addCover: "Aggiungi cover",
-        addToAlbum: "Aggiungi all'album",
+        addToAlbum: "Aggiungi media",
         cloneToReel: "Clona in reel",
         convertToAlbum: "Converti in album",
         convertToIframe: "Converti in iframe",
         remove: "Rimuovi",
         removeCover: "Rimuovi cover",
-        removeFromAlbum: "Rimuovi dall'album",
+        removeFromAlbum: "Rimuovi media",
         replaceCover: "Sostituisci cover",
         replaceMedia: "Sostituisci media",
       }

@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import { project } from "../../../project/project";
+const {t} = useI18n()
 
 defineProps<{user: IUser}>()
 
 const nav = [
   {
     item: {
-      title: "Explore",
-      href: project.docs,
+      title: t('instagram.navigation.explore'),
+      href: plannerConfig.project.links.docs,
     },
     icon: "IconExplore",
   },
   {
     item: {
-      title: "Support",
-      href: project.support,
-      target: "_blank",
+      title: t('instagram.navigation.support'),
+      to: `/instagram`,
     },
     icon: "IconHeart",
   },

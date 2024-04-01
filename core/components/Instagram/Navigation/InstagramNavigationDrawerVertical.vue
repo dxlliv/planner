@@ -22,7 +22,7 @@ const emit = defineEmits(["create", "export"])
     </v-list>
 
     <v-list density="compact" nav class="mt-2 mt-lg-0">
-      <v-list-item title="Home" to="/">
+      <v-list-item :title="$t('instagram.navigation.home')" to="/">
         <template #prepend>
           <InstagramIconHome />
         </template>
@@ -36,13 +36,13 @@ const emit = defineEmits(["create", "export"])
         </template>
       </v-list-item>
 
-      <v-list-item title="Create" @click="emit('create')">
+      <v-list-item :title="$t('instagram.navigation.create')" @click="emit('create')">
         <template #prepend>
           <InstagramIconNewPost />
         </template>
       </v-list-item>
 
-      <v-list-item title="Profile" :to="user.route">
+      <v-list-item :title="$t('instagram.navigation.profile')" :to="user.route">
         <template #prepend>
           <suspense>
             <InstagramUserAvatar :avatar="user.profile.avatar" :size="26" />
@@ -55,7 +55,7 @@ const emit = defineEmits(["create", "export"])
 
       <v-list-item
         v-if="user.hasUnsavedChanges"
-        title="Save"
+        :title="$t('instagram.navigation.save')"
         @click="user.save()"
         base-color="primary"
       >
@@ -66,7 +66,7 @@ const emit = defineEmits(["create", "export"])
 
       <v-list-item
         v-if="!user.hasUnsavedChanges && user.hasLocalChanges"
-        title="Export"
+        :title="$t('instagram.navigation.export')"
         @click="emit('export')"
       >
         <template #prepend>
@@ -78,7 +78,10 @@ const emit = defineEmits(["create", "export"])
         </v-dialog>
       </v-list-item>
 
-      <v-list-item v-if="isPlannerFeatureEnabled('requestDeluxe')" title="Deluxe">
+      <v-list-item
+        v-if="isPlannerFeatureEnabled('requestDeluxe')"
+        title="Deluxe"
+      >
         <template #prepend>
           <v-icon icon="mdi-shimmer" />
         </template>

@@ -84,7 +84,7 @@ function onProfileContextMenu(e) {
     </template>
     <slot />
 
-    <UserEditorDialog title="Edit profile" v-model="editProfileDialog">
+    <UserEditorDialog :title="$t('common.actions.editProfile')" v-model="editProfileDialog">
       <InstagramUserEditorForm
         :user="user"
         @close="editProfileDialog = false"

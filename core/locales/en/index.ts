@@ -34,6 +34,15 @@ export default {
     }
   },
   instagram: {
+    navigation: {
+      home: 'Home',
+      explore: 'Explore',
+      support: 'Support',
+      create: 'Create',
+      profile: 'Profile',
+      save: 'Save',
+      export: 'Export',
+    },
     profile: {
       header: {
         posts: 'posts',
