@@ -5,6 +5,9 @@ type IUserPlatform = "instagram"
 type IUserOrigin = "local" | "remote" | "storage"
 
 interface IRawConfig {
+  project: {
+    links: any
+  },
   users: string[]
   platform: {
     default: IUserPlatform

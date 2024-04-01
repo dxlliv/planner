@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { project } from "../../../project/project"
+const plannerConfig = usePlannerConfig()
 
 defineProps<{
   user: IUser
@@ -17,7 +17,7 @@ const emit = defineEmits(["create", "export"])
       <InstagramIconHome />
     </v-btn>
 
-    <v-btn :href="project.support" target="_blank">
+    <v-btn :href="plannerConfig.project.links.support" target="_blank">
       <InstagramIconHeart />
     </v-btn>
 
@@ -25,7 +25,7 @@ const emit = defineEmits(["create", "export"])
       <InstagramIconNewPost />
     </v-btn>
 
-    <v-btn :href="project.docs">
+    <v-btn :href="plannerConfig.project.links.docs">
       <InstagramIconExplore />
     </v-btn>
 

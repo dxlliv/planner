@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const {t} = useI18n()
+const plannerConfig = usePlannerConfig()
 
 defineProps<{user: IUser}>()
 
@@ -18,15 +19,6 @@ const nav = [
     },
     icon: "IconHeart",
   },
-  /*
-  {
-    item: {
-      title: "Donors",
-      to: "https://patreon.com/dxlliv",
-    },
-    icon: "IconHeart"
-  },
-   */
 ]
 
 const userMediaCreate = ref(false)

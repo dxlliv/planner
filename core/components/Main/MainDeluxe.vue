@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { project } from "../../project/project";
+const plannerConfig = usePlannerConfig()
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import { project } from "../../project/project";
         <p>
           Enjoy the free to use open-source edition!<br />
           <router-link class="font-weight-black" to="/">Play with this Instance</router-link>
-          or <a class="font-weight-black" :href="project.source">Host Yours</a>.
+          or <a class="font-weight-black" :href="plannerConfig.project.links.source">Host Yours</a>.
         </p>
         <v-divider class="my-8" />
         <p>
@@ -20,12 +20,12 @@ import { project } from "../../project/project";
           that highlights the best you've created?
         </p>
         <p class="mt-5">
-          Request a Deluxe Planner crafted by <a class="font-weight-bold" :href="project.deluxe">dxlliv</a>.<br />
+          Request a Deluxe Planner crafted by <a class="font-weight-bold" :href="plannerConfig.project.links.deluxe">dxlliv</a>.<br />
           Ask for new features or extra customizations.
         </p>
         <br />
         <v-btn
-          :href="project.deluxe" target="_blank"
+          :href="plannerConfig.project.links.deluxe" target="_blank"
           color="primary"
         >Request a no-label planner</v-btn>
       </v-col>
