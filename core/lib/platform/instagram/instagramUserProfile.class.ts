@@ -20,7 +20,7 @@ export default class InstagramUserProfile
     }
   }
 
-  get public_profile() {
+  get publicProfile() {
     return `https://instagram.com/${this.user.profile.username}`
   }
 

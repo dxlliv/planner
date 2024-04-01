@@ -180,13 +180,14 @@ interface IUserProfile {
   import(): void
   export(): Promise<IRawUserProfile>
   update(data: any): Promise<void>
+
+  get publicProfile(): string
 }
 
 interface IInstagramUserProfile extends IUserProfile {
   user: IInstagramUser
   structure: IPlatformStructureUserProfile
 
-  get public_profile(): string
   export(): Promise<IRawUserProfile>
 }
 

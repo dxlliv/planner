@@ -76,7 +76,7 @@ function onProfileContextMenu(e) {
 
       <a
         class="d-inline-block text-blue-grey-lighten-2 mt-n1"
-        :href="user.profile.public_profile"
+        :href="user.profile.publicProfile"
         target="_blank"
       >
         <v-icon icon="mdi-arrow-top-right" size="14px" />
