@@ -19,7 +19,7 @@ defineProps<{
         </v-container>
       </v-sheet>
 
-      <MainFooter class="hidden-sm-and-down mt-1" />
+      <AppFooter class="hidden-sm-and-down mt-1" />
     </v-main>
   </Layout>
 </template>

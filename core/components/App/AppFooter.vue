@@ -13,6 +13,10 @@ defineProps<{
       Planner
     </a>
 
+    &middot;
+
+    <AppLanguageSwitcher />
+
     <template v-if="docs">
       &middot;
 

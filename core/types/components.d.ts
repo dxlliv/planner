@@ -74,7 +74,7 @@ declare module 'vue' {
     InstagramUserTabs: typeof import('./../components/Platform/Instagram/InstagramUser/InstagramUserTabs.vue')['default']
     Logo: typeof import('./../components/Logo.vue')['default']
     MainDeluxe: typeof import('./../components/Main/MainDeluxe.vue')['default']
-    MainFooter: typeof import('./../components/Main/MainFooter.vue')['default']
+    AppFooter: typeof import('./../components/Main/AppFooter.vue')['default']
     MainIntro: typeof import('./../components/Main/MainIntro.vue')['default']
     ToolGuides: typeof import('./../components/Tool/ToolGuides.vue')['default']
     UserEditorDialog: typeof import('./../components/UserEditor/UserEditorDialog.vue')['default']

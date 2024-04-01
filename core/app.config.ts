@@ -8,10 +8,16 @@ export default defineAppConfig({
     locale: plannerConfig.locale,
     fallbackLocale: plannerConfig.locale,
     availableLocales: [
-      "en",
-      "it"
+      {
+        code: 'en',
+        name: 'English'
+      },
+      {
+        code: 'it',
+        name: 'Italiano'
+      },
     ],
     messages,
-    warnHtmlMessage: false
+    warnHtmlMessage: false,
   }
 })

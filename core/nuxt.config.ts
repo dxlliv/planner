@@ -64,6 +64,13 @@ export default defineNuxtConfig({
       ssr: true
     }
   },
+  i18n: {
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    }
+  },
   features: {
     inlineStyles: false
   },
