@@ -13,6 +13,10 @@ export default defineAppConfig({
         name: 'English'
       },
       {
+        code: 'fr',
+        name: 'Français'
+      },
+      {
         code: 'it',
         name: 'Italiano'
       },
