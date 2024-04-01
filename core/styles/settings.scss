@@ -15,6 +15,10 @@
 .v-btn {
   box-shadow: none !important;
   border-radius: 8px !important;
+
+  &--rounded {
+    border-radius: 50% !important;
+  }
 }
 
 .v-list-item--rounded {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { project } from "../../project/project";
+const plannerConfig = usePlannerConfig()
 
-import {GithubIcon,BitcoinIcon,EthereumIcon,IotaIcon} from "vue3-simple-icons"
+import {GithubIcon,PatreonIcon,BitcoinIcon,EthereumIcon,IotaIcon} from "vue3-simple-icons"
 
 const {t} = useI18n()
 const { copy } = useClipboard()
@@ -41,9 +41,23 @@ useSeoMeta({
       Plan your Instagram profile like a pro
     </p>
 
-    <br />
+    <div class="mt-4">
+      <v-btn
+        size="large" icon variant="plain" rounded :min-width="32"
+        :href="plannerConfig.project.links.source"
+      >
+        <GithubIcon fill="grey" />
+      </v-btn>
 
-    <p>
+      <v-btn
+        size="large" icon variant="plain" rounded :min-width="32"
+        :href="plannerConfig.project.links.support"
+      >
+        <PatreonIcon fill="grey" />
+      </v-btn>
+    </div>
+
+    <p class="mt-14">
       Whether you're obsessed with perfection, passionate about aesthetics, or simply love curating your feed, <br class="hidden-sm-and-down" />
       <b>dxlliv/planner</b> is the perfect tool that support your Instagram strategy on the fly. No registration required.
     </p>
@@ -140,9 +154,6 @@ useSeoMeta({
         </p>
 
         <v-btn color="primary" size="large" to="/">Try Plxnner</v-btn>
-        <v-btn size="large" :href="project.source" class="ml-2" :min-width="32">
-          <GithubIcon />
-        </v-btn>
 
       </v-col>
       <v-col :cols="12" :md="5" class="mt-12 mt-md-0">

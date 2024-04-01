@@ -103,7 +103,7 @@ onMounted(() => {
             <v-btn
               type="submit"
               :text="!props.user ? $t('common.actions.create') : $t('common.actions.submit')"
-              variant="outlined"
+              color="primary"
             />
           </v-col>
         </v-row>

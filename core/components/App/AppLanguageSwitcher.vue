@@ -40,10 +40,11 @@ function onLanguageSelect(languageSelected: any) {
 .planner-language-switcher {
   .v-field__input {
     padding: 0;
+    margin-top: 1px;
   }
 
   * {
-    height: 32px;
+    height: 30px;
   }
 }
 </style>
