@@ -1,11 +1,12 @@
 <script setup lang="ts">
-const { locale } = useI18n()
+const { locale, setLocale } = useI18n()
 const appConfig = useAppConfig()
 
 const language = ref(locale.value)
 
 function onLanguageSelect(languageSelected: any) {
-  locale.value = language.value = languageSelected.value
+  setLocale(languageSelected.value)
+  language.value = languageSelected.value
 }
 </script>
 
