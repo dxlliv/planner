@@ -33,13 +33,13 @@ const emit = defineEmits(["create", "export"])
         :href="plannerConfig.project.links.docs" target="_blank"
       >
         <template #prepend>
-          <IconExplore />
+          <InstagramIconExplore />
         </template>
       </v-list-item>
 
       <v-list-item :title="$t('instagram.navigation.support')" to="/instagram">
         <template #prepend>
-          <IconHeart />
+          <InstagramIconHeart />
         </template>
       </v-list-item>
 
