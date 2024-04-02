@@ -64,7 +64,7 @@ export default {
       },
       export: {
         title: "Exporter le profil",
-        description: "Pouvez exporter vos modifications sous forme ZIP,<br /> puis simplement remplacer la configuration du profil<br /> située dans le dossier du projet à cet emplacement.",
+        description: "Pouvez exporter vos modifications sous forme ZIP,<br /> puis simplement remplacer la configuration du profil<br /> située dans le dossier du projet à cet emplacement:",
         action: "Exporter en ZIP"
       },
       deluxe: {

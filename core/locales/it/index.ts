@@ -70,7 +70,7 @@ export default {
       },
       export: {
         title: "Esporta profilo",
-        description: "Puoi esportare le modifiche come file ZIP,<br /> quindi sovrascrivere la configurazione del profilo<br /> che trovi nel tuo planner a questo percorso.",
+        description: "Puoi esportare le modifiche come file ZIP,<br /> quindi sovrascrivere la configurazione del profilo<br /> che trovi nel tuo planner a questo percorso:",
         action: "Esporta come ZIP"
       },
       deluxe: {

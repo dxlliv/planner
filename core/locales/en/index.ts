@@ -64,7 +64,7 @@ export default {
       },
       export: {
         title: "Export profile",
-        description: "You could export your changes as a ZIP file,<br /> then simply overwrite the profile configuration<br /> located in the project folder at this location.",
+        description: "You could export your changes as a ZIP file,<br /> then simply overwrite the profile configuration<br /> located in the project folder at this location:",
         action: "Export as ZIP"
       },
       deluxe: {
