@@ -2,24 +2,9 @@
 const {t} = useI18n()
 const plannerConfig = usePlannerConfig()
 
-defineProps<{user: IUser}>()
-
-const nav = [
-  {
-    item: {
-      title: t('instagram.navigation.explore'),
-      href: plannerConfig.project.links.docs,
-    },
-    icon: "IconExplore",
-  },
-  {
-    item: {
-      title: t('instagram.navigation.support'),
-      to: `/instagram`,
-    },
-    icon: "IconHeart",
-  },
-]
+defineProps<{
+  user: IUser
+}>()
 
 const userMediaCreate = ref(false)
 </script>
@@ -30,7 +15,6 @@ const userMediaCreate = ref(false)
     <InstagramNavigationDrawerVertical
       class="hidden-xs"
       :user="user"
-      :nav="nav"
       @create="userMediaCreate = true"
     />
 

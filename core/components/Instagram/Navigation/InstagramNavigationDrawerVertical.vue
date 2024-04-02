@@ -1,9 +1,9 @@
 <script setup lang="ts">
 defineProps<{
   user: IUser
-  nav: any
 }>()
 
+const plannerConfig = usePlannerConfig()
 const emit = defineEmits(["create", "export"])
 </script>
 
@@ -28,11 +28,18 @@ const emit = defineEmits(["create", "export"])
         </template>
       </v-list-item>
 
-      <v-list-item v-for="navItem of nav" v-bind="navItem.item">
+      <v-list-item
+        :title="$t('instagram.navigation.explore')"
+        :href="plannerConfig.project.links.docs" target="_blank"
+      >
         <template #prepend>
-          <InstagramIconExplore v-if="navItem.icon === 'IconExplore'" />
-          <InstagramIconMagnify v-if="navItem.icon === 'IconMagnify'" />
-          <InstagramIconHeart v-if="navItem.icon === 'IconHeart'" />
+          <IconExplore />
+        </template>
+      </v-list-item>
+
+      <v-list-item :title="$t('instagram.navigation.support')" to="/instagram">
+        <template #prepend>
+          <IconHeart />
         </template>
       </v-list-item>
 
