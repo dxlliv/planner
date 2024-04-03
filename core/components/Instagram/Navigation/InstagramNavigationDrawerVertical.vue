@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { VFab } from "vuetify/lib/labs/VFab"
+
 defineProps<{
   user: IUser
 }>()
@@ -67,7 +69,7 @@ const emit = defineEmits(["create", "export"])
         base-color="primary"
       >
         <template #prepend>
-          <v-icon icon="mdi-content-save-outline" />
+          <IconSave />
         </template>
       </v-list-item>
 
@@ -78,7 +80,7 @@ const emit = defineEmits(["create", "export"])
         base-color="primary"
       >
         <template #prepend>
-          <v-icon icon="mdi-content-save-move-outline" />
+          <IconExport />
         </template>
 
         <v-dialog :max-width="700" activator="parent">
