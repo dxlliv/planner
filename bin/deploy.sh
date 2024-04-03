@@ -19,7 +19,7 @@ mv docs/.vitepress/dist/ dist/docs
 touch dist/.nojekyll
 
 # create .gitignore
-echo -e ".nuxt\n.output\nnode_modules" >> dist/.gitignore
+echo -e ".nuxt\.output\node_modules" >> dist/.gitignore
 
 # place dist files manually in gh-pages
 # since git subtree seems unusable now
