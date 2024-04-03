@@ -51,7 +51,7 @@ export default {
     },
     profile: {
       header: {
-        posts: 'post',
+        posts: 'posts',
         followers: 'follower',
         following: 'segui già',
       },

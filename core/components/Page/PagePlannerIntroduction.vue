@@ -61,7 +61,7 @@ useSeoMeta({
 
     <p class="mt-14">
       Whether you're obsessed with perfection, passionate about aesthetics, or simply love curating your feed, <br class="hidden-sm-and-down" />
-      <b>dxlliv/planner</b> is the perfect tool that support your Instagram strategy on the fly. No registration required.
+      <b>dxlliv/planner</b> is the perfect tool that supports your Instagram strategy on the fly. No registration required.
     </p>
 
     <v-row class="my-12">
