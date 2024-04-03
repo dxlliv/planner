@@ -1,7 +1,7 @@
 # Iframes
 
-You could use iframes if you are using custom tools to generate your images dinamically,
-or maybe just to define a YouTube Short or posts from other platforms as reel.
+You can define iframes if you are using custom tools to generate your image dynamically,
+or maybe just to define a YouTube Short or a media from other platforms.
 
 ```json
 {

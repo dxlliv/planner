@@ -1,34 +1,35 @@
 # Getting Started
 
-## Try it online
+Whether you're obsessed with perfection, passionate about aesthetics, or simply love curating your feed,
+this is the perfect tool that supports your Instagram strategy on the fly.
+
+### Try it online
 
 You can try **dxlliv/planner** directly in your browser using the [GitHub Demo](https://dxlliv.github.io/planner/).  
 If you prefer to run your planner locally or host it somewhere, keep reading. 
 
-## Installation
+## Create your planner
 
-Make sure you have [Node.js](https://nodejs.org/en/download) and NPM installed.  
-Clone the repository and move to the project directory:
-
-```bash
-git clone https://github.com/dxlliv/planner.git && cd planner
-```
-
-Install dependencies and run the project:
+First of all, make sure you have [Node.js](https://nodejs.org/en/download) and Yarn installed on your system.  
+You can bootstrap a new planner by running the following command:
 
 ```bash
-npm install && npm run dev
-
-# or use yarn
-yarn install && yarn dev
+npx create-plxnner planner
 ```
 
-## File structure
+Enter the project folder and start your planner:
 
-You can add users directly from the browser, but if you want to host an instance of the planner somewhere and would like to show some users as soon as you open the planner, you will need to edit the main configuration file and the public folder of each user.
+```bash
+cd planner
+yarn dev
+```
 
+## Project structure
+
+If you want to host your instance somewhere and wish to show your profiles upon opening the planner, you have to edit each user configuration or add them through the UI and then export and extract the zip file in the `/public/user/instagram/{username}` directory.
 ```
 .
+├─ pages
 ├─ public
 │  └─ user
 │     └─ instagram
@@ -39,16 +40,16 @@ You can add users directly from the browser, but if you want to host an instance
 │           │  └─ 3.jpg
 │           ├─ avatar.jpg
 │           └─ config.json
-├─ src
-├─ config.json
+├─ nuxt.config.ts
+├─ planner.config.ts
 └─ package.json
 ```
 
-The files you have to modify are the `config.json`. The main configuration is located in the root folder and contains a list of profile paths. Other configurations live in the public folder and are related to each profile, like `public/user/instagram/dxlliv/config.json`.
+In the `planner.config.ts` file you can find the list of enabled profiles which will be loaded once the planner starts, so adjust the configuration accordingly adding your profile.
 
-## Configuration
+## Set up a new user
 
-Define your profile using your favorite editor and create a `config.json` file.
+Create your profile `config.json` using your favorite editor.
 
 ```json
 {
@@ -71,9 +72,7 @@ Define your profile using your favorite editor and create a `config.json` file.
 }
 ```
 
-## Set up a new user
-
-After creating the profile configuration, create the user folder in `public/user/instagram/`
+After creating the profile configuration, make a new folder in `/public/user/instagram`
 and place the `config.json` you just prepared, making sure to provide a valid JSON.
 
 ::: tip NOTE
@@ -82,9 +81,9 @@ The username you put in the configuration must be the same of the folder name.
 
 :::
 
-### Define your profile in the main config
+### Define your profile
 
-Add your new profile path in the root `config.json` like the example.
+Add your profile in the `planner.config.ts` like the example.
 
 ```json
 {
@@ -96,8 +95,8 @@ Add your new profile path in the root `config.json` like the example.
 }
 ```
 
-## Define your media
+### Provide some media
 
-This planner supports different media types: images, videos, albums and iframes.
+The planner supports different media types: images, videos, albums and iframes.
 
-Place your media in `public/user/instagram/{username}/media/` and define the content in the user configuration. Create a `media` folder in your profile, if you are setting a new user.
+Place your media in `/public/user/instagram/{username}/media` and define it in your configuration [like the example](media-image). Create the `media` folder, if you are setting a new user.

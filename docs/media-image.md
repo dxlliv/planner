@@ -1,7 +1,7 @@
 # Images
 
-You can declare images simply defining them in the media property list.  
-Place your images in the `public/user/instagram/{username}/media/` folder.
+You can declare images simply by defining them in the media properties list.  
+Place your images in the `/public/user/instagram/{username}/media/` folder.
 
 ```json
 {
@@ -27,4 +27,4 @@ Then they will be parsed and imported like regular imports.
 
 ## External images
 
-You can use direct links, if your images are hosted on external hosts.
+You can use direct links, if the images are hosted on external hosts.

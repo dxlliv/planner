@@ -28,11 +28,12 @@ module.exports = {
             text: 'Planner',
             collapsed: false,
             items: [
+              { text: "Overview", link: "/overview" },
               { text: "Installation", link: "/installation" },
-              { text: "Overview", link: "/profiles-overview" },
-              { text: "Importing", link: "/profile-importing" },
-              { text: "Configuration", link: "/profile-configuration" },
-              { text: "Exporting", link: "/profile-exporting" },
+              { text: "Configuration", link: "/configuration" },
+              //{ text: "Importing", link: "/profile-importing" },
+              //{ text: "Exporting", link: "/profile-exporting" },
+              { text: "Development", link: "/development" },
             ]
           },
           {
@@ -49,7 +50,7 @@ module.exports = {
             text: 'Extra',
             collapsed: false,
             items: [
-              { text: "Shortcuts", link: "/shortcuts" }
+              { text: "Shortcuts", link: "/shortcuts" },
             ]
           },
         ]

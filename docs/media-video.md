@@ -1,7 +1,7 @@
 # Videos
 
-As for images, you can short import videos just using a simple string like `your-video.mp4` but the first frame will used as cover.
-You could use a custom cover by setting a string.
+As for images you can short import videos just using a simple string like `your-video.mp4`, but the first frame will be used as cover.
+Obviously you can also set a cover.
 
 ```json
 {
@@ -27,7 +27,7 @@ You could use a custom cover by setting a string.
 ## External videos
 
 If your `.mp4` video is directly accessible from the web, you can set a direct link using shortened or regular imports.
-You can set direct links also for the cover, like this:
+You can also set direct links for the cover, like this:
 
 ```json
 {
@@ -53,12 +53,12 @@ You can set direct links also for the cover, like this:
 
 You can set a custom cover using something like `4-cover.jpg` and providing the image in the profile media folder, or simply use a number that will set a specific frame of the video.
 
-Once the planner is running, place your cursor for a second on the video and a slider will appear allowing you to choose the right frame more precisely.
+Once the planner is running, place your cursor for a second on the video and a slider will appear allowing you to choose the right frame more precisely. You can use decimals.
 
 ## Reels
 
 Reels are supported, but you will have to define them in both lists based on your choice.
-To avoid any problem during sorting they were implemented like this instead of applying a simple flag, so you have to define them individually but the source could be the same.
+To avoid any problem during sorting, they were implemented like this.
 
 ```json
 {

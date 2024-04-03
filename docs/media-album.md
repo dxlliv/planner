@@ -26,4 +26,4 @@ If you want to define an album as post, just provide an array with each filename
 
 ## External images
 
-You can use direct links, if your images are hosted on external hosts.
+You can use direct links as for images, if they are available on external hosts.
