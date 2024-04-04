@@ -1,13 +1,23 @@
 <script setup lang="ts">
-const route = useRoute()
+const props = defineProps<{
+  username: string
+  platform: string
+}>()
 
-const user: User = route.meta.user
+const userStore = useUserStore()
+const user = ref()
+
+user.value = userStore.getUser(props.username, props.platform)
+
+if (user) {
+  user.value.media.fetch()
+}
 
 onBeforeMount(async () => {
-  await user.loadUserClient()
+  await user.value.loadUserClient()
 })
 
-useSeoMeta(user.profile.seoMeta)
+useSeoMeta(user.value.profile.seoMeta)
 </script>
 
 <template>

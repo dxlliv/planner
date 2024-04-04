@@ -6,16 +6,18 @@ const props = defineProps<{
   media: string
 }>()
 
-const route = useRoute()
+const userStore = useUserStore()
+const user = ref()
 
-const user: User = route.meta.user
-const media: Media = route.meta.media
+user.value = userStore.getUser(props.username, props.platform)
+
+const media = user.value.media.fetchSingleMedia(props.collection, props.media)
 
 useSeoMeta(media.seoMeta)
 </script>
 
 <template>
-  <LayoutInstagram :user="user">
+  <LayoutInstagram v-if="user" :user="user">
     <InstagramPostDetailDesktop
       class="mt-10" border
       :profile="user.profile"

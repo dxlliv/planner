@@ -5,6 +5,9 @@ import UserLoader from "£/lib/user/userLoader.class"
 const themeStore = useThemeStore()
 const theme = useTheme()
 
+// load users from config
+await UserLoader.loadUsersFromConfig()
+
 // restore previous dark theme state
 themeStore.restorePreviousState(theme)
 

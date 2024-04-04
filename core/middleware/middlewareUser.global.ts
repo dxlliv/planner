@@ -1,6 +1,9 @@
 import UserLoader from "£/lib/user/userLoader.class"
 
 export default defineNuxtRouteMiddleware(async (to: any) => {
+  /*
+  not working with ssr
+
   const userStore = useUserStore()
 
   // load users from config
@@ -23,4 +26,5 @@ export default defineNuxtRouteMiddleware(async (to: any) => {
 
     to.meta.user = user
   }
+  */
 })
