@@ -69,6 +69,11 @@ function onSlideChange(swiper) {
     position: absolute;
     top: 21px;
     left: 24px;
+    z-index: 1;
+  }
+
+  :deep(.ig-media__type) {
+    z-index: 1;
   }
 }
 </style>
