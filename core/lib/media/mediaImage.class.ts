@@ -74,10 +74,7 @@ export default class MediaImage extends Media implements IMediaImage {
       this.user,
       {
         type: "iframe",
-        cover: {
-          type: "image",
-          file: await this.file,
-        },
+        cover: await this.file,
         href,
       },
       "posts",
