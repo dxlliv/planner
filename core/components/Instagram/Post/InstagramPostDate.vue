@@ -11,7 +11,7 @@ const date = useDate()
 
 const formatted = computed(() => {
   return date
-    .format(props.date, "fullDateWithWeekday")
+    .format(props.date ?? new Date().getDate(), "fullDateWithWeekday")
     .split(",")
     .splice(1)
     .join(",")
