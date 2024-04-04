@@ -11,16 +11,21 @@
     "posts": [
       {
         "type": "album",
-        "list": ["6.jpg", "6x1.jpg"]
+        "list": ["post-6x1.jpg", "post-6x2.jpg"]
       },
       {
         "type": "image",
-        "name": "5.jpg"
+        "name": "post-5.jpg"
       },
-      "4.jpg",
-      "3.jpg",
-      "2.jpg",
-      "1.jpg"
+      "post-4.jpg",
+      "post-3.jpg",
+      "post-2.jpg",
+      {
+        "name": "post-1.jpg",
+        "slug": "my-first-built-drone",
+        "title": "My first built drone",
+        "caption": "My first built drone\n\n#realacc #x210 #fpv #freestyle #drone #dys #racestar #giantpower #foxeer #flysky #betaflight #firstbuild"
+      }
     ],
     "reels": [],
     "stories": []

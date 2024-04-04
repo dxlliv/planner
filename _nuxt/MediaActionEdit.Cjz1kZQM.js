@@ -1,1 +1,0 @@
-import{_ as o}from"./entry.Dlrc_O8N.js";import{V as e}from"./VIcon.CYG3HdRR.js";import{O as t,P as c,l as r}from"./swiper-vue.CEq_1mxI.js";import"./color.BhqTrDwI.js";import"./tag.DURzlijk.js";const n={},i={class:"cursor-pointer media__icon-edit"};function s(_,a){return t(),c("div",i,[r(e,{icon:"mdi-pencil",size:"20px"})])}const u=o(n,[["render",s]]);export{u as default};
