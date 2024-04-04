@@ -58,7 +58,7 @@ interface IRawMedia {
   reel?: boolean
   cover?: number | string | IRawMedia
   list?: string[] | IRawMedia[]
-  href?: string
+  link?: string
 
   title?: string
   slug?: string
@@ -272,6 +272,9 @@ interface IMedia {
 
   date: string
   setDate(value: string) :void
+
+  link: string
+  get externalLink(): string
 
   refresh(): void
 

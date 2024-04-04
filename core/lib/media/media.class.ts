@@ -16,6 +16,7 @@ export default class Media {
 
   public title: string = ""
   public slug: string = ""
+  public link: string = ""
   public caption: string = ""
   public date: string = ""
 
@@ -50,6 +51,23 @@ export default class Media {
     }
 
     return `${baseRoute}/${this.id}`
+  }
+
+  public get externalLink() {
+    console.log('this.hr', this.link)
+
+    if (!this.link) {
+      return ""
+    }
+    
+    if (this.link.startsWith('http')) {
+      return this.link
+    } else {
+      switch(this.user.platform) {
+        case "instagram":
+          return `https://instagram.com/${this.link}`
+      }
+    }
   }
 
   public get seoMeta() {
@@ -122,6 +140,10 @@ export default class Media {
 
     if (this.raw.caption) {
       this.caption = this.raw.caption
+    }
+
+    if (this.raw.link) {
+      this.link = this.raw.link
     }
 
     if (this.raw.date) {

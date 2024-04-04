@@ -43,7 +43,7 @@ function onDateUpdate(value) {
         </template>
 
         <template v-slot:prepend>
-          <InstagramPostDateHeader />
+          <InstagramPostDateHeader :media="media" />
         </template>
 
         <template v-slot:append>

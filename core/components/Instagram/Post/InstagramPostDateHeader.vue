@@ -1,10 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps<{
+  media: IMedia
+}>()
+</script>
 
 <template>
   <v-sheet>
     <v-row no-gutters class="mt-1">
       <v-col>
-        <InstagramIconHeart class="mr-2" />
+        <a v-if="media.externalLink" :href="media.externalLink" target="_blank">
+          <InstagramIconHeart class="mr-2" />
+        </a>
+        <InstagramIconHeart v-else class="mr-2" />
         <InstagramIconComment class="mr-2" />
         <InstagramIconShare />
       </v-col>
