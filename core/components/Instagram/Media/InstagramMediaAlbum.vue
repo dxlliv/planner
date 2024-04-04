@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Carousel, Slide } from "vue3-carousel"
+import { Swiper, SwiperSlide } from "swiper/vue"
 
 const props = defineProps<{
   media: IMediaAlbum
@@ -22,16 +22,20 @@ watch(() => props.media.list, () => {
 }, {
   deep: true
 })
+
+function onSlideChange(swiper) {
+  props.media.listIndex = swiper.activeIndex
+}
 </script>
 
 <template>
   <InstagramMediaContainer type="album" :media="media">
-    <Carousel
-      :mouse-drag="!albumEditing"
-      :touch-drag="!albumEditing"
-      v-model="media.listIndex"
+
+    <Swiper
+      :initial-slide="media.listIndex"
+      @slideChange="onSlideChange"
     >
-      <Slide v-for="(item, i) of media.list" :key="i">
+      <SwiperSlide v-for="(item, i) of media.list" :key="i">
         <InstagramMedia
           :key="item.id"
           :context-menu="false"
@@ -40,8 +44,8 @@ watch(() => props.media.list, () => {
         >
           <slot name="single-post" />
         </InstagramMedia>
-      </Slide>
-    </Carousel>
+      </SwiperSlide>
+    </Swiper>
 
     <InstagramMediaAlbumCurrentIndex
       :index="media.currentIndex"

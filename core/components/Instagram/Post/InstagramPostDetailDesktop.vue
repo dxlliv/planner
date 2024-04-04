@@ -13,6 +13,7 @@ function onDateUpdate(value) {
   <v-card class="ig-media-detail ig-media-detail--desktop" flat>
     <v-row class="ma-0">
       <v-col
+        :cols="6"
         :class="[
           'pa-0 ig-media-detail__media',
           { 'ig-media-detail__media--reel': media.collection === 'reels' },
@@ -25,7 +26,7 @@ function onDateUpdate(value) {
           is-from-detail
         />
       </v-col>
-      <v-col class="pa-0">
+      <v-col :cols="6" class="pa-0">
         <div class="ig-media-detail__interaction">
 
           <InstagramPostHeader :profile="profile">
