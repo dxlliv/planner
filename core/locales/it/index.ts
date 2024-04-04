@@ -31,7 +31,7 @@ export default {
     },
     userSelect: {
       meta: {
-        title: "Plxnner - Seleziona il tuo profilo"
+        title: "Planner - Seleziona il tuo profilo"
       },
       intro: {
         p1: "consente di pianificare i tuoi <br />profili social in un attimo con pochi click.",

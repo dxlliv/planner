@@ -25,7 +25,7 @@ export default {
     },
     userSelect: {
       meta: {
-        title: 'Plxnner - Select your profile'
+        title: 'Planner - Select your profile'
       },
       intro: {
         p1: 'lets you preview <br />what your profile will look like.',

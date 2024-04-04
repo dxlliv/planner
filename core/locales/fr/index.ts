@@ -25,7 +25,7 @@ export default {
     },
     userSelect: {
       meta: {
-        title: "Plxnner - Sélectionnez votre profil"
+        title: "Planner - Sélectionnez votre profil"
       },
       intro: {
         p1: "permet de prévisualiser <br />à quoi ressemblera votre Instagram profil.",
