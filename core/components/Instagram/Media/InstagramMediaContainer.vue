@@ -34,7 +34,7 @@ function onMediaContextMenu(e) {
     />
 
     <div class="ig-media__type">
-      <v-icon v-if="type === 'album'">mdi-folder-multiple-image</v-icon>
+      <v-icon v-if="type === 'album'">mdi-checkbox-multiple-blank</v-icon>
       <v-icon v-if="type === 'video'">mdi-play</v-icon>
     </div>
 
@@ -82,10 +82,10 @@ function onMediaContextMenu(e) {
         margin-right: -8px;
       }
 
-      &-folder-multiple-image {
-        font-size: 18px;
-        margin-top: -3px;
-        margin-right: -3px;
+      &-checkbox-multiple-blank {
+        font-size: 17px;
+        margin-top: -2px;
+        margin-right: -4px;
       }
     }
   }
