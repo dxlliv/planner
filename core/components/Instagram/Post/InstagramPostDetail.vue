@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   media: IMedia
-  profile: IUserProfile
+  user: IUser
 }>()
 </script>
 
@@ -9,13 +9,13 @@ defineProps<{
   <InstagramPostDetailDesktop
     v-if="$vuetify.display.smAndUp"
     :media="media"
-    :profile="profile"
+    :user="user"
   />
 
   <InstagramPostDetailMobile
     v-else
     :media="media"
-    :profile="profile"
+    :user="user"
   />
 </template>
 

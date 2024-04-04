@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  profile: IUserProfile
+  user: IUser
   media: IMedia
   isFromDetail?: boolean
   contextMenu?: boolean
@@ -40,7 +40,7 @@ defineProps<{
     :is-from-detail="isFromDetail"
     :context-menu="contextMenu"
     :media="media"
-    :profile="profile"
+    :user="user"
   >
     <template v-slot:link>
       <slot name="link" />

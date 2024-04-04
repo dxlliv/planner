@@ -3,7 +3,7 @@ import { useDisplay } from "vuetify"
 import { onLongPress } from "@vueuse/core"
 
 const props = defineProps<{
-  profile: IUserProfile
+  user: IUser
   media: IMedia
   contextMenu?: boolean
 }>()
@@ -65,7 +65,7 @@ watch(() => props.media.isDetailView, value => {
       <v-dialog v-model="postDetailDialog">
         <InstagramPostDetail
           :media="media"
-          :profile="profile"
+          :user="user"
         />
       </v-dialog>
 

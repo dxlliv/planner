@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 
 const props = defineProps<{
   media: IMediaAlbum
-  profile: IUserProfile
+  user: IUser
   isFromDetail?: boolean
 }>()
 
@@ -40,7 +40,7 @@ function onSlideChange(swiper) {
           :key="item.id"
           :context-menu="false"
           :media="item"
-          :profile="profile"
+          :user="user"
         >
           <slot name="single-post" />
         </InstagramMedia>

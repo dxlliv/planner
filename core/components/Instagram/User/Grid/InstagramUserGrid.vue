@@ -56,7 +56,7 @@ function onSortEnd() {
           </template>
 
           <InstagramPost
-            :profile="user.profile"
+            :user="user"
             :media="media"
             context-menu
           />

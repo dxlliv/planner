@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   media: IMedia
-  profile: IUserProfile
+  user: IUser
 }>()
 
 function onDateUpdate(value) {
@@ -12,7 +12,7 @@ function onDateUpdate(value) {
 <template>
   <v-card class="ig-media-detail">
 
-    <InstagramPostHeader :profile="profile">
+    <InstagramPostHeader :user="user">
       <v-btn icon>
         <v-icon icon="mdi-dots-vertical" />
         <InstagramMediaContextMenu
@@ -27,7 +27,7 @@ function onDateUpdate(value) {
 
     <InstagramMedia
       :media="media"
-      :profile="profile"
+      :user="user"
       is-from-detail
     />
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  profile: IUserProfile
+  user: IUser
   mobile?: boolean
 }>()
 </script>
@@ -12,9 +12,9 @@ defineProps<{
       { 'ig-profile-page__header__stats--mobile': mobile },
     ]"
   >
-    <li><b v-text="profile.posts_count" /> <span v-text="$t('instagram.profile.header.posts')" /></li>
-    <li><b v-text="profile.followers_count" /> <span v-text="$t('instagram.profile.header.followers')" /></li>
-    <li><b v-text="profile.follows_count" /> <span v-text="$t('instagram.profile.header.following')" /></li>
+    <li><b v-text="user.profile.posts_count" /> <span v-text="$t('instagram.profile.header.posts')" /></li>
+    <li><b v-text="user.profile.followers_count" /> <span v-text="$t('instagram.profile.header.followers')" /></li>
+    <li><b v-text="user.profile.follows_count" /> <span v-text="$t('instagram.profile.header.following')" /></li>
   </ul>
 </template>
 

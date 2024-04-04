@@ -12,7 +12,7 @@ defineProps<{
       </router-link>
       <InstagramUserProfileUsername
         editable
-        :profile="user.profile"
+        :user="user"
         size="large"
         class="mb-5"
       />
@@ -24,7 +24,7 @@ defineProps<{
           <InstagramUserProfileAvatarEditor :size="72" :user="user" />
         </v-col>
         <v-col cols="9" align-self="center">
-          <InstagramUserProfileStats mobile :profile="user.profile" />
+          <InstagramUserProfileStats mobile :user="user" />
         </v-col>
       </v-row>
     </div>

@@ -20,7 +20,7 @@ useSeoMeta(media.seoMeta)
   <LayoutInstagram v-if="user" :user="user">
     <InstagramPostDetailDesktop
       class="mt-10" border
-      :profile="user.profile"
+      :user="user"
       :media="media"
     />
   </LayoutInstagram>

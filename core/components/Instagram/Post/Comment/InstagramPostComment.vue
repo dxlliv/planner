@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   media: IMedia
-  profile: IUserProfile
+  user: IUser
 }>()
 
 function onCaptionUpdate(caption: string) {
@@ -14,13 +14,16 @@ function onCaptionUpdate(caption: string) {
     <div class="px-4 py-3">
       <v-row>
         <v-col class="flex-grow-0">
-          <InstagramUserAvatar :avatar="profile.avatar" :size="32" />
+          <InstagramUserAvatar
+            :avatar="user.profile.avatar"
+            :size="32"
+          />
         </v-col>
         <v-col class="flex-grow-1 pl-1" align-self="center">
           <InstagramUserProfileUsername
             size="medium"
             class="d-inline mr-1"
-            :profile="profile"
+            :user="user"
           />
 
           <InstagramPostCaptionInlineEditing

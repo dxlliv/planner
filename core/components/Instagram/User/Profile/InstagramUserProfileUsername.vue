@@ -3,7 +3,7 @@ import contenteditable from "vue-contenteditable"
 
 const props = withDefaults(
   defineProps<{
-    profile: IUserProfile
+    user: IUser
     editable?: boolean
     size?: string
   }>(),
@@ -14,10 +14,10 @@ const props = withDefaults(
 
 const emit = defineEmits(["update"])
 
-const usernameEditable = ref(props.profile.username ?? "")
+const usernameEditable = ref(props.user.profile.username ?? "")
 
 function onFieldBlur() {
-  props.profile.updateUsername(usernameEditable.value)
+  props.user.profile.updateUsername(usernameEditable.value)
 }
 </script>
 
@@ -37,7 +37,7 @@ function onFieldBlur() {
       no-nl
       @blur="onFieldBlur"
     />
-    <v-icon v-if="profile.verified" icon="mdi-check-decagram" />
+    <v-icon v-if="user.profile.verified" icon="mdi-check-decagram" />
   </div>
 </template>
 

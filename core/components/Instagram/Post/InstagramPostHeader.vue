@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  profile: IUserProfile
+  user: IUser
 }>()
 </script>
 
@@ -8,10 +8,10 @@ defineProps<{
   <div class="ig-post-header px-4 py-3">
     <v-row>
       <v-col class="flex-grow-0">
-        <InstagramUserAvatar :avatar="profile.avatar" :size="32" />
+        <InstagramUserAvatar :avatar="user.profile.avatar" :size="32" />
       </v-col>
       <v-col class="flex-grow-1 pl-1" align-self="center">
-        <InstagramUserProfileUsername size="medium" :profile="profile" />
+        <InstagramUserProfileUsername size="medium" :user="user" />
       </v-col>
       <v-col class="flex-grow-0">
         <slot />

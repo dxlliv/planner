@@ -14,11 +14,11 @@ defineProps<{
       <v-col cols="8">
         <InstagramUserProfileUsername
           editable
-          :profile="user.profile"
+          :user="user"
           size="large"
           class="mb-5"
         />
-        <InstagramUserProfileStats :profile="user.profile" class="mb-5" />
+        <InstagramUserProfileStats :user="user" class="mb-5" />
         <InstagramUserProfileInner :user="user" />
       </v-col>
     </v-row>
