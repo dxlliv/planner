@@ -35,6 +35,10 @@ onLongPress(
 // keep postDetailDialog synced with media.isDetailView
 watch(() => postDetailDialog.value, value => {
   props.media.setDetailView(value)
+
+  if (!value) {
+    history.pushState({}, "", props.user.route);
+  }
 })
 
 // keep media.isDetailView synced with postDetailDialog
