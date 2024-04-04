@@ -63,7 +63,6 @@ function onDateUpdate(value) {
   :deep(.ig-media) {
     width: 100%;
     height: 100%;
-    max-width: inherit;
   }
 }
 </style>
