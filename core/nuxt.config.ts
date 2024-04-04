@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     enabled: true
   },
   experimental: {
-    typedPages: true
+    typedPages: true,
+    sharedPrerenderData: true,
   },
   alias: {
     "£": resolve(__dirname, ".")
@@ -76,5 +77,12 @@ export default defineNuxtConfig({
   },
   imports: {
     dirs: ['config', 'composables', 'core', 'stores', 'utils']
+  },
+  nitro: {
+    debug: true,
+    prerender: {
+      crawlLinks: true,
+      concurrency: 1,
+    },
   },
 })
