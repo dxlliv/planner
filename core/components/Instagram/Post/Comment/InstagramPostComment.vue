@@ -23,7 +23,7 @@ function onCaptionUpdate(caption: string) {
           <InstagramUserProfileUsername
             size="medium"
             class="d-inline mr-1"
-            :user="user"
+            :user="user" link
           />
 
           <InstagramPostCaptionInlineEditing

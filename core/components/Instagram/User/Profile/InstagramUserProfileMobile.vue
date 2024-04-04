@@ -12,7 +12,7 @@ defineProps<{
       </router-link>
       <InstagramUserProfileUsername
         editable
-        :user="user"
+        :user="user" link
         size="large"
         class="mb-5"
       />

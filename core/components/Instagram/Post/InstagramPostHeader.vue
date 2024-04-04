@@ -11,7 +11,10 @@ defineProps<{
         <InstagramUserAvatar :avatar="user.profile.avatar" :size="32" />
       </v-col>
       <v-col class="flex-grow-1 pl-1" align-self="center">
-        <InstagramUserProfileUsername size="medium" :user="user" />
+        <InstagramUserProfileUsername
+          size="medium"
+          :user="user" link
+        />
       </v-col>
       <v-col class="flex-grow-0">
         <slot />
