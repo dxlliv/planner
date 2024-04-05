@@ -41,7 +41,7 @@ export default class UserStorage {
       }
 
       // restore user profile changes
-      await this.user.profile.update(userChanges.profile)
+      await this.user.profile.update(userChanges.profile, true)
 
       // overwrite user raw media
       // todo resolve bug #this.raw-not-available

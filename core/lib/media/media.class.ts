@@ -54,8 +54,6 @@ export default class Media {
   }
 
   public get externalLink() {
-    console.log('this.hr', this.link)
-
     if (!this.link) {
       return ""
     }

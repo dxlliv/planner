@@ -179,7 +179,7 @@ interface IUserProfile {
 
   import(): void
   export(): Promise<IRawUserProfile>
-  update(data: any): Promise<void>
+  update(data: any, silentUpdate?: boolean): Promise<void>
 
   get publicProfile(): string
 }

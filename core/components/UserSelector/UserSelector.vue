@@ -44,6 +44,12 @@ function onProfileContextMenu(e) {
     contextMenu.enabled = true
   })
 }
+
+onBeforeMount(async () => {
+  if (props.user) {
+    await props.user.loadUserClient()
+  }
+})
 </script>
 
 <template>

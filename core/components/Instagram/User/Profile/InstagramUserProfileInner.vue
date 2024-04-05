@@ -9,7 +9,7 @@ const props = defineProps<{
     <InstagramUserProfileName :user="user" />
 
     <InstagramUserProfileBiography
-      :biography="user.profile.biography"
+      :user="user"
       @update="(biography) => user.profile.updateBiography(biography)"
     />
 

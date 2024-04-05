@@ -14,7 +14,7 @@ defineProps<{
       <v-col cols="8">
         <InstagramUserProfileUsername
           editable
-          :user="user" link
+          :user="user"
           size="large"
           class="mb-5"
         />

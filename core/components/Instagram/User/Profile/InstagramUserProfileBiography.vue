@@ -2,12 +2,16 @@
 import contenteditable from "vue-contenteditable"
 
 const props = defineProps<{
-  biography: undefined | string
+  user: IUser
 }>()
 
 const emit = defineEmits(["update"])
 
-const biographyEditable = ref(props.biography ?? "")
+const biographyEditable = ref(props.user.profile.biography ?? "")
+
+watch(() => props.user.profile.biography, value => {
+  biographyEditable.value = value
+})
 
 function onFieldBlur() {
   emit("update", biographyEditable.value)

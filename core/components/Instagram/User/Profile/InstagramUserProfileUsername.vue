@@ -17,6 +17,10 @@ const emit = defineEmits(["update"])
 
 const usernameEditable = ref(props.user.profile.username ?? "")
 
+watch(() => props.user.profile.username, value => {
+  usernameEditable.value = value
+})
+
 function onFieldBlur() {
   props.user.profile.updateUsername(usernameEditable.value)
 }
