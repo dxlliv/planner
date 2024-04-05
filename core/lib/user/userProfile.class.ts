@@ -21,7 +21,10 @@ export default class UserProfile implements IUserProfile {
 
   public get seoMeta() {
     return {
-      title: `${this.username} - ${capitalizeFirstLetter(this.user.platform)} Planner`
+      title: `${this.username} - ${capitalizeFirstLetter(this.user.platform)} Planner`,
+      description: this.biography,
+      ogImage: `${this.user.profile.avatar.rawFilePath}`,
+      twitterCard: 'summary',
     }
   }
 

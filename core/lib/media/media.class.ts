@@ -72,7 +72,10 @@ export default class Media {
 
   public get seoMeta() {
     return {
-      title: `${this.title} - ${this.user.profile.username}`
+      title: `${this.title} - ${this.user.profile.username}`,
+      description: this.caption,
+      ogImage: this.rawFilePath,
+      twitterCard: 'summary',
     }
   }
 

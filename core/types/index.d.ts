@@ -194,6 +194,8 @@ interface IInstagramUserProfile extends IUserProfile {
 interface UserAvatar {
   get isSet(): boolean
   export(): Promise<File>
+
+  get rawFilePath(): boolean
 }
 
 type IUserProfileWebsite = null | {

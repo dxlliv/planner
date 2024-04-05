@@ -64,6 +64,12 @@ export default class UserAvatar {
     return `${plannerAppBaseURL}user/${this.user.raw.basePath}/${filename}`
   }
 
+  public get rawFilePath() {
+    const plannerAppBaseURL = useNuxtApp().$config.app.baseURL
+
+    return `${plannerAppBaseURL}user/${this.user.raw.basePath}/${this.user.raw.profile.avatar}`
+  }
+
   public export() {
     if (this.isSet) {
       return this.file
