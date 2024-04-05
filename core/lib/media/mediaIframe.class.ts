@@ -5,9 +5,14 @@ import User from "../user/user.class"
 export default class MediaIframe extends Media implements IMediaIframe {
   public reel: boolean = false
   public href: string = ""
-  public cover: IMediaImage
+  public cover: undefined | IMediaImage = undefined
 
-  constructor(user: User, raw: IRawMedia, collection?: IMediaCollection, from?: IMediaFrom) {
+  constructor(
+    user: User,
+    raw: string | File | IRawMedia,
+    collection: IMediaCollection,
+    from: IMediaFrom
+  ) {
     super(user, raw, collection, from)
 
     this.setMediaType("iframe")
@@ -50,7 +55,7 @@ export default class MediaIframe extends Media implements IMediaIframe {
   }
 
   public async setCover(file: File) {
-    this.cover = new MediaImage(this.user, { file })
+    this.cover = new MediaImage(this.user, { file }, 'posts', 'client')
 
     this.user.setUnsavedChanges(true)
   }
@@ -94,11 +99,12 @@ export default class MediaIframe extends Media implements IMediaIframe {
   }
 
   public async exportFiles(): Promise<IMediaIframeExportMedia> {
-    let cover = undefined
+    let cover: IMediaCoverExport = {} as IMediaCoverExport
 
     // fulfill cover
     if (this.cover && this.cover.file) {
       cover = {
+        type: this.cover.type,
         file: await this.cover.file,
       }
     }

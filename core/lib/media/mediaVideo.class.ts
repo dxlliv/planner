@@ -2,19 +2,18 @@ import Media from "./media.class"
 import MediaImage from "./mediaImage.class"
 import User from "../user/user.class"
 import UserMedia from "../user/userMedia.class"
-import { getFileExtension } from "../../utils/utilsFile"
 
 export default class MediaVideo extends Media implements IMediaVideo {
-  public file: Promise<IMediaFile>
+  public file: Promise<File> = {} as Promise<File>
   public reel: boolean = false
   public cover: undefined | IMediaImage
   public coverTime: number = 0
 
   constructor(
     user: User,
-    raw: string | IRawMedia,
-    collection?: IMediaCollection,
-    from?: IMediaFrom,
+    raw: string | File | IRawMedia,
+    collection: IMediaCollection,
+    from: IMediaFrom,
   ) {
     super(user, raw, collection, from)
 
@@ -29,11 +28,14 @@ export default class MediaVideo extends Media implements IMediaVideo {
   private parseMediaVideo() {
     switch (typeof this.raw) {
       case "object":
+        /*
         if (typeof this.raw.reel !== "undefined") {
           this.reel = Boolean(this.raw.reel)
         }
+        */
 
-        if (this.raw.cover && typeof this.raw.cover !== "number") {
+        if (this.raw.hasOwnProperty('cover')) {
+          // @ts-ignore todo fix type
           this.cover = new MediaImage(this.user, this.raw.cover, this.collection, this.from)
         }
         break
@@ -142,11 +144,12 @@ export default class MediaVideo extends Media implements IMediaVideo {
   }
 
   public async exportFiles(): Promise<IMediaVideoExportMedia> {
-    let cover: undefined | number | IMediaCoverExport = undefined
+    let cover: undefined | number | IMediaCoverExport = {} as IMediaCoverExport
 
     // fulfill cover
     if (this.cover && this.cover.file) {
       cover = {
+        type: await this.cover.type,
         file: await this.cover.file,
       }
     }

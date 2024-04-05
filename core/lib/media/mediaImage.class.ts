@@ -3,13 +3,13 @@ import User from "../user/user.class"
 import UserMedia from "../user/userMedia.class"
 
 export default class MediaImage extends Media implements IMediaImage {
-  public file: Promise<IMediaFile>
+  public file: Promise<File> = {} as Promise<File>
 
   constructor(
     user: User,
     raw: string | File | IRawMedia,
-    collection?: IMediaCollection,
-    from?: IMediaFrom,
+    collection: IMediaCollection,
+    from: IMediaFrom,
   ) {
     super(user, raw, collection, from)
 

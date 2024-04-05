@@ -162,7 +162,7 @@ export default class UserMedia implements IUserMedia {
    */
   public static newMedia(
     user: User,
-    rawMedia: string | IRawMedia,
+    rawMedia: string | IRawMedia | File,
     collection: IMediaCollection = "posts",
     from: IMediaFrom = "client"
   ): any {
@@ -180,6 +180,7 @@ export default class UserMedia implements IUserMedia {
           throw Error("Album media cannot be a string")
         }
 
+        // @ts-expect-error todo fix types
         return new MediaAlbum(user, rawMedia, collection, from)
 
       case "iframe":
@@ -196,7 +197,7 @@ export default class UserMedia implements IUserMedia {
    *
    * @param rawMedia
    */
-  public static detectMediaType(rawMedia: string | IRawMedia) {
+  public static detectMediaType(rawMedia: string | IRawMedia | File) {
     let filename = ""
 
     switch (typeof rawMedia) {
@@ -221,7 +222,7 @@ export default class UserMedia implements IUserMedia {
         }
 
         // fallback
-        if (rawMedia.file && rawMedia.file) {
+        if (!(rawMedia instanceof File) && rawMedia.file && rawMedia.file) {
           filename = rawMedia.file.name
         } else {
           if (typeof rawMedia.name === "string") {

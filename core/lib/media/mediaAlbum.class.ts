@@ -9,8 +9,8 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
   constructor(
     user: User,
     raw: IRawMedia,
-    collection?: IMediaCollection,
-    from?: IMediaFrom,
+    collection: IMediaCollection,
+    from: IMediaFrom,
   ) {
     super(user, raw, collection, from)
 
@@ -111,7 +111,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
   }
 
   public async exportFiles(): Promise<IMediaAlbumExportMedia> {
-    let exportedList = []
+    let exportedList: any = []
 
     if (this.list) {
       for await (const media of this.list) {

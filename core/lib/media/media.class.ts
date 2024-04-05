@@ -28,8 +28,8 @@ export default class Media {
   constructor(
     user: User,
     raw: string | File | IRawMedia,
-    collection?: IMediaCollection,
-    from?: IMediaFrom,
+    collection: IMediaCollection,
+    from: IMediaFrom,
   ) {
     this.user = user
     this.raw = raw
@@ -88,6 +88,10 @@ export default class Media {
       case 'string':
         return this.getFilePath(this.raw)
       case 'object':
+        if (!this.raw.name) {
+          return null
+        }
+
         return this.getFilePath(this.raw.name)
     }
   }
@@ -160,7 +164,7 @@ export default class Media {
     }
   }
 
-  public fetchMediaFileFromString(fileName: string): Promise<IMediaFile> {
+  public fetchMediaFileFromString(fileName: string): Promise<File> {
     let filePath = ""
 
     if (fileName.startsWith("http")) {
@@ -198,7 +202,7 @@ export default class Media {
     return `${plannerAppBaseURL}user/${basePath}/${filename}`
   }
 
-  public fetchMediaFileFromBlob(fileBlob: File): Promise<IMediaFile> {
+  public fetchMediaFileFromBlob(fileBlob: File): Promise<File> {
     return Promise.resolve(fileBlob)
   }
 

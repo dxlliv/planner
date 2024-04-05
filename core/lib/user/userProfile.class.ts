@@ -10,7 +10,7 @@ export default class UserProfile implements IUserProfile {
   public website: string = ""
   public verified: boolean = false
   public biography: string = ""
-  public avatar: UserAvatar | undefined
+  public avatar: any | undefined = undefined
   public followers_count: number = 0
   public follows_count: number = 0
   public posts_count: number = 0
@@ -23,7 +23,7 @@ export default class UserProfile implements IUserProfile {
     return {
       title: `${this.username} - ${capitalizeFirstLetter(this.user.platform)} Planner`,
       description: this.biography,
-      ogImage: `${this.user.profile.avatar.rawFilePath}`,
+      ogImage: `${this.user.profile.avatar?.rawFilePath}`,
       twitterCard: 'summary',
     }
   }

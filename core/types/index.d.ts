@@ -56,9 +56,10 @@ interface IRawMedia {
   name?: string
   file?: File
   reel?: boolean
-  cover?: number | string | IRawMedia
-  list?: string[] | IRawMedia[]
+  cover?: number | string | IRawMedia | File
+  list?: string[] | IRawMedia[] | File[]
   link?: string
+  href?: string
 
   title?: string
   slug?: string
@@ -131,6 +132,9 @@ interface IInstagramUser extends IUser {
 
   profile: IInstagramUserProfile
   media: IInstagramUserMedia
+
+  loadUserClient()
+  unloadUserClient()
 }
 
 interface IUserStatus {
@@ -154,7 +158,7 @@ interface IUserProfile {
   website: string
   verified?: boolean
   biography?: string
-  avatar: UserAvatar | undefined
+  avatar: any | undefined
   followers_count: number
   follows_count: number
   posts_count: number
@@ -180,8 +184,6 @@ interface IUserProfile {
   import(): void
   export(): Promise<IRawUserProfile>
   update(data: any, silentUpdate?: boolean): Promise<void>
-
-  get publicProfile(): string
 }
 
 interface IInstagramUserProfile extends IUserProfile {
@@ -232,11 +234,13 @@ interface IUserMedia {
 }
 
 interface IInstagramUserMedia extends IUserMedia {
+  /*
   structure: {
     collections: {
       [collectionName: string]: any
     }
   }
+   */
 }
 
 interface IUserOptions {}
@@ -267,7 +271,7 @@ interface IMedia {
   fetchMediaFileFromBlob(fileBlob: File): Promise<IMediaFile>
 
   reel?: boolean
-  isReel(): boolean
+  //isReel(): boolean
 
   caption: string
   setCaption(value: string) :void
@@ -290,7 +294,7 @@ interface IMedia {
 }
 
 interface IMediaImage extends IMedia {
-  file: Promise<IMediaFile>
+  file: Promise<File>
 
   setMediaImage(blob: File): Promise<void>
 
@@ -299,8 +303,8 @@ interface IMediaImage extends IMedia {
 }
 
 interface IMediaVideo extends IMedia {
-  file: Promise<IMediaFile>
-  cover: undefined | IMediaImage
+  file: Promise<File>
+  cover: undefined | IMediaImage | File
   coverTime: number
 
   setCover(file: File): Promise<void>
@@ -329,7 +333,7 @@ interface IMediaAlbum extends IMedia {
 
 interface IMediaIframe extends IMedia {
   href: string
-  cover: undefined | IMediaImage
+  cover: undefined | IMediaImage | File
 
   cloneToReel(): Promise<void>
 }

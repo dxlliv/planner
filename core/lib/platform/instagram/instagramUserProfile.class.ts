@@ -2,10 +2,7 @@ import UserProfile from "../../user/userProfile.class"
 import { removeUndefinedFromObject } from "../../../utils/utilsObject"
 import { usePlatformStructure } from "../../../composables/composablePlatformStructure";
 
-export default class InstagramUserProfile
-  extends UserProfile
-  implements IInstagramUserProfile
-{
+export default class InstagramUserProfile extends UserProfile implements IInstagramUserProfile {
   public user: IInstagramUser
   public structure: IPlatformStructureUserProfile
 
@@ -24,6 +21,7 @@ export default class InstagramUserProfile
     return `https://instagram.com/${this.user.profile.username}`
   }
 
+  // @ts-expect-error
   public async export(): Promise<IRawUserProfile> {
     let avatar = undefined
 
