@@ -87,7 +87,7 @@ export const useUserEditorStore = defineStore("user/editor", () => {
     }
 
     for (const [fieldKey, field] of Object.entries(
-      platformStructureUser.value.collections,
+      platformStructureUser.value.media.collections,
     )) {
       rawUser.media[fieldKey] = []
     }
