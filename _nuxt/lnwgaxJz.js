@@ -1,1 +1,0 @@
-import s from"./D0s2-II3.js";import t from"./BYSNGvYX.js";import{d as a,Q as m,R as _,l as n,F as p}from"./CBwktElb.js";const f=a({__name:"InstagramUserProfile",props:{user:{}},setup(l){return(e,u)=>{const o=s,r=t;return m(),_(p,null,[n(o,{class:"hidden-sm-and-down",user:e.user},null,8,["user"]),n(r,{class:"hidden-md-and-up",user:e.user},null,8,["user"])],64)}}});export{f as _};
