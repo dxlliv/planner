@@ -26,7 +26,6 @@ const animated = ref(false)
 
   &__inner {
     z-index: 1;
-    color: var(--button-font-color);
     padding: 0em;
     font-size: var(--button-font-size);
     position: absolute;
