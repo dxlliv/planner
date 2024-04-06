@@ -3,7 +3,7 @@ import { generateUuidv4 } from "../../utils/utilsString"
 import User from "../user/user.class"
 
 export default class Media {
-  public user: User
+  public user: IUser
 
   public raw: string | File | IRawMedia
 
@@ -26,7 +26,7 @@ export default class Media {
   }
 
   constructor(
-    user: User,
+    user: IUser,
     raw: string | File | IRawMedia,
     collection: IMediaCollection,
     from: IMediaFrom,

@@ -183,6 +183,7 @@ interface IUserProfile {
 
   importRawUserProfileConfig(): void
   update(data: any, silentUpdate?: boolean): Promise<void>
+  export(): Promise<IRawUserProfile>
 }
 
 interface IInstagramUserProfile extends IUserProfile {

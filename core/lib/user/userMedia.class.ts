@@ -7,7 +7,7 @@ import { fulfillMediaFilesForExport } from "../../utils/utilsUserExport"
 export default class UserMedia implements IUserMedia {
   public readonly user: IUser
 
-  public structure = {
+  public structure: IPlatformStructureUserMedia = {
     collections: {}
   }
 
@@ -21,8 +21,9 @@ export default class UserMedia implements IUserMedia {
   /**
    * Return available collections from current platform structure
    */
-  public get structureCollectionKeys(): string[] {
+  public get structureCollectionKeys(): IMediaCollection[] {
     return Object.keys(this.structure.collections)
+      .map(key => key as IMediaCollection)
   }
 
   /**

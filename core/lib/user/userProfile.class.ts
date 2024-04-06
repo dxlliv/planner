@@ -108,18 +108,7 @@ export default class UserProfile implements IUserProfile {
     await this.update(this.user.raw.profile, true)
   }
 
-  /*
   public async export() {
-    return {
-      username: this.username,
-      name: this.name,
-      website: this.website,
-      verified: this.verified,
-      biography: this.biography,
-      avatar: this.avatar?.export(),
-      followers_count: this.followers_count,
-      follows_count: this.follows_count,
-    }
+    return {} as IRawUserProfile
   }
-   */
 }

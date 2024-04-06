@@ -1,6 +1,5 @@
 import Media from "./media.class"
 import MediaImage from "./mediaImage.class"
-import User from "../user/user.class"
 
 export default class MediaIframe extends Media implements IMediaIframe {
   public reel: boolean = false
@@ -8,7 +7,7 @@ export default class MediaIframe extends Media implements IMediaIframe {
   public cover: undefined | IMediaImage = undefined
 
   constructor(
-    user: User,
+    user: IUser,
     raw: string | File | IRawMedia,
     collection: IMediaCollection,
     from: IMediaFrom

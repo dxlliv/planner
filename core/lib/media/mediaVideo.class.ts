@@ -1,6 +1,5 @@
 import Media from "./media.class"
 import MediaImage from "./mediaImage.class"
-import User from "../user/user.class"
 import UserMedia from "../user/userMedia.class"
 
 export default class MediaVideo extends Media implements IMediaVideo {
@@ -10,7 +9,7 @@ export default class MediaVideo extends Media implements IMediaVideo {
   public coverTime: number = 0
 
   constructor(
-    user: User,
+    user: IUser,
     raw: string | File | IRawMedia,
     collection: IMediaCollection,
     from: IMediaFrom,

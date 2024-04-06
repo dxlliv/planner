@@ -1,5 +1,4 @@
 import Media from "./media.class"
-import User from "../user/user.class"
 import UserMedia from "../user/userMedia.class"
 
 export default class MediaAlbum extends Media implements IMediaAlbum {
@@ -7,7 +6,7 @@ export default class MediaAlbum extends Media implements IMediaAlbum {
   public listIndex: number = 0
 
   constructor(
-    user: User,
+    user: IUser,
     raw: IRawMedia,
     collection: IMediaCollection,
     from: IMediaFrom,
