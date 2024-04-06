@@ -4,7 +4,7 @@ const { resolve } = createResolver(import.meta.url);
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  ssr: false,
+  ssr: true,
   alias: {
     "~": resolve(__dirname, "."),
     "@": resolve(__dirname, "./src")

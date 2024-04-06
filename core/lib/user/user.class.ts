@@ -47,10 +47,9 @@ export default class User implements IUser {
     await this.loadUserStorage()
 
     // check for index db user changes
-    await this.storage.isContentAvailable().then(async (availability) => {
-      if (availability) {
+    await this.storage.isContentAvailable().then(async (available) => {
+      if (available) {
         // override raw user data
-        // todo resolve bug #this.raw-not-available
         await this.storage.restore()
       }
     })

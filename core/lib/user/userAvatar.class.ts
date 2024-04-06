@@ -47,7 +47,6 @@ export default class UserAvatar {
   private getAvatarFilePath(filename: string) {
     const plannerAppBaseURL = useNuxtApp().$config.app.baseURL
 
-    // todo resolve bug #this.raw-not-available
     // this is needed to avoid errors when content is restored from indexed db
     if (!filename) {
       return ''

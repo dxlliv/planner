@@ -11,8 +11,8 @@ useSeoMeta({
 
 <template>
   <AppBackground />
-  <UserSelectorPageDesktop v-if="$vuetify.display.mdAndUp" />
-  <UserSelectorPageMobile v-else />
+  <UserSelectorPageDesktop class="hidden-sm-and-down" />
+  <UserSelectorPageMobile class="hidden-md-and-up" />
 </template>
 
 <style scoped lang="scss">

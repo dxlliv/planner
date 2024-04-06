@@ -1,4 +1,3 @@
-import User from "../user/user.class"
 import MediaImage from "../media/mediaImage.class"
 import MediaVideo from "../media/mediaVideo.class"
 import MediaAlbum from "../media/mediaAlbum.class"
@@ -6,21 +5,24 @@ import MediaIframe from "../media/mediaIframe.class"
 import { fulfillMediaFilesForExport } from "../../utils/utilsUserExport"
 
 export default class UserMedia implements IUserMedia {
-  public readonly user: User
+  public readonly user: IUser
+
+  public structure = {
+    collections: {}
+  }
 
   public collections: IUserMediaCollections = {}
   private collection: IMediaCollection = 'posts' as IMediaCollection
 
-  constructor(user: User) {
+  constructor(user: IUser) {
     this.user = user
   }
 
   /**
    * Return available collections from current platform structure
    */
-  public get structureCollectionKeys(): IMediaCollection[] {
-    // @ts-expect-error
-    return Object.keys(this.user.media.structure.collections)
+  public get structureCollectionKeys(): string[] {
+    return Object.keys(this.structure.collections)
   }
 
   /**
@@ -54,17 +56,6 @@ export default class UserMedia implements IUserMedia {
   }
 
   /**
-   * Parse raw media configuration and fetch all the media
-   */
-  public fetch(from: IMediaFrom = 'config') {
-    this.reset()
-
-    this.parseRawUserMediaCollections(from)
-
-    return true
-  }
-
-  /**
    * Fetch single media from raw media configuration
    *
    * @param collection
@@ -87,20 +78,16 @@ export default class UserMedia implements IUserMedia {
    *
    * @private
    */
-  private parseRawUserMediaCollections(from: IMediaFrom = 'config') {
+  public importRawUserMediaConfig(from: IMediaFrom = 'config') {
+    this.reset()
+
     for (const collection of this.structureCollectionKeys) {
-      if (
-        Object.prototype.hasOwnProperty.call(
-          this.user.raw.media,
-          collection,
-        )
-      ) {
-        for (let rawMedia of this.user.raw.media[collection]) {
-          this.addMedia(rawMedia, collection, {
-            addMethod: 'push',
-            from
-          })
-        }
+      for (let rawMedia of this.user.raw.media[collection]) {
+
+        this.addMedia(rawMedia, collection, {
+          addMethod: 'push',
+          from
+        })
       }
     }
   }
@@ -119,7 +106,7 @@ export default class UserMedia implements IUserMedia {
    * @param options
    */
   public addMedia(
-    rawMedia: string | IRawMedia,
+    rawMedia: string | IRawMedia | File,
     collection: IMediaCollection = "posts",
     options: {
       addMethod: IMediaAddMethod,
@@ -161,7 +148,7 @@ export default class UserMedia implements IUserMedia {
    * @param from
    */
   public static newMedia(
-    user: User,
+    user: IUser,
     rawMedia: string | IRawMedia | File,
     collection: IMediaCollection = "posts",
     from: IMediaFrom = "client"

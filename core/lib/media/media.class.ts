@@ -185,7 +185,6 @@ export default class Media {
     const plannerAppBaseURL = useNuxtApp().$config.app.baseURL
     const basePath = `${this.user.raw.basePath}/media`
 
-    // todo resolve bug #this.raw-not-available
     // this is needed to avoid errors when content is restored from indexed db
     if (!filename) {
       return ''

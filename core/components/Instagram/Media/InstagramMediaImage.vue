@@ -8,9 +8,7 @@ const src = ref(props.media.rawFilePath)
 
 async function onIntersect(isIntersecting) {
   if (isIntersecting) {
-    if (props.media.from === 'client') {
-      src.value = await handleMediaForSrc(props.media)
-    }
+    src.value = await handleMediaForSrc(props.media)
   }
 }
 </script>

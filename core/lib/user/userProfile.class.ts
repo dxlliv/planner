@@ -104,10 +104,11 @@ export default class UserProfile implements IUserProfile {
     }
   }
 
-  public async import() {
+  public async importRawUserProfileConfig() {
     await this.update(this.user.raw.profile, true)
   }
 
+  /*
   public async export() {
     return {
       username: this.username,
@@ -120,4 +121,5 @@ export default class UserProfile implements IUserProfile {
       follows_count: this.follows_count,
     }
   }
+   */
 }

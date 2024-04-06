@@ -1,18 +1,14 @@
 import UserMedia from "../../user/userMedia.class"
+import { usePlatformStructure } from "£/composables/composablePlatformStructure"
 
 export default class InstagramUserMedia extends UserMedia {
-  public user: IInstagramUser
+  public structure: IPlatformStructureUserMedia
 
-  private structure = {
-    collections: {
-      posts: {},
-      reels: {},
-    },
-  }
-
-  constructor(user: IInstagramUser) {
+  constructor(user: IUser) {
     super(user)
 
-    this.user = user
+    this.structure = {
+      ...usePlatformStructure(this.user.platform).user.media
+    }
   }
 }

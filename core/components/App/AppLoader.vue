@@ -2,6 +2,7 @@
 import { useTheme } from "vuetify";
 import UserLoader from "£/lib/user/userLoader.class"
 
+const userStore = useUserStore()
 const themeStore = useThemeStore()
 const theme = useTheme()
 
@@ -14,6 +15,10 @@ themeStore.restorePreviousState(theme)
 onBeforeMount(async () => {
   // initialize temporary users
   await UserLoader.loadUsersFromStorage()
+
+  for (const user of userStore.userList) {
+    await user.loadUserClient()
+  }
 })
 </script>
 
@@ -22,5 +27,3 @@ onBeforeMount(async () => {
 
   <AppTools />
 </template>
-
-<style scoped lang="scss"></style>

@@ -78,10 +78,12 @@ export const configPlatformStructure = {
           },
         },
       },
-      collections: {
-        posts: {},
-        reels: {},
-      },
+      media: {
+        collections: {
+          posts: {},
+          reels: {},
+        },
+      }
     },
   },
 }

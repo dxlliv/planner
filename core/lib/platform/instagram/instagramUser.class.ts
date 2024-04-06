@@ -16,10 +16,12 @@ export default class InstagramUser extends User implements IInstagramUser {
   public async loadUserProfile() {
     this.profile = new InstagramUserProfile(this)
 
-    await this.profile.import()
+    this.profile.importRawUserProfileConfig()
   }
 
   public loadUserMedia() {
     this.media = new InstagramUserMedia(this)
+
+    this.media.importRawUserMediaConfig('client')
   }
 }

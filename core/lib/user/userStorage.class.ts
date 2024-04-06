@@ -44,11 +44,9 @@ export default class UserStorage {
       await this.user.profile.update(userChanges.profile, true)
 
       // overwrite user raw media
-      // todo resolve bug #this.raw-not-available
       this.user.raw.media = userChanges.media
 
-      // todo resolve bug #this.raw-not-available
-      this.user.media.fetch('client')
+      this.user.media.importRawUserMediaConfig('client')
     }
   }
 

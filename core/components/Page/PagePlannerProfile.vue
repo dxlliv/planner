@@ -10,12 +10,8 @@ const user = ref()
 user.value = userStore.getUser(props.username, props.platform)
 
 if (user) {
-  user.value.media.fetch()
+  //user.value.media.fetch()
 }
-
-onBeforeMount(async () => {
-  await user.value.loadUserClient()
-})
 
 useSeoMeta(user.value.profile.seoMeta)
 </script>

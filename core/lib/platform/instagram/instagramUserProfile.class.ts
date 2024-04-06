@@ -11,9 +11,7 @@ export default class InstagramUserProfile extends UserProfile implements IInstag
 
     this.user = user
     this.structure = {
-      fields: {
-        ...usePlatformStructure(this.user.platform).user.profile.fields
-      },
+      ...usePlatformStructure(this.user.platform).user.profile
     }
   }
 
@@ -21,7 +19,6 @@ export default class InstagramUserProfile extends UserProfile implements IInstag
     return `https://instagram.com/${this.user.profile.username}`
   }
 
-  // @ts-expect-error
   public async export(): Promise<IRawUserProfile> {
     let avatar = undefined
 

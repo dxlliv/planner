@@ -181,8 +181,7 @@ interface IUserProfile {
   setAvatar(avatar: string | File): Promise<void>
   updateAvatar(avatar: File): Promise<void>
 
-  import(): void
-  export(): Promise<IRawUserProfile>
+  importRawUserProfileConfig(): void
   update(data: any, silentUpdate?: boolean): Promise<void>
 }
 
@@ -210,17 +209,20 @@ type IUserMediaCollections = {
 }
 
 interface IUserMedia {
+  structure: IPlatformStructureUserMedia
+
   collections: IUserMediaCollections
 
-  get structureCollectionKeys(): IMediaCollection[]
+  get structureCollectionKeys(): string[]
   get collectionKeys(): string[]
 
   get activeCollection(): IMediaCollection
   setActiveCollection(collectionName: IMediaCollection): void
   hasCollection(collectionName: string): boolean
 
+  importRawUserMediaConfig(from: IMediaFrom): void
+
   reset(): void
-  fetch(from: IMediaFrom): void
   fetchSingleMedia(collection: IMediaCollection, media: string): void
   addMedia(
     rawMedia: string | IRawMedia,
@@ -234,13 +236,6 @@ interface IUserMedia {
 }
 
 interface IInstagramUserMedia extends IUserMedia {
-  /*
-  structure: {
-    collections: {
-      [collectionName: string]: any
-    }
-  }
-   */
 }
 
 interface IUserOptions {}
@@ -439,6 +434,12 @@ interface IPlatformStructureUserProfile {
         set: string
       }
     }
+  }
+}
+
+interface IPlatformStructureUserMedia {
+  collections: {
+    [collectionName: string]: any
   }
 }
 
