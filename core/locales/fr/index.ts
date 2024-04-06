@@ -10,6 +10,7 @@ export default {
       importProfile: 'Importer depuis un dossier',
       remove: 'Supprimer',
       reset: 'Réinitialiser',
+      close: 'Fermer',
       create: 'Créer',
       submit: 'Soumettre',
       post: 'Publier',

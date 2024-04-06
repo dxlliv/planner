@@ -10,6 +10,7 @@ export default {
       importProfile: 'Import from folder',
       remove: 'Remove',
       reset: 'Reset',
+      close: 'Close',
       create: 'Create',
       submit: 'Submit',
       post: 'Post',

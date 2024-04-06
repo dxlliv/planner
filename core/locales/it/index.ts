@@ -10,6 +10,7 @@ export default {
       importProfile: 'Importa profilo',
       remove: 'Rimuovi',
       reset: 'Reset',
+      close: 'Chiudi',
       create: 'Crea',
       submit: 'Conferma',
       post: 'Pubblica',

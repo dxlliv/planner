@@ -35,9 +35,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <form class="ig-user-editor-form pa-12" @submit="onFormSend">
+  <form class="ig-user-editor-form py-7 py-md-12 px-md-12" @submit="onFormSend">
     <v-row>
-      <v-col :cols="12" :md="4" class="text-center pb-14">
+      <v-col :cols="12" :md="4" class="text-center pt-0 pb-5 pb-sm-12">
         <UserEditorFieldAvatar :user="user" @update="onAvatarUpdate" />
       </v-col>
       <v-col :cols="12" :md="8">
@@ -52,7 +52,7 @@ onMounted(() => {
           </v-col>
         </v-row>
         <v-row>
-          <v-col :cols="6">
+          <v-col :sm="6">
             <UserEditorFieldString
               v-model="userEditorStore.fields.name"
               :data="userEditorStore.fieldsData.name"
@@ -60,7 +60,7 @@ onMounted(() => {
               variant="outlined"
             />
           </v-col>
-          <v-col :cols="3">
+          <v-col :cols="3" class="hidden-xs">
             <UserEditorFieldString
               v-model="userEditorStore.fields.followers_count"
               :data="userEditorStore.fieldsData.followers_count"
@@ -68,7 +68,7 @@ onMounted(() => {
               variant="outlined"
             />
           </v-col>
-          <v-col :cols="3">
+          <v-col :cols="3" class="hidden-xs">
             <UserEditorFieldString
               v-model="userEditorStore.fields.follows_count"
               :data="userEditorStore.fieldsData.follows_count"
@@ -104,6 +104,10 @@ onMounted(() => {
               type="submit"
               :text="!props.user ? $t('common.actions.create') : $t('common.actions.submit')"
               color="primary"
+            />
+            <v-btn
+              :text="$t('common.actions.close')"
+              @click="emit('close')"
             />
           </v-col>
         </v-row>
