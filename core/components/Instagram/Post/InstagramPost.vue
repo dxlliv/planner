@@ -34,10 +34,12 @@ onLongPress(
 
 // keep postDetailDialog synced with media.isDetailView
 watch(() => postDetailDialog.value, value => {
+  const {baseURL} = useNuxtApp().$config.app
+
   props.media.setDetailView(value)
 
   if (!value) {
-    history.pushState({}, "", props.user.route);
+    history.pushState({}, "", `${baseURL.slice(0, -1)}${props.user.route}`);
   }
 })
 
