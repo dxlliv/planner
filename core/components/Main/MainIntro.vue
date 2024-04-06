@@ -57,10 +57,6 @@
 
 <style scoped lang="scss">
 .ig-intro {
-  .planner-logo {
-    color: black;
-  }
-
   p {
     a {
       color: inherit;
@@ -89,10 +85,6 @@
   }
 
   &.v-theme--dark {
-    .planner-logo {
-      color: white;
-    }
-
     .v-btn svg {
       fill: white;
     }

@@ -119,7 +119,6 @@ const emit = defineEmits(["create", "export"])
 
   .planner-logo {
     margin-left: 10px;
-    color: black;
   }
 
   .ig-profile-avatar {
@@ -186,10 +185,6 @@ const emit = defineEmits(["create", "export"])
   &.v-theme--dark {
     svg {
       fill: white;
-    }
-
-    .planner-logo {
-      color: white;
     }
 
     .ig-profile-avatar {

@@ -26,6 +26,7 @@ const { size } = withDefaults(
   font-weight: 600;
   letter-spacing: 2px;
   text-decoration: none;
+  color: inherit;
 
   &--size-large {
     font-size: 40px;
