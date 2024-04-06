@@ -14,5 +14,5 @@ You can try **dxlliv/planner** directly in your browser using the [GitHub Demo](
 
 ## Safety
 
-Changes will be stored in your browser using a client-side storage called [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).  
-If you prefer to run the planner locally and host it somewhere, keep reading.
+Changes are stored in your browser using a client-side storage called [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).  
+If you prefer to run the planner locally or host it somewhere, keep reading.

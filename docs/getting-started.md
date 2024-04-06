@@ -17,7 +17,7 @@ You can bootstrap a new planner by running the following command:
 npx create-plxnner planner
 ```
 
-Enter the project folder and start your planner:
+Enter the project directory and start your planner:
 
 ```bash
 cd planner

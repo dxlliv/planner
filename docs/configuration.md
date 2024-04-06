@@ -61,7 +61,7 @@ This property contains a list of enabled profiles.
 For now the only supported platform is Instagram.
 
 ##### locale
-You can set another language, but only a few are supported.
+You can set another language, but there are only a few available.
 
 ##### features
-From here you can choose which features to keep enabled.
+From here you can choose which features to enable.

@@ -40,5 +40,6 @@ yarn install && yarn dev
 └─ planner.config.ts
 ```
 
+
 If you know Vue.js, you should be able to get around without any problems.  
 Feel free to contribute, you can fork the repository and submit any improvements.
