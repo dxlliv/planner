@@ -1,6 +1,5 @@
 import { fetchFileFromUrl } from "../../utils/utilsFile"
 import { generateUuidv4 } from "../../utils/utilsString"
-import User from "../user/user.class"
 
 export default class Media {
   public user: IUser
@@ -20,7 +19,10 @@ export default class Media {
   public caption: string = ""
   public date: string = ""
 
-  public states: any = {
+  public states: {
+    editing: boolean
+    detailView: boolean
+  } = {
     editing: false,
     detailView: false,
   }
