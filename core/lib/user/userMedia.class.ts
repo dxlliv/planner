@@ -82,12 +82,14 @@ export default class UserMedia implements IUserMedia {
     this.reset()
 
     for (const collection of this.structureCollectionKeys) {
-      for (let rawMedia of this.user.raw.media[collection]) {
+      if (this.user.raw.media.hasOwnProperty(collection)) {
+        for (const rawMedia of this.user.raw.media[collection]) {
 
-        this.addMedia(rawMedia, collection, {
-          addMethod: 'push',
-          from
-        })
+          this.addMedia(rawMedia, collection, {
+            addMethod: 'push',
+            from
+          })
+        }
       }
     }
   }
