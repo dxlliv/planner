@@ -31,12 +31,20 @@ defineProps<{
   margin: 0 auto;
 
   :deep(a) {
-    color: #00376b;
+    color: inherit;
+  }
+
+  :deep(.ig-profile-page__header__inner) {
+    a {
+      color: #00376b;
+    }
   }
 
   &.v-theme--dark {
-    :deep(a) {
-      color: white;
+    :deep(.ig-profile-page__header__inner) {
+      a {
+        color: white;
+      }
     }
   }
 }
