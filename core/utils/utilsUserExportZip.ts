@@ -127,7 +127,7 @@ async function prepareUserForZip(user: IUser) {
 
   // define config.json
   userZip[username]["config.json"] = fflate.strToU8(
-    JSON.stringify(userConfigJson),
+    JSON.stringify(userConfigJson, null, 2),
   )
 
   // define files in media folder
