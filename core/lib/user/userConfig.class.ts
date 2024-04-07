@@ -1,6 +1,6 @@
-export default class UserConfig {
-  private static readonly config = usePlannerConfig()
+import { parseUserPlatform } from "£/utils/utilsPlatform"
 
+export default class UserConfig {
   /**
    * Get raw users config
    */
@@ -45,17 +45,9 @@ export default class UserConfig {
     // fetch user config from its local/remote path
     const rawUser = await this.fetchUserConfig(userConfigFullPath)
 
+    rawUser.platform = parseUserPlatform(rawUser)
     rawUser.origin = userOrigin
     rawUser.basePath = userBasePath
-
-    const platform: IUserPlatform = rawUser.platform
-      ?? this.config.platform.default
-      ?? "instagram"
-
-    // set platform to rawUser
-    if (rawUser.platform !== platform) {
-      rawUser.platform = platform
-    }
 
     return rawUser
   }

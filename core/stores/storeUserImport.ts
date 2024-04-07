@@ -3,6 +3,7 @@ import {
   parseUserProfileConfigFromFileDirectory,
 } from "../utils/utilsUserProfile"
 import UserMedia from "../lib/user/userMedia.class"
+import { parseUserPlatform } from "£/utils/utilsPlatform"
 
 export const useUserImportStore = defineStore("user/import", () => {
   const userStore = useUserStore()
@@ -33,6 +34,7 @@ export const useUserImportStore = defineStore("user/import", () => {
     if (rawUser.value.media.reels) importRawMediaFilesByCollection("reels")
 
     rawUser.value.origin = 'storage'
+    rawUser.value.platform = parseUserPlatform(rawUser.value)
 
     // initialize user
     const user = await userStore.loadUser(rawUser.value)
