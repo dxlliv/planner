@@ -50,11 +50,11 @@ export async function rebuildRawUserMediaConfig(user: IUser) {
 
   // for each media collection
   for (const collectionKey of user.media.collectionKeys) {
-    i = 1
+    i = user.media.collections[collectionKey].length
 
     rawUserMedia[collectionKey] = []
 
-    const mediaCollectionItems = [...user.media.collections[collectionKey]].reverse()
+    const mediaCollectionItems = [...user.media.collections[collectionKey]]
 
     // for each media in this collection
     for (const media of mediaCollectionItems) {
@@ -62,7 +62,7 @@ export async function rebuildRawUserMediaConfig(user: IUser) {
 
       rawUserMedia[collectionKey].push(rawMedia)
 
-      i++
+      i--
     }
   }
 

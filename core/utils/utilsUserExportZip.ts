@@ -102,15 +102,15 @@ async function prepareUserForZip(user: IUser) {
     ]
   }
 
-  let i = 1
+  let i: number
 
   let mediaFiles = {}
 
   // for each media collection
   for (const collectionKey of user.media.collectionKeys) {
-    i = 1
+    i = user.media.collections[collectionKey].length
 
-    const mediaCollectionItems = [...user.media.collections[collectionKey]].reverse()
+    const mediaCollectionItems = [...user.media.collections[collectionKey]]
 
     // for each media in this collection
     for (const media of mediaCollectionItems) {
@@ -121,7 +121,7 @@ async function prepareUserForZip(user: IUser) {
         ...partialMediaFiles,
       }
 
-      i++
+      i--
     }
   }
 
