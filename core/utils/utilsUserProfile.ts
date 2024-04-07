@@ -25,7 +25,7 @@ export async function openUserDirectory() {
  *
  * @param file
  */
-export async function parseUserProfileConfigFromFileDirectory(file: Blob) {
+export async function parseUserProfileConfigFromFileDirectory(file: Blob): Promise<IRawUser> {
   return new Promise((resolve, reject) => {
     let reader = new FileReader()
 

@@ -21,7 +21,6 @@ export const useUserImportStore = defineStore("user/import", () => {
     directory.value = await openUserDirectory()
 
     // convert config.json file to raw user object
-    // @ts-ignore
     rawUser.value = await parseUserProfileConfigFromFileDirectory(
       configFile.value,
     )
@@ -48,7 +47,7 @@ export const useUserImportStore = defineStore("user/import", () => {
   /**
    * Get user config from directory files
    */
-  const configFile: ComputedRef<IRawUserProfile> = computed(() => {
+  const configFile: ComputedRef<Blob> = computed(() => {
     return directory.value.find(
       (file: FileSystemFileEntry) => file.name === "config.json",
     )
@@ -64,7 +63,7 @@ export const useUserImportStore = defineStore("user/import", () => {
     let rawMediaForImport: IRawMedia = {}
     let rawMediaAlbumItem: IRawMedia = {}
 
-    for (const media of rawUser.value.media[collection]) {
+    for (const media of rawUser.value.media[collection] as string|IRawMedia[]) {
       rawMediaForImport = {}
 
       if (typeof media === "string") {
@@ -99,20 +98,21 @@ export const useUserImportStore = defineStore("user/import", () => {
             rawMediaForImport.list = []
 
             if (Array.isArray(media.list)) {
-              for (const mediaAlbumItem of media.list) {
+              for (const mediaAlbumItem of media.list as string|IRawMedia[]) {
+                console.log('SI VA ALBUM', mediaAlbumItem)
                 rawMediaAlbumItem = {}
 
                 if (typeof mediaAlbumItem === "string") {
-                  rawMediaAlbumItem.type =
-                    UserMedia.detectMediaType(mediaAlbumItem)
+                  rawMediaAlbumItem.type = UserMedia.detectMediaType(mediaAlbumItem)
                   rawMediaAlbumItem.file = getMediaFile(mediaAlbumItem)
                 } else if (mediaAlbumItem.name) {
                   rawMediaAlbumItem.type = mediaAlbumItem.type
                   rawMediaAlbumItem.file = getMediaFile(mediaAlbumItem.name)
                 }
-              }
 
-              rawMediaForImport.list.push(rawMediaAlbumItem)
+                // @ts-expect-error type error due to rawMedia strings support
+                rawMediaForImport.list.push(rawMediaAlbumItem)
+              }
             }
             break
           case "iframe":

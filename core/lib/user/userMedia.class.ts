@@ -187,7 +187,7 @@ export default class UserMedia implements IUserMedia {
    *
    * @param rawMedia
    */
-  public static detectMediaType(rawMedia: string | IRawMedia | File) {
+  public static detectMediaType(rawMedia: string | IRawMedia | File): IMediaType {
     let filename = ""
 
     switch (typeof rawMedia) {
@@ -203,12 +203,12 @@ export default class UserMedia implements IUserMedia {
         }
 
         if (rawMedia.type && rawMedia.type.includes('/')) {
-          return rawMedia.type.split('/')[0]
+          return rawMedia.type.split('/')[0] as IMediaType
         }
 
         // regular media import
         if (rawMedia.type) {
-          return rawMedia.type
+          return rawMedia.type as IMediaType
         }
 
         // fallback
