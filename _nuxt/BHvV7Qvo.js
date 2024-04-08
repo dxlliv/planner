@@ -1,0 +1,1 @@
+import{_ as o}from"./BNCagIqf.js";import{V as e}from"./CyfJ1GE1.js";import{Q as t,R as c,l as r}from"./CBwktElb.js";import"./DrbBc9Um.js";import"./5f2PxWIW.js";const n={},s={class:"cursor-pointer media__icon-edit"};function _(i,a){return t(),c("span",s,[r(e,{icon:"mdi-pencil",size:"20px"})])}const u=o(n,[["render",_]]);export{u as default};
