@@ -71,28 +71,34 @@ export default class UserImporter {
           rawMediaForImport.file = this.getMediaFile(media)
         }
       } else if (media.type) {
+        if (!media.type) {
+          media.type = UserMedia.detectMediaType(media)
+        }
+
+        rawMediaForImport.type = media.type
+
         switch (media.type) {
           case "image":
-            rawMediaForImport.type = media.type
             if (media.name && !media.name?.startsWith("http")) {
               rawMediaForImport.file = this.getMediaFile(media.name)
             }
             break
           case "video":
-            rawMediaForImport.type = media.type
-            if (media.name && !media.name?.startsWith("http")) {
+            if (media.name && !media.name.startsWith("http")) {
               rawMediaForImport.file = this.getMediaFile(media.name)
             }
+
             if (
               media.cover &&
               typeof media.cover === "string" &&
               !media.cover?.startsWith("http")
             ) {
-              rawMediaForImport.file = this.getMediaFile(media.cover)
+              rawMediaForImport.cover = {
+                file: this.getMediaFile(media.cover)
+              }
             }
             break
           case "album":
-            rawMediaForImport.type = media.type
             rawMediaForImport.list = []
 
             if (Array.isArray(media.list)) {
@@ -116,16 +122,18 @@ export default class UserImporter {
             if (
               media.cover &&
               typeof media.cover === "string" &&
-              !media.cover?.startsWith("http")
+              !media.cover.startsWith("http")
             ) {
-              rawMediaForImport.cover = this.getMediaFile(media.cover)
+              rawMediaForImport.cover = {
+                file: this.getMediaFile(media.cover)
+              }
             }
             break
         }
       }
 
       // @ts-ignore
-      this.rawUser.media.posts[i] = rawMediaForImport
+      this.rawUser.media[collection][i] = rawMediaForImport
 
       i++
     }
