@@ -1,10 +1,25 @@
 <script setup lang="ts">
-const userImportStore = useUserImportStore()
+import UserImporter from "£/lib/user/userImporter.class"
+
+const userStore = useUserStore()
+const userStorageStore = useUserStorageStore()
 
 const emit = defineEmits(["openCreateProfileDialog"])
 
-function onProfileImportFromFolder() {
-  userImportStore.importFromDirectory("instagram")
+async function onProfileImportFromFolder() {
+  const userImporter = new UserImporter('instagram')
+
+  const rawUser: IRawUser = await userImporter.importFromDirectory()
+
+  const user = await userStore.loadUser(rawUser)
+
+  await user.loadUserClient()
+  await user.save()
+
+  userStorageStore.addUserToStorageIndex({
+    username: user.raw.profile.username,
+    platform: 'instagram'
+  })
 }
 </script>
 

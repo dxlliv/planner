@@ -24,7 +24,7 @@ export default class UserLoader {
   static async loadUsersFromStorage() {
     const userStorageStore = useUserStorageStore()
 
-    for await (const tempUserReference of userStorageStore.users) {
+    for (const tempUserReference of userStorageStore.users) {
       await UserLoader.restoreUserFromStorage(tempUserReference)
     }
   }

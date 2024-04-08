@@ -148,7 +148,6 @@ export default class User implements IUser {
    */
   public async remove() {
     if (this.isRemovable || this.hasLocalChanges) {
-      // todo check should rename username to id?
       useUserStorageStore().removeUserFromStorageIndex({
         platform: this.platform,
         username: this.id
@@ -164,14 +163,13 @@ export default class User implements IUser {
    */
   public async reset() {
     if (!this.isRemovable || this.hasLocalChanges) {
-      // todo check should rename username to id?
       useUserStorageStore().removeUserFromStorageIndex({
+        username: this.id,
         platform: this.platform,
-        username: this.id
       })
       await this.storage.remove()
 
-      // original raw user config is not reachable from here (refactor needed) todo
+      // original raw user config is not reachable from here
       location.reload()
     }
   }

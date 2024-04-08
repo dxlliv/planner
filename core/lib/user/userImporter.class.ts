@@ -1,96 +1,94 @@
-import {
-  openUserDirectory,
-  parseUserProfileConfigFromFileDirectory,
-} from "../utils/utilsUserProfile"
-import UserMedia from "../lib/user/userMedia.class"
+import { openUserDirectory, parseUserProfileConfigFromFileDirectory } from "£/utils/utilsUserProfile"
 import { parseUserPlatform } from "£/utils/utilsPlatform"
+import UserMedia from "£/lib/user/userMedia.class"
+import { usePlatformStructure } from "£/composables/composablePlatformStructure"
 
-export const useUserImportStore = defineStore("user/import", () => {
-  const userStore = useUserStore()
-  const userStorageStore = useUserStorageStore()
+export default class UserImporter {
+  private directory: any = null
+  private platform: IUserPlatform = "" as IUserPlatform
 
-  const directory: Ref<any> = ref(null)
-  const rawUser: Ref<IRawUser> = ref({} as IRawUser)
+  private rawUser: IRawUser = {} as IRawUser
+
+  constructor(platform: IUserPlatform) {
+    this.platform = platform
+  }
 
   /**
    * Import user from directory
-   *
-   * @param platform
    */
-  async function importFromDirectory(platform: IUserPlatform) {
-    directory.value = await openUserDirectory()
+  public async importFromDirectory(): Promise<IRawUser> {
+    const platformStructure = usePlatformStructure(this.platform)
+
+    this.directory = await openUserDirectory()
 
     // convert config.json file to raw user object
-    rawUser.value = await parseUserProfileConfigFromFileDirectory(
-      configFile.value,
+    this.rawUser = await parseUserProfileConfigFromFileDirectory(
+      this.configFile
     )
 
     // assign avatar File to avatar raw config
-    rawUser.value.profile.avatar = getAvatarFile()
+    this.rawUser.profile.avatar = this.avatarFile
 
     // assign each media file to each string
-    if (rawUser.value.media.posts) importRawMediaFilesByCollection("posts")
-    if (rawUser.value.media.reels) importRawMediaFilesByCollection("reels")
+    for (const collectionKey of Object.keys(platformStructure.user.media.collections) as IMediaCollection[]) {
+      if (this.rawUser.media.hasOwnProperty(collectionKey)) {
+        this.importRawMediaFilesByCollection(collectionKey)
+      }
+    }
 
-    rawUser.value.origin = 'storage'
-    rawUser.value.platform = parseUserPlatform(rawUser.value)
+    this.rawUser.origin = 'storage'
+    this.rawUser.platform = parseUserPlatform(this.rawUser)
 
-    // initialize user
-    const user = await userStore.loadUser(rawUser.value)
-
-    userStorageStore.addUserToStorageIndex({
-      username: user.raw.profile.username,
-      platform
-    })
+    return this.rawUser
   }
 
   /**
    * Get user config from directory files
    */
-  const configFile: ComputedRef<Blob> = computed(() => {
-    return directory.value.find(
+  get configFile(): Blob {
+    return this.directory.find(
       (file: FileSystemFileEntry) => file.name === "config.json",
     )
-  })
+  }
 
   /**
    * Generate raw user from directory files
    *
    * @param collection
    */
-  function importRawMediaFilesByCollection(collection: IMediaCollection) {
+  private importRawMediaFilesByCollection(collection: IMediaCollection) {
     let i = 0
     let rawMediaForImport: IRawMedia = {}
     let rawMediaAlbumItem: IRawMedia = {}
 
-    for (const media of rawUser.value.media[collection] as string|IRawMedia[]) {
+    for (const media of this.rawUser.media[collection] as string|IRawMedia[]) {
       rawMediaForImport = {}
 
       if (typeof media === "string") {
         rawMediaForImport.type = UserMedia.detectMediaType(media)
 
         if (!media.startsWith("http")) {
-          rawMediaForImport.file = getMediaFile(media)
+          rawMediaForImport.file = this.getMediaFile(media)
         }
       } else if (media.type) {
         switch (media.type) {
           case "image":
             rawMediaForImport.type = media.type
             if (media.name && !media.name?.startsWith("http")) {
-              rawMediaForImport.file = getMediaFile(media.name)
+              rawMediaForImport.file = this.getMediaFile(media.name)
             }
             break
           case "video":
             rawMediaForImport.type = media.type
             if (media.name && !media.name?.startsWith("http")) {
-              rawMediaForImport.file = getMediaFile(media.name)
+              rawMediaForImport.file = this.getMediaFile(media.name)
             }
             if (
               media.cover &&
               typeof media.cover === "string" &&
               !media.cover?.startsWith("http")
             ) {
-              rawMediaForImport.file = getMediaFile(media.cover)
+              rawMediaForImport.file = this.getMediaFile(media.cover)
             }
             break
           case "album":
@@ -99,15 +97,14 @@ export const useUserImportStore = defineStore("user/import", () => {
 
             if (Array.isArray(media.list)) {
               for (const mediaAlbumItem of media.list as string|IRawMedia[]) {
-                console.log('SI VA ALBUM', mediaAlbumItem)
                 rawMediaAlbumItem = {}
 
                 if (typeof mediaAlbumItem === "string") {
                   rawMediaAlbumItem.type = UserMedia.detectMediaType(mediaAlbumItem)
-                  rawMediaAlbumItem.file = getMediaFile(mediaAlbumItem)
+                  rawMediaAlbumItem.file = this.getMediaFile(mediaAlbumItem)
                 } else if (mediaAlbumItem.name) {
                   rawMediaAlbumItem.type = mediaAlbumItem.type
-                  rawMediaAlbumItem.file = getMediaFile(mediaAlbumItem.name)
+                  rawMediaAlbumItem.file = this.getMediaFile(mediaAlbumItem.name)
                 }
 
                 // @ts-expect-error type error due to rawMedia strings support
@@ -121,14 +118,14 @@ export const useUserImportStore = defineStore("user/import", () => {
               typeof media.cover === "string" &&
               !media.cover?.startsWith("http")
             ) {
-              rawMediaForImport.cover = getMediaFile(media.cover)
+              rawMediaForImport.cover = this.getMediaFile(media.cover)
             }
             break
         }
       }
 
       // @ts-ignore
-      rawUser.value.media.posts[i] = rawMediaForImport
+      this.rawUser.media.posts[i] = rawMediaForImport
 
       i++
     }
@@ -137,22 +134,18 @@ export const useUserImportStore = defineStore("user/import", () => {
   /**
    * Get avatar file from imported user files
    */
-  function getAvatarFile() {
-    return directory.value.find(
-      (file: FileSystemFileEntry) => file.name === rawUser.value.profile.avatar,
+  get avatarFile() {
+    return this.directory.find(
+      (file: FileSystemFileEntry) => file.name === this.rawUser.profile.avatar,
     )
   }
 
   /**
    * Get media file from imported user files
    */
-  function getMediaFile(filename: string) {
-    return directory.value.find(
+  private getMediaFile(filename: string) {
+    return this.directory.find(
       (file: FileSystemFileEntry) => file.name === filename,
     )
   }
-
-  return {
-    importFromDirectory,
-  }
-})
+}

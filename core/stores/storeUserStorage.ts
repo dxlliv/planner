@@ -23,8 +23,12 @@ export const useUserStorageStore = defineStore(
      * @param tempUserReference
      */
     function removeUserFromStorageIndex(tempUserReference: ITempUserReference) {
-      if (users.value.includes(tempUserReference)) {
-        users.value = users.value.filter((uTR) => uTR !== tempUserReference)
+      const index = users.value.findIndex(uTR => {
+        return uTR.username === tempUserReference.username && uTR.platform === tempUserReference.platform
+      })
+
+      if (index > -1) {
+        users.value.splice(index, 1)
       }
     }
 
