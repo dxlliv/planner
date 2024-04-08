@@ -140,12 +140,12 @@ useSeoMeta({
         </p>
 
         <code>
-          <span>npx create-plxnner planner</span><AppIntroCmdButton>
+          <span>npx create-plxnner planner</span><AppButton>
             <v-icon
               icon="mdi-content-copy"
               @click="onCopyCreatePlannerCode"
             />
-          </AppIntroCmdButton>
+          </AppButton>
         </code>
 
         <br />

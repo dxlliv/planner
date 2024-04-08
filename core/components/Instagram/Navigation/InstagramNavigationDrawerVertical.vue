@@ -97,7 +97,7 @@ const emit = defineEmits(["create", "export"])
         </template>
 
         <v-dialog :max-width="700" activator="parent">
-          <MainDeluxe />
+          <AppDeluxe />
         </v-dialog>
       </v-list-item>
 

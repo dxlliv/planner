@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 <template>
   <Swiper class="ig-index" direction="vertical">
     <SwiperSlide>
-      <MainIntro />
+      <AppIntroduction />
     </SwiperSlide>
     <SwiperSlide>
       <UserSelectorList />

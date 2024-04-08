@@ -10,18 +10,14 @@ const userMediaCreate = ref(false)
 </script>
 
 <template>
-  <client-only>
-
-    <InstagramNavigationDrawerVertical
-      class="hidden-xs"
-      :user="user"
-      @create="userMediaCreate = true"
-    />
-
-  </client-only>
+  <InstagramNavigationDrawerVertical
+    v-if="$vuetify.display.mdAndUp"
+    :user="user"
+    @create="userMediaCreate = true"
+  />
 
   <InstagramNavigationDrawerHorizontal
-    class="hidden-sm-and-up"
+    v-else
     :user="user"
     @create="userMediaCreate = true"
   />

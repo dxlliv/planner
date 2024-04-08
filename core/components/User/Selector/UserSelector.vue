@@ -56,7 +56,10 @@ function onProfileContextMenu(e) {
         @contextmenu="onProfileContextMenu"
       >
         <suspense>
-          <UserSelectorAvatar :avatar="user.profile.avatar">
+          <UserSelectorAvatar
+            :key="user.profile.avatar"
+            :avatar="user.profile.avatar"
+          >
             <template #inner>
               <UserSelectorBadgeChanges v-if="user.hasLocalChanges || user.hasUnsavedChanges" />
             </template>

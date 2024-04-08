@@ -34,7 +34,7 @@
       :text="$t('common.documentation')"
     />
 
-    <v-btn
+    <AppButton
       border
       icon
       class="ml-n9"
@@ -42,15 +42,7 @@
       title="Instagram Planner"
     >
       <v-icon icon="mdi-shimmer" />
-
-      <!--
-      <v-tooltip
-        location="right"
-        activator="parent"
-        :text="$t('common.support')"
-      />
-      -->
-    </v-btn>
+    </AppButton>
 
   </v-card>
 </template>
@@ -91,3 +83,5 @@
   }
 }
 </style>
+<script setup lang="ts">
+</script>
