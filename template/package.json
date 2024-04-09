@@ -12,7 +12,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "plxnner": "^0.0.3",
+    "plxnner": "^0.0.4",
     "typescript": "^5.3.3"
   }
 }
