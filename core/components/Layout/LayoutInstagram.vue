@@ -34,18 +34,12 @@ defineProps<{
     color: inherit;
   }
 
-  :deep(.ig-profile-page__header__inner) {
-    a {
-      color: #00376b;
-    }
+  :deep(.ig-profile-page__header__website) {
+    color: #00376b;
   }
+}
 
-  &.v-theme--dark {
-    :deep(.ig-profile-page__header__inner) {
-      a {
-        color: white;
-      }
-    }
-  }
+:global(.v-application.v-theme--dark .ig-profile-page__header__website) {
+  color: white;
 }
 </style>
