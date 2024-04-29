@@ -2,8 +2,21 @@ export const useExtraStore = defineStore(
   "extra",
   () => {
     const options: Ref<any> = ref({
+      appBar: false,
       guides: false,
     })
+
+    /**
+     * Toggle plxnner nav
+     */
+    function toggleAppBar() {
+      options.value.appBar = !options.value.appBar
+
+      // add body class for extra v-application padding
+      document.body.classList[options.value.appBar ? "add" : "remove"](
+        "app-bar--enabled",
+      )
+    }
 
     /**
      * Toggle ruler/guides tor media alignment
@@ -18,6 +31,7 @@ export const useExtraStore = defineStore(
     }
 
     return {
+      toggleAppBar,
       toggleGuides,
       options,
     }
