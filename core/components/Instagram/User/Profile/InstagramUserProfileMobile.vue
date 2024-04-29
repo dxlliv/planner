@@ -38,7 +38,7 @@ defineProps<{
 <style scoped lang="scss">
 .ig-profile-page__header {
   text-align: left;
-  border-bottom: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+  border-bottom: var(--plx-border);
 
   .ig-profile__header__username {
     display: inline;

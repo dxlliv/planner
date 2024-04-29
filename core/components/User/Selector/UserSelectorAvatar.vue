@@ -46,7 +46,7 @@ watch(
 
 <style scoped lang="scss">
 .ig-profile-avatar {
-  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+  border: var(--plx-border);
 
   &__container {
     :deep(.v-avatar) {
