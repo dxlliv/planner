@@ -24,6 +24,7 @@ body.tool-guides--enabled {
   .ig-navigation-drawer {
     top: 36px !important;
     left: 36px !important;
+    height: calc(100dvh - 36px) !important;
   }
 }
 
@@ -43,7 +44,7 @@ body.tool-guides--enabled {
       vertical-align: top;
     }
     &.scena-guides-horizontal {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 36px;
       height: 36px;

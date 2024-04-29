@@ -4,6 +4,7 @@ const props = defineProps<{
 }>()
 
 const {t} = useI18n()
+const extraStore = useExtraStore()
 
 function onUnsavedChanges(e: Event) {
   if (props.user.hasUnsavedChanges) {
@@ -28,6 +29,10 @@ onBeforeRouteLeave((e) => {
   <v-layout>
     <slot />
   </v-layout>
+
+  <client-only v-if="extraStore.options.appBar">
+    <AppBar />
+  </client-only>
 </template>
 
 <style scoped lang="scss">

@@ -18,6 +18,9 @@ onMounted(() => {
       return false
     }
 
+    if (String.fromCharCode(e.keyCode) === "B") {
+      extraStore.toggleAppBar()
+    }
     if (String.fromCharCode(e.keyCode) === "R") {
       extraStore.toggleGuides()
     }

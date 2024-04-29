@@ -3,8 +3,6 @@ import { createResolver } from "@nuxt/kit";
 const { resolve } = createResolver(import.meta.url);
 
 export default defineNuxtConfig({
-  devtools: { enabled: true },
-  ssr: true,
   alias: {
     "~": resolve(__dirname, "."),
     "@": resolve(__dirname, "./src")
@@ -16,5 +14,11 @@ export default defineNuxtConfig({
     head: {
       title: "Planner",
     }
-  }
+  },
+  ssr: false,
+  experimental: {
+    typedPages: false,
+    sharedPrerenderData: false,
+  },
+  devtools: { enabled: false },
 });

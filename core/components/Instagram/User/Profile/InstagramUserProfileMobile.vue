@@ -18,7 +18,7 @@ defineProps<{
       />
     </div>
 
-    <div class="mb-8">
+    <div class="mb-8 pa-sm-2">
       <v-row>
         <v-col cols="3" class="ig-profile-page__header__avatar text-left">
           <InstagramUserProfileAvatarEditor :size="72" :user="user" />
@@ -29,7 +29,7 @@ defineProps<{
       </v-row>
     </div>
 
-    <div class="my-4 mt-n6">
+    <div class="my-4 mt-n6 pa-sm-2">
       <InstagramUserProfileInner :user="user" />
     </div>
   </div>
@@ -38,7 +38,7 @@ defineProps<{
 <style scoped lang="scss">
 .ig-profile-page__header {
   text-align: left;
-  border-bottom: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+  border-bottom: var(--plx-border);
 
   .ig-profile__header__username {
     display: inline;

@@ -40,7 +40,7 @@ watch(() => props.avatar.file, async value => {
 
 <style scoped lang="scss">
 .ig-profile-avatar {
-  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+  border: var(--plx-border);
 
   :deep(.v-avatar) {
     overflow: inherit;

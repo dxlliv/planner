@@ -5,7 +5,7 @@ const props = withDefaults(
     size?: number
   }>(),
   {
-    size: 120,
+    size: 150,
   },
 )
 
