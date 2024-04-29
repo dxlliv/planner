@@ -15,6 +15,7 @@ export default defineNuxtConfig({
       title: "Planner",
     }
   },
+  ssr: false,
   experimental: {
     typedPages: false,
     sharedPrerenderData: false,
