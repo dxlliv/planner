@@ -64,7 +64,7 @@ const userMediaCreate = ref(false)
 
   .v-list-item--nav {
     cursor: pointer;
-    margin-bottom: 8px !important;
+    margin-top: 8px !important;
     min-height: 50px !important;
 
     --v-activated-opacity: 0.05;

@@ -17,7 +17,7 @@ const emit = defineEmits(["create", "export"])
     :width="244"
     :rail-width="72"
   >
-    <v-list class="pt-7 pb-3 hidden-md-and-down">
+    <v-list class="pt-7 pb-1 hidden-md-and-down">
       <v-list-item>
         <Logo />
       </v-list-item>
@@ -128,7 +128,7 @@ const emit = defineEmits(["create", "export"])
 
   .v-list-item--nav {
     cursor: pointer;
-    margin-bottom: 8px !important;
+    margin-top: 8px !important;
     min-height: 50px !important;
 
     --v-activated-opacity: 0.05;
