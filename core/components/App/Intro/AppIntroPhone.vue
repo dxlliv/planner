@@ -1,25 +1,5 @@
 <script setup>
-const date = ref(null)
 
-onMounted(() => {
-  date.value = new Date()
-
-  setInterval(() => date.value = new Date(), 500)
-})
-
-const time = computed(() => {
-  if (!date.value) {
-    return ''
-  }
-
-  let hours = date.value.getHours()
-  if (hours.toString().length === 1) hours = `0${hours}`
-
-  let minutes = date.value.getMinutes()
-  if (minutes.toString().length === 1) minutes = `0${minutes}`
-
-  return `${hours}:${minutes}`
-})
 </script>
 
 <template>
@@ -30,7 +10,7 @@ const time = computed(() => {
       <v-row>
         <v-col class="text-left">
           <b />
-          <span v-text="time" />
+          <AppDateTime />
         </v-col>
         <v-col class="text-right">
           <div class="dxlliv-phone__nav__signal">
