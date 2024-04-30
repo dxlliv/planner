@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as i,a2 as n}from"./chunks/framework.CAo6mQGM.js";const c=JSON.parse('{"title":"Images","description":"","frontmatter":{},"headers":[],"relativePath":"media-image.md","filePath":"media-image.md"}'),e={name:"media-image.md"},t=n("",6),l=[t];function p(h,k,r,o,d,E){return i(),a("div",null,l)}const m=s(e,[["render",p]]);export{c as __pageData,m as default};
