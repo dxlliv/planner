@@ -96,7 +96,6 @@ function onMediaContextMenu(e) {
     right: 10px;
     color: white;
     font-size: 14px;
-    pointer-events: none;
 
     a {
       color: white;
