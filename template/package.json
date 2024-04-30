@@ -1,6 +1,6 @@
 {
   "name": "my-plxnner",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "private": true,
   "homepage": "https://dxlliv.github.io/planner/",
   "author": {
@@ -12,7 +12,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "plxnner": "^0.0.4",
+    "plxnner": "^0.0.5",
     "typescript": "^5.4.5"
   }
 }
