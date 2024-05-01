@@ -6,10 +6,10 @@
 
 <p align="center">An elegant multifunctional open-source planner for your Instagram profile</blockquote>
 <p align="center">
-  <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/v/release/dxlliv/planner" /></a>
-  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?color=blue" /></a>
-  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/dm/plxnner.svg?color=333333" /></a>
-  <a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/planner-demo-333333" /></a>
+  <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/v/release/dxlliv/planner?colorA=28CF8D&colorB=212121" /></a>
+  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?colorA=28CF8D&colorB=212121" /></a>
+  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/dm/plxnner.svg?colorA=353535&colorB=212121" /></a>
+  <a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/demo-212121?label=planner&labelColor=353535" /></a>
   <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/stars/dxlliv/planner?style=social" /></a>
 </p>
 
