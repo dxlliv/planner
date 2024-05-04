@@ -16,6 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/dxlliv/planner.git"
   },
+  "license": "GPL-3.0-only",
   "author": {
     "name": "Diego Villa",
     "url": "https://github.com/dxlliv"
