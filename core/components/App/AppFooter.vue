@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <footer class="ig-footer text-overline py-3">
     <a href="https://github.com/dxlliv/planner">
-      <GithubIcon width="14" height="23" class="mr-1" />
+      <GitHubIcon width="14" height="23" class="mr-1" />
       Planner
     </a>
 

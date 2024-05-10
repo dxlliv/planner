@@ -52,7 +52,7 @@ useSeoMeta({
             size="large" icon variant="plain" rounded :min-width="32"
             :href="plannerConfig.project.links.source"
           >
-            <GithubIcon fill="grey" />
+            <GitHubIcon fill="grey" />
           </v-btn>
 
         </v-col>
