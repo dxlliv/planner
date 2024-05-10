@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { VFab } from 'vuetify/labs/VFab'
-
 const plannerConfig = usePlannerConfig()
 
 defineProps<{

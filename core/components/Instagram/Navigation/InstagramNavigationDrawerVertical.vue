@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { VFab } from "vuetify/lib/labs/VFab"
-
 defineProps<{
   user: IUser
 }>()
