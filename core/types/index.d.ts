@@ -33,12 +33,17 @@ interface IRawUser {
 interface IRawUserProfile {
   name: string
   username: string
-  website?: string
+  website?: URL | IRawUserProfileWebsite
   biography?: string
   avatar: string | File
   verified?: boolean
   followers_count: number
   follows_count: number
+}
+
+interface IRawUserProfileWebsite {
+  label: string
+  href: string
 }
 
 interface IRawUserMedia {
@@ -155,7 +160,7 @@ interface IUserExportedMedia {
 interface IUserProfile {
   username: string
   name: string
-  website: string
+  website: IUserProfileWebsite
   verified?: boolean
   biography?: string
   avatar: any | undefined
@@ -176,7 +181,7 @@ interface IUserProfile {
   setPostsCount(count: number): void
   setFollowersCount(count: number): void
   setFollowsCount(count: number): void
-  setWebsite(website: any): void
+  setWebsite(website: IRawUserProfileWebsite): void
 
   setAvatar(avatar: string | File): Promise<void>
   updateAvatar(avatar: File): Promise<void>
@@ -201,8 +206,8 @@ interface UserAvatar {
 }
 
 type IUserProfileWebsite = null | {
-  href: string
   label: string
+  href: string
 }
 
 type IUserMediaCollections = {

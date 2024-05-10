@@ -7,7 +7,7 @@ export default class UserProfile implements IUserProfile {
 
   public username: string = ""
   public name: string = ""
-  public website: string = ""
+  public website: IUserProfileWebsite = null
   public verified: boolean = false
   public biography: string = ""
   public avatar: any | undefined = undefined
@@ -73,8 +73,28 @@ export default class UserProfile implements IUserProfile {
     this.follows_count = Number(count)
   }
 
-  public setWebsite(website: any) {
-    this.website = website
+  public setWebsite(website: IRawUserProfileWebsite) {
+    switch (typeof website) {
+      case 'object':
+        this.website = {
+          label: website.label,
+          href: website.href,
+        }
+        return
+      case 'string':
+        try {
+          this.website = {
+            label: new URL(website).host,
+            href: website
+          }
+        } catch(e) {
+          console.error(e)
+        }
+        return
+      default:
+        this.website = null
+        return
+    }
   }
 
   public async setAvatar(avatar: string | File) {

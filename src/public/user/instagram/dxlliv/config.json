@@ -2,9 +2,12 @@
   "profile": {
     "name": "Diego Villa",
     "username": "dxlliv",
-    "biography": "Web Designer \u200E \u200E\n\n\uD83E\uDEB4 Digital Perfectionist\n\uD83E\uDD7D Drone Pilot @dxvfpv\n\n",
+    "biography": "Web Designer \u200E \u200E\n\n\uD83E\uDEB4 Digital Pixel Perfectionist\n\uD83C\uDF00 I write code on WebStorm\n\n",
     "avatar": "avatar.jpg",
-    "website": "https://dxlliv.dev",
+    "website": {
+      "label": "dxlliv.dev",
+      "href": "https://dxlliv.github.io"
+    },
     "followers_count": 50,
     "follows_count": 50
   },
