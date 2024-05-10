@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GithubIcon } from "vue3-simple-icons"
+import { GitHubIcon } from "vue3-simple-icons"
 
 defineProps<{
   docs?: boolean

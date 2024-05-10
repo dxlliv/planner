@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const plannerConfig = usePlannerConfig()
 
-import {GithubIcon,PatreonIcon,BitcoinIcon,EthereumIcon,IotaIcon} from "vue3-simple-icons"
+import {GitHubIcon,PatreonIcon,BitcoinIcon,EthereumIcon,IotaIcon} from "vue3-simple-icons"
 
 const {t} = useI18n()
 const { copy } = useClipboard()
