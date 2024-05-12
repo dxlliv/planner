@@ -26,6 +26,8 @@ export const useUserStore = defineStore("user", () => {
       username: user.raw.profile.username,
     })
 
+    await user.loadUserClient()
+
     return true
   }
 
