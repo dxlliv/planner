@@ -32,7 +32,7 @@ export default class InstagramUserProfile extends UserProfile implements IInstag
       verified: this.verified,
       followers_count: this.followers_count,
       follows_count: this.follows_count,
-      website: this.website,
+      website: this.website?.href,
       biography: this.biography,
       avatar,
     })
