@@ -130,6 +130,7 @@ export default class User implements IUser {
       id: this.id,
       profile: exportedProfile,
       media: exportedMedia,
+      platform: this.platform
     }
   }
 

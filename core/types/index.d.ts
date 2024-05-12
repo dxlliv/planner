@@ -151,6 +151,7 @@ interface IUserExported {
   id: string
   profile: any
   media: IUserExportedMedia
+  platform: IUserPlatform
 }
 
 interface IUserExportedMedia {
