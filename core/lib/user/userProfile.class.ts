@@ -76,12 +76,20 @@ export default class UserProfile implements IUserProfile {
   public setWebsite(website: IRawUserProfileWebsite) {
     switch (typeof website) {
       case 'object':
+        if (!website || !website.label || !website.href) {
+          return this.website = null
+        }
+
         this.website = {
           label: website.label,
           href: website.href,
         }
         return
       case 'string':
+        if (!website) {
+          return this.website = null
+        }
+
         try {
           this.website = {
             label: new URL(website).host,
