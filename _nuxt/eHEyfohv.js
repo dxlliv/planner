@@ -1,1 +1,0 @@
-import{V as a}from"./DAvesTPX.js";import{d as r,Q as o,V as p,z as s}from"./D-drnA8r.js";const n=r({__name:"UserEditorFieldTextarea",props:{data:{},variant:{}},setup(l){return(e,t)=>(o(),p(a,s(e.$props,{placeholder:e.data.placeholder,"hide-details":"",spellcheck:"false"}),null,16,["placeholder"]))}});export{n as _};

@@ -1,1 +1,0 @@
-import{V as r}from"./DCxbJ5YZ.js";import{d as a,Q as o,V as l,z as p}from"./D-drnA8r.js";const n=a({__name:"UserEditorFieldUrl",props:{data:{},variant:{}},setup(s){return(e,t)=>(o(),l(r,p(e.$props,{type:"url",placeholder:e.data.placeholder,"hide-details":"",spellcheck:"false"}),null,16,["placeholder"]))}});export{n as _};
