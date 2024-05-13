@@ -8,15 +8,15 @@ const users = computed(() => useUserStore().userList)
   <div class="ig-user-selector-list">
     <Swiper
       :key="users.length"
-      :slides-per-view="1.5"
+      :slides-per-view="1.75"
       :breakpoints="{
-        395: {
+        340: {
           slidesPerView: 2.5,
         },
-        550: {
+        470: {
           slidesPerView: 3.5,
         },
-        700: {
+        600: {
           slidesPerView: 4.5,
         },
         960: {
