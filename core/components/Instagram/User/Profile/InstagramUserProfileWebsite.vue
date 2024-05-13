@@ -20,7 +20,6 @@ defineProps<{
 .ig-profile-page__header__website {
   display: inline-block;
   font-weight: bold;
-  line-height: 24px;
   text-decoration: none;
   word-wrap: break-word;
   white-space: nowrap;
@@ -29,6 +28,10 @@ defineProps<{
 
   .v-icon {
     vertical-align: -1px;
+  }
+
+  @media(max-width: 959px) {
+    font-weight: initial;
   }
 }
 </style>

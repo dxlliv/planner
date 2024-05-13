@@ -29,6 +29,15 @@ const emit = defineEmits(["create", "export"])
       </v-list-item>
 
       <v-list-item
+        :title="$t('instagram.navigation.source')"
+        :href="plannerConfig.project.links.source" target="_blank"
+      >
+        <template #prepend>
+          <InstagramIconMagnify />
+        </template>
+      </v-list-item>
+
+      <v-list-item
         :title="$t('instagram.navigation.explore')"
         :href="plannerConfig.project.links.docs" target="_blank"
       >

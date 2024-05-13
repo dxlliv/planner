@@ -52,9 +52,11 @@ export default {
     },
     profile: {
       header: {
-        posts: 'posts',
-        followers: 'follower',
-        following: 'segui già',
+        posts: 'Post',
+        followers: 'Follower',
+        following: 'Seguiti',
+        nowFollowing: 'Following',
+        message: 'Messaggio',
       },
       post: {
         comment: {

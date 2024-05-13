@@ -35,8 +35,6 @@ function onFieldBlur() {
 <style scoped lang="scss">
 .ig-profile-page__header__name {
   font-weight: bold;
-  font-size: 14px;
-  line-height: 24px;
   word-wrap: break-word;
 }
 </style>

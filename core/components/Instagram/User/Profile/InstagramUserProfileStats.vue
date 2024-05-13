@@ -21,6 +21,7 @@ defineProps<{
 <style scoped lang="scss">
 .ig-profile-page__header__stats {
   list-style-type: none;
+  text-transform: lowercase;
 
   li {
     display: inline-block;
@@ -32,32 +33,27 @@ defineProps<{
 
     @media (max-width: 640px) {
       margin-right: 24px;
-      font-size: 16px;
     }
   }
 
   &--mobile {
     padding: 12px 0;
-    font-size: 14px;
     text-align: center;
     width: 100%;
 
     li {
       width: 33.3%;
       margin: 0;
+      font-size: 13px;
 
       b {
         display: block;
+        font-size: 16px;
       }
 
       span {
         display: block;
-        margin-top: -1px;
-        font-size: 12px;
-
-        &:first-letter {
-          text-transform: uppercase;
-        }
+        margin-top: -4px;
       }
     }
   }

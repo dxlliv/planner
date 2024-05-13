@@ -37,6 +37,7 @@ export default {
   instagram: {
     navigation: {
       home: 'Home',
+      source: 'Source',
       explore: 'Explore',
       support: 'Support',
       create: 'Create',
@@ -46,9 +47,11 @@ export default {
     },
     profile: {
       header: {
-        posts: 'posts',
-        followers: 'followers',
-        following: 'following',
+        posts: 'Posts',
+        followers: 'Followers',
+        following: 'Following',
+        nowFollowing: 'Following',
+        message: 'Message',
       },
       post: {
         comment: {

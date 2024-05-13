@@ -47,7 +47,7 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
           {{ tab.icon }}
         </v-icon>
 
-        {{ tab.label }}
+        <span v-text="tab.label" />
       </div>
     </template>
   </div>
@@ -71,17 +71,34 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
 
     &--active {
       color: rgb(var(--v-theme-on-background));
-      border-top: 1px solid rgb(var(--v-theme-on-background));
       margin-top: -1px;
+
+      @media(min-width: 960px) {
+        border-top: 1px solid rgb(var(--v-theme-on-background));
+      }
+
+      @media(max-width: 959px) {
+        border-bottom: 1px solid rgb(var(--v-theme-on-background));
+        width: 33.3%;
+      }
     }
 
     .v-icon {
-      margin-right: 2px;
+      margin-right: 4px;
       vertical-align: -1px;
     }
 
-    @media(max-width: 599px) {
+    @media(max-width: 959px) {
       padding: 12px 25px;
+
+      .v-icon {
+        font-size: 25px !important;
+        vertical-align: middle;
+      }
+
+      span {
+        display: none;
+      }
     }
   }
 }
