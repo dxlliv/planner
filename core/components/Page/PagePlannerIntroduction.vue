@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const plannerConfig = usePlannerConfig()
 
-import {GitHubIcon,PatreonIcon,BitcoinIcon,EthereumIcon,IotaIcon} from "vue3-simple-icons"
+import {GitHubIcon,BitcoinIcon,EthereumIcon,DogecoinIcon,NanoIcon,IotaIcon} from "vue3-simple-icons"
 
 const {t} = useI18n()
 const { copy } = useClipboard()
@@ -16,6 +16,10 @@ function onCopyEthereumAddress() {
 
 function onCopyIotaAddress() {
   window.prompt('IOTA address', 'iota1qrrw547h94z4xp6sxgjhvl0xfzf7kl0pvx3yp5uguyehsxdy8cvx7wfka0m')
+}
+
+function onCopyNanoAddress() {
+  window.prompt('NANO address', 'nano_1ketzx1gsyjqc5fozmd63975z5m786sbctxkhs88qhcqwyrdurrifrjji8hr')
 }
 
 function onCopyCreatePlannerCode() {
@@ -96,7 +100,8 @@ useSeoMeta({
                 <v-list-item rounded class="pb-0">
                   <BitcoinIcon class="cursor-pointer mr-3" @click="onCopyBitcoinAddress" />
                   <EthereumIcon class="cursor-pointer mr-3" @click="onCopyEthereumAddress" />
-                  <IotaIcon class="cursor-pointer" @click="onCopyIotaAddress" />
+                  <IotaIcon class="cursor-pointer mr-3" @click="onCopyIotaAddress" />
+                  <NanoIcon class="cursor-pointer" @click="onCopyNanoAddress" />
                 </v-list-item>
               </v-list>
             </v-card>
