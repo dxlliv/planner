@@ -23,6 +23,7 @@ const animated = ref(false)
 
   z-index: 1;
   position: relative;
+  background: none !important;
 
   &__inner {
     z-index: 1;

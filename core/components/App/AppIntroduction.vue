@@ -34,7 +34,7 @@
       :text="$t('common.documentation')"
     />
 
-    <AppButton
+    <v-btn
       border
       icon
       class="ml-n9"
@@ -42,7 +42,7 @@
       title="Instagram Planner"
     >
       <v-icon icon="mdi-shimmer" />
-    </AppButton>
+    </v-btn>
 
   </v-card>
 </template>
