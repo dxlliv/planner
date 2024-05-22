@@ -15,7 +15,7 @@ hero:
       text: Host Your Plxnner
       link: /getting-started
   image:
-    src: https://dxlliv.github.io/planner/logo.svg
+    src: https://dxlliv.github.io/planner/logo.webp
     alt: dxlliv/planner
 
 features:
