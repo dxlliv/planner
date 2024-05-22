@@ -40,27 +40,13 @@ useSeoMeta({
   <AppBackground />
 
   <v-container class="text-center py-16">
-    <div class="mx-auto" style="max-width: 400px;">
-      <v-row>
-        <v-col :cols="12" sm="auto" class="flex-grow-sm-1">
+    <div class="mx-auto text-center">
 
-          <h1 class="text-h4 font-weight-bold">Instagram Planner</h1>
-          <p class="text-grey text-subtitle-1">
-            Plan your Instagram profile like a pro
-          </p>
+      <h1 class="text-h4 font-weight-bold">Instagram Planner</h1>
+      <p class="text-grey text-subtitle-1">
+        Plan your Instagram profile like a pro
+      </p>
 
-        </v-col>
-        <v-col :cols="12" sm="auto" class="flex-grow-sm-0 mt-n4 mt-sm-0" align-self="center">
-
-          <v-btn
-            size="large" icon variant="plain" rounded :min-width="32"
-            :href="plannerConfig.project.links.source"
-          >
-            <GitHubIcon fill="grey" />
-          </v-btn>
-
-        </v-col>
-      </v-row>
     </div>
 
     <p class="mt-14">
@@ -71,10 +57,12 @@ useSeoMeta({
     <v-row class="my-12">
       <v-col :cols="12" :md="4">
         <v-card
-          :border="$vuetify.display.mdAndUp" flat rounded class="cursor-pointer"
+          :border="$vuetify.display.mdAndUp" flat rounded
+          class="v-card--link cursor-pointer"
           title="Support the developer"
           subtitle="ensure things are delivered"
         >
+          <span class="v-card__overlay" />
           Planner is free to use and open-source,<br class="hidden-md-and-down" />
           a little support will be greatly appreciated.
 
@@ -156,11 +144,18 @@ useSeoMeta({
         <br />
 
         <p class="mt-6 mb-6">
-          These planners run entirely in your browser and what you upload is stored locally. <br class="hidden-md-and-down" />
-          It's also safe to use our demo; just create a new profile and start organizing.
+          This project runs entirely in the browser and what you upload is stored locally. <br class="hidden-md-and-down" />
+          You can use the demo safely, just create a new profile and start organizing.
         </p>
 
         <v-btn color="primary" size="large" to="/">Try Plxnner</v-btn>
+        <v-btn
+          size="large" icon flat variant="plain" class="ml-3"
+          :width="44" :height="44"
+          :href="plannerConfig.project.links.source"
+        >
+          <GitHubIcon fill="black" size="20px" style="margin-top: -3px;" />
+        </v-btn>
 
       </v-col>
       <v-col :cols="12" :md="5" class="mt-12 mt-md-0">
