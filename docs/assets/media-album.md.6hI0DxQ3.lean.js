@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a1 as n}from"./chunks/framework.DCwrmHnV.js";const u=JSON.parse('{"title":"Albums","description":"","frontmatter":{},"headers":[],"relativePath":"media-album.md","filePath":"media-album.md"}'),t={name:"media-album.md"},l=n("",5),p=[l];function e(h,k,E,r,o,d){return a(),i("div",null,p)}const c=s(t,[["render",e]]);export{u as __pageData,c as default};
