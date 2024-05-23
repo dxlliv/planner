@@ -97,6 +97,7 @@ const emit = defineEmits(["create", "export"])
         </v-dialog>
       </v-list-item>
 
+      <!--
       <v-list-item
         v-if="isPlannerFeatureEnabled('requestDeluxe')"
         title="Deluxe"
@@ -109,7 +110,7 @@ const emit = defineEmits(["create", "export"])
           <AppDeluxe />
         </v-dialog>
       </v-list-item>
-
+      -->
     </v-list>
   </v-navigation-drawer>
 </template>
