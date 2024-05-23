@@ -62,7 +62,7 @@ module.exports = {
     ],
 
     footer: {
-      copyright: 'dxlliv/planner'
+      copyright: 'dxlliv/planner is released under the GPL-3.0 license'
     },
   },
 }
