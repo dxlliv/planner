@@ -2,6 +2,8 @@
 defineProps<{
   user: IUser
 }>()
+
+const extraStore = useExtraStore()
 </script>
 
 <template>
@@ -10,8 +12,8 @@ defineProps<{
 
     <div id="drawer-editor" />
 
-    <v-main>
-      <v-sheet color="transparent" class="ig-page">
+    <v-main class="ig-main">
+      <v-sheet color="transparent" class="ig-page pb-8 pb-md-16">
         <v-container class="px-1 py-sm-auto py-0">
 
           <slot />
@@ -19,12 +21,17 @@ defineProps<{
         </v-container>
       </v-sheet>
 
-      <AppFooter class="hidden-sm-and-down mt-1" />
+      <AppFooter v-if="!extraStore.options.appBar" class="hidden-sm-and-down" />
+
     </v-main>
   </Layout>
 </template>
 
 <style scoped lang="scss">
+.ig-main {
+  padding-bottom: 0;
+}
+
 .ig-page {
   width: 960px;
   max-width: 100%;

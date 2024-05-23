@@ -30,7 +30,7 @@ onBeforeRouteLeave((e) => {
     <slot />
   </v-layout>
 
-  <client-only v-if="extraStore.options.appBar">
+  <client-only v-if="extraStore.options.appBar && $vuetify.display.mdAndUp">
     <AppBar />
   </client-only>
 </template>

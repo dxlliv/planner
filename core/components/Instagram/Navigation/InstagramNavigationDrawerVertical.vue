@@ -3,7 +3,9 @@ defineProps<{
   user: IUser
 }>()
 
+const extraStore = useExtraStore()
 const plannerConfig = usePlannerConfig()
+
 const emit = defineEmits(["create", "export"])
 </script>
 
@@ -15,7 +17,7 @@ const emit = defineEmits(["create", "export"])
     :width="244"
     :rail-width="72"
   >
-    <v-list class="pt-7 pb-1 hidden-md-and-down">
+    <v-list v-if="!extraStore.options.appBar" class="pt-7 pb-1 hidden-md-and-down">
       <v-list-item>
         <Logo />
       </v-list-item>

@@ -5,17 +5,15 @@ defineProps<{
 </script>
 
 <template>
-  <v-card flat class="py-0">
+  <v-btn class="py-0" size="large" flat>
     <template #prepend>
       <InstagramUserAvatar
         :avatar="user.profile.avatar"
         :size="20" class="mr-1"
       />
     </template>
-    <template #item>
       {{ user.profile.username }}
-    </template>
-  </v-card>
+  </v-btn>
 </template>
 
 <style scoped lang="scss">

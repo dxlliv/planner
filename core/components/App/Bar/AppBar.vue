@@ -9,16 +9,18 @@ onBeforeMount(() => {
 
 <template>
   <v-app-bar
-    :height="height"
     :class="{'pl-9': extraStore.options.guides}"
+    flat
   >
     <v-row no-gutters>
-      <v-col class="flex-grow-1 text-left">
+      <v-col class="flex-grow-0 text-left" align-self="center" style="min-width: 244px;">
+        <Logo class="mx-4 mt-1" />
+      </v-col>
+      <v-col class="flex-grow-1 text-left" align-self="center">
 
-        <v-breadcrumbs class="ma-0 pa-2">
+        <v-breadcrumbs class="ma-0 px-2">
           <v-breadcrumbs-item
             v-for="user of userStore.userList"
-            class="pa-0"
             :to="user.route"
           >
 
@@ -28,8 +30,9 @@ onBeforeMount(() => {
         </v-breadcrumbs>
 
       </v-col>
-      <v-col class="text-right px-4" align-self="center">
+      <v-col class="text-right text-overline px-4" align-self="center">
 
+        <AppLanguageSwitcher class="text-grey" />
         <AppDateTime class="ms-2" />
 
       </v-col>
