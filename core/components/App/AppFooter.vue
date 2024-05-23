@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <footer class="ig-footer text-overline py-3">
+  <footer class="ig-footer text-grey text-overline py-3">
     <a href="https://github.com/dxlliv/planner">
       <GitHubIcon width="14" height="23" class="mr-1" />
       Planner
@@ -29,7 +29,6 @@ defineProps<{
 .ig-footer {
   text-align: center;
   font-size: 13px;
-  color: #8e8e8e;
 
   a {
     color: #333;

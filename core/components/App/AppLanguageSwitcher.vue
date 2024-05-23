@@ -11,41 +11,31 @@ function onLanguageSelect(languageSelected: any) {
 </script>
 
 <template>
-  <div class="planner-language-switcher d-inline-block">
-    <v-select
-      variant="plain" hide-details menu-icon=""
-      :items="appConfig.i18n.availableLocales"
-      item-title="name"
-      item-value="code"
-      :menu-props="{ closeOnContentClick: true }"
-      v-model="language"
-    >
-      <template v-slot:item="{ item }">
-        <div
-          class="cursor-pointer text-overline text-center px-4"
-          v-text="item.title"
-          @click="onLanguageSelect(item)"
-        />
-      </template>
-      <template v-slot:selection="{ item }">
-        <div
-          class="text-overline"
-          v-text="item.title"
-        />
-      </template>
-    </v-select>
-  </div>
+  <span class="planner-language-switcher cursor-pointer">
+    {{language}}
+
+    <v-menu activator="parent" :offset="[12,6]">
+      <v-card flat :elevation="0" border>
+        <v-list flat>
+          <v-list-item
+            v-for="language of appConfig.i18n.availableLocales"
+            class="py-0" :min-height="16"
+          >
+            <div
+              class="cursor-pointer text-overline text-center"
+              v-text="language.name"
+              @click="onLanguageSelect(language)"
+            />
+          </v-list-item>
+        </v-list>
+      </v-card>
+    </v-menu>
+
+  </span>
 </template>
 
 <style lang="scss">
 .planner-language-switcher {
-  .v-field__input {
-    padding: 0;
-    margin-top: 1px;
-  }
 
-  * {
-    height: 30px;
-  }
 }
 </style>
