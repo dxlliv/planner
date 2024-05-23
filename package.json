@@ -22,7 +22,7 @@
   "dependencies": {
     "@babel/types": "^7.24.5",
     "@fontsource/cookie": "^5.0.19",
-    "@fontsource/quicksand": "^5.0.18",
+    "@fontsource/inter": "^5.0.18",
     "@mdi/font": "^7.4.47",
     "@nuxt/eslint-config": "^0.3.12",
     "@nuxtjs/i18n": "^8.3.1",
