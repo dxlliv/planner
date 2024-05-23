@@ -1,26 +1,10 @@
 <script setup lang="ts">
 const plannerConfig = usePlannerConfig()
 
-import {GitHubIcon,BitcoinIcon,EthereumIcon,DogecoinIcon,NanoIcon,IotaIcon} from "vue3-simple-icons"
+import {GitHubIcon} from "vue3-simple-icons"
 
 const {t} = useI18n()
 const { copy } = useClipboard()
-
-function onCopyBitcoinAddress() {
-  window.prompt('Bitcoin address', 'bc1pfg9u4dawenprmexr5hd67085kypr3xml0apujvrehy94e9klaqvqxxg2kj')
-}
-
-function onCopyEthereumAddress() {
-  window.prompt('Ethereum address', '0x734f3766A1BB8f74a8B7B2bE91Fe78Fe81C275EC')
-}
-
-function onCopyIotaAddress() {
-  window.prompt('IOTA address', 'iota1qrrw547h94z4xp6sxgjhvl0xfzf7kl0pvx3yp5uguyehsxdy8cvx7wfka0m')
-}
-
-function onCopyNanoAddress() {
-  window.prompt('NANO address', 'nano_1ketzx1gsyjqc5fozmd63975z5m786sbctxkhs88qhcqwyrdurrifrjji8hr')
-}
 
 function onCopyCreatePlannerCode() {
   copy('npx create-plxnner planner')
@@ -39,12 +23,12 @@ useSeoMeta({
 <template>
   <AppBackground />
 
-  <v-container class="text-center py-16">
+  <v-container class="text-center px-8 py-16">
     <div class="mx-auto text-center">
 
       <h1 class="text-h4 font-weight-bold">Instagram Planner</h1>
       <p class="text-grey text-subtitle-1">
-        Plan your Instagram profile like a pro
+        Plan your Instagram<br class="hidden-sm-and-up" /> profiles like a pro
       </p>
 
     </div>
@@ -64,36 +48,9 @@ useSeoMeta({
         >
           <span class="v-card__overlay" />
           Planner is free to use and open-source,<br class="hidden-md-and-down" />
-          a little support will be greatly appreciated.
+          a little support will be greatly appreciated
 
-          <v-dialog max-width="400" activator="parent">
-            <v-card rounded flat>
-              <v-list>
-                <v-list-item
-                  rounded class="pt-2 pb-3 mb-2"
-                  logo="/icons/serveunsitoweb.webp"
-                  title="Patreon"
-                  subtitle="become a patron"
-                  href="https://patreon.com/dxlliv"
-                />
-                <v-list-item
-                  rounded class="pt-2 pb-3 mb-2"
-                  logo="/favicon.ico"
-                  title="PayPal"
-                  subtitle="buy me a coffee"
-                  href="https://paypal.me/dxlliv"
-                />
-              </v-list>
-              <v-list class="py-0 mb-n2">
-                <v-list-item rounded class="pb-0">
-                  <BitcoinIcon class="cursor-pointer mr-3" @click="onCopyBitcoinAddress" />
-                  <EthereumIcon class="cursor-pointer mr-3" @click="onCopyEthereumAddress" />
-                  <IotaIcon class="cursor-pointer mr-3" @click="onCopyIotaAddress" />
-                  <NanoIcon class="cursor-pointer" @click="onCopyNanoAddress" />
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-dialog>
+          <AppSupportDialog />
         </v-card>
       </v-col>
       <v-col :cols="12" :md="4">
@@ -104,7 +61,7 @@ useSeoMeta({
           href="https://dxlliv.dev/#planner"
         >
           Maximize creativity and stand out with<br class="hidden-md-and-down" />
-          something that is truly *your* social page.
+          something that is truly *your* social page
         </v-card>
       </v-col>
       <v-col :cols="12" :md="4">
@@ -115,7 +72,7 @@ useSeoMeta({
           href="https://dxlliv.github.io/planner/docs/"
         >
           Discover how to set up your own instance,<br class="hidden-md-and-down" />
-          configure your profile and enable features.
+          configure your profile and enable features
         </v-card>
       </v-col>
     </v-row>
@@ -124,7 +81,7 @@ useSeoMeta({
       <v-col :cols="12" :md="7" align-self="center">
 
         <p class="mt-8 mb-2">
-          <h6 class="text-h6">Dive into dxlliv/planner</h6>
+          <h6 class="text-h6 text-grey">Dive into dxlliv/planner</h6>
         </p>
 
         <p class="mb-6">
@@ -154,7 +111,7 @@ useSeoMeta({
           :width="44" :height="44"
           :href="plannerConfig.project.links.source"
         >
-          <GitHubIcon fill="black" size="20px" style="margin-top: -3px;" />
+          <GitHubIcon size="20px" style="margin-top: -3px;" />
         </v-btn>
 
       </v-col>
@@ -170,24 +127,37 @@ useSeoMeta({
 </template>
 
 <style scoped lang="scss">
-$fontPlanner: "Quicksand", sans-serif;
+.v-container {
+  font-family:  "Inter", sans-serif;
+}
 
-p {
-  font-family: $fontPlanner;
+h1 {
+  line-height: 64px;
+  letter-spacing: -.4px !important;
+  font-size: 56px !important;
+
+  & + p {
+    line-height: 36px;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+  }
 }
 
 .v-card {
   padding: 22px 24px 36px 24px;
-  font-family: $fontPlanner;
+  border-color: #e9e9e9;
+  font-size: 14px;
+  line-height: 24px;
 
   &--rounded {
     border-radius: 16px;
   }
 
   :deep(.v-card-title) {
-    font-size: 20px;
-    padding-bottom: 2px;
-    margin-bottom: 8px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 0;
   }
 
   :deep(.v-card-subtitle) {
@@ -197,7 +167,7 @@ p {
 }
 
 code {
-  border: 1px solid rgba(88, 88, 88, 0.25);
+  border: 1px solid rgba(160, 160, 160, 0.33);
   padding: 13px 0 16px 16px;
   border-radius: 8px;
   user-select: text;

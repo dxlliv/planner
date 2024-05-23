@@ -48,10 +48,12 @@ const emit = defineEmits(["create", "export"])
         </template>
       </v-list-item>
 
-      <v-list-item :title="$t('instagram.navigation.support')" to="/instagram">
+      <v-list-item :title="$t('instagram.navigation.support')">
         <template #prepend>
           <InstagramIconHeart />
         </template>
+
+        <AppSupportDialog />
       </v-list-item>
 
       <v-list-item :title="$t('instagram.navigation.create')" @click="emit('create')">
