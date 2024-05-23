@@ -36,7 +36,7 @@
 
     <v-btn
       border
-      icon
+      icon flat
       class="ml-n9"
       to="/instagram"
       title="Instagram Planner"

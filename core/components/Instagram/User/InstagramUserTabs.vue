@@ -92,7 +92,7 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
       padding: 12px 25px;
 
       .v-icon {
-        font-size: 25px !important;
+        font-size: 20px !important;
         vertical-align: middle;
       }
 

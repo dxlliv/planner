@@ -32,7 +32,7 @@ defineProps<{
       </v-row>
     </div>
 
-    <div class="my-4 mt-n6 pa-sm-2">
+    <div class="mt-4 mb-2 mt-n6 pa-sm-2">
       <InstagramUserProfileInner :user="user" />
     </div>
 

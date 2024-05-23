@@ -102,7 +102,6 @@ function onMediaContextMenu(e) {
     }
 
     @media (max-width: 480px) {
-      top: 10px;
       right: 12px;
       font-size: 3dvw;
     }
