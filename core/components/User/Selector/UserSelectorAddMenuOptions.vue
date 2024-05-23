@@ -28,7 +28,6 @@ async function onProfileImportFromFolder() {
     <v-list-item @click="emit('openCreateProfileDialog')">
       <v-list-item-title v-text="$t('common.actions.createProfile')" />
     </v-list-item>
-    <v-divider />
     <v-list-item @click="onProfileImportFromFolder">
       <v-list-item-title v-text="$t('common.actions.importProfile')" />
     </v-list-item>

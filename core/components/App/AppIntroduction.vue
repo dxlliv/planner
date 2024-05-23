@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { GitHubIcon } from "vue3-simple-icons"
+
+const plannerConfig = usePlannerConfig()
+</script>
+
 <template>
   <v-card
     flat color="transparent"
@@ -38,10 +44,10 @@
       border
       icon flat
       class="ml-n9"
-      to="/instagram"
+      :href="plannerConfig.project.links.source"
       title="Instagram Planner"
     >
-      <v-icon icon="mdi-shimmer" />
+      <GitHubIcon :size="20" />
     </v-btn>
 
   </v-card>
@@ -83,5 +89,3 @@
   }
 }
 </style>
-<script setup lang="ts">
-</script>
