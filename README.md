@@ -98,6 +98,6 @@ npm install && npm run dev
 
 ## Deluxe Planner
 
-If you're interested in featuring a self-hosted profile on your website to showcase your best media in a memorable way, or you if you're looking for a personalized planner with extra features to enhance your creativity and seamlessy publish your work on Instagram, request a tailor made planner today.
+If you're looking for a personalized planner with some extra features, look no further.
 
-**[Request a Deluxe Planner](https://dxlliv.dev/#planner)**
+**[Request a Deluxe Planner](https://dxlliv.github.io/#planner)**
