@@ -1,1 +1,0 @@
-import{_ as o}from"./toyJVOOD.js";import{V as t}from"./SHXT7idA.js";import{O as r,R as e}from"./CK7iLweF.js";import"./brZaqqJc.js";import"./Jenkb-9w.js";const c={};function n(_,a){return r(),e(t,{icon:"mdi-database-export-outline"})}const d=o(c,[["render",n]]);export{d as default};
