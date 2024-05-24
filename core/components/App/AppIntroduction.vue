@@ -8,7 +8,7 @@ const plannerConfig = usePlannerConfig()
   <v-card
     flat color="transparent"
     max-width="400"
-    class="ig-intro mx-auto pa-8 pb-10 text-center"
+    class="ig-intro mx-auto text-center"
   >
 
     <Logo size="large" class="mt-n3" />

@@ -108,7 +108,7 @@ function onCloseContextMenu() {
 <style lang="scss">
 .ig-media__context-menu {
   .v-list-item {
-    min-height: 24px;
+    min-height: 28px;
     padding-top: 2px;
     padding-bottom: 2px;
 

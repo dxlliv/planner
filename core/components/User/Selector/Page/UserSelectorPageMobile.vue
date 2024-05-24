@@ -24,12 +24,12 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 
 .swiper {
   width: 100%;
-  max-height: 100vh;
+  max-height: 100dvh;
 
   &-slide {
     display: grid;
     align-items: center;
-    max-height: 100vh;
+    max-height: 100dvh;
   }
 }
 </style>

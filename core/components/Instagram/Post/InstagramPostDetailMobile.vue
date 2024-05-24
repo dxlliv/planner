@@ -34,7 +34,6 @@ function onDateUpdate(value) {
     <div class="ig-media-detail__interaction">
       <InstagramPostFooter>
 
-
         <template v-slot:date>
           <InstagramPostDate
             :date="media.date"

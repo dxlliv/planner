@@ -31,7 +31,7 @@ function onDateUpdate(value) {
 
           <InstagramPostHeader :user="user">
 
-            <v-btn icon>
+            <v-btn icon rounded flat>
               <v-icon icon="mdi-dots-vertical" />
               <InstagramMediaContextMenu
                 activator="parent"

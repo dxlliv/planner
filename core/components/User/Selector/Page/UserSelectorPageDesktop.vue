@@ -3,12 +3,12 @@
 </script>
 
 <template>
-  <v-container class="ig-index text-center py-16 align-content-center">
+  <v-container class="ig-index text-center align-content-center">
     <v-row>
       <v-col :cols="12" :md="7" align-self="center" class="pr-md-8">
-        <UserSelectorList />
+        <UserSelectorList class="mb-n3" />
       </v-col>
-      <v-col :cols="12" :md="5" class="mt-10 mt-md-0">
+      <v-col :cols="12" :md="5" class="mt-10 mt-md-0" align-self="center">
         <AppIntroduction />
         <!--
         <MainFooter class="pb-0" />
