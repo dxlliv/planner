@@ -32,6 +32,10 @@ defineProps<{
 
   @media(max-width: 959px) {
     font-weight: initial;
+
+    .v-icon {
+      vertical-align: -2px;
+    }
   }
 }
 </style>
