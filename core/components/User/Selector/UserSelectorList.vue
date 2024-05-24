@@ -37,5 +37,12 @@ const users = computed(() => useUserStore().userList)
 <style scoped lang="scss">
 .ig-user-selector-list {
   max-width: 100vw;
+  height: 100dvh;
+
+  .swiper {
+    display: grid;
+    align-content: center;
+    height: 100dvh;
+  }
 }
 </style>

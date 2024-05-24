@@ -20,14 +20,14 @@ const plannerConfig = usePlannerConfig()
     <h2 class="hidden-sm-and-down">Plan your Instagram grid like a pro</h2>
     -->
 
-    <p class="mt-3 text-grey-darken-1">
+    <p class="mt-3">
       <a href="https://github.com/dxlliv/planner">
         dxlliv/planner
       </a> <span v-html="$t('pages.userSelect.intro.p1')" />
     </p>
 
     <p
-      class="mt-3 text-grey-darken-1"
+      class="mt-3"
       v-html="$t('pages.userSelect.intro.p2')"
     />
 

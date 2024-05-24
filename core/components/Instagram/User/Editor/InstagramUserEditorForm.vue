@@ -106,6 +106,7 @@ onMounted(() => {
               color="primary"
             />
             <v-btn
+              class="ml-3"
               :text="$t('common.actions.close')"
               @click="emit('close')"
             />
