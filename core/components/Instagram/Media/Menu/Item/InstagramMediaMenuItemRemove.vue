@@ -19,5 +19,3 @@ async function onMediaRemove() {
     />
   </v-list-item>
 </template>
-
-<style scoped lang="scss"></style>

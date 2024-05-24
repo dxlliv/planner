@@ -15,13 +15,16 @@ function onDateUpdate(value) {
     <InstagramPostHeader :user="user">
       <v-btn icon>
         <v-icon icon="mdi-dots-vertical" />
-        <InstagramMediaContextMenu
+        <InstagramMediaMenuContext
           activator="parent"
-          :media="media"
           :width="240"
           :offset="[8, 0]"
           location="bottom right"
-        />
+        >
+          <InstagramMediaMenu
+            :media="media"
+          />
+        </InstagramMediaMenuContext>
       </v-btn>
     </InstagramPostHeader>
 

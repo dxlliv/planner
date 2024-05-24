@@ -27,11 +27,21 @@ function onMediaContextMenu(e) {
       <slot />
     </suspense>
 
-    <InstagramMediaContextMenu
-      v-if="contextMenu"
-      v-model="contextMenuValue"
-      :media="media"
-    />
+    <template v-if="contextMenu">
+
+      <template v-if="$vuetify.display.mdAndUp">
+        <InstagramMediaMenuContext v-model="contextMenuValue">
+          <InstagramMediaMenu class="ma-3 py-2" :media="media" />
+        </InstagramMediaMenuContext>
+      </template>
+
+      <template v-else>
+        <InstagramMediaMenuBottomSheet>
+          <InstagramMediaMenu :media="media" />
+        </InstagramMediaMenuBottomSheet>
+      </template>
+
+    </template>
 
     <div class="ig-media__type">
       <v-icon v-if="type === 'album'">mdi-checkbox-multiple-blank</v-icon>

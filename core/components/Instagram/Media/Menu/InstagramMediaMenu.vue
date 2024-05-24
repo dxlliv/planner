@@ -11,114 +11,91 @@ function onCloseContextMenu() {
 </script>
 
 <template>
-  <v-menu
-    content-class="ig-media__context-menu text-left"
-    transition="slide-y-transition"
-    attach
-    :close-on-content-click="false"
-    @click.stop
-  >
-    <!-- clone to reel -->
-    <v-list density="compact" class="ma-3 py-2">
-      <InstagramMediaContextMenuGroup
+  <v-list density="compact" class="ig-media-menu">
+      <InstagramMediaMenuGroup
         v-if="['video', 'iframe'].includes(media.type) && !media.isReel"
         title="Reel"
       >
-        <InstagramMediaContextMenuItemCloneToReel
+        <InstagramMediaMenuItemCloneToReel
           v-if="['video', 'iframe'].includes(media.type) && !media.isReel"
           :media="media"
           @close="onCloseContextMenu"
         />
-      </InstagramMediaContextMenuGroup>
+      </InstagramMediaMenuGroup>
 
       <!-- album actions -->
-      <InstagramMediaContextMenuGroup
+      <InstagramMediaMenuGroup
         v-if="'list' in media"
         title="Album"
       >
-        <InstagramMediaContextMenuItemAddToAlbum
+        <InstagramMediaMenuItemAddToAlbum
           :media="media"
           @close="onCloseContextMenu"
         />
-        <InstagramMediaContextMenuItemReplaceMediaAlbum
+        <InstagramMediaMenuItemReplaceMediaAlbum
           :media="media"
           @close="onCloseContextMenu"
         />
-        <InstagramMediaContextMenuItemRemoveFromAlbum
+        <InstagramMediaMenuItemRemoveFromAlbum
           v-if="media.list.length > 1"
           :media="media"
           @close="onCloseContextMenu"
         />
-      </InstagramMediaContextMenuGroup>
+      </InstagramMediaMenuGroup>
 
       <!-- video/iframe actions -->
-      <InstagramMediaContextMenuGroup
+      <InstagramMediaMenuGroup
         v-if="'cover' in media"
         title="Cover"
       >
-        <InstagramMediaContextMenuItemAddCover
+        <InstagramMediaMenuItemAddCover
           v-if="!media.cover"
           :media="media"
           @close="onCloseContextMenu"
         />
-        <InstagramMediaContextMenuItemReplaceCover
+        <InstagramMediaMenuItemReplaceCover
           v-if="media.cover"
           :media="media"
           @close="onCloseContextMenu"
         />
-        <InstagramMediaContextMenuItemRemoveCover
+        <InstagramMediaMenuItemRemoveCover
           v-if="media.cover"
           :media="media"
           @close="onCloseContextMenu"
         />
-      </InstagramMediaContextMenuGroup>
+      </InstagramMediaMenuGroup>
 
       <!-- image/video actions -->
-      <InstagramMediaContextMenuGroup
+      <InstagramMediaMenuGroup
         v-if="['image', 'video'].includes(media.type)"
         title="Media"
       >
-        <InstagramMediaContextMenuItemReplaceMedia
+        <InstagramMediaMenuItemReplaceMedia
           :media="media"
           @close="onCloseContextMenu"
         />
-        <InstagramMediaContextMenuItemConvertToAlbum
+        <InstagramMediaMenuItemConvertToAlbum
           v-if="!media.isReel"
           :media="media"
           @close="onCloseContextMenu"
         />
-        <InstagramMediaContextMenuItemConvertToIframe
+        <InstagramMediaMenuItemConvertToIframe
           v-if="media.type === 'image'"
           :media="media"
           @close="onCloseContextMenu"
         />
-      </InstagramMediaContextMenuGroup>
+      </InstagramMediaMenuGroup>
 
       <v-divider class="my-1" />
 
       <!-- media delete -->
-      <InstagramMediaContextMenuItemRemove
+      <InstagramMediaMenuItemRemove
         :media="media"
         @close="onCloseContextMenu"
       />
     </v-list>
-  </v-menu>
 </template>
 
 <style lang="scss">
-.ig-media__context-menu {
-  .v-list-item {
-    min-height: 28px;
-    padding-top: 2px;
-    padding-bottom: 2px;
 
-    &:first-child {
-      margin-top: 0 !important;
-    }
-
-    &-title {
-      font-size: 13px;
-    }
-  }
-}
 </style>
