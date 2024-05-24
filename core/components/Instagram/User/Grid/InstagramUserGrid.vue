@@ -36,7 +36,7 @@ function onSortEnd() {
         v-model:list="props.user.media.collections[collection]"
         axis="xy"
         class="v-row"
-        use-drag-handle
+        :use-drag-handle="$vuetify.display.mdAndUp"
         :press-delay="100"
         :press-threshold="100"
         @sortStart="onSortStart"
