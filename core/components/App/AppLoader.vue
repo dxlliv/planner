@@ -2,6 +2,7 @@
 import { useTheme } from "vuetify";
 import UserLoader from "£/lib/user/userLoader.class"
 
+const appStore = useAppStore()
 const userStore = useUserStore()
 const themeStore = useThemeStore()
 const theme = useTheme()
@@ -19,6 +20,14 @@ onBeforeMount(async () => {
   for (const user of userStore.userList) {
     await user.loadUserClient()
   }
+})
+
+onMounted(() => {
+  document.addEventListener('touchmove', (e) => {
+    if (appStore.disableScroll) {
+      e.preventDefault()
+    }
+  }, { passive: false });
 })
 </script>
 

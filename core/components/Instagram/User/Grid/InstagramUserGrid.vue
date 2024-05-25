@@ -6,6 +6,7 @@ const props = defineProps<{
   collection: string
 }>()
 
+const appStore = useAppStore()
 const gridListRef: Ref<HTMLElement | undefined> = ref()
 const dragging = ref<boolean>(false)
 
@@ -15,10 +16,12 @@ function onListUpdated() {
 
 function onSortStart() {
   dragging.value = true
+  appStore.setDisableScroll(true)
 }
 
 function onSortEnd() {
   dragging.value = false
+  appStore.setDisableScroll(false)
 }
 </script>
 
