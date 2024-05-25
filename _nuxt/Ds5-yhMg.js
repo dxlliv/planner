@@ -1,1 +1,0 @@
-import{V as a}from"./Ctw0i5PX.js";import{d as r,O as o,R as p,z as s}from"./CK7iLweF.js";const n=r({__name:"UserEditorFieldTextarea",props:{data:{},variant:{}},setup(l){return(e,t)=>(o(),p(a,s(e.$props,{placeholder:e.data.placeholder,"hide-details":"",spellcheck:"false"}),null,16,["placeholder"]))}});export{n as _};
