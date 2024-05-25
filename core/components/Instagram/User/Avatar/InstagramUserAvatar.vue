@@ -35,6 +35,7 @@ watch(() => props.avatar.file, async value => {
 <template>
   <v-avatar :size="size" class="ig-profile-avatar">
     <v-img v-if="src" :src="src" cover />
+    <v-icon v-else icon="mdi-account" :size="size / 2.5" />
   </v-avatar>
 </template>
 
