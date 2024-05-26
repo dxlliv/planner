@@ -102,10 +102,6 @@ watch(
 
     <template v-slot:actions>
 
-      <client-only>
-        <MediaImageEditor v-if="media.isEditing" :media="media" />
-      </client-only>
-
       <slot name="actions" />
 
     </template>

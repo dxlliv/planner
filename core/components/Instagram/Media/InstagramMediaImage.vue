@@ -24,15 +24,6 @@ async function onIntersect(isIntersecting) {
 
     <template v-slot:actions>
 
-      <client-only>
-        <MediaActionEdit
-          v-if="isPlannerFeatureEnabled('mediaEditor')"
-          @click.stop="media.setEditing(true)"
-        />
-
-        <MediaImageEditor v-if="media.isEditing" :media="media" />
-      </client-only>
-
       <slot name="actions" />
 
     </template>

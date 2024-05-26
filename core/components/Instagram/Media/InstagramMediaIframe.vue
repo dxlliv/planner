@@ -30,13 +30,6 @@ function onMediaClick(e) {
 
     <template v-slot:actions>
 
-      <client-only>
-        <MediaActionEdit
-          v-if="isPlannerFeatureEnabled('mediaEditor')"
-          @click.stop="media.setEditing(true)"
-        />
-      </client-only>
-
       <slot name="actions" />
 
     </template>

@@ -13,7 +13,6 @@ export default {
 
     // media options
     mediaSort: true,
-    mediaEditor: true,
     mediaPage: true,
 
     // deluxe edition
