@@ -40,7 +40,7 @@ function onSortEnd() {
         axis="xy"
         class="v-row"
         :use-drag-handle="$vuetify.display.mdAndUp"
-        :press-delay="100"
+        :press-delay="200"
         :press-threshold="100"
         @sortStart="onSortStart"
         @sortEnd="onSortEnd"
