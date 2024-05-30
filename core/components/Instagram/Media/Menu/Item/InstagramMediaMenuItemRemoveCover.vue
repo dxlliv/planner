@@ -16,7 +16,7 @@ function onMediaCoverRemove() {
 <template>
   <v-list-item @click="onMediaCoverRemove">
     <v-list-item-title
-      v-text="$t('instagram.profile.menu.removeCover')"
+      v-text="$t('instagram.profile.media.menu.removeCover')"
     />
   </v-list-item>
 </template>

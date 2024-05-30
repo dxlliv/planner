@@ -61,6 +61,18 @@ export default {
           title: "Créer une nouvelle publication",
           subtitle: "Faites glisser les photos et vidéos ici",
           action: "Sélectionner depuis l'ordinateur"
+        },
+        menu: {
+          addCover: "Ajouter une couverture",
+          addToAlbum: "Ajouter des médias",
+          cloneToReel: "Cloner dans le reel",
+          convertToAlbum: "Convertir en album",
+          convertToIframe: "Convertir en iframe",
+          remove: "Supprimer",
+          removeCover: "Supprimer la couverture",
+          removeFromAlbum: "Supprimer des médias",
+          replaceCover: "Remplacer la couverture",
+          replaceMedia: "Remplacer les médias",
         }
       },
       export: {
@@ -78,18 +90,6 @@ export default {
         },
         description: "Vous aimez ce projet et souhaitez vous démarquer en offrant<br />une version spéciale et personnalisée de votre profil Instagram,<br />mettant en avant le meilleur de ce que vous avez créé?",
         action: "Demander un planificateur Deluxe",
-      },
-      menu: {
-        addCover: "Ajouter une couverture",
-        addToAlbum: "Ajouter des médias",
-        cloneToReel: "Cloner dans le reel",
-        convertToAlbum: "Convertir en album",
-        convertToIframe: "Convertir en iframe",
-        remove: "Supprimer",
-        removeCover: "Supprimer la couverture",
-        removeFromAlbum: "Supprimer des médias",
-        replaceCover: "Remplacer la couverture",
-        replaceMedia: "Remplacer les médias",
       }
     }
   },

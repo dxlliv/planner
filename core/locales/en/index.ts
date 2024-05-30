@@ -64,6 +64,18 @@ export default {
           title: "Create new post",
           subtitle: "Drag photos and videos here",
           action: "Select from computer"
+        },
+        menu: {
+          addCover: "Add cover",
+          addToAlbum: "Add media",
+          cloneToReel: "Clone to reel",
+          convertToAlbum: "Convert to album",
+          convertToIframe: "Convert to iframe",
+          remove: "Remove",
+          removeCover: "Remove cover",
+          removeFromAlbum: "Remove media",
+          replaceCover: "Replace cover",
+          replaceMedia: "Replace media",
         }
       },
       export: {
@@ -83,16 +95,7 @@ export default {
         action: "Request a Deluxe Planner",
       },
       menu: {
-        addCover: "Add cover",
-        addToAlbum: "Add media",
-        cloneToReel: "Clone to reel",
-        convertToAlbum: "Convert to album",
-        convertToIframe: "Convert to iframe",
-        remove: "Remove",
-        removeCover: "Remove cover",
-        removeFromAlbum: "Remove media",
-        replaceCover: "Replace cover",
-        replaceMedia: "Replace media",
+        changeTheme: 'Change theme'
       }
     }
   },

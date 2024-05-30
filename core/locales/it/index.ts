@@ -69,6 +69,18 @@ export default {
           title: "Crea un nuovo post",
           subtitle: "Trascina foto e video qui",
           action: "Seleziona dal computer"
+        },
+        menu: {
+          addCover: "Aggiungi cover",
+          addToAlbum: "Aggiungi media",
+          cloneToReel: "Clona in reel",
+          convertToAlbum: "Converti in album",
+          convertToIframe: "Converti in iframe",
+          remove: "Rimuovi",
+          removeCover: "Rimuovi cover",
+          removeFromAlbum: "Rimuovi media",
+          replaceCover: "Sostituisci cover",
+          replaceMedia: "Sostituisci media",
         }
       },
       export: {
@@ -86,18 +98,6 @@ export default {
         },
         description: "Ti piace questo progetto e vorresti distinguerti offrendo<br />una versione speciale e personalizzata del tuo Instagram<br />per mostrare sul tuo sito web il meglio che hai creato?",
         action: "Richiedi un Deluxe Planner",
-      },
-      menu: {
-        addCover: "Aggiungi cover",
-        addToAlbum: "Aggiungi media",
-        cloneToReel: "Clona in reel",
-        convertToAlbum: "Converti in album",
-        convertToIframe: "Converti in iframe",
-        remove: "Rimuovi",
-        removeCover: "Rimuovi cover",
-        removeFromAlbum: "Rimuovi media",
-        replaceCover: "Sostituisci cover",
-        replaceMedia: "Sostituisci media",
       }
     }
   },

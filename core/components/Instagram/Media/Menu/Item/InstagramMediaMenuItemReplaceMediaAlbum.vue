@@ -25,7 +25,7 @@ onChange((files: null | File[]) => {
 <template>
   <v-list-item @click="open">
     <v-list-item-title
-      v-text="$t('instagram.profile.menu.replaceMedia')"
+      v-text="$t('instagram.profile.media.menu.replaceMedia')"
     />
   </v-list-item>
 </template>
