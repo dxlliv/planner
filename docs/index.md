@@ -78,6 +78,10 @@ You can use the demo safely, just create a new profile and start organizing.
 .vp-doc.container {
     margin-top: 120px;
     text-align: center;
+
+    @media(max-width: 899px) {
+        display: none;
+    }
 }
 
 .vp-doc.container .language-sh {
