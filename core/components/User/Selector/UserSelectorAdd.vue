@@ -25,7 +25,7 @@
       />
     </UserSelectorAvatar>
 
-    <UserEditorDialog title="Create profile" v-model="createProfileDialog">
+    <UserEditorDialog create v-model="createProfileDialog">
       <InstagramUserEditorForm @close="createProfileDialog = false" />
     </UserEditorDialog>
   </UserSelector>

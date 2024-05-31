@@ -88,7 +88,9 @@ watch(() => props.media.isDetailView, value => {
   max-height: 913px;
 
   @media #{map-get($display-breakpoints, 'xs')} {
+    width: 100%;
     max-width: 100%;
+    margin: 0;
   }
 }
 

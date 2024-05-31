@@ -98,7 +98,7 @@ onMounted(() => {
           </v-col>
         </v-row>
 
-        <v-row>
+        <v-row class="mt-2">
           <v-col>
             <v-btn
               type="submit"

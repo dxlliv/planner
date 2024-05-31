@@ -14,14 +14,14 @@ const contextMenu = reactive({
   y: 0,
 })
 
-const editProfileDialog = ref(false)
+const dialogEditProfile = ref(false)
 
 function onUserOpen() {
   router.push(props.user.route)
 }
 
 function onUserEdit() {
-  editProfileDialog.value = true
+  dialogEditProfile.value = true
 }
 
 function onProfileClick(e) {
@@ -87,10 +87,10 @@ function onProfileContextMenu(e) {
     </template>
     <slot />
 
-    <UserEditorDialog :title="$t('common.actions.editProfile')" v-model="editProfileDialog">
+    <UserEditorDialog edit v-model="dialogEditProfile">
       <InstagramUserEditorForm
         :user="user"
-        @close="editProfileDialog = false"
+        @close="dialogEditProfile = false"
       />
     </UserEditorDialog>
   </div>

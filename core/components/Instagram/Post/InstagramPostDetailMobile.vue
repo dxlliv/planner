@@ -13,8 +13,8 @@ function onDateUpdate(value) {
   <v-card class="ig-media-detail">
 
     <InstagramPostHeader :user="user">
-      <v-btn icon>
-        <v-icon icon="mdi-dots-vertical" />
+      <v-btn icon flat>
+        <v-icon icon="mdi-dots-vertical" size="20" class="mr-n3"/>
         <InstagramMediaMenuContext
           activator="parent"
           :width="240"

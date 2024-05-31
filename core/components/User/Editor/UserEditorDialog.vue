@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  title: string
+  create?: boolean
+  edit?: boolean
 }>()
 
 const emit = defineEmits(["close"])
@@ -12,7 +13,7 @@ const emit = defineEmits(["close"])
     @close="emit('close')"
   >
     <v-card>
-      <v-card-title v-text="title" />
+      <v-card-title v-text="$t(create ? 'common.actions.createProfile' : 'common.actions.editProfile')" />
 
       <v-card-text>
         <slot />

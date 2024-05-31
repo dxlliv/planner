@@ -31,6 +31,7 @@ function onFieldBlur() {
     :class="[
       'ig-profile__header__username',
       { 'font-weight-bold text-subtitle-2': size === 'medium' },
+      { 'font-weight-bold text-subtitle-1': size === 'large' },
     ]"
   >
     <contenteditable
@@ -49,6 +50,10 @@ function onFieldBlur() {
 <style scoped lang="scss">
 .ig-profile__header__username {
   position: relative;
+
+  &.text-subtitle-1 {
+    font-size: 20px !important;
+  }
 
   :deep(a) {
     position: absolute;
