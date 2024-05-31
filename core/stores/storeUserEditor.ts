@@ -38,7 +38,15 @@ export const useUserEditorStore = defineStore("user/editor", () => {
         fieldInitialValue = undefined
       }
 
-      fields[fieldKey] = ref(fieldInitialValue)
+      switch(fieldKey) {
+        case 'website':
+          fields[fieldKey] = ref(fieldInitialValue?.href)
+          break;
+        default:
+          fields[fieldKey] = ref(fieldInitialValue)
+          break;
+      }
+
       fieldsData[fieldKey] = field
       rules[fieldKey] = {}
 
