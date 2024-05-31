@@ -6,19 +6,46 @@ defineProps<{
 
 <template>
   <div class="ig-profile-page__header px-2 px-sm-0">
-    <div class="ig-profile-page__header__top py-4">
-      <router-link to="/" class="hidden-xs">
-        <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px" />
-      </router-link>
+    <div class="ig-profile-page__header__top py-2">
+      <v-row>
+        <v-col class="flex-grow-1" align-self="center">
 
-      <InstagramUserProfileUsername
-        editable
-        :user="user"
-        size="large"
-        class="mb-5"
-      />
+          <router-link to="/" class="hidden-xs">
+            <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px" />
+          </router-link>
 
-      <v-icon icon="mdi-chevron-down" class="mt-n1" :size="21" />
+          <InstagramUserProfileUsername
+              editable
+              :user="user"
+              size="large"
+              class="mb-5"
+          />
+
+          <v-icon icon="mdi-chevron-down" class="mt-n1" :size="21" />
+
+        </v-col>
+        <v-col class="flex-grow-0 px-1 text-right" align-self="center" style="min-width: 120px;">
+
+          <v-btn
+              v-if="user.hasUnsavedChanges" class="mx-n2"
+              flat icon variant="plain" color="primary"
+              @click="user.save()"
+          >
+            <IconSave size="22" style="margin-top: 1px;" />
+          </v-btn>
+
+          <v-btn flat icon variant="plain">
+
+            <v-icon icon="mdi-menu" :size="27" />
+
+            <InstagramUserMenu
+              :user="user"
+            />
+
+          </v-btn>
+
+        </v-col>
+      </v-row>
     </div>
 
     <div class="mb-5 pa-sm-2">
@@ -50,8 +77,7 @@ defineProps<{
 
   .ig-profile__header__username {
     display: inline;
-    font-weight: 600;
-    font-size: 20px;
+    vertical-align: 1px;
   }
 
   &__biography {

@@ -95,7 +95,8 @@ export default {
         action: "Request a Deluxe Planner",
       },
       menu: {
-        changeTheme: 'Change theme'
+        changeTheme: 'Change theme',
+        settings: 'Settings',
       }
     }
   },

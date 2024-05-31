@@ -5,7 +5,7 @@ defineProps<{
   user: IUser
 }>()
 
-const emit = defineEmits(["create", "export"])
+const emit = defineEmits(["create"])
 </script>
 
 <template>
@@ -39,24 +39,6 @@ const emit = defineEmits(["create", "export"])
         </nuxt-link>
       </v-btn>
     </v-bottom-navigation>
-
-    <v-fab
-      v-if="user.hasUnsavedChanges"
-      icon color="primary"
-      absolute rounded
-      @click="user.save()"
-    >
-      <IconSave />
-    </v-fab>
-
-    <v-fab
-      v-if="!user.hasUnsavedChanges && user.hasLocalChanges"
-      icon color="primary"
-      absolute rounded
-      @click="emit('export')"
-    >
-      <IconExport />
-    </v-fab>
   </div>
 </template>
 
