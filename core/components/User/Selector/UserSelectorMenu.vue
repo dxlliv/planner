@@ -1,6 +1,3 @@
-<script setup lang="ts">
-</script>
-
 <template>
   <v-menu
     v-if="$vuetify.display.mdAndUp"
@@ -19,8 +16,8 @@
     v-else
     close-on-content-click
   >
-    <slot />
+    <InstagramMenu>
+      <slot />
+    </InstagramMenu>
   </v-bottom-sheet>
 </template>
-
-<style scoped lang="scss"></style>

@@ -15,7 +15,7 @@ function onProfileReset() {
 </script>
 
 <template>
-  <v-list border :elevation="0">
+  <v-list :elevation="0">
     <v-list-item @click="emit('open')" target="_blank">
       <v-list-item-title v-text="$t('common.actions.openProfile')" />
     </v-list-item>
@@ -50,7 +50,3 @@ function onProfileReset() {
     </template>
   </v-list>
 </template>
-
-<style scoped lang="scss">
-
-</style>
