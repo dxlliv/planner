@@ -131,7 +131,7 @@ onMounted(() => {
   }
 
   .v-field {
-    border-radius: 16px;
+    border-radius: 10px;
     margin-bottom: -2px;
 
     &__input {
