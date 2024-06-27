@@ -11,7 +11,11 @@ defineProps<{
         <v-col class="flex-grow-1" align-self="center">
 
           <router-link to="/" class="hidden-xs">
-            <v-icon icon="mdi-arrow-left" class="mr-4" style="margin-top: -2px" />
+            <v-icon
+              v-if="$vuetify.display.smAndDown"
+              icon="mdi-arrow-left" class="ml-3 mr-2"
+              style="vertical-align: 0"
+            />
           </router-link>
 
           <InstagramUserProfileUsername

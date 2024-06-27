@@ -4,9 +4,9 @@ export const configPlatformStructure = {
       profile: {
         fields: {
           username: {
-            name: "Username",
-            label: "Username",
-            placeholder: "username",
+            name: 'instagram.profile.editor.fields.username.name',
+            label: 'instagram.profile.editor.fields.username.label',
+            placeholder: 'instagram.profile.editor.fields.username.placeholder',
             type: "string",
             validation: {
               required: true,
@@ -18,9 +18,9 @@ export const configPlatformStructure = {
             },
           },
           name: {
-            name: "Name",
-            label: "Name",
-            placeholder: "Name",
+            name: 'instagram.profile.editor.fields.name.name',
+            label: 'instagram.profile.editor.fields.name.label',
+            placeholder: 'instagram.profile.editor.fields.name.placeholder',
             type: "string",
             validation: {
               maxLength: 30,
@@ -30,26 +30,26 @@ export const configPlatformStructure = {
             },
           },
           website: {
-            name: "Website",
-            label: "Website",
-            placeholder: "Website",
+            name: 'instagram.profile.editor.fields.website.name',
+            label: 'instagram.profile.editor.fields.website.label',
+            placeholder: 'instagram.profile.editor.fields.website.placeholder',
             type: "url",
             methods: {
               set: "setWebsite",
             },
           },
           verified: {
-            name: "Verified",
-            placeholder: "Verified",
+            name: 'instagram.profile.editor.fields.verified.name',
+            placeholder: 'instagram.profile.editor.fields.verified.placeholder',
             type: "boolean",
             methods: {
               set: "setVerified",
             },
           },
           biography: {
-            name: "Bio",
-            label: "Bio",
-            placeholder: "Bio",
+            name: 'instagram.profile.editor.fields.biography.name',
+            label: 'instagram.profile.editor.fields.biography.label',
+            placeholder: 'instagram.profile.editor.fields.biography.placeholder',
             type: "text",
             methods: {
               set: "setBiography",
@@ -57,27 +57,27 @@ export const configPlatformStructure = {
             maxlength: 150,
           },
           avatar: {
-            name: "Avatar",
-            label: "Avatar",
-            placeholder: "Avatar",
+            name: 'instagram.profile.editor.fields.avatar.name',
+            label: 'instagram.profile.editor.fields.avatar.label',
+            placeholder: 'instagram.profile.editor.fields.avatar.placeholder',
             type: "file",
             methods: {
               set: "setAvatar",
             },
           },
           followers_count: {
-            name: "Followers",
-            label: "Followers",
-            placeholder: "Followers",
+            name: 'instagram.profile.editor.fields.followers_count.name',
+            label: 'instagram.profile.editor.fields.followers_count.label',
+            placeholder: 'instagram.profile.editor.fields.followers_count.placeholder',
             type: "number",
             methods: {
               set: "setFollowersCount",
             },
           },
           follows_count: {
-            name: "Follows",
-            label: "Follows",
-            placeholder: "Follows",
+            name: 'instagram.profile.editor.fields.follows_count.name',
+            label: 'instagram.profile.editor.fields.follows_count.label',
+            placeholder: 'instagram.profile.editor.fields.follows_count.placeholder',
             type: "number",
             methods: {
               set: "setFollowsCount",

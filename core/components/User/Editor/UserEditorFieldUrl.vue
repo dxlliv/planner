@@ -9,8 +9,8 @@ defineProps<{
   <v-text-field
     v-bind="$props"
     type="url"
-    :label="data.label"
-    :placeholder="data.placeholder"
+    :label="$t(data.label)"
+    :placeholder="$t(data.placeholder)"
     hide-details
     spellcheck="false"
   />

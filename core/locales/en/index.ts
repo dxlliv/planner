@@ -54,6 +54,49 @@ export default {
         editProfile: 'Edit profile',
         shareProfile: 'Share profile',
       },
+      editor: {
+        fields: {
+          username: {
+            name: "Username",
+            label: "Username",
+            placeholder: "username",
+          },
+          name: {
+            name: "Name",
+            label: "Name",
+            placeholder: "Name",
+          },
+          website: {
+            name: "Website",
+            label: "Website",
+            placeholder: "Website",
+          },
+          verified: {
+            name: "Verified",
+            placeholder: "Verified",
+          },
+          biography: {
+            name: "Bio",
+            label: "Bio",
+            placeholder: "Bio",
+          },
+          avatar: {
+            name: "Avatar",
+            label: "Avatar",
+            placeholder: "Avatar",
+          },
+          followers_count: {
+            name: "Followers",
+            label: "Followers",
+            placeholder: "Followers",
+          },
+          follows_count: {
+            name: "Follows",
+            label: "Follows",
+            placeholder: "Follows",
+          }
+        }
+      },
       post: {
         comment: {
           add: "Add a comment...",

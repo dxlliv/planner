@@ -8,8 +8,8 @@ defineProps<{
 <template>
   <v-text-field
     v-bind="$props"
-    :label="data.label"
-    :placeholder="data.placeholder"
+    :label="$t(data.label)"
+    :placeholder="$t(data.placeholder)"
     hide-details
     spellcheck="false"
   />

@@ -26,6 +26,3 @@ const emit = defineEmits(['back'])
     </v-card-text>
   </v-card>
 </template>
-
-<style scoped lang="scss">
-</style>
