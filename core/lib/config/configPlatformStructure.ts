@@ -5,6 +5,7 @@ export const configPlatformStructure = {
         fields: {
           username: {
             name: "Username",
+            label: "Username",
             placeholder: "username",
             type: "string",
             validation: {
@@ -18,6 +19,7 @@ export const configPlatformStructure = {
           },
           name: {
             name: "Name",
+            label: "Name",
             placeholder: "Name",
             type: "string",
             validation: {
@@ -29,6 +31,7 @@ export const configPlatformStructure = {
           },
           website: {
             name: "Website",
+            label: "Website",
             placeholder: "Website",
             type: "url",
             methods: {
@@ -45,6 +48,7 @@ export const configPlatformStructure = {
           },
           biography: {
             name: "Bio",
+            label: "Bio",
             placeholder: "Bio",
             type: "text",
             methods: {
@@ -54,6 +58,7 @@ export const configPlatformStructure = {
           },
           avatar: {
             name: "Avatar",
+            label: "Avatar",
             placeholder: "Avatar",
             type: "file",
             methods: {
@@ -62,6 +67,7 @@ export const configPlatformStructure = {
           },
           followers_count: {
             name: "Followers",
+            label: "Followers",
             placeholder: "Followers",
             type: "number",
             methods: {
@@ -70,6 +76,7 @@ export const configPlatformStructure = {
           },
           follows_count: {
             name: "Follows",
+            label: "Follows",
             placeholder: "Follows",
             type: "number",
             methods: {

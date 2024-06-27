@@ -17,27 +17,8 @@ function onChangeTheme() {
 </script>
 
 <template>
-  <v-dialog v-model="dialog" fullscreen activator="parent">
+  <v-bottom-sheet v-model="dialog" activator="parent">
     <v-card>
-
-      <div class="px-6 py-7">
-        <v-row>
-          <v-col class="flex-grow-1 pa-0" align-self="center">
-            <InstagramUserProfileUsername
-                :user="user"
-                size="large"
-            />
-          </v-col>
-          <v-col class="flex-grow-0 pa-0" align-self="center">
-            <v-btn class="mr-n5" rounded flat @click="dialog = false">
-              <v-icon icon="mdi-close" />
-            </v-btn>
-          </v-col>
-        </v-row>
-      </div>
-
-
-      <v-divider />
 
       <v-list density="comfortable">
 
@@ -60,14 +41,17 @@ function onChangeTheme() {
       </v-list>
     </v-card>
 
-    <UserEditorDialog edit v-model="dialogEditProfile">
+    <UserEditorDialog
+      edit v-model="dialogEditProfile"
+      @close="dialogEditProfile = false"
+    >
       <InstagramUserEditorForm
           :user="user"
           @close="dialogEditProfile = false"
       />
     </UserEditorDialog>
 
-  </v-dialog>
+  </v-bottom-sheet>
 </template>
 
 <style scoped lang="scss">

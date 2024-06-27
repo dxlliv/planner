@@ -11,7 +11,7 @@ function onCloseContextMenu() {
 </script>
 
 <template>
-  <InstagramMenu class="ig-media-menu">
+  <v-list density="compact" class="ig-media-menu">
       <InstagramMediaMenuGroup
         v-if="['video', 'iframe'].includes(media.type) && !media.isReel"
         title="Reel"
@@ -93,7 +93,7 @@ function onCloseContextMenu() {
         :media="media"
         @close="onCloseContextMenu"
       />
-    </InstagramMenu>
+    </v-list>
 </template>
 
 <style lang="scss">

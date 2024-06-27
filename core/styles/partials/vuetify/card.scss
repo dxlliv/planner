@@ -1,11 +1,10 @@
 body {
   .v-card {
     &-title {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
       text-align: center;
-      border-bottom: 1px solid
-        rgba(var(--v-border-color), 0.08);
+      letter-spacing: -0.4px;
     }
   }
 }

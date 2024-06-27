@@ -31,7 +31,7 @@ defineProps<{
               flat icon variant="plain" color="primary"
               @click="user.save()"
           >
-            <IconSave size="22" style="margin-top: 1px;" />
+            <IconSave :size="24" />
           </v-btn>
 
           <v-btn flat icon variant="plain">
@@ -60,10 +60,14 @@ defineProps<{
     </div>
 
     <div class="mt-4 mb-2 mt-n6 pa-sm-2">
-      <InstagramUserProfileInner :user="user" />
+      <InstagramUserProfileInner
+        :user="user"
+      />
     </div>
 
-    <InstagramUserProfileMobileActions class="mb-5" />
+    <InstagramUserProfileMobileActions
+      :user="user" class="mb-5"
+    />
   </div>
 </template>
 

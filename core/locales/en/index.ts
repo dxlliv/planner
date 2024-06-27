@@ -51,7 +51,8 @@ export default {
         followers: 'Followers',
         following: 'Following',
         nowFollowing: 'Following',
-        message: 'Message',
+        editProfile: 'Edit profile',
+        shareProfile: 'Share profile',
       },
       post: {
         comment: {

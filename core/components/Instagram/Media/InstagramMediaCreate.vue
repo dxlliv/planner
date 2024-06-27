@@ -11,10 +11,14 @@ function onMediaCreate() {
 <template>
   <v-dialog
     content-class="ig-media-create"
+    :fullscreen="$vuetify.display.smAndDown"
     :max-width="700"
     @close="emit('close')"
   >
-    <DialogContent :title="$t('instagram.profile.media.add.title')">
+    <DialogContent
+      :title="$t('instagram.profile.media.add.title')"
+      @back="emit('close')"
+    >
       <InstagramMediaDropzone
         class="mx-4"
         :user="user"

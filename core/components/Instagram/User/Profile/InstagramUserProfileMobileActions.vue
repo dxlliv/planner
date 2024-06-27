@@ -1,5 +1,9 @@
 <script setup lang="ts">
+defineProps<{
+  user: IUser
+}>()
 
+const dialogEditProfile = ref(false)
 </script>
 
 <template>
@@ -12,14 +16,24 @@
             <v-btn
               block size="small" :height="32"
             >
-              {{$t('instagram.profile.header.nowFollowing')}}
-              <v-icon icon="mdi-chevron-down" />
+              {{$t('instagram.profile.header.editProfile')}}
+
+              <UserEditorDialog
+                edit activator="parent" v-model="dialogEditProfile"
+                @close="dialogEditProfile = false"
+              >
+                <InstagramUserEditorForm
+                  :user="user"
+                  @close="dialogEditProfile = false"
+                />
+              </UserEditorDialog>
+
             </v-btn>
           </v-col>
           <v-col class="pl-2">
             <v-btn
               block size="small" :height="32"
-              :text="$t('instagram.profile.header.message')"
+              :text="$t('instagram.profile.header.shareProfile')"
             />
           </v-col>
         </v-row>

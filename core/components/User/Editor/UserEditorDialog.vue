@@ -9,17 +9,15 @@ const emit = defineEmits(["close"])
 
 <template>
   <v-dialog
+    :fullscreen="$vuetify.display.smAndDown"
     :max-width="700"
     @close="emit('close')"
   >
-    <v-card>
-      <v-card-title v-text="$t(create ? 'common.actions.createProfile' : 'common.actions.editProfile')" />
-
-      <v-card-text>
-        <slot />
-      </v-card-text>
-    </v-card>
+    <DialogContent
+      :title="$t(create ? 'common.actions.createProfile' : 'common.actions.editProfile')"
+      @back="emit('close')"
+    >
+      <slot />
+    </DialogContent>
   </v-dialog>
 </template>
-
-<style scoped lang="scss"></style>
