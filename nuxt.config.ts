@@ -7,18 +7,34 @@ export default defineNuxtConfig({
     "~": resolve(__dirname, "."),
     "@": resolve(__dirname, "./src")
   },
+
   srcDir: "./src",
   extends: ["./core"],
+
   app: {
     baseURL: '/planner/',
     head: {
       title: "Planner",
     }
   },
+
   ssr: false,
+
   experimental: {
     typedPages: false,
     sharedPrerenderData: false,
   },
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler' // or "modern"
+        }
+      }
+    },
+  },
+
   devtools: { enabled: false },
+  compatibilityDate: "2024-09-29",
 });
