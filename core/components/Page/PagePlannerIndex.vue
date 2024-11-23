@@ -7,7 +7,6 @@ useSeoMeta({
 </script>
 
 <template>
-  <AppBackground />
   <UserSelectorPageDesktop class="hidden-sm-and-down" />
   <UserSelectorPageMobile class="hidden-md-and-up" />
 </template>

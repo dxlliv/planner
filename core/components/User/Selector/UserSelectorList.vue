@@ -8,16 +8,17 @@ const users = computed(() => useUserStore().userList)
   <div class="ig-user-selector-list">
     <Swiper
       :key="users.length"
+      :centered-slides="$vuetify.display.mdAndDown"
       :slides-per-view="1.75"
       :breakpoints="{
         340: {
-          slidesPerView: 2.5,
+          slidesPerView: users.length > 2 ? 2.5 : users.length + 1,
         },
         470: {
-          slidesPerView: 3.5,
+          slidesPerView: users.length > 3 ? 3.5 : users.length + 2,
         },
         600: {
-          slidesPerView: 4.5,
+          slidesPerView: users.length > 4 ? 4.5 : users.length + 2,
         },
         960: {
           slidesPerView: 3.5,
@@ -37,12 +38,10 @@ const users = computed(() => useUserStore().userList)
 <style scoped lang="scss">
 .ig-user-selector-list {
   max-width: 100vw;
-  height: 100dvh;
 
   .swiper {
     display: grid;
     align-content: center;
-    height: 100dvh;
   }
 }
 </style>

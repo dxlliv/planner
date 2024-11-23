@@ -21,8 +21,6 @@ useSeoMeta({
 </script>
 
 <template>
-  <AppBackground />
-
   <v-container class="text-center px-8 py-16">
     <div class="mx-auto text-center">
 
@@ -80,9 +78,7 @@ useSeoMeta({
     <v-row>
       <v-col :cols="12" :md="7" align-self="center">
 
-        <p class="mt-8 mb-2">
-          <h6 class="text-h6 text-grey">Dive into dxlliv/planner</h6>
-        </p>
+        <h6 class="text-h6 text-grey mt-8 mb-2">Dive into dxlliv/planner</h6>
 
         <p class="mb-6">
           For nerds, enthusiasts, and those who take their Instagram game seriously. <br class="hidden-md-and-down" />
