@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { size } = withDefaults(
+withDefaults(
   defineProps<{
     size?: string
   }>(),

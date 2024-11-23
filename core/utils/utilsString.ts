@@ -25,6 +25,18 @@ export function isValidJson(string: string) {
   }
 }
 
+// special function for username validation (like slugify but accepts also dots)
+export function usernameify(string: string, replaceSpaceWith: string = '-') {
+  return String(string)
+    .normalize('NFKD') // split accented characters into their base characters and diacritical marks
+    .replace(/[\u0300-\u036f]/g, '') // remove all the accents, which happen to be all in the \u03xx UNICODE block.
+    .trim() // trim leading or trailing whitespace
+    .toLowerCase() // convert to lowercase
+    .replace(/[^a-z0-9. -]/g, '') // remove non-alphanumeric characters
+    .replace(/\s+/g, replaceSpaceWith) // replace spaces with hyphens
+    .replace(/-+/g, '-'); // remove consecutive hyphens
+}
+
 // https://byby.dev/js-slugify-string
 export function slugify(string: string, replaceSpaceWith: string = '-') {
   return String(string)

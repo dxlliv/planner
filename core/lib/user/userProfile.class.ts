@@ -29,7 +29,7 @@ export default class UserProfile implements IUserProfile {
   }
 
   public setUsername(username: string) {
-    username = slugify(username, "_")
+    username = usernameify(username, "_")
 
     this.username = username
   }
