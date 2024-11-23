@@ -9,13 +9,6 @@
 // libraries
 @use "filepond/dist/filepond.min.css";
 
-// fonts
-@use "@fontsource/cookie/400.css" as *;
-@use "@fontsource/inter/300.css" as *;
-@use "@fontsource/inter/400.css" as *;
-@use "@fontsource/inter/500.css" as *;
-@use "@fontsource/inter/600.css" as *;
-
 #app {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";

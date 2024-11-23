@@ -20,6 +20,7 @@ export default defineNuxtConfig({
   },
   modules: [
     "nuxt-swiper",
+    "@nuxt/fonts",
     "vuetify-nuxt-module",
     '@pinia-plugin-persistedstate/nuxt',
     [
