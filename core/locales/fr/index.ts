@@ -80,17 +80,6 @@ export default {
         description: "Pouvez exporter vos modifications sous forme ZIP,<br /> puis simplement remplacer la configuration du profil<br /> située dans le dossier du projet à cet emplacement:",
         action: "Exporter en ZIP"
       },
-      deluxe: {
-        freeOptions: {
-          enjoy: "Profitez de cette version gratuite de",
-          youCan: "Pouvez",
-          or: "ou",
-          tryPlanner: "jouer avec cette instance",
-          hostPlanner: "héberger la vôtre"
-        },
-        description: "Vous aimez ce projet et souhaitez vous démarquer en offrant<br />une version spéciale et personnalisée de votre profil Instagram,<br />mettant en avant le meilleur de ce que vous avez créé?",
-        action: "Demander un planificateur Deluxe",
-      }
     }
   },
   $vuetify: {

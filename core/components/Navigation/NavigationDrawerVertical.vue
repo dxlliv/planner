@@ -3,7 +3,6 @@ defineProps<{
   user: IUser
 }>()
 
-const extraStore = useExtraStore()
 const plannerConfig = usePlannerConfig()
 
 const emit = defineEmits(["create", "export"])
