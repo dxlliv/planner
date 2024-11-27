@@ -20,34 +20,30 @@ const plannerConfig = usePlannerConfig()
     <h2 class="hidden-sm-and-down">Plan your Instagram grid like a pro</h2>
     -->
 
-    <p class="mt-3">
+    <p class="mt-4">
       <a href="https://github.com/dxlliv/planner">
         dxlliv/planner
       </a> <span v-html="$t('pages.userSelect.intro.p1')" />
     </p>
 
     <p
-      class="mt-3"
+      class="mt-3 mb-9"
       v-html="$t('pages.userSelect.intro.p2')"
     />
 
-    <br />
-
     <v-btn
-      class="pr-12"
-      flat :theme="$vuetify.theme.name === 'dark' ? 'light' : 'dark'"
+      size="large"
       href="https://dxlliv.github.io/planner/docs/"
       :text="$t('common.documentation')"
     />
 
     <v-btn
-      border
-      icon flat
-      class="ml-n9"
+      size="large"
+      class="ml-3 px-4" :min-width="24"
       :href="plannerConfig.project.links.source"
       title="Instagram Planner"
     >
-      <GitHubIcon :size="20" />
+      <GitHubIcon :size="18" />
     </v-btn>
 
   </v-card>
@@ -56,9 +52,11 @@ const plannerConfig = usePlannerConfig()
 <style scoped lang="scss">
 .ig-intro {
   p {
+    opacity: 0.8;
+
     a {
       color: inherit;
-      opacity: 0.65;
+      opacity: 0.8;
       text-decoration: none;
     }
 
@@ -70,8 +68,6 @@ const plannerConfig = usePlannerConfig()
   }
 
   .v-btn {
-    border-radius: 32px !important;
-
     svg {
       pointer-events: none;
     }
@@ -79,12 +75,6 @@ const plannerConfig = usePlannerConfig()
     i {
       margin-top: -2px;
       margin-right: -1px;
-    }
-  }
-
-  &.v-theme--dark {
-    .v-btn svg {
-      fill: white;
     }
   }
 }

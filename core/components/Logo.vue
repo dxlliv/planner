@@ -21,15 +21,15 @@ withDefaults(
 <style scoped lang="scss">
 .planner-logo {
   display: block;
-  font-family: "Cookie";
-  font-size: 32px;
+  font-family: "Tektur";
+  font-size: 40px;
   font-weight: 600;
   letter-spacing: 2px;
   text-decoration: none;
   color: inherit;
 
   &--size-large {
-    font-size: 40px;
+    font-size: 48px;
   }
 }
 </style>

@@ -52,7 +52,7 @@ function onFieldBlur() {
   position: relative;
 
   &.text-subtitle-1 {
-    font-size: 20px !important;
+    font-size: 25px !important;
   }
 
   :deep(a) {

@@ -14,16 +14,11 @@ const emit = defineEmits(["create", "export"])
     class="ig-navigation-drawer"
     :permanent="$vuetify.display.smAndUp"
     :rail="$vuetify.display.mdAndDown"
-    :width="244"
-    :rail-width="72"
+    :width="330"
+    :rail-width="98"
   >
-    <v-list v-if="!extraStore.options.appBar" class="pt-7 pb-1 hidden-md-and-down">
-      <v-list-item>
-        <Logo />
-      </v-list-item>
-    </v-list>
-
     <v-list density="compact" nav class="mt-2 mt-lg-0">
+
       <v-list-item :title="$t('instagram.navigation.home')" to="/">
         <template #prepend>
           <InstagramIconHome />
@@ -65,7 +60,7 @@ const emit = defineEmits(["create", "export"])
       <v-list-item :title="$t('instagram.navigation.profile')" :to="user.route">
         <template #prepend>
           <suspense>
-            <InstagramUserAvatar :avatar="user.profile.avatar" :size="26" />
+            <InstagramUserAvatar :avatar="user.profile.avatar" :size="36" class="ml-4" />
           </suspense>
         </template>
       </v-list-item>
@@ -84,6 +79,7 @@ const emit = defineEmits(["create", "export"])
         </template>
       </v-list-item>
 
+      <!--
       <v-list-item
         v-if="!user.hasUnsavedChanges && user.hasLocalChanges"
         :title="$t('instagram.navigation.export')"
@@ -98,20 +94,6 @@ const emit = defineEmits(["create", "export"])
           <InstagramUserExport :user="user" />
         </v-dialog>
       </v-list-item>
-
-      <!--
-      <v-list-item
-        v-if="isPlannerFeatureEnabled('requestDeluxe')"
-        title="Deluxe"
-      >
-        <template #prepend>
-          <v-icon icon="mdi-shimmer" />
-        </template>
-
-        <v-dialog :max-width="700" activator="parent">
-          <AppDeluxe />
-        </v-dialog>
-      </v-list-item>
       -->
     </v-list>
   </v-navigation-drawer>
@@ -121,6 +103,8 @@ const emit = defineEmits(["create", "export"])
 .ig-navigation-drawer {
   position: fixed !important;
   background: none !important;
+  display: grid !important;
+  align-content: center;
 
   &__list-bottom {
     position: absolute !important;
@@ -140,15 +124,14 @@ const emit = defineEmits(["create", "export"])
 
   .v-list-item--nav {
     cursor: pointer;
-    margin-top: 8px !important;
-    min-height: 50px !important;
+    min-height: 56px !important;
 
     --v-activated-opacity: 0.05;
 
     .v-list-item {
       &-title {
-        font-size: 16px;
-        font-weight: 300;
+        font-size: 23px;
+        line-height: inherit;
       }
 
       &--active {
@@ -158,28 +141,23 @@ const emit = defineEmits(["create", "export"])
       }
 
       &__prepend {
-        width: 32px;
-        margin-left: 5px;
-        margin-right: 10px;
+        text-align: center;
+        width: 68px;
+        margin-right: 12px;
 
         svg {
-          margin-left: 3px;
+          display: inline-block;
+          zoom: 1.2;
+          margin: 0 auto;
         }
 
         .v-icon {
           opacity: 1;
         }
       }
-    }
 
-    &:hover {
-      svg {
-        zoom: 1.08;
-        margin-left: 2px;
-      }
-      .ig-profile-avatar {
-        zoom: 1.08;
-        margin-left: 1px;
+      &__content {
+        overflow: inherit;
       }
     }
   }

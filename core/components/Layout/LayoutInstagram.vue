@@ -21,8 +21,6 @@ const extraStore = useExtraStore()
         </v-container>
       </v-sheet>
 
-      <AppFooter v-if="!extraStore.options.appBar" class="hidden-sm-and-down" />
-
     </v-main>
   </Layout>
 </template>

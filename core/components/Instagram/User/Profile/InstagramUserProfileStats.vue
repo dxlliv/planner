@@ -27,6 +27,10 @@ defineProps<{
     display: inline-block;
     margin-right: 40px;
 
+    span {
+      opacity: 0.7;
+    }
+
     &:last-child {
       margin-right: 0;
     }

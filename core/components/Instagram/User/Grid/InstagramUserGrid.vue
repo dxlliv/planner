@@ -80,7 +80,7 @@ body > .ig-profile-page__grid__item {
 
 // override grid spacing
 .ig-profile-page__grid-container .v-row {
-  margin: -1.5px;
+  margin: -2px;
 
   @media (max-width: 600px) {
     margin: -1px;

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   user?: IUser
+  autosave?: boolean
 }>()
 
 const emit = defineEmits(["close"])
@@ -15,8 +16,10 @@ function onAvatarUpdate(avatar: File) {
   userEditorStore.fields.avatar = avatar
 }
 
-async function onFormSend(e) {
-  e.preventDefault()
+async function onFormSend(e?: Event) {
+  if (e) {
+    e.preventDefault()
+  }
 
   if (await $v.value.$validate()) {
     if (!props.user) {
@@ -25,13 +28,21 @@ async function onFormSend(e) {
       await userEditorStore.update(props.user)
     }
 
-    emit("close")
+    if (!props.autosave) {
+      emit("close")
+    }
   }
 }
 
 onMounted(() => {
   document.querySelector('.ig-user-editor-form [name="username"]')?.focus()
 })
+
+watch(() => userEditorStore.fields, value => {
+  if (props.autosave) {
+    onFormSend()
+  }
+}, {deep: true})
 </script>
 
 <template>
@@ -98,7 +109,7 @@ onMounted(() => {
           </v-col>
         </v-row>
 
-        <v-row class="mt-2">
+        <v-row class="mt-2" v-if="!autosave">
           <v-col>
             <v-btn
               type="submit"

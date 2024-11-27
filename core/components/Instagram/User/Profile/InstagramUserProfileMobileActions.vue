@@ -23,7 +23,7 @@ const dialogEditProfile = ref(false)
                 @close="dialogEditProfile = false"
               >
                 <InstagramUserEditorForm
-                  :user="user"
+                  :user="user" autosave
                   @close="dialogEditProfile = false"
                 />
               </UserEditorDialog>
