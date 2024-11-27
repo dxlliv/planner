@@ -8,7 +8,7 @@ const extraStore = useExtraStore()
 
 <template>
   <Layout :user="user">
-    <InstagramNavigationDrawer :user="user" />
+    <NavigationDrawer :user="user" />
 
     <div id="drawer-editor" />
 

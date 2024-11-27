@@ -1,7 +1,4 @@
 <script setup lang="ts">
-const {t} = useI18n()
-const plannerConfig = usePlannerConfig()
-
 defineProps<{
   user: IUser
 }>()
@@ -10,13 +7,13 @@ const userMediaCreate = ref(false)
 </script>
 
 <template>
-  <InstagramNavigationDrawerVertical
+  <NavigationDrawerVertical
     v-if="$vuetify.display.mdAndUp"
     :user="user"
     @create="userMediaCreate = true"
   />
 
-  <InstagramNavigationDrawerHorizontal
+  <NavigationDrawerHorizontal
     v-else
     :user="user"
     @create="userMediaCreate = true"
