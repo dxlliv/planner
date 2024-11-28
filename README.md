@@ -95,9 +95,3 @@ yarn install && yarn dev
 # or use npm
 npm install && npm run dev
 ```
-
-## Deluxe Planner
-
-If you're looking for a personalized planner with some extra features, look no further.
-
-**[Request a Deluxe Planner](https://dxlliv.github.io/#planner)**
