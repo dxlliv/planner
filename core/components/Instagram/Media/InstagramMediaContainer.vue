@@ -15,19 +15,16 @@ function onMediaContextMenu(e) {
 </script>
 
 <template>
-  <div
-    :class="[
-      'ig-media',
-      `ig-media--${type}`,
-      { 'ig-media--reel': media.isReel }
-    ]"
+  <MediaContainer
+    :media="media"
+    :type="type"
     @contextmenu="onMediaContextMenu"
   >
     <suspense>
       <slot />
     </suspense>
 
-    <template v-if="contextMenu">
+    <template v-if="contextMenu" v-slot:menu>
 
       <template v-if="$vuetify.display.mdAndUp">
         <InstagramMediaMenuContext v-model="contextMenuValue">
@@ -43,15 +40,10 @@ function onMediaContextMenu(e) {
 
     </template>
 
-    <div class="ig-media__type">
-      <v-icon v-if="type === 'album'">mdi-checkbox-multiple-blank</v-icon>
-      <v-icon v-if="type === 'video'">mdi-play</v-icon>
-    </div>
-
-    <div class="ig-media__actions">
+    <template v-slot:actions>
       <slot name="actions" />
-    </div>
-  </div>
+    </template>
+  </MediaContainer>
 </template>
 
 <style scoped lang="scss">

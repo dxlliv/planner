@@ -23,7 +23,7 @@ watch(() => props.media.list, () => {
   deep: true
 })
 
-function onSlideChange(swiper) {
+function onMediaAlbumSlide(swiper) {
   props.media.listIndex = swiper.activeIndex
 }
 </script>
@@ -33,7 +33,7 @@ function onSlideChange(swiper) {
 
     <Swiper
       :initial-slide="media.listIndex"
-      @slideChange="onSlideChange"
+      @slideChange="onMediaAlbumSlide"
     >
       <SwiperSlide v-for="(item, i) of media.list" :key="i">
         <InstagramMedia

@@ -20,12 +20,10 @@ async function onIntersect(isIntersecting) {
     v-intersect="onIntersect"
   >
 
-    <v-img cover height="100%" :src="src" />
+    <MediaImage :src="src" />
 
     <template v-slot:actions>
-
       <slot name="actions" />
-
     </template>
 
     <slot name="link" />

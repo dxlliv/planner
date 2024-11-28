@@ -7,7 +7,6 @@ const props = defineProps<{
 }>()
 
 const isPlaying: Ref<boolean> = ref(false)
-
 const src = ref(props.media.rawFilePath)
 
 const videoRef: Ref<HTMLVideoElement | null> = ref(null)
@@ -77,12 +76,10 @@ watch(
     v-intersect="onIntersect"
   >
     <template v-if="(!media.cover || media.coverTime) || isPlaying">
-      <video
+      <MediaVideo
         ref="videoRef"
         :src="src"
-        :autoplay="isPlaying"
-        @click="isPlaying = !isPlaying"
-        @mouseleave="isPlaying = false"
+        @playing="value => isPlaying = value"
       />
 
       <InstagramMediaVideoCoverSelector
