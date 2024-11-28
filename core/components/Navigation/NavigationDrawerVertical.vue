@@ -92,23 +92,7 @@ const emit = defineEmits(["create", "export"])
           <IconSave />
         </template>
       </NavigationDrawerVerticalItem>
-
-      <!--
-      <v-list-item
-        v-if="!user.hasUnsavedChanges && user.hasLocalChanges"
-        :title="$t('instagram.navigation.export')"
-        @click="emit('export')"
-        base-color="primary"
-      >
-        <template #prepend>
-          <IconExport />
-        </template>
-
-        <v-dialog :max-width="700" activator="parent">
-          <InstagramUserExport :user="user" />
-        </v-dialog>
-      </v-list-item>
-      -->
+      
     </v-list>
   </v-navigation-drawer>
 </template>

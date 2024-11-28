@@ -27,6 +27,21 @@ function onProfileReset() {
       <v-list-item-title v-text="$t('common.actions.editProfile')" />
     </v-list-item>
 
+    <template
+      v-if="!user.hasUnsavedChanges && user.hasLocalChanges"
+    >
+      <v-divider />
+      <v-list-item
+        :title="$t('instagram.navigation.export')"
+        @click="emit('export')"
+        base-color="primary"
+      >
+        <v-dialog :max-width="700" activator="parent">
+          <InstagramUserExport :user="user" />
+        </v-dialog>
+      </v-list-item>
+    </template>
+
     <template v-if="user.hasLocalChanges">
       <v-divider />
       <v-list-item
