@@ -18,65 +18,80 @@ const emit = defineEmits(["create", "export"])
   >
     <v-list density="compact" nav class="mt-2 mt-lg-0">
 
-      <v-list-item :title="$t('instagram.navigation.home')" to="/">
-        <template #prepend>
+      <NavigationDrawerVerticalItem
+        :title="$t('instagram.navigation.home')"
+        to="/"
+      >
+        <template #icon>
           <InstagramIconHome />
         </template>
-      </v-list-item>
+      </NavigationDrawerVerticalItem>
 
-      <v-list-item
+      <NavigationDrawerVerticalItem
         :title="$t('instagram.navigation.source')"
         :href="plannerConfig.project.links.source" target="_blank"
       >
-        <template #prepend>
+        <template #icon>
           <InstagramIconMagnify />
         </template>
-      </v-list-item>
+      </NavigationDrawerVerticalItem>
 
-      <v-list-item
+      <NavigationDrawerVerticalItem
         :title="$t('instagram.navigation.explore')"
         :href="plannerConfig.project.links.docs" target="_blank"
       >
-        <template #prepend>
+        <template #icon>
           <InstagramIconExplore />
         </template>
-      </v-list-item>
+      </NavigationDrawerVerticalItem>
 
-      <v-list-item :title="$t('instagram.navigation.support')">
-        <template #prepend>
+      <NavigationDrawerVerticalItem
+        :title="$t('instagram.navigation.support')"
+        :href="plannerConfig.project.links.support" target="_blank"
+      >
+        <template #icon>
           <InstagramIconHeart />
         </template>
 
         <AppSupportDialog />
-      </v-list-item>
+      </NavigationDrawerVerticalItem>
 
-      <v-list-item :title="$t('instagram.navigation.create')" @click="emit('create')">
-        <template #prepend>
+      <NavigationDrawerVerticalItem
+        :title="$t('instagram.navigation.create')"
+        @click="emit('create')"
+      >
+        <template #icon>
           <InstagramIconNewPost />
         </template>
-      </v-list-item>
+      </NavigationDrawerVerticalItem>
 
-      <v-list-item :title="$t('instagram.navigation.profile')" :to="user.route">
-        <template #prepend>
+      <NavigationDrawerVerticalItem
+        :title="$t('instagram.navigation.profile')"
+        :to="user.route"
+      >
+        <template #icon>
           <suspense>
-            <InstagramUserAvatar :avatar="user.profile.avatar" :size="36" class="ml-4" />
+            <InstagramUserAvatar
+              :avatar="user.profile.avatar"
+              :size="36"
+            />
           </suspense>
         </template>
-      </v-list-item>
+      </NavigationDrawerVerticalItem>
     </v-list>
 
     <v-list density="compact" nav class="ig-navigation-drawer__list-bottom">
 
-      <v-list-item
+      <NavigationDrawerVerticalItem
         v-if="user.hasUnsavedChanges"
         :title="$t('instagram.navigation.save')"
-        @click="user.save()"
         base-color="primary"
+        @click="user.save()"
       >
-        <template #prepend>
+        <template #icon>
           <IconSave />
         </template>
-      </v-list-item>
+      </NavigationDrawerVerticalItem>
 
       <!--
       <v-list-item
@@ -110,75 +125,6 @@ const emit = defineEmits(["create", "export"])
     bottom: 0;
     left: 0;
     right: 0;
-  }
-
-  .planner-logo {
-    margin-left: 10px;
-  }
-
-  .ig-profile-avatar {
-    border-width: 2px;
-    margin-left: 2px;
-  }
-
-  .v-list-item--nav {
-    cursor: pointer;
-    min-height: 56px !important;
-
-    --v-activated-opacity: 0.05;
-
-    .v-list-item {
-      &-title {
-        font-size: 23px;
-        line-height: inherit;
-      }
-
-      &--active {
-        .v-list-item-title {
-          font-weight: 800;
-        }
-      }
-
-      &__prepend {
-        text-align: center;
-        width: 68px;
-        margin-right: 12px;
-
-        svg {
-          display: inline-block;
-          zoom: 1.2;
-          margin: 0 auto;
-        }
-
-        .v-icon {
-          opacity: 1;
-        }
-      }
-
-      &__content {
-        overflow: inherit;
-      }
-    }
-  }
-
-  &.v-theme--light {
-    svg {
-      fill: black;
-    }
-
-    .ig-profile-avatar {
-      border-color: black;
-    }
-  }
-
-  &.v-theme--dark {
-    svg {
-      fill: white;
-    }
-
-    .ig-profile-avatar {
-      border-color: white;
-    }
   }
 }
 </style>
