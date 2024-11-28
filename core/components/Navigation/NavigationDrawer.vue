@@ -7,11 +7,24 @@ const userMediaCreate = ref(false)
 </script>
 
 <template>
-  <NavigationDrawerVertical
+  <NavigationVertical
     v-if="$vuetify.display.mdAndUp"
     :user="user"
     @create="userMediaCreate = true"
-  />
+  >
+
+    <NavigationVerticalContent
+      :user="user"
+      @create="userMediaCreate = true"
+    />
+
+    <template v-slot:actions>
+      <NavigationVerticalActions
+        :user="user"
+      />
+    </template>
+
+  </NavigationVertical>
 
   <NavigationDrawerHorizontal
     v-else
