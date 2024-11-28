@@ -9,7 +9,11 @@ export default defineNuxtConfig({
   },
 
   srcDir: "./src",
-  extends: ["./core"],
+  extends: [
+    "github:dxlliv/planner-ui",
+    "./core",
+    "./ui"
+  ],
 
   app: {
     baseURL: '/planner/',

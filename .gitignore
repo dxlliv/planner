@@ -7,3 +7,5 @@ node_modules
 docs/.vitepress/cache
 yarn.lock
 package-lock.json
+
+.ui
