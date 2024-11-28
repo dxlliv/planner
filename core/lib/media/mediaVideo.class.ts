@@ -135,6 +135,15 @@ export default class MediaVideo extends Media implements IMediaVideo {
     this.user.setUnsavedChanges(true)
   }
 
+  // todo replace to setMediaFile
+  public async setMediaImage(blob: File) {
+    this.file = this.fetchMediaFileFromBlob(blob)
+
+    this.refresh()
+
+    this.user.setUnsavedChanges(true)
+  }
+
   public exportConfig(): IMediaVideoExportConfig {
     return {
       ...this.exportCommonConfig,
