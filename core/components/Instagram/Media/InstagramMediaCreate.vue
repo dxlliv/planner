@@ -13,6 +13,7 @@ function onMediaCreate() {
     content-class="ig-media-create"
     :fullscreen="$vuetify.display.smAndDown"
     :max-width="700"
+    :height="500"
     @close="emit('close')"
   >
     <DialogContent

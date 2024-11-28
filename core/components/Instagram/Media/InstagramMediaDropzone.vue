@@ -67,13 +67,6 @@ function onFileAdded(file: any) {
       margin: 0 auto;
       pointer-events: none;
     }
-
-    .v-btn {
-      text-transform: inherit;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0;
-    }
   }
   .filepond--panel-root {
     background: transparent !important;

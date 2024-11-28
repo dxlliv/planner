@@ -84,7 +84,7 @@ watch(() => props.media.isDetailView, value => {
 
 .v-dialog {
   width: calc(100% - 64px - 24px);
-  max-width: 960px;
+  max-width: 1200px;
   max-height: 913px;
 
   @media #{map-get($display-breakpoints, 'xs')} {

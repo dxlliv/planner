@@ -107,7 +107,7 @@ export default {
         add: {
           title: "Create new post",
           subtitle: "Drag photos and videos here",
-          action: "Select from computer"
+          action: "Select files"
         },
         menu: {
           addCover: "Add cover",

@@ -27,19 +27,17 @@ const plannerConfig = usePlannerConfig()
     </p>
 
     <p
-      class="mt-3 mb-9"
+      class="mt-3 mb-6"
       v-html="$t('pages.userSelect.intro.p2')"
     />
 
     <v-btn
-      size="large"
       href="https://dxlliv.github.io/planner/docs/"
       :text="$t('common.documentation')"
     />
 
     <v-btn
-      size="large"
-      class="ml-3 px-4" :min-width="24"
+      class="ml-3 px-3" :min-width="24"
       :href="plannerConfig.project.links.source"
       title="Instagram Planner"
     >
