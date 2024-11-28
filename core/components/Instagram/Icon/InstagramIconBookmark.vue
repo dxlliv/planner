@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <svg height="24" viewBox="0 0 24 24" width="24">
     <polygon
@@ -12,5 +10,3 @@
     ></polygon>
   </svg>
 </template>
-
-<style scoped lang="scss"></style>
