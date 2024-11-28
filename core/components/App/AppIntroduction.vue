@@ -11,7 +11,7 @@ const plannerConfig = usePlannerConfig()
     class="ig-intro mx-auto text-center"
   >
 
-    <Logo size="large" class="mt-n3" />
+    <AppLogo to="/" title="Planner" size="large" class="mt-n3" />
 
     <!--
     <h2 class="hidden-md-and-up">

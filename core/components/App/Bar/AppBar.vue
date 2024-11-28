@@ -14,7 +14,7 @@ onBeforeMount(() => {
   >
     <v-row no-gutters>
       <v-col class="flex-grow-0 text-left" align-self="center" style="min-width: 244px;">
-        <Logo class="mx-4 mt-1" />
+        <AppLogo to="/" title="Planner" class="mx-4 mt-1" />
       </v-col>
       <v-col class="flex-grow-1 text-left" align-self="center">
 
