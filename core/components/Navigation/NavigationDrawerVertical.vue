@@ -18,34 +18,34 @@ const emit = defineEmits(["create", "export"])
   >
     <v-list density="compact" nav class="mt-2 mt-lg-0">
 
-      <NavigationDrawerVerticalItem
+      <NavigationItemList
         :title="$t('instagram.navigation.home')"
         to="/"
       >
         <template #icon>
           <InstagramIconHome />
         </template>
-      </NavigationDrawerVerticalItem>
+      </NavigationItemList>
 
-      <NavigationDrawerVerticalItem
+      <NavigationItemList
         :title="$t('instagram.navigation.source')"
         :href="plannerConfig.project.links.source" target="_blank"
       >
         <template #icon>
           <InstagramIconMagnify />
         </template>
-      </NavigationDrawerVerticalItem>
+      </NavigationItemList>
 
-      <NavigationDrawerVerticalItem
+      <NavigationItemList
         :title="$t('instagram.navigation.explore')"
         :href="plannerConfig.project.links.docs" target="_blank"
       >
         <template #icon>
           <InstagramIconExplore />
         </template>
-      </NavigationDrawerVerticalItem>
+      </NavigationItemList>
 
-      <NavigationDrawerVerticalItem
+      <NavigationItemList
         :title="$t('instagram.navigation.support')"
         :href="plannerConfig.project.links.support" target="_blank"
       >
@@ -54,18 +54,18 @@ const emit = defineEmits(["create", "export"])
         </template>
 
         <AppSupportDialog />
-      </NavigationDrawerVerticalItem>
+      </NavigationItemList>
 
-      <NavigationDrawerVerticalItem
+      <NavigationItemList
         :title="$t('instagram.navigation.create')"
         @click="emit('create')"
       >
         <template #icon>
           <InstagramIconNewPost />
         </template>
-      </NavigationDrawerVerticalItem>
+      </NavigationItemList>
 
-      <NavigationDrawerVerticalItem
+      <NavigationItemList
         :title="$t('instagram.navigation.profile')"
         :to="user.route"
       >
@@ -77,12 +77,12 @@ const emit = defineEmits(["create", "export"])
             />
           </suspense>
         </template>
-      </NavigationDrawerVerticalItem>
+      </NavigationItemList>
     </v-list>
 
     <v-list density="compact" nav class="ig-navigation-drawer__list-bottom">
 
-      <NavigationDrawerVerticalItem
+      <NavigationItemList
         v-if="user.hasUnsavedChanges"
         :title="$t('instagram.navigation.save')"
         base-color="primary"
@@ -91,7 +91,7 @@ const emit = defineEmits(["create", "export"])
         <template #icon>
           <IconSave />
         </template>
-      </NavigationDrawerVerticalItem>
+      </NavigationItemList>
       
     </v-list>
   </v-navigation-drawer>

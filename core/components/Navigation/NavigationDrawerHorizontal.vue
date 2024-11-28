@@ -14,30 +14,30 @@ const emit = defineEmits(["create"])
       class="ig-navigation-drawer ig-navigation-drawer--horizontal"
       height="50"
     >
-      <v-btn flat to="/">
+      <NavigationItemButton to="/">
         <InstagramIconHome />
-      </v-btn>
+      </NavigationItemButton>
 
-      <v-btn flat :href="plannerConfig.project.links.source" target="_blank">
+      <NavigationItemButton :href="plannerConfig.project.links.source" target="_blank">
         <InstagramIconMagnify />
-      </v-btn>
+      </NavigationItemButton>
 
-      <v-btn flat @click="emit('create')">
+      <NavigationItemButton @click="emit('create')">
         <InstagramIconNewPost />
-      </v-btn>
+      </NavigationItemButton>
 
-      <v-btn flat :href="plannerConfig.project.links.docs">
+      <NavigationItemButton :href="plannerConfig.project.links.docs">
         <InstagramIconExplore />
-      </v-btn>
+      </NavigationItemButton>
 
-      <v-btn flat>
+      <NavigationItemButton>
         <nuxt-link :to="user.route">
           <InstagramUserAvatar
             :avatar="user.profile.avatar"
             :size="26"
           />
         </nuxt-link>
-      </v-btn>
+      </NavigationItemButton>
     </v-bottom-navigation>
   </div>
 </template>
