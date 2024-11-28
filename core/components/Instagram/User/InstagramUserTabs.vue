@@ -64,9 +64,9 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
     display: inline-block;
     cursor: pointer;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
-    padding: 15px 25px;
+    padding: 18px 24px;
     color: rgba(var(--v-theme-on-background), var(--v-medium-emphasis-opacity));
 
     &--active {
@@ -84,8 +84,8 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
     }
 
     .v-icon {
-      margin-right: 4px;
-      vertical-align: -1px;
+      margin-right: 8px;
+      vertical-align: 0;
     }
 
     @media(max-width: 959px) {

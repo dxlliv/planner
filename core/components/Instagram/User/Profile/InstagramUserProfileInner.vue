@@ -6,7 +6,7 @@ const props = defineProps<{
 
 <template>
   <div class="ig-profile-page__header__inner">
-    <InstagramUserProfileName :user="user" />
+    <InstagramUserProfileDisplayName :user="user" />
 
     <InstagramUserProfileBiography
       :user="user"

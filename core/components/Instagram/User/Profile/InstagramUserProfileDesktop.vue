@@ -5,45 +5,33 @@ defineProps<{
 </script>
 
 <template>
-  <div class="ig-profile-page__header py-10">
-    <v-row>
-      <v-col
-        cols="4" align-self="center"
-        class="ig-profile-page__header__avatar text-center"
-      >
-        <InstagramUserProfileAvatarEditor :user="user" />
-      </v-col>
+  <ProfileHeaderLayoutDesktop>
 
-      <v-col cols="8">
-        <InstagramUserProfileUsername
-          editable
-          :user="user"
-          size="large"
-          class="mb-6"
-        />
-        <InstagramUserProfileStats :user="user" class="mb-4" />
-        <InstagramUserProfileInner :user="user" />
-      </v-col>
-    </v-row>
-  </div>
+    <template #avatar>
+      <InstagramUserProfileAvatarEditor
+        :user="user"
+      />
+    </template>
+
+    <template #username>
+      <InstagramUserProfileUsername
+        editable
+        :user="user"
+        size="large"
+      />
+    </template>
+
+    <template #stats>
+      <InstagramUserProfileStats
+        :user="user"
+      />
+    </template>
+
+    <template #description>
+      <InstagramUserProfileInner
+        :user="user"
+      />
+    </template>
+
+  </ProfileHeaderLayoutDesktop>
 </template>
-
-<style scoped lang="scss">
-.ig-profile-page__header {
-  text-align: left;
-  border-bottom: var(--plx-border);
-
-  :deep(.ig-profile__header__username) {
-    display: block;
-    font-weight: 300;
-    font-size: 20px;
-    line-height: 24px;
-  }
-
-  &__biography {
-    font-size: 16px;
-    line-height: 24px;
-    word-wrap: break-word;
-  }
-}
-</style>

@@ -15,6 +15,13 @@ export default defineNuxtConfig({
     "./ui"
   ],
 
+  css: [
+    './styles/index.scss',
+    'swiper/css',
+    'swiper/css/pagination',
+    'filepond/dist/filepond.min.css',
+  ],
+
   app: {
     baseURL: '/planner/',
     head: {

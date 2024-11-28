@@ -19,22 +19,22 @@ function onFieldBlur() {
 </script>
 
 <template>
-  <contenteditable
-    v-if="nameEditable"
-    tag="p"
-    class="ig-profile-page__header__name"
-    contenteditable
-    spellcheck="false"
-    v-model="nameEditable"
-    no-html
-    no-nl
-    @blur="onFieldBlur"
-  />
+  <ProfileDIsplayName
+    class="ig-profile-page__header__display-name"
+  >
+    <contenteditable
+      v-if="nameEditable"
+      tag="p"
+      contenteditable
+      spellcheck="false"
+      v-model="nameEditable"
+      no-html
+      no-nl
+      @blur="onFieldBlur"
+    />
+  </ProfileDIsplayName>
 </template>
 
 <style scoped lang="scss">
-.ig-profile-page__header__name {
-  font-weight: bold;
-  word-wrap: break-word;
-}
+
 </style>

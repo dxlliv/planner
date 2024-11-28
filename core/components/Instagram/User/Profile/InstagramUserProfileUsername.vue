@@ -27,7 +27,8 @@ function onFieldBlur() {
 </script>
 
 <template>
-  <div
+  <ProfileUsername
+    :size="size"
     :class="[
       'ig-profile__header__username',
       { 'font-weight-bold text-subtitle-2': size === 'medium' },
@@ -42,18 +43,16 @@ function onFieldBlur() {
       no-html no-nl
       @blur="onFieldBlur"
     />
-    <v-icon v-if="user.profile.verified" icon="mdi-check-decagram" />
+    <InstagramUserProfileVerified
+      v-if="user.profile.verified"
+    />
     <router-link v-if="link" :to="user.route" />
-  </div>
+  </ProfileUsername>
 </template>
 
 <style scoped lang="scss">
 .ig-profile__header__username {
   position: relative;
-
-  &.text-subtitle-1 {
-    font-size: 25px !important;
-  }
 
   :deep(a) {
     position: absolute;
@@ -61,13 +60,6 @@ function onFieldBlur() {
     left: 0;
     right: 0;
     bottom: 0;
-  }
-
-  .v-icon {
-    font-size: 16px;
-    color: rgb(0, 149, 246);
-    margin-left: 3px;
-    vertical-align: 0;
   }
 }
 </style>

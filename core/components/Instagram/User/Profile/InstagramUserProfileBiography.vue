@@ -19,15 +19,17 @@ function onFieldBlur() {
 </script>
 
 <template>
-  <contenteditable
-    tag="p"
-    class="ig-profile-page__header__biography"
-    :contenteditable="isPlannerFeatureEnabled('profileEditor')"
-    spellcheck="false"
-    v-model="biographyEditable"
-    :no-html="true"
-    @blur="onFieldBlur"
-  />
+  <ProfileBiography>
+    <contenteditable
+      tag="p"
+      class="ig-profile-page__header__biography"
+      :contenteditable="isPlannerFeatureEnabled('profileEditor')"
+      spellcheck="false"
+      v-model="biographyEditable"
+      :no-html="true"
+      @blur="onFieldBlur"
+    />
+  </ProfileBiography>
 </template>
 
 <style scoped lang="scss"></style>
