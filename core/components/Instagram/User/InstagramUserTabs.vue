@@ -67,7 +67,7 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
     text-transform: uppercase;
     font-size: 15px;
     font-weight: 600;
-    padding: 18px 24px;
+    padding: 16px 24px;
     color: rgba(var(--v-theme-on-background), var(--v-medium-emphasis-opacity));
 
     &--active {

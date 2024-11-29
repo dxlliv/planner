@@ -105,8 +105,8 @@ function onDateUpdate(value) {
 
   &__interaction {
     display: grid;
-    min-height: 100%;
-    grid-auto-rows: 56px auto 115px 56px;
+    min-height: calc(100% - 2px);
+    grid-auto-rows: 64px auto 118px 56px;
   }
 }
 </style>

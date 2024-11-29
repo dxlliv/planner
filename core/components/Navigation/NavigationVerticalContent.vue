@@ -70,3 +70,9 @@ const emit = defineEmits(["create"])
     </template>
   </NavigationItemList>
 </template>
+
+<style scoped lang="scss">
+:deep(.v-list-item-title) {
+  font-size: 21px !important;
+}
+</style>
