@@ -1,0 +1,1 @@
+import{e as o,o as s,c as a,a as e,t as n,_}from"./C9j35KK9.js";const c=["textContent"],l=["textContent"],p=o({__name:"ProfileStatsItem",props:{count:{},text:{}},setup(r){return(t,u)=>(s(),a("li",null,[e("b",{textContent:n(t.count)},null,8,c),e("span",{class:"ml-2",textContent:n(t.text)},null,8,l)]))}}),m=_(p,[["__scopeId","data-v-4315fa41"]]);export{m as default};

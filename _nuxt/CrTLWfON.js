@@ -1,0 +1,1 @@
+import{V as r}from"./BC1tTZIE.js";import{e as o,o as s,f as c}from"./C9j35KK9.js";const m=o({__name:"MediaImage",props:{src:{}},setup(a){return(e,n)=>(s(),c(r,{cover:"",height:"100%",src:e.src},null,8,["src"]))}});export{m as _};

@@ -1,1 +1,0 @@
-import{_ as t,c as e,o as a,a1 as r}from"./chunks/framework.DCwrmHnV.js";const m=JSON.parse('{"title":"Shortcuts","description":"","frontmatter":{},"headers":[],"relativePath":"shortcuts.md","filePath":"shortcuts.md"}'),s={name:"shortcuts.md"},o=r("",8),n=[o];function h(c,i,l,p,u,d){return a(),e("div",null,n)}const f=t(s,[["render",h]]);export{m as __pageData,f as default};
