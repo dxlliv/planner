@@ -57,6 +57,7 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
 .ig-profile-page__tabs {
   display: block;
   text-align: center;
+  border-top: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
   padding: 0;
   margin-bottom: 2px;
 

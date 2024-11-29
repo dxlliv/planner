@@ -80,7 +80,7 @@ defineProps<{
   text-align: left;
 
   @media(min-width: 960px) {
-    border-bottom: var(--plx-border);
+    border-bottom: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
   }
 
   .ig-profile__header__username {

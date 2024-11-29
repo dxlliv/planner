@@ -8,7 +8,7 @@ const props = defineProps<{
   <div class="ig-profile-page__header__inner">
     <InstagramUserProfileDisplayName :user="user" />
 
-    <InstagramUserProfileBiography
+    <InstagramUserProfileDescription
       :user="user"
       @update="(biography) => user.profile.updateBiography(biography)"
     />

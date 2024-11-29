@@ -19,7 +19,7 @@ function onFieldBlur() {
 </script>
 
 <template>
-  <ProfileDIsplayName
+  <ProfileDisplayName
     class="ig-profile-page__header__display-name"
   >
     <contenteditable
@@ -32,7 +32,7 @@ function onFieldBlur() {
       no-nl
       @blur="onFieldBlur"
     />
-  </ProfileDIsplayName>
+  </ProfileDisplayName>
 </template>
 
 <style scoped lang="scss">

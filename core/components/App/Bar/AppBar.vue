@@ -44,7 +44,7 @@ onBeforeMount(() => {
 .v-app-bar {
   top: inherit !important;
   bottom: 0 !important;
-  border-top: var(--plx-border);
+  border-top: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
 
   :deep(a) {
     text-decoration: none;

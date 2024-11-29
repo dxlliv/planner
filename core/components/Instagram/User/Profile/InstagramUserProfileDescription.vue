@@ -19,7 +19,7 @@ function onFieldBlur() {
 </script>
 
 <template>
-  <ProfileBiography>
+  <ProfileDescription>
     <contenteditable
       tag="p"
       class="ig-profile-page__header__biography"
@@ -29,7 +29,7 @@ function onFieldBlur() {
       :no-html="true"
       @blur="onFieldBlur"
     />
-  </ProfileBiography>
+  </ProfileDescription>
 </template>
 
 <style scoped lang="scss"></style>
