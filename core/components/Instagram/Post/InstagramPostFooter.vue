@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="ig-post-footer ">
+  <div class="ig-post-footer">
     <div class="pa-4">
       <slot name="prepend" />
       <slot name="date" />
