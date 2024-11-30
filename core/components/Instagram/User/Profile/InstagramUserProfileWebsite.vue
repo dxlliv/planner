@@ -11,7 +11,7 @@ defineProps<{
     :href="user.profile.website.href"
     target="_blank"
   >
-    <v-icon icon="mdi-link-variant" :size="16" />
+    <v-icon icon="mdi-link-variant" :size="20" />
     {{ user.profile.website.label }}
   </a>
 </template>
@@ -25,6 +25,7 @@ defineProps<{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--v-theme-primary);
 
   .v-icon {
     vertical-align: -1px;
