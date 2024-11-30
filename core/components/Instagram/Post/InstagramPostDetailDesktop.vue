@@ -40,13 +40,13 @@ function onDateUpdate(value) {
 
       </InstagramPostHeader>
 
-      <InstagramPostCommentList>
+      <PostCommentList>
         <InstagramPostComment
           v-if="media.caption"
           :user="user"
           :media="media"
         />
-      </InstagramPostCommentList>
+      </PostCommentList>
 
       <InstagramPostFooter>
 
