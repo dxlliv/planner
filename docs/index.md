@@ -58,19 +58,19 @@ The project runs entirely in the browser and what you upload is stored locally.
 You can use the demo safely, just create a new profile and start organizing.
 
 <style>
-:root {
+body {
   --vp-home-hero-image-background-image: linear-gradient(-25deg, #55555522 25%, #66666622 50%);
   --vp-home-hero-image-filter: blur(44px);
 }
 
 @media (min-width: 640px) {
-  :root {
+  body {
     --vp-home-hero-image-filter: blur(56px);
   }
 }
 
 @media (min-width: 960px) {
-  :root {
+  body {
     --vp-home-hero-image-filter: blur(68px);
   }
 }
@@ -149,8 +149,8 @@ display: none;
 }
 
 .VPImage {
-    border-radius: 4px;
-    border: 1px solid #0000001a;
+    border-radius: 6px;
+    border: 1px solid #00000009;
 }
 
 .VPFeature {
