@@ -47,7 +47,7 @@ function onMediaAlbumSlide(swiper) {
       </SwiperSlide>
     </Swiper>
 
-    <InstagramMediaAlbumCurrentIndex
+    <MediaAlbumCurrentIndex
       :index="media.currentIndex"
       :max="media.itemsCount"
     />
@@ -64,15 +64,11 @@ function onMediaAlbumSlide(swiper) {
 </template>
 
 <style scoped lang="scss">
-.ig-media--album {
-  :deep(.ig-media__badge-index) {
+.app-media--album {
+  :deep(.app-media__badge-index) {
     position: absolute;
     top: 21px;
     left: 24px;
-    z-index: 1;
-  }
-
-  :deep(.ig-media__type) {
     z-index: 1;
   }
 }

@@ -24,7 +24,7 @@ function onMediaContextMenu(e) {
       <slot />
     </suspense>
 
-    <template v-if="contextMenu" v-slot:menu>
+    <template v-if="contextMenu" #menu>
 
       <template v-if="$vuetify.display.mdAndUp">
         <InstagramMediaMenuContext v-model="contextMenuValue">
@@ -40,9 +40,12 @@ function onMediaContextMenu(e) {
 
     </template>
 
-    <template v-slot:actions>
+    <template #actions>
       <slot name="actions" />
     </template>
+
+    <MediaTypeIcon :type="type" />
+
   </MediaContainer>
 </template>
 
@@ -53,19 +56,13 @@ function onMediaContextMenu(e) {
   opacity: 0;
 }
 
-.ig-media {
+.app-media {
   position: relative;
   aspect-ratio: 1;
   width: 100%;
   height: 100%;
 
-  &:hover {
-    :deep(.media__icon-edit) {
-      opacity: 1;
-    }
-  }
-
-  &--reel {
+  &--format-reel {
     aspect-ratio: 9 / 16;
   }
 
@@ -76,6 +73,7 @@ function onMediaContextMenu(e) {
     color: white;
     font-size: 14px;
     pointer-events: none;
+    z-index: 1;
 
     .mdi {
       &-play {
@@ -89,23 +87,6 @@ function onMediaContextMenu(e) {
         margin-top: -2px;
         margin-right: -4px;
       }
-    }
-  }
-
-  &__actions {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    color: white;
-    font-size: 14px;
-
-    a {
-      color: white;
-    }
-
-    @media (max-width: 480px) {
-      right: 12px;
-      font-size: 3dvw;
     }
   }
 
