@@ -1,1 +1,0 @@
-import{T as n,as as o,B as e}from"./C9j35KK9.js";const i=["static","relative","fixed","absolute","sticky"],u=n({position:{type:String,validator:s=>i.includes(s)}},"position");function p(s){let t=arguments.length>1&&arguments[1]!==void 0?arguments[1]:o();return{positionClasses:e(()=>s.position?`${t}--${s.position}`:void 0)}}export{u as m,p as u};

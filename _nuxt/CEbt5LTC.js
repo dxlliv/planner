@@ -1,1 +1,0 @@
-import{_ as o,o as t,c as n,a as d,Z as s}from"./C9j35KK9.js";const a={},r={class:"ig-post-footer"},c={class:"pa-4"};function _(e,p){return t(),n("div",r,[d("div",c,[s(e.$slots,"prepend",{},void 0,!0),s(e.$slots,"date",{},void 0,!0)]),s(e.$slots,"append",{},void 0,!0)])}const f=o(a,[["render",_],["__scopeId","data-v-0d8b172e"]]);export{f as default};
