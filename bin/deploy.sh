@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # build planner
-yarn generate
+npm run generate
 
 # delete symbolic link
 rm dist
@@ -10,7 +10,7 @@ rm dist
 mv .output/public/ dist
 
 # build documentation
-yarn docs:build
+npm run docs:build
 
 # move docs dist folder to dist/docs
 mv docs/.vitepress/dist/ dist/docs
