@@ -30,7 +30,7 @@ export default {
       },
       intro: {
         p1: 'lets you preview <br />what your profile will look like.',
-        p2: 'Bring your grid to the next level <br />with a text editor or interactively.',
+        p2: 'Bring your grid to the next level <br />with a text editor or a simple UI.',
       }
     }
   },

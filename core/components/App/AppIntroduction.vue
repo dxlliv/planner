@@ -27,7 +27,7 @@ const plannerConfig = usePlannerConfig()
     </p>
 
     <p
-      class="mt-3 mb-6"
+      class="mt-3 mb-7"
       v-html="$t('pages.userSelect.intro.p2')"
     />
 
@@ -49,12 +49,14 @@ const plannerConfig = usePlannerConfig()
 
 <style scoped lang="scss">
 .ig-intro {
+  font-size: 21px;
+
   p {
     opacity: 0.8;
 
     a {
       color: inherit;
-      opacity: 0.8;
+      opacity: 0.7;
       text-decoration: none;
     }
 
