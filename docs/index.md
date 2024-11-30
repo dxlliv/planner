@@ -76,7 +76,7 @@ You can use the demo safely, just create a new profile and start organizing.
 }
 
 .vp-doc.container {
-    margin-top: 120px;
+    margin-top: 120px !important;
     text-align: center;
 
     @media(max-width: 899px) {
@@ -144,8 +144,13 @@ display: none;
     margin-bottom: 72px;
 }
 
+.VPHome .VPButton.medium {
+    font-size: 15px;
+}
+
 .VPImage {
     border-radius: 4px;
+    border: 1px solid #0000001a;
 }
 
 .VPFeature {
