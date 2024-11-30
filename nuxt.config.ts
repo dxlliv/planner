@@ -1,4 +1,5 @@
 import { createResolver } from "@nuxt/kit";
+import plannerConfig from "./planner.config"
 
 const { resolve } = createResolver(import.meta.url);
 
@@ -44,6 +45,10 @@ export default defineNuxtConfig({
         }
       }
     },
+  },
+
+  i18n: {
+    defaultLocale: plannerConfig.locale,
   },
 
   devtools: { enabled: false },
