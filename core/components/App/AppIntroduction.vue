@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { GitHubIcon } from "vue3-simple-icons"
-
-const plannerConfig = usePlannerConfig()
 </script>
 
 <template>
@@ -34,15 +31,8 @@ const plannerConfig = usePlannerConfig()
     <v-btn
       href="https://dxlliv.github.io/planner/docs/"
       :text="$t('common.documentation')"
+      size="large"
     />
-
-    <v-btn
-      class="ml-3 px-3" :min-width="24"
-      :href="plannerConfig.project.links.source"
-      title="Instagram Planner"
-    >
-      <GitHubIcon :size="18" />
-    </v-btn>
 
   </v-card>
 </template>
