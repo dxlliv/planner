@@ -9,13 +9,13 @@ hero:
   tagline: Simple, fast, and versatile. <br class="sm" />Geek your grid <br />and build your <br class="sm" />definitive Instagram profile.
   actions:
     - theme: brand
-      text: Try Plxnner
+      text: Try Planner
       link: https://dxlliv.github.io/planner
     - theme: alt
-      text: Host Your Plxnner
+      text: Host Your Planner
       link: /getting-started
   image:
-    src: https://dxlliv.github.io/planner/app/phoneDemo.png
+    src: https://dxlliv.github.io/planner/app/twitterImage.webp
     alt: dxlliv/planner
 
 features:
@@ -123,6 +123,29 @@ display: none;
         max-height: 420px !important;
         margin-top: 30px !important;
     }
+}
+
+@media(max-width: 959px) {
+    .VPFeatures {
+        margin-top: 32px;
+    }
+
+    .image-container {
+        margin-bottom: 24px !important;
+    }
+
+    .copyright {
+        margin: 0 auto;
+        max-width: 200px;
+    }
+}
+
+.VPHome {
+    margin-bottom: 72px;
+}
+
+.VPImage {
+    border-radius: 4px;
 }
 
 .VPFeature {

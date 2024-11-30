@@ -6,10 +6,10 @@
 
 <p align="center">An elegant multifunctional open-source planner for your Instagram profile</blockquote>
 <p align="center">
-  <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/v/release/dxlliv/planner?colorA=28CF8D&colorB=212121" /></a>
-  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?colorA=28CF8D&colorB=212121" /></a>
-  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/dm/plxnner.svg?colorA=353535&colorB=212121" /></a>
-  <a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/demo-212121?label=planner&labelColor=353535" /></a>
+  <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/v/release/dxlliv/planner?colorA=blue&colorB=212121" /></a>
+  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?colorA=blue&colorB=212121" /></a>
+  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/dm/plxnner.svg?colorA=383838&colorB=212121" /></a>
+  <a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/demo-212121?label=planner&labelColor=383838" /></a>
   <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/stars/dxlliv/planner?style=social" /></a>
 </p>
 
@@ -18,7 +18,7 @@
 **dxlliv/planner** lets you preview what your profile grid will look like.  
 Plan the grid with no hassle and build your definitive Instagram profile.
 
-**[Demo](https://dxlliv.github.io/planner/) · [Documentation](https://dxlliv.github.io/planner/docs/) · [Support](https://patreon.com/dxlliv)**
+**[Demo](https://dxlliv.github.io/planner/) · [Documentation](https://dxlliv.github.io/planner/docs/) · [Support](https://github.com/sponsors/dxlliv)**
 
 ## Features
 - **Organize your grid**  
