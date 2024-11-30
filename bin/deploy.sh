@@ -25,6 +25,9 @@ echo -e ".nuxt\.output\node_modules" >> dist/.gitignore
 # since git subtree seems unusable now
 rm -rf ../dist
 mv dist ../dist
+
+rm -rf ./ui
+
 git checkout gh-pages
 rm -r *
 mv ../dist/* .
