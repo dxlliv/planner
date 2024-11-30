@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import {VIcon} from "vuetify/components"
+
 const props = defineProps<{
   user: any
 }>()
@@ -11,7 +13,10 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
       {
         name: "posts",
         label: "Posts",
-        icon: "mdi-grid",
+        icon: {
+          component: VIcon,
+          name: 'mdi-grid',
+        },
       },
     ]
 
@@ -22,7 +27,10 @@ const tabs: ComputedRef<{ name: string; label: string; icon: string }[]> =
       items.push({
         name: "reels",
         label: "Reels",
-        icon: "mdi-play-box-multiple-outline",
+        icon: {
+          component: VIcon,
+          name: 'mdi-play-box-multiple-outline',
+        },
       })
     }
 
