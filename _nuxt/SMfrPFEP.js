@@ -1,1 +1,0 @@
-import{V as r}from"./UDctBORl.js";import{e as o,o as s,f as a}from"./E5Lotu8k.js";const m=o({__name:"MediaImage",props:{src:{}},setup(c){return(e,t)=>(s(),a(r,{cover:"",height:"100%","aspect-ratio":1,src:e.src},null,8,["src"]))}});export{m as _};
