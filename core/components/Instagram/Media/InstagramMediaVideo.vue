@@ -109,7 +109,7 @@ watch(
 </template>
 
 <style scoped lang="scss">
-.ig-media {
+.dx-media {
   &--video {
     position: relative;
 
@@ -122,10 +122,10 @@ watch(
     }
 
     &:hover {
-      :deep(.ig-media--video-slider) {
+      :deep(.dx-media--video-slider) {
         opacity: 1;
       }
-      :deep(.ig-media--video-slider__value) {
+      :deep(.dx-media--video-slider__value) {
         opacity: 1;
       }
     }

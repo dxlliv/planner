@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  count: string
+  count: number
   text: string
 }>()
 </script>
@@ -22,5 +22,9 @@ li {
 }
 span {
   opacity: 0.8;
+
+  @media(max-width: 599px) {
+    font-size: 16px;
+  }
 }
 </style>

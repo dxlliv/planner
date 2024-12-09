@@ -47,7 +47,7 @@ function onProfileContextMenu(e) {
 </script>
 
 <template>
-  <div :class="['ig-profile-selector', { 'ig-profile-selector--add': add }]">
+  <div :class="['dx-profile-selector', { 'dx-profile-selector--add': add }]">
     <template v-if="user">
       <router-link :to="user.route" />
       <a
@@ -97,7 +97,7 @@ function onProfileContextMenu(e) {
 </template>
 
 <style lang="scss">
-.ig-profile-selector {
+.dx-profile-selector {
   position: relative;
   display: block;
   text-align: center;

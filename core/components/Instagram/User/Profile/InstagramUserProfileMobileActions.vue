@@ -7,7 +7,7 @@ const dialogEditProfile = ref(false)
 </script>
 
 <template>
-  <div class="ig-profile-page__mobile-actions">
+  <div class="dx-profile-page__mobile-actions">
     <v-row no-gutters>
       <v-col class="flex-grow-1">
 
@@ -49,14 +49,14 @@ const dialogEditProfile = ref(false)
 </template>
 
 <style scoped lang="scss">
-.ig-profile-page__header {
+.dx-profile-page__header {
   text-align: left;
 
   @media(min-width: 960px) {
     border-bottom: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
   }
 
-  .ig-profile__header__username {
+  .dx-profile__header__username {
     display: inline;
     font-weight: 800;
     font-size: 20px;

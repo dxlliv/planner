@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <v-sheet class="app-post-comment fill-height">
+  <v-sheet color="transparent" class="dx-post-comment fill-height">
     <div class="px-4 py-3">
       <v-row>
         <v-col class="flex-grow-0">
@@ -20,7 +20,7 @@
 </template>
 
 <style scoped lang="scss">
-.app-post-comment {
+.dx-post-comment {
   line-height: 18px !important;
 }
 </style>

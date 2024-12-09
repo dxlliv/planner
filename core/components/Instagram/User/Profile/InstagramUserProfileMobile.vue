@@ -11,7 +11,7 @@ defineProps<{
         <v-icon
           v-if="$vuetify.display.smAndDown"
           icon="mdi-arrow-left"
-          class="ml-3 mr-2 mt-1"
+          class="mr-2 mt-1"
           style="vertical-align: -2px;"
         />
       </router-link>

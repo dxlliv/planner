@@ -10,7 +10,7 @@ function onDateUpdate(value) {
 </script>
 
 <template>
-  <v-card class="ig-media-detail">
+  <v-card class="dx-media-detail">
 
     <InstagramPostHeader :user="user">
       <v-btn icon flat>
@@ -34,7 +34,7 @@ function onDateUpdate(value) {
       is-from-detail
     />
 
-    <div class="ig-media-detail__interaction">
+    <div class="dx-media-detail__interaction">
       <InstagramPostFooter>
 
         <template v-slot:date>
@@ -59,10 +59,10 @@ function onDateUpdate(value) {
 </template>
 
 <style scoped lang="scss">
-.ig-media-detail {
+.dx-media-detail {
   border-radius: 4px !important;
 
-  :deep(.ig-media) {
+  :deep(.dx-media) {
     width: 100%;
     height: 100%;
   }

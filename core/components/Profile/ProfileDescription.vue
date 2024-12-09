@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="app-profile__biography">
+  <div class="dx-profile__biography">
     <div v-if="description" v-html="description" />
     <slot />
   </div>

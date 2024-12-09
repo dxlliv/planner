@@ -5,7 +5,7 @@
   <v-card
     flat color="transparent"
     max-width="400"
-    class="ig-intro mx-auto text-center"
+    class="dx-intro mx-auto text-center"
   >
 
     <AppLogo to="/" title="Planner" size="large" class="mt-n3" />
@@ -38,7 +38,7 @@
 </template>
 
 <style scoped lang="scss">
-.ig-intro {
+.dx-intro {
   font-size: 21px;
 
   p {

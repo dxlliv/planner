@@ -32,6 +32,6 @@ function onCaptionBlur() {
 <style scoped lang="scss">
 span :deep(p) {
   display: inline;
-  font-size: 16px;
+  font-size: 18px;
 }
 </style>

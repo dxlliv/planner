@@ -7,7 +7,7 @@ const props = defineProps<{
 const iframeEnabled = ref(typeof props.media.cover !== "object")
 
 function onMediaClick(e) {
-  if (e.target.closest('.ig-media-detail')) {
+  if (e.target.closest('.dx-media-detail')) {
     iframeEnabled.value = true
   }
 }
@@ -40,7 +40,7 @@ function onMediaClick(e) {
 </template>
 
 <style scoped lang="scss">
-.ig-media {
+.dx-media {
   &--iframe {
     iframe {
       width: 100%;

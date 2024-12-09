@@ -21,14 +21,14 @@ function updateMediaCover() {
     v-model="mediaCover"
     color="white"
     :max="maxLength"
-    class="ig-media--video-slider"
+    class="dx-media--video-slider"
     @end="updateMediaCover"
     thumb-label="always"
   />
 </template>
 
 <style scoped lang="scss">
-.ig-media--video-slider {
+.dx-media--video-slider {
   position: absolute;
   bottom: -17px;
   left: 36px;

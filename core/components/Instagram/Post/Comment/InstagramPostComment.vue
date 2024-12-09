@@ -22,7 +22,7 @@ function onCaptionUpdate(caption: string) {
     <template #username>
       <InstagramUserProfileUsername
         size="medium"
-        class="d-inline mr-1"
+        class="d-inline mr-2"
         :user="user" link
       />
     </template>

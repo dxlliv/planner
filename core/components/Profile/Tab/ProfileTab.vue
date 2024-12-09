@@ -10,9 +10,9 @@ defineProps<{
 <template>
   <div
     :class="[
-      'app-profile-tab py-2 py-md-4',
+      'dx-profile-tab py-2 py-md-4',
       {
-        'app-profile-tab--active': active,
+        'dx-profile-tab--active': active,
       },
     ]"
     @click="emit('select', tab)"
@@ -27,7 +27,7 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-.app-profile-tab {
+.dx-profile-tab {
   display: inline-block;
   cursor: pointer;
   text-transform: uppercase;

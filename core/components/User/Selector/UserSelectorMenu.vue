@@ -1,7 +1,7 @@
 <template>
   <v-menu
     v-if="$vuetify.display.mdAndUp"
-    content-class="ig-profile-selector__context-menu"
+    content-class="dx-profile-selector__context-menu"
     activator="parent"
     transition="slide-y-transition"
     location="bottom center"

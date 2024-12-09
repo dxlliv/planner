@@ -11,7 +11,7 @@ function onCloseContextMenu() {
 </script>
 
 <template>
-  <v-list density="compact" class="ig-media-menu">
+  <v-list density="compact" class="dx-media-menu">
       <InstagramMediaMenuGroup
         v-if="['video', 'iframe'].includes(media.type) && !media.isReel"
         title="Reel"

@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 </script>
 
 <template>
-  <Swiper class="ig-index" direction="vertical">
+  <Swiper class="dx-index" direction="vertical">
     <SwiperSlide>
       <UserSelectorList />
     </SwiperSlide>
@@ -14,7 +14,7 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 </template>
 
 <style scoped lang="scss">
-.ig-index {
+.dx-index {
   cursor: grab;
 
   &:active {

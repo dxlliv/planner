@@ -11,8 +11,8 @@ defineProps<{
 <template>
   <ul
     :class="[
-      'app-profile__stats',
-      { 'app-profile__stats--mobile': mobile },
+      'dx-profile__stats',
+      { 'dx-profile__stats--mobile': mobile },
     ]"
   >
     <ProfileStatsItem
@@ -24,7 +24,7 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-.app-profile__stats {
+.dx-profile__stats {
   list-style-type: none;
   text-transform: lowercase;
 

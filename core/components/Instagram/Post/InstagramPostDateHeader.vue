@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <v-sheet>
+  <v-sheet color="transparent">
     <v-row no-gutters class="mt-1">
       <v-col>
 

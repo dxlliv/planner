@@ -3,7 +3,7 @@ const userStore = useUserStore()
 const extraStore = useExtraStore()
 
 onBeforeMount(() => {
-  document.body.classList.add("app-bar--enabled")
+  document.body.classList.add("dx-bar--enabled")
 })
 </script>
 
@@ -53,8 +53,8 @@ onBeforeMount(() => {
 </style>
 
 <style lang="scss">
-body.app-bar--enabled {
-  .ig-navigation-drawer__list-bottom {
+body.dx-bar--enabled {
+  .dx-navigation-drawer__list-bottom {
     bottom: 64px !important;
   }
 

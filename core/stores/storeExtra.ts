@@ -14,7 +14,7 @@ export const useExtraStore = defineStore(
 
       // add body class for extra v-application padding
       document.body.classList[options.value.appBar ? "add" : "remove"](
-        "app-bar--enabled",
+        "dx-bar--enabled",
       )
     }
 

@@ -10,16 +10,16 @@ withDefaults(defineProps<{
 <template>
   <div
     :class="[
-      'app-media',
-      `app-media--${type}`,
-      `app-media--format-${format}`,
+      'dx-media',
+      `dx-media--${type}`,
+      `dx-media--format-${format}`,
     ]"
   >
     <suspense>
       <slot />
     </suspense>
 
-    <div class="app-media__type-icon">
+    <div class="dx-media__type-icon">
       <v-icon
         v-if="type === 'album'"
         icon="mdi-checkbox-multiple-blank"
@@ -32,14 +32,14 @@ withDefaults(defineProps<{
 
     <slot name="menu" />
 
-    <div class="app-media__actions">
+    <div class="dx-media__actions">
       <slot name="actions" />
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.app-media {
+.dx-media {
   position: relative;
   aspect-ratio: 1;
   width: 100%;

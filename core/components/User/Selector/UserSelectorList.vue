@@ -5,7 +5,7 @@ const users = computed(() => useUserStore().userList)
 </script>
 
 <template>
-  <div class="ig-user-selector-list">
+  <div class="dx-user-selector-list">
     <Swiper
       :key="users.length"
       :centered-slides="$vuetify.display.mdAndDown"
@@ -36,7 +36,7 @@ const users = computed(() => useUserStore().userList)
 </template>
 
 <style scoped lang="scss">
-.ig-user-selector-list {
+.dx-user-selector-list {
   max-width: 100vw;
 
   .swiper {

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <v-container class="ig-index text-center align-content-center">
+  <v-container class="dx-index text-center align-content-center">
     <v-row>
       <v-col :cols="12" :md="7" align-self="center" class="pr-md-8">
         <UserSelectorList class="mb-n3" />
@@ -20,12 +20,12 @@
 </template>
 
 <style scoped lang="scss">
-.ig-index {
+.dx-index {
   display: grid;
   height: 100%;
   max-width: 960px;
 
-  :deep(.ig-user-selector-list) {
+  :deep(.dx-user-selector-list) {
     max-width: calc(100vw - 48px);
   }
 }

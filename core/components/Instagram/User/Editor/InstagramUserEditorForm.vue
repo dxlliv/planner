@@ -35,7 +35,7 @@ async function onFormSend(e?: Event) {
 }
 
 onMounted(() => {
-  document.querySelector('.ig-user-editor-form [name="username"]')?.focus()
+  document.querySelector('.dx-user-editor-form [name="username"]')?.focus()
 })
 
 watch(() => userEditorStore.fields, value => {
@@ -46,7 +46,7 @@ watch(() => userEditorStore.fields, value => {
 </script>
 
 <template>
-  <form class="ig-user-editor-form py-7 py-md-12 px-md-12" @submit="onFormSend">
+  <form class="dx-user-editor-form py-7 py-md-12 px-md-12" @submit="onFormSend">
     <v-row>
       <v-col :cols="12" :md="4" class="text-center pt-0 pb-5 pb-sm-12">
         <UserEditorFieldAvatar :user="user" @update="onAvatarUpdate" />
@@ -129,7 +129,7 @@ watch(() => userEditorStore.fields, value => {
 </template>
 
 <style lang="scss">
-.ig-user-editor-form {
+.dx-user-editor-form {
   .v-row {
     & + .v-row {
       margin-top: 4px;

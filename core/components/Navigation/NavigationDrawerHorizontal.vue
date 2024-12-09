@@ -11,7 +11,7 @@ const emit = defineEmits(["create"])
 <template>
   <div>
     <v-bottom-navigation
-      class="ig-navigation-drawer ig-navigation-drawer--horizontal"
+      class="dx-navigation-drawer dx-navigation-drawer--horizontal"
       height="50"
     >
       <NavigationItemButton to="/">
@@ -43,7 +43,7 @@ const emit = defineEmits(["create"])
 </template>
 
 <style scoped lang="scss">
-.ig-navigation-drawer--horizontal {
+.dx-navigation-drawer--horizontal {
   background: rgb(var(--v-theme-background)) !important;
   position: fixed !important;
   bottom: 0 !important;

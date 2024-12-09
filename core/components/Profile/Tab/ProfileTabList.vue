@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="app-profile-tab-list">
+  <div class="dx-profile-tab-list">
     <template v-for="(tab, i) of tabs" :key="i">
       <ProfileTab
         :tab="tab"
@@ -20,7 +20,7 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-.app-profile-tab-list {
+.dx-profile-tab-list {
   display: block;
   text-align: center;
   padding: 0;

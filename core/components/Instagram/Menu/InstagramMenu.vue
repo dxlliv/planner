@@ -1,25 +1,25 @@
 <template>
-  <v-list density="compact" class="ig-menu">
-    <div class="ig-menu__inner">
+  <v-list density="compact" class="dx-menu">
+    <div class="dx-menu__inner">
       <slot />
     </div>
   </v-list>
 </template>
 
 <style scoped lang="scss">
-.ig-menu {
+.dx-menu {
   padding: 16px;
   border-radius: 8px 8px 0 0;
   overflow: hidden;
 
   &.v-theme--light {
-    .ig-menu__inner {
+    .dx-menu__inner {
       background: #EEE;
     }
   }
 
   &.v-theme--dark {
-    .ig-menu__inner {
+    .dx-menu__inner {
       background: #333;
     }
   }

@@ -4,14 +4,14 @@
 
 <template>
   <v-navigation-drawer
-    class="app-navigation-drawer"
+    class="dx-navigation-drawer"
     :permanent="$vuetify.display.smAndUp"
     :rail="$vuetify.display.mdAndDown"
     :width="300"
     :rail-width="98"
   >
 
-    <v-list density="compact" nav class="app-navigation-drawer__header">
+    <v-list density="compact" nav class="dx-navigation-drawer__header">
       <slot name="header" />
     </v-list>
 
@@ -19,14 +19,14 @@
       <slot />
     </v-list>
 
-    <v-list density="compact" nav class="app-navigation-drawer__actions">
+    <v-list density="compact" nav class="dx-navigation-drawer__actions">
       <slot name="actions" />
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <style scoped lang="scss">
-.app-navigation-drawer {
+.dx-navigation-drawer {
   position: fixed !important;
   background: none;
   display: grid;

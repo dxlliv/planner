@@ -19,12 +19,12 @@ if (props.avatar) {
 <template>
   <ProfileAvatar
     :src="src" :size="size"
-    class="ig-profile-avatar"
+    class="dx-profile-avatar"
   />
 </template>
 
 <style scoped lang="scss">
-.ig-profile-avatar {
+.dx-profile-avatar {
   border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
 
   :deep(.v-avatar) {

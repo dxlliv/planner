@@ -26,11 +26,11 @@ function onSortEnd() {
 </script>
 
 <template>
-  <v-container class="ig-profile-page__grid-container px-0">
+  <v-container class="dx-profile-page__grid-container px-0">
     <div
       :class="[
-        'ig-profile-page__grid',
-        { 'ig-profile-page__grid--dragging': dragging },
+        'dx-profile-page__grid',
+        { 'dx-profile-page__grid--dragging': dragging },
       ]"
       ref="gridListRef"
     >
@@ -50,10 +50,10 @@ function onSortEnd() {
           v-for="(media, i) of user.media.collections[collection]"
           :key="media.id"
           :index="i"
-          class="ig-profile-page__grid__item v-col v-col-4"
+          class="dx-profile-page__grid__item v-col v-col-4"
         >
           <template v-if="isPlannerFeatureEnabled('mediaSort')">
-            <DragHandle class="ig-profile-page__grid__drag-handle">
+            <DragHandle class="dx-profile-page__grid__drag-handle">
               <v-icon icon="mdi-drag" color="white" />
             </DragHandle>
           </template>
@@ -74,12 +74,12 @@ function onSortEnd() {
 </template>
 
 <style lang="scss">
-body > .ig-profile-page__grid__item {
+body > .dx-profile-page__grid__item {
   z-index: 999;
 }
 
 // override grid spacing
-.ig-profile-page__grid-container .v-row {
+.dx-profile-page__grid-container .v-row {
   margin: -2px;
 
   @media (max-width: 600px) {
@@ -95,7 +95,7 @@ body > .ig-profile-page__grid__item {
   }
 }
 
-.ig-profile-page__grid {
+.dx-profile-page__grid {
   &__drag-handle {
     position: absolute;
     bottom: 0;
@@ -118,7 +118,7 @@ body > .ig-profile-page__grid__item {
     position: relative;
 
     &:hover {
-      .ig-profile-page__grid__drag-handle {
+      .dx-profile-page__grid__drag-handle {
         display: block;
       }
     }

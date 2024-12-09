@@ -21,7 +21,7 @@ body.tool-guides--enabled {
     padding-left: 36px;
   }
 
-  .ig-navigation-drawer {
+  .dx-navigation-drawer {
     top: 36px !important;
     left: 36px !important;
     height: calc(100dvh - 36px) !important;

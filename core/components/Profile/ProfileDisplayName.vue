@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <div
-    class="app-profile__display-name"
+    class="dx-profile__display-name"
   >
     <div v-if="displayName" v-text="displayName" />
     <slot />
@@ -14,7 +14,7 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-.app-profile__display-name {
+.dx-profile__display-name {
   font-weight: bold;
   word-wrap: break-word;
 }

@@ -11,7 +11,7 @@ withDefaults(
 </script>
 
 <template>
-  <v-avatar :size="size" class="app-profile__avatar">
+  <v-avatar :size="size" class="dx-profile__avatar">
     <v-img v-if="src" :src="src" cover />
     <v-icon v-else icon="mdi-account" :size="size / 2.5" />
   </v-avatar>

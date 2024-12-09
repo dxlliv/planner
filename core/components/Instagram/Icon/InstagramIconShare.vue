@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <svg height="24" viewBox="0 0 24 24" width="24">
+  <svg height="26" viewBox="0 0 26 26" width="26" style="vertical-align: -4px;">
     <line
       fill="none"
       stroke="currentColor"

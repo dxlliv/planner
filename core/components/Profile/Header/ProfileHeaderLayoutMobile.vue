@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div class="app-profile__header px-2 px-sm-0">
-    <div class="app-profile__header__top py-2">
+  <div class="dx-profile__header px-2 px-md-0">
+    <div class="dx-profile__header__top py-2">
       <v-row>
         <v-col class="flex-grow-1 pb-2" align-self="center">
 
@@ -22,7 +22,7 @@
 
     <div class="mb-5 pa-sm-2">
       <v-row>
-        <v-col cols="3" class="app-profile__header__avatar text-left">
+        <v-col cols="3" class="dx-profile__header__avatar text-left">
 
           <slot name="avatar" />
 
@@ -39,25 +39,25 @@
       <slot name="description" />
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 mx-sm-2">
       <slot name="actions" />
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.app-profile__header {
+.dx-profile__header {
   text-align: left;
   border-bottom: rgba(var(--v-border-color), var(--v-border-opacity));
 
-  :deep(.app-profile__username) {
+  :deep(.dx-profile__username) {
     display: inline-block;
     font-weight: 300;
     font-size: 20px;
     line-height: 24px;
   }
 
-  :deep(.app-profile__header__description) {
+  :deep(.dx-profile__header__description) {
     font-size: 16px;
     line-height: 24px;
     word-wrap: break-word;

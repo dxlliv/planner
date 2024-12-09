@@ -7,7 +7,7 @@ defineProps<{
 <template>
   <a
     v-if="user.profile.website"
-    class="ig-profile-page__header__website"
+    class="dx-profile-page__header__website"
     :href="user.profile.website.href"
     target="_blank"
   >
@@ -17,7 +17,7 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-.ig-profile-page__header__website {
+.dx-profile-page__header__website {
   display: inline-block;
   font-weight: bold;
   text-decoration: none;
@@ -35,7 +35,7 @@ defineProps<{
     font-weight: initial;
 
     .v-icon {
-      vertical-align: -2px;
+      vertical-align: -3px;
     }
   }
 }

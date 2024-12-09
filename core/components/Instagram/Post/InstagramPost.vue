@@ -52,7 +52,7 @@ watch(() => props.media.isDetailView, value => {
 <template>
   <div
     ref="postContainerRef"
-    class="ig-post-container cursor-pointer"
+    class="dx-post-container cursor-pointer"
     @click="onPostClick"
   >
     <InstagramMedia
@@ -80,7 +80,7 @@ watch(() => props.media.isDetailView, value => {
 </template>
 
 <style scoped lang="scss">
-.ig-post-container {
+.dx-post-container {
   width: 100%;
 }
 </style>

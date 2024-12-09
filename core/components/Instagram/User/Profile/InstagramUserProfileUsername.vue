@@ -30,7 +30,7 @@ function onFieldBlur() {
   <ProfileUsername
     :size="size"
     :class="[
-      'ig-profile__header__username',
+      'dx-profile__header__username',
       { 'font-weight-bold text-subtitle-2': size === 'medium' },
       { 'font-weight-bold text-subtitle-1': size === 'large' },
     ]"
@@ -51,7 +51,7 @@ function onFieldBlur() {
 </template>
 
 <style scoped lang="scss">
-.ig-profile__header__username {
+.dx-profile__header__username {
   position: relative;
 
   :deep(a) {

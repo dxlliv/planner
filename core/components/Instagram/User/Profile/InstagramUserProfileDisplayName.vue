@@ -20,7 +20,7 @@ function onFieldBlur() {
 
 <template>
   <ProfileDisplayName
-    class="ig-profile-page__header__display-name"
+    class="dx-profile-page__header__display-name"
   >
     <contenteditable
       v-if="nameEditable"

@@ -1,6 +1,6 @@
 <template>
-  <div class="ig-profile-avatar__container">
-    <v-avatar :size="size" class="ig-profile-avatar">
+  <div class="dx-profile-avatar__container">
+    <v-avatar :size="size" class="dx-profile-avatar">
       <v-img v-if="src" :src="src" :key="avatarChangedTime" cover />
       <v-icon v-else-if="!$slots.default" icon="mdi-account" :size="44" />
       <slot name="inner" />
@@ -45,7 +45,7 @@ watch(
 </script>
 
 <style scoped lang="scss">
-.ig-profile-avatar {
+.dx-profile-avatar {
   border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
 
   &__container {

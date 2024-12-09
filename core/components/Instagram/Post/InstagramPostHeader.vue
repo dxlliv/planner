@@ -5,9 +5,9 @@ defineProps<{
 </script>
 
 <template>
-  <PostDetailHeader class="ig-post-header">
+  <PostDetailHeader class="dx-post-header">
     <template #avatar>
-      <InstagramUserAvatar :avatar="user.profile.avatar" :size="32" />
+      <InstagramUserAvatar :avatar="user.profile.avatar" :size="40" />
     </template>
     <template #username>
       <InstagramUserProfileUsername
@@ -19,7 +19,7 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-.ig-post-header {
+.dx-post-header {
 
 }
 </style>

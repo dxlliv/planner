@@ -31,7 +31,7 @@ function onFileAdded(file: any) {
 <template>
   <file-pond
     name="test"
-    class="ig-dropzone"
+    class="dx-dropzone"
     :drop-on-element="false"
     :drop-on-page="true"
     allow-multiple
@@ -46,7 +46,7 @@ function onFileAdded(file: any) {
 </template>
 
 <style lang="scss">
-.ig-dropzone {
+.dx-dropzone {
   height: 100%;
   padding-bottom: 16px;
 

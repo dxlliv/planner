@@ -11,7 +11,7 @@ withDefaults(
 </script>
 
 <template>
-  <div
+  <span
     :class="[
       'app-profile__username',
       { 'font-weight-bold text-subtitle-2': size === 'medium' },
@@ -21,7 +21,7 @@ withDefaults(
     <div v-if="username" v-text="username" />
 
     <slot />
-  </div>
+  </span>
 </template>
 
 <style scoped lang="scss">
@@ -33,7 +33,7 @@ withDefaults(
   }
 
   &.text-subtitle-2 {
-    font-size: 15px;
+    font-size: 18px !important;
   }
 
   :deep(a) {

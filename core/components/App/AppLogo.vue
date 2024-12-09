@@ -12,13 +12,13 @@ withDefaults(
 
 <template>
   <nuxt-link
-    :class="['app-logo', `app-logo--size-${size}`]"
+    :class="['dx-logo', `dx-logo--size-${size}`]"
     v-text="title"
   />
 </template>
 
 <style scoped lang="scss">
-.app-logo {
+.dx-logo {
   display: inline-block;
   font-family: "Cookie";
   font-size: 64px;

@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="ig-profile-page__header__inner">
+  <div class="dx-profile-page__header__inner">
     <InstagramUserProfileDisplayName :user="user" />
 
     <InstagramUserProfileDescription
@@ -18,7 +18,7 @@ const props = defineProps<{
 </template>
 
 <style scoped lang="scss">
-.ig-profile-page__header__inner {
+.dx-profile-page__header__inner {
 
   @media(max-width: 959px) {
 

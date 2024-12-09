@@ -10,7 +10,7 @@ function onMediaCreate() {
 
 <template>
   <v-dialog
-    content-class="ig-media-create"
+    content-class="dx-media-create"
     :fullscreen="$vuetify.display.smAndDown"
     :max-width="700"
     :height="500"

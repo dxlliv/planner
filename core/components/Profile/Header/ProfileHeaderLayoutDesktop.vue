@@ -3,11 +3,11 @@
 </script>
 
 <template>
-  <div class="app-profile__header py-10">
+  <div class="dx-profile__header py-10">
     <v-row>
       <v-col
         cols="4" align-self="center"
-        class="app-profile__header__avatar text-center"
+        class="dx-profile__header__avatar text-center"
       >
         <slot name="avatar" />
       </v-col>
@@ -29,18 +29,18 @@
 </template>
 
 <style scoped lang="scss">
-.app-profile__header {
+.dx-profile__header {
   text-align: left;
   border-bottom: rgba(var(--v-border-color), var(--v-border-opacity));
 
-  :deep(.app-profile__header__username) {
+  :deep(.dx-profile__header__username) {
     display: block;
     font-weight: 300;
     font-size: 20px;
     line-height: 24px;
   }
 
-  :deep(.app-profile__header__biography) {
+  :deep(.dx-profile__header__biography) {
     font-size: 16px;
     line-height: 24px;
     word-wrap: break-word;

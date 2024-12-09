@@ -56,7 +56,7 @@ function onMediaContextMenu(e) {
   opacity: 0;
 }
 
-.app-media {
+.dx-media {
   position: relative;
   aspect-ratio: 1;
   width: 100%;
@@ -90,7 +90,7 @@ function onMediaContextMenu(e) {
     }
   }
 
-  :deep(.ig-media__context-menu) {
+  :deep(.dx-media__context-menu) {
     bottom: 0;
     right: 0;
   }

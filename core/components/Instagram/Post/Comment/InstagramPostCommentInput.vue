@@ -21,7 +21,7 @@ function onPressEnter(e) {
 </script>
 
 <template>
-  <v-sheet>
+  <v-sheet color="transparent">
     <v-row no-gutters>
       <v-col class="flex-grow-0 pl-4 pr-0 py-0" align-self="center">
         <InstagramIconEmoji />
@@ -29,7 +29,7 @@ function onPressEnter(e) {
       <v-col class="flex-grow-1" align-self="center">
         <v-textarea
           :placeholder="$t('profile.post.comment.add')"
-          variant="solo" flat
+          variant="solo" flat bg-color="transparent"
           hide-details
           spellcheck="false"
           v-model="caption"
@@ -71,6 +71,7 @@ svg {
 
   :deep(textarea) {
     height: 32px;
+    margin-top: 2px;
     resize: none;
   }
 

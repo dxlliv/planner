@@ -7,7 +7,7 @@ const mediaType = getMediaTypeIcon(props.type)
 </script>
 
 <template>
-  <div class="app-media__type">
+  <div class="dx-media__type">
     <component
       :is="mediaType.component"
       :class="mediaType.icon"

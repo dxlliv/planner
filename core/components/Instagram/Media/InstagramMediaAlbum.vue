@@ -64,8 +64,8 @@ function onMediaAlbumSlide(swiper) {
 </template>
 
 <style scoped lang="scss">
-.app-media--album {
-  :deep(.app-media__badge-index) {
+.dx-media--album {
+  :deep(.dx-media__badge-index) {
     position: absolute;
     top: 21px;
     left: 24px;

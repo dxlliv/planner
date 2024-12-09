@@ -1,6 +1,6 @@
 <template>
   <v-menu
-    content-class="ig-media__menu-context text-left"
+    content-class="dx-media__menu-context text-left"
     transition="slide-y-transition"
     attach
     :close-on-content-click="false"
@@ -11,7 +11,7 @@
 </template>
 
 <style scoped lang="scss">
-:deep(.ig-media__menu-context) {
+:deep(.dx-media__menu-context) {
   .v-list-item {
     min-height: 28px;
     padding-top: 2px;

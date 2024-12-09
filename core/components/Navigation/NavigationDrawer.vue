@@ -40,23 +40,23 @@ const userMediaCreate = ref(false)
 </template>
 
 <style scoped lang="scss">
-.ig-navigation-drawer {
+.dx-navigation-drawer {
   position: fixed !important;
   background: none;
 
   &.v-theme--light {
-    .ig-profile-avatar {
+    .dx-profile-avatar {
       border-color: black;
     }
   }
 
   &.v-theme--dark {
-    .ig-profile-avatar {
+    .dx-profile-avatar {
       border-color: white;
     }
   }
 
-  .ig-navigation-drawer__list-bottom {
+  .dx-navigation-drawer__list-bottom {
     position: absolute !important;
     bottom: 0;
     left: 0;
@@ -67,7 +67,7 @@ const userMediaCreate = ref(false)
     margin-left: 10px;
   }
 
-  .ig-profile-avatar {
+  .dx-profile-avatar {
     border-width: 2px;
     margin-left: 2px;
   }
@@ -112,7 +112,7 @@ const userMediaCreate = ref(false)
         margin-left: 2px;
       }
 
-      .ig-profile-avatar {
+      .dx-profile-avatar {
         zoom: 1.08;
         margin-left: 1px;
       }

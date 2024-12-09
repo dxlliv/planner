@@ -22,7 +22,7 @@ function onFieldBlur() {
   <ProfileDescription>
     <contenteditable
       tag="p"
-      class="ig-profile-page__header__biography"
+      class="dx-profile-page__header__biography"
       :contenteditable="isPlannerFeatureEnabled('profileEditor')"
       spellcheck="false"
       v-model="biographyEditable"

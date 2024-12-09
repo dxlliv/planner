@@ -7,14 +7,14 @@ defineProps<{
 
 <template>
   <v-badge
-    class="app-media__badge-index hidden-xs"
+    class="dx-media__badge-index hidden-xs"
     color="transparent"
     :content="`${index} / ${max}`"
   />
 </template>
 
 <style scoped lang="scss">
-.app-media__badge-index {
+.dx-media__badge-index {
   :deep(.v-badge__badge) {
     font-size: 11px;
     color: rgba(255, 255, 255, 0.5) !important;
