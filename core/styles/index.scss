@@ -1,14 +1,44 @@
-@use "../../ui/styles";
+@use "./settings";
+@use "./variables" as *;
+
+// ui
+@use "vuetify/lib/styles/main.sass";
+@use "@mdi/font/css/materialdesignicons.min.css";
+@use "./partials";
+
+// libraries
+@use "filepond/dist/filepond.min.css";
+
+html {
+  font-size: 1.2rem;
+  line-height: 1.4;
+
+  @media(max-width: 320px) {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
 
 body {
-  .v-application {
-    font-size: 17px;
-  }
+  user-select: none;
+}
 
-  .app-logo {
-    font-family: "Cookie" !important;
-    font-size: 64px !important;
-    font-weight: 600;
-    letter-spacing: 2px;
-  }
+h2 {
+  line-height: 32px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.no-pointer-events {
+  pointer-events: none;
+}
+
+p[contenteditable] {
+  outline: none;
 }

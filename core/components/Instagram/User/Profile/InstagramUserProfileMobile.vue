@@ -30,16 +30,14 @@ defineProps<{
       <v-btn
         v-if="user.hasUnsavedChanges"
         class="mx-n2"
-        flat
-        icon
-        variant="plain"
+        flat icon variant="text"
         color="primary"
         @click="user.save()"
       >
         <IconSave :size="24" />
       </v-btn>
 
-      <v-btn flat icon variant="plain">
+      <v-btn flat icon variant="text">
         <v-icon icon="mdi-menu" :size="27" />
         <InstagramUserMenu :user="user" />
       </v-btn>

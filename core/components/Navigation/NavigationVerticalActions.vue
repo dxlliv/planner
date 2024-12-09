@@ -7,7 +7,7 @@ defineProps<{
 <template>
   <NavigationItemList
     v-if="user.hasUnsavedChanges"
-    :title="$t('instagram.navigation.save')"
+    :title="$t('navigation.save')"
     base-color="primary"
     @click="user.save()"
   >

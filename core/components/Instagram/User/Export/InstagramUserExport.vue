@@ -5,12 +5,12 @@ defineProps<{
 </script>
 
 <template>
-  <DialogContent :title="$t('instagram.profile.export.title')">
+  <DialogContent :title="$t('profile.export.title')">
     <v-row class="ma-0 fill-height">
       <v-col align-self="center" class="text-center">
 
         <div class="pb-4">
-          <p v-html="$t('instagram.profile.export.description')" />
+          <p v-html="$t('profile.export.description')" />
 
           <v-text-field variant="outlined" class="mt-5">
             /public/user/{{user.platform}}/{{user.id}}
@@ -24,7 +24,7 @@ defineProps<{
         />
         <v-btn
           color="primary" class="mx-1"
-          :text="$t('instagram.profile.export.action')"
+          :text="$t('profile.export.action')"
           @click="user.storage.exportAsZip()"
         />
 

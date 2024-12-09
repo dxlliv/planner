@@ -15,7 +15,7 @@ async function onMediaRemove() {
 <template>
   <v-list-item @click="onMediaRemove" class="text-red">
     <v-list-item-title
-      v-text="$t('instagram.profile.media.menu.remove')"
+      v-text="$t('profile.media.menu.remove')"
     />
   </v-list-item>
 </template>

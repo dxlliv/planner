@@ -11,9 +11,7 @@ export default defineNuxtConfig({
 
   srcDir: "./src",
   extends: [
-    "github:dxlliv/planner-ui",
-    "./core",
-    "./ui"
+    "./core"
   ],
 
   css: [

@@ -10,15 +10,15 @@ defineProps<{
     :stats="[
       {
         count: user.profile.posts_count,
-        text: $t('instagram.profile.header.posts')
+        text: $t('profile.header.posts')
       },
       {
         count: user.profile.followers_count,
-        text: $t('instagram.profile.header.followers')
+        text: $t('profile.header.followers')
       },
       {
         count: user.profile.follows_count,
-        text: $t('instagram.profile.header.following')
+        text: $t('profile.header.following')
       },
     ]"
     :mobile="mobile"

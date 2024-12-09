@@ -32,7 +32,7 @@ function onProfileReset() {
     >
       <v-divider />
       <v-list-item
-        :title="$t('instagram.navigation.export')"
+        :title="$t('navigation.export')"
         @click="emit('export')"
         base-color="primary"
       >

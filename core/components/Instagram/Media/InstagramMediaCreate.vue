@@ -17,7 +17,7 @@ function onMediaCreate() {
     @close="emit('close')"
   >
     <DialogContent
-      :title="$t('instagram.profile.media.add.title')"
+      :title="$t('profile.media.add.title')"
       @back="emit('close')"
     >
       <InstagramMediaDropzone

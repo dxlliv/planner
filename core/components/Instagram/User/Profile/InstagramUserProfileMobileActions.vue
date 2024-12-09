@@ -16,7 +16,7 @@ const dialogEditProfile = ref(false)
             <v-btn
               block size="small" :height="32"
             >
-              {{$t('instagram.profile.header.editProfile')}}
+              {{$t('profile.header.editProfile')}}
 
               <UserEditorDialog
                 edit activator="parent" v-model="dialogEditProfile"
@@ -33,7 +33,7 @@ const dialogEditProfile = ref(false)
           <v-col class="pl-2">
             <v-btn
               block size="small" :height="32"
-              :text="$t('instagram.profile.header.shareProfile')"
+              :text="$t('profile.header.shareProfile')"
             />
           </v-col>
         </v-row>

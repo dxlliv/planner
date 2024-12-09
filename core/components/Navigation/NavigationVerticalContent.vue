@@ -10,7 +10,7 @@ const emit = defineEmits(["create"])
 
 <template>
   <NavigationItemList
-    :title="$t('instagram.navigation.home')"
+    :title="$t('navigation.home')"
     to="/"
   >
     <template #icon>
@@ -19,7 +19,7 @@ const emit = defineEmits(["create"])
   </NavigationItemList>
 
   <NavigationItemList
-    :title="$t('instagram.navigation.source')"
+    :title="$t('navigation.source')"
     :href="plannerConfig.project.links.source" target="_blank"
   >
     <template #icon>
@@ -28,7 +28,7 @@ const emit = defineEmits(["create"])
   </NavigationItemList>
 
   <NavigationItemList
-    :title="$t('instagram.navigation.explore')"
+    :title="$t('navigation.explore')"
     :href="plannerConfig.project.links.docs" target="_blank"
   >
     <template #icon>
@@ -37,7 +37,7 @@ const emit = defineEmits(["create"])
   </NavigationItemList>
 
   <NavigationItemList
-    :title="$t('instagram.navigation.support')"
+    :title="$t('navigation.support')"
     :href="plannerConfig.project.links.support" target="_blank"
   >
     <template #icon>
@@ -48,7 +48,7 @@ const emit = defineEmits(["create"])
   </NavigationItemList>
 
   <NavigationItemList
-    :title="$t('instagram.navigation.create')"
+    :title="$t('navigation.create')"
     @click="emit('create')"
   >
     <template #icon>
@@ -57,7 +57,7 @@ const emit = defineEmits(["create"])
   </NavigationItemList>
 
   <NavigationItemList
-    :title="$t('instagram.navigation.profile')"
+    :title="$t('navigation.profile')"
     :to="user.route"
   >
     <template #icon>

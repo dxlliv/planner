@@ -26,9 +26,9 @@ function onPressEnter(e) {
       <v-col class="flex-grow-0 pl-4 pr-0 py-0" align-self="center">
         <InstagramIconEmoji />
       </v-col>
-      <v-col class="flex-grow-1">
+      <v-col class="flex-grow-1" align-self="center">
         <v-textarea
-          :placeholder="$t('instagram.profile.post.comment.add')"
+          :placeholder="$t('profile.post.comment.add')"
           variant="solo" flat
           hide-details
           spellcheck="false"
@@ -37,7 +37,7 @@ function onPressEnter(e) {
         >
           <template v-slot:append>
             <v-btn
-              class="mr-2" variant="flat"
+              class="mt-1 mr-2" variant="flat" bg-color="transparent"
               :text="$t('common.actions.post')"
               @click="onCaptionSet"
             />
@@ -53,13 +53,22 @@ svg {
   margin-top: 5px;
 }
 
-.v-sheet.v-theme--dark {
-  svg {
-    fill: white;
+.v-sheet {
+  overflow: hidden;
+
+  &.v-theme--dark {
+    svg {
+      fill: white;
+    }
   }
 }
 
+.v-btn {
+  background: transparent !important;
+}
+
 .v-input {
+
   :deep(textarea) {
     height: 32px;
     resize: none;

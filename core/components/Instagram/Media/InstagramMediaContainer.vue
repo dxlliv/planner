@@ -69,7 +69,7 @@ function onMediaContextMenu(e) {
   &__type {
     position: absolute;
     top: 12px;
-    right: 15px;
+    right: 12px;
     color: white;
     font-size: 14px;
     pointer-events: none;

@@ -17,7 +17,7 @@ function convertToIframe() {
 <template>
   <v-list-item @click="convertToIframe">
     <v-list-item-title
-      v-text="$t('instagram.profile.media.menu.convertToIframe')"
+      v-text="$t('profile.media.menu.convertToIframe')"
     />
   </v-list-item>
 </template>

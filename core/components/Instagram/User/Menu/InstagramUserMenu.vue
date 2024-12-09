@@ -23,18 +23,18 @@ function onChangeTheme() {
       <v-list density="comfortable">
 
         <v-list-item
-            :title="$t('instagram.profile.menu.changeTheme')"
+            :title="$t('profile.menu.changeTheme')"
             @click="onChangeTheme"
         />
 
         <v-list-item
             v-if="!user.hasUnsavedChanges && user.hasLocalChanges"
-            :title="$t('instagram.profile.export.title')"
+            :title="$t('profile.export.title')"
             @click="dialogEditProfile = true"
         />
 
         <v-list-item
-            :title="$t('instagram.profile.menu.settings')"
+            :title="$t('profile.menu.settings')"
             @click="dialogEditProfile = true"
         />
 
