@@ -24,14 +24,12 @@ async function onProfileImportFromFolder() {
 </script>
 
 <template>
-  <v-list border :elevation="0">
-    <v-list-item @click="emit('openCreateProfileDialog')">
-      <v-list-item-title v-text="$t('common.actions.createProfile')" />
-    </v-list-item>
-    <v-list-item @click="onProfileImportFromFolder">
-      <v-list-item-title v-text="$t('common.actions.importProfile')" />
-    </v-list-item>
-  </v-list>
+  <v-list-item @click="emit('openCreateProfileDialog')">
+    <v-list-item-title v-text="$t('common.actions.createProfile')" />
+  </v-list-item>
+  <v-list-item @click="onProfileImportFromFolder">
+    <v-list-item-title v-text="$t('common.actions.importProfile')" />
+  </v-list-item>
 </template>
 
 <style scoped lang="scss"></style>

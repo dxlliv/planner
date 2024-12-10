@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTheme } from "vuetify";
+import { useTheme } from "vuetify"
 
 defineProps<{
   user: IUser
@@ -19,41 +19,38 @@ function onChangeTheme() {
 <template>
   <v-bottom-sheet v-model="dialog" activator="parent">
     <v-card>
-
-      <v-list density="comfortable">
+      <AppMenu>
 
         <v-list-item
-            :title="$t('profile.menu.changeTheme')"
-            @click="onChangeTheme"
+          :title="$t('profile.menu.changeTheme')"
+          @click="onChangeTheme"
         />
 
         <v-list-item
-            v-if="!user.hasUnsavedChanges && user.hasLocalChanges"
-            :title="$t('profile.export.title')"
-            @click="dialogEditProfile = true"
+          v-if="!user.hasUnsavedChanges && user.hasLocalChanges"
+          :title="$t('profile.export.title')"
+          @click="dialogEditProfile = true"
         />
 
         <v-list-item
-            :title="$t('profile.menu.settings')"
-            @click="dialogEditProfile = true"
+          :title="$t('profile.menu.settings')"
+          @click="dialogEditProfile = true"
         />
-
-      </v-list>
+      </AppMenu>
     </v-card>
 
     <UserEditorDialog
-      edit v-model="dialogEditProfile"
+      edit
+      v-model="dialogEditProfile"
       @close="dialogEditProfile = false"
     >
       <InstagramUserEditorForm
-          :user="user" autosave
-          @close="dialogEditProfile = false"
+        :user="user"
+        autosave
+        @close="dialogEditProfile = false"
       />
     </UserEditorDialog>
-
   </v-bottom-sheet>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

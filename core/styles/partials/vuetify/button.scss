@@ -1,5 +1,8 @@
 body {
   .v-btn {
+    &--size-large {
+      --v-btn-size: 0.9rem;
+    }
     &--flat {
       .v-btn__overlay,
       .v-ripple__container {

@@ -39,7 +39,7 @@
 
 <style scoped lang="scss">
 .dx-intro {
-  font-size: 21px;
+  font-size: 19px;
 
   p {
     opacity: 0.8;

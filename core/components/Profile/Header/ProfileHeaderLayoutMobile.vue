@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="dx-profile__header px-2 px-md-0">
+  <div class="dx-profile__header px-3 px-md-0">
     <div class="dx-profile__header__top py-2">
       <v-row>
         <v-col class="flex-grow-1 pb-2" align-self="center">
@@ -20,7 +20,7 @@
       </v-row>
     </div>
 
-    <div class="mb-5 pa-sm-2">
+    <div class="mb-5 px-1 pa-sm-2">
       <v-row>
         <v-col cols="3" class="dx-profile__header__avatar text-left">
 
@@ -39,7 +39,7 @@
       <slot name="description" />
     </div>
 
-    <div class="mb-3 mx-sm-2">
+    <div class="mb-3 mx-sm-1">
       <slot name="actions" />
     </div>
   </div>
@@ -47,6 +47,7 @@
 
 <style scoped lang="scss">
 .dx-profile__header {
+  font-size: 14px;
   text-align: left;
   border-bottom: rgba(var(--v-border-color), var(--v-border-opacity));
 

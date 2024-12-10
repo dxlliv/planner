@@ -68,7 +68,10 @@ watch(() => props.media.isDetailView, value => {
 
     <client-only>
 
-      <PostDialog v-model="postDetailDialog">
+      <PostDialog
+        v-if="$vuetify.display.mdAndUp"
+        v-model="postDetailDialog"
+      >
         <InstagramPostDetail
           :media="media"
           :user="user"

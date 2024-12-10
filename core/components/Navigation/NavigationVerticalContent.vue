@@ -38,7 +38,6 @@ const emit = defineEmits(["create"])
 
   <NavigationItemList
     :title="$t('navigation.support')"
-    :href="plannerConfig.project.links.support" target="_blank"
   >
     <template #icon>
       <InstagramIconHeart />

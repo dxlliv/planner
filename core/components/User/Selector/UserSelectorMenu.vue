@@ -16,8 +16,8 @@
     v-else
     close-on-content-click
   >
-    <InstagramMenu>
+    <AppMenu>
       <slot />
-    </InstagramMenu>
+    </AppMenu>
   </v-bottom-sheet>
 </template>

@@ -3,8 +3,8 @@
     activator="parent"
 
   >
-    <InstagramMenu>
+    <AppMenu>
       <slot />
-    </InstagramMenu>
+    </AppMenu>
   </v-bottom-sheet>
 </template>

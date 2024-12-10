@@ -1,7 +1,9 @@
 <template>
-  <v-list density="compact" class="dx-menu">
+  <v-list class="dx-menu">
     <div class="dx-menu__inner">
-      <slot />
+      <v-list density="comfortable">
+        <slot />
+      </v-list>
     </div>
   </v-list>
 </template>
@@ -14,13 +16,13 @@
 
   &.v-theme--light {
     .dx-menu__inner {
-      background: #EEE;
+      background: #eee;
     }
   }
 
   &.v-theme--dark {
     .dx-menu__inner {
-      background: #333;
+      background: rgba(var(--v-theme-surface-light), 0.2);
     }
   }
 
