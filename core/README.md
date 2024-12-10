@@ -4,7 +4,7 @@
 
 <h1 align="center">Instagram Planner</h1>
 
-<p align="center">An elegant multifunctional open-source planner for your Instagram profile</p>
+<p align="center">An elegant multifunctional open source planner for your Instagram profile</p>
 <p align="center">
   <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/v/release/dxlliv/planner?colorA=blue&colorB=212121" /></a>
   <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?colorA=blue&colorB=212121" /></a>
@@ -26,7 +26,7 @@ Plan the grid with no hassle and build your definitive Instagram profile.
 
 
 - **Plan your everything**  
-  You will be able to plan posts, reels, stories and highlights in a while.
+  You will be able to plan posts, reels and highlights<sup>soon</sup> in a while.
 
 
 - **A wide range of media**  
@@ -65,5 +65,12 @@ npx create-plxnner planner
 
 ### Configuration
 
-You can make changes to your profile by editing `src/public/user/instagram/{username}`.  
+You can update your profile by editing the file located at `src/public/user/instagram/{username}`.  
 Update `planner.config.ts` accordingly. Read the [documentation](https://dxlliv.github.io/planner/docs/) for further information.
+
+### Interactive Planning
+
+You might like to plan your profile directly using a simple user interface.  
+In that case, just upload the media and rearrange your grid as desired.
+
+Then export your changes as a zip file and overwrite the existing profile.

@@ -4,7 +4,7 @@
 
 <h1 align="center">Instagram Planner</h1>
 
-<p align="center">An elegant multifunctional open-source planner for your Instagram profile</p>
+<p align="center">An elegant multifunctional open source planner for your Instagram profile</p>
 <p align="center">
   <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/v/release/dxlliv/planner?colorA=blue&colorB=212121" /></a>
   <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?colorA=blue&colorB=212121" /></a>
@@ -26,7 +26,7 @@ Plan the grid with no hassle and build your definitive Instagram profile.
 
 
 - **Plan your everything**  
-  You will be able to plan posts, reels, stories and highlights in a while.
+  You will be able to plan posts, reels and highlights<sup>soon</sup> in a while.
 
 
 - **A wide range of media**  
@@ -65,23 +65,19 @@ npx create-plxnner planner
 
 ### Configuration
 
-You can make changes to your profile by editing `src/public/user/instagram/{username}`.  
+You can update your profile by editing the file located at `src/public/user/instagram/{username}`.  
 Update `planner.config.ts` accordingly. Read the [documentation](https://dxlliv.github.io/planner/docs/) for further information.
 
-### Interactive Planning via UI
+### Interactive Planning
 
-You might also like to directly edit your profile using a simple user interface.  
+You might like to plan your profile directly using a simple user interface.  
 In that case, just upload the media and rearrange your grid as desired.
 
-Export your changes in zip format and overwrite your profile configuration.  
-*I may release a Node.js helper in the future, to speed up this process.*
+Then export your changes as a zip file and overwrite the existing profile.
 
 ## Development
 
-I'd like to make this tool accessible to all the people directly from the browser with an intuitive interface, without installing any software or changing a single line of code. Some changes have already been made.
-
-If you want to contribute and improve **dxlliv/planner**,  
-clone the repository and move to the project directory:
+If you would like to contribute to **dxlliv/planner**, clone the repo and move to the project directory:
 
 ```bash
 git clone https://github.com/dxlliv/planner.git && cd planner
@@ -90,8 +86,5 @@ git clone https://github.com/dxlliv/planner.git && cd planner
 Install dependencies and run the project in development mode:
 
 ```bash
-yarn install && yarn dev
-
-# or use npm
 npm install && npm run dev
 ```
