@@ -17,8 +17,5 @@ export default {
     // media options
     mediaSort: true,
     mediaPage: true,
-
-    // deluxe edition
-    requestDeluxe: true
   }
 }
