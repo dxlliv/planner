@@ -1,1 +1,0 @@
-import{e as n,bB as c,o as s,c as p,f as t,a7 as r,g as a,aV as i}from"./C69fWWsL.js";const l={class:"app-media__type"},f=n({__name:"MediaTypeIcon",props:{type:{}},setup(o){const e=c(o.type);return(_,d)=>(s(),p("div",l,[(s(),t(i(a(e).component),{class:r(a(e).icon)},null,8,["class"]))]))}});export{f as _};
