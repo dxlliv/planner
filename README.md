@@ -8,8 +8,8 @@
 <p align="center">
   <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/v/release/dxlliv/planner?colorA=blue&colorB=212121" /></a>
   <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?colorA=blue&colorB=212121" /></a>
-  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/dm/plxnner.svg?colorA=383838&colorB=212121" /></a>
-  <a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/demo-212121?label=planner&labelColor=383838" /></a>
+  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/dm/plxnner.svg?colorA=41b883&colorB=212121" /></a>
+  <a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/demo-212121?label=planner&labelColor=41b883" /></a>
   <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/stars/dxlliv/planner?style=social" /></a>
 </p>
 

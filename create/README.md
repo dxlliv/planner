@@ -4,12 +4,12 @@
 
 <h1 align="center">Instagram Planner</h1>
 
-<p align="center">An elegant multifunctional open-source planner for your Instagram profile</blockquote>
+<p align="center">An elegant multifunctional open-source planner for your Instagram profile</p>
 <p align="center">
-  <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/v/release/dxlliv/planner" /></a>
-  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?color=blue" /></a>
-  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/dm/plxnner.svg?color=333333" /></a>
-  <a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/planner-demo-333333" /></a>
+  <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/v/release/dxlliv/planner?colorA=blue&colorB=212121" /></a>
+  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/v/plxnner.svg?colorA=blue&colorB=212121" /></a>
+  <a href="https://npmjs.com/package/plxnner"><img src="https://img.shields.io/npm/dm/plxnner.svg?colorA=41b883&colorB=212121" /></a>
+  <a href="https://dxlliv.github.io/planner"><img src="https://img.shields.io/badge/demo-212121?label=planner&labelColor=41b883" /></a>
   <a href="https://github.com/dxlliv/planner"><img src="https://img.shields.io/github/stars/dxlliv/planner?style=social" /></a>
 </p>
 
@@ -18,7 +18,7 @@
 **dxlliv/planner** lets you preview what your profile grid will look like.  
 Plan the grid with no hassle and build your definitive Instagram profile.
 
-**[Demo](https://dxlliv.github.io/planner/) · [Documentation](https://dxlliv.github.io/planner/docs/) · [Support](https://patreon.com/dxlliv)**
+**[Demo](https://dxlliv.github.io/planner/) · [Documentation](https://dxlliv.github.io/planner/docs/) · [Support](https://github.com/sponsors/dxlliv)**
 
 ## Features
 - **Organize your grid**  
@@ -55,13 +55,15 @@ Plan the grid with no hassle and build your definitive Instagram profile.
 
 ## Getting started
 
-Bootstrap a new planner from scratch running this command in your terminal:
+Make sure you have Node.js and Npm installed, then open your terminal.  
+Run this command to generate a **dxlliv/planner** instance from scratch:
 
 ```bash
 npx create-plxnner planner
 ```
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/dxlliv/planner?file=src%2Fpublic%2Fuser%2Finstagram%2Fdxlliv%2Fconfig.json)
 
-## Configuration
+### Configuration
 
 You can make changes to your profile by editing `src/public/user/instagram/{username}`.  
 Update `planner.config.ts` accordingly. Read the [documentation](https://dxlliv.github.io/planner/docs/) for further information.
