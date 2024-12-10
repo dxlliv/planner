@@ -28,7 +28,7 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "@nuxt/fonts",
     "vuetify-nuxt-module",
-    '@pinia-plugin-persistedstate/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
     [
       "@vueuse/nuxt",
       {
