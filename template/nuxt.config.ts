@@ -13,5 +13,14 @@ export default defineNuxtConfig({
     head: {
       title: "Planner",
     }
-  }
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler' // or "modern"
+        }
+      }
+    },
+  },
 });
