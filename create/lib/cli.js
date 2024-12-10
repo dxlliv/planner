@@ -72,7 +72,7 @@ async function main() {
 
     spinner = ora(`Installing packages`).start();
     try {
-      await execShellCommand(`yarn install`);
+      await execShellCommand(`npm install`);
       spinner.succeed()
     } catch (e) {
       spinner.fail(e.stderr)
@@ -81,7 +81,7 @@ async function main() {
     console.log()
     console.log(`You just spawned a fresh ` + chalk.bold('dxlliv/planner') + ` instance.\nNow you can start it by running these commands:\n`)
     console.log(chalk.grey(`cd ${projectName}`));
-    console.log(chalk.grey(`yarn dev`));
+    console.log(chalk.grey(`npm run dev`));
     console.log()
   } catch (error) {
     console.log(error);
