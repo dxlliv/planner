@@ -4,6 +4,8 @@ defineProps<{
   media: IMedia
   isFromDetail?: boolean
   contextMenu?: boolean
+  navigation?: boolean
+  pagination?: boolean
 }>()
 </script>
 
@@ -38,6 +40,8 @@ defineProps<{
   <InstagramMediaAlbum
     v-if="media.type === 'album'"
     :is-from-detail="isFromDetail"
+    :navigation="navigation"
+    :pagination="pagination"
     :context-menu="contextMenu"
     :media="media"
     :user="user"

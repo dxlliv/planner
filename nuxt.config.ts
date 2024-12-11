@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     './styles/index.scss',
     'swiper/css',
     'swiper/css/pagination',
+    'swiper/css/navigation',
     'filepond/dist/filepond.min.css',
   ],
 

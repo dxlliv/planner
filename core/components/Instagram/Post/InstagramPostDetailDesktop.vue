@@ -17,6 +17,7 @@ function onDateUpdate(value) {
         :media="media"
         :user="user.profile"
         is-from-detail
+        navigation
       />
 
     </template>

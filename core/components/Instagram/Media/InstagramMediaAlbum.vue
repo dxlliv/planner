@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue"
+import {Navigation, Pagination} from "swiper/modules";
 
 const props = defineProps<{
   media: IMediaAlbum
   user: IUser
   isFromDetail?: boolean
+  navigation?: boolean
 }>()
 
 const albumEditing = ref(false)
@@ -33,6 +35,8 @@ function onMediaAlbumSlide(swiper) {
 
     <Swiper
       :initial-slide="media.listIndex"
+      :modules="[Navigation, Pagination]"
+      :navigation="navigation" :pagination="navigation"
       @slideChange="onMediaAlbumSlide"
     >
       <SwiperSlide v-for="(item, i) of media.list" :key="i">

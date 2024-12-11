@@ -6,6 +6,7 @@ const props = defineProps<{
   user: IUser
   media: IMedia
   contextMenu?: boolean
+  pagination?: boolean
 }>()
 
 const display = useDisplay()
@@ -75,6 +76,8 @@ watch(() => props.media.isDetailView, value => {
         <InstagramPostDetail
           :media="media"
           :user="user"
+          :pagination="pagination"
+          navigation
         />
       </PostDialog>
 
