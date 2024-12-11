@@ -65,7 +65,7 @@ npx create-plxnner planner
 
 ### Configuration
 
-You can update your profile by editing the file located at `src/public/user/instagram/{username}`.  
+You can update your profile by editing `src/public/user/instagram/{username}`.  
 Update `planner.config.ts` accordingly. Read the [documentation](https://dxlliv.github.io/planner/docs/) for further information.
 
 ### Interactive Planning
