@@ -15,8 +15,6 @@ onChange((files: null | File[]) => {
 
   const file = files[0]
 
-  console.log('EHO', props.media)
-
   props.media.setMediaImage(file)
   props.media.refresh()
 

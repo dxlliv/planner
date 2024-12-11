@@ -5,7 +5,7 @@ withDefaults(
     size?: string
   }>(),
   {
-    size: "medium",
+    size: "small",
   },
 )
 </script>
@@ -33,7 +33,7 @@ withDefaults(
   }
 
   &.text-subtitle-2 {
-    font-size: 18px !important;
+    font-size: 19px !important;
   }
 
   :deep(a) {

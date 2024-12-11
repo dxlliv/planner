@@ -26,7 +26,7 @@ defineProps<{
       </v-col>
     </v-row>
 
-    <div class="font-weight-bold text-subtitle-2 mt-2 mb-n2">0 likes</div>
+    <div class="font-weight-bold mt-2 mb-n1">0 likes</div>
   </v-sheet>
 </template>
 

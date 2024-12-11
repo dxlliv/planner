@@ -2,4 +2,20 @@ body {
   .v-list-item--density-default.v-list-item--one-line {
     min-height: 36px;
   }
+  .v-menu {
+    .v-list {
+      box-shadow: none !important;
+
+      &-item {
+        min-height: 28px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+      }
+
+      &-item-title {
+        font-size: 15px;
+        line-height: 2;
+      }
+    }
+  }
 }

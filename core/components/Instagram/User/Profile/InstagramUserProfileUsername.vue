@@ -9,7 +9,7 @@ const props = withDefaults(
     size?: string
   }>(),
   {
-    size: "medium",
+    size: "small",
   },
 )
 
@@ -30,9 +30,9 @@ function onFieldBlur() {
   <ProfileUsername
     :size="size"
     :class="[
-      'dx-profile__header__username',
-      { 'font-weight-bold text-subtitle-2': size === 'medium' },
-      { 'font-weight-bold text-subtitle-1': size === 'large' },
+      'dx-profile__header__username font-weight-bold',
+      { 'text-subtitle-2': size === 'medium' },
+      { 'text-subtitle-1': size === 'large' },
     ]"
   >
     <contenteditable

@@ -58,7 +58,7 @@ defineProps<{
     right: 0;
     bottom: 0;
     display: grid;
-    grid-auto-rows: 72px calc(100% - 72px - 116px - 60px) 116px 60px;
+    grid-auto-rows: 72px calc(100% - 72px - 110px - 58px) 110px 58px;
   }
 }
 </style>

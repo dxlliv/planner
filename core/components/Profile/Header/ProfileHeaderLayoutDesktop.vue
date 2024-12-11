@@ -31,6 +31,7 @@
 <style scoped lang="scss">
 .dx-profile__header {
   text-align: left;
+  font-size: 18px;
   border-bottom: rgba(var(--v-border-color), var(--v-border-opacity));
 
   :deep(.dx-profile__header__username) {

@@ -107,10 +107,6 @@ function onProfileContextMenu(e) {
   &__context-menu {
     .v-list {
       padding: 0;
-
-      &-item-title {
-        font-size: 13px;
-      }
     }
   }
 

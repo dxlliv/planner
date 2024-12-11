@@ -10,7 +10,9 @@
     :open-delay="5000"
     :offset="[7, 0]"
   >
-    <slot />
+    <v-list flat border>
+      <slot />
+    </v-list>
   </v-menu>
   <v-bottom-sheet
     v-else
@@ -21,3 +23,6 @@
     </AppMenu>
   </v-bottom-sheet>
 </template>
+
+<script setup lang="ts">
+</script>
