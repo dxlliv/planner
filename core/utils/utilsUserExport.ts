@@ -9,7 +9,6 @@ export async function fulfillMediaFilesForExport(
   const result = []
 
   for await (const media of mediaList) {
-    media.fetch()
     result.push(await media.export())
   }
 
