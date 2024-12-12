@@ -11,7 +11,7 @@ function onLanguageSelect(languageSelected: any) {
 </script>
 
 <template>
-  <span class="planner-language-switcher cursor-pointer">
+  <span class="dx-language-switcher cursor-pointer">
     {{language}}
 
     <v-menu activator="parent" :offset="[12,6]">
@@ -35,7 +35,7 @@ function onLanguageSelect(languageSelected: any) {
 </template>
 
 <style lang="scss">
-.planner-language-switcher {
-
+.dx-language-switcher {
+  vertical-align: 1px;
 }
 </style>

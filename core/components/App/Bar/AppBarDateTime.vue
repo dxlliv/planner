@@ -13,7 +13,6 @@ const time = computed(() => {
   }
 
   let hours = date.value.getHours()
-  if (hours.toString().length === 1) hours = `0${hours}`
 
   let minutes = date.value.getMinutes()
   if (minutes.toString().length === 1) minutes = `0${minutes}`
@@ -23,7 +22,7 @@ const time = computed(() => {
 </script>
 
 <template>
-  <span v-text="time" />
+  <span class="text-subtitle-1" v-text="time" />
 </template>
 
 <style scoped lang="scss">

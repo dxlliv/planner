@@ -10,15 +10,15 @@ onBeforeMount(() => {
 <template>
   <v-app-bar
     :class="{'pl-9': extraStore.options.guides}"
-    flat
+    flat :height="80"
   >
     <v-row no-gutters>
       <v-col class="flex-grow-0 text-left" align-self="center" style="min-width: 244px;">
-        <AppLogo to="/" title="Planner" class="mx-4 mt-1" />
+        <AppLogo to="/" title="Planner" class="mx-8 mt-1" />
       </v-col>
       <v-col class="flex-grow-1 text-left" align-self="center">
 
-        <v-breadcrumbs class="ma-0 px-2">
+        <v-breadcrumbs class="ma-0 px-4">
           <v-breadcrumbs-item
             v-for="user of userStore.userList"
             :to="user.route"
@@ -30,10 +30,10 @@ onBeforeMount(() => {
         </v-breadcrumbs>
 
       </v-col>
-      <v-col class="text-right text-overline px-4" align-self="center">
+      <v-col class="text-right text-overline px-8" align-self="center">
 
         <AppLanguageSwitcher class="text-grey" />
-        <AppDateTime class="ms-2" />
+        <AppBarDateTime class="ms-4" />
 
       </v-col>
     </v-row>
@@ -49,17 +49,24 @@ onBeforeMount(() => {
   :deep(a) {
     text-decoration: none;
   }
+
+  .dx-logo {
+    font-size: 44px;
+  }
 }
 </style>
 
 <style lang="scss">
+.dx-navigation-drawer__list-bottom {
+  bottom: 80px !important;
+}
 body.dx-bar--enabled {
-  .dx-navigation-drawer__list-bottom {
-    bottom: 64px !important;
+  .dx-navigation-drawer__actions {
+    padding-bottom: 80px;
   }
 
   .v-layout {
-    padding-bottom: 36px;
+    padding-bottom: 80px;
   }
 }
 </style>
