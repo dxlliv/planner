@@ -145,7 +145,7 @@ display: none;
 }
 
 .VPHome .VPButton.medium {
-    font-size: 15px;
+    font-size: 15px !important;
 }
 
 .VPImage {
