@@ -28,6 +28,10 @@ export const useUserStore = defineStore("user", () => {
 
     await user.loadUserClient()
 
+    user.setLocalChanges(true)
+
+    await user.save()
+
     return true
   }
 

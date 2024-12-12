@@ -3,7 +3,7 @@ import { extractUsernameFromUserId } from "../../utils/utilsPlatform"
 
 export default class User implements IUser {
   public readonly raw: IRawUser
-  public readonly origin: IUserOrigin = "" as IUserOrigin
+  public origin: IUserOrigin = "" as IUserOrigin
 
   public platform: IUserPlatform = "" as IUserPlatform
   public id: string = ""
@@ -20,6 +20,8 @@ export default class User implements IUser {
 
   constructor(raw: IRawUser) {
     this.raw = raw
+
+    this.origin = this.raw.origin
   }
 
   /**
@@ -51,6 +53,13 @@ export default class User implements IUser {
       if (available) {
         // override raw user data
         await this.storage.restore()
+
+        this.setLocalChanges(true)
+
+        // todo refactor origin
+        if (!this.origin) {
+          this.origin = 'storage'
+        }
       }
     })
   }

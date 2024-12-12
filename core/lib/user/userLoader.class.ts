@@ -45,15 +45,17 @@ export default class UserLoader {
       tempUserReference.username
     )
 
-    rawUser.platform = tempUserReference.platform
-    rawUser.origin = 'storage'
-
     if (rawUser) {
-      await userStore.loadUser(rawUser)
-    } else {
-      // something happened,
-      // it no longer exists
-      userStorageStore.removeUserFromStorageIndex(tempUserReference)
+      rawUser.platform = tempUserReference.platform
+      rawUser.origin = 'storage'
+
+      if (rawUser) {
+        await userStore.loadUser(rawUser)
+      } else {
+        // something happened,
+        // it no longer exists
+        userStorageStore.removeUserFromStorageIndex(tempUserReference)
+      }
     }
   }
 }
