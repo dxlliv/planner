@@ -9,11 +9,9 @@
         <UserSelectorList class="mb-n3" />
       </v-col>
       <v-col :cols="12" :md="4" class="mt-10 mt-md-0" align-self="center">
-        <AppIntroduction />
-        <!--
-        <MainFooter class="pb-0" />
-        <img class="mx-1 mt-5" src="https://img.shields.io/github/stars/dxlliv/planner?style=social" />
-        -->
+        <UserPhone>
+          <AppIntroduction />
+        </UserPhone>
       </v-col>
     </v-row>
   </v-container>
