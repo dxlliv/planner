@@ -33,6 +33,13 @@
       href="https://dxlliv.github.io/planner/docs/"
       :text="$t('common.documentation')"
       size="large"
+      :height="48"
+    />
+
+    <v-btn
+      href="https://github.com/sponsors/dxlliv" target="_blank"
+      icon="mdi-heart-outline" variant="text" color="pink"
+      :width="48" :height="48" class="ml-3"
     />
 
   </v-card>
