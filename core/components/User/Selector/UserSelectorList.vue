@@ -24,10 +24,10 @@ const users = computed(() => useUserStore().userList)
           slidesPerView: users.length > 4 ? 4.5 : users.length + 2,
         },
         960: {
-          slidesPerView: 4,
+          slidesPerView: 4.8,
         },
         1280: {
-          slidesPerView: 5,
+          slidesPerView: 5.8,
         },
       }"
     >

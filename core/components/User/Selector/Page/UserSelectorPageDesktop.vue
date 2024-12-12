@@ -22,7 +22,7 @@ function onShieldDisable() {
             v-if="!homeStore.profilePreview"
           />
           <template v-else>
-            <userPhoneSystemBar />
+            <UserPhoneSystemBar />
 
             <iframe
               :src="`/planner/instagram/${homeStore.profilePreview}/#iframe`"
@@ -112,7 +112,7 @@ function onShieldDisable() {
     display: grid;
     align-content: center;
     background: rgba(var(--v-theme-background), 0.5);
-    backdrop-filter: blur(72px);
+    backdrop-filter: blur(96px);
     z-index: 1005;
 
     > div {

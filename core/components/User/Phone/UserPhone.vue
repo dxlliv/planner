@@ -28,7 +28,7 @@ defineProps<{
 .dx-phone {
   background: #333;
   border-radius: 48px 48px 0 0;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 64px 32px rgb(var(--v-theme-background));
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 96px 48px rgb(var(--v-theme-background));
   position: relative;
   overflow: hidden;
   height: 90vh;
