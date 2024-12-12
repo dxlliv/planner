@@ -1,0 +1,1 @@
+import{_ as c,o as e,f as o,V as _}from"./DzU6tBY3.js";const a={};function n(t,r){return e(),o(_,{icon:"mdi-check-decagram"})}const d=c(a,[["render",n],["__scopeId","data-v-ab55ec78"]]);export{d as default};
