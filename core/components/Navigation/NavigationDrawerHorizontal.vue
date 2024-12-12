@@ -34,7 +34,7 @@ const emit = defineEmits(["create"])
         <nuxt-link :to="user.route">
           <InstagramUserAvatar
             :avatar="user.profile.avatar"
-            :size="26"
+            :size="26" border
           />
         </nuxt-link>
       </NavigationItemButton>

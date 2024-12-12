@@ -63,7 +63,7 @@ const emit = defineEmits(["create"])
       <suspense>
         <InstagramUserAvatar
           :avatar="user.profile.avatar"
-          :size="36"
+          :size="36" border
         />
       </suspense>
     </template>

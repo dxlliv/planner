@@ -44,18 +44,6 @@ const userMediaCreate = ref(false)
   position: fixed !important;
   background: none;
 
-  &.v-theme--light {
-    .dx-profile-avatar {
-      border-color: black;
-    }
-  }
-
-  &.v-theme--dark {
-    .dx-profile-avatar {
-      border-color: white;
-    }
-  }
-
   .dx-navigation-drawer__list-bottom {
     position: absolute !important;
     bottom: 0;
