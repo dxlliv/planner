@@ -13,11 +13,11 @@ if (user) {
   //user.value.media.fetch()
 }
 
-useSeoMeta(user.value.profile.seoMeta)
+//useSeoMeta(user.value.profile.seoMeta)
 </script>
 
 <template>
-  <LayoutInstagram :user="user">
+  <LayoutInstagram v-if="user" :user="user">
     <InstagramUser :user="user" />
   </LayoutInstagram>
 </template>

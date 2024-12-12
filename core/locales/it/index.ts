@@ -6,6 +6,7 @@ export default {
     actions: {
       createProfile: 'Crea profilo',
       openProfile: 'Visualizza profilo',
+      openInstagram: 'Instagram',
       editProfile: 'Modifica profilo',
       importProfile: 'Importa profilo',
       remove: 'Rimuovi',

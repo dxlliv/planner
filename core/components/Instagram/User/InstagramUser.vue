@@ -49,7 +49,6 @@ function onCollectionChange(collection: any) {
 
   <ProfileTabList
     :tabs="tabs"
-    :media="user.media"
     :active="tab"
     @select="onCollectionChange"
   />

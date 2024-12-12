@@ -13,7 +13,7 @@ function onMediaCreate() {
     content-class="dx-media-create"
     :fullscreen="$vuetify.display.smAndDown"
     :max-width="700"
-    :height="500"
+    height="60vh"
     @close="emit('close')"
   >
     <DialogContent

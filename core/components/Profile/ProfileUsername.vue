@@ -29,7 +29,7 @@ withDefaults(
   position: relative;
 
   &.text-subtitle-1 {
-    font-size: 22px !important;
+    font-size: 21px !important;
   }
 
   &.text-subtitle-2 {

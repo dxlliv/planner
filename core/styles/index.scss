@@ -10,18 +10,24 @@
 @use "filepond/dist/filepond.min.css";
 
 html {
-  @media(max-width: 320px) {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
 body {
   user-select: none;
+
+  &.is-iframe {
+    padding-top: 5dvh;
+
+    .v-dialog--fullscreen .v-overlay__content .v-card {
+      padding-top: 5dvh;
+    }
+  }
 }
 
 h2 {

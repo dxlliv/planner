@@ -45,7 +45,7 @@ defineProps<{
     }
 
     @media (max-width: 959px) {
-      border-bottom: 1px solid rgb(var(--v-theme-on-background));
+      border-bottom: 2px solid rgb(var(--v-theme-on-background));
       width: 33.3%;
     }
   }

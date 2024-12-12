@@ -66,7 +66,7 @@ function onSortEnd() {
         </SlickItem>
       </SlickList>
 
-      <v-card v-else :height="500" flat :elevation="0">
+      <v-card v-else height="55dvh" flat :elevation="0">
         <InstagramMediaDropzone :user="user" />
       </v-card>
     </div>

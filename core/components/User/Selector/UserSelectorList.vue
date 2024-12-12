@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue"
+import { Mousewheel } from "swiper/modules"
 
 const users = computed(() => useUserStore().userList)
 </script>
@@ -8,7 +9,9 @@ const users = computed(() => useUserStore().userList)
   <div class="dx-user-selector-list">
     <Swiper
       :key="users.length"
-      :centered-slides="$vuetify.display.mdAndDown"
+      :modules="[Mousewheel]"
+      mousewheel allow-touch-move
+      :centered-slides="$vuetify.display.lgAndDown"
       :slides-per-view="1.75"
       :breakpoints="{
         340: {
@@ -21,7 +24,10 @@ const users = computed(() => useUserStore().userList)
           slidesPerView: users.length > 4 ? 4.5 : users.length + 2,
         },
         960: {
-          slidesPerView: 3.5,
+          slidesPerView: 4,
+        },
+        1280: {
+          slidesPerView: 5,
         },
       }"
     >

@@ -1,9 +1,11 @@
-<script lang="ts">
-
+<script setup lang="ts">
+defineProps<{
+  iframe?: boolean
+}>()
 </script>
 
 <template>
-  <div class="dx-phone">
+  <div :class="['dx-phone', {'dx-phone--iframe': iframe}]">
     <div class="dx-phone__screen">
       <div class="dx-phone__content">
 
@@ -25,52 +27,55 @@
 <style scoped lang="scss">
 .dx-phone {
   background: #333;
-  border-radius: 48px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 48px 48px 0 0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 64px 32px rgb(var(--v-theme-background));
   position: relative;
   overflow: hidden;
-  height: 100vh;
-  min-width: 30vw;
-  margin: 100px auto;
+  height: 90vh;
+  //min-width: 30vw;
+  margin: 20vh auto -20px auto;
+  left: -10vw;
   border: 0.8vw solid #222;
-  aspect-ratio: 2.4 / 5;
-  margin-bottom: -8vh;
+  aspect-ratio: 2.8 / 5;
+  z-index: 1;
 
   &__screen {
     width: 100%;
     height: 100%;
     background: #fff;
     border-radius: 40px;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1), 0 4px 20px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   &__content {
+    position: relative;
     text-align: center;
     color: #333;
-    font-family: Arial, sans-serif;
-  }
+    border-radius: 2px;
+    overflow: hidden;
 
-  &__h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    :deep(iframe) {
+      width: 100.05%;
+      height: calc(85dvh - 20px);
+      border: 0;
+    }
   }
 
   &__notch {
     position: absolute;
-    top: 2%;
+    top: 1.1%;
     left: 50%;
     transform: translateX(-50%);
     width: 36%;
-    height: 3.5%;
+    height: 3.4dvh;
     background: #000;
     border-radius: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1006;
   }
 
   &__camera-lens {
@@ -154,6 +159,16 @@
     border-radius: 8px;
     background: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  &--iframe {
+    .dx-phone__screen {
+      display: inherit;
+    }
+
+    .dx-phone__content {
+      height: 100dvh !important;
+    }
   }
 }
 </style>

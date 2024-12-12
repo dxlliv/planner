@@ -8,7 +8,6 @@
     scroll-strategy="close"
     :open-on-click="false"
     :open-delay="5000"
-    :offset="[7, 0]"
   >
     <v-list flat border>
       <slot />

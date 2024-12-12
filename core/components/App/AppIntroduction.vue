@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 </script>
 
 <template>
@@ -8,7 +9,7 @@
     class="dx-intro mx-auto text-center"
   >
 
-    <AppLogo to="/" title="Planner" size="large" class="mt-n3" />
+    <AppLogo to="/" title="Planner" size="large" class="mt-n2" />
 
     <!--
     <h2 class="hidden-md-and-up">

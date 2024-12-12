@@ -8,6 +8,8 @@ const props = defineProps<{
 
 const display = useDisplay()
 const router = useRouter()
+const homeStore = useHomeStore()
+
 const contextMenu = reactive({
   enabled: false,
   x: 0,
@@ -26,7 +28,7 @@ function onUserEdit() {
 
 function onProfileClick(e) {
   if (display.mdAndUp.value) {
-    router.push(props.user.route)
+    homeStore.setProfilePreview(props.user.profile.username)
     return
   }
 
@@ -61,14 +63,19 @@ function onProfileContextMenu(e) {
             :avatar="user.profile.avatar"
           >
             <template #inner>
-              <UserSelectorBadgeChanges v-if="user.hasLocalChanges || user.hasUnsavedChanges" />
+              <UserSelectorBadgeChanges
+                v-if="user.hasLocalChanges || user.hasUnsavedChanges"
+              />
             </template>
           </UserSelectorAvatar>
         </suspense>
 
         <h3 class="mt-4 text-truncate" v-text="user.profile.username" />
 
-        <UserSelectorMenu v-model="contextMenu.enabled">
+        <UserSelectorMenu
+          v-model="contextMenu.enabled"
+          :offset="[15, 0]"
+        >
           <UserSelectorMenuOptions
             @open="onUserOpen"
             @edit="onUserEdit"
@@ -77,13 +84,6 @@ function onProfileContextMenu(e) {
         </UserSelectorMenu>
       </a>
 
-      <a
-        class="d-inline-block text-blue-grey-lighten-2 mt-n1"
-        :href="user.profile.publicProfile"
-        target="_blank"
-      >
-        <v-icon icon="mdi-arrow-top-right" size="14px" />
-      </a>
     </template>
     <slot />
 
