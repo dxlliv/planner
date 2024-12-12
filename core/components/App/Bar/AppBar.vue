@@ -33,7 +33,7 @@ onBeforeMount(() => {
       <v-col class="text-right text-overline px-8" align-self="center">
 
         <AppLanguageSwitcher class="text-grey" />
-        <AppBarDateTime class="ms-4" />
+        <AppDateTime class="ms-4" />
 
       </v-col>
     </v-row>
