@@ -47,7 +47,7 @@
 
 <style scoped lang="scss">
 .dx-profile__header {
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
   border-bottom: rgba(var(--v-border-color), var(--v-border-opacity));
 

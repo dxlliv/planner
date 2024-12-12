@@ -54,7 +54,7 @@ withDefaults(defineProps<{
     top: 12px;
     right: 15px;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     pointer-events: none;
 
     .mdi {
@@ -77,7 +77,6 @@ withDefaults(defineProps<{
     bottom: 10px;
     right: 10px;
     color: white;
-    font-size: 14px;
 
     a {
       color: white;

@@ -71,7 +71,7 @@ function onMediaContextMenu(e) {
     top: 12px;
     right: 12px;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     pointer-events: none;
     z-index: 1;
 
