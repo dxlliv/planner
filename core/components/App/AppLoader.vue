@@ -13,14 +13,13 @@ await UserLoader.loadUsersFromConfig()
 // restore previous dark theme state
 themeStore.restorePreviousState(theme)
 
-onBeforeMount(async () => {
-  // initialize temporary users
-  await UserLoader.loadUsersFromStorage()
+// todo watch out for ssr, refactor needed
+// initialize temporary users
+await UserLoader.loadUsersFromStorage()
 
-  for (const user of userStore.userList) {
-    await user.loadUserClient()
-  }
-})
+for (const user of userStore.userList) {
+  await user.loadUserClient()
+}
 
 onMounted(() => {
   document.addEventListener('touchmove', (e) => {
