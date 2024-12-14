@@ -1,0 +1,1 @@
+import{T as s,aS as n,C as a}from"./BAgJTPCY.js";const r=[null,"default","comfortable","compact"],u=s({density:{type:String,default:"default",validator:e=>r.includes(e)}},"density");function d(e){let t=arguments.length>1&&arguments[1]!==void 0?arguments[1]:n();return{densityClasses:a(()=>`${t}--density-${e.density}`)}}export{u as m,d as u};

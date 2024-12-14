@@ -1,0 +1,1 @@
+import{aB as t,p as e,C as s,b9 as n}from"./BAgJTPCY.js";function i(){const o=t(!1);return e(()=>{window.requestAnimationFrame(()=>{o.value=!0})}),{ssrBootStyles:s(()=>o.value?void 0:{transition:"none !important"}),isBooted:n(o)}}export{i as u};
