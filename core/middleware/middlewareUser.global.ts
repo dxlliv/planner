@@ -1,4 +1,4 @@
-import UserLoader from "£/lib/user/userLoader.class"
+import UserLoader from "£/models/user/userLoader.class"
 
 export default defineNuxtRouteMiddleware(async (to: any) => {
   /*

@@ -1,4 +1,4 @@
-import {configPlatformStructure} from "../lib/config/configPlatformStructure"
+import {configPlatformStructure} from "../models/config/configPlatformStructure"
 
 export function usePlatformStructure(platform: IUserPlatform) {
   return configPlatformStructure[platform]

@@ -1,5 +1,5 @@
-import User from "../lib/user/user.class"
-import InstagramUser from "../lib/platform/instagram/instagramUser.class"
+import User from "../models/user/user.class"
+import InstagramUser from "../models/platform/instagram/instagramUser.class"
 
 // id is :platform/:rawUser
 

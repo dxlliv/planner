@@ -1,6 +1,6 @@
 import { openUserDirectory, parseUserProfileConfigFromFileDirectory } from "£/utils/utilsUserProfile"
 import { parseUserPlatform } from "£/utils/utilsPlatform"
-import UserMedia from "£/lib/user/userMedia.class"
+import UserMedia from "£/models/user/userMedia.class"
 import { usePlatformStructure } from "£/composables/composablePlatformStructure"
 
 export default class UserImporter {

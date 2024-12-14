@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useTheme } from "vuetify";
-import UserLoader from "£/lib/user/userLoader.class"
+import UserLoader from "£/models/user/userLoader.class"
 
 const appStore = useAppStore()
 const userStore = useUserStore()

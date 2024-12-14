@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import UserImporter from "£/lib/user/userImporter.class"
+import UserImporter from "£/models/user/userImporter.class"
 
 const userStore = useUserStore()
 const userStorageStore = useUserStorageStore()
