@@ -1,6 +1,6 @@
 # Installation
 
-Make sure you have [Node.js](https://nodejs.org/en/download) and Yarn installed on your system.  
+Make sure you have [Node.js](https://nodejs.org/en/download) and NPM installed on your system.  
 Then bootstrap a new planner by running the following command:
 
 ```bash
@@ -11,7 +11,7 @@ Enter the project directory and start your planner:
 
 ```bash
 cd planner
-yarn dev
+npm run dev
 ```
 
 ## Project structure

@@ -10,7 +10,7 @@ If you prefer to run your planner locally or host it somewhere, keep reading.
 
 ## Create your planner
 
-First of all, make sure you have [Node.js](https://nodejs.org/en/download) and Yarn installed on your system.  
+First of all, make sure you have [Node.js](https://nodejs.org/en/download) and NPM installed on your system.  
 You can bootstrap a new planner by running the following command:
 
 ```bash
@@ -21,7 +21,7 @@ Enter the project directory and start your planner:
 
 ```bash
 cd planner
-yarn dev
+npm run dev
 ```
 
 ## Project structure

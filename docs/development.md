@@ -15,9 +15,6 @@ Install dependencies and run the project:
 
 ```bash
 npm install && npm run dev
-
-# or use yarn
-yarn install && yarn dev
 ```
 
 ## Project structure
