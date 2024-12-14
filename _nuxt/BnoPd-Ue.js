@@ -1,0 +1,1 @@
+import{T as n,aS as o,C as e}from"./01aRC5Ud.js";const i=["static","relative","fixed","absolute","sticky"],u=n({position:{type:String,validator:t=>i.includes(t)}},"position");function p(t){let s=arguments.length>1&&arguments[1]!==void 0?arguments[1]:o();return{positionClasses:e(()=>t.position?`${s}--${t.position}`:void 0)}}export{u as m,p as u};

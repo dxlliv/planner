@@ -1,0 +1,1 @@
+import{_ as o,o as t,c as n,a as r}from"./01aRC5Ud.js";const s={},c={height:"23",viewBox:"0 0 23 23",width:"23"};function _(a,e){return t(),n("svg",c,e[0]||(e[0]=[r("path",{d:"M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z",fill:"none",stroke:"currentColor","stroke-linejoin":"round","stroke-width":"2"},null,-1)]))}const l=o(s,[["render",_]]);export{l as default};
