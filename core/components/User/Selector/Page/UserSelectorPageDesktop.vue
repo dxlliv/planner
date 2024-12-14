@@ -1,8 +1,17 @@
 <script setup lang="ts">
+import { vOnClickOutside } from "@vueuse/core"
+
+const plannerConfig = usePlannerConfig()
 const homeStore = useHomeStore()
 
+const phoneElement = useTemplateRef("phone")
 const shield = ref(true)
 const actions = ref(false)
+
+onClickOutside(phoneElement, (event) => {
+  shield.value = true
+  actions.value = false
+})
 
 function onShieldDisable() {
   shield.value = false
@@ -11,54 +20,65 @@ function onShieldDisable() {
 </script>
 
 <template>
-  <div class="dx-index text-center align-content-center">
-    <v-row no-gutters>
-      <v-col :cols="7" align-self="center">
-        <UserSelectorList class="mb-n3" />
-      </v-col>
-      <v-col :cols="4" :offset="1" class="mt-10 mt-md-0" align-self="center">
-        <UserPhone :iframe="!!homeStore.profilePreview">
-          <AppIntroduction
-            v-if="!homeStore.profilePreview"
-          />
-          <template v-else>
-            <UserPhoneSystemBar />
+  <v-container :max-width="1800">
+    <div class="dx-index text-center align-content-center">
+      <v-row no-gutters>
+        <v-col :cols="7" :xl="6" :offset-xl="1" align-self="center">
+          <UserSelectorList class="mb-n3" />
+        </v-col>
+        <v-col :cols="4" :offset="1" class="mt-10 mt-md-0" align-self="center">
+          <UserPhone ref="phone" :iframe="!!homeStore.profilePreview">
+            <AppIntroduction v-if="!homeStore.profilePreview" />
+            <template v-else>
+              <UserPhoneSystemBar />
 
-            <iframe
-              :src="`/planner/instagram/${homeStore.profilePreview}/#iframe`"
-            />
-            <div
-              v-if="shield"
-              class="dx-iframe__shield"
-              @click="actions = true"
-            />
-            <v-fade-transition>
-              <div v-if="actions" class="dx-iframe__actions">
-                <div>
-                  <p class="mb-5">
-                    Choose your planning mode
-                  </p>
-                  <v-btn
-                    class="mb-3" color="primary"
-                    :to="`/instagram/${homeStore.profilePreview}`"
-                  >
-                    Full-screen
-                  </v-btn>
-                  <v-btn
-                    class="mb-3 ml-3"  color="primary"
-                    @click="onShieldDisable"
-                  >
-                    Phone
-                  </v-btn>
+              <iframe
+                :src="`/planner/instagram/${homeStore.profilePreview}/#iframe`"
+              />
+              <div
+                v-if="shield"
+                class="dx-iframe__shield"
+                @click="actions = true"
+              />
+              <v-fade-transition>
+                <div v-if="actions" class="dx-iframe__actions">
+                  <div>
+                    <p class="text-subtitle-1 mb-6">
+                      Choose your favorite<br />
+                      planning mode:
+                    </p>
+                    <v-btn
+                      class="mb-3"
+                      size="large"
+                      :to="`/instagram/${homeStore.profilePreview}`"
+                    >
+                      Fullscreen
+                    </v-btn>
+                    <br />
+                    <v-btn
+                      class="mb-3"
+                      size="large"
+                      :href="plannerConfig.project.links.docs"
+                    >
+                      Text Editor
+                    </v-btn>
+                    <br />
+                    <v-btn
+                      class="mb-3"
+                      size="large"
+                      @click="onShieldDisable"
+                    >
+                      In-Phone
+                    </v-btn>
+                  </div>
                 </div>
-              </div>
-            </v-fade-transition>
-
-          </template>
-        </UserPhone>
-      </v-col>
-    </v-row>
-  </div>
+              </v-fade-transition>
+            </template>
+          </UserPhone>
+        </v-col>
+      </v-row>
+    </div>
+  </v-container>
 </template>
 
 <style scoped lang="scss">
@@ -111,9 +131,21 @@ function onShieldDisable() {
     color: black;
     display: grid;
     align-content: center;
-    background: rgba(var(--v-theme-background), 0.5);
-    backdrop-filter: blur(96px);
+    background: rgb(var(--v-theme-background));
     z-index: 1005;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://raw.githubusercontent.com/dxlliv/planner/refs/heads/main/src/public/user/instagram/dxlliv/media/post-6x1.jpg?ts=1734180412619');
+      background-size: cover;
+      filter: grayscale(0.5) contrast(1.5);
+      opacity: 0.2;
+      content: '';
+    }
 
     > div {
       margin-top: -20%;

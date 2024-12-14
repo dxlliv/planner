@@ -15,8 +15,7 @@ useSeoMeta({
   description: t('pages.about.meta.description'),
   ogImage: 'https://repository-images.githubusercontent.com/401183758/4aabbd7f-b923-4992-8b31-6f07639e6540',
   twitterCard: "summary",
-  twitterImage: '/app/twitterImage.webp',
-  lang: "en"
+  twitterImage: '/app/twitterImage.webp'
 })
 </script>
 

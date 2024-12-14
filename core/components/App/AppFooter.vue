@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { GitHubIcon } from "vue3-simple-icons"
 
+const plannerConfig = usePlannerConfig()
+
 defineProps<{
   docs?: boolean
 }>()
@@ -8,7 +10,7 @@ defineProps<{
 
 <template>
   <footer class="dx-footer text-grey text-overline py-3">
-    <a href="https://github.com/dxlliv/planner">
+    <a :href="plannerConfig.project.links.docs">
       <GitHubIcon width="14" height="23" class="mr-1" />
       Planner
     </a>

@@ -27,7 +27,7 @@ const users = computed(() => useUserStore().userList)
           slidesPerView: 4.8,
         },
         1280: {
-          slidesPerView: 5.8,
+          slidesPerView: 4.8,
         },
       }"
     >

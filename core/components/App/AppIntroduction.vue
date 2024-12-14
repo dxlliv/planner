@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+const plannerConfig = usePlannerConfig()
 </script>
 
 <template>
@@ -19,7 +19,7 @@
     -->
 
     <p class="mt-4">
-      <a href="https://github.com/dxlliv/planner">
+      <a :href="plannerConfig.project.links.docs">
         dxlliv/planner
       </a> <span v-html="$t('pages.userSelect.intro.p1')" />
     </p>

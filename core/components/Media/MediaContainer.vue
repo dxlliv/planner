@@ -55,7 +55,6 @@ withDefaults(defineProps<{
     right: 15px;
     color: white;
     font-size: 16px;
-    pointer-events: none;
 
     .mdi {
       &-play {

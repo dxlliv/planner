@@ -26,6 +26,12 @@ defineProps<{
 
 <style scoped lang="scss">
 .dx-phone {
+  --phone-border-width: 0.8vw;
+
+  @media(min-width: 1280px) {
+    --phone-border-width: 10px;
+  }
+
   background: #333;
   border-radius: 48px 48px 0 0;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 96px 48px rgb(var(--v-theme-background));
@@ -35,7 +41,7 @@ defineProps<{
   //min-width: 30vw;
   margin: 20vh auto -20px auto;
   left: -10vw;
-  border: 0.8vw solid #222;
+  border: var(--phone-border-width) solid #222;
   aspect-ratio: 2.8 / 5;
   z-index: 1;
 
