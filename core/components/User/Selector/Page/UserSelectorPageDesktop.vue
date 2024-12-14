@@ -140,7 +140,7 @@ function onShieldDisable() {
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: url('https://raw.githubusercontent.com/dxlliv/planner/refs/heads/main/src/public/user/instagram/dxlliv/media/post-6x1.jpg?ts=1734180412619');
+      background-image: url('/user/instagram/dxlliv/media/post-6x1.jpg');
       background-size: cover;
       filter: grayscale(0.5) contrast(1.5);
       opacity: 0.2;
