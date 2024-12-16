@@ -22,6 +22,7 @@ function onShieldDisable() {
 <template>
   <v-container :max-width="1800">
     <div class="dx-index text-center align-content-center">
+      <div class="dx-index__corner" />
       <v-row no-gutters>
         <v-col :cols="7" :xl="6" :offset-xl="1" align-self="center">
           <UserSelectorList class="mb-n3" />
