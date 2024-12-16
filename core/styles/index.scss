@@ -42,6 +42,10 @@ h2 {
   pointer-events: none;
 }
 
+.bg-background {
+  background: rgb(var(--v-theme-background));
+}
+
 p[contenteditable] {
   outline: none;
 }

@@ -26,7 +26,7 @@ const emit = defineEmits(["create"])
         <InstagramIconNewPost />
       </NavigationItemButton>
 
-      <NavigationItemButton :href="plannerConfig.project.links.docs">
+      <NavigationItemButton :href="plannerConfig.project.links.docs" target="_blank">
         <InstagramIconExplore />
       </NavigationItemButton>
 

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { vOnClickOutside } from "@vueuse/core"
-
 const plannerConfig = usePlannerConfig()
 const homeStore = useHomeStore()
 
@@ -20,14 +18,14 @@ function onShieldDisable() {
 </script>
 
 <template>
-  <v-container :max-width="1800">
+  <v-container :max-width="1800" class="pa-0">
     <div class="dx-index text-center align-content-center">
       <div class="dx-index__corner" />
       <v-row no-gutters>
-        <v-col :cols="7" :xl="6" :offset-xl="1" align-self="center">
+        <v-col :cols="6" :lg="5" :offset-lg="1" align-self="center">
           <UserSelectorList class="mb-n3" />
         </v-col>
-        <v-col :cols="4" :offset="1" class="mt-10 mt-md-0" align-self="center">
+        <v-col :cols="6" :lg="5" :offset-lg="1" class="mt-10 mt-md-0" align-self="center">
           <UserPhone ref="phone" :iframe="!!homeStore.profilePreview">
             <AppIntroduction v-if="!homeStore.profilePreview" />
             <template v-else>
@@ -49,24 +47,21 @@ function onShieldDisable() {
                       planning mode:
                     </p>
                     <v-btn
-                      class="mb-3"
-                      size="large"
+                      class="mb-3" size="large"
                       :to="`/instagram/${homeStore.profilePreview}`"
                     >
-                      Fullscreen
+                      Default
                     </v-btn>
                     <br />
                     <v-btn
-                      class="mb-3"
-                      size="large"
-                      :href="plannerConfig.project.links.docs"
+                      class="mb-3" size="large"
+                      :href="plannerConfig.project.links.docs" target="_blank"
                     >
                       Text Editor
                     </v-btn>
                     <br />
                     <v-btn
-                      class="mb-3"
-                      size="large"
+                      class="mb-3" size="large"
                       @click="onShieldDisable"
                     >
                       In-Phone
@@ -88,12 +83,19 @@ function onShieldDisable() {
   height: 100dvh;
   overflow: hidden;
 
-  .dx-phone {
-    right: 8vw;
-  }
-
   :deep(.dx-user-selector-list) {
     max-width: calc(100vw - 48px);
+  }
+
+  &__corner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30vw;
+    height: 20vh;
+    background-image: url('/v-corner.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 }
 

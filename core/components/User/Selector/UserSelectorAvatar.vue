@@ -1,6 +1,6 @@
 <template>
   <div class="dx-profile-avatar__container">
-    <v-avatar :size="size" class="dx-profile-avatar">
+    <v-avatar :size="size" class="dx-profile-avatar bg-background">
       <v-img v-if="src" :src="src" :key="avatarChangedTime" cover />
       <v-icon v-else-if="!$slots.default" icon="mdi-account" :size="44" />
       <slot name="inner" />

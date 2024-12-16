@@ -34,7 +34,6 @@ defineProps<{
   height: 90vh;
   //min-width: 30vw;
   margin: 20vh auto -20px auto;
-  left: -10vw;
   border: var(--phone-border-width) solid #222;
   aspect-ratio: 2.8 / 5;
   z-index: 1;

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { GitHubIcon } from "vue3-simple-icons"
+
 const plannerConfig = usePlannerConfig()
 </script>
 
@@ -19,7 +21,7 @@ const plannerConfig = usePlannerConfig()
     -->
 
     <p class="mt-4">
-      <a :href="plannerConfig.project.links.docs">
+      <a :href="plannerConfig.project.links.docs" target="_blank">
         dxlliv/planner
       </a> <span v-html="$t('pages.userSelect.intro.p1')" />
     </p>
@@ -30,17 +32,19 @@ const plannerConfig = usePlannerConfig()
     />
 
     <v-btn
-      href="https://dxlliv.github.io/planner/docs/"
+      :href="plannerConfig.project.links.docs" target="_blank"
       :text="$t('common.documentation')"
       size="large"
       :height="48"
     />
 
     <v-btn
-      href="https://github.com/sponsors/dxlliv" target="_blank"
-      icon="mdi-heart-outline" variant="text" color="pink"
+      :href="plannerConfig.project.links.source" target="_blank"
+      icon variant="text"
       :width="48" :height="48" class="ml-3"
-    />
+    >
+      <GitHubIcon :size="20" />
+    </v-btn>
 
   </v-card>
 </template>

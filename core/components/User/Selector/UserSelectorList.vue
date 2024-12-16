@@ -6,13 +6,15 @@ const users = computed(() => useUserStore().userList)
 </script>
 
 <template>
-  <div class="dx-user-selector-list">
+  <div
+    class="dx-user-selector-list"
+  >
     <Swiper
       :key="users.length"
       :modules="[Mousewheel]"
       mousewheel allow-touch-move
-      :centered-slides="$vuetify.display.lgAndDown"
-      :slides-per-view="1.75"
+      :centered-slides="$vuetify.display.smAndDown"
+      :slides-per-view="1.5"
       :breakpoints="{
         340: {
           slidesPerView: users.length > 2 ? 2.5 : users.length + 1,
@@ -24,10 +26,10 @@ const users = computed(() => useUserStore().userList)
           slidesPerView: users.length > 4 ? 4.5 : users.length + 2,
         },
         960: {
-          slidesPerView: 4.8,
+          slidesPerView: 2.5,
         },
         1280: {
-          slidesPerView: 4.8,
+          slidesPerView: users.length > 4 ? 3 : users.length + 1,
         },
       }"
     >

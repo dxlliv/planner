@@ -101,7 +101,8 @@ function onProfileContextMenu(e) {
   position: relative;
   display: block;
   text-align: center;
-  margin: 0 12px;
+  width: 200px;
+  margin: 0 auto;
   vertical-align: top;
 
   &__context-menu {
