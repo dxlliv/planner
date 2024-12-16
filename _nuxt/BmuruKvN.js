@@ -1,1 +1,0 @@
-import{_ as o,o as t,c as n,a,a0 as s}from"./01aRC5Ud.js";const d={},r={class:"dx-post-footer"},c={class:"px-4 py-3"};function _(e,p){return t(),n("div",r,[a("div",c,[s(e.$slots,"prepend",{},void 0,!0),s(e.$slots,"date",{},void 0,!0)]),s(e.$slots,"append",{},void 0,!0)])}const i=o(d,[["render",_],["__scopeId","data-v-425bca86"]]);export{i as default};
