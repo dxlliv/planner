@@ -130,6 +130,11 @@ display: none;
         margin-top: 32px;
     }
 
+    .action {
+        display: block;
+        width: 100%;
+    }
+
     .image-container {
         margin-bottom: 24px !important;
     }
@@ -145,7 +150,7 @@ display: none;
 }
 
 .VPHome .VPButton.medium {
-    font-size: 15px !important;
+    font-size: 16px !important;
 }
 
 .VPImage {
