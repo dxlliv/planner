@@ -1,0 +1,1 @@
+import{e as a,m as p,o as r,c as _,_ as u}from"./BYLsYk1G.js";const i=a({__name:"PostLink",props:{route:{}},setup(o){const n=o,{baseURL:s}=p().$config.app,e=`${s.slice(0,-1)}${n.route}`;function c(t){t.preventDefault(),history.pushState({},"",e)}return(t,f)=>(r(),_("a",{onClick:c,href:e}))}}),d=u(i,[["__scopeId","data-v-e0dd4c66"]]);export{d as default};
