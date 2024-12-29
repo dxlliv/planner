@@ -2,19 +2,12 @@
   <UserSelector add @click="onProfileAdd">
     <UserSelectorAvatar
       @click="contextMenu = !contextMenu"
-      @contextmenu="
-        (e) => {
-          e.preventDefault()
-          contextMenu = !contextMenu
-        }
-      "
     >
       <template #inner>
         <v-icon size="48px" icon="mdi-plus" color="grey-lighten-1" />
       </template>
 
       <UserSelectorMenu
-        v-model="contextMenu"
         :offset="[12, 0]"
       >
         <UserSelectorAddMenuOptions

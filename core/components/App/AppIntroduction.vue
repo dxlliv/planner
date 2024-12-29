@@ -51,7 +51,7 @@ const plannerConfig = usePlannerConfig()
 
 <style scoped lang="scss">
 .dx-intro {
-  font-size: 19px;
+  font-size: 18px;
 
   p {
     opacity: 0.8;

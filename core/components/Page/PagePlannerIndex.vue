@@ -8,7 +8,7 @@ useSeoMeta({
 
 <template>
   <client-only>
-    <AppBackground />
+    <AppBackground v-if="$vuetify.display.mdAndUp" />
   </client-only>
 
   <UserSelectorPageDesktop class="hidden-sm-and-down" />

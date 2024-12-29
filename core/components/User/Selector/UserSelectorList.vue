@@ -26,10 +26,7 @@ const users = computed(() => useUserStore().userList)
           slidesPerView: users.length > 4 ? 4.5 : users.length + 2,
         },
         960: {
-          slidesPerView: 2.5,
-        },
-        1280: {
-          slidesPerView: users.length > 4 ? 3 : users.length + 1,
+          slidesPerView: 3.5,
         },
       }"
     >
@@ -45,8 +42,6 @@ const users = computed(() => useUserStore().userList)
 
 <style scoped lang="scss">
 .dx-user-selector-list {
-  max-width: 100vw;
-
   .swiper {
     display: grid;
     align-content: center;
