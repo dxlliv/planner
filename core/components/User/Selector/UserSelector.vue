@@ -34,18 +34,6 @@ function onProfileClick(e) {
 
   contextMenu.enabled = true
 }
-
-function onProfileContextMenu(e) {
-  e.preventDefault()
-
-  contextMenu.enabled = false
-  contextMenu.x = e.clientX
-  contextMenu.y = e.clientY
-
-  nextTick(() => {
-    contextMenu.enabled = true
-  })
-}
 </script>
 
 <template>
@@ -55,7 +43,6 @@ function onProfileContextMenu(e) {
       <a
         class="cursor-pointer"
         @click="onProfileClick"
-        @contextmenu="onProfileContextMenu"
       >
         <suspense>
           <UserSelectorAvatar
@@ -63,25 +50,26 @@ function onProfileContextMenu(e) {
             :avatar="user.profile.avatar"
           >
             <template #inner>
+
               <UserSelectorBadgeChanges
                 v-if="user.hasLocalChanges || user.hasUnsavedChanges"
               />
+
             </template>
+
+            <UserSelectorMenu
+              :offset="[56, 0]"
+            >
+              <UserSelectorMenuOptions
+                @open="onUserOpen"
+                @edit="onUserEdit"
+                :user="user"
+              />
+            </UserSelectorMenu>
           </UserSelectorAvatar>
         </suspense>
 
         <h3 class="mt-4 text-truncate" v-text="user.profile.username" />
-
-        <UserSelectorMenu
-          v-model="contextMenu.enabled"
-          :offset="[15, 0]"
-        >
-          <UserSelectorMenuOptions
-            @open="onUserOpen"
-            @edit="onUserEdit"
-            :user="user"
-          />
-        </UserSelectorMenu>
       </a>
 
     </template>
@@ -101,7 +89,7 @@ function onProfileContextMenu(e) {
   position: relative;
   display: block;
   text-align: center;
-  width: 200px;
+  width: 185px;
   margin: 0 auto;
   vertical-align: top;
 

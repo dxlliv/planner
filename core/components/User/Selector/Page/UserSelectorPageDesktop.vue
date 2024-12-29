@@ -18,6 +18,20 @@ function onShieldDisable() {
 </script>
 
 <template>
+  <v-card border flat :aspect-ratio="16/9" class="dx-index">
+
+    <div
+      style="height: 46%"
+    >
+      <AppLogo title="Planner" class="ma-2" />
+    </div>
+
+    <UserSelectorList
+      style="height: 64%;"
+    />
+
+  </v-card>
+  <!--
   <v-container :max-width="1800" class="pa-0">
     <div class="dx-index text-center align-content-center">
       <div class="dx-index__corner" />
@@ -75,16 +89,22 @@ function onShieldDisable() {
       </v-row>
     </div>
   </v-container>
+  -->
 </template>
 
 <style scoped lang="scss">
 .dx-index {
-  display: grid;
-  height: 100dvh;
-  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  aspect-ratio: 16/9;
 
-  :deep(.dx-user-selector-list) {
-    max-width: calc(100vw - 48px);
+  :deep(.dx-logo) {
+    position: absolute;
+    top: 10%;
+    left: 4%;
   }
 
   &__corner {

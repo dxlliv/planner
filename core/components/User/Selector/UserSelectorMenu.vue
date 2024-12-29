@@ -6,7 +6,6 @@
     transition="slide-y-transition"
     location="bottom center"
     scroll-strategy="close"
-    :open-on-click="false"
     :open-delay="5000"
   >
     <v-list flat border>
