@@ -21,7 +21,7 @@ withDefaults(
 .dx-logo {
   display: inline-block;
   font-family: "Cookie";
-  font-size: 64px;
+  font-size: 56px;
   font-weight: 600;
   text-decoration: none;
   letter-spacing: 2px;
