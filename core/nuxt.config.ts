@@ -28,7 +28,6 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "@nuxt/fonts",
     "vuetify-nuxt-module",
-    'pinia-plugin-persistedstate/nuxt',
     [
       "@vueuse/nuxt",
       {
@@ -41,7 +40,8 @@ export default defineNuxtConfig({
         autoImports: ["defineStore", "acceptHMRUpdate"]
       }
     ],
-    "@nuxtjs/i18n"
+    'pinia-plugin-persistedstate/nuxt',
+    "@nuxtjs/i18n",
   ],
   css: [
     "swiper/css",
