@@ -21,11 +21,11 @@ function onShieldDisable() {
   <v-card border flat :aspect-ratio="16/9" class="dx-index">
 
     <UserSelectorList
-      style="height: 75%;"
+      style="height: 76%;"
     />
 
     <div
-      style="height: 25%"
+      style="height: 24%"
     >
       <AppLogo title="Planner" />
     </div>

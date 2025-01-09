@@ -4,6 +4,7 @@
       <v-img v-if="src" :src="src" :key="avatarChangedTime" cover />
       <v-icon v-else-if="!$slots.default" icon="mdi-account" :size="44" />
       <slot name="inner" />
+      <slot name="menu" />
     </v-avatar>
     <slot />
   </div>

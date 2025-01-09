@@ -56,16 +56,19 @@ function onProfileClick(e) {
               />
 
             </template>
+            <template #menu>
 
-            <UserSelectorMenu
-              :offset="[56, 0]"
-            >
-              <UserSelectorMenuOptions
-                @open="onUserOpen"
-                @edit="onUserEdit"
-                :user="user"
-              />
-            </UserSelectorMenu>
+              <UserSelectorMenu
+                :offset="[56, 0]"
+              >
+                <UserSelectorMenuOptions
+                  @open="onUserOpen"
+                  @edit="onUserEdit"
+                  :user="user"
+                />
+              </UserSelectorMenu>
+
+            </template>
           </UserSelectorAvatar>
         </suspense>
 
