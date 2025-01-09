@@ -20,15 +20,17 @@ function onShieldDisable() {
 <template>
   <v-card border flat :aspect-ratio="16/9" class="dx-index">
 
+    <UserSelectorList
+      style="height: 75%;"
+    />
+
     <div
-      style="height: 46%"
+      style="height: 25%"
     >
-      <AppLogo title="Planner" class="ma-2" />
+      <AppLogo title="Planner" />
     </div>
 
-    <UserSelectorList
-      style="height: 64%;"
-    />
+    <AppIntroDecoration />
 
   </v-card>
   <!--
@@ -103,8 +105,8 @@ function onShieldDisable() {
 
   :deep(.dx-logo) {
     position: absolute;
-    top: 10%;
-    left: 4%;
+    left: 5.5%;
+    bottom: 5.5%;
   }
 
   &__corner {

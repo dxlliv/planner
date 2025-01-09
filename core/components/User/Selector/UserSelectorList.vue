@@ -45,6 +45,7 @@ const users = computed(() => useUserStore().userList)
   .swiper {
     display: grid;
     align-content: center;
+    height: 100%;
   }
 }
 </style>
