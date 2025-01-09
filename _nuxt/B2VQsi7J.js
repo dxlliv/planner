@@ -1,1 +1,0 @@
-import{aA as t,n as e,B as s,b9 as n}from"./Cirpr_rb.js";function i(){const o=t(!1);return e(()=>{window.requestAnimationFrame(()=>{o.value=!0})}),{ssrBootStyles:s(()=>o.value?void 0:{transition:"none !important"}),isBooted:n(o)}}export{i as u};
